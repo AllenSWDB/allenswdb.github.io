@@ -10,7 +10,6 @@ chapters:
   - file: background/transgenic-tools
   - file: background/Two-photon-calcium-imaging
   - file: background/Neuropixels-electrophysiology
-  - file: background/Neuropixels-electrophysiology
     sections:
     - file: background/NP-Processing_Pipeline
     - file: background/NP-Tutorial-Unit_Quality_Metrics.ipynb
