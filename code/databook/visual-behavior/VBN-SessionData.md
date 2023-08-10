@@ -164,7 +164,9 @@ probe_csd = session.get_current_source_density(1054059291)
 
 Each session NWB also contains running, licking and eye tracking data. These data are all stored as pandas dataframes in the session object. For more details about how to align behavioral data to task events, check out [this tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/aligning_behavioral_data_to_task_events_with_the_stimulus_and_trials_tables.html) 
 
-`session.eye_tracking`: A dataframe containing ellipse fit parameters for the eye, pupil and corneal reflection (cr). Fits are derived from tracking points from a DeepLabCut model applied to video (collected at 60hz) frames of a subject’s right eye.
+`session.eye_tracking`: A dataframe containing ellipse fit parameters for the eye, pupil and corneal reflection (cr). Fits are derived from tracking points from a DeepLabCut model applied to video (collected at 60hz) frames of a subject’s right eye. The corneal reflection (cr) fit can be used to estimate the axis of the camera. Taking the difference between the corneal reflection position and the pupil position can therefore disambiguate translations of the entire eye (in which case both the cr and pupil will shift together) from rotations of the eye (in which case the pupil position will move relative to the cr).
+
+![eye_dlc_labels](/images/dlc_eye_label_example.png)
 
 frame (index)
 : *int* frame of eye tracking video. 
