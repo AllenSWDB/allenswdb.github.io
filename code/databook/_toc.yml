@@ -10,6 +10,11 @@ chapters:
   - file: background/transgenic-tools
   - file: background/Two-photon-calcium-imaging
   - file: background/Neuropixels-electrophysiology
+  - file: background/Neuropixels-electrophysiology
+    sections:
+    - file: background/NP-Processing_Pipeline
+    - file: background/NP-Tutorial-Unit_Quality_Metrics.ipynb
+      title: Tutorial Using Unit Quality and Waveform Metrics
   - file: background/Ophys-ephys-comparison
 - file: visual-coding-2p/vc2p-background
   sections:
