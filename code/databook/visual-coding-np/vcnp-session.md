@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: allensdk
   language: python
-  name: allensdk
+  name: python3
 ---
 
 # Extracellular Electrophysiology Data
@@ -73,6 +73,7 @@ import numpy as np
 import xarray as xr
 import pandas as pd
 import matplotlib.pyplot as plt
+%matplotlib inline
 from scipy.ndimage.filters import gaussian_filter
 from pathlib import Path
 import json

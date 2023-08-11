@@ -35,6 +35,7 @@ kernelspec:
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+%matplotlib inline
 import pandas as pd
 
 from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache

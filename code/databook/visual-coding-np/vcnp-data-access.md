@@ -211,6 +211,7 @@ print('Min: {}'.format(sessions.unit_count.min()))
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
+%matplotlib inline
 
 plt.hist(sessions.unit_count, bins=20);
 _ = plt.xlabel("Unit count")

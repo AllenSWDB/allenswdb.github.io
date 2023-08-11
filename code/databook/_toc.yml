@@ -29,6 +29,12 @@ chapters:
   - file: visual-coding-np/vcnp-optotagging
   - file: visual-coding-np/vcnp-session
   - file: visual-coding-np/vcnp-links
+- file: cell-type-lookup-table/ctlut-background
+  sections:
+  - file: cell-type-lookup-table/ctlut-session-data
+  - file: cell-type-lookup-table/ctlut-optotagging
+  - file: cell-type-lookup-table/ctlut-accessing-data
+  - file: cell-type-lookup-table/ctlut-identifying-tagged-units
 - file: visual-behavior/vb-background
   sections:
   - file: visual-behavior/ChangeDetectionTask
@@ -54,12 +60,12 @@ chapters:
 - file: microns-em/em-background
   sections:
   - file: microns-em/em-structural-data.md
-  - file: microns-em/em-proofreading.md
+  - file: microns-em/proofreading.md
   - file: microns-em/em-neuroglancer.md
   - file: microns-em/em-dash-apps.md
   - file: microns-em/em-caveclient-setup.md
   - file: microns-em/em-querying-tables.md
-  - file: microns-em/em-key-tables.md
+  - file: microns-em/key-tables.md
   - file: microns-em/em-volume-data.md
   - file: microns-em/em-skeletons.md
   - file: microns-em/em-meshes.md
