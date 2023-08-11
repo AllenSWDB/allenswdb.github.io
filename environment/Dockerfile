@@ -1,4 +1,4 @@
-# hash:sha256:624bfc1b8d07713d6df1d4e96c98fc2714ee56a32f27b5aa750bf360591049d0
+# hash:sha256:426500c08665cd2b96acbe2c2d89f2476ec968d6a99668e50a0bf9c54a69f30c
 FROM registry.codeocean.allenneuraldynamics.org/codeocean/jupyterlab:3.4.4-miniconda4.12.0-python3.9-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -13,9 +13,9 @@ RUN conda install -y --channel=conda-forge \
     && conda clean -ya
 
 RUN pip install -U --no-cache-dir \
-    hdmf-zarr \
+    hdmf-zarr==0.3.0 \
     jupyter-book==0.15.1 \
-    pynwb
+    pynwb==2.4.0
 
 COPY postInstall /
 RUN /postInstall
