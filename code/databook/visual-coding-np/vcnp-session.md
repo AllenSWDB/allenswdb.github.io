@@ -106,9 +106,9 @@ things:
    downloads.
 
 ```{code-cell} ipython3
-output_dir = '/run/media/galen.lynch/Data/SWDB_2023/visual_coding_neuropixels'
+output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
-resources_dir = Path.cwd().parent / 'resources'
+resources_dir = Path.cwd().parent / 'resources' # FIXME currently broken in codeocean
 DOWNLOAD_LFP = False
 ```
 
