@@ -2,8 +2,3 @@
 set -e
 
 pip install allensdk==2.14.1 --ignore-installed ruamel.yaml
-
-pip install meshparty
-pip install imageryclient
-pip install nglui
-pip install caveclient
