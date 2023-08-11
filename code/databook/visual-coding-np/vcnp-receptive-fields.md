@@ -56,7 +56,7 @@ If you're not sure what a manifest file is or where to put it, please check out
 
 ```{code-cell} ipython3
 # Example cache directory path, it determines where downloaded data will be stored
-output_dir = '/run/media/galen.lynch/Data/SWDB_2023/visual_coding_neuropixels'
+output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
 ```
 
