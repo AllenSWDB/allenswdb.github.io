@@ -14,13 +14,40 @@ To relate these neurophysiological recordings to mouse behavior, the timing of�
 
 ![behaviordata](/images/behavior_data_example.webp)
 
-## Dataset Summary
-
-Every experimental session consisted of four major stimulus epochs as diagrammed below: 1) an active behavior epoch during which the mouse performed the change detection task, 2) a receptive field characterization epoch during which we presented gabor stimuli and full-field flashes, 3) a passive replay epoch during which we replayed the same stimulus frame-for-frame as the mouse encountered during active behavior, but now with the lick spout removed and 4) an optotagging epoch during which we stimulated the surface of the brain with blue light to activate ChR2-expressing cortical interneurons.
-
-<video src="../_static/videos/sample_session_video.mp4"></video>
+## Experiment design
 
 ![vbnexperimentdiagram](/images/vbn_experimental_session_diagram.webp)
+
+Every experimental session consisted of the following stimulus epochs (in order):
+
+*Active behavior block*: the mouse performed a visual change detection task. The images used
+during this block came from one of two image sets of 8 natural images (G or H, as shown below). On
+one recording day, mice were exposed to the same image set they had seen during behavior training (‘Familiar’
+sessions). On the other recording day, mice were shown a novel image set (‘Novel’ sessions). Note however,
+that two images were shared across these image sets and thus familiar on both sessions. Images were
+presented for 250 ms, with a 500 ms gray screen between images. During recording sessions, images were
+omitted (resulting in a gray screen) with a probability of 5%. However the change image, the image immediately
+preceding the change and the image immediately following an omission were never omitted, producing an
+actual omission probability of ~3%. At the end of this block, the lick spout was retracted for the remainder of the
+session.
+
+*Gabor stimuli*: Gabor stimuli windowed to have a 20 degree diameter were presented in a 9x9 grid to map
+receptive fields. Grid positions were spaced by 10 degrees. Gabors had a temporal frequency of 4 Hz, a spatial
+frequency of 0.08 cycles/degree and were shown at 3 orientations (0, 45, 90 degrees). They were 250 ms in
+duration without gaps between stimuli. There were 15 trials for each condition (81 positions, 3 orientations).
+
+*Spontaneous*: Following the gabor stimuli there was a brief gray screen (5 minutes)
+
+*Full-field flashes*: Full-field flashes were black or white at 80% contrast. They were 250 ms in duration with 2 seconds
+between flash starts. There were 75 trials for each condition (light and dark flashes).
+
+*Passive replay*: The stimulus encountered by the mouse during the active behavior block was replayed frame-for-frame. Note however that the lick spout was retracted for this block and the mouse was therefore unable to earn rewards.
+
+*Optotagging*: Optotagging epoch during which we stimulated the surface of the brain with blue light to activate ChR2-expressing cortical interneurons
+
+The video below shows brief snippets of each of the stimuli described above. Note that a spherical warping was applied to all stimuli to ensure that the apparent size, speed, and spatial frequency were constant across the monitor as seen from the mouse’s perspective. The images shown below have not been warped, and thus appear windowed at the corners.
+
+<video controls src="../_static/videos/sample_session_video.mp4"></video>
 
 To allow analysis of stimulus novelty on neural responses, two different images sets were used in the recording sessions: G and H (diagrammed below). Both image sets comprised 8 natural images. Two images were shared across the two image sets (purple in diagram), enabling within session analysis of novelty effects. Mice took one of the following three trajectories through training and the two days of recording: 
 

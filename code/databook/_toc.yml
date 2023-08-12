@@ -10,6 +10,10 @@ chapters:
   - file: background/transgenic-tools
   - file: background/Two-photon-calcium-imaging
   - file: background/Neuropixels-electrophysiology
+    sections:
+    - file: background/NP-Processing_Pipeline
+    - file: background/NP-Tutorial-Unit_Quality_Metrics.ipynb
+      title: Tutorial Using Unit Quality and Waveform Metrics
   - file: background/Ophys-ephys-comparison
 - file: visual-coding-2p/vc2p-background
   sections:
@@ -37,26 +41,33 @@ chapters:
   - file: cell-type-lookup-table/ctlut-identifying-tagged-units
 - file: visual-behavior/vb-background
   sections:
-  - file: visual-behavior/ChangeDetectionTask
+  - file: visual-behavior/VB-Behavior
+    title: Visual Behavior Task
     sections:
-      - file: visual-behavior/TaskStructure
-      - file: visual-behavior/BehaviorTraining
-      - file: visual-behavior/BehaviorSessionData
+    - file: visual-behavior/VB-BehaviorSessionData
+      title: Tutorial Accessing Behavior Session Data
   - file: visual-behavior/VB-Ophys
+    title: Visual Behavior Ophys
     sections:
     - file: visual-behavior/VBO-Dataset
-    - file: visual-behavior/VBO-SessionData
-    - file: visual-behavior/VBO-AcrossSessionData
+      title: Visual Behavior Ophys Dataset
+    - file: visual-behavior/VBO-ExperimentData
+      title: Ophys Experiment Data
+    - file: visual-behavior/VBO-Tutorial-Compare_trial_types
+      title: Tutorial Comparing Trial Types
+    - file: visual-behavior/VBO-Tutorial-Downloading_data_and_navigating_the_manifest
+      title: Tutorial Downloading Data
   - file: visual-behavior/VB-Neuropixels
+    title: Visual Behavior Neuropixels 
     sections:
     - file: visual-behavior/VBN-Dataset
     - file: visual-behavior/VBN-SessionData
-    - file: visual-behavior/VBN-Tutorial-Quality_Metrics
-      title: Tutorial Using Unit Quality and Waveform Metrics
     - file: visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
       title: Tutorial Aligning Neural Data to Stimuli
     - file: visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
       title: Tutorial Aligning Behavioral Data to Task Events
+    - file: visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+      title: Tutorial Analyzing LFP data
 - file: microns-em/em-background
   sections:
   - file: microns-em/em-structural-data.md
