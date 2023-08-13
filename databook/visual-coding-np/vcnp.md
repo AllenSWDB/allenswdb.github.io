@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: allensdk
   language: python
-  name: python3
+  name: allensdk
 ---
 
 ```{image} ../../resources/cropped-SummerWorkshop_Header.png

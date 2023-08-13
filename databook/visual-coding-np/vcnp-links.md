@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: allensdk
   language: python
-  name: python3
+  name: allensdk
 ---
 
 # Other resources
