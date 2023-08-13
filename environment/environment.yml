@@ -1,7 +1,0 @@
-environment_version: 1
-credentials:
-- type: api-key
-  id: T7yCmhm1RXBZDM
-  description: CAVE_TOKEN
-  key: API_KEY
-  secret: API_SECRET
