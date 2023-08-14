@@ -169,7 +169,7 @@ pycharm:
 ---
 output_dir = Path(output_dir)
 
-cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=output_dir)
+cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=output_dir, use_static_cache=True)
 ```
 
 +++ {"papermill": {"duration": 0.018841, "end_time": "2023-07-31T19:16:51.968559", "exception": false, "start_time": "2023-07-31T19:16:51.949718", "status": "completed"}, "pycharm": {"name": "#%% md\n"}}
