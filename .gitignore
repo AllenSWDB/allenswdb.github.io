@@ -153,6 +153,7 @@ docs
 
 # Jupyterlab
 **/_build
+**.ipynb
 
 # No data please
 **.npz
