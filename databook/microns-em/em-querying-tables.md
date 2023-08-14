@@ -29,6 +29,7 @@ To initialize a caveclient, we give it a **datastack**, which is a name that def
 For the MICrONs public data, we use the datastack name `minnie65_public`.
 
 ```{code-cell}
+import os
 from caveclient import CAVEclient
 datastack_name = 'minnie65_public'
 client = CAVEclient(datastack_name, auth_token=os.environ['API_SECRET'])
@@ -37,7 +38,7 @@ client = CAVEclient(datastack_name, auth_token=os.environ['API_SECRET'])
 client.info.get_datastack_info()['description']
 ```
 
-## CAVEclient Basics 
+## CAVEclient Basics
 
 The most frequent use of the CAVEclient is to query the database for annotations like synapses.
 All database functions are under the `client.materialize` property.
@@ -157,7 +158,7 @@ The `synapse_query` function allows you to query the synapse table in a more con
 In particular, the `pre_ids` and `post_ids` let you specify which root id (or collection of root ids) you want to query, with pre_ids indicating the collection of presynaptic neurons and post_ids the collection of postsynaptic neurons.
 Using both `pre_ids` and `post_ids` in one call is effectively a logical AND, returning only those synapses from neurons in the list of `pre_ids` that target neurons in the list of `post_ids`.
 Let's look at one particular example.
-  
+
 ```{code-cell}
 :tags: [remove-stderr]
 

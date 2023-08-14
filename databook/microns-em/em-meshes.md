@@ -29,6 +29,7 @@ Once initialized, the MeshMeta client can be used to download meshes for a given
 The following code snippet shows how to download an example mesh using a directory "`meshes`" as the local storage folder. 
 
 ```{code-block} python
+import os
 from meshparty import trimesh_io
 from caveclient import CAVEclient
 client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])

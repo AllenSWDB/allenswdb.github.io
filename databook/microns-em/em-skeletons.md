@@ -268,6 +268,7 @@ nrn.anno.pre_syn.filter_query(~axon_mask).df # The "~" is a logical not operatio
 As a sanity check, we can use `nglui` to see if these synapses we have labeled as being on the axon are all where we expect.
 
 ```{code-cell}
+import os
 from caveclient import CAVEclient
 from nglui.statebuilder.helpers import make_synapse_neuroglancer_link
 

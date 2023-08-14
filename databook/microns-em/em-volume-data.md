@@ -32,6 +32,7 @@ A typical example would be to use ImageryClien to download and visualize a 512x5
 
 
 ```{code-cell}
+import os
 import imageryclient as ic
 from caveclient import CAVEclient
 

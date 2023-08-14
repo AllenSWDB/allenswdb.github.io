@@ -165,6 +165,7 @@ For example, for the share URL `https://neuroglancer.neuvue.io/?json_url=https:/
 You can then download the json and then use the `annotation_dataframe` function to generate a comprehensive dataframe of all the annotations in the state.
 
 ```{code-cell}
+import os
 from caveclient import CAVEclient
 from nglui import parser
 
