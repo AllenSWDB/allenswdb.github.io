@@ -53,7 +53,7 @@ When you need to access the data in subsequent analysis sessions, you should poi
 
 To get started with this approach, first take care of the necessary imports:
 
-We will first install allensdk into your environment by running the appropriate commands below. 
+We will first install allensdk into your environment by running the appropriate commands below.
 
 +++ {"papermill": {"duration": 0.013398, "end_time": "2023-07-31T19:16:30.640718", "exception": false, "start_time": "2023-07-31T19:16:30.627320", "status": "completed"}, "pycharm": {"name": "#%% md\n"}}
 
@@ -81,7 +81,7 @@ pycharm:
 
 +++ {"papermill": {"duration": 0.013453, "end_time": "2023-07-31T19:16:34.228983", "exception": false, "start_time": "2023-07-31T19:16:34.215530", "status": "completed"}, "pycharm": {"name": "#%% md\n"}}
 
-## Install AllenSDK into your notebook environment 
+## Install AllenSDK into your notebook environment
 
 +++ {"papermill": {"duration": 0.014134, "end_time": "2023-07-31T19:16:34.257206", "exception": false, "start_time": "2023-07-31T19:16:34.243072", "status": "completed"}, "pycharm": {"name": "#%% md\n"}}
 
@@ -90,7 +90,7 @@ You can install AllenSDK into your notebook environment by executing the cell be
 If using Google Colab, click on the RESTART RUNTIME button that appears at the end of the output when this cell is complete,. Note that running this cell will produce a long list of outputs and some error messages. Clicking RESTART RUNTIME at the end will resolve these issues.
 You can minimize the cell after you are done to hide the output.
 
-```{code-cell} ipython3
+```python
 ---
 papermill:
   duration: 7.723749
@@ -150,8 +150,8 @@ tags: [parameters]
 ---
 # Update this to a valid directory in your filesystem
 # Remember to choose a location that has plenty of free space available.
-output_dir = "/local1/visual_behavior_ophys_cache_dir"
-DOWNLOAD_COMPLETE_DATASET = True 
+output_dir = "/root/capsule/data/visual-behavior-ophys/"
+DOWNLOAD_COMPLETE_DATASET = True
 ```
 
 ```{code-cell} ipython3
@@ -835,9 +835,9 @@ my_manifest_location = output_dir / cache.latest_manifest_file()
 def generate_all_download_urls_from_manifest(manifest_path: Path) -> List[str]:
     with manifest_path.open('r') as fp:
         manifest = json.load(fp)
-    
+
     download_links = []
-    
+
     # Get download links for specific version of metadata files
     for metadata_file_entry in manifest["metadata_files"].values():
         base_download_url = metadata_file_entry["url"]
@@ -850,7 +850,7 @@ def generate_all_download_urls_from_manifest(manifest_path: Path) -> List[str]:
         base_download_url = data_file_entry["url"]
         version_query = f"?versionId={data_file_entry['version_id']}"
         full_download_url = urljoin(base_download_url, version_query)
-        download_links.append(full_download_url)    
+        download_links.append(full_download_url)
 
     return download_links
 
