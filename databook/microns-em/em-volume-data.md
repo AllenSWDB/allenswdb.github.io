@@ -35,7 +35,7 @@ A typical example would be to use ImageryClien to download and visualize a 512x5
 import imageryclient as ic
 from caveclient import CAVEclient
 
-client = CAVEclient('minnie65_public')
+client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
 
 img_client = ic.ImageryClient(client=client)
 

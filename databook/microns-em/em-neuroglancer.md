@@ -168,7 +168,7 @@ You can then download the json and then use the `annotation_dataframe` function 
 from caveclient import CAVEclient
 from nglui import parser
 
-client = CAVEclient('minnie65_public')
+client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
 
 state_id = 5560000195854336
 state = client.state.get_state_json(state_id)

@@ -31,7 +31,7 @@ For the MICrONs public data, we use the datastack name `minnie65_public`.
 ```{code-cell}
 from caveclient import CAVEclient
 datastack_name = 'minnie65_public'
-client = CAVEclient(datastack_name)
+client = CAVEclient(datastack_name, auth_token=os.environ['API_SECRET'])
 
 # Show the description of the datastack
 client.info.get_datastack_info()['description']
