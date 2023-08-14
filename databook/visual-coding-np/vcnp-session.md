@@ -109,7 +109,7 @@ things:
 ```{code-cell} ipython3
 output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
-resources_dir = Path.cwd().parent / 'resources' # FIXME currently broken in codeocean
+resources_dir = Path('/root/capsule/databook/resources') # FIXME currently broken in codeocean
 DOWNLOAD_LFP = False
 ```
 
