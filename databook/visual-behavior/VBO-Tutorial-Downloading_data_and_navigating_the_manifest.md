@@ -150,7 +150,7 @@ tags: [parameters]
 ---
 # Update this to a valid directory in your filesystem
 # Remember to choose a location that has plenty of free space available.
-output_dir = "/root/capsule/data/visual-behavior-ophys/"
+output_dir = '/root/capsule/data/'
 DOWNLOAD_COMPLETE_DATASET = True
 ```
 

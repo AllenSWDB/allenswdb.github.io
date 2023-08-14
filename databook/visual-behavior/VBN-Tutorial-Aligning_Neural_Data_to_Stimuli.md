@@ -62,7 +62,7 @@ papermill:
 tags: [parameters]
 ---
 # Update this to a valid directory in your filesystem. This is where the data will be stored.
-cache_dir = '/root/capsule/data/visual-behavior-neuropixels/'
+cache_dir = '/root/capsule/data/'
 
 cache = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
             cache_dir=cache_dir, use_static_cache=True)

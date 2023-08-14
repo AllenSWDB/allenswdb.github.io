@@ -89,7 +89,7 @@ papermill:
 tags: [parameters]
 ---
 # Set the path to the dataset
-cache_dir = '/root/capsule/data/visual-behavior-ophys/'
+cache_dir = '/root/capsule/data/'
 ```
 
 ```{code-cell} ipython3
