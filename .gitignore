@@ -143,12 +143,13 @@ dmypy.json
 code/.vscode
 
 # CodeOcean
-environment 
-metadata 
+environment
+metadata
 code
 data
-results 
-scratch 
+results
+scratch
+docs
 
 # Jupyterlab
 **/_build
