@@ -557,7 +557,7 @@ sessions = cache.get_session_table()
 ```
 
 ```{code-cell} ipython3
-:tags: [output-scroll]
+:tags: [output_scroll]
 
 def retrieve_link(session_id):
 
@@ -625,7 +625,7 @@ using the `EcephysProjectCache` object.
 To obtain similar links for the LFP files, you can use the following code:
 
 ```{code-cell} ipython3
-:tags: [output-scroll]
+:tags: [output_scroll]
 
 def retrieve_lfp_link(probe_id):
 
