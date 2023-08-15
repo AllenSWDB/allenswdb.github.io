@@ -100,10 +100,10 @@ There is a large amount of data stored about each unit, but here are some releva
 spike_timestamps = units.spike_times
 
 # spike waveform for every unit
-spike_timestamps = units.waveform_mean
+spike_waveforms = units.waveform_mean
 
 # whether or not each unit passed default qc metrics
-spike_timestamps = units.default_qc
+spike_qc = units.default_qc
 ```
 
 The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in [ANOTHER PLACE??].

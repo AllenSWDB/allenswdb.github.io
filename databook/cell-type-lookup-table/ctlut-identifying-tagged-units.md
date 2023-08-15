@@ -69,7 +69,7 @@ So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was
 
 +++
 
-## Visuaising cell responses
+## Visualizing cell responses
 
 How do we tell if a cell is laser-responsive? We should take a look at the spiking activity during laser presentations. To do this, let's align the spike timestamps to the laser trial timestamps.
 
@@ -181,12 +181,18 @@ for site in np.unique(emission_site):
     for trial in range(Ntrials):
         this_raster = plt.plot(this_laser_locked_timestamps[trial], site * (trial + 1) * np.ones(len(this_laser_locked_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
 
+# set the y labels to be the different emission sites
+ax = plt.gca()
+y_ticks = 50*np.unique(emission_site)-25 #so each tick is in the middle of the 50 trial range
+ax.set_yticks(y_ticks)
+ax.set_yticklabels(np.unique(emission_site))
+
 plt.ylabel('Emission site')
 plt.xlabel('Time from laser onset (s)')
 plt.axvline(0, color='0.75')
 ```
 
-Definitely a strong response when laser is presented at emission sites 1 and 2! But how do we quantify it? An obvious answer is to see if the increase in firing rate is statistically significant. Since the laser presentation has five pulses, we can also check how consistent the response is by testing if every pulse has a significant response.
+Definitely a strong response when laser is presented at emission site 1! But how do we quantify it? An obvious answer is to see if the increase in firing rate is statistically significant. Since the laser presentation has five pulses, we can also check how consistent the response is by testing if every pulse has a significant response.
 
 There are 14 emission sites. How do we know which one to select for testing? We could test all 14, then correct for multiple comparisons. Alternatively, we could determine which one elicits the largest increase in firing rate, or the lowest latency response.
 
@@ -207,7 +213,7 @@ for site in np.unique(emission_site):
     trials_this_site = emission_site == site
     this_site_pulse_counts = first_pulse_counts[trials_this_site]
     this_site_baseline_counts = baseline_counts[trials_this_site]
-    
+
     # paired test
     try:
         statistic, pVal = stats.wilcoxon(this_site_pulse_counts.flatten(),
@@ -216,9 +222,9 @@ for site in np.unique(emission_site):
     except(ValueError):  # wilcoxon test doesn't like it when there's no difference between passed values
         statistic = 0
         pVal = 1
-        
+
     all_site_pvals.append(pVal)
-    
+
 # corrected pvals
 (responsive_sites, corrected_pVals, alphaSidak, alphaBonf) = multipletests(all_site_pvals, method='holm')
 responsive_sites
@@ -230,7 +236,7 @@ Looks like site 1 has a significant response, even after correcting for the 14 c
 # see how many pulses the unit responds to
 num_pulses = np.unique(blue_laser_stim_table.num_pulses)[0]
 inter_pulse_interval = np.unique(blue_laser_stim_table.inter_pulse_interval)[0]
-pulse_offset = (duration + inter_pulse_interval)
+pulse_offset = (pulse_duration + inter_pulse_interval)
 
 trials_best_site = emission_site == 1
 baseline_counts_best_site = baseline_counts[trials_best_site]
@@ -241,7 +247,7 @@ for ind_pulse in range(1,num_pulses):
     this_pulse_time_range = [first_pulse_time_range[0]+ind_pulse*pulse_offset, first_pulse_time_range[1]+ind_pulse*pulse_offset]
     this_pulse_counts = timestamps_to_spike_counts(laser_locked_spike_timestamps, this_pulse_time_range)
     this_pulse_best_site_counts = this_pulse_counts[trials_best_site]
-    
+
     # paired test
     try:
         statistic, pVal = stats.wilcoxon(this_pulse_best_site_counts.flatten(),
@@ -250,7 +256,7 @@ for ind_pulse in range(1,num_pulses):
     except(ValueError):  # wilcoxon test doesn't like it when there's no difference between passed values
         statistic = 0
         pVal = 1
-        
+
     other_pulse_pvals.append(pVal)
 ```
 
