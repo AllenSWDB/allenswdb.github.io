@@ -15,6 +15,7 @@ chapters:
     - file: background/NP-Tutorial-Unit_Quality_Metrics.ipynb
       title: Tutorial Using Unit Quality and Waveform Metrics
   - file: background/Ophys-ephys-comparison
+  - file: Optotagging.md
 - file: visual-coding-2p/vc2p-background
   sections:
   - file: visual-coding-2p/vc2p-dataset
