@@ -10,11 +10,6 @@ logo: logo.png
 execute:
   timeout: -1
   execute_notebooks: force
-  exclude_patterns:
-    - 'vbn*'
-    - 'VBO*'
-    - 'VB*'
-    - 'VBN*'
     
 
 # Define the name of the latex output file for PDF builds
