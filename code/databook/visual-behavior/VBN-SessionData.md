@@ -477,7 +477,7 @@ warped
 
 ## Stimulus Timestamps
 
-`session.stimulus_timestamps` is a numpy array storing the experiment timestamps of every frame rendered on the monitor in seconds.
+`session.stimulus_timestamps` is a numpy array storing the experiment timestamps of every rendered stimulus frame in seconds.
 
 
 
