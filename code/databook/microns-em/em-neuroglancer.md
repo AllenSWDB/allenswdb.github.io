@@ -12,6 +12,19 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
+
 # Neuroglancer
 ```{note}
 Neuroglancer works best in Chrome and Firefox but does not always work as expected in Safari.
@@ -168,7 +181,7 @@ You can then download the json and then use the `annotation_dataframe` function 
 from caveclient import CAVEclient
 from nglui import parser
 
-client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
+client = CAVEclient('minnie65_public')
 
 state_id = 5560000195854336
 state = client.state.get_state_json(state_id)

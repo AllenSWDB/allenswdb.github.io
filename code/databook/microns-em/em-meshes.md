@@ -31,7 +31,7 @@ The following code snippet shows how to download an example mesh using a directo
 ```{code-block} python
 from meshparty import trimesh_io
 from caveclient import CAVEclient
-client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
+client = CAVEclient('minnie65_public')
 
 mm = trimesh_io.MeshMeta(
   cv_path=client.info.segmentation_source(),
