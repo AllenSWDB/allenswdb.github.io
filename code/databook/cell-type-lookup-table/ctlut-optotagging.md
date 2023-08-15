@@ -35,7 +35,7 @@ The genotype for these experiments can be one of several:
 
 # Enhancer viruses
 
-Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presense of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types. More information about this technique can be found here: LINK TO PAPER
+Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presense of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types.
 
 To determine which viruses were injected into a given animal, use the following commands:
 
@@ -53,6 +53,7 @@ virus_names = []
 You will produce a list of all the shortened virus names that were injected into this mouse. There are generally multiple viruses, as we want to tag different cell types with different opsins!
 
 If the virus name begins with Flex or DIO, it is a Cre-dependent virus. Consult the mouse's driver line to determine which cells were labeled with this opsin. Enhancer viruses will deliver their opsin directly to the cell type they target.
+
 # Stimulus
 
 Each experimental session contains an epoch during which laser is presented. We often try to tag two different cell types per mouse: one with a blue opsin, and one with a red opsin. Thus, we present both blue and red laser during the stimulus epoch.
