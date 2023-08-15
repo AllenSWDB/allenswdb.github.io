@@ -29,6 +29,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+%matplotlib inline
 
 from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
 ```
@@ -37,7 +38,7 @@ The `EcephysProjectCache` is the main entry point to the Visual Coding Neuropixe
 
 ```{code-cell}
 # Example cache directory path, it determines where downloaded data will be stored
-output_dir = '/run/media/galen.lynch/Data/SWDB_2023/visual_coding_neuropixels'
+output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
 cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
 print(cache.get_all_session_types())

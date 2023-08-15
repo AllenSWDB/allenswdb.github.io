@@ -9,7 +9,7 @@ jupytext:
 kernelspec:
   display_name: Python 3
   language: python
-  name: swdb2023
+  name: python3
 ---
 
 # Annotation Tables
@@ -206,7 +206,7 @@ The key columns are:
 ```{dropdown} Column Definitions
 ```{list-table}
 :header-rows: 1
-:name: AIBS Soma Nuc Metamodel Table
+:name: Baylor Dend Feature Table
 * - Column
   - Description
 * - `id`
@@ -238,7 +238,7 @@ The key columns are:
 ```{dropdown} Column Definitions
 ```{list-table}
 :header-rows: 1
-:name: AIBS Soma Nuc Metamodel Table
+:name: Column M-type Table
 * - Column
   - Description
 * - `id`

@@ -9,8 +9,21 @@ jupytext:
 kernelspec:
   display_name: Python 3
   language: python
-  name: swdb2023-em
+  name: python3
 ---
+
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
 
 # Neuroglancer
 ```{note}

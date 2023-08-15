@@ -50,10 +50,6 @@ id_a = boc.get_ophys_experiments(cell_specimen_ids=[cell_specimen_id], session_t
 id_b = boc.get_ophys_experiments(cell_specimen_ids=[cell_specimen_id], session_types=['three_session_B'])[0]['id']
 id_c = boc.get_ophys_experiments(cell_specimen_ids=[cell_specimen_id], session_types=['three_session_C'])[0]['id']
 
-#id_a = 501704220
-#id_b = 501559087
-#id_c = 501474098	
-
 data_set_a = boc.get_ophys_experiment_data(id_a)
 data_set_b = boc.get_ophys_experiment_data(id_b)
 data_set_c = boc.get_ophys_experiment_data(id_c)

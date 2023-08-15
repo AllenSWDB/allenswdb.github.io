@@ -9,7 +9,7 @@ jupytext:
 kernelspec:
   display_name: Python 3
   language: python
-  name: swdb2023-em
+  name: python3
 ---
 
 (em:query-tables-section)=
@@ -17,6 +17,19 @@ kernelspec:
 
 ```{important}
 Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
+```
+
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
 ```
 
 ## CAVEclient
