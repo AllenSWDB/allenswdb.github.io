@@ -363,51 +363,77 @@ Here's a quick explanation for each of the columns in this table:
 
 <b>General</b>
 
-`active`: Boolean indicating when the change detection task (with the lick spout available to the mouse) was run. This should only be TRUE for block 0.
+active
+: *bool* indicating when the change detection task (with the lick spout available to the mouse) was run. This should only be TRUE for block 0.
 
-`stimulus_block`: Index of stimulus as described in cells above.
+stimulus_block
+: *int* Index of stimulus as described in cells above.
 
-`stimulus_name`: Indicates the stimulus category for this stimulus presentation. 
+stimulus_name
+: *str* Indicates the stimulus category for this stimulus presentation. 
 
-`contrast`: Stimulus contrast as defined [here](https://www.psychopy.org/api/visual/gratingstim.html#psychopy.visual.GratingStim.contrast)
+contrast
+: *float* Stimulus contrast as defined [here](https://www.psychopy.org/api/visual/gratingstim.html#psychopy.visual.GratingStim.contrast)
 
-`duration`: Duration of stimulus in seconds
+duration
+: *float* Duration of stimulus in seconds
 
-`start_time`: Experiment time when stimulus started. This value is corrected for display lag and therefore indicates when the stimulus actually appeared on the screen.
+start_time
+: *float* Experiment time when stimulus started. This value is corrected for display lag and therefore indicates when the stimulus actually appeared on the screen.
 
-`end_time`: Experiment time when stimulus ended, also corrected for display lag.
+end_time
+: *float* Experiment time when stimulus ended, also corrected for display lag.
 
-`start_frame`: Stimulus frame index when this stimulus started. This can be used to sync this table to the behavior trials table, for which behavioral data is collected every frame.
+start_frame
+: *int* Stimulus frame index when this stimulus started. This can be used to sync this table to the behavior trials table, for which behavioral data is collected every frame.
 
-`end_frame`: Stimulus frame index when this stimulus ended.
+end_frame
+: *int* Stimulus frame index when this stimulus ended.
 
 <b>Change</b> detection task and Passive replay (blocks 0 and 5)
 
-`flashes_since_change`: Indicates how many flashes of the same image have occurred since the last stimulus change.
+flashes_since_change
+: *float* Indicates how many flashes of the same image have occurred since the last stimulus change. NaN for blocks 1-4.
 
-`image_name`: Indicates which natural image was flashed for this stimulus presentation. To see how to visualize this image, check out [this tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_neuropixels_data_access.html).
+image_name
+: *str* Indicates which natural image was flashed for this stimulus presentation. To see how to visualize this image, check out [this tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_neuropixels_data_access.html).
 
-`is_change`: Indicates whether the image identity changed for this stimulus presentation. When both this value and 'active' are TRUE, the mouse was rewarded for licking within the response window.
+is_change
+: *bool* Indicates whether the image identity changed for this stimulus presentation. When both this value and 'active' are TRUE, the mouse was rewarded for licking within the response window.
 
-`omitted`: Indicates whether the image presentation was omitted for this flash. Most image flashes had a 5% probability of being omitted (producing a gray screen). Flashes immediately preceding a change or immediately following an omission could not be omitted.
+omitted
+: *bool* Indicates whether the image presentation was omitted for this flash. Most image flashes had a 5% probability of being omitted (producing a gray screen). Flashes immediately preceding a change or immediately following an omission could not be omitted.
 
-`rewarded`: Indicates whether a reward was given after this image presentation. During the passive replay block (5), this value indicates that a reward was issued for the corresponding image presentation during the active behavior block (0). No rewards were given during passive replay.
+rewarded
+: *bool* Indicates whether a reward was given after this image presentation. During the passive replay block (5), this value indicates that a reward was issued for the corresponding image presentation during the active behavior block (0). No rewards were given during passive replay.
+
+is_image_novel
+: *bool* True if natural image was not encountered by mouse during previous training/habituation sessions. False otherwise.
+
+trials_id
+: *int* Index of trial in behavior trials table during which this image was presented. Keep in mind that a single behavior trial typically spans several image presentations. This column can be used to join the stimulus_presentations and trials tables.
 
 <b>Receptive field mapping gabor stimulus (block 2)</b>
 
-`orientation`: Orientation of gabor. 
+orientation
+: *float* Orientation of gabor. 
 
-`position_x`: Position of the gabor along azimuth. The units are in degrees relative to the center of the screen (negative values are nasal).
+position_x
+: *float* Position of the gabor along azimuth. The units are in degrees relative to the center of the screen (negative values are nasal).
 
-`position_y`: Position of the gabor along elevation. Negative values are lower elevation.
+position_y
+: *float* Position of the gabor along elevation. Negative values are lower elevation.
 
-`spatial_frequency`: Spatial frequency of gabor in cycles per degree.
+spatial_frequency
+: *float* Spatial frequency of gabor in cycles per degree.
 
-`temporal_frequency`: Temporal frequency of gabor in Hz.
+temporal_frequency
+: *float* Temporal frequency of gabor in Hz.
 
 <b>Full field flashes (block 4)</b>
 
-`color`: Color of the full-field flash stimuli. "1" is white and "-1" is black.
+color
+: *float* Color of the full-field flash stimuli. "1" is white and "-1" is black.
 
 
 
