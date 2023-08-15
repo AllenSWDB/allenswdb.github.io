@@ -16,6 +16,19 @@ kernelspec:
 Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
 ```
 
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
+
 # Imagery and Segmentation
 
 We recommend using [ImageryClient](https://github.com/AllenInstitute/ImageryClient) to download imagery and segmentation data.
@@ -36,7 +49,7 @@ import os
 import imageryclient as ic
 from caveclient import CAVEclient
 
-client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
+client = CAVEclient('minnie65_public')
 
 img_client = ic.ImageryClient(client=client)
 

@@ -12,6 +12,20 @@ kernelspec:
   name: allensdk
 ---
 
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
+
+
 # Skeletons 
 
 Often in thinking about neurons, you want to measure things along a linear dimension of a neuron.
@@ -272,7 +286,7 @@ import os
 from caveclient import CAVEclient
 from nglui.statebuilder.helpers import make_synapse_neuroglancer_link
 
-client = CAVEclient('minnie65_public', auth_token=os.environ['API_SECRET'])
+client = CAVEclient('minnie65_public')
 
 make_synapse_neuroglancer_link(
     nrn.anno.pre_syn.filter_query(axon_mask).df,

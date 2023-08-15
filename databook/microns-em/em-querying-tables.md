@@ -19,6 +19,19 @@ kernelspec:
 Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
 ```
 
+```{code-cell}
+:tags: ["remove-cell"]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
+
 ## CAVEclient
 
 Most programmatic access to the CAVE services occurs through CAVEclient, a Python client to access various types of data from the online services.
@@ -32,7 +45,7 @@ For the MICrONs public data, we use the datastack name `minnie65_public`.
 import os
 from caveclient import CAVEclient
 datastack_name = 'minnie65_public'
-client = CAVEclient(datastack_name, auth_token=os.environ['API_SECRET'])
+client = CAVEclient(datastack_name)
 
 # Show the description of the datastack
 client.info.get_datastack_info()['description']
