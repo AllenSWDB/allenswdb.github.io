@@ -63,19 +63,7 @@ We will first install allensdk into your environment by running the appropriate 
 
 You can install AllenSDK with:
 
-```{code-cell} ipython3
----
-papermill:
-  duration: 3.522067
-  end_time: '2023-07-31T19:16:34.200626'
-  exception: false
-  start_time: '2023-07-31T19:16:30.678559'
-  status: completed
-pycharm:
-  name: '#%%
-
-    '
----
+```python
 !pip install allensdk
 ```
 
@@ -91,18 +79,6 @@ If using Google Colab, click on the RESTART RUNTIME button that appears at the e
 You can minimize the cell after you are done to hide the output.
 
 ```python
----
-papermill:
-  duration: 7.723749
-  end_time: '2023-07-31T19:16:41.995680'
-  exception: false
-  start_time: '2023-07-31T19:16:34.271931'
-  status: completed
-pycharm:
-  name: '#%%
-
-    '
----
 !pip install --upgrade pip
 !pip install allensdk
 ```
