@@ -259,7 +259,7 @@ timestamps
 : *float* time in seconds
 
 
-`rewards`: A dataframe containing timestamps of delivered rewards in absolute sync time. Timestamps are sampled at 60 Hz.
+`session.rewards`: A dataframe containing timestamps of delivered rewards in absolute sync time. Timestamps are sampled at 60 Hz.
 
 timestamps
 : *float* time in seconds
@@ -461,11 +461,23 @@ stop_time
 : *float* Time when laser stimulation stops for this trial
 
 
+## Stimulus Templates
+
+Each natural image displayed during a given session is saved to an array and stored in the `session.stimulus_templates` dataframe.
+
+image_name **index**
+: *string* Unique name of image
+
+unwarped
+: *array* numpy array storing gray scale values for this image before applying spherical warping step
+
+warped
+: *array* numpy array storing gray scale values for this image after applying spherical warping step. This is the image that is rendered on the monitor during the experiment.
 
 
+## Stimulus Timestamps
 
-stimulus_templates
-stimulus_timestamps
+`session.stimulus_timestamps` is a numpy array storing the experiment timestamps of every frame rendered on the monitor in seconds.
 
 
 
