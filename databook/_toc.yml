@@ -80,6 +80,7 @@ chapters:
   - file: microns-em/em-skeletons.md
   - file: microns-em/em-meshes.md
   - file: microns-em/em-functional_data.md
+  - file: microns-em/em-coordinates.md
   - file: microns-em/em-ultrastructure.md
 - file: glossary
 - file: bibliography
