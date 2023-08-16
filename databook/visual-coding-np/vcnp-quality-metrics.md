@@ -11,8 +11,6 @@ kernelspec:
   name: allensdk
 ---
 
-
-
 # Unit Quality Metrics
 
 ## Tutorial overview
@@ -145,13 +143,11 @@ To take a look at the metrics for all units in the dataset, simply call
 `get_units()` on the `EcephysProjectCache` object.
 
 ```{code-cell} ipython3
-
 import os
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
 from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBehaviorNeuropixelsProjectCache
@@ -162,15 +158,14 @@ from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBeh
 output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
 cache_dir_visual_behavior = '/root/capsule/data/'
-cache_vb = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
-    cache_dir=cache_dir, use_static_cache=True
-)
 ```
 
 ```{code-cell} ipython3
 cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
+cache_vb = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
+            cache_dir=cache_dir_visual_behavior, use_static_cache=True)
 
-units_vb = cache_vb.get_units()
+units_vb = cache_vb.get_unit_table()
 units = cache.get_units()
 ```
 
@@ -180,8 +175,6 @@ nunits = len(units)
 print('Visual Behavior units : {}'.format(nunits_vb))
 print('Visual Coding units : {}'.format(nunits))
 ```
-
-
 
 By default, the AllenSDK applies filters for the Visual Coding dataset so only
 units above a set of thresholds are returned.
@@ -196,7 +189,6 @@ Let's disable these filters so we can see all of the available units for the
 Visual Coding dataset:
 
 ```{code-cell} ipython3
-
 units = cache.get_units(amplitude_cutoff_maximum = np.inf,
                         presence_ratio_minimum = -np.inf,
                         isi_violations_maximum = np.inf)
@@ -219,7 +211,6 @@ Let's look in more detail at the distribution of some quality metrics across
 for plotting each metric in an aesthetically pleasing way:
 
 ```{code-cell} ipython3
-
 from scipy.ndimage.filters import gaussian_filter1d
 plt.rcParams.update({'font.size': 14})
 
@@ -253,19 +244,15 @@ the number of seconds in the recording. We'll create a density plot of firing
 rate across all units in the dataset:
 
 ```{code-cell} ipython3
-
 data = units['firing_rate']
 bins = np.linspace(0,50,100)
 
 max_value = plot_metric(data, bins, 'Firing rate (Hz)', 'red')
 ```
 
-
-
 Since there are many units with low firing rates, let's use a log scale instead:
 
 ```{code-cell} ipython3
-
 data = np.log10(units['firing_rate'])
 bins = np.linspace(-3,2,100)
 
@@ -281,7 +268,6 @@ out contaminated units using another metric, `nn_hit_rate` (more on what this
 means later), the distribution becomes almost perfectly lognormal:
 
 ```{code-cell} ipython3
-
 data = np.log10(units[units.nn_hit_rate > 0.9]['firing_rate'])
 bins = np.linspace(-3,2,100)
 
@@ -297,7 +283,6 @@ midbrain. We'll use the Allen CCF structure acronyms to find the units that
 belong to each region.
 
 ```{code-cell} ipython3
-
 region_dict = {'cortex' : ['VISp', 'VISl', 'VISrl', 'VISam', 'VISpm', 'VIS', 'VISal','VISmma','VISmmp','VISli'],
              'thalamus' : ['LGd','LD', 'LP', 'VPM', 'TH', 'MGm','MGv','MGd','PO','LGv','VL',
               'VPL','POL','Eth','PoT','PP','PIL','IntG','IGL','SGN','VPL','PF','RT'],
@@ -363,7 +348,6 @@ to 0.99 (an off-by-one error in the calculation ensures that it will never reach
 Let's look at the distribution of presence ratio across areas:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,1,100)
 max_value = -np.inf
 
@@ -378,8 +362,6 @@ _ = plt.legend(region_dict.keys())
 plt.plot([0.9, 0.9],[0,max_value], ':')
 ```
 
-
-
 It's clear that most units have a presence ratio of 0.9 or higher, which means
 they are present for at least 90% of the recording. Units with lower presence
 ratio are likely to have drifted out of the recording, or had waveforms that
@@ -388,11 +370,8 @@ changed so dramatically they were assigend to separate clusters.
 Calculating the exact fraction of units with presence ratio above 0.9 is easy:
 
 ```{code-cell} ipython3
-
 np.around(np.sum(units.presence_ratio > 0.9) / len(units), 2)
 ```
-
-
 
 Here's a summary of things to keep in mind when using `presence_ratio` in your
 analysis:
@@ -429,7 +408,6 @@ Amplitude cutoff provides another way to check for units that are missing spikes
 Let's take a look at the distribution of values for amplitude cutoff across the dataset:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,0.5,200)
 max_value = -np.inf
 
@@ -459,7 +437,6 @@ We can check the fraction of units with the maximum amplitude cutoff using the
 following code:
 
 ```{code-cell} ipython3
-
 np.around(np.sum(units.amplitude_cutoff == 0.5) / len(units), 2)
 ```
 
@@ -503,7 +480,6 @@ Let's look at the distribution of ISI violations across the different regions in
 this dataset:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,10,200)
 max_value = -np.inf
 
@@ -521,7 +497,6 @@ plt.plot([0.5, 0.5],[0,max_value], ':')
 This one looks like a good candidate for plotting on a log scale:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(-6,2.5,100)
 max_value = -np.inf
 
@@ -548,11 +523,8 @@ If we wanted to only include units with no ISI violations, what percentage would
 be available for analysis?
 
 ```{code-cell} ipython3
-
 np.around(np.sum(units.isi_violations == 0.0) / len(units), 2)
 ```
-
-
 
 Here's a summary of things to keep in mind when using `isi_violations` in your
 analysis:
@@ -596,7 +568,6 @@ Nevertheless, it can still be helpful to look at the distribution of SNRs across
 areas:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,10,100)
 max_value = -np.inf
 
@@ -656,7 +627,6 @@ that it's contamined by spikes from multiple units.
 Let's look at the range of isolation distances across different brain regions:
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,170,50)
 max_value = -np.inf
 
@@ -695,7 +665,6 @@ unit's PC cluster and all of the others. A higher d-prime value indicates that
 the unit is better isolated from its neighbors.
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,15,50)
 max_value = -np.inf
 
@@ -734,7 +703,6 @@ Nearest-neighbors hit rate is nice because it always falls between 0 and 1,
 making it straightforward to compare across different datasets.
 
 ```{code-cell} ipython3
-
 bins = np.linspace(0,1,100)
 max_value = -np.inf
 
@@ -765,7 +733,6 @@ To summarize, let's take a look at the range of values that each of these
 metrics takes across the whole Visual Coding dataset:
 
 ```{code-cell} ipython3
-
 metrics = ['firing_rate',
            'presence_ratio',
            'amplitude_cutoff',
@@ -808,21 +775,14 @@ We can filter the Visual Behavior Dataset using these same criteria used by the
 Visual Coding dataset and find that 120,139 units pass this criteria.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.053076
-  end_time: '2023-03-22T22:23:50.154811'
-  exception: false
-  start_time: '2023-03-22T22:23:50.101735'
-  status: completed
----
-units_filt1 = units_vb[(units.isi_violations<0.5)
-                    & (units.amplitude_cutoff<0.1)
-                    & (units.presence_ratio>0.9)]
+units_filt1 = units_vb[(units_vb.isi_violations<0.5)
+                    & (units_vb.amplitude_cutoff<0.1)
+                    & (units_vb.presence_ratio>0.9)]
 len(units_filt1)
 ```
 
-As another example, we can filter by other quality metrics such as snr, in addition to other properties such as firing rate:
+As another example, we can filter by other quality metrics such as snr,
+in addition to other properties such as firing rate:
 
 - `snr` > 1
 - `firing rate` > 0.1
@@ -830,7 +790,7 @@ As another example, we can filter by other quality metrics such as snr, in addit
 Applying these filters returns 258,764 units.
 
 ```{code-cell} ipython3
-units_filt2 = units[(units.snr>1) & (units.firing_rate>0.2)]
+units_filt2 = units_vb[(units_vb.snr>1) & (units_vb.firing_rate>0.2)]
 len(units_filt2)
 ```
 
@@ -866,11 +826,18 @@ The '2D waveform' is the waveform across channels centered on the peak channel.
 Now let's grab a session and plot the 2D waveform for a couple of units with
 disparate waveform features.
 
-```{code-cell} ipython3
-session = cache_vb.get_ecephys_session(ecephys_session_id=1065437523)
+:::{note}
+Due to a bug in the AllenSDK, the following code using the Visual Behavior cache
+cannot be run in the same python process that used a Visual Coding cache. However,
+the code is correct, and we encourage you to try it out for yourself.
+:::
+
+```ipython3
+session = cache_vb.get_ecephys_session(
+           ecephys_session_id=1065437523)
 ```
 
-```{code-cell} ipython3
+```ipython3
 units_session = session.get_units()
 channels = units_session.get_channels()
 
@@ -878,11 +845,9 @@ channels = units_session.get_channels()
 units_merged = units.merge(channels, left_on='peak_channel_id', right_index=True)
 ```
 
-+++ {"papermill": {"duration": 0.062468, "end_time": "2023-03-22T22:26:46.928418", "exception": false, "start_time": "2023-03-22T22:26:46.865950", "status": "completed"}}
-
 Let's take a look at how a few of these metrics vary across areas:
 
-```{code-cell} ipython3
+```ipython3
 area_waveform_stats = units_merged.pivot_table(index='structure_acronym',
                   values=['velocity_above', 'velocity_below', 'waveform_duration'],
                   aggfunc=['mean', 'count'])
@@ -905,7 +870,7 @@ true in visual cortex, where apical dendrites extend dorsally from the soma.
 Let's pick a couple of units with disparate waveform features and plot their 2D
 waveforms:
 
-```{code-cell} ipython3
+```ipython3
 unit1 = units_merged[(units_merged['velocity_below']<0) &
               (units_merged['waveform_duration']>0.4) &
               (units_merged['structure_acronym']=='CA1')&
@@ -917,7 +882,7 @@ unit2 = units_merged[(units_merged['velocity_below']>0) &
               (units_merged['quality']=='good')].iloc[0]
 ```
 
-```{code-cell} ipython3
+```ipython3
 fig, ax = plt.subplots(1,2)
 ylabels = ['probe channel', '']
 for iu, u in enumerate([unit1, unit2]):
