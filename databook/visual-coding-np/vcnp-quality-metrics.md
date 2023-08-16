@@ -24,9 +24,9 @@ scientific conclusions, or could end up hiding potentially useful data.
 :::{note}
 We have changed the default behavior of the SDK from the Visual Behavior
 Neuropixels dataset. We now return *all* units by default **only for this
-dataset**, without filtering based on waveform `quality` or other metrics.
-However, as we explore below, the Visual Coding dataset still has quality
-metrics applied. We leave this filtering to the user. Applying these metrics is
+dataset**, without filtering based on waveform `quality` or other metrics. We leave this filtering to the user. 
+However, as we explore below, the Visual Coding dataset still has default quality
+metrics filters applied. Applying these metrics is
 an important part of any analysis pipeline and we encourage users to use this
 notebook and the linked resources to get a thorough understanding of what
 quality metric filters their analyses require.
@@ -811,17 +811,38 @@ for more detail on these metrics and the code that computes them. For the below
 descriptions, the '1D waveform' is defined as the waveform on the peak channel.
 The '2D waveform' is the waveform across channels centered on the peak channel.
 
-`amplitude`:                            Peak to trough amplitude for mean 1D waveform in microvolts
-`waveform_duration`:                    Time from trough to peak for 1D waveform in milliseconds
-`waveform_halfwidth`:                   Width of 1D waveform at half-amplitude in milliseconds
-`PT_ratio`:                             Ratio of the max (peak) to the min (trough) amplitudes for 1D waveform
-`recovery_slope`:                       Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)
-`repolarization_slope`:                 Slope of repolarization of 1D waveform to baseline after trough
-`spread`:                               Range of channels for which the spike amplitude was above 12% of the peak channel amplitude
-`velocity_above`:                       Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actaully the inverse of velocity: ms/mm)
-`velocity_below`:                       Slope of spike propagation velocity traveling in ventral direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)
-`snr`:                                  signal-to-noise ratio for 1D waveform
-`quality`:                              Label assigned based on waveform shape as described [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates). Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
+amplitude
+: Peak to trough amplitude for mean 1D waveform in microvolts
+
+waveform_duration
+: Time from trough to peak for 1D waveform in milliseconds
+
+waveform_halfwidth
+: Width of 1D waveform at half-amplitude in milliseconds
+
+PT_ratio
+: Ratio of the max (peak) to the min (trough) amplitudes for 1D waveform
+
+recovery_slope
+: Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)
+
+repolarization_slope
+: Slope of repolarization of 1D waveform to baseline after trough
+
+spread
+: Range of channels for which the spike amplitude was above 12% of the peak channel amplitude
+
+velocity_above
+: Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actaully the inverse of velocity: ms/mm)
+
+velocity_below
+: Slope of spike propagation velocity traveling in ventral direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)
+
+snr
+: signal-to-noise ratio for 1D waveform
+
+quality
+: Label assigned based on waveform shape as described [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates). Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
 
 Now let's grab a session and plot the 2D waveform for a couple of units with
 disparate waveform features.
