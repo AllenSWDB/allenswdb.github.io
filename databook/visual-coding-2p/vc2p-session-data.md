@@ -90,9 +90,10 @@ To correct from contamination from the neuropil, we perform neuropil correction.
 
 ```{code-cell} ipython3
 timestamps, np = data_set.get_neuropil_traces()
+r_values = dataset.get_neuropil_r()
 ```
 
-This neuropil trace is subtracted from the fluorescence trace, after being weighted by a factor that is computed for each neuron. The resulting corrected fluorescence trace is accessed here:
+This neuropil trace is subtracted from the fluorescence trace, after being weighted by a factor ("r value") that is computed for each neuron. The resulting corrected fluorescence trace is accessed here along with the r_values.
 
 ```{code-cell} ipython3
 timestamps,cor = data_set.get_corrected_fluorescence_traces()
@@ -109,15 +110,21 @@ plt.xlabel("Time (s)")
 plt.xlim(1900,2200)
 ```
 
-(demixing?)
+The signal we are most interested in the the DF/F - the change in fluorescence normalized by the baseline fluorescence. The baseline flourescence was computed as the median fluorescence in a 180s window centered on each time point.
 
-The signal we are most interested in the the DF/F - the change in fluorescence normalized by the baseline fluorescence. 
+```{code-cell} ipython3
+fo = np.median(cor[122,2700:7300])
+plt.plot(cor[122,:], xlim=(0,10000))
+plt.axvspan(xmin=2700, xmax=7300, color='gray', alpha=0.1)
+plt.axhline(y=f0, ls='--', color='gray')
+plt.plot([5000],[cor[122,5000]], marker='x', color='red')
+```
+
+The result is the dff trace:
 
 ```{code-cell} ipython3
 ts, dff = data_set.get_dff_traces()
-```
 
-```{code-cell} ipython3
 fig = plt.figure(figsize=(8,3))
 plt.plot(ts, dff[122,:], color='gray')
 plt.xlabel("Time (s)")
