@@ -797,7 +797,7 @@ len(units_filt2)
 Using these metrics to filter units will require careful consideration of the
 sort of errors your analysis can tolerate.
 
-# Waveform metrics
+## Waveform metrics
 
 The shape of the extracellularly recorded spike for a given neuron depends on a
 number of biophysical and morphological properties. We have included several
