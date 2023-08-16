@@ -18,10 +18,21 @@ kernelspec:
 ## Tutorial overview
 
 This Jupyter notebook will provide a detailed explanation of the unit quality
-metrics included in the Allen Institute Neuropixels Visual Coding dataset. It's
-important to pay attention to quality metrics, because failing to apply them
-correctly could lead to invalid scientific conclusions, or could end up hiding
-potentially useful data.
+metrics included in the Allen Institute Neuropixels Visual Coding dataset as
+well as the Visual Behavior dataset. It's important to pay attention to quality
+metrics, because failing to apply them correctly could lead to invalid
+scientific conclusions, or could end up hiding potentially useful data.
+
+:::{note}
+We have changed the default behavior of the SDK from the Visual Behavior
+Neuropixels dataset. We now return *all* units by default **only for this
+dataset**, without filtering based on waveform `quality` or other metrics.
+However, as we explore below, the Visual Coding dataset still has quality
+metrics applied. We leave this filtering to the user. Applying these metrics is
+an important part of any analysis pipeline and we encourage users to use this
+notebook and the linked resources to get a thorough understanding of what
+quality metric filters their analyses require.
+:::
 
 To help you avoid these pitfalls, this tutorial will explore how these metrics
 are calculated, how they can be biased, and how they should be applied to
@@ -143,28 +154,37 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
+from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBehaviorNeuropixelsProjectCache
 ```
 
 ```{code-cell} ipython3
 # Example cache directory path, it determines where downloaded data will be stored
 output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
+cache_dir_visual_behavior = '/root/capsule/data/'
+cache_vb = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
+    cache_dir=cache_dir, use_static_cache=True
+)
 ```
 
 ```{code-cell} ipython3
 cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
 
+units_vb = cache_vb.get_units()
 units = cache.get_units()
 ```
 
 ```{code-cell} ipython3
-
-len(units)
+nunits_vb = len(units_vb)
+nunits = len(units)
+print('Visual Behavior units : {}'.format(nunits_vb))
+print('Visual Coding units : {}'.format(nunits))
 ```
 
 
 
-By default, the AllenSDK applies filters so only units above a set of thresholds are returned.
+By default, the AllenSDK applies filters for the Visual Coding dataset so only
+units above a set of thresholds are returned.
 
 The default filter values are as follows:
 
@@ -172,7 +192,8 @@ The default filter values are as follows:
 - `amplitude_cutoff` < 0.1
 - `presence_ratio` > 0.9
 
-Let's disable these filters so we can see all of the available units:
+Let's disable these filters so we can see all of the available units for the
+Visual Coding dataset:
 
 ```{code-cell} ipython3
 
@@ -194,8 +215,8 @@ followed by a manual inspection step to identify any remaining artifactual
 waveforms.
 
 Let's look in more detail at the distribution of some quality metrics across
-99,180 units. We'll start by creating a function for plotting each metric in an
-aesthetically pleasing way:
+99,180 units in the Visual Coding dataset. We'll start by creating a function
+for plotting each metric in an aesthetically pleasing way:
 
 ```{code-cell} ipython3
 
@@ -219,6 +240,9 @@ def plot_metric(data, bins, x_axis_label, color, max_value=-1):
 
     return max_value
 ```
+
+Doing the same with the 319,013 units in the Visual Behavior dataset is left as
+an exercise for the reader.
 
 (content:references:firing-rate)=
 ## Firing rate
@@ -738,7 +762,7 @@ analysis:
 ## Summary
 
 To summarize, let's take a look at the range of values that each of these
-metrics takes across the whole dataset:
+metrics takes across the whole Visual Coding dataset:
 
 ```{code-cell} ipython3
 
@@ -776,4 +800,134 @@ for idx, metric in enumerate(metrics):
     plt.title(metric)
 
 plt.tight_layout()
+```
+
+## Examples of filtering units by quality metrics
+
+We can filter the Visual Behavior Dataset using these same criteria used by the
+Visual Coding dataset and find that 120,139 units pass this criteria.
+
+```{code-cell} ipython3
+---
+papermill:
+  duration: 0.053076
+  end_time: '2023-03-22T22:23:50.154811'
+  exception: false
+  start_time: '2023-03-22T22:23:50.101735'
+  status: completed
+---
+units_filt1 = units_vb[(units.isi_violations<0.5)
+                    & (units.amplitude_cutoff<0.1)
+                    & (units.presence_ratio>0.9)]
+len(units_filt1)
+```
+
+As another example, we can filter by other quality metrics such as snr, in addition to other properties such as firing rate:
+
+- `snr` > 1
+- `firing rate` > 0.1
+
+Applying these filters returns 258,764 units.
+
+```{code-cell} ipython3
+units_filt2 = units[(units.snr>1) & (units.firing_rate>0.2)]
+len(units_filt2)
+```
+
+Using these metrics to filter units will require careful consideration of the
+sort of errors your analysis can tolerate.
+
+# Waveform metrics
+
+The shape of the extracellularly recorded spike for a given neuron depends on a
+number of biophysical and morphological properties. We have included several
+pre-computed metrics summarizing the shape of the mean waveform for each unit,
+which may provide useful clues about cell-class identity (for example, see [this
+paper](https://journals.physiology.org/doi/full/10.1152/jn.00680.2018)).
+
+Look
+[here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms)
+for more detail on these metrics and the code that computes them. For the below
+descriptions, the '1D waveform' is defined as the waveform on the peak channel.
+The '2D waveform' is the waveform across channels centered on the peak channel.
+
+`amplitude`:                            Peak to trough amplitude for mean 1D waveform in microvolts
+`waveform_duration`:                    Time from trough to peak for 1D waveform in milliseconds
+`waveform_halfwidth`:                   Width of 1D waveform at half-amplitude in milliseconds
+`PT_ratio`:                             Ratio of the max (peak) to the min (trough) amplitudes for 1D waveform
+`recovery_slope`:                       Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)
+`repolarization_slope`:                 Slope of repolarization of 1D waveform to baseline after trough
+`spread`:                               Range of channels for which the spike amplitude was above 12% of the peak channel amplitude
+`velocity_above`:                       Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actaully the inverse of velocity: ms/mm)
+`velocity_below`:                       Slope of spike propagation velocity traveling in ventral direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)
+`snr`:                                  signal-to-noise ratio for 1D waveform
+`quality`:                              Label assigned based on waveform shape as described [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates). Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
+
+Now let's grab a session and plot the 2D waveform for a couple of units with
+disparate waveform features.
+
+```{code-cell} ipython3
+session = cache_vb.get_ecephys_session(ecephys_session_id=1065437523)
+```
+
+```{code-cell} ipython3
+units_session = session.get_units()
+channels = units_session.get_channels()
+
+#merge the units and channels tables to get full CCF/channel info for each unit
+units_merged = units.merge(channels, left_on='peak_channel_id', right_index=True)
+```
+
++++ {"papermill": {"duration": 0.062468, "end_time": "2023-03-22T22:26:46.928418", "exception": false, "start_time": "2023-03-22T22:26:46.865950", "status": "completed"}}
+
+Let's take a look at how a few of these metrics vary across areas:
+
+```{code-cell} ipython3
+area_waveform_stats = units_merged.pivot_table(index='structure_acronym',
+                  values=['velocity_above', 'velocity_below', 'waveform_duration'],
+                  aggfunc=['mean', 'count'])
+
+print('Mean waveform features across areas')
+display(area_waveform_stats[area_waveform_stats['count']['waveform_duration']>50]['mean'])
+```
+
+Here we can already see some interesting differences across areas. Notice for
+example that neurons in midbrain structures (like APN and MRN) have short
+duration spikes on average compared to neurons in the hippocampus or cortex.
+Also notice that the direction in which spikes propagate flips from cortical to
+hippocampal structures. This can be seen from the velocity_below metric, which
+quantifies how spikes propagate ventrally (into the brain; units are ms/mm). In
+hippocampus, this metric is negative indicating that spikes are propagating down
+into the brain from the soma. This agrees with the morphology of hippocampal
+pyramidal neurons, whose apical dendrites project ventrally. The opposite is
+true in visual cortex, where apical dendrites extend dorsally from the soma.
+
+Let's pick a couple of units with disparate waveform features and plot their 2D
+waveforms:
+
+```{code-cell} ipython3
+unit1 = units_merged[(units_merged['velocity_below']<0) &
+              (units_merged['waveform_duration']>0.4) &
+              (units_merged['structure_acronym']=='CA1')&
+              (units_merged['quality']=='good')].iloc[1]
+
+unit2 = units_merged[(units_merged['velocity_below']>0) &
+              (units_merged['waveform_duration']<0.3)&
+              (units_merged['structure_acronym']=='MRN')&
+              (units_merged['quality']=='good')].iloc[0]
+```
+
+```{code-cell} ipython3
+fig, ax = plt.subplots(1,2)
+ylabels = ['probe channel', '']
+for iu, u in enumerate([unit1, unit2]):
+    waveform = session.mean_waveforms[u.name]
+    peak_chan = u['probe_channel_number']
+    ax[iu].imshow(waveform)
+    ax[iu].set_ylim([peak_chan-30, peak_chan+30])
+    ax[iu].set_xticks([0, 30, 60])
+    ax[iu].set_xticklabels([0, 1, 2])
+    ax[iu].set_ylabel(ylabels[iu])
+    ax[iu].set_xlabel('time (ms)')
+    ax[iu].set_title(u.structure_acronym)
 ```
