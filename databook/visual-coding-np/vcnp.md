@@ -11,10 +11,6 @@ kernelspec:
   name: allensdk
 ---
 
-```{image} ../../resources/cropped-SummerWorkshop_Header.png
-:name: workshop-header
-```
-
 # Visual Coding — Neuropixels
 
 The Visual Coding – Neuropixels project uses high-density extracellular
