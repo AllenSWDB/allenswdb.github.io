@@ -9,7 +9,7 @@ jupytext:
 kernelspec:
   display_name: Python 3
   language: python
-  name: swdb2023-em
+  name: allensdk
 ---
 
 # Coordinate Systems
