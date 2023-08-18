@@ -27,7 +27,7 @@ A driver line is a transgenic mouse line in which mice have had the gene for Cre
 : In striatum, drives expression in medium spiny neurons (MSNs) expressing the D1 dopamine receptor. These are MSNs part of the direct pathway.
 
 <b>Emx1-IRES-Cre</b>
-: In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. Emx1-IRES-Cre;Camk2a-tTA;Ai93 and Emx1-IRES-Cre;Camk2a-tTA;Ai94 mice were found to exhibit inter-ictal events suggesting that the dense expression of GCaMP6 throughout development could be disrupting normal physiological activity. {refererence}
+: In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. Emx1-IRES-Cre;Camk2a-tTA;Ai93 and Emx1-IRES-Cre;Camk2a-tTA;Ai94 mice were found to exhibit inter-ictal events suggesting that the dense expression of GCaMP6 throughout development could be disrupting normal physiological activity. {cite:p}`emx`
 
 <b>Fezf2-CreER</b>
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
