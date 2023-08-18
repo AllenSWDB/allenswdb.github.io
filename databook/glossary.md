@@ -1,6 +1,18 @@
 # Glossary
 
 :::{glossary}
+Basket cell
+  A type of inhibitory neuron whose synaptic output targets the cell body and
+  proximal dendrites of excitatory neurons. Many basket cells express the
+  molecular marker parvalbumin (PV), but not all basket cells are PV+: some
+  express molecules such as cholecystokinin (CCK). PV basket cells are typically
+  fast spiking compared to other neurons and are thought to be important for
+  gain control of network activity and setting the temporal precision of network
+  activity.
+
+Bipolar cell
+  A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
@@ -37,51 +49,7 @@ HVA
 
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
-  exclusively with nearby neurons.
-
-Neuropixels
-  A family of devices for obtaining high channel count single unit extracellular
-  recordings created through a collaborative open science project funded by
-  Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
-  and the Allen Institute. These devices utilize modern integrated circuit
-  design to miniaturize aspects of electrophysiology, enabling recordings of
-  hundred of single units from a single probe with minimal brain damage. [ADD
-  CITATION]
-
-Ophys
-  Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
-
-
-Primary visual cortex
-V1
-VISp
-  The largest visual area in cortex that receives inputs from the Lateral
-  geniculate nucleus of thalamus. Often refered to as <b>V1</b> or <b>VISp</b>.
-
-Pyramidal cell
-  A type of excitatory neuron with a characteristic cell body shape and apical
-  dendrite. In visual cortex, pyramidal cells are by far the most common type of
-  excitatory neuron.
-
-Interneuron
-  While technically an "interneuron" is a neuron that has both axonal and
-  dendritic processes entirely within the same brain region, in the cortex the
-  term is often used to refer to inhibitory neurons.
-
-Basket cell
-  A type of inhibitory neuron whose synaptic output targets the cell body and
-  proximal dendrites of excitatory neurons. Many basket cells express the
-  molecular marker parvalbumin (PV), but not all basket cells are PV+: some
-  express molecules such as cholecystokinin (CCK). PV basket cells are typically
-  fast spiking compared to other neurons and are thought to be important for
-  gain control of network activity and setting the temporal precision of network
-  activity.
-
-Somatostatin cell
-  A type of interneuron expressing the molecular marker somatostatin (SST, or
-  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
-  neurons, and have important roles in regulating the activity of excitatory
-  neurons.
+  exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
 Martinotti cell
   A Martinotti cell is a particular subtype of SST cell that targets the apical
@@ -96,19 +64,40 @@ Minnie Column
 Minnie Dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
 
-VIP cell
-  A type of interneuron expressing the molecular marker VIP. VIP cells tend to
-  target other interneurons rather than excitatory neurons. This role as a
-  "disinhibitory specialist" is thought to be important for \ context-dependent
-  modulation of cortical activity. Many VIP cells have a characteristic bipolar
-  axon that points along the axis of the cortical column and are thus often
-  called "bipolar cells".
-
-Bipolar cell
-  A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
-
 Neurogliaform cell
   A type of interneuron that makes a diffuse axonal arbor and is thought to release {term}`GABA` through both synaptic release and volume transmission, non-selectively inhibiting neurons nearby.
+
+Neuropixels
+  A family of devices for obtaining high channel count single unit extracellular
+  recordings created through a collaborative open science project funded by
+  Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
+  and the Allen Institute. These devices utilize modern integrated circuit
+  design to miniaturize aspects of electrophysiology, enabling recordings of
+  hundred of single units from a single probe with minimal brain damage. [ADD
+  CITATION]
+
+Ophys
+  Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
+
+Primary visual cortex
+V1
+VISp
+  The largest visual area in cortex that receives inputs from the Lateral
+  geniculate nucleus of thalamus. Often refered to as <b>V1</b> or <b>VISp</b>.
+
+Pyramidal cell
+  A type of excitatory neuron with a characteristic cell body shape and apical
+  dendrite. In visual cortex, pyramidal cells are by far the most common type of
+  excitatory neuron.
+
+Somatostatin cell
+  A type of interneuron expressing the molecular marker somatostatin (SST, or
+  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
+  neurons, and have important roles in regulating the activity of excitatory
+  neurons.
+
+VIP cell
+  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Receptive field
   definition here
