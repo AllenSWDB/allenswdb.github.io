@@ -51,6 +51,20 @@ Neuropixels
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
+Parvalbumin-positive interneuron
+PV+ neuron
+    Fast spiking neurons, also known as fast spiking interneurons, is a
+    short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
+    in many brain regions that have strong inhibitory effects on neighboring
+    cells. In experimental preparations where the genetic identity of neurons
+    can be paired with electrophysiological recordings, PV+ neurons have short
+    action potentials, occasionally less than 400 µS.
+
+Fast spiking neuron
+FSN
+FSI
+    Fast spiking neurons are so called because of their "narrow", fast action
+    potential. This term is often used to refer to {term}`PV+ neuron`s.
 
 Primary visual cortex
 V1
@@ -64,9 +78,9 @@ Pyramidal cell
   excitatory neuron.
 
 Interneuron
-  While technically an "interneuron" is a neuron that has both axonal and
-  dendritic processes entirely within the same brain region, in the cortex the
-  term is often used to refer to inhibitory neurons.
+  An interneuron is a neuron that has both axonal and dendritic processes
+  entirely within the same brain region. In the cortex the term is often used to
+  refer to inhibitory interneurons.
 
 Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
