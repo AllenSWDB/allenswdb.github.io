@@ -45,11 +45,7 @@ HVAs, finding evidence of functional differences between some of the areas. {cit
 
 ## Modulation by behavior
 
-By studying visual physiology in awake mice, it was discovered early on that the locomotor activity of the mouse modulates the visual responses of some neurons in the visual cortex, such that the visually evoked responses are larger when the mouse is running than when it is stationary {cite:p}`niell_locomotor`. Not only are some neurons' visual responses modulated by running activity, but some neurons exhibit running speed tuning independent of their visual stimulus {cite:p}`saleem`. It's good to remember, however, that there is great diversity in these responses, and most estimates see only 10-15% of neurons are significantly modulated by running. (see also {cite:p}`de_vries_lecoq_buice`)
+By studying visual physiology in awake mice, it was discovered early on that the locomotor activity of the mouse modulates the visual responses of some neurons in the visual cortex, such that the visually evoked responses are larger when the mouse is running than when it is stationary {cite:p}`niell_locomotor`. It's good to remember, however, that there is great diversity in these responses, and most estimates see only 10-15% of neurons are significantly modulated by running. (see also {cite:p}`de_vries_lecoq_buice`). Not only are some neurons' visual responses modulated by running activity, but some neurons exhibit running speed tuning independent of their visual responses {cite:p}`saleem`. Beyond running, other movements - including whisking, face movements and larger body movements - have been found to account for a significant part of the variability of activity throughout cortex, including the visual cortex. {cite:p}`musall` {cite:p}`stringer`
 
-Running isn't the only behavior 
+Finally, in mouse, there is considerable behavioral influence on neural activity even in the early visual areas where signatures of choice, experience, and learning are present. {cite:p}`pakan`
 
-- Behavioral state and experinece dependent (Pakan 2018)
-
-
-- More non-standard neurons in mouse {Masland martin}
