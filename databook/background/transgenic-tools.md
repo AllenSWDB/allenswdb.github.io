@@ -5,7 +5,23 @@ There are a large number of transgenic tools available that enable scientists to
 ## Cre/lox recombination approaches
 The Cre/lox recombination system is a conditional approach that allows genes to be removed or expressed within specific tissues or cell types. Cre is a site-specific recombinase that drives the recombination of DNA specifically at lox-P sites. Engineering loxP on either side of a gene of interest in a cell that expresses Cre will result in that gene being removed from that cell. This technique can be used to induce the expression of a gene of interest by having a loxP-STOP-loxP sequence in front of the gene of interest. Without Cre, this gene will not be expressed due to the STOP sequence. But when Cre is present, the STOP sequence is removed, and the gene will be expressed. This is how we have used Cre lines in these experiments to drive the expression of chosen reporters.
 
+:::{figure} ../images/cre-lox-fig-4.png
+:name: cre-lox-ref
+:align: center
+:width: 800
+
+Excising a STOP sequence with Cre induces expression of the gene of interest. Image courtesy of The Jackson Laboratory.
+:::
+
 Genes of interest can be inserted into the mouse with the use of viruses, or the creation of transgenic mouse lines that have the gene inserted into their genome. A common technique for using transgenic mice is to create separate *driver lines* and *reporter lines*, then crossing them together in order to get the desired gene into the desired brain region/cell type/etc. This is much more efficient than making making a separate line for every possible gene to be directly expressed in every possible cell type: driver and reporter lines allow us to "mix and match" and create the exact combination we need for a given experiment.
+
+:::{figure} ../images/cre-lox-fig-5.png
+:name: cre-lox-ref
+:align: center
+:width: 800
+
+Crossing a driver line with a reporter line results in offspring expressing the reporter in a subset of cells defined by the driver line. Image courtesy of The Jackson Laboratory.
+:::
 
 ## Driver lines used here
 

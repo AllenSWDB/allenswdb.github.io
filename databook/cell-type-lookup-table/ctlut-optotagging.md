@@ -15,7 +15,7 @@ kernelspec:
 
 The purpose of this dataset is to create a ground-truth dataset of responses from known striatal cell types so that we can look for differences in their physiological properties. But how do we know if the units we pick up during ephys belong to a specific cell type? We use a technique known as "optotagging."
 
-Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
+For a deeper overview of the technique, check out the section on {doc}`../background/Optotagging.md`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
 
 # Opsins
 
@@ -27,13 +27,19 @@ The opsins used in this data set were:
 * ChRmine: a red-light activated sodium channel
 * BiPOLES: a red-light activated sodium channel paired with a blue-light activated chloride channel
 
+In this data set, we transfected each mouse with genes for two different opsins (one blue-activated and one red-activated), targeting two different cell types. Thus, we are able to tag two cell types in one animal and differentiate them by their responses to different color laser pulses.
+
+```{note}
+For most opsins, activation drops off quickly for wavelengths larger than the peak, but slowly for wavelengths smaller. This means that while blue-activated opsins generally do not respond to red laser, many red-activated opsins do have strong responses to blue laser. This is especially true for ChRmine, so be mindful of this when differentiating blue and red responses in animals expressing this opsin!
+```
+
 # Cre lines and Cre-dependent viruses
 
-We want to be able to drive the expression of the above opsins only in specific cell types so that we can identify them by their responses to laser. To do this, we leverage a technique called Cre-lox recombination. Briefly, the gene for Cre recombinase is inserted into the mouse genome in such a way that it is only expressed in a specific cell type. Such mice are referred to as belonging to a specific driver line (e.g. expression of Cre is only driven in a given cell type). A Cre-dependent virus is then injected into the brain, delivering the DNA encoding the opsin we want to express. The DNA delivered by this virus is not in a usable configuration unless acted upon by Cre recombinase; as such, only cells expressing Cre will end up expressing the opsin.
+We want to be able to drive the expression of the above opsins only in specific cell types so that we can identify them by their responses to laser. To do this, we leverage a technique called Cre-lox recombination. This technique is covered in greater depth in the section on {doc}`../background/transgenic-tools.md`. Briefly, the gene for Cre recombinase is inserted into the mouse genome in such a way that it is only expressed in a specific cell type. Such mice are referred to as belonging to a specific driver line (e.g. expression of Cre is only driven in a given cell type). A Cre-dependent virus is then injected into the brain, delivering the DNA encoding the opsin we want to express. The DNA delivered by this virus is not in a usable configuration unless acted upon by Cre recombinase; as such, only cells expressing Cre will end up expressing the opsin.
 
 To determine the genotype of the animal for each session (and thus which driver line it's part of, and which cells are expressing Cre), use the following command:
 
-```{code-cell} ipython3
+```{hint}
 import json
 
 subject_json = 'path-to-subject-json'
@@ -54,7 +60,7 @@ Another method of getting opsins into cells is to use enhancer viruses. These vi
 
 To determine which viruses were injected into a given animal, use the following commands:
 
-```{code-cell} ipython3
+```{hint}
 import json
 
 procedures_json = 'path-to-procedures-json'
@@ -75,6 +81,12 @@ If the virus name begins with Flex or DIO, it is a Cre-dependent virus. Consult 
 Each experimental session contains an epoch during which laser is presented. We often try to tag two different cell types per mouse: one with a blue opsin, and one with a red opsin. Thus, we present both blue and red laser during the stimulus epoch.
 
 The trial table contains information about each laser presentation that took place, and can be loaded with the following code:
+
+```{hint}
+io = NWBZarrIO('path-to-nwb-file', "r")
+nwbfile_read = io.read()
+stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
+```
 
 # Identifying tagged neurons
 
