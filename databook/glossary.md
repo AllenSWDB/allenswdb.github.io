@@ -48,10 +48,6 @@ HVA
   primary visual cortex, thought to be higher in the visual pathway. These
   include: VISl, VIsal, VISpm, VISam, VISrl among others
 
-Interneuron
-  Also known as a local interneuron: a neuron that has short axons and synapse
-  exclusively with nearby neurons.
-
 Neuropixels
   A family of devices for obtaining high channel count single unit extracellular
   recordings created through a collaborative open science project funded by
@@ -84,7 +80,8 @@ Pyramidal cell
   dendrite. In visual cortex, pyramidal cells are by far the most common type of
   excitatory neuron.
 
-Interneuron
+interneuron
+local interneuron
   An interneuron is a neuron that has both axonal and dendritic processes
   entirely within the same brain region. In the cortex the term is often used to
   refer to inhibitory interneurons.
