@@ -55,7 +55,7 @@ session = cache.get_session_data(session_id)
 
 **1D Waveform features:**
 
-```{image} ../../resources/spike_waveform.png
+```{image} ../resources/spike_waveform.png
 :name: spike-waveform
 ```
 

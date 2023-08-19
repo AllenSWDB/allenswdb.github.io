@@ -64,7 +64,7 @@ The collection of all imaging sessions for a given imaging plane is referred to 
 
 To understand the difference between an <b>ophys experiment</b>, an <b>ophys session</b>, and an <b>ophys container</b>, the following schematic can be helpful
 
-![data_structure](/images/vbo_data_structure.png)
+![data_structure](/resources/vbo_data_structure.png)
 
 Note that this represents a multi-plane imaging dataset. For single-plane imaging, there will only be one plane (one <b>ophys experiment</b>), corresponding to one row of this diagram.
 
@@ -177,7 +177,7 @@ print('the different cre lines used in this dataset are:\n')
 print(np.sort(behavior_sessions.cre_line.unique()))
 ```
 
-![transgenic_lines](/images/vbo_transgenic_lines.png)
+![transgenic_lines](/resources/vbo_transgenic_lines.png)
 
 In this dataset, there are 3 `cre_lines`, 'Slc17a7-IRES2-Cre', which labels excitatory neurons across all cortical layers, 'Sst-IRES-Cre' which labels somatostatin expressing inhibitory interneurons, and 'Vip-IRES-Cre', which labels vasoactive intestinal peptide expressing inhibitory interneurons. 
 
@@ -207,7 +207,7 @@ behavior_sessions.groupby(['full_genotype', 'mouse_id']).count().reset_index().g
 
 Different groups of mice were trained on the task using different image sets and were imaged using different microscopes. These distinct groups of mice are referred to as <b>dataset variants</b> and can be identified using the `project_code` column. 
 
-![data_variants](/images/vbo_dataset_variants.png)
+![data_variants](/resources/vbo_dataset_variants.png)
 
 What are the `project_codes`?
 
@@ -261,7 +261,7 @@ print(np.sort(behavior_sessions.session_type[
 
 Mice are progressed through a series of training stages to shape their behavior prior to 2-photon imaging. Mice are automatically advanced between stages depending on their behavioral performance. For a detailed description of the change detection task and advancement criteria, please see the [Technical Whitepaper](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/4e/be/4ebe2911-bd38-4230-86c8-01a86cfd758e/visual_behavior_2p_technical_whitepaper.pdf)
 
-![training](/images/automated_training.png)
+![training](/resources/automated_training.png)
 
 Training with the change detection task begins with simple static grating stimuli, changing between 0 and 90 degrees in orientation. On the very first day, mice are automatically given a water reward when the orientation of the stimulus changes (`TRAINING_0_gratings_autorewards_15min`). On subsequent days, mice must lick following the change in order to receive a water reward (`TRAINING_1_gratings`). In the next stage, stimuli are flashed, with a 500ms inter stimulus interal of mean luminance gray screen (`TRAINING_2_gratings_flashed`). 
 
@@ -284,7 +284,7 @@ When mice are transferred to the 2-photon rig for the imaging portion of the exp
 
 During the 2-photon imaging portion of the experiment, mice perform the task with the same set of images they saw during training , as well as an additional novel set of images that they did not see during training. This allows evaluation of the impact of different sensory contexts on neural activity - familiarity versus novelty. Sessions with <b>familiar images</b> include those starting with `OPHYS_0`, `OPHYS_1`, `OPHYS_2`, and `OPHYS_3`. Sessions with <b>novel images</b> include those starting with `OPHYS_4`, `OPHYS_5`, and `OPHYS_6`. 
 
-![experimental_design](/images/vbo_experimental_design_sessions.png)
+![experimental_design](/resources/vbo_experimental_design_sessions.png)
 
 Interleaved between active behavior sessions are <b>passive viewing</b> sessions where mice are given their daily water ahead of the sesssion (and are thus satiated) and view the stimulus with the lick spout retracted so they are unable to earn water rewards. This allows comparison of neural activity in response to stimuli under different behavioral contexts - active task engagement and passive viewing without reward. Passive sessions include `OPHYS_2_images_A_passive` (passive session with familiar images), and `OPHYS_5_images_A_passive` (passive session with novel images).
 

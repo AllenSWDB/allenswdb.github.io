@@ -8,15 +8,15 @@ This dataset includes multi-regional Neuropixels recordings from up to 6 probes 
 
 Recordings were made in three genotypes: C57BL6J, Sst-IRES-Cre; Ai32, and Vip-IRES-Cre; Ai32. By crossing Sst and Vip lines to the Ai32 ChR2 reporter mouse, we were able to activate putative Sst+ and Vip+ cortical interneurons by stimulating the cortical surface with blue light during an optotagging protocol at the end of each session.
 
-![probeandopto](/images/probe_diagram_with_optagging.webp)
+![probeandopto](/resources/probe_diagram_with_optagging.webp)
 
 To relate these neurophysiological recordings to mouse behavior, the timing of behavioral responses (licks) and earned rewards were also recorded, as well as mouse running speed, eye position and pupil area.  In addition, videos were taken from front and side views to capture motor activity like grooming, whisking and postural adjustments.
 
-![behaviordata](/images/behavior_data_example.webp)
+![behaviordata](/resources/behavior_data_example.webp)
 
 ## Experiment design
 
-![vbnexperimentdiagram](/images/vbn_experimental_session_diagram.webp)
+![vbnexperimentdiagram](/resources/vbn_experimental_session_diagram.webp)
 
 Every experimental session consisted of the following stimulus epochs (in order):
 
@@ -59,4 +59,4 @@ To allow analysis of stimulus novelty on neural responses, two different images 
 
 The numbers in the Training and Recording Workflow bubble below give the total recording sessions of each type in the dataset.
 
-![vbnexperimentnumbers](/images/vbn_image_sets_and_training_trajectories_diagram.webp)
+![vbnexperimentnumbers](/resources/vbn_image_sets_and_training_trajectories_diagram.webp)

@@ -200,7 +200,7 @@ When looking at all of the sessions in a single experiment container, as we have
 
 As you see, each experiment container has three different session types. For the data published in June 2016 and October 2016, the last session is <b>three_session_C</b<> while the data published after this were collected using <b>three_session_C2</b>. The key difference between these sessions is a change in the [locally sparse noise](locally_sparse_noise) stimulus. This is described more [here](locally_sparse_noise).
 
-![containers](/images/VC2p-sessions.png)
+![containers](/resources/VC2p-sessions.png)
 
 ## Cell specimen ids
 During data processing, we matched identified {term}`ROI`s across each of the sessions within experiment containers. Approximately one third of the neurons in the dataset were matched across all three sessions, one third were matched in two of the three session, and one third were only found in one session. Neurons have unique ids, called <b>cell_specimen_ids</b>, that are shared across the sessions they are found in.

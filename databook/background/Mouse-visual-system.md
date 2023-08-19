@@ -28,7 +28,7 @@ were the hallmarks of simple and complex cells. The key difference in these
 receptive fields is in their size. Mice have much poorer spatial resolution than
 primates and cats!
 
-![rfs](/images/NiellHubermann_RFs.png)
+![rfs](/resources/NiellHubermann_RFs.png)
 
 Using {term}`Two-photon calcium imaging` allowed large populations of neurons to
 be recorded across the cortex, and another key early result was that mouse (and
