@@ -1,5 +1,5 @@
 # SWDB_2023 Databook
-![SWDB_2023](/resources/cropped-SummerWorkshop_Header.png)
+![SWDB_2023](/databook/resources/cropped-SummerWorkshop_Header.png)
 
 ## The built documentation is [here](https://alleninstitute.github.io/databook/).
 

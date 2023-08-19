@@ -8,7 +8,7 @@ Briefly, optotagging is a technique where neurons belonging to a specific cell t
 
 To optotag specific cell populations, we need to genetically manipulate them in order to get them to respond to pulses of laser light. This is done by using genetic tools (see {doc}`transgenic-tools`) to drive expression of opsins, which are light-gated ion channels. Opsins will change their conformation when exposed to specific wavelengths of light, opening a channel and allowing ions to cross the cell membrane, or in some cases driving an ion pump. This will change the voltage across the cell membrane, forcing the cell to spike (in the case of an excitatory opsin) or inhibit spiking (in the case of an inhibitory opsin).
 
-:::{figure} ../images/channelrhodopsin.png
+:::{figure} ../resources/channelrhodopsin.png
 :name: opsin
 :align: center
 :width: 600

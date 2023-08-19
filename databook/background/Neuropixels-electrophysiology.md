@@ -49,7 +49,7 @@ and the ecephys section of the AllenSDK.
 
 The Neuropixels Opto probe is based on the Neuropixels 1.0 probe, but with added optical stimulation capabilities, making it an excellent tool for optogenetic experiments. Like the NP 1.0, the NP Opto has 384 recording channels and 960 electrodes, and allow simultaneous dual-band recording in the spike band and LFP band. Unlike the NP 1.0, the NP opto also contains integrated photonic waveguides, allowing for light stimulation at 28 *emission sites* down the bottom 1400 um of the shank (14 red sites and 14 blue sites, spaced 100 um apart).
 
-:::{figure} ../images/NP-opto-configuration.png
+:::{figure} ../resources/NP-opto-configuration.png
 :name: np-opto
 :align: center
 :width: 800

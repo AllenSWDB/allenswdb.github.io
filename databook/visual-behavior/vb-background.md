@@ -8,7 +8,7 @@ This dataset can be used to address questions such as: How do different types of
 
 The Visual Behavior Optical Physiology and Visual Behavior Neuropixels projects are built upon a change detection behavioral task. Briefly, in this go/no-go task, mice are shown a continuous series of briefly presented visual images and they earn water rewards by correctly reporting when the identity of the image changes (diagrammed below). Five percent of images are omitted, allowing for analysis of expectation signals. 
 
-![doctask](/images/change_detection_task_diagram.webp)
+![doctask](/resources/change_detection_task_diagram.webp)
 
 <video controls src="../_static/videos/task_video.mp4"></video>
 
