@@ -22,7 +22,6 @@ chapters:
   - file: visual-coding-2p/vc2p-evoked-response
   - file: visual-coding-2p/vc2p-cross-session-data
   - file: visual-coding-2p/vc2p-analysis
-  - file: visual-coding-2p/vc2p-more-information
 - file: visual-coding-np/vcnp
   sections:
   - file: visual-coding-np/vcnp-quickstart
