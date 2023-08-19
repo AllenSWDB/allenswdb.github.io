@@ -13,7 +13,7 @@ To optotag specific cell populations, we need to genetically manipulate them in 
 :align: center
 :width: 600
 
-Stimulation with blue laser causes the opsin to allow sodium ions into the cell, depolarizing the membrane and triggering action potentials. Image courtesy of Addgene.
+Stimulation with blue laser causes the opsin to allow sodium ions into the cell, depolarizing the membrane and triggering action potentials. Image taken from [Addgene](https://blog.addgene.org/channelrhodopsins-with-improved-light-sensitivity-for-minimally-invasive-optogenetics).
 :::
 
 The speed of the change in conformation will vary by opsin, but is generally very fast, leading to very short latency spiking in response to activation by laser.
