@@ -38,22 +38,28 @@ organized in columns, the rodent visual cortex has a "salt and pepper"
 organization, where the orientation selectively of neighboring neurons are
 randomly organized. {reference Ohki 2005}
 
-Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s).
-These are cortical areas that exhibit <b>retinotopy</b> {Marina: can you unpack
-HVAs a bit here?}
+Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s)
+that receive input from V1 and are connected in a hierarchical manner. 
+Higher visual areas each contain a distinct map of {term}`Retinotopy`, i.e. each visual area has its own 
+map of visual space. The borders between higher visual areas can be identified
+based on reversals in the retinotopic map at area boundaries. Are
 
-An early question was whether neurons in different {term}'HVA's had distinct
+An early question was whether neurons in different mouse {term}`HVA`s had distinct
 visual responses to subserve distinct functions. One framing of this question is
 whether there are streams akin to the dorsal and ventral streams in primate and
-cat? Early studies using {term}`Two-photon calcium imaging` compared the
+cat. Early studies using {term}`Two-photon calcium imaging` compared the
 {term}`Spatial frequency` and {term}`Temporal frequency` tuning across several
 HVAs, finding evidence of functional differences between some of the areas.
 These results, alongside connectivity data, are suggestive that such a
 dorsal/ventral organization might be present - though with much more
-interconnection than found in primates/cats. {refs}
+interconnection and a lower hierarchical depth than found in primates/cats. 
+{Niell, 2011 Primer on early studies of mouse HVA functional properties: https://doi.org/10.1038/nature24636}
+
+![dorsal_ventral](/resources/Niell_visual_hierarchy.png)
 
 - More non-standard neurons in mouse {Masland martin}
 
 - Locomotion/arousal shapes responses (of ~10% of neurons)
 
 - Behavioral state and experinece dependent (Pakan 2018)
+

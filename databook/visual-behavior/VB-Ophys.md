@@ -70,11 +70,11 @@ Note that not all neurons are active in all sessions. As a result, the number of
 
 In each session, one of 4 different image sets was used. Image sets A and B had 8 distinct images in each set. Some mice learned the task with image set A and saw image set B as the novel set during 2-photon imaging (project codes `VisualBehavior` and `VisualBehaviorMultiscope`). Other mice learned the task with image set B and saw image set A as the novel set (project code `VisualBehaviorTask1B**). 
 
-**FIXME: AB_images.png is missing (/resources/AB_images.png)
+![AB_images](/resources/AB_images.png)
 
 Image sets G and H had 2 shared images across sets, and image set G was always the familiar, trained image set. Accordingly, the 2 shared images between sets G and H were always familiar. The other 6 images in image set H were only seen during 2-photon imaging and were novel to the mice. Including a shared pair of images in image sets G and H allows for comparison of familiar image responses when they are interleaved with other familiar stimuli versus when they are interleaved with novel stimuli to evaluate context dependent influences on neural activity. 
 
-**FIXME: GH_images.png is missing (/resources/GH_images.png)
+![GH_images](/resources/GH_images.png)
 
 The Visual Behavior Neuropixels dataset also uses image sets G and H. 
 
