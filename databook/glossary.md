@@ -18,6 +18,19 @@ CSV
 Ephys
   Shorthand for electrophysiology.
 
+fast spiking neuron
+FSN
+FSI
+    Fast spiking neurons are so called because of their "narrow," fast action
+    potentials, specifically as seen in intracellular recordings of a cell in
+    response to a prolonged step of current. Additionally, with sufficient
+    current injection fast spiking neurons exhibit fast spike rates, and do
+    not show frequency adaptation, or slowing of spike rates, over time. In
+    unlabeled extracellular recordings, units with narrow action potentials are
+    also referred to as fast spiking neurons. This feature is sometimes used
+    to putatively label neurons with narrow spikes as particular cell types,
+    such as {term}`PV+ neuron`s, among others.
+
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
   mammalian brain. In cortex, most GABAergic neurons are local interneurons.
@@ -51,6 +64,14 @@ Neuropixels
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
+parvalbumin-positive interneuron
+PV+ neuron
+    Fast spiking neurons, also known as fast spiking interneurons, is a
+    short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
+    in many brain regions that have strong inhibitory effects on neighboring
+    cells. In experimental preparations where the genetic identity of neurons
+    can be paired with electrophysiological recordings, PV+ neurons have short
+    action potentials, occasionally less than 400 µS.
 
 Primary visual cortex
 V1
@@ -64,9 +85,15 @@ Pyramidal cell
   excitatory neuron.
 
 Interneuron
-  While technically an "interneuron" is a neuron that has both axonal and
-  dendritic processes entirely within the same brain region, in the cortex the
-  term is often used to refer to inhibitory neurons.
+  An interneuron is a neuron that has both axonal and dendritic processes
+  entirely within the same brain region. In the cortex the term is often used to
+  refer to inhibitory interneurons.
+
+local field potential
+LFP
+  Transient electrical potential generated in nervous tissue by the summed
+  activity of cells in that tissue. This is typically measured in a lower
+  temporal-frequency band of less than 250 Hz.
 
 Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
@@ -113,6 +140,20 @@ Neurogliaform cell
 Receptive field
   definition here
 
+regular spiking neuron
+RS
+  Neurons that, when injected with a long step of current in the context of
+  intracellular recordings, show spike frequency adaptation where the rate of
+  spiking decreases over time. These neurons also have longer (or wider) action
+  potentials, and lower spike rates even when injected with large currents due
+  to hyperpolarization after each action potential. These are the most common
+  type of neurons in the mammalian cortex, and are often associated excitatory
+  neurons. In extracellular recordings, neurons with longer action potentials
+  are also sometimes referred to as regular spiking neurons, a feature which is
+  used to associate these units with specific cell types, such as excitatory
+  pyramidal neurons among others.
+
+
 Reporter
   definition here
 
@@ -141,4 +182,9 @@ Two-photon calcium imaging
   rest a neuron has low levels of calcium, and when the neuron spikes calcium
   flows into the neuron and raises the level of calcium. [add details about two
   photon imaging. Add citation to a review]
+
+waveform
+  In a system neuroscience setting, this often refers to the voltage over time
+  measured with an electrode when an individual neuron produces an action
+  potential.
 :::
