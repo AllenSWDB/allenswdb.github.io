@@ -18,7 +18,7 @@ CSV
 Ephys
   Shorthand for electrophysiology.
 
-Fast spiking neuron
+fast spiking neuron
 FSN
 FSI
     Fast spiking neurons are so called because of their "narrow," fast action
@@ -28,7 +28,8 @@ FSI
     not show frequency adaptation, or slowing of spike rates, over time. In
     unlabeled extracellular recordings, units with narrow action potentials are
     also referred to as fast spiking neurons. This feature is sometimes used
-    to putatively label neurons with narrow spikes as {term}`PV+ neuron`s.
+    to putatively label neurons with narrow spikes as particular cell types,
+    such as {term}`PV+ neuron`s, among others.
 
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
@@ -63,7 +64,7 @@ Neuropixels
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
-Parvalbumin-positive interneuron
+parvalbumin-positive interneuron
 PV+ neuron
     Fast spiking neurons, also known as fast spiking interneurons, is a
     short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
@@ -139,7 +140,7 @@ Neurogliaform cell
 Receptive field
   definition here
 
-regular spiking unit
+regular spiking neuron
 RS
   Neurons that, when injected with a long step of current in the context of
   intracellular recordings, show spike frequency adaptation where the rate of
@@ -149,7 +150,8 @@ RS
   type of neurons in the mammalian cortex, and are often associated excitatory
   neurons. In extracellular recordings, neurons with longer action potentials
   are also sometimes referred to as regular spiking neurons, a feature which is
-  used to putatively classify them as excitatory neurons
+  used to associate these units with specific cell types, such as excitatory
+  pyramidal neurons among others.
 
 
 Reporter
