@@ -22,7 +22,7 @@ electrophysiology to record receptive fields of neurons in the mouse
 {term}`Primary visual cortex`, finding receptive fields that looked very similar
 to those found in cat and primate {cite:p}`niell_rf`. Many neurons showed orientation selectivity - selectively responding to gratings at a particular orientation - or direction selectivity - responding selectivity to gratings moving in a particular direction. Neurons also showed linear and non-linear summation that were the hallmarks of simple and complex cells. The key difference in these receptive fields is in their size. Mice have much poorer spatial resolution than primates and cats {cite:p}`huberman_niell`. The scale bars below are 20 degrees for the mouse data but 1 degree for the monkey!
 
-![rfs](/images/NiellHubermann_RFs.png)
+![rfs](/resources/NiellHubermann_RFs.png)
 
 Using {term}`Two-photon calcium imaging` allowed large populations of neurons to
 be recorded across the cortex, and another key early result was that mouse (and

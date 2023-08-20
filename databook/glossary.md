@@ -20,8 +20,7 @@ Cre line
   experiments, Cre is used with loxP {term}`reporter` lines in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells. [ADD A GOOD CITATION OR
-  WEBSITE TO EXPLAIN THIS MORE]
+  to be restricted to particular subset of cells. 
 
 CSV
   Shorthand for "comma separated values", a common file format for storing
@@ -29,6 +28,19 @@ CSV
 
 Ephys
   Shorthand for electrophysiology.
+
+fast spiking neuron
+FSN
+FSI
+    Fast spiking neurons are so called because of their "narrow," fast action
+    potentials, specifically as seen in intracellular recordings of a cell in
+    response to a prolonged step of current. Additionally, with sufficient
+    current injection fast spiking neurons exhibit fast spike rates, and do
+    not show frequency adaptation, or slowing of spike rates, over time. In
+    unlabeled extracellular recordings, units with narrow action potentials are
+    also referred to as fast spiking neurons. This feature is sometimes used
+    to putatively label neurons with narrow spikes as particular cell types,
+    such as {term}`PV+ neuron`s, among others.
 
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
@@ -40,7 +52,7 @@ GCaMP
   domain of the calmodulin protein with green fluorescent protein (GFP). In
   these data we use primarily GCaMP6f as well as some GCaMP6s, fast and slow
   variants respectively. These two variants differ in their sensitivity as well
-  as their kinetics - primarily with regards to their decay. [ADD CITATION]
+  as their kinetics - primarily with regards to their decay. 
 
 HVA
   A <b>higher visual area</b> is a term for cortical visual areas that are not
@@ -50,6 +62,12 @@ HVA
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
+
+Local Field Potential
+LFP
+  Transient electrical potential generated in nervous tissue by the summed
+  activity of cells in that tissue. This is typically measured in a lower
+  temporal-frequency band of less than 250 Hz.
 
 Martinotti cell
   A Martinotti cell is a particular subtype of SST cell that targets the apical
@@ -73,11 +91,19 @@ Neuropixels
   Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
-  hundred of single units from a single probe with minimal brain damage. [ADD
-  CITATION]
+  hundred of single units from a single probe with minimal brain damage. 
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
+
+Parvalbumin-positive interneuron
+PV+ neuron
+    Fast spiking neurons, also known as fast spiking interneurons, is a
+    short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
+    in many brain regions that have strong inhibitory effects on neighboring
+    cells. In experimental preparations where the genetic identity of neurons
+    can be paired with electrophysiological recordings, PV+ neurons have short
+    action potentials, occasionally less than 400 µS.
 
 Primary visual cortex
 V1
@@ -102,8 +128,18 @@ VIP cell
 Receptive field
   definition here
 
-Reporter
-  definition here
+Regular Spiking neuron
+RS
+  Neurons that, when injected with a long step of current in the context of
+  intracellular recordings, show spike frequency adaptation where the rate of
+  spiking decreases over time. These neurons also have longer (or wider) action
+  potentials, and lower spike rates even when injected with large currents due
+  to hyperpolarization after each action potential. These are the most common
+  type of neurons in the mammalian cortex, and are often associated excitatory
+  neurons. In extracellular recordings, neurons with longer action potentials
+  are also sometimes referred to as regular spiking neurons, a feature which is
+  used to associate these units with specific cell types, such as excitatory
+  pyramidal neurons among others.
 
 ROI
   A <b>region of interest</b> that is identified in a two photon calcium imaging movie. This is a mask containing pixels thought to belong to a neuron.
@@ -130,4 +166,9 @@ Two-photon calcium imaging
   rest a neuron has low levels of calcium, and when the neuron spikes calcium
   flows into the neuron and raises the level of calcium. [add details about two
   photon imaging. Add citation to a review]
+
+Waveform
+  In a system neuroscience setting, this often refers to the voltage over time
+  measured with an electrode when an individual neuron produces an action
+  potential.
 :::

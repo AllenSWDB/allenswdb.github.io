@@ -1,4 +1,4 @@
-![SWDB](/images/cropped-SummerWorkshop_Header.png)
+![SWDB](/resources/cropped-SummerWorkshop_Header.png)
 # Summer Workshop on the Dynamic Brain Databook
 
 

@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.15.0
 kernelspec:
   display_name: allensdk
   language: python
@@ -48,11 +48,10 @@ nwbfile_read = io.read()
 
 If you'd like to explore the contents of the nwb file in a widget with a graphical user interface, you can install nwb2widget in your environment, then run:
 
-```{code-cell} ipython3
+```{hint}
 from nwbwidgets import nwb2widget
 nwb2widget(nwbfile_read)
 ```
-
 
 +++
 
@@ -106,7 +105,7 @@ spike_waveforms = units.waveform_mean
 spike_qc = units.default_qc
 ```
 
-The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in [ANOTHER PLACE??].
+The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding-np/vcnp-quality-metrics`.
 
 +++
 

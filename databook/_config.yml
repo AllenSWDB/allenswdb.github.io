@@ -3,7 +3,7 @@
 
 title: SWDB 2023 DataBook
 author: Saskia de Vries, Marina Garrett, Corbett Bennett, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
-logo: ../resources/cropped-SummerWorkshop_Header.png
+logo: ./resources/cropped-SummerWorkshop_Header.png
 copyright: "2023"
 
 # Force re-execution of notebooks on each build.

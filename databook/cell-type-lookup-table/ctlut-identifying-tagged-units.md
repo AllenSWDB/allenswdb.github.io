@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.15.0
 kernelspec:
   display_name: allensdk
   language: python
@@ -65,7 +65,7 @@ except(KeyError):
 print(virus_names)
 ```
 
-So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was injected with two viruses: an enhancer delivering CoChR to D1 cells, and a Cre-dependent virus delivering ChRmine. From this, we can conclude that this mouse should express CoChR in D1 cells and ChRmine in D2 cells. Therefore, any cells responding to blue laser pulses are D1 calls, and cells responding to red laser pulses are D2 cells!
+So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was injected with two viruses: an enhancer delivering CoChR to D1 cells, and a Cre-dependent virus delivering ChRmine. From this, we can conclude that this mouse should express CoChR in D1 cells and ChRmine in D2 cells. Therefore, any cells responding to (only) blue laser pulses are D1 cells, and cells responding to red laser pulses are D2 cells!
 
 +++
 
@@ -105,7 +105,9 @@ There's both red and blue laser pulses in this stimulus table. Let's try plottin
 time_range = np.array([-0.1, 0.3]) # time range (in seconds) to plot around each laser onset event
 
 blue_laser_stim_table = filtered_stimulus_table.query('type == "internal_blue"')
-laser_onset_timestamps = blue_laser_stim_table.start_time.tolist()
+red_laser_stim_table = filtered_stimulus_table.query('type == "internal_red"')
+blue_laser_onset_timestamps = blue_laser_stim_table.start_time.tolist()
+red_laser_onset_timestamps = red_laser_stim_table.start_time.tolist()
 ```
 
 ```{code-cell} ipython3
@@ -151,7 +153,8 @@ def timestamps_to_spike_counts(spike_timestamps, bins):
 ```
 
 ```{code-cell} ipython3
-laser_locked_spike_timestamps = event_locked_timestamps(spike_timestamps, laser_onset_timestamps, time_range)
+blue_laser_locked_spike_timestamps = event_locked_timestamps(spike_timestamps, blue_laser_onset_timestamps, time_range)
+red_laser_locked_spike_timestamps = event_locked_timestamps(spike_timestamps, red_laser_onset_timestamps, time_range)
 ```
 
 ```{code-cell} ipython3
@@ -159,40 +162,61 @@ laser_locked_spike_timestamps = event_locked_timestamps(spike_timestamps, laser_
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-Ntrials = len(laser_locked_spike_timestamps)
+plt.subplot(1,2,1)
+Ntrials = len(blue_laser_locked_spike_timestamps)
 for trial in range(Ntrials):
-    this_raster = plt.plot(laser_locked_spike_timestamps[trial], (trial + 1) * np.ones(len(laser_locked_spike_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
+    this_raster = plt.plot(blue_laser_locked_spike_timestamps[trial], (trial + 1) * np.ones(len(blue_laser_locked_spike_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
 plt.ylabel('Trial')
 plt.xlabel('Time from laser onset (s)')
+plt.xlim(time_range)
+plt.title('Blue stim')
 plt.axvline(0, color='0.75')
-```
 
-Looks like there might be a weak response... but wait! The NPopto has 14 emission sites, and the trials from all of these are interleaved! Let's try grouping trials by emission site and see if we see anything.
-
-```{code-cell} ipython3
-emission_site = np.array(blue_laser_stim_table.site.tolist())
-```
-
-```{code-cell} ipython3
-for site in np.unique(emission_site):
-    trials_this_site = emission_site == site
-    this_laser_locked_timestamps = laser_locked_spike_timestamps[trials_this_site]
-    Ntrials = len(this_laser_locked_timestamps)
-    for trial in range(Ntrials):
-        this_raster = plt.plot(this_laser_locked_timestamps[trial], site * (trial + 1) * np.ones(len(this_laser_locked_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
-
-# set the y labels to be the different emission sites
-ax = plt.gca()
-y_ticks = 50*np.unique(emission_site)-25 #so each tick is in the middle of the 50 trial range
-ax.set_yticks(y_ticks)
-ax.set_yticklabels(np.unique(emission_site))
-
-plt.ylabel('Emission site')
+plt.subplot(1,2,2)
+Ntrials = len(red_laser_locked_spike_timestamps)
+for trial in range(Ntrials):
+    this_raster = plt.plot(red_laser_locked_spike_timestamps[trial], (trial + 1) * np.ones(len(red_laser_locked_spike_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
 plt.xlabel('Time from laser onset (s)')
+plt.xlim(time_range)
+plt.title('Red stim')
 plt.axvline(0, color='0.75')
 ```
 
-Definitely a strong response when laser is presented at emission site 1! But how do we quantify it? An obvious answer is to see if the increase in firing rate is statistically significant. Since the laser presentation has five pulses, we can also check how consistent the response is by testing if every pulse has a significant response.
+Looks like there might be a weak response to blue laser... but wait! The NPopto has 14 emission sites, and the trials from all of these are interleaved! Let's try grouping trials by emission site and see if we see anything.
+
+```{code-cell} ipython3
+emission_sites_blue = np.array(blue_laser_stim_table.site.tolist())
+emission_sites_red = np.array(red_laser_stim_table.site.tolist())
+```
+
+```{code-cell} ipython3
+emission_sites = [emission_sites_blue, emission_sites_red]
+locked_timestamps = [blue_laser_locked_spike_timestamps, red_laser_locked_spike_timestamps]
+titles = ['Blue stim', 'Red stim']
+for ind, emission_site in enumerate(emission_sites):
+    plt.subplot(1,2,ind+1)
+    for site in np.unique(emission_site):
+        trials_this_site = emission_site == site
+        this_laser_locked_timestamps = locked_timestamps[ind][trials_this_site]
+        Ntrials = len(this_laser_locked_timestamps)
+        for trial in range(Ntrials):
+            this_raster = plt.plot(this_laser_locked_timestamps[trial], site * (trial + 1) * np.ones(len(this_laser_locked_timestamps[trial])), '.', color='k', rasterized=True, ms=3)
+    
+    # set the y labels to be the different emission sites
+    ax = plt.gca()
+    y_ticks = 50*np.unique(emission_site)-25 #so each tick is in the middle of the 50 trial range
+    ax.set_yticks(y_ticks)
+    ax.set_yticklabels(np.unique(emission_site))
+
+    if not ind:
+        plt.ylabel('Emission site')
+    plt.xlabel('Time from laser onset (s)')
+    plt.xlim(time_range)
+    plt.title(titles[ind])
+    plt.axvline(0, color='0.75')
+```
+
+Definitely a strong response when blue laser is presented at emission site 1! But how do we quantify it? An obvious answer is to see if the increase in firing rate is statistically significant. Since the laser presentation has five pulses, we can also check how consistent the response is by testing if every pulse has a significant response.
 
 There are 14 emission sites. How do we know which one to select for testing? We could test all 14, then correct for multiple comparisons. Alternatively, we could determine which one elicits the largest increase in firing rate, or the lowest latency response.
 
@@ -205,12 +229,12 @@ pulse_duration = np.unique(blue_laser_stim_table.duration)[0]
 first_pulse_time_range = [0, pulse_duration]
 baseline_time_range = [-pulse_duration, 0]
 
-first_pulse_counts = timestamps_to_spike_counts(laser_locked_spike_timestamps, first_pulse_time_range)
-baseline_counts = timestamps_to_spike_counts(laser_locked_spike_timestamps, baseline_time_range)
+first_pulse_counts = timestamps_to_spike_counts(blue_laser_locked_spike_timestamps, first_pulse_time_range)
+baseline_counts = timestamps_to_spike_counts(blue_laser_locked_spike_timestamps, baseline_time_range)
 
 all_site_pvals = []
 for site in np.unique(emission_site):
-    trials_this_site = emission_site == site
+    trials_this_site = emission_sites_blue == site
     this_site_pulse_counts = first_pulse_counts[trials_this_site]
     this_site_baseline_counts = baseline_counts[trials_this_site]
 
@@ -227,7 +251,11 @@ for site in np.unique(emission_site):
 
 # corrected pvals
 (responsive_sites, corrected_pVals, alphaSidak, alphaBonf) = multipletests(all_site_pvals, method='holm')
-responsive_sites
+
+print(responsive_sites)
+
+#print(first_pulse_counts)
+#print(baseline_counts)
 ```
 
 Looks like site 1 has a significant response, even after correcting for the 14 comparisons done!
@@ -238,14 +266,14 @@ num_pulses = np.unique(blue_laser_stim_table.num_pulses)[0]
 inter_pulse_interval = np.unique(blue_laser_stim_table.inter_pulse_interval)[0]
 pulse_offset = (pulse_duration + inter_pulse_interval)
 
-trials_best_site = emission_site == 1
+trials_best_site = emission_sites_blue == 1
 baseline_counts_best_site = baseline_counts[trials_best_site]
 
 other_pulse_pvals = []
 
 for ind_pulse in range(1,num_pulses):
     this_pulse_time_range = [first_pulse_time_range[0]+ind_pulse*pulse_offset, first_pulse_time_range[1]+ind_pulse*pulse_offset]
-    this_pulse_counts = timestamps_to_spike_counts(laser_locked_spike_timestamps, this_pulse_time_range)
+    this_pulse_counts = timestamps_to_spike_counts(blue_laser_locked_spike_timestamps, this_pulse_time_range)
     this_pulse_best_site_counts = this_pulse_counts[trials_best_site]
 
     # paired test
@@ -265,7 +293,7 @@ for ind_pulse in range(1,num_pulses):
 responsive_pulses
 ```
 
-This unit has a significant response to all five blue laser pulses! That means this unit is likely a tagged D1 cell. (Though it would be good to check the responses to red laser as well: this mouse has D2 cells tagged with ChRmine, which has a broad activation spectrum and often responds to both blue and red laser, while CoChR responds to only blue).
+This unit has a significant response to all five blue laser pulses! That means this unit is likely a tagged D1 cell. (Though it would be good to check the responses to red laser as well: this mouse has D2 cells tagged with ChRmine, which has a broad activation spectrum and often responds to both blue and red laser, while CoChR responds to only blue. While we looked at the raster of the red response, you should double check for significant responses!).
 
 There are often other tests applied to determine if a unit is tagged or not, most notably to check the latency of the response to make sure you're not getting indirect inactivation via synaptic transmission, but this is less of a concern here since medium spiny neurons in striatum are GABAergic.
 
