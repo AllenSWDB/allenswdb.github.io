@@ -94,6 +94,9 @@ A reporter line is a transgenic mouse line in which mice have had the gene for a
 <b>Ai162</b>
 : TIT2L-GC6s-ICL-tTA2_D. Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses a new TIGRE2 construct that drives higher expression. 
 
+<b>Ai32</b>
+: Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE. Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm).
+
 ## Viruses used here
 
 Another technique for delivering transgenes to a mouse is to use viruses, typically adeno-associated viruses (AAVs). The gene of interest is inserted into the AAV genome, so that when a mouse if injected the the virus, the inserted gene is delivered to infected cells. Viruses are commonly used together with driver or reporter lines, though the recently developed enhancer viruses allow delivery of transgenes to specific cell populations even in wild-type mice. Here are the viruses used in our data sets:
