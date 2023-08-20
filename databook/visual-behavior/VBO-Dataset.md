@@ -414,8 +414,24 @@ ophys_experiments.groupby(['ophys_container_id', 'session_type']).count()[['ophy
 
 ## Ophys cells table
 
+The `ophys_cells_table` contains the unique identifiers for each neuron in the dataset. 
 
-################## TBD ####################
+```python
+# get the ophys_cells_table
+ophys_cells_table = cache.get_ophys_cells_table()  
+
+ophys_cells_table.head()
+```
+
+The `cell_roi_id` is the ID of each {term}`ROI` segmented in each ophys_experiment (i.e. a single imaging plane in a single session). 
+
+The `cell_specimen_id` is the cell ID assigned after ROIs are matched across sessions. 
+
+The `cell_specimen_id` is shared across all sessions in which an ROI was segmented and matched, while the `cell_roi_id` is unique to an individual ophys_experiment_id. 
+
+Metadata for each cell in the `ophys_cells_table`, such as the `imaging_depth` and `targeted_structure`it was recorded in, can be obtained by merging the `ophys_cells_table` with the `ophys_experiment_table` using the `ophys_experiment_id`. 
 
 
-For additional info about the contents of the metadata tables, check out [this tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_ophys_dataset_manifest.html)
+
+
+
