@@ -63,7 +63,7 @@ Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
-Local Field Potential
+local field potential
 LFP
   Transient electrical potential generated in nervous tissue by the summed
   activity of cells in that tissue. This is typically measured in a lower
@@ -167,7 +167,8 @@ Two-photon calcium imaging
   flows into the neuron and raises the level of calcium. [add details about two
   photon imaging. Add citation to a review]
 
-Waveform
+waveform
+spike
   In a system neuroscience setting, this often refers to the voltage over time
   measured with an electrode when an individual neuron produces an action
   potential.

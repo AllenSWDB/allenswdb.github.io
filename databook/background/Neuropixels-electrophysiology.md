@@ -4,7 +4,7 @@ Understanding how the brain produces cognition, emotion, and behavior requires
 that we measure the signals that neurons are sending to one another. One
 powerful tool to do this is extracellular electrophysiology.
 
-## The Basic Premise: Listening to the Concert from the Outside
+## The basic premise: listening to the concert from the outside
 
 Extracellular electrophysiology is analogous to eavesdropping on the electrical
 conversations of neurons from outside their cell membranes. Unlike its
@@ -16,22 +16,22 @@ The primary readouts of this technique are extracellular action potentials or
 'spikes' and local field potentials (LFPs), each offering distinct insights into
 neuronal dynamics.
 
-## Spikes and LFPs: The Dual Storytellers
+## Spikes and LFPs: the dual storytellers
 
-1. **{term}`Spikes`**: These are the digital currency of the brain. Each spike
+1. **{term}`spike`s**: These are the digital currency of the brain. Each spike
    signifies the action potential of a neuron. With advancements in
    multi-electrode arrays and silicon probes, we can now concurrently monitor
    the spiking activity of hundreds, if not thousands, of neurons spanning many
    brain regions.
 
-2. **{term}`Local Field Potentials (LFPs)`**: These oscillatory signals are
+2. **{term}`local field potential`s (LFP)**: These oscillatory signals are
    slower and reflect the summed activity of many neurons, encapsulating both
    their synaptic potentials and the inputs they receive. The power and phase of
    LFPs across different frequency bands provide a measure of network synchrony,
    connectivity, and information flow, providing additional information to
    understand brain dynamics.
 
-## Techniques and Technologies: From Glass Pipettes to Silicon Probes
+## Techniques and technologies: from glass pipettes to silicon probes
 
 The tools which neuroscientists use to measure extracellular voltages has
 evolved with the field. From glass pipettes to tetrodes, multi-electrode arrays,
@@ -61,7 +61,7 @@ dramatically improved our capacity to observe neural dynamics:
   for the same number of electrodes, permitting longer recording sessions with
   maintained tissue integrity.
 
-## Spike Sorting: Isolating Discrete Action Potentials from Continuous Voltage Recordings
+## Spike sorting: isolating discrete action potentials from continuous voltage recordings
 
 While extracellular recordings allow us to eavesdrop on these neuronal
 conversations, the signals we obtain are typically a mixture of multiple
@@ -69,7 +69,7 @@ neurons' activities intermingled with noise. Disentangling this mixture signal
 to identify the action potentials of individual neurons is where the essential
 technique of spike sorting comes into play.
 
-### What is Spike Sorting?
+### What is spike sorting?
 
 Spike sorting is a computational process used to identify and categorize the
 action potentials—or 'spikes'—of individual neurons from the continuous voltage
@@ -80,7 +80,7 @@ problem is an example of blind source separation, where the objective is to
 identify the contribution of distinct sources with unknown properties to the
 mixed signal. Spike sorting aims to clarify this ambiguity.
 
-### The Nitty-Gritty of Spike Sorting
+### The nitty-gritty of spike sorting
 
 1. **Detection**: The first step involves identifying significant voltage
    deflections amidst background noise. Typically, this involves setting a
@@ -110,7 +110,7 @@ mixed signal. Spike sorting aims to clarify this ambiguity.
    typically have a brief period after firing during which they cannot fire
    again.
 
-### Why Spike Sorting Matters
+### Why spike sorting matters
 
 Spike sorting is crucial for several reasons:
 
