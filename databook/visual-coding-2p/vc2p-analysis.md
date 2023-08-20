@@ -48,9 +48,9 @@ The mean_sweep_response (with the same index and columns as sweep_response) calc
 
 ```{code-cell} ipython3
 plt.plot(ns.sweep_response['0'].loc[0])
-plt.axhline(x=30, ls='--', color='k')
+plt.axvline(x=30, ls='--', color='k')
 plt.xlabel("Frames")
-plt.ylabel("DF/F (%))
+plt.ylabel("DF/F (%)")
 plt.title("Response of cell index 0 to the fist trial")
 print("Mean response of cell index 0 to the first trial:", ns.mean_sweep_response['0'].loc[0])
 ```
@@ -63,12 +63,18 @@ Within this analysis object, there are useful functions to calculate signal and 
 sc = ns.get_signal_correlation()
 plt.imshow(sc[0])
 plt.xlabel("Cell index")
-plt.ylabel("Cell index)
+plt.ylabel("Cell index")
 plt.title("Signal correlation")
 ```
 
 ## Cell specimen table
 In addition the the analysis tables, there are response metrics that have been computed for each neuron using the responses that are stored in the analysis files. These metrics describe the visual activity and response properties of the neurons and can be useful in identifying relevant neurons for analysis. Each metric name has a suffix that is the abbreviation of the stimulus it was computed from (e.g. dg=drifting gratings, lsn=locally sparse noise). These metrics and how they were computed are described extensively in this [whitepaper](https://help.brain-map.org/download/attachments/10616846/VisualCoding_VisualStimuli.pdf?version=3&modificationDate=1497305590322&api=v2).
+
+```{code-cell} ipython3
+cell_specimen_table = pd.DataFrame(boc.get_cell_specimens())
+print(cell_specimen_table.keys())
+cell_specimen_table.head()
+```
 
 ## Caveat
 The anaylsis file and the metrics in the cell specimen table were computed from the DF/F as described above. While this is not incorrect, per se, there are some caveats to this. Metrics such as DSI which are defined as (pref-null)/(pref+null) are expected to be contrained to +/- 1. However, we can have trials with negative DF/F, especially using it as we do here, in which case these metrics will not be contrained in this way. This can make it difficult to interpret the resulting values. 
