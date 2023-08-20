@@ -44,7 +44,7 @@ chapters:
     title: Visual Behavior Task
     sections:
     - file: visual-behavior/VB-BehaviorSessionData
-      title: Tutorial Accessing Behavior Session Data
+      title: Behavior Session Data
   - file: visual-behavior/VB-Ophys
     title: Visual Behavior Ophys
     sections:
