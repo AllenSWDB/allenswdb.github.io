@@ -1,6 +1,18 @@
 # Glossary
 
 :::{glossary}
+Basket cell
+  A type of inhibitory neuron whose synaptic output targets the cell body and
+  proximal dendrites of excitatory neurons. Many basket cells express the
+  molecular marker parvalbumin (PV), but not all basket cells are PV+: some
+  express molecules such as cholecystokinin (CCK). PV basket cells are typically
+  fast spiking compared to other neurons and are thought to be important for
+  gain control of network activity and setting the temporal precision of network
+  activity.
+
+Bipolar cell
+  A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
@@ -8,8 +20,7 @@ Cre line
   experiments, Cre is used with loxP {term}`reporter` lines in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells. [ADD A GOOD CITATION OR
-  WEBSITE TO EXPLAIN THIS MORE]
+  to be restricted to particular subset of cells. 
 
 CSV
   Shorthand for "comma separated values", a common file format for storing
@@ -41,12 +52,38 @@ GCaMP
   domain of the calmodulin protein with green fluorescent protein (GFP). In
   these data we use primarily GCaMP6f as well as some GCaMP6s, fast and slow
   variants respectively. These two variants differ in their sensitivity as well
-  as their kinetics - primarily with regards to their decay. [ADD CITATION]
+  as their kinetics - primarily with regards to their decay. 
 
 HVA
   A <b>higher visual area</b> is a term for cortical visual areas that are not
   primary visual cortex, thought to be higher in the visual pathway. These
   include: VISl, VIsal, VISpm, VISam, VISrl among others
+
+Interneuron
+  Also known as a local interneuron: a neuron that has short axons and synapse
+  exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
+
+Local Field Potential
+LFP
+  Transient electrical potential generated in nervous tissue by the summed
+  activity of cells in that tissue. This is typically measured in a lower
+  temporal-frequency band of less than 250 Hz.
+
+Martinotti cell
+  A Martinotti cell is a particular subtype of SST cell that targets the apical
+  dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
+  2/3 and layer 5.
+
+Minnie Column
+  A colloquial name for the 100 micron by 100 micron square column of cortex
+  targeted for the census across layers. This column is a particularly well
+  proofread collection of cells.
+
+Minnie Dataset
+  A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
+
+Neurogliaform cell
+  A type of interneuron that makes a diffuse axonal arbor and is thought to release {term}`GABA` through both synaptic release and volume transmission, non-selectively inhibiting neurons nearby.
 
 Neuropixels
   A family of devices for obtaining high channel count single unit extracellular
@@ -54,13 +91,12 @@ Neuropixels
   Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
-  hundred of single units from a single probe with minimal brain damage. [ADD
-  CITATION]
+  hundred of single units from a single probe with minimal brain damage. 
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
-parvalbumin-positive interneuron
+Parvalbumin-positive interneuron
 PV+ neuron
     Fast spiking neurons, also known as fast spiking interneurons, is a
     short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
@@ -80,64 +116,19 @@ Pyramidal cell
   dendrite. In visual cortex, pyramidal cells are by far the most common type of
   excitatory neuron.
 
-interneuron
-local interneuron
-  An interneuron is a neuron that has both axonal and dendritic processes
-  entirely within the same brain region. In the cortex the term is often used to
-  refer to inhibitory interneurons.
-
-local field potential
-LFP
-  Transient electrical potential generated in nervous tissue by the summed
-  activity of cells in that tissue. This is typically measured in a lower
-  temporal-frequency band of less than 250 Hz.
-
-Basket cell
-  A type of inhibitory neuron whose synaptic output targets the cell body and
-  proximal dendrites of excitatory neurons. Many basket cells express the
-  molecular marker parvalbumin (PV), but not all basket cells are PV+: some
-  express molecules such as cholecystokinin (CCK). PV basket cells are typically
-  fast spiking compared to other neurons and are thought to be important for
-  gain control of network activity and setting the temporal precision of network
-  activity.
-
 Somatostatin cell
   A type of interneuron expressing the molecular marker somatostatin (SST, or
   sometimes SOM). SST cells tend to target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
   neurons.
 
-Martinotti cell
-  A Martinotti cell is a particular subtype of SST cell that targets the apical
-  dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
-  2/3 and layer 5.
-
-Minnie Column
-  A colloquial name for the 100 micron by 100 micron square column of cortex
-  targeted for the census across layers. This column is a particularly well
-  proofread collection of cells.
-
-Minnie Dataset
-  A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
-
 VIP cell
-  A type of interneuron expressing the molecular marker VIP. VIP cells tend to
-  target other interneurons rather than excitatory neurons. This role as a
-  "disinhibitory specialist" is thought to be important for \ context-dependent
-  modulation of cortical activity. Many VIP cells have a characteristic bipolar
-  axon that points along the axis of the cortical column and are thus often
-  called "bipolar cells".
-
-Bipolar cell
-  A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
-
-Neurogliaform cell
-  A type of interneuron that makes a diffuse axonal arbor and is thought to release {term}`GABA` through both synaptic release and volume transmission, non-selectively inhibiting neurons nearby.
+  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Receptive field
   definition here
 
-regular spiking neuron
+Regular Spiking neuron
 RS
   Neurons that, when injected with a long step of current in the context of
   intracellular recordings, show spike frequency adaptation where the rate of
@@ -149,10 +140,6 @@ RS
   are also sometimes referred to as regular spiking neurons, a feature which is
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
-
-
-Reporter
-  definition here
 
 ROI
   A <b>region of interest</b> that is identified in a two photon calcium imaging movie. This is a mask containing pixels thought to belong to a neuron.
@@ -180,7 +167,7 @@ Two-photon calcium imaging
   flows into the neuron and raises the level of calcium. [add details about two
   photon imaging. Add citation to a review]
 
-waveform
+Waveform
   In a system neuroscience setting, this often refers to the voltage over time
   measured with an electrode when an individual neuron produces an action
   potential.
