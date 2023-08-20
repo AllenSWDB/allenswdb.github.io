@@ -281,12 +281,7 @@ papermill:
 ---
 behavior_session_dict[behavior_session_id].task_parameters
 ```
-
-+++ {"papermill": {"duration": 0.134006, "end_time": "2023-01-25T19:49:58.957153", "exception": false, "start_time": "2023-01-25T19:49:58.823147", "status": "completed"}}
-
-
-
-+++ {"papermill": {"duration": 0.129106, "end_time": "2023-01-25T19:49:59.511144", "exception": false, "start_time": "2023-01-25T19:49:59.382038", "status": "completed"}}
+  
 
 ### Stimulus presentations
 

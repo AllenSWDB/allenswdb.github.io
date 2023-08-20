@@ -22,7 +22,6 @@ Driver line
   reporter line determines what will be expressed in that specific cell population
   (for example, GFP, GCaMP, or Channelrhodopsin).
 
-
 CSV
   Shorthand for "comma separated values", a common file format for storing
   tabular data where each row is a line and each column is separated by a comma.

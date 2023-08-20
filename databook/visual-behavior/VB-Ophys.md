@@ -40,6 +40,14 @@ Mice initially perform the task under the microscope with the same set of images
 
 Passive viewing sessions are interleaved between active behavior sessions. On passive days, mice are given their daily water before the session (and are thus satiated) and view the stimulus in open loop mode, with the lick spout retracted to indicate that rewards are not available. This allows investigation of the impact of motivation and attention on patterns of neural activity.
 
+## Session Types
+
+The `session_type` indicates whether a session was a behavior training session (session type beginning with `TRAINING_`), or a session that occured under the 2-photon microscope (session type beginning with `OPHYS_`). Ophys sessions can be either active behavior, or passive viewing, as described above. Passive sessions always have `_passive` in the `session_type`. The image set shown during each session type is also included in the `session_type` name. 
+
+The number included in the `session_type` just after whether it is `TRAINING_` or `OPHYS_` indicates the order in which the session occured in the overall training or imaging sequence. `OPHYS_` session numbers 0-3 in the name are always using the same image set that was shown during behavioral training. `OPHYS_` session numbers 4-6 are always using the new image set that was shown for the first time during 2-photon imaging. 
+
+To learn more about the differences in task parameters for different `session_type`s, see the <b>**Visual Behavior Task**</b> page.
+
 ## Data Structure
 
 There are many dimensions to this dataset and the data can be grouped in different ways depending on your question of interest. For example, to investigate inter-areal interactions, it would be important to identify all the unique imaging planes recorded in a single session. To examine changes in neural activity over days, identifying the unique sessions in which a single imaging plane was recorded is necessary. These different groupings have unique IDs in the allenSDK metadata tables.
@@ -60,6 +68,10 @@ Different imaging configurations and stimulus sets were used in different groups
 
 The `VisualBehahviorMultiscope` multi-plane dataset was acquired at 4 cortical depths in 2 visual areas (VISp & VISl) using image set A for training and image set B for novelty. Another multi-plane dataset, `VisualBehaviorMultiscope4areasx2d`, was acquired at 2 cortical depths in 4 visual areas (VISp, VISl, VISal, VISam). In this dataset, two of the images that became highly familiar during training with image set G were interleaved among novel images in image set H to evaluate the effect of novelty context and behavior state on learned stimulus responses.
 
+<b>Summary of dataset variants</b>
+
+![project_codes](/resources/project_codes.png)
+
 Each of the transgenic mouse lines described above were imaged as part of each of these dataset variants. A summary of the numbers of mice, sessions, and uniquely identified neurons can be found here:
 
 ![dataset_numbers](/resources/vbo_final_dataset.png)
@@ -68,15 +80,23 @@ Note that not all neurons are active in all sessions. As a result, the number of
 
 ## Visual Stimuli
 
-In each session, one of 4 different image sets was used. Image sets A and B had 8 distinct images in each set. Some mice learned the task with image set A and saw image set B as the novel set during 2-photon imaging (project codes `VisualBehavior` and `VisualBehaviorMultiscope`). Other mice learned the task with image set B and saw image set A as the novel set (project code `VisualBehaviorTask1B**). 
+In each session, one of 4 different image sets was used. Image sets A and B had 8 distinct images in each set. Some mice learned the task with image set A and saw image set B as the novel set during 2-photon imaging (project codes <b>VisualBehavior</b> and <b>VisualBehaviorMultiscope</b>). Other mice learned the task with image set B and saw image set A as the novel set (project code <b>VisualBehaviorTask1B</b>). 
 
-![AB_images](/resources/AB_images.png)
+![image_set_A](/resources/image_set_A.png)
 
-Image sets G and H had 2 shared images across sets, and image set G was always the familiar, trained image set. Accordingly, the 2 shared images between sets G and H were always familiar. The other 6 images in image set H were only seen during 2-photon imaging and were novel to the mice. Including a shared pair of images in image sets G and H allows for comparison of familiar image responses when they are interleaved with other familiar stimuli versus when they are interleaved with novel stimuli to evaluate context dependent influences on neural activity. 
+![image_set_B](/resources/image_set_B.png)
 
-![GH_images](/resources/GH_images.png)
+The dataset variant indicated by the project code <b>VisualBehaviorMultiscope4areasx2d</b> used different image sets with a unique feature - two of the image were shared between the training image set, image set G, and the additional image set shown during 2-photon imaging, image set H. Accordingly, the 2 shared images between sets G and H were always familiar. The other 6 images in image set H were seen for the first time during 2-photon imaging and were novel to the mice. 
 
-The Visual Behavior Neuropixels dataset also uses image sets G and H. 
+Including a shared pair of images in image sets G and H allows for comparison of familiar image responses when they are interleaved with other familiar stimuli (in image set G) versus when they are interleaved with novel stimuli (in image set H) to evaluate context dependent influences on neural activity. 
+
+The shared images are highlighted in blue below. 
+
+![image_set_G](/resources/image_set_G_shared.png)
+
+![image_set_H](/resources/image_set_H_shared.png)
+
+<b>Note:</b> The Visual Behavior Neuropixels dataset also uses image sets G and H. 
 
 Each image set has 8 images, creating a total of 64 possible transitions between images during change trials. In between image changes, the same image was repeated, with a minimum of 4 repetitions of the same stimulus before another change could occur. Change times were drawn from an geometric distribution between 5 and 12 image flashes from the last change, or the last lick. Trials where the image changed are referred to as `go` trials, and trials where the image did not change are called `catch` trials. 
 

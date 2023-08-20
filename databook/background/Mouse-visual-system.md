@@ -42,7 +42,7 @@ Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s)
 that receive input from V1 and are connected in a hierarchical manner. 
 Higher visual areas each contain a distinct map of {term}`Retinotopy`, i.e. each visual area has its own 
 map of visual space. The borders between higher visual areas can be identified
-based on reversals in the retinotopic map at area boundaries. Are
+based on reversals in the retinotopic map at area boundaries. 
 
 An early question was whether neurons in different mouse {term}`HVA`s had distinct
 visual responses to subserve distinct functions. One framing of this question is
