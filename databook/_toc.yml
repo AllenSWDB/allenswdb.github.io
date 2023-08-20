@@ -54,7 +54,7 @@ chapters:
       title: Ophys Experiment Data
     - file: visual-behavior/VBO-Tutorial-Compare_trial_types
       title: Tutorial Comparing Trial Types
-    - file: visual-behavior/VBO-Tutorial-Downloading_data_and_navigating_the_manifest
+    - file: visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
       title: Tutorial Downloading Data
   - file: visual-behavior/VB-Neuropixels
     title: Visual Behavior Neuropixels

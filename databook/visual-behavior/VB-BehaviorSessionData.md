@@ -13,9 +13,7 @@ kernelspec:
 
 # Behavior Session Data
 
-This notebook shows how to access behavior session data for one mouse, and to aggregate data across sessions to look at training history.
-
-### Imports
+This notebook shows how to access all behavior session data for one mouse and aggregate data across sessions to look at training history.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -169,7 +167,7 @@ behavior_session.metadata
 
 The `task_parameters` attribute contains information about the struture of the behavior task for that specific session. 
 
-Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the   `blank_duration_sec` is 0.5 seconds. This determines the inter-stimulus interval. 
+Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the `blank_duration_sec` is 0.5 seconds. This determines the inter-stimulus interval. 
 
 ```{code-cell} ipython3
 behavior_session_dict[behavior_session_id].task_parameters
@@ -263,7 +261,7 @@ Finally, a very important piece of information - the timestamps for each frame o
 All behavioral measurements (`running_speed`, `licks`, & `rewards`) are made at the frequency of visual stimulus display (60Hz) and share frame times with the `stimulus_presentations`. You can use the frame index from any of the other behavior tables to determine the corresponding timestamp. 
 
 ```{code-cell} ipython3
-behavior_sessions.stimulus_timestamps
+behavior_session.stimulus_timestamps
 ```
 
 ## Plot behavior data for a portion of one session
@@ -403,7 +401,7 @@ this_mouse_table = this_mouse_table.merge(
 this_mouse_table.head()
 ```
 
-#### Plot the `max_dprime` value for every session
+### Plot the `max_dprime` value for every session
 
 We can see that this particular mouse performed relatively consistently for every session as it progressed through training.
 
@@ -428,7 +426,8 @@ fig.tight_layout()
 
 Note that the days with near zero dprime near the right side of the plot are all `passive` sessions where the lick spout was retracted and no rewards could be earned. 
 
-Exercises: 
+## Exercises
+ 
 * Can you color the points of the behavior performance metrics plot by some piece of metadata (one of the columns) in `this_mouse_table`?
 * How does the `max_dprime` metric compare with other metrics in the `rolling_performance_df`?
 * What does the performance look like for a different mouse? 

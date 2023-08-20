@@ -261,11 +261,7 @@ def plot_running(trial, ax):
     trial_running_speed = ophys_experiment.running_speed.copy()
     trial_running_speed = trial_running_speed[(trial_running_speed.timestamps >= trial['start_time']) & 
                                               (trial_running_speed.timestamps <= trial['stop_time'])]
-    ax.plot(
-        trial_running_speed['timestamps'],
-        trial_running_speed['speed'],
-        color='black'
-    )
+    ax.plot(trial_running_speed['timestamps'], trial_running_speed['speed'], color='black')
     ax.set_title('running speed')
     ax.set_ylabel('speed (cm/s)')
     
@@ -277,12 +273,8 @@ def plot_licks(trial, ax):
     trial_licks = ophys_experiment.licks.copy()
     trial_licks = trial_licks[(trial_licks.timestamps >= trial['start_time']) & 
                               (trial_licks.timestamps <= trial['stop_time'])]
-        trial_licks['timestamps'],
-        np.zeros_like(trial_licks['timestamps']),
-        marker = 'o',
-        linestyle = 'none',
-        color='black'
-    )
+    ax.plot(trial_licks['timestamps'], np.zeros_like(trial_licks['timestamps']),
+            marker = 'o', linestyle = 'none', color='black')
     
 
 def plot_rewards(trial, ax):
@@ -292,15 +284,8 @@ def plot_rewards(trial, ax):
     trial_rewards = ophys_experiment.rewards.copy()
     trial_rewards = trial_rewards[(trial_rewards.timestamps >= trial['start_time']) & 
                                   (trial_rewards.timestamps <= trial['stop_time'])]
-    ax.plot(
-        trial_rewards['timestamps'],
-        np.zeros_like(trial_rewards['timestamps']),
-        marker = 'd',
-        linestyle = 'none',
-        color='blue',
-        markersize = 10,
-        alpha = 0.25
-    )
+    ax.plot(trial_rewards['timestamps'], np.zeros_like(trial_rewards['timestamps']),
+            marker = 'd', linestyle = 'none', color='blue', markersize = 10, alpha = 0.25)
     
 def plot_pupil(trial, ax):
     '''
@@ -309,11 +294,7 @@ def plot_pupil(trial, ax):
     trial_eye_tracking = ophys_experiment.eye_tracking.copy()
     trial_eye_tracking = trial_eye_tracking[(trial_eye_tracking.timestamps >= trial['start_time']) &
                                             (trial_eye_tracking.timestamps <= trial['stop_time'])]
-    ax.plot(
-        trial_eye_tracking['timestamps'],
-        trial_eye_tracking['pupil_area'],
-        color='black'
-    )
+    ax.plot(trial_eye_tracking['timestamps'], trial_eye_tracking['pupil_area'], color='black')
     ax.set_title('pupil area')
     ax.set_ylabel('pupil area\n')
     
@@ -326,10 +307,8 @@ def plot_dff(trial, ax):
     trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time']) & 
                                         (trial_dff_traces.timestamps <= trial['stop_time'])]
     for cell_specimen_id in ophys_experiment.tidy_dff_traces['cell_specimen_id'].unique():
-        ax.plot(
-            trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id']'timestamps'],
-            trial_dff_traces[trial_dff_traces.cell_specimen_id ==c ell_specimen_id']['dff']
-        )
+        ax.plot(trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id']'timestamps'],
+                trial_dff_traces[trial_dff_traces.cell_specimen_id ==c ell_specimen_id']['dff'])
         ax.set_title('deltaF/F responses')
         ax.set_ylabel('dF/F')
     
