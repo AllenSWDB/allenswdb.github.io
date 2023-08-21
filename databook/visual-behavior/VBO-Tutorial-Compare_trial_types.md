@@ -304,8 +304,8 @@ def plot_dff(trial, ax):
     plot each cell's dff response for a given trial
     '''
     trial_dff_traces = ophys_experiment.tidy_dff_traces.copy()
-    trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time']) & 
-                                        (trial_dff_traces.timestamps <= trial['stop_time'])]
+    trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time'].values[0]) & 
+                                        (trial_dff_traces.timestamps <= trial['stop_time'].values[0])]
     for cell_specimen_id in ophys_experiment.tidy_dff_traces['cell_specimen_id'].unique():
         ax.plot(trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['timestamps'],
                 trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['dff'])
@@ -352,7 +352,7 @@ stimulus_presentations.columns
 ```
 
 ```{code-cell} ipython3
-trial = ophys_experiment.trials.query('hit').sample(random_state = 1)
+trial = ophys_experiment.trials.query('hit').sample()
 fig, axes = make_trial_plot(trial)
 ```
 
