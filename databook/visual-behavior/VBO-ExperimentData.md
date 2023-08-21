@@ -634,37 +634,37 @@ Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the `blank_
 dataframe columns: 
 
 auto_reward_volume
-: Volume of autorewards delivered at beginning of session in ml.
+: (float) Volume of auto rewards in ml.
 
-blank_duration_sec
-: Seconds of gray screen at beginning and end of behavior session
-
-n_stimulus_frames
-: Number of stimulus frames rendered during this experiment
-
-omitted_flash_fraction
-: Probability that eligible flashes were omitted
+blank_duration_sec 
+: (list of floats) Duration in seconds of inter stimulus interval. Inter-stimulus interval chosen as a uniform random value between the range defined by the two values. Values are ignored if `stimulus_duration_sec` is null.
 
 response_window_sec
-: The period following an image change, in seconds, during which a mouse response influences trial outcome. The first value represents response window start. The second value represents response window end. The values represent time before display lag is accounted for and applied.
+: (list of floats) Range of period following an image change, in seconds, where mouse response influences trial outcome. First value represents response window start. Second value represents response window end. Values represent time before display lag is accounted for and applied.
 
-reward_volume
-: volume of individual water reward in ml.
-
-session_type
-: visual stimulus type displayed during behavior session
-
-stimulus
-: stimulus class shown for each image flash
-
-stimulus_distribution
-: Probablity distribution used for drawing change times. Either ‘exponential’ or ‘geometric’
-
-stimulus_duration_sec
-: duration in seconds of each stimulus image presentation (or 'flash')
+n_stimulus_frames
+: (int) Total number of visual stimulus frames presented during a behavior session.
 
 task
-: type of visual stimulus task; 'change detection' for this dataset
+: (string) Type of behavioral task ('change_detection' for this dataset)
+
+session_type
+: (string) Visual stimulus type run during behavior session.
+
+omitted_flash_fraction
+: (float) Probability that a stimulus image presentations is omitted. Change stimuli, and the stimulus immediately preceding the change, are never omitted.
+
+stimulus_distribution
+: (string) Distribution for drawing change times. Either 'exponential' or 'geometric'.
+
+stimulus_duration_sec
+: (float) Duration in seconds of each stimulus image presentation
+
+reward_volume
+: (float) Volume of earned water reward in ml.
+
+stimulus
+: (string) Stimulus type ('gratings' or 'images').
 
 
 ## Trials
