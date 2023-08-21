@@ -75,5 +75,5 @@ Further analysis at the Allen Institute and elsewhere has focused on curating a 
 
 The result is a cubic millimeter scale dataset with a rich collection of information and the potential for a range of studies, with strengths and limitations due to the current state of proofreading and needs of the functional data collection.
 
-The next sections of the databook will introduce how to access the various parts of the dataset and give some guidance about how to use them.
+The next sections of the Data Book will introduce how to access the various parts of the dataset and give some guidance about how to use them.
 
