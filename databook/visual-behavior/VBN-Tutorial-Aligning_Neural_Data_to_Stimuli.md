@@ -15,9 +15,20 @@ kernelspec:
 
 # Visual Behavior Neuropixels Quickstart
 
-A short introduction to the Visual Behavior Neuropixels data and SDK. This notebook focuses on aligning neural data to visual and optotagging stimuli. To learn more about how to access the data, see our [data access tutorial](./visual_behavior_neuropixels_data_access.ipynb). For more information about task and behavioral data, check out the [other tutorials](https://allensdk.readthedocs.io/en/latest/visual_behavior_neuropixels.html) accompanying this dataset.
+A short introduction to the Visual Behavior Neuropixels data and SDK. This
+notebook focuses on aligning neural data to visual and optotagging stimuli. To
+learn more about how to access the data, see our
+[data access tutorial](./VBN-Dataset).
+For more information about task and behavioral data, check out the
+[other tutorials](https://allensdk.readthedocs.io/en/latest/visual_behavior_neuropixels.html)
+accompanying this dataset.
 
-Also note that this project shares many features with the [Visual Coding Neuropixels](http://portal.brain-map.org/explore/circuits/visual-coding-neuropixels) and [Visual Behavior 2-Photon](http://portal.brain-map.org/explore/circuits/visual-coding-2p) datasets. Users are encouraged to check out the documentation for those projects for additional information and context.
+Also note that this project shares many features with the
+[Visual Coding Neuropixels](http://portal.brain-map.org/explore/circuits/visual-coding-neuropixels)
+and
+[Visual Behavior 2-Photon](http://portal.brain-map.org/explore/circuits/visual-coding-2p)
+datasets. Users are encouraged to check out the documentation for those projects
+for additional information and context.
 
 Contents
 -------------
@@ -102,7 +113,7 @@ papermill:
   start_time: '2023-03-22T22:19:55.817591'
   status: completed
 ---
-sst_novel_sessions = ecephys_sessions_table.loc[(ecephys_sessions_table['genotype'].str.contains('Sst')) & 
+sst_novel_sessions = ecephys_sessions_table.loc[(ecephys_sessions_table['genotype'].str.contains('Sst')) &
                                             (ecephys_sessions_table['experience_level']=='Novel')]
 sst_novel_sessions.head()
 ```
@@ -240,7 +251,7 @@ def makePSTH(spikes, startTimes, windowDur, binSize=0.001):
         startInd = np.searchsorted(spikes, start)
         endInd = np.searchsorted(spikes, start+windowDur)
         counts = counts + np.histogram(spikes[startInd:endInd]-start, bins)[0]
-    
+
     counts = counts/startTimes.size
     return counts/binSize, bins
 ```
@@ -266,8 +277,8 @@ time_before_change = 1
 duration = 2.5
 for iu, unit in area_units.iterrows():
     unit_spike_times = spike_times[iu]
-    unit_change_response, bins = makePSTH(unit_spike_times, 
-                                          change_times-time_before_change, 
+    unit_change_response, bins = makePSTH(unit_spike_times,
+                                          change_times-time_before_change,
                                           duration, binSize=0.01)
     area_change_responses.append(unit_change_response)
 area_change_responses = np.array(area_change_responses)
@@ -338,8 +349,8 @@ def find_rf(spikes, xs, ys):
         for iy, y in enumerate(ys):
             stim_times = rf_stim_table[(rf_stim_table.position_x==x)
                                       &(rf_stim_table.position_y==y)]['start_time'].values
-            unit_response, bins = makePSTH(spikes, 
-                                          stim_times+0.01, 
+            unit_response, bins = makePSTH(spikes,
+                                          stim_times+0.01,
                                           0.2, binSize=0.001)
             unit_rf[iy, ix] = unit_response.mean()
     return unit_rf
@@ -430,10 +441,10 @@ opto_response = []
 unit_id = []
 for iu, unit in cortical_units.iterrows():
     unit_spike_times = spike_times[iu]
-    unit_response, bins = makePSTH(unit_spike_times, 
-                          opto_times-time_before, duration, 
+    unit_response, bins = makePSTH(unit_spike_times,
+                          opto_times-time_before, duration,
                           binSize=binSize)
-    
+
     opto_response.append(unit_response)
     unit_id.append(iu)
 
@@ -453,12 +464,12 @@ fig, ax = plt.subplots()
 fig.set_size_inches((5,10))
 fig.suptitle('Optotagging: ' + str(session.metadata['ecephys_session_id'])
              + ' ' + session.metadata['full_genotype'])
-im = ax.imshow(opto_response, 
+im = ax.imshow(opto_response,
                origin='lower', aspect='auto',
                )
 min_clim_val = 0
 max_clim_val = 250
-im.set_clim([min_clim_val, max_clim_val])    
+im.set_clim([min_clim_val, max_clim_val])
 [ax.axvline(bound, linestyle=':', color='white', linewidth=1.0)\
      for bound in [10, 19]]
 ax.set_xlabel('Time from laser onset (ms)')

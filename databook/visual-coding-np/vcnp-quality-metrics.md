@@ -24,7 +24,7 @@ scientific conclusions, or could end up hiding potentially useful data.
 :::{note}
 We have changed the default behavior of the SDK from the Visual Behavior
 Neuropixels dataset. We now return *all* units by default **only for this
-dataset**, without filtering based on waveform `quality` or other metrics. We leave this filtering to the user. 
+dataset**, without filtering based on waveform `quality` or other metrics. We leave this filtering to the user.
 However, as we explore below, the Visual Coding dataset still has default quality
 metrics filters applied. Applying these metrics is
 an important part of any analysis pipeline and we encourage users to use this
@@ -260,12 +260,11 @@ max_value = plot_metric(data, bins, 'log$_{10}$ firing rate (Hz)', 'red')
 ```
 
 Based on this plot, you can clearly see the approximately lognormal distribution
-of firing rates, which [has been described
-previously](http://www.buzsakilab.com/content/PDFs/Mizuseki2014.pdf). However,
-there's more weight on the lower tail of the distribution, which is likely due
-to some units missing spikes as a result of thresholding or drift. If we filter
-out contaminated units using another metric, `nn_hit_rate` (more on what this
-means later), the distribution becomes almost perfectly lognormal:
+of firing rates, which has been described previously {cite:p}`buzsaki2014`.
+However, there's more weight on the lower tail of the distribution, which is
+likely due to some units missing spikes as a result of thresholding or drift. If
+we filter out contaminated units using another metric, `nn_hit_rate` (more on
+what this means later), the distribution becomes almost perfectly lognormal:
 
 ```{code-cell} ipython3
 data = np.log10(units[units.nn_hit_rate > 0.9]['firing_rate'])
@@ -467,14 +466,13 @@ assume that any spikes occurring in rapid succession (<1.5 ms intervals) come
 from two different neurons. Therefore, the more a unit is contaminated by spikes
 from multiple neurons, the higher its `isi_violations` value will be.
 
-The calculation for ISI violations comes from [Hill et al. (2011) J Neurosci 31:
-8699-8705](https://www.jneurosci.org/content/31/24/8699). Rather than reporting
-the fraction of spikes with ISI violations, their metric reports the relative
-firing rate of the hypothetical neurons that are generating these violations.
-You can interpret an ISI violations value of 0.5 as meaning that contamining
-spikes are occurring at roughly half the rate of "true" spikes for that unit. In
-cases of highly contaminated units, the ISI violations value can sometimes be
-even greater than 1.
+The calculation for ISI violations comes from {cite:t}`hill2011`. Rather than
+reporting the fraction of spikes with ISI violations, their metric reports the
+relative firing rate of the hypothetical neurons that are generating these
+violations. You can interpret an ISI violations value of 0.5 as meaning that
+contamining spikes are occurring at roughly half the rate of "true" spikes for
+that unit. In cases of highly contaminated units, the ISI violations value can
+sometimes be even greater than 1.
 
 Let's look at the distribution of ISI violations across the different regions in
 this dataset:
@@ -694,13 +692,12 @@ analysis:
 ## Nearest-neighbors hit rate
 
 Nearest-neighbors hit rate is another PC-based quality metric. It's derived from
-the 'isolation' metric originally reported in [Chung, Magland et al.
-(2017)](https://www.sciencedirect.com/science/article/pii/S0896627317307456?via%3Dihub).
-This metric looks at the PCs for one unit and calculates the fraction of their
-nearest neighbors that fall within the same cluster. If a unit is highly
-contaminated, then many of the closest spikes will come from other units.
-Nearest-neighbors hit rate is nice because it always falls between 0 and 1,
-making it straightforward to compare across different datasets.
+the 'isolation' metric originally reported in {cite:t}`chung2017`. This metric
+looks at the PCs for one unit and calculates the fraction of their nearest
+neighbors that fall within the same cluster. If a unit is highly contaminated,
+then many of the closest spikes will come from other units. Nearest-neighbors
+hit rate is nice because it always falls between 0 and 1, making it
+straightforward to compare across different datasets.
 
 ```{code-cell} ipython3
 bins = np.linspace(0,1,100)
@@ -802,8 +799,8 @@ sort of errors your analysis can tolerate.
 The shape of the extracellularly recorded spike for a given neuron depends on a
 number of biophysical and morphological properties. We have included several
 pre-computed metrics summarizing the shape of the mean waveform for each unit,
-which may provide useful clues about cell-class identity (for example, see [this
-paper](https://journals.physiology.org/doi/full/10.1152/jn.00680.2018)).
+which may provide useful clues about cell-class identity (for example, see
+{cite:t}`jia2019`).
 
 Look
 [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms)
@@ -833,16 +830,23 @@ spread
 : Range of channels for which the spike amplitude was above 12% of the peak channel amplitude
 
 velocity_above
-: Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actaully the inverse of velocity: ms/mm)
+: Slope of spike propagation velocity traveling in dorsal direction from soma
+  (note to avoid infinite values, this is actaully the inverse of velocity:
+  ms/mm)
 
 velocity_below
-: Slope of spike propagation velocity traveling in ventral direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)
+: Slope of spike propagation velocity traveling in ventral direction from soma
+  (note to avoid infinite values, this is actually the inverse of velocity:
+  ms/mm)
 
 snr
 : signal-to-noise ratio for 1D waveform
 
 quality
-: Label assigned based on waveform shape as described [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates). Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
+: Label assigned based on waveform shape as described
+  [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates).
+  Either 'good' for physiological waveforms or 'noise' for artifactual
+  waveforms.
 
 Now let's grab a session and plot the 2D waveform for a couple of units with
 disparate waveform features.

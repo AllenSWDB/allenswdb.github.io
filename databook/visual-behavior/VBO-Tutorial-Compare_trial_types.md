@@ -13,7 +13,7 @@ kernelspec:
 
 # Compare Trial Types
 
-The following example shows how to access behavioral and neural data for a given recording session and create plots for different trial types 
+The following example shows how to access behavioral and neural data for a given recording session and create plots for different trial types
 
 Make sure that you have the AllenSDK installed in your environment
 
@@ -49,19 +49,19 @@ cache_dir = '/root/capsule/data/'
 ```
 
 ```{code-cell} ipython3
-# If you are working with data in the cloud in Code Ocean, 
-# or if you have already downloaded the full dataset to your local machine, 
+# If you are working with data in the cloud in Code Ocean,
+# or if you have already downloaded the full dataset to your local machine,
 # you can instantiate a local cache
 # cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
 
 # If you are working with the data locally for the first time, you need to instantiate the cache from S3:
 cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
 #cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)
-          
+
 ```
 
 ```{code-cell} ipython3
-ophys_experiment_table = cache.get_ophys_experiment_table()                          
+ophys_experiment_table = cache.get_ophys_experiment_table()
 ```
 
 ### Look at a sample of the experiment table
@@ -339,12 +339,12 @@ def make_trial_plot(trial):
 
     for ax in axes:
         plot_stimuli(trial, ax)
-            
+
     plot_running(trial, axes[0])
 
     plot_licks(trial, axes[1])
     plot_rewards(trial, axes[1])
-    
+
     axes[1].set_title('licks and rewards')
     axes[1].set_yticks([])
     axes[1].legend(['licks','rewards'])
@@ -352,7 +352,7 @@ def make_trial_plot(trial):
     plot_pupil(trial, axes[2])
 
     plot_dff(trial, axes[3])
-    
+
     axes[3].set_xlabel('time in session (seconds)')
     fig.tight_layout()
     return fig, axes
@@ -375,7 +375,7 @@ Notes:
 * The animal was running steadily prior to the image change, then slowed to a stop after the change
 * The first lick occured about 500 ms after the change, and triggered an immediate reward
 * The pupil area shows some missing data - these were points that were filtered out as outliers.
-* There appears to be one neuron that was responding regularly to the stimulus prior to the change. 
+* There appears to be one neuron that was responding regularly to the stimulus prior to the change.
 
 ### Here is a miss trial
 
