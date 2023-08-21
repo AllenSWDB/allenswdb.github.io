@@ -51,7 +51,7 @@ We will first install allensdk into your environment by running the appropriate 
 
 You can install AllenSDK with:
 
-```python
+```ipython3
 !pip install allensdk
 ```
 
@@ -62,7 +62,7 @@ You can install AllenSDK into your notebook environment by executing the cell be
 If using Google Colab, click on the RESTART RUNTIME button that appears at the end of the output when this cell is complete,. Note that running this cell will produce a long list of outputs and some error messages. Clicking RESTART RUNTIME at the end will resolve these issues.
 You can minimize the cell after you are done to hide the output.
 
-```python
+```ipython3
 !pip install --upgrade pip
 !pip install allensdk
 ```
