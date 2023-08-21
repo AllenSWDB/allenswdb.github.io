@@ -43,7 +43,7 @@ A driver line is a transgenic mouse line in which mice have had the gene for Cre
 : In striatum, drives expression in medium spiny neurons (MSNs) expressing the D1 dopamine receptor. These are MSNs part of the direct pathway.
 
 <b>Emx1-IRES-Cre</b>
-: In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. Emx1-IRES-Cre;Camk2a-tTA;Ai93 and Emx1-IRES-Cre;Camk2a-tTA;Ai94 mice were found to exhibit inter-ictal events suggesting that the dense expression of GCaMP6 throughout development could be disrupting normal physiological activity. {refererence}
+: In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. Emx1-IRES-Cre;Camk2a-tTA;Ai93 and Emx1-IRES-Cre;Camk2a-tTA;Ai94 mice were found to exhibit inter-ictal events suggesting that the dense expression of GCaMP6 throughout development could be disrupting normal physiological activity. {cite:p}`emx`
 
 <b>Fezf2-CreER</b>
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
@@ -93,6 +93,9 @@ A reporter line is a transgenic mouse line in which mice have had the gene for a
 
 <b>Ai162</b>
 : TIT2L-GC6s-ICL-tTA2_D. Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses a new TIGRE2 construct that drives higher expression. 
+
+<b>Ai32</b>
+: Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE. Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm).
 
 ## Viruses used here
 

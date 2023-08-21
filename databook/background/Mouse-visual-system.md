@@ -20,13 +20,7 @@ Starting in the early 2000s, researchers begans studying visual physiology and
 behavior in the mouse in earnest. Cris Niell used extracellular
 electrophysiology to record receptive fields of neurons in the mouse
 {term}`Primary visual cortex`, finding receptive fields that looked very similar
-to those found in cat and primate {reference}. Many neurons showed orientation
-selectivity - selectively responding to gratings at a particular orientation -
-or direction selectivity - responding selectivity to gratings moving in a
-particular direction. Neurons also showed linear and non-linear summation that
-were the hallmarks of simple and complex cells. The key difference in these
-receptive fields is in their size. Mice have much poorer spatial resolution than
-primates and cats!
+to those found in cat and primate {cite:p}`niell_rf`. Many neurons showed orientation selectivity - selectively responding to gratings at a particular orientation - or direction selectivity - responding selectivity to gratings moving in a particular direction. Neurons also showed linear and non-linear summation that were the hallmarks of simple and complex cells. The key difference in these receptive fields is in their size. Mice have much poorer spatial resolution than primates and cats {cite:p}`huberman_niell`. The scale bars below are 20 degrees for the mouse data but 1 degree for the monkey!
 
 ![rfs](/resources/NiellHubermann_RFs.png)
 
@@ -36,7 +30,7 @@ rodents broadly) lack the orientation columns found in primates and cats. While
 the latter species have neurons that are tuned with similar orientations
 organized in columns, the rodent visual cortex has a "salt and pepper"
 organization, where the orientation selectively of neighboring neurons are
-randomly organized. {reference Ohki 2005}
+randomly organized. {cite:p}`ohki`
 
 Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s)
 that receive input from V1 and are connected in a hierarchical manner. 
@@ -59,7 +53,7 @@ interconnection and a lower hierarchical depth than found in primates/cats.
 
 - More non-standard neurons in mouse {Masland martin}
 
-- Locomotion/arousal shapes responses (of ~10% of neurons)
+By studying visual physiology in awake mice, it was discovered early on that the locomotor activity of the mouse modulates the visual responses of some neurons in the visual cortex, such that the visually evoked responses are larger when the mouse is running than when it is stationary {cite:p}`niell_locomotor`. It's good to remember, however, that there is great diversity in these responses, and most estimates see only 10-15% of neurons are significantly modulated by running. (see also {cite:p}`de_vries_lecoq_buice`). Not only are some neurons' visual responses modulated by running activity, but some neurons exhibit running speed tuning independent of their visual responses {cite:p}`saleem`. Beyond running, other movements - including whisking, face movements and larger body movements - have been found to account for a significant part of the variability of activity throughout cortex, including the visual cortex. {cite:p}`musall` {cite:p}`stringer`
 
-- Behavioral state and experinece dependent (Pakan 2018)
+Finally, in mouse, there is considerable behavioral influence on neural activity even in the early visual areas where signatures of choice, experience, and learning are present. {cite:p}`pakan`
 
