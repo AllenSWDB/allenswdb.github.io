@@ -69,13 +69,15 @@ The stages of behavioral training and different types of neurophysiology session
 
 Parsing the `session_type` names:
 
-The first component of the `session_type` tells you whether the session was during `TRAINING` in the behavior facility or during `OPHYS` under the two photon microscope.
+The first component of the `session_type` tells you whether the session was during `TRAINING` in the behavior facility, during `OPHYS` under the two photon microscope, or during `EPHYS` sessions with Neuropixels recordings (examples: `<b>OPHYS</b>_1_images_A`, `<b>TRAINING</b>_5_images_B_handoff_ready`, `<b>EPHYS</b>_2_images_H`)
 
-The second component of the `session_type` is a number that tells you the order in the training procedure or the intended order of the ophys imaging sequence. Note that ophys sessions can sometimes occur out of order due to QC failures and subsequent retakes, so the `date_of_acquisition`, as well as `prior_exposures_to_session_type` and `prior_exposures_to_image_set` columns of the metadata tables should be used to determine the precise order of sessions for each mouse.
+The second component of the `session_type` is a number that tells you the order in the training procedure or the intended order of the ophys imaging sequence (examples: `OPHYS_<b>4</b>_images_B`, `TRAINING_<b>2</b>_gratings_flashed`). For ophys sessions, you can also use the `session_number` column of the `ophys_experiment_table` or `ophys_session_table`. 
 
-The third component of the `session_type` tells you which image set was shown during that session.
+Note that ophys sessions can sometimes occur out of order due to QC failures and subsequent retakes, so the `date_of_acquisition`, as well as `prior_exposures_to_session_type` and `prior_exposures_to_image_set` columns of the metadata tables should be used to determine the precise order of sessions for each mouse.
 
-The final component of the `session_type` provides additional information that is unique to the session, such as whether it was a `passive` session during ophys, or whether the mouse was in the `handoff_ready` state during training.
+The third component of the `session_type` tells you which image set was shown during that session (examples: `OPHYS_2_<b>images_B</b>`,  `EPHYS_1_<b>images_G</b>`). You can also use the `image_set` column of the `ophys_experiment_table`, `ophys_session_table`, or `ecephys_session_table`. 
+
+The final component of the `session_type` provides additional information that is unique to the session, such as whether it was a `passive` session during ophys or a `habituation` session, or whether the mouse was in the `handoff_ready` state during training, or whether the reward volume was changed (examples: `TRAINING_3_images_G_<b>10uL_reward</b>`, `OPHYS_2_images_B_<b>passive</b>`.
 
 
 ## Task Parameters

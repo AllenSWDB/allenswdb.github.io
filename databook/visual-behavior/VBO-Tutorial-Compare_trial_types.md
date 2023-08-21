@@ -263,16 +263,16 @@ def plot_stimuli(trial, ax):
     return ax
 
         
-def plot_stimuli(trial, ax):
+def plot_running(trial, ax):
     '''
-    plot stimuli as colored bars on specified axis
+    plot running speed for trial on specified axes
     '''
-    stimuli = ophys_experiment.stimulus_presentations.copy()
-    stimuli = add_image_colors(stimuli)
-    stimuli = stimuli[(stimuli.end_time >= trial['start_time'].values[0]) & 
-                      (stimuli.start_time <= trial['stop_time'].values[0])]
-    for idx, stimulus in stimuli.iterrows():
-        ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus['color'], alpha=0.5)
+    trial_running_speed = ophys_experiment.running_speed.copy()
+    trial_running_speed = trial_running_speed[(trial_running_speed.timestamps >= trial['start_time'].values[0]) & 
+                                              (trial_running_speed.timestamps <= trial['stop_time'].values[0])]
+    ax.plot(trial_running_speed['timestamps'], trial_running_speed['speed'], color='black')
+    ax.set_title('running speed')
+    ax.set_ylabel('speed (cm/s)')
     return ax
 
 
