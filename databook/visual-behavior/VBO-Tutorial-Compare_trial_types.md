@@ -13,7 +13,7 @@ kernelspec:
 
 # Compare Trial Types
 
-The following example shows how to access behavioral and neural data for a given recording session and create plots for different trial types 
+The following example shows how to access behavioral and neural data for a given recording session and create plots for different trial types
 
 Make sure that you have the AllenSDK installed in your environment
 
@@ -49,19 +49,19 @@ cache_dir = '/root/capsule/data/'
 ```
 
 ```{code-cell} ipython3
-# If you are working with data in the cloud in Code Ocean, 
-# or if you have already downloaded the full dataset to your local machine, 
+# If you are working with data in the cloud in Code Ocean,
+# or if you have already downloaded the full dataset to your local machine,
 # you can instantiate a local cache
 # cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
 
 # If you are working with the data locally for the first time, you need to instantiate the cache from S3:
 cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
 #cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)
-          
+
 ```
 
 ```{code-cell} ipython3
-ophys_experiment_table = cache.get_ophys_experiment_table()                          
+ophys_experiment_table = cache.get_ophys_experiment_table()
 ```
 
 ## Look at a sample of the experiment table
@@ -87,14 +87,14 @@ ophys_experiment = cache.get_behavior_ophys_experiment(experiment_id)
 ```
 
 ## Look at the performance data
-We can see that the d-prime metric, a measure of discrimination performance, peaked at 2.14 during this session, indicating mid-range performance.  
-(d' = 0 means no discrimination performance, d' is infinite for perfect performance, but is limited to about 4.5 this dataset due to trial count limitations). 
+We can see that the d-prime metric, a measure of discrimination performance, peaked at 2.14 during this session, indicating mid-range performance.
+(d' = 0 means no discrimination performance, d' is infinite for perfect performance, but is limited to about 4.5 this dataset due to trial count limitations).
 
 ```{code-cell} ipython3
 ophys_experiment.get_performance_metrics()
 ```
 
-### We can build a trial dataframe that tells us about behavior events on every trial. This can be merged with a rolling performance dataframe, which calculates behavioral performance metrics over a rolling window of 100 trials (excluding aborted trials, or trials where the animal licks prematurely). 
+### We can build a trial dataframe that tells us about behavior events on every trial. This can be merged with a rolling performance dataframe, which calculates behavioral performance metrics over a rolling window of 100 trials (excluding aborted trials, or trials where the animal licks prematurely).
 
 ```{code-cell} ipython3
 trials_df = ophys_experiment.trials.merge(
@@ -248,45 +248,45 @@ def plot_stimuli(trial, ax):
     plot stimuli as colored bars on specified axis
     '''
     stimuli = stimulus_presentations.copy()
-    stimuli = stimuli[(stimuli.end_time >= trial['start_time']) & 
+    stimuli = stimuli[(stimuli.end_time >= trial['start_time']) &
                       (stimuli.start_time <= trial['stop_time'])]
     for idx, stimulus in stimuli.iterrows():
         ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus['color'], alpha=0.5)
 
-        
+
 def plot_running(trial, ax):
     '''
     plot running speed for trial on specified axes
     '''
     trial_running_speed = ophys_experiment.running_speed.copy()
-    trial_running_speed = trial_running_speed[(trial_running_speed.timestamps >= trial['start_time']) & 
+    trial_running_speed = trial_running_speed[(trial_running_speed.timestamps >= trial['start_time']) &
                                               (trial_running_speed.timestamps <= trial['stop_time'])]
     ax.plot(trial_running_speed['timestamps'], trial_running_speed['speed'], color='black')
     ax.set_title('running speed')
     ax.set_ylabel('speed (cm/s)')
-    
+
 
 def plot_licks(trial, ax):
     '''
     plot licks as black dots on specified axis
     '''
     trial_licks = ophys_experiment.licks.copy()
-    trial_licks = trial_licks[(trial_licks.timestamps >= trial['start_time']) & 
+    trial_licks = trial_licks[(trial_licks.timestamps >= trial['start_time']) &
                               (trial_licks.timestamps <= trial['stop_time'])]
     ax.plot(trial_licks['timestamps'], np.zeros_like(trial_licks['timestamps']),
             marker = 'o', linestyle = 'none', color='black')
-    
+
 
 def plot_rewards(trial, ax):
     '''
     plot rewards as blue diamonds on specified axis
     '''
     trial_rewards = ophys_experiment.rewards.copy()
-    trial_rewards = trial_rewards[(trial_rewards.timestamps >= trial['start_time']) & 
+    trial_rewards = trial_rewards[(trial_rewards.timestamps >= trial['start_time']) &
                                   (trial_rewards.timestamps <= trial['stop_time'])]
     ax.plot(trial_rewards['timestamps'], np.zeros_like(trial_rewards['timestamps']),
             marker = 'd', linestyle = 'none', color='blue', markersize = 10, alpha = 0.25)
-    
+
 def plot_pupil(trial, ax):
     '''
     plot pupil area on specified axis
@@ -297,21 +297,21 @@ def plot_pupil(trial, ax):
     ax.plot(trial_eye_tracking['timestamps'], trial_eye_tracking['pupil_area'], color='black')
     ax.set_title('pupil area')
     ax.set_ylabel('pupil area\n')
-    
+
 
 def plot_dff(trial, ax):
     '''
     plot each cell's dff response for a given trial
     '''
     trial_dff_traces = ophys_experiment.tidy_dff_traces.copy()
-    trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time'].values[0]) & 
+    trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time'].values[0]) &
                                         (trial_dff_traces.timestamps <= trial['stop_time'].values[0])]
     for cell_specimen_id in ophys_experiment.tidy_dff_traces['cell_specimen_id'].unique():
         ax.plot(trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['timestamps'],
                 trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['dff'])
         ax.set_title('deltaF/F responses')
         ax.set_ylabel('dF/F')
-    
+
 def make_trial_plot(trial):
     '''
     combine all plots for a given trial
@@ -320,12 +320,12 @@ def make_trial_plot(trial):
 
     for ax in axes:
         plot_stimuli(trial, ax)
-            
+
     plot_running(trial, axes[0])
 
     plot_licks(trial, axes[1])
     plot_rewards(trial, axes[1])
-    
+
     axes[1].set_title('licks and rewards')
     axes[1].set_yticks([])
     axes[1].legend(['licks','rewards'])
@@ -333,7 +333,7 @@ def make_trial_plot(trial):
     plot_pupil(trial, axes[2])
 
     plot_dff(trial, axes[3])
-    
+
     axes[3].set_xlabel('time in session (seconds)')
     fig.tight_layout()
     return fig, axes
@@ -345,13 +345,17 @@ Notes:
 * The animal was running steadily prior to the image change, then slowed to a stop after the change
 * The first lick occured about 500 ms after the change, and triggered an immediate reward
 * The pupil area shows some missing data - these were points that were filtered out as outliers.
-* There appears to be one neuron that was responding regularly to the stimulus prior to the change. 
+* There appears to be one neuron that was responding regularly to the stimulus prior to the change.
 
 ```{code-cell} ipython3
 stimulus_presentations.columns
 ```
 
-```{code-cell} ipython3
+```{warning}
+The code below **DOES NOT WORK**. You will have to debug it before you use it.
+```
+
+```ipython3
 trial = ophys_experiment.trials.query('hit').sample()
 fig, axes = make_trial_plot(trial)
 ```
@@ -364,7 +368,7 @@ Notes:
 * The pupil area shows some missing data - these were points that were filtered out as outliers.
 * One neuron had a large response just prior to the change, but none appear to be stimulus locked on this trial
 
-```{code-cell} ipython3
+```ipython3
 trial = ophys_experiment.trials.query('miss').sample(random_state = 2)
 fig, axes = make_trial_plot(trial)
 ```
@@ -377,7 +381,7 @@ Notes:
 * The pupil area shows some missing data - these were points that were filtered out as outliers.
 * There were not any neurons with obvious stimulus locked responses
 
-```{code-cell} ipython3
+```ipython3
 trial = ophys_experiment.trials.query('false_alarm').sample(random_state = 2)
 fig, axes = make_trial_plot(trial)
 ```
@@ -388,7 +392,7 @@ Notes:
 * The animal did not slow or lick during this trial
 * There were no rewards on this trial
 
-```{code-cell} ipython3
+```ipython3
 trial = ophys_experiment.trials.query('correct_reject').sample(random_state = 10)
 fig, axes = make_trial_plot(trial)
 ```
