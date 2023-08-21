@@ -14,6 +14,7 @@ chapters:
     - file: visual-coding-np/vcnp-quality-metrics
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
+  - file: background/Intrinsic-Signal-Imaging
 - file: visual-coding-2p/vc2p-background
   sections:
   - file: visual-coding-2p/vc2p-dataset
