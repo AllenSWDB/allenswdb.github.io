@@ -59,8 +59,6 @@ HVA functional properties.
 
 ![dorsal_ventral](/resources/Niell_visual_hierarchy.png)
 
-- More non-standard neurons in mouse {Masland martin}
-
 By studying visual physiology in awake mice, it was discovered early on that the
 locomotor activity of the mouse modulates the visual responses of some neurons
 in the visual cortex, such that the visually evoked responses are larger when

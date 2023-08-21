@@ -8,8 +8,6 @@ There are some key differences that are readily apparent between ephys and ophys
 
 The temporal resolutions of these two methodologies also differ in critical ways. Imaging is limited by the dwell time required to capture enough photons to distinguish physiological changes in fluorescence from noise, and the kinetics of calcium- dependent indicators additionally constrain the ability to temporally localize neural activity. While kilohertz-scale imaging has been achieved, most studies are based on data sampled at frame rates between 1 and 30 Hz. In contrast, extracellular electrophysiology requires sampling rates of 20 kHz or higher in order to capture the action potential waveform shape that is essential for accurate spike sorting. High sampling rates allow extracellular electrophysiology to pin-point neural activity in time with sub-millisecond resolution. 
 
-[box: can we see single spikes w/ ca imaging? Point to 2p method page for spatial/temporal trade off]
-
 We took advantage of our two complementary datasets to compare evoked responses in visual cortex recorded in awake mice under highly standardized conditions using either (calcium imaging)[] of genetically expressed GCaMP6f [vc2p-background] or (electrophysiology)[vcnp] using Neuropixels probes. We found that there were some marked differences in the responses across the population in the two modalities, and were able to account for a large part of these differences.
 
 The differences that we observed could largely be account for by a few keys things:
@@ -27,3 +25,4 @@ This effect is apparent in the sparsification of the responses of neurons when m
 ## Conclusion
 Ultimately, neither ephys or ophys perfectly capture the neural activity of the underlying neural population. They are each imperfect lenses on the true neural activity with distinct advantanges and disadvantages. Care should be used when analyzing these data to take the limitations of these modalities into account when interpreting the derived results.
 
+We have a complete manuscript on this comparison with much more detail that you can explore {cite:p}`siegle_ledochowitsch`
