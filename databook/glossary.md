@@ -68,11 +68,11 @@ GCaMP
 
 Higher visual area
 HVA
-  A <b>higher visual area</b> is a term for cortical visual areas that receive input from the
-  primary visual cortex, thus considered to be "higher" in the visual hierarchy. In primates,
-  higher visual areas include V2, V3, V4, V5, MT, etc. In the mouse, higher visual areas
-  include: VISl, VIsal, VISpm, VISam, VISrl among others. For more, see
-  {cite:t}`glickfeld_higher-order_2017`.
+  A **higher visual area** is a term for cortical visual areas that receive
+  input from the primary visual cortex, thus considered to be "higher" in the
+  visual hierarchy. In primates, higher visual areas include V2, V3, V4, V5, MT,
+  etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
+  VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
 
 Interneuron
