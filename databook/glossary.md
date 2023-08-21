@@ -20,7 +20,18 @@ Cre line
   experiments, Cre is used with loxP {term}`reporter` lines in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells. 
+  to be restricted to particular subset of cells.
+
+
+Driver line
+  A general term for transgenic mouse lines that are engineered to label a
+  specific cell type or cell population by expressing a specific gene under
+  the control of the promoter for the cell type or cell population of interest.
+  A {term}`Cre line` is a common type of Driver line that allows specific
+  genes to be expressed when crossed with a {term}`reporter line`.
+  The driver line determines what cell population is targeted, and the
+  reporter line determines what will be expressed in that specific cell population
+  (for example, GFP, GCaMP, or Channelrhodopsin).
 
 CSV
   Shorthand for "comma separated values", a common file format for storing
@@ -52,12 +63,17 @@ GCaMP
   domain of the calmodulin protein with green fluorescent protein (GFP). In
   these data we use primarily GCaMP6f as well as some GCaMP6s, fast and slow
   variants respectively. These two variants differ in their sensitivity as well
-  as their kinetics - primarily with regards to their decay. 
+  as their kinetics - primarily with regards to their decay. For more see
+  {cite:t}`chen2013`.
 
+Higher visual area
 HVA
-  A <b>higher visual area</b> is a term for cortical visual areas that are not
-  primary visual cortex, thought to be higher in the visual pathway. These
-  include: VISl, VIsal, VISpm, VISam, VISrl among others
+  A **higher visual area** is a term for cortical visual areas that receive
+  input from the primary visual cortex, thus considered to be "higher" in the
+  visual hierarchy. In primates, higher visual areas include V2, V3, V4, V5, MT,
+  etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
+  VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
+
 
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
@@ -91,12 +107,21 @@ Neuropixels
   Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
-  hundred of single units from a single probe with minimal brain damage. 
+  hundred of single units from a single probe with minimal brain damage.
+  {cite:t}`jun2017` describes these probes.
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
-Parvalbumin-positive interneuron
+Optogenetics
+  A method for controlling the activity of neurons by expressing light activated
+  ion channels (using a {term}`reporter line` ) in a specific subpopulation of
+  cells (using a {term}`Driver line`) to enable termporally precise control of
+  neural spiking. Spiking can be suppressed or enhanced using different types of
+  reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
+
+
+parvalbumin-positive interneuron
 PV+ neuron
     Fast spiking neurons, also known as fast spiking interneurons, is a
     short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
@@ -141,17 +166,47 @@ RS
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
 
+reporter
+ An exogenous coding region joined to a promoter sequence or element in an
+ expression vector that is introduced into cells to provide the means for
+ measuring the promoter activity
+ [source](https://www.promega.com/resources/guides/cell-biology/bioluminescent-reporters/#:~:text=What%20is%20a%20Reporter%20Gene,for%20measuring%20the%20promoter%20activity.).
+
+reporter line
+  A <b>reporter line</b> is a transgenic mouse line that is engineered to
+  express a specific protein that enables monitoring or manipulation of neural
+  activity (such as GFP, GCaMP, or Channelrhodopsin) under the control of cre or
+  FLP recominase, or a tetracycline transactivator system. The gene engineered
+  into the reporter line will not be expressed unless the protein that controls
+  reporter gene expression (such as cre or FLP) is present, such as by breeding
+  a mouse from the reporter line with a mouse from a specific {term}`Driver
+  line` that expresses the control protein. Injecting a virus that delivers cre
+  or FLP in a cell type specific manner can also trigger the expression of the
+  reporter gene.
+
+Retinotopy
+  <b>retinotopy</b> refers to the mapping of visual space on to neural space.
+  Most visual areas of the brain contain an orderly map of visual space such that
+  neighboring regions in space are represented by neighboring regions in the brain.
+  Retinotopic maps are typically measured in terms of altitude (aka vertical retinotopy),
+  referring to the axis from upper to lower visual field, and and azimuth
+  (aka horizontal retinotopy), referring to the axis from left to right in space.
+
 ROI
-  A <b>region of interest</b> that is identified in a two photon calcium imaging movie. This is a mask containing pixels thought to belong to a neuron.
+  A <b>region of interest</b> is a general term that describes a subregion of an image.
+  When used in reference to two photon calcium imaging, an ROI is the mask containing pixels thought to belong to a single neuron.
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
+  When used in reference to drifting gratings, spatial frequency means the distance between the
+  bars of the grating. Typically measured as cycles per degree.
 
 Targeted structure
   The brain region where data was collected from.
 
 Temporal frequency
   How many complete periods the signal goes through for a given unit of time.
+  Typically measured in Hertz.
 
 Transgenic line
   A mouse line whose genome has been altered by the introduction of one or more
@@ -161,11 +216,16 @@ Transgenic line
 
 Two-photon calcium imaging
   A term for techniques which measure neural activity of neurons by measuring a
-  fluorescent calcium indicator. These indicators are usually a protein expressed
-  in a cell, and in some cases are genetically encoded, such as {term}`GCaMP`. At
-  rest a neuron has low levels of calcium, and when the neuron spikes calcium
-  flows into the neuron and raises the level of calcium. [add details about two
-  photon imaging. Add citation to a review]
+  fluorescent calcium indicator. These indicators are usually a protein
+  expressed in a cell, such as {term}`GCaMP`, often using a specific combination
+  of {term}`Driver line` and {term}`reporter line`s to express GCaMP in a
+  specific subset of neurons. Fluorescent dyes can also be used to perform
+  calcium imaging. At rest a neuron has low levels of calcium, and when the
+  neuron spikes calcium flows into the neuron and raises the level of calcium,
+  which binds to the calcium indicator and increases the emitted fluorescence in
+  a specific wavelength. See {cite:t}`svoboda2006` for a review of two-photon
+  calcium imaging.
+
 
 waveform
 spike

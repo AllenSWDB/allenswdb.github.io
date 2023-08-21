@@ -34,7 +34,7 @@ cache = VisualBehaviorOphysProjectCache.from_local_cache(
 
 We can use the <code>VisualBehaviorOphysProjectCache</code> to explore the parameters of this dataset. Let's start by examining the cache metadata tables.
 
-# VBO Metadata Tables
+## VBO Metadata Tables
 
 The data manifest consists of 4 tables: 
 
@@ -96,66 +96,66 @@ behavior_sessions.columns
 Here is a brief description of each column: 
 
 age_in_days
-: int age of mouse in days
+: *int* age of mouse in days
 
 cre_line
-: string	cre driver line for a transgenic mouse
+: *string*	cre driver line for a transgenic mouse
 
 date_of_acquisition	
-: date time object	date and time of experiment acquisition, yyyy-mm-dd hh:mm:ss.
+: *date time object*	date and time of experiment acquisition, yyyy-mm-dd hh:mm:ss.
 
 driver_line
-:	list of string	all driver lines for transgenic mouse
+:	*list of string*	all driver lines for transgenic mouse
 
 equipment_name
-: string	identifier for equipment data was collected on 
+: *string*	identifier for equipment data was collected on 
 
 file_id
-:	int	 lookup id to retrieve NWB file from S3 or the local cache
+:	*int*	 lookup id to retrieve NWB file from S3 or the local cache
 
 full_genotype
-:	string	full genotype of transgenic mouse
+:	*string*	full genotype of transgenic mouse
 
 indicator
-:	string	calcium indicator associated with transgenic mouse reporter line
+:	*string*	calcium indicator associated with transgenic mouse reporter line
 
 mouse_id
-:	int	unique identifier for a mouse
+:	*int*	unique identifier for a mouse
 
 ophys_container_id
-:	int	unique identifier for all ophys containers (grouping of ophys experiments for a given imaging plane) associated with the behavior session
+:	*int*	unique identifier for all ophys containers (grouping of ophys experiments for a given imaging plane) associated with the behavior session
 
 ophys_experiment_id
-:	int	unique identifier for all ophys experiments (imaging planes) associated with the behavior session
+:	*int*	unique identifier for all ophys experiments (imaging planes) associated with the behavior session
 
 ophys_session_id
-:	int	unique identifier for the ophys session associated with the behavior session
+:	*int*	unique identifier for the ophys session associated with the behavior session
 
 prior_exposures_to_image_set
-:	float 64	number of prior sessions where the mouse was exposed to the image set used in the current session, starting at 0 for first exposure
+:	*float 64*	number of prior sessions where the mouse was exposed to the image set used in the current session, starting at 0 for first exposure
 
 prior_exposures_to_omissions
-:	int 64	number of prior sessions where the mouse exposed to stimulus omissions, starting at 0 for first exposure 
+:	*int 64*	number of prior sessions where the mouse exposed to stimulus omissions, starting at 0 for first exposure 
 
 prior_exposures_to_session_type
-:	int 64	number of prior sessions where the mouse was exposed to the session type of the current session, starting at 0 for first exposure
+:	*int 64*	number of prior sessions where the mouse was exposed to the session type of the current session, starting at 0 for first exposure
 
 project_code
-:	string dataset variant the mouse belongs to, determined by whether single or multi-plane imaging was used, which stimulus set was used during training, and what areas and depths were recorded during ophys 
+:	*string* dataset variant the mouse belongs to, determined by whether single or multi-plane imaging was used, which stimulus set was used during training, and what areas and depths were recorded during ophys 
 
 reporter_line
-:	string	reporter line for transgenic mouse
+:	*string*	reporter line for transgenic mouse
 
 session_number
-:	float 64	 for ophys (non-training) sessions only, session number is the number associated with the session type. (Eg. OPHYS_2_images_A_passive has session_number 2). NaN for training sessions.
+:	*float 64*	 for ophys (non-training) sessions only, session number is the number associated with the session type. (Eg. OPHYS_2_images_A_passive has session_number 2). NaN for training sessions.
 
 session_type
-:	string	type of session indicating whether the session was during behavior training or ophys, which visual stimulus was shown, and whether the session was active behavior or passive imaging
+:	*string*	type of session indicating whether the session was during behavior training or ophys, which visual stimulus was shown, and whether the session was active behavior or passive imaging
 
 sex
-: string	sex of the mouse
+: *string*	sex of the mouse
 
-### Mouse specific metadata
+## Mouse specific metadata
 
 The `mouse_id` is a 6-digit unique identifier for each experimental animal in the dataset
 
@@ -203,7 +203,7 @@ How many mice per transgenic line?
 behavior_sessions.groupby(['full_genotype', 'mouse_id']).count().reset_index().groupby('full_genotype').count()[['mouse_id']]
 ```
 
-### Dataset variants 
+## Dataset variants 
 
 Different groups of mice were trained on the task using different image sets and were imaged using different microscopes. These distinct groups of mice are referred to as <b>dataset variants</b> and can be identified using the `project_code` column. 
 
@@ -247,7 +247,7 @@ behavior_sessions = behavior_sessions.drop(columns='project_code_session')
 behavior_sessions = behavior_sessions.rename(columns={'project_code_mouse': 'project_code'})
 ```
 
-### Session Types
+## Session Types
 
 The `session_type` for each behavior session indicates the behavioral training stage or 2-photon imaging conditions for that particular session. This determines what stimuli were shown and what task parameters were used.  
 
@@ -305,8 +305,6 @@ for project_code in behavior_sessions.project_code.unique():
 
 The `ophys_session_table` includes all of the metadata columns available in the `behavior_session_table`, but is indexed using the `ophys_session_id` instead of the `behavior_session_id`, and only includes session types beginning in `OPHYS` that passed quality control and have 2-photon data available for analysis.
 
-All Scientifica experiments were performed in the primary visual cortex (VISp), while Multiscope experiments had different combinations of `imaging_depth` and `targeted_structure`, with 4 imaging depths and 2 targeted structures for `VisualBehaviorMultiscope`, and 2 imaging depths and 4 targeted structures for `VisualBehaviorMultiscope4areasx2d`. The information about which areas and depths were imaged in each session is available in the `ophys_session_table`, as you will see below. 
-
 How many ophys sessions are available? 
 
 ```python
@@ -328,7 +326,6 @@ How many imaging planes, indicated by a unique `ophys_experiment_id` are there f
 # does the number of experiments and containers depend on the microscope used? 
 ophys_sessions[['ophys_experiment_id', 'ophys_container_id', 'equipment_name']][:15]
 ```
-
 
 # Ophys Experiment Table
 
@@ -354,13 +351,13 @@ ophys_sessions.columns
 ophys_experiments.columns
 ```
 
-### Imaging plane specific metadata
+## Imaging plane specific metadata
 
 imaging_depth
-:	int	depth in microns from the cortical surface, where the data for a given imaging plane was collected
+:	*int*	depth in microns from the cortical surface, where the data for a given imaging plane was collected
 
 targeted_structure
-:	string	 brain area targeted for a given imaging plane 
+:	*string*	 brain area targeted for a given imaging plane 
 
 What `imaging_depths` and `targeted_structures` are available? Are they different depending on `project_code`?
 
@@ -374,23 +371,27 @@ for project_code in ophys_experiments.project_code.unique():
     print('\n')
 ```
 
-### Properties of session types
+Experiments for `project_code`s <b>VisualBehavior</b> and <b>VisualBehaviorTask1B</b> were collected on the Scientifica single-plane 2-photon microscope from the primary visual cortex (VISp). 
+
+Multiscope experiments had different combinations of `imaging_depth` and `targeted_structure`, with 4 imaging depths and 2 targeted structures for the <b>VisualBehaviorMultiscope</b> `project_code`, and 2 imaging depths and 4 targeted structures for <b>VisualBehaviorMultiscope4areasx2d</b> `project_code`. 
+
+## Properties of session types
 
 The `ophys_experiment_table` also includes a useful parsing of the `session_type` and `prior_exposures_to_image_set` columns that allows you to filter the data by what `image_set` was used, whether a session is active behavior or `passive` viewing, and whether the session was the first exposure to the novel image set or a subsequent exposure (the `experience_level`).
 
 image_set
-: string image set shown in that session
+: *string* image set shown in that session
 
 passive
-: Boolean True for sessions where the lick spout was removed so that no rewards were delivered, and the mouse received its daily water prior to the session
+: *Boolean* True for sessions where the lick spout was removed so that no rewards were delivered, and the mouse received its daily water prior to the session
 
 experience_level
-: string 'Familiar': image set mouse was trained on, 'Novel 1': the first session with the novel image set, 'Novel >1': a subsequent session with the novel image set
+: *string* 'Familiar': image set mouse was trained on, 'Novel 1': the first session with the novel image set, 'Novel >1': a subsequent session with the novel image set
 
 
-### Ophys containers
+## Ophys containers
 
-<b> The `ophys_experiment_table` is useful for identifying <b>ophys containers</b> to analyze </b>
+The `ophys_experiment_table` is useful for identifying the set of sessions that were recorded from a single imaging plane, called an <b>ophys container</b>. 
 
 Each `ophys_experiment_id` represents a single imaging plane recorded in a specific session, and is associated with a single `ophys_session_id`. The `ophys_container_id` indicates the collection of ophys sessions for a given imaging plane and can be used to identify all the sessions available for a given population of neurons. 
 
@@ -412,10 +413,62 @@ ophys_experiments.groupby(['ophys_container_id', 'session_type']).count()[['ophy
 ophys_experiments.groupby(['ophys_container_id', 'session_type']).count()[['ophys_session_id']][-25:]
 ```
 
-## Ophys cells table
+# Ophys cells table
 
+The `ophys_cells_table` contains the unique identifiers for each neuron in the dataset. 
 
-################## TBD ####################
+```python
+# get the ophys_cells_table
+ophys_cells_table = cache.get_ophys_cells_table()  
 
+ophys_cells_table.head()
+```
 
-For additional info about the contents of the metadata tables, check out [this tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_ophys_dataset_manifest.html)
+The `cell_roi_id` is the ID of each {term}`ROI` segmented in each ophys_experiment (i.e. a single imaging plane in a single session). 
+
+The `cell_specimen_id` is the cell ID assigned after ROIs are matched across sessions. 
+
+The `cell_specimen_id` is shared across all sessions in which an ROI was segmented and matched, while the `cell_roi_id` is unique to an individual ophys_experiment_id. 
+
+Metadata for each cell in the `ophys_cells_table`, such as the `imaging_depth` and `targeted_structure`it was recorded in, can be obtained by merging the `ophys_cells_table` with the `ophys_experiment_table` using the `ophys_experiment_id`. 
+
+```python
+# Get the ophys_experiment_table
+ophys_experiment_table = cache.get_ophys_experiment_table()
+# Merge the ophys_experiment_table with the ophys_cells_table to add metadata for each cell
+ophys_cells_table = ophys_cells_table.merge(ophys_experiment_table, on='ophys_experiment_id')
+ophys_cells_table.head()
+```
+
+Let's look at the metadata for a specific `cell_specimen_id`, which is the cell identifier that links neurons recorded across multiple sessions. How many sessions was this cell identified in? 
+
+```python
+cell_specimen_id = 1120127083
+cell_metadata = ophys_cells_table[ophys_cells_table.cell_specimen_id==cell_specimen_id]
+```
+
+Note that the `ophys_container_id` is the same for all sessions recorded for this `cell_specimen_id`. 
+
+Which `session_type`s are available for this cell? 
+
+```python
+cell_metadata.session_type.unique()
+```
+
+Grab another `cell_specimen_id` from this same `ophys_container_id` and see how many sessions it was recorded in. 
+
+```python
+ophys_container_id = cell_metadata.ophys_container_id.values[0]
+cells_from_this_container = ophys_cells_table[ophys_cells_table.ophys_container_id==ophys_container_id].cell_specimen_id.unique()
+
+cell_specimen_id = cells_from_this_container[10]
+ophys_cells_table[ophys_cells_table.cell_specimen_id==cell_specimen_id].session_type.unique()
+```
+
+This cell was only detected in one session. In order for neurons to be detected by the segmentation algorithm, they must have some activity at some point during the session, so that there is enough calcium fluorescence for them to be observed. When a cell is detected in some sessions and not others, it most likely means that it was not active in all sessions. 
+
+Another possibility is that the imaging plane was not perfectly matched from one day to the next, and the cell simply wasnt present on some days. This is less likely to occur in this dataset because of our strict quality control process designed to remove improperly matched sessions from the dataset. The imaging plane recorded in each session is compared with an anatomical stack acquired +/-30 um around the targeted imaging plane location, and the distance from the target location is computed for each session. Experiments where the imaging plane was >10um from the target location are discarded. Given the size of a neuron's cell body (~15-30um), and the z-resolution of the microscope (~5um point spread function), this criterion ensures that the experiments included in the dataset are well matched across sessions and the same cells are within the recorded field of view from day to day.
+
+# Technical whitepaper
+
+For detailed information on experimental procedures and data processing steps used to generate this dataset, see the [Visual Behavior Ophys Technical Whitepaper](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/4e/be/4ebe2911-bd38-4230-86c8-01a86cfd758e/visual_behavior_2p_technical_whitepaper.pdf)

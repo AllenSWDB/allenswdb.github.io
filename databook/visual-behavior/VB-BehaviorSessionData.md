@@ -11,25 +11,11 @@ kernelspec:
   name: allensdk
 ---
 
-+++ {"papermill": {"duration": 0.013492, "end_time": "2023-01-25T19:42:49.984714", "exception": false, "start_time": "2023-01-25T19:42:49.971222", "status": "completed"}}
-
 # Behavior Session Data
 
-This notebook shows how to access behavior session data for one mouse, and to aggregate data across sessions to look at training history.
-
-+++ {"papermill": {"duration": 0.01247, "end_time": "2023-01-25T19:42:58.345053", "exception": false, "start_time": "2023-01-25T19:42:58.332583", "status": "completed"}}
-
-### Imports
+This notebook shows how to access all behavior session data for one mouse and aggregate data across sessions to look at training history.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 6.970941
-  end_time: '2023-01-25T19:43:05.328600'
-  exception: false
-  start_time: '2023-01-25T19:42:58.357659'
-  status: completed
----
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -50,33 +36,14 @@ allensdk.__version__
 from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBehaviorOphysProjectCache
 ```
 
-+++ {"papermill": {"duration": 0.01269, "end_time": "2023-01-25T19:43:05.432005", "exception": false, "start_time": "2023-01-25T19:43:05.419315", "status": "completed"}}
-
 ## Load the cache and get the behavior sessions table
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.021208
-  end_time: '2023-01-25T19:43:05.466700'
-  exception: false
-  start_time: '2023-01-25T19:43:05.445492'
-  status: completed
-tags: [parameters]
----
 # Set the path to the dataset
 cache_dir = '/root/capsule/data/'
 ```
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 1.924991
-  end_time: '2023-01-25T19:43:07.440186'
-  exception: false
-  start_time: '2023-01-25T19:43:05.515195'
-  status: completed
----
 # If you are working with data in the cloud in Code Ocean, 
 # or if you have already downloaded the full dataset to your local machine, 
 # you can instantiate a local cache
@@ -88,8 +55,6 @@ cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, us
 behavior_session_table = cache.get_behavior_session_table()   
 ```
 
-+++ {"papermill": {"duration": 0.014661, "end_time": "2023-01-25T19:43:07.469669", "exception": false, "start_time": "2023-01-25T19:43:07.455008", "status": "completed"}}
-
 ### View a sample of the behavior session table
 The `behavior_session_table` is a Pandas DataFrame with one row for every behavior session and informative metadata columns. 
 
@@ -97,37 +62,17 @@ The `behavior_session_table` includes sessions performed on a two-photon imaging
 
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.06066
-  end_time: '2023-01-25T19:43:07.544277'
-  exception: false
-  start_time: '2023-01-25T19:43:07.483617'
-  status: completed
----
 # view 10 randomly selected rows of the table using pandas sample command
 behavior_session_table.sample(10)
 ```
-
-+++ {"papermill": {"duration": 0.015112, "end_time": "2023-01-25T19:43:07.575131", "exception": false, "start_time": "2023-01-25T19:43:07.560019", "status": "completed"}}
 
 ## Select a mouse for analysis
 We'll choose one mouse id from the full list of unique mouse IDs in the dataset
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.02806
-  end_time: '2023-01-25T19:43:07.618303'
-  exception: false
-  start_time: '2023-01-25T19:43:07.590243'
-  status: completed
----
 mouse_id = behavior_session_table['mouse_id'].unique()[76]
 mouse_id
 ```
-
-+++ {"papermill": {"duration": 0.014407, "end_time": "2023-01-25T19:43:07.647771", "exception": false, "start_time": "2023-01-25T19:43:07.633364", "status": "completed"}}
 
 ### Query the full behavior sessions table for all sessions that this mouse performed
 
@@ -135,16 +80,7 @@ This will return a subset of the full `behavior_session_table` in which the mous
 
 What we then see is a table that has metadata for every session performed by this mouse, in sequential order. The `equipment_name` column tells us where the session was run on that day and the `session_type` column tells us the name of the session type. See the technical white paper for a detailed description of the progression of stages.
 
-
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.087386
-  end_time: '2023-01-25T19:43:07.750283'
-  exception: false
-  start_time: '2023-01-25T19:43:07.662897'
-  status: completed
----
 this_mouse_table = behavior_session_table.query('mouse_id == @mouse_id').sort_values(by = 'date_of_acquisition')
 # note that the following is functionally equivalent if you find the syntax easier to read: 
 # this_mouse_table = behavior_session_table[behavior_session_table['mouse_id'] == mouse_id]
@@ -179,29 +115,15 @@ When the below cell completes, all behavior sessions for this mouse will be held
 
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 408.953698
-  end_time: '2023-01-25T19:49:56.754812'
-  exception: false
-  start_time: '2023-01-25T19:43:07.801114'
-  status: completed
----
 behavior_session_ids = this_mouse_table.index.values
 behavior_session_dict = {}
 for behavior_session_id in behavior_session_ids:
     behavior_session_dict[behavior_session_id] = cache.get_behavior_session(behavior_session_id)
 ```
 
-+++ {"papermill": {"duration": 0.131939, "end_time": "2023-01-25T19:49:57.128830", "exception": false, "start_time": "2023-01-25T19:49:56.996891", "status": "completed"}}
-
 ## Examine attributes of one `BehaviorSession` 
 
-+++
-
 Below we will give a brief overview of what data is available for each `BehaviorSession`
-
-+++
 
 Let's look at some of the attributes of the last "handoff ready session"
 
@@ -210,7 +132,6 @@ We can filter the full table to get the last `TRAINING_5_images_A_handoff_ready`
 Each `session_type` is distinguished by what stimulus was shown and what stage of training or imaging the mouse was in. 
 
 <b> To learn more about the details of each `session_type`, see the VISUAL BEHAVIOR TASK OVERVIEW. </b>
-
 
 ```{code-cell} ipython3
 # get the last "TRAINING_5_" session_type
@@ -223,38 +144,18 @@ behavior_session = behavior_session_dict[behavior_session_id]
 ```
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.156803
-  end_time: '2023-01-25T19:49:57.418325'
-  exception: false
-  start_time: '2023-01-25T19:49:57.261522'
-  status: completed
----
 # list all attributes of the BehaviorSession object
 behavior_session.list_data_attributes_and_methods()
 ```
 
-+++ {"papermill": {"duration": 0.133392, "end_time": "2023-01-25T19:49:57.679499", "exception": false, "start_time": "2023-01-25T19:49:57.546107", "status": "completed"}}
-
 Note that any attribute can be followed by a `?` in a Jupyter Notebook to see the docstring. For example, running the cell below will make a frame appear at the bottom of your browser with the docstring for the `running_speed` attribute.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.139962
-  end_time: '2023-01-25T19:49:57.952072'
-  exception: false
-  start_time: '2023-01-25T19:49:57.812110'
-  status: completed
----
 behavior_session = behavior_session_dict[behavior_session_id]
 behavior_session.running_speed?
 ```
 
 ### Metadata
-
-+++
 
 The `metadata` attribute is a dictionary containing information about the `BehaviorSession` being examined, including information about the mouse, like the `full_genotype` and information about the session, such as the `session_type`
 
@@ -264,49 +165,23 @@ behavior_session.metadata
 
 ### Task parameters
 
-+++
-
 The `task_parameters` attribute contains information about the struture of the behavior task for that specific session. 
 
-Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the   `blank_duration_sec` is 0.5 seconds. This determines the inter-stimulus interval. 
+Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the `blank_duration_sec` is 0.5 seconds. This determines the inter-stimulus interval. 
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.291819
-  end_time: '2023-01-25T19:49:58.636252'
-  exception: false
-  start_time: '2023-01-25T19:49:58.344433'
-  status: completed
----
 behavior_session_dict[behavior_session_id].task_parameters
 ```
-
-+++ {"papermill": {"duration": 0.134006, "end_time": "2023-01-25T19:49:58.957153", "exception": false, "start_time": "2023-01-25T19:49:58.823147", "status": "completed"}}
-
-
-
-+++ {"papermill": {"duration": 0.129106, "end_time": "2023-01-25T19:49:59.511144", "exception": false, "start_time": "2023-01-25T19:49:59.382038", "status": "completed"}}
-
+  
 ### Stimulus presentations
 
 The `stimulus_presentations` table contains one entry for each stimulus that was presented during the session, along with important metadata including stimulus `start_time`, `image_name`, and whether the stimulus was an image change (`is_change` = True) or an image omission (`omitted` = True).
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.175659
-  end_time: '2023-01-25T19:49:59.820101'
-  exception: false
-  start_time: '2023-01-25T19:49:59.644442'
-  status: completed
----
 behavior_session.stimulus_presentations.head(5)
 ```
 
 ### Trials
-
-+++
 
 While the `stimulus_presentations` table has one entry for each individual stimulus that was presented, the `trials` table contains one entry for each behavioral trial, which consists of a series of stimulus presentations and is defined by the `change_time`. 
 
@@ -341,63 +216,29 @@ behavior_session.trials.query('hit').sample(random_state=0).to_dict('records')
 
 The `trials` table includes the times of licks and rewards during each trial, but this information is also available in separate tables, described below.
 
-+++ {"papermill": {"duration": 0.187308, "end_time": "2023-01-25T19:50:00.148898", "exception": false, "start_time": "2023-01-25T19:49:59.961590", "status": "completed"}}
-
 ### Lick times
 
 The `licks` attribute is a dataframe with one entry for every detected lick onset time, assigned the time of the corresponding visual stimulus frame.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.137558
-  end_time: '2023-01-25T19:50:00.404128'
-  exception: false
-  start_time: '2023-01-25T19:50:00.266570'
-  status: completed
----
 behavior_session.licks.sample(5)
 ```
-
-+++ {"papermill": {"duration": 0.124925, "end_time": "2023-01-25T19:50:00.663686", "exception": false, "start_time": "2023-01-25T19:50:00.538761", "status": "completed"}}
-
 ### Rewards
 
 The `rewards` attribute is a dataframe containing one entry for every reward that was delivered, assigned the time of the corresponding visual stimulus frame. `auto_rewarded` is True if the reward was delivered without requiring a preceding lick. The first 5 change trials of each session are `auto_rewarded` = True.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.154797
-  end_time: '2023-01-25T19:50:00.940948'
-  exception: false
-  start_time: '2023-01-25T19:50:00.786151'
-  status: completed
----
 behavior_session.rewards.sample(5)
 ```
-
-+++ {"papermill": {"duration": 0.143065, "end_time": "2023-01-25T19:50:01.221576", "exception": false, "start_time": "2023-01-25T19:50:01.078511", "status": "completed"}}
-
 ### Running speed
 
 Mice are free to run on a circular disc during task performance. The `running_speed` table contains one entry for each read of the analog input line monitoring the encoder voltage, polled at ~60 Hz.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.146903
-  end_time: '2023-01-25T19:50:01.504085'
-  exception: false
-  start_time: '2023-01-25T19:50:01.357182'
-  status: completed
----
 behavior_session.running_speed.head()
 ```
 
 ### Stimulus templates
-
-+++
 
 The `stimulus_templates` attribute is a dataframe containing one row per stimulus shown during the change detection task. The index is the `image_name`. The columns contain numpy arrays of the stimuli that were shown during the session. 
 
@@ -410,56 +251,32 @@ behavior_session.stimulus_templates
 ```{code-cell} ipython3
 stimulus_templates = behavior_session.stimulus_templates.copy()
 stimuli = stimulus_templates.index.values
-plt.imshow(stimulus_templates.loc[stimuli[0]], cmap='gray')
+plt.imshow(stimulus_templates.loc[stimuli[0]]['unwarped'], cmap='gray')
 ```
 
 ### Stimulus timestamps
-
-+++
 
 Finally, a very important piece of information - the timestamps for each frame of visual stimulus display. 
 
 All behavioral measurements (`running_speed`, `licks`, & `rewards`) are made at the frequency of visual stimulus display (60Hz) and share frame times with the `stimulus_presentations`. You can use the frame index from any of the other behavior tables to determine the corresponding timestamp. 
 
 ```{code-cell} ipython3
-behavior_sessions.stimulus_timestamps
+behavior_session.stimulus_timestamps
 ```
 
-+++ {"papermill": {"duration": 0.132564, "end_time": "2023-01-25T19:50:01.771398", "exception": false, "start_time": "2023-01-25T19:50:01.638834", "status": "completed"}}
-
 ## Plot behavior data for a portion of one session
-
-+++ {"papermill": {"duration": 0.13635, "end_time": "2023-01-25T19:50:02.039751", "exception": false, "start_time": "2023-01-25T19:50:01.903401", "status": "completed"}}
 
 First, add a column to the stimulus_presentations table that assigns a unique color to every stimulus
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.152164
-  end_time: '2023-01-25T19:50:02.322966'
-  exception: false
-  start_time: '2023-01-25T19:50:02.170802'
-  status: completed
----
 unique_stimuli = [stimulus for stimulus in behavior_session.stimulus_presentations['image_name'].unique()]
 colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
 behavior_session._stimuli._presentations.value['color'] = behavior_session.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
 ```
 
-+++ {"papermill": {"duration": 0.131931, "end_time": "2023-01-25T19:50:02.585836", "exception": false, "start_time": "2023-01-25T19:50:02.453905", "status": "completed"}}
-
 Now make some simple plotting functions to plot these datastreams
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.156587
-  end_time: '2023-01-25T19:50:02.920151'
-  exception: false
-  start_time: '2023-01-25T19:50:02.763564'
-  status: completed
----
 def plot_running(ax, initial_time, final_time):
     '''
     a simple function to plot running speed between two specified times on a specified axis
@@ -468,11 +285,11 @@ def plot_running(ax, initial_time, final_time):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
-    running_sample = behavior_session.running_speed.query('timestamps >= @initial_time and timestamps <= @final_time')
-    ax.plot(
-        running_sample['timestamps'],
-        running_sample['speed']
-    )
+    running_sample = behavior_session.running_speed.copy()
+    running_sample = running_sample[(running_sample.timestamps >= initial_time) & 
+                                    (running_sample.timestamps <= final_time)] 
+    ax.plot(running_sample['timestamps'],
+            running_sample['speed'])
 
 def plot_licks(ax, initial_time, final_time):
     '''
@@ -482,14 +299,11 @@ def plot_licks(ax, initial_time, final_time):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
-    licking_sample = behavior_session.licks.query('timestamps >= @initial_time and timestamps <= @final_time')
-    ax.plot(
-        licking_sample['timestamps'],
-        np.zeros_like(licking_sample['timestamps']),
-        marker = 'o',
-        color = 'black',
-        linestyle = 'none'
-    )
+    licking_sample = behavior_session.licks.copy()
+    licking_sample = licking_sample[(licking_sample.timestamps >= initial_time) & 
+                                    (licking_sample.timestamps <= final_time)]     
+    ax.plot(licking_sample['timestamps'], np.zeros_like(licking_sample['timestamps']),
+            marker = 'o', color = 'black', linestyle = 'none')
     
 def plot_rewards(ax, initial_time, final_time):
     '''
@@ -499,16 +313,11 @@ def plot_rewards(ax, initial_time, final_time):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
-    rewards_sample = behavior_session.rewards.query('timestamps >= @initial_time and timestamps <= @final_time')
-    ax.plot(
-        rewards_sample['timestamps'],
-        np.zeros_like(rewards_sample['timestamps']),
-        marker = 'd',
-        color = 'blue',
-        linestyle = 'none',
-        markersize = 12,
-        alpha = 0.5
-    )
+    rewards_sample = behavior_session.rewards.copy()
+    rewards_sample = rewards_sample[(rewards_sample.timestamps >= initial_time) & 
+                                    (rewards_sample.timestamps <= final_time)]      
+    ax.plot(rewards_sample['timestamps'], np.zeros_like(rewards_sample['timestamps']),
+            marker = 'd', color = 'blue', linestyle = 'none', markersize = 12, alpha = 0.5)
     
 def plot_stimuli(ax, ti, tf):
     '''
@@ -518,24 +327,16 @@ def plot_stimuli(ax, ti, tf):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
-    stimulus_presentations_sample = behavior_session.stimulus_presentations.query('end_time >= @initial_time and start_time <= @final_time')
+    stimulus_presentations_sample = behavior_session.stimulus_presentations.copy()
+    stimulus_presentations_sample = stimulus_presentations_sample[(stimulus_presentations_sample.end_time >= initial_time) & 
+                                    (stimulus_presentations_sample.start_time <= final_time)]     
     for idx, stimulus in stimulus_presentations_sample.iterrows():
         ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus['color'], alpha=0.25)
 ```
 
-+++ {"papermill": {"duration": 0.130202, "end_time": "2023-01-25T19:50:03.188652", "exception": false, "start_time": "2023-01-25T19:50:03.058450", "status": "completed"}}
-
 Select a time period during the session and generate the plot
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.28477
-  end_time: '2023-01-25T19:50:03.603688'
-  exception: false
-  start_time: '2023-01-25T19:50:03.318918'
-  status: completed
----
 initial_time = 775 # initial time for plot, in seconds
 final_time = 800 # final time for plot, in seconds
 
@@ -554,28 +355,13 @@ ax.set_xlim(initial_time, final_time)
 ax.set_title('a short section of the session');
 ```
 
-+++ {"papermill": {"duration": 0.133757, "end_time": "2023-01-25T19:50:03.886182", "exception": false, "start_time": "2023-01-25T19:50:03.752425", "status": "completed"}}
-
 Above, we can see that stimuli were being delivered at a regular cadence (250 ms on, 500 ms off). There were changes to new stimuli at t = 778.6 and t = 793.7, as indicated by the change in the color of the bars. The mouse licked inside of the required response window following both stimulus changes and received a reward coincident with the first lick following the change. The subsequent licks are likely a result of the mouse consuming the water reward. There was also a brief bout of two licks, likely representing impulsivity, at t = 786.9.
-
-+++
 
 ## Evalute behavior performance across all sessions for this mouse
 
-+++ {"papermill": {"duration": 0.134799, "end_time": "2023-01-25T19:50:05.323809", "exception": false, "start_time": "2023-01-25T19:50:05.189010", "status": "completed"}}
-
 One useful method of the `BehaviorSession` object is the `get_performance_metrics` method, which returns some summary metrics on the session.
 
-
 ```{code-cell} ipython3
----
-papermill:
-  duration: 1.557581
-  end_time: '2023-01-25T19:50:07.012439'
-  exception: false
-  start_time: '2023-01-25T19:50:05.454858'
-  status: completed
----
 # get behavior performance metrics for one session
 behavior_session_dict[behavior_session_id].get_performance_metrics()
 ```
@@ -586,8 +372,6 @@ You can also access performing metrics computed on a rolling basis across trials
 behavior_session.get_rolling_performance_df()
 ```
 
-+++ {"papermill": {"duration": 0.201801, "end_time": "2023-01-25T19:50:07.348735", "exception": false, "start_time": "2023-01-25T19:50:07.146934", "status": "completed"}}
-
 ### Aggregate performance metrics across sessions 
 
 We can build out a new table that has all performance data for every session by iterating over the entries of our `behavior_session_dict`
@@ -595,45 +379,20 @@ We can build out a new table that has all performance data for every session by 
 This might take a minute or so. The AllenSDK will be extracting the performance data from the NWB file for every session individually.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 39.496893
-  end_time: '2023-01-25T19:50:46.985102'
-  exception: false
-  start_time: '2023-01-25T19:50:07.488209'
-  status: completed
----
 # Let's use list comprehension to collect the metrics for each session
 behavior_metrics_list = [behavior_session_dict[behavior_session_id].get_performance_metrics() for behavior_session_id in behavior_session_ids]
+
 # Now turn it into a dataframe and set the index to be the behavior_session_id
 behavior_performance_table = pd.DataFrame(behavior_metrics_list).set_index(behavior_session_ids)
 ```
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.174689
-  end_time: '2023-01-25T19:50:47.299582'
-  exception: false
-  start_time: '2023-01-25T19:50:47.124893'
-  status: completed
----
 behavior_performance_table.head()
 ```
-
-+++ {"papermill": {"duration": 0.148638, "end_time": "2023-01-25T19:50:47.587938", "exception": false, "start_time": "2023-01-25T19:50:47.439300", "status": "completed"}}
 
 We can merge this table with the metadata table we built for this mouse because they have the same index (`behavior_session_id`)
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.207967
-  end_time: '2023-01-25T19:50:47.948553'
-  exception: false
-  start_time: '2023-01-25T19:50:47.740586'
-  status: completed
----
 this_mouse_table = this_mouse_table.merge(
     behavior_performance_table,
     left_index = True,
@@ -642,28 +401,14 @@ this_mouse_table = this_mouse_table.merge(
 this_mouse_table.head()
 ```
 
-+++ {"papermill": {"duration": 0.126078, "end_time": "2023-01-25T19:50:48.228162", "exception": false, "start_time": "2023-01-25T19:50:48.102084", "status": "completed"}}
-
-#### Plot the `max_dprime` value for every session
+### Plot the `max_dprime` value for every session
 
 We can see that this particular mouse performed relatively consistently for every session as it progressed through training.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.363084
-  end_time: '2023-01-25T19:50:48.721612'
-  exception: false
-  start_time: '2023-01-25T19:50:48.358528'
-  status: completed
----
 fig, ax = plt.subplots(figsize = (15,5))
 
-ax.plot(
-    np.arange(len(this_mouse_table)),
-    this_mouse_table['max_dprime'],
-    marker = 'o'
-)
+ax.plot(np.arange(len(this_mouse_table)), this_mouse_table['max_dprime'], marker = 'o')
 ax.set_xticks(range(len(this_mouse_table)))
 ax.set_xticklabels(list(this_mouse_table['session_type'].values),rotation = 30, ha='right')
 
@@ -681,9 +426,8 @@ fig.tight_layout()
 
 Note that the days with near zero dprime near the right side of the plot are all `passive` sessions where the lick spout was retracted and no rewards could be earned. 
 
-+++
-
-Exercises: 
+## Exercises
+ 
 * Can you color the points of the behavior performance metrics plot by some piece of metadata (one of the columns) in `this_mouse_table`?
 * How does the `max_dprime` metric compare with other metrics in the `rolling_performance_df`?
 * What does the performance look like for a different mouse? 

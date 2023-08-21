@@ -11,7 +11,7 @@ kernelspec:
   name: allensdk
 ---
 
-+++ {"papermill": {"duration": 0.01236, "end_time": "2023-03-22T21:20:13.312497", "exception": false, "start_time": "2023-03-22T21:20:13.300137", "status": "completed"}}
+
 
 # Aligning behavioral data to task events with the stimulus and trials tables
 This notebook outlines the stimulus presentations table and the trials table and shows how you can use them to align behavioral data like running, licking and pupil info to task events. Please note that the VBN project used the same detection of change task as the Visual Behavior 2-Photon dataset. Users are encouraged to explore the [documentation](http://portal.brain-map.org/explore/circuits/visual-behavior-2p) and [example notebooks](https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html) for that project for additional context.
@@ -23,19 +23,12 @@ Contents
 * <a href='#Calculating-response-latency'>Calculating response latency</a>
 * <a href='#Aligning-Running,-Licking-and-Pupil-data-to-task-events'>Aligning Running, Licking and Pupil Data to task events</a>
 
-+++ {"papermill": {"duration": 0.007527, "end_time": "2023-03-22T21:20:13.327753", "exception": false, "start_time": "2023-03-22T21:20:13.320226", "status": "completed"}}
 
-#### Import the cache
+
+### Import the cache
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 5.52543
-  end_time: '2023-03-22T21:20:18.860639'
-  exception: false
-  start_time: '2023-03-22T21:20:13.335209'
-  status: completed
----
+
 import os
 from pathlib import Path
 import numpy as np
@@ -49,20 +42,11 @@ from allensdk.brain_observatory.behavior.behavior_project_cache.\
 %matplotlib inline
 ```
 
-+++ {"papermill": {"duration": 0.008095, "end_time": "2023-03-22T21:20:18.877552", "exception": false, "start_time": "2023-03-22T21:20:18.869457", "status": "completed"}}
 
-#### Get the sessions table
+
+### Get the sessions table
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.015308
-  end_time: '2023-03-22T21:20:18.900603'
-  exception: false
-  start_time: '2023-03-22T21:20:18.885295'
-  status: completed
-tags: [parameters]
----
 # Update this to a valid directory in your filesystem. This is where the data will be stored.
 cache_dir = '/root/capsule/data/'
 
@@ -71,85 +55,57 @@ cache = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
 ```
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 10.595192
-  end_time: '2023-03-22T21:20:29.527044'
-  exception: false
-  start_time: '2023-03-22T21:20:18.931852'
-  status: completed
----
+
 ecephys_sessions_table = cache.get_ecephys_session_table()
 ```
 
-+++ {"papermill": {"duration": 0.011267, "end_time": "2023-03-22T21:20:29.550066", "exception": false, "start_time": "2023-03-22T21:20:29.538799", "status": "completed"}}
+
 
 ## Introduction to the stimulus presentations table
 
-+++ {"papermill": {"duration": 0.010727, "end_time": "2023-03-22T21:20:29.571421", "exception": false, "start_time": "2023-03-22T21:20:29.560694", "status": "completed"}}
+
 
 Every recording session consisted of three major visual stimulus epochs in the following order (diagrammed below):
 - An active behavior session during which the mouse performed the change detection task
 - Receptive field mapping and full-field flash stimuli
 - 'Passive' replay of stimulus shown during active behavior, but without the lickspout so the mouse can no longer respond.
 
-+++ {"papermill": {"duration": 0.010692, "end_time": "2023-03-22T21:20:29.592914", "exception": false, "start_time": "2023-03-22T21:20:29.582222", "status": "completed"}}
+
 
 <div>
 <img src="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public_thumbnails/filer_public/65/58/6558f0eb-c3c5-45e6-b645-b2e432200804/active_passive_diagram.png__710x291_q90_subsampling-2.png", width="700"/>
 </div>
 
-+++ {"papermill": {"duration": 0.010737, "end_time": "2023-03-22T21:20:29.614410", "exception": false, "start_time": "2023-03-22T21:20:29.603673", "status": "completed"}}
+
 
 Let's grab a random session and look at the stimulus presentations dataframe to see how these epochs are labeled.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 180.227035
-  end_time: '2023-03-22T21:23:29.852235'
-  exception: false
-  start_time: '2023-03-22T21:20:29.625200'
-  status: completed
----
+
 session = cache.get_ecephys_session(
            ecephys_session_id=1065437523)
 ```
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 1.001898
-  end_time: '2023-03-22T21:23:30.980716'
-  exception: false
-  start_time: '2023-03-22T21:23:29.978818'
-  status: completed
----
+
 stimulus_presentations = session.stimulus_presentations
 stimulus_presentations.columns
 ```
 
-+++ {"papermill": {"duration": 0.056391, "end_time": "2023-03-22T21:23:31.096199", "exception": false, "start_time": "2023-03-22T21:23:31.039808", "status": "completed"}}
+
 
 This table is a record of every stimulus we presented to the mouse over the course of this experiment. The different stimuli are indexed by the 'stimulus_block' column. Let's group this dataframe by stimulus block and see what stimulus was shown for each block.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.117387
-  end_time: '2023-03-22T21:23:31.269184'
-  exception: false
-  start_time: '2023-03-22T21:23:31.151797'
-  status: completed
----
-stimulus_presentations.groupby('stimulus_block')[['stimulus_block', 
-                                                'stimulus_name', 
-                                                'active', 
-                                                'duration', 
+
+stimulus_presentations.groupby('stimulus_block')[['stimulus_block',
+                                                'stimulus_name',
+                                                'active',
+                                                'duration',
                                                 'start_time']].head(1)
 ```
 
-+++ {"papermill": {"duration": 0.054268, "end_time": "2023-03-22T21:23:31.378681", "exception": false, "start_time": "2023-03-22T21:23:31.324413", "status": "completed"}}
+
 
 This shows us the structure of this experiment (and every experiment in this dataset). There are 5 stimuli as follows:
 
@@ -165,17 +121,17 @@ This shows us the structure of this experiment (and every experiment in this dat
 
 **block 5**: Passive replay. Frame-for-frame replay of the stimulus shown during the change detection task (block 0), but now with the lick spout retracted so the animal can no longer engage in the task.
 
-+++ {"papermill": {"duration": 0.054466, "end_time": "2023-03-22T21:23:31.487593", "exception": false, "start_time": "2023-03-22T21:23:31.433127", "status": "completed"}}
+
 
 Here's a quick explanation for each of the columns in this table:
 
-#### General
+### General
 
 `active`: Boolean indicating when the change detection task (with the lick spout available to the mouse) was run. This should only be TRUE for block 0.
 
 `stimulus_block`: Index of stimulus as described in cells above.
 
-`stimulus_name`: Indicates the stimulus category for this stimulus presentation. 
+`stimulus_name`: Indicates the stimulus category for this stimulus presentation.
 
 `contrast`: Stimulus contrast as defined [here](https://www.psychopy.org/api/visual/gratingstim.html#psychopy.visual.GratingStim.contrast)
 
@@ -189,7 +145,7 @@ Here's a quick explanation for each of the columns in this table:
 
 `end_frame`: Stimulus frame index when this stimulus ended.
 
-#### Change detection task and Passive replay (blocks 0 and 5)
+### Change detection task and Passive replay (blocks 0 and 5)
 
 `flashes_since_change`: Indicates how many flashes of the same image have occurred since the last stimulus change.
 
@@ -201,9 +157,9 @@ Here's a quick explanation for each of the columns in this table:
 
 `rewarded`: Indicates whether a reward was given after this image presentation. During the passive replay block (5), this value indicates that a reward was issued for the corresponding image presentation during the active behavior block (0). No rewards were given during passive replay.
 
-#### Receptive field mapping gabor stimulus (block 2)
+### Receptive field mapping gabor stimulus (block 2)
 
-`orientation`: Orientation of gabor. 
+`orientation`: Orientation of gabor.
 
 `position_x`: Position of the gabor along azimuth. The units are in degrees relative to the center of the screen (negative values are nasal).
 
@@ -213,51 +169,37 @@ Here's a quick explanation for each of the columns in this table:
 
 `temporal_frequency`: Temporal frequency of gabor in Hz.
 
-#### Full field flashes (block 4)
+### Full field flashes (block 4)
 
 `color`: Color of the full-field flash stimuli. "1" is white and "-1" is black.
 
-+++ {"papermill": {"duration": 0.054631, "end_time": "2023-03-22T21:23:31.596910", "exception": false, "start_time": "2023-03-22T21:23:31.542279", "status": "completed"}}
+
 
 Let's confirm that the active behavior block (0) and the passive replay block (5) match frame for frame:
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 1.258846
-  end_time: '2023-03-22T21:23:32.910097'
-  exception: false
-  start_time: '2023-03-22T21:23:31.651251'
-  status: completed
----
+
 active_image_presentations = stimulus_presentations[stimulus_presentations['stimulus_block']==0]
 passive_image_presentations = stimulus_presentations[stimulus_presentations['stimulus_block']==5]
 np.all(active_image_presentations['image_name'].values == passive_image_presentations['image_name'].values )
 ```
 
-+++ {"papermill": {"duration": 0.054629, "end_time": "2023-03-22T21:23:33.020086", "exception": false, "start_time": "2023-03-22T21:23:32.965457", "status": "completed"}}
+
 
 Taking block 0 as an example, let's look at the timing of the stimuli. As a reminder, each flash was presented for 250 ms with 500 ms interflash intervals. In addition, flashes were occasionally omitted to investigate expectation signals:
 
-+++ {"papermill": {"duration": 0.055441, "end_time": "2023-03-22T21:23:33.130955", "exception": false, "start_time": "2023-03-22T21:23:33.075514", "status": "completed"}}
+
 
 <div>
 <img src="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public_thumbnails/filer_public/e7/de/e7de5da4-a19f-4ef6-9bc3-3a5b088048ac/task_diagram.png__2320x419_q90_subsampling-2.png", width="900"/>
 </div>
 
-+++ {"papermill": {"duration": 0.056075, "end_time": "2023-03-22T21:23:33.242710", "exception": false, "start_time": "2023-03-22T21:23:33.186635", "status": "completed"}}
+
 
 Now let's check the timing of our flashes and see how it compares to our intended timing:
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.362176
-  end_time: '2023-03-22T21:23:33.661036'
-  exception: false
-  start_time: '2023-03-22T21:23:33.298860'
-  status: completed
----
+
 #get the active behavior part of the stim table
 active_behavior = stimulus_presentations[stimulus_presentations['active']==True]
 
@@ -277,7 +219,7 @@ axes[1].set_xlabel('Inter-flash interval (s)')
 axes[1].set_xticks(np.arange(0.75, 1.6, 0.25))
 ```
 
-+++ {"papermill": {"duration": 0.056625, "end_time": "2023-03-22T21:23:33.775819", "exception": false, "start_time": "2023-03-22T21:23:33.719194", "status": "completed"}}
+
 
 Looks like the flash duration and interflash intervals are generally what we expect. Note though that a number of inter-flash intervals are twice as long as expected (1.5 s). This is because a small percentage of flashes are omitted. The chance of omitting a flash is nominally 5%, but we've also added two extra criteria:
 
@@ -287,40 +229,26 @@ Looks like the flash duration and interflash intervals are generally what we exp
 This makes the actual chances of an omission a bit less than 5%:
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.067832
-  end_time: '2023-03-22T21:23:33.900038'
-  exception: false
-  start_time: '2023-03-22T21:23:33.832206'
-  status: completed
----
+
 #look at the percentage of flashes that were omissions
 np.sum(active_behavior.omitted)/len(active_behavior)
 ```
 
-+++ {"papermill": {"duration": 0.056778, "end_time": "2023-03-22T21:23:34.014019", "exception": false, "start_time": "2023-03-22T21:23:33.957241", "status": "completed"}}
+
 
 ## Introduction to the behavior trials table
 
-+++ {"papermill": {"duration": 0.056206, "end_time": "2023-03-22T21:23:34.126964", "exception": false, "start_time": "2023-03-22T21:23:34.070758", "status": "completed"}}
+
 
 Now let's explore the behavior trials table. This table contains lots of useful information about every trial in the change detection task.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.080566
-  end_time: '2023-03-22T21:23:34.263412'
-  exception: false
-  start_time: '2023-03-22T21:23:34.182846'
-  status: completed
----
+
 trials = session.trials
 trials.head()
 ```
 
-+++ {"papermill": {"duration": 0.055387, "end_time": "2023-03-22T21:23:34.376100", "exception": false, "start_time": "2023-03-22T21:23:34.320713", "status": "completed"}}
+
 
 Unlike the stimulus presentations table in which every row corresponded to a visual stimulus presentation, for the behavior trials table every row corresponds to one trial of the change detection task. Here is a quick summary of the columns:
 
@@ -332,7 +260,7 @@ Unlike the stimulus presentations table in which every row corresponded to a vis
 
 `change_image_name`: Indicates which image was scheduled to be the change image for this trial. Note that if the trial is aborted, a new trial will begin before this change occurs.
 
-`stimulus_change`: Indicates whether an image change occurred for this trial. 
+`stimulus_change`: Indicates whether an image change occurred for this trial.
 
 `change_time_no_display_delay`: Experiment time when the task-control computer commanded an image change. This change time is used to determine the response window during which a lick will trigger a reward. Note that due to display lag, this is not the time when the change image actually appears on the screen. To get this time, you need the stimulus_presentations table (more about this below).
 
@@ -344,9 +272,9 @@ Unlike the stimulus presentations table in which every row corresponded to a vis
 
 `response_time`: Indicates the time when the first lick was registered by the task control software for trials that were not aborted (go or catch). NaN for aborted trials. For a more accurate measure of response time, the licks dataframe should be used.
 
-`reward_time`: Indicates when the reward command was triggered for hit trials. NaN for other trial types. 
+`reward_time`: Indicates when the reward command was triggered for hit trials. NaN for other trial types.
 
-`reward_volume`: Indicates the volume of water dispensed as reward for this trial. 
+`reward_volume`: Indicates the volume of water dispensed as reward for this trial.
 
 `hit`: Indicates whether this trial was a 'hit' trial. To qualify as a hit, the trial must be a go trial during which the stimulus changed and the mouse licked within the reward window (150-750 ms after the change time).
 
@@ -364,73 +292,52 @@ Unlike the stimulus presentations table in which every row corresponded to a vis
 
 `trial_length`: Duration of the trial in seconds.
 
-+++ {"papermill": {"duration": 0.056275, "end_time": "2023-03-22T21:23:34.488087", "exception": false, "start_time": "2023-03-22T21:23:34.431812", "status": "completed"}}
+
 
 ## Calculating response latency
 
-+++ {"papermill": {"duration": 0.055576, "end_time": "2023-03-22T21:23:34.601592", "exception": false, "start_time": "2023-03-22T21:23:34.546016", "status": "completed"}}
+
 
 Let's combine info from both of these tables to calculate response latency for this session. Note that the change time in the trials table is not corrected for display lag. This is the time that the task control computer used to determine the response window. However, to calculate response latency, we want to use the display lag *corrected* change times from the stimulus presentations table. Below, we will grab these corrected times and add them to the trials table under the new column label `change_time_with_display_delay`.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.238825
-  end_time: '2023-03-22T21:23:34.896250'
-  exception: false
-  start_time: '2023-03-22T21:23:34.657425'
-  status: completed
----
+
 def get_change_time_from_stim_table(row):
     '''
     Given a particular row in the trials table,
-    find the corresponding change time in the 
+    find the corresponding change time in the
     stimulus presentations table
     '''
     table = stimulus_presentations
     change_frame = row['change_frame']
     if np.isnan(change_frame):
         return np.nan
-    
+
     change_time = table[table.start_frame==change_frame]\
                     ['start_time'].values[0]
-    
+
     return change_time
 
 change_times = trials.apply(get_change_time_from_stim_table, axis=1)
 trials['change_time_with_display_delay'] = change_times
 ```
 
-+++ {"papermill": {"duration": 0.056435, "end_time": "2023-03-22T21:23:35.010925", "exception": false, "start_time": "2023-03-22T21:23:34.954490", "status": "completed"}}
+
 
 Now we can use this new column to calculate the response latency on 'hit' trials. First, we'll need to get the lick times for this session:
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.063002
-  end_time: '2023-03-22T21:23:35.129865'
-  exception: false
-  start_time: '2023-03-22T21:23:35.066863'
-  status: completed
----
+
 # get the licks table
 licks = session.licks
 ```
 
-+++ {"papermill": {"duration": 0.055268, "end_time": "2023-03-22T21:23:35.241075", "exception": false, "start_time": "2023-03-22T21:23:35.185807", "status": "completed"}}
+
 
 Then we'll use these to get the response latency:
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.234796
-  end_time: '2023-03-22T21:23:35.531478'
-  exception: false
-  start_time: '2023-03-22T21:23:35.296682'
-  status: completed
----
+
 # filter for the hit trials
 hit_trials = trials[trials['hit']]
 
@@ -447,106 +354,64 @@ ax.set_xlabel('Time from change (s)')
 ax.set_ylabel('Trial count')
 ```
 
-+++ {"papermill": {"duration": 0.057381, "end_time": "2023-03-22T21:23:35.648090", "exception": false, "start_time": "2023-03-22T21:23:35.590709", "status": "completed"}}
+
 
 ## Aligning Running, Licking and Pupil data to task events
 
-+++ {"papermill": {"duration": 0.056147, "end_time": "2023-03-22T21:23:35.760882", "exception": false, "start_time": "2023-03-22T21:23:35.704735", "status": "completed"}}
+
 
 Now let's grab the licking, running and pupil tracking data for this session and align it to the behavior.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.063219
-  end_time: '2023-03-22T21:23:35.880258'
-  exception: false
-  start_time: '2023-03-22T21:23:35.817039'
-  status: completed
----
+
 eye_tracking = session.eye_tracking
 running_speed = session.running_speed
 licks = session.licks
 ```
 
-+++ {"papermill": {"duration": 0.055968, "end_time": "2023-03-22T21:23:35.993479", "exception": false, "start_time": "2023-03-22T21:23:35.937511", "status": "completed"}}
+
 
 **Eye tracking dataframe**: One entry containing ellipse fit parameters for the eye, pupil and corneal reflection for every frame of the eye tracking video stream.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.083895
-  end_time: '2023-03-22T21:23:36.133924'
-  exception: false
-  start_time: '2023-03-22T21:23:36.050029'
-  status: completed
----
+
 eye_tracking.head()
 ```
 
-+++ {"papermill": {"duration": 0.056622, "end_time": "2023-03-22T21:23:36.291085", "exception": false, "start_time": "2023-03-22T21:23:36.234463", "status": "completed"}}
+
 
 There seem to be several rows for which there are no valid data. We can use the 'likely_blink' column to filter these out.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 1.004013
-  end_time: '2023-03-22T21:23:37.351323'
-  exception: false
-  start_time: '2023-03-22T21:23:36.347310'
-  status: completed
----
+
 eye_tracking_noblinks = eye_tracking[~eye_tracking['likely_blink']]
 eye_tracking_noblinks.head()
 ```
 
-+++ {"papermill": {"duration": 0.057345, "end_time": "2023-03-22T21:23:37.469381", "exception": false, "start_time": "2023-03-22T21:23:37.412036", "status": "completed"}}
+
 
 **Running dataframe**: One entry for each read of the analog input line monitoring the encoder voltage, polled at ~60 Hz.
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.06842
-  end_time: '2023-03-22T21:23:37.595130'
-  exception: false
-  start_time: '2023-03-22T21:23:37.526710'
-  status: completed
----
+
 running_speed.head()
 ```
 
-+++ {"papermill": {"duration": 0.05638, "end_time": "2023-03-22T21:23:37.708085", "exception": false, "start_time": "2023-03-22T21:23:37.651705", "status": "completed"}}
+
 
 **Licking dataframe**: One entry for every detected lick onset time,
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.067562
-  end_time: '2023-03-22T21:23:37.832245'
-  exception: false
-  start_time: '2023-03-22T21:23:37.764683'
-  status: completed
----
+
 licks.head()
 ```
 
-+++ {"papermill": {"duration": 0.057868, "end_time": "2023-03-22T21:23:37.947677", "exception": false, "start_time": "2023-03-22T21:23:37.889809", "status": "completed"}}
+
 
 Now let's take a look at running, licking and pupil area for one reward trial
 
 ```{code-cell} ipython3
----
-papermill:
-  duration: 0.490051
-  end_time: '2023-03-22T21:23:38.494783'
-  exception: false
-  start_time: '2023-03-22T21:23:38.004732'
-  status: completed
----
+
 time_before = 3.0 #how much time to plot before the reward
 time_after = 3.0 #how much time to plot after the reward
 reward_time = session.rewards.iloc[15]['timestamps'] #get a random reward time
@@ -588,13 +453,13 @@ axp.yaxis.label.set_color('g')
 axp.spines['right'].set_color('g')
 axp.tick_params(axis='y', colors='g')
 
-#Plot the image flashes as grey bars. 
+#Plot the image flashes as grey bars.
 colors = ['0.3', '0.8']
 stimulus_colors = {stim: c for stim,c in zip(trial_stimuli['image_name'].unique(), colors)}
 for idx, stimulus in trial_stimuli.iterrows():
     axr.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus_colors[stimulus['image_name']], alpha=0.5)
 ```
 
-+++ {"papermill": {"duration": 0.058155, "end_time": "2023-03-22T21:23:38.618822", "exception": false, "start_time": "2023-03-22T21:23:38.560667", "status": "completed"}}
+
 
 Here we can see that just after the stimulus change (a little past 449 seconds), the mouse abruptly stops running and begins licking. The reward is delivered shortly after the first lick. We can also begin to see that before the change the pupil and running become entrained to the image flashes.
