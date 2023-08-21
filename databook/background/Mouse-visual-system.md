@@ -51,7 +51,7 @@ whether there are streams akin to the dorsal and ventral streams in primate and
 cat. Early studies using {term}`Two-photon calcium imaging` compared the
 {term}`Spatial frequency` and {term}`Temporal frequency` tuning across several
 HVAs, finding evidence of functional differences between some of the areas
-{cite:p}`adermann,marhsel`. These results, alongside connectivity data, are
+{cite:p}`andermann,marshsel`. These results, alongside connectivity data, are
 suggestive that such a dorsal/ventral organization might be present - though
 with much more interconnection and a lower hierarchical depth than found in
 primates/cats. See {cite:t}`niell2011` for a primer on early studies of mouse

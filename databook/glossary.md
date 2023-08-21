@@ -118,7 +118,7 @@ Optogenetics
   ion channels (using a {term}`Reporter line` ) in a specific subpopulation of
   cells (using a {term}`Driver line`) to enable termporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
-  reporters. See {cite:t}`peron2010` for a review on optogenetics as a method.
+  reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
 
 parvalbumin-positive interneuron
