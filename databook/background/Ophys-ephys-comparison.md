@@ -25,4 +25,5 @@ This effect is apparent in the sparsification of the responses of neurons when m
 ## Conclusion
 Ultimately, neither ephys or ophys perfectly capture the neural activity of the underlying neural population. They are each imperfect lenses on the true neural activity with distinct advantanges and disadvantages. Care should be used when analyzing these data to take the limitations of these modalities into account when interpreting the derived results.
 
-We have a complete manuscript on this comparison with much more detail that you can explore {cite:p}`siegle_ledochowitsch`
+{cite:t}`siegle2021` is a complete manuscript on this comparison with much more
+detail that you can explore.
