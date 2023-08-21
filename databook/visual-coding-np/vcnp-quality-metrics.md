@@ -24,7 +24,7 @@ scientific conclusions, or could end up hiding potentially useful data.
 :::{note}
 We have changed the default behavior of the SDK from the Visual Behavior
 Neuropixels dataset. We now return *all* units by default **only for this
-dataset**, without filtering based on waveform `quality` or other metrics. We leave this filtering to the user. 
+dataset**, without filtering based on waveform `quality` or other metrics. We leave this filtering to the user.
 However, as we explore below, the Visual Coding dataset still has default quality
 metrics filters applied. Applying these metrics is
 an important part of any analysis pipeline and we encourage users to use this

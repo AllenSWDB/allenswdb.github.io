@@ -167,7 +167,7 @@ The key columns are:
       - Layer 6 **c**ortico**t**halamic cells
     * - `BC`
       - Inhibitory
-      - {term}`Basket cell`
+      - {term}`basket cell`
     * - `BPC`
       - Inhibitory
       - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
@@ -224,13 +224,19 @@ The key columns are:
 
 Table name: `allen_column_mtypes_v1`
 
-This table contains all neurons within a well-proofread 100 micron square column in {term}`VISp` spanning all layers.
-Excitatory neurons and inhibitory neurons were distinguished manually, and subclasses were assigned based on a data-driven clustering of the neuronal features.
-Inhibitory neurons were classified based on how they distributed they synaptic outputs onto target cells, while exictatory neurons were classified based on a collection of dendritic features.
-For more details, see the section on the [Minnie Column](em:minnie-column) or read the preprint [Schneider-Mizell et al. 2023](https://www.biorxiv.org/content/10.1101/2023.01.23.525290v2).
-Note that all cell type labels in this column come from a clustering specific to this paper, and while they are intended to align with the broader literature they are not a direct mapping or a well-established convention.
-For a more conventional set of labels on the same set of cells, look at the table `allen_v1_column_types_slanted_ref`.
-Cell types in that table align with those in `aibs_soma_nuc_metamodel_preds_v117` above.
+This table contains all neurons within a well-proofread 100 micron square column
+in {term}`VISp` spanning all layers. Excitatory neurons and inhibitory neurons
+were distinguished manually, and subclasses were assigned based on a data-driven
+clustering of the neuronal features. Inhibitory neurons were classified based on
+how they distributed they synaptic outputs onto target cells, while exictatory
+neurons were classified based on a collection of dendritic features. For more
+details, see the section on the {term}`minnie column` or read the
+preprint {cite:t}`schneider-mizell2023`. Note that all cell type labels in this
+column come from a clustering specific to this paper, and while they are
+intended to align with the broader literature they are not a direct mapping or a
+well-established convention. For a more conventional set of labels on the same
+set of cells, look at the table `allen_v1_column_types_slanted_ref`. Cell types
+in that table align with those in `aibs_soma_nuc_metamodel_preds_v117` above.
 
 The key columns are:
 

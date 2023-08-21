@@ -1,7 +1,7 @@
 # Glossary
 
 :::{glossary}
-Basket cell
+basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
   molecular marker parvalbumin (PV), but not all basket cells are PV+: some
@@ -90,12 +90,12 @@ Martinotti cell
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
   2/3 and layer 5.
 
-Minnie Column
+minnie column
   A colloquial name for the 100 micron by 100 micron square column of cortex
   targeted for the census across layers. This column is a particularly well
   proofread collection of cells.
 
-Minnie Dataset
+minnie dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
 
 Neurogliaform cell
@@ -232,4 +232,20 @@ spike
   In a system neuroscience setting, this often refers to the voltage over time
   measured with an electrode when an individual neuron produces an action
   potential.
+
+unit
+  A putative neuron in extracellular elecrophysiology, with varying degrees of
+  confidence assigned to it. In extracellular electrophysiology, neurons are
+  referred to as *units*, because we cannot guarantee that all the spikes
+  assigned to one unit actually originate from a single cell. Unlike in
+  two-photon imaging, where you can visualize each neuron throughout the entire
+  experiment, with electrophysiology we can only “see” a neuron when it fires a
+  spike. If a neuron moves relative to the probe, or if it’s far away from the
+  probe, some of its spikes may get mixed together with those from other
+  neurons. Because of this inherent ambiguity, quality metrics allow you to find
+  the right units for your analysis. Even highly contaminated units can contain
+  potentially valuable information about brain states, but certain types of
+  analysis require more stringent quality thresholds to ensure that all of the
+  included units are well isolated from their neighbors.
+
 :::
