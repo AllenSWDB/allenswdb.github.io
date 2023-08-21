@@ -28,7 +28,7 @@ Driver line
   specific cell type or cell population by expressing a specific gene under
   the control of the promoter for the cell type or cell population of interest.
   A {term}`Cre line` is a common type of Driver line that allows specific
-  genes to be expressed when crossed with a {term}`Reporter line`.
+  genes to be expressed when crossed with a {term}`reporter line`.
   The driver line determines what cell population is targeted, and the
   reporter line determines what will be expressed in that specific cell population
   (for example, GFP, GCaMP, or Channelrhodopsin).
@@ -115,7 +115,7 @@ Ophys
 
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
-  ion channels (using a {term}`Reporter line` ) in a specific subpopulation of
+  ion channels (using a {term}`reporter line` ) in a specific subpopulation of
   cells (using a {term}`Driver line`) to enable termporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
@@ -166,15 +166,23 @@ RS
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
 
-Reporter line
-  A <b>reporter line</b> is a transgenic mouse line that is engineered to express a specific
-  protein that enables monitoring or manipulation of neural activity (such as GFP, GCaMP, or Channelrhodopsin)
-  under the control of cre or FLP recominase, or a tetracycline transactivator system.
-  The gene engineered into the reporter line will not be expressed unless the protein
-  that controls reporter gene expression (such as cre or FLP) is present, such as by
-  breeding a mouse from the reporter line with a mouse from a specific {term}`Driver line`
-  that expresses the control protein. Injecting a virus that delivers cre or FLP in a
-  cell type specific manner can also trigger the expression of the reporter gene.
+reporter
+ An exogenous coding region joined to a promoter sequence or element in an
+ expression vector that is introduced into cells to provide the means for
+ measuring the promoter activity
+ [source](https://www.promega.com/resources/guides/cell-biology/bioluminescent-reporters/#:~:text=What%20is%20a%20Reporter%20Gene,for%20measuring%20the%20promoter%20activity.).
+
+reporter line
+  A <b>reporter line</b> is a transgenic mouse line that is engineered to
+  express a specific protein that enables monitoring or manipulation of neural
+  activity (such as GFP, GCaMP, or Channelrhodopsin) under the control of cre or
+  FLP recominase, or a tetracycline transactivator system. The gene engineered
+  into the reporter line will not be expressed unless the protein that controls
+  reporter gene expression (such as cre or FLP) is present, such as by breeding
+  a mouse from the reporter line with a mouse from a specific {term}`Driver
+  line` that expresses the control protein. Injecting a virus that delivers cre
+  or FLP in a cell type specific manner can also trigger the expression of the
+  reporter gene.
 
 Retinotopy
   <b>retinotopy</b> refers to the mapping of visual space on to neural space.
@@ -210,7 +218,7 @@ Two-photon calcium imaging
   A term for techniques which measure neural activity of neurons by measuring a
   fluorescent calcium indicator. These indicators are usually a protein
   expressed in a cell, such as {term}`GCaMP`, often using a specific combination
-  of {term}`Driver line` and {term}`Reporter line`s to express GCaMP in a
+  of {term}`Driver line` and {term}`reporter line`s to express GCaMP in a
   specific subset of neurons. Fluorescent dyes can also be used to perform
   calcium imaging. At rest a neuron has low levels of calcium, and when the
   neuron spikes calcium flows into the neuron and raises the level of calcium,
