@@ -152,13 +152,13 @@ stimulus_presentations = ophys_experiment.stimulus_presentations
 stimulus_presentations.head()
 ```
 
-#### Also note that there is an image name called 'omitted'. This represents the time that a stimulus would have been shown, had it not been omitted from the regular stimulus cadence. They are included here for ease of analysis, but it's important to note that they are not actually stimuli. They are the lack of expected stimuli.
+### Also note that there is an image name called 'omitted'. This represents the time that a stimulus would have been shown, had it not been omitted from the regular stimulus cadence. They are included here for ease of analysis, but it's important to note that they are not actually stimuli. They are the lack of expected stimuli.
 
 ```{code-cell} ipython3
 stimulus_presentations.query('image_name == "omitted"').head()
 ```
 
-#### For plotting purposes below, let's add a column that specifies a unique color for every unique image
+### For plotting purposes below, let's add a column that specifies a unique color for every unique image
 
 ```{code-cell} ipython3
 unique_stimuli = [stimulus for stimulus in stimulus_presentations['image_name'].unique() if stimulus != 'omitted']
@@ -173,35 +173,35 @@ stimulus_presentations['color'] = stimulus_presentations['image_name'].map(lambd
 
 ### There are also dataframes containing running speed, licks, eye tracking, and neural data:
 
-#### running speed
+### running speed
 One entry for each read of the analog input line monitoring the encoder voltage, polled at ~60 Hz.
 
 ```{code-cell} ipython3
 ophys_experiment.running_speed.head()
 ```
 
-#### licks
+### licks
 One entry for every detected lick onset time, assigned the time of the corresponding visual stimulus frame.
 
 ```{code-cell} ipython3
 ophys_experiment.licks.head()
 ```
 
-#### eye tracking data
+### eye tracking data
 One entry containing ellipse fit parameters for the eye, pupil and corneal reflection for every frame of the eye tracking video stream.
 
 ```{code-cell} ipython3
 ophys_experiment.eye_tracking.head()
 ```
 
-#### and deltaF/F values
+### and deltaF/F values
 One row per cell, with each containing an array of deltaF/F values.
 
 ```{code-cell} ipython3
 ophys_experiment.dff_traces.head()
 ```
 
-#### we can convert the dff_traces to long-form (aka "tidy") as follows:
+### we can convert the dff_traces to long-form (aka "tidy") as follows:
 
 ```{code-cell} ipython3
 def get_cell_timeseries_dict(dataset, cell_specimen_id):
