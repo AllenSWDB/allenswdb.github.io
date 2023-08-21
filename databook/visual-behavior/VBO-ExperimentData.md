@@ -385,7 +385,7 @@ Each frame of the 2-photon movie is assigned a timestamp, thus the length of `op
 
 ```{code-cell} ipython3
 print('length of timestamps: '+ str(len(ophys_experiment.ophys_timestamps))
-print('length of dff_traces: '+ str(len(ophys_experiment.dff_traces.iloc[0]['dff]))
+print('length of dff_traces: '+ str(len(ophys_experiment.dff_traces.iloc[0]['dff']))
 print('length of events: '+ str(len(ophys_experiment.events.iloc[0]['events]))
 ```
 
@@ -807,7 +807,7 @@ def plot_dff_trace(ax, cell_specimen_id, initial_time, final_time):
         final_time: final time to plot to
     '''
     #create a dataframe using dff trace from one seleted cell
-    data = {'dff': ophys_experiment.dff_traces.loc[cell_specimen_id]['dff],
+    data = {'dff': ophys_experiment.dff_traces.loc[cell_specimen_id]['dff'],
         'timestamps': ophys_experiment.ophys_timestamps}
     df = pd.DataFrame(data)
     dff_trace_sample = df[(df.timestamps >= initial_time) & (df.timestamps <= final_time)]

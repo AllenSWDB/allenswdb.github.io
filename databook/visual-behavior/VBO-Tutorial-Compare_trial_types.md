@@ -307,8 +307,8 @@ def plot_dff(trial, ax):
     trial_dff_traces = trial_dff_traces[(trial_dff_traces.timestamps >= trial['start_time']) & 
                                         (trial_dff_traces.timestamps <= trial['stop_time'])]
     for cell_specimen_id in ophys_experiment.tidy_dff_traces['cell_specimen_id'].unique():
-        ax.plot(trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id']['timestamps'],
-                trial_dff_traces[trial_dff_traces.cell_specimen_id ==c ell_specimen_id']['dff'])
+        ax.plot(trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['timestamps'],
+                trial_dff_traces[trial_dff_traces.cell_specimen_id == cell_specimen_id]['dff'])
         ax.set_title('deltaF/F responses')
         ax.set_ylabel('dF/F')
     
