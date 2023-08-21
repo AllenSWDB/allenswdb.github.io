@@ -384,9 +384,9 @@ ophys_experiment.ophys_timestamps
 Each frame of the 2-photon movie is assigned a timestamp, thus the length of `ophys_timestamps` should be equal to the length of `dff_traces` and `events`. 
 
 ```{code-cell} ipython3
-print('length of timestamps: '+ str(len(ophys_experiment.ophys_timestamps))
+print('length of timestamps: '+ str(len(ophys_experiment.ophys_timestamps)))
 print('length of dff_traces: '+ str(len(ophys_experiment.dff_traces.iloc[0]['dff'])))
-print('length of events: '+ str(len(ophys_experiment.events.iloc[0]['events]))
+print('length of events: '+ str(len(ophys_experiment.events.iloc[0]['events'])))
 ```
 
 Plot `dff_traces` and `events` for one cell
