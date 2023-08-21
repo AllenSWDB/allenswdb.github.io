@@ -313,7 +313,7 @@ The key columns are:
       - A cluster of layer 6 cells along the border with white matter.
     * - `PTC`
       - Inhibitory
-      - Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to {term}`basket cells`.
+      - Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to {term}`basket cell`s.
     * - `DTC`
       - Inhibitory
       - Dendrite targeting cells, a cluster of inhibitory neurons that target the distal dendrites of excitatory neurons. Most SST cells would be DTCS.
