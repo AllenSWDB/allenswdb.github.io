@@ -46,8 +46,9 @@ cat. Early studies using {term}`Two-photon calcium imaging` compared the
 HVAs, finding evidence of functional differences between some of the areas.
 These results, alongside connectivity data, are suggestive that such a
 dorsal/ventral organization might be present - though with much more
-interconnection and a lower hierarchical depth than found in primates/cats. 
-{Niell, 2011 Primer on early studies of mouse HVA functional properties: https://doi.org/10.1038/nature24636}
+interconnection and a lower hierarchical depth than found in primates/cats. See
+{cite:t}`niell2011` for a primer on early studies of mouse HVA functional
+properties.
 
 ![dorsal_ventral](/resources/Niell_visual_hierarchy.png)
 

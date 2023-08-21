@@ -64,16 +64,16 @@ GCaMP
   these data we use primarily GCaMP6f as well as some GCaMP6s, fast and slow
   variants respectively. These two variants differ in their sensitivity as well
   as their kinetics - primarily with regards to their decay. For more see
-  {cite:p}`chen2013`.
+  {cite:t}`chen2013`.
 
 Higher visual area
 HVA
   A <b>higher visual area</b> is a term for cortical visual areas that receive input from the
   primary visual cortex, thus considered to be "higher" in the visual hierarchy. In primates,
   higher visual areas include V2, V3, V4, V5, MT, etc. In the mouse, higher visual areas
-  include: VISl, VIsal, VISpm, VISam, VISrl among others. For more, see this
-  review on the function and connectivity of mouse visual cortex:
-  {cite:p}`glickfeld_higher-order_2017`.
+  include: VISl, VIsal, VISpm, VISam, VISrl among others. For more, see
+  {cite:t}`glickfeld_higher-order_2017`.
+
 
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
@@ -108,7 +108,7 @@ Neuropixels
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
   hundred of single units from a single probe with minimal brain damage.
-  Paper describing neuropixels probes: {cite:p}`jun2017`.
+  {cite:t}`jun2017` describes these probes.
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
@@ -118,8 +118,7 @@ Optogenetics
   ion channels (using a {term}`Reporter line` ) in a specific subpopulation of
   cells (using a {term}`Driver line`) to enable termporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
-  reporters. See here for a review on optogenetics as a method:
-  {cite:p}`peron2010`.
+  reporters. See {cite:t}`peron2010` for a review on optogenetics as a method.
 
 
 parvalbumin-positive interneuron
@@ -216,8 +215,8 @@ Two-photon calcium imaging
   calcium imaging. At rest a neuron has low levels of calcium, and when the
   neuron spikes calcium flows into the neuron and raises the level of calcium,
   which binds to the calcium indicator and increases the emitted fluorescence in
-  a specific wavelength. See here for a review on two-photon calcium imaging as
-  a technique: {cite:p}`svoboda2006`.
+  a specific wavelength. See {cite:t}`svoboda2006` for a review of two-photon
+  calcium imaging.
 
 
 waveform
