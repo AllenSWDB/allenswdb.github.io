@@ -1,7 +1,7 @@
 # Glossary
 
 :::{glossary}
-Basket cell
+basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
   molecular marker parvalbumin (PV), but not all basket cells are PV+: some
@@ -20,16 +20,16 @@ Cre line
   experiments, Cre is used with loxP {term}`reporter` lines in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells. 
+  to be restricted to particular subset of cells.
 
 
 Driver line
-  A general term for transgenic mouse lines that are engineered to label a 
+  A general term for transgenic mouse lines that are engineered to label a
   specific cell type or cell population by expressing a specific gene under
-  the control of the promoter for the cell type or cell population of interest. 
-  A {term}`Cre line` is a common type of Driver line that allows specific 
-  genes to be expressed when crossed with a {term}`Reporter line`. 
-  The driver line determines what cell population is targeted, and the 
+  the control of the promoter for the cell type or cell population of interest.
+  A {term}`Cre line` is a common type of Driver line that allows specific
+  genes to be expressed when crossed with a {term}`reporter line`.
+  The driver line determines what cell population is targeted, and the
   reporter line determines what will be expressed in that specific cell population
   (for example, GFP, GCaMP, or Channelrhodopsin).
 
@@ -63,16 +63,17 @@ GCaMP
   domain of the calmodulin protein with green fluorescent protein (GFP). In
   these data we use primarily GCaMP6f as well as some GCaMP6s, fast and slow
   variants respectively. These two variants differ in their sensitivity as well
-  as their kinetics - primarily with regards to their decay. 
-  See this paper for more information: https://www.nature.com/articles/nature12354
+  as their kinetics - primarily with regards to their decay. For more see
+  {cite:t}`chen2013`.
 
 Higher visual area
 HVA
-  A <b>higher visual area</b> is a term for cortical visual areas that receive input from the
-  primary visual cortex, thus considered to be "higher" in the visual hierarchy. In primates, 
-  higher visual areas include V2, V3, V4, V5, MT, etc. In the mouse, higher visual areas 
-  include: VISl, VIsal, VISpm, VISam, VISrl among others. See here on a review on the function
-  and connectivity of mouse visual cortex: https://www.annualreviews.org/doi/10.1146/annurev-vision-102016-061331
+  A **higher visual area** is a term for cortical visual areas that receive
+  input from the primary visual cortex, thus considered to be "higher" in the
+  visual hierarchy. In primates, higher visual areas include V2, V3, V4, V5, MT,
+  etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
+  VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
+
 
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
@@ -89,12 +90,12 @@ Martinotti cell
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
   2/3 and layer 5.
 
-Minnie Column
+minnie column
   A colloquial name for the 100 micron by 100 micron square column of cortex
   targeted for the census across layers. This column is a particularly well
   proofread collection of cells.
 
-Minnie Dataset
+minnie dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
 
 Neurogliaform cell
@@ -106,18 +107,18 @@ Neuropixels
   Howard Hughes Medical Institute, Gatsby Charitable Trust, the Wellcome Trust,
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
-  hundred of single units from a single probe with minimal brain damage. 
-  Paper describing neuropixels probes: https://doi.org/10.1038/nature24636
+  hundred of single units from a single probe with minimal brain damage.
+  {cite:t}`jun2017` describes these probes.
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
 Optogenetics
-  A method for controlling the activity of neurons by expressing light activated ion channels
-  (using a {term}`Reporter line` ) in a specific subpopulation of cells (using a {term}`Driver line`)
-  to enable termporally precise control of neural spiking. Spiking can be suppressed or enhanced
-  using different types of reporters. See here for a review on optogenetics as a method: 
-  https://www.nature.com/articles/nmeth.f.325
+  A method for controlling the activity of neurons by expressing light activated
+  ion channels (using a {term}`reporter line` ) in a specific subpopulation of
+  cells (using a {term}`Driver line`) to enable termporally precise control of
+  neural spiking. Spiking can be suppressed or enhanced using different types of
+  reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
 
 parvalbumin-positive interneuron
@@ -165,32 +166,40 @@ RS
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
 
-Reporter line
-  A <b>reporter line</b> is a transgenic mouse line that is engineered to express a specific
-  protein that enables monitoring or manipulation of neural activity (such as GFP, GCaMP, or Channelrhodopsin)
-  under the control of cre or FLP recominase, or a tetracycline transactivator system. 
-  The gene engineered into the reporter line will not be expressed unless the protein 
-  that controls reporter gene expression (such as cre or FLP) is present, such as by
-  breeding a mouse from the reporter line with a mouse from a specific {term}`Driver line` 
-  that expresses the control protein. Injecting a virus that delivers cre or FLP in a 
-  cell type specific manner can also trigger the expression of the reporter gene.  
+reporter
+ An exogenous coding region joined to a promoter sequence or element in an
+ expression vector that is introduced into cells to provide the means for
+ measuring the promoter activity
+ [source](https://www.promega.com/resources/guides/cell-biology/bioluminescent-reporters/#:~:text=What%20is%20a%20Reporter%20Gene,for%20measuring%20the%20promoter%20activity.).
+
+reporter line
+  A <b>reporter line</b> is a transgenic mouse line that is engineered to
+  express a specific protein that enables monitoring or manipulation of neural
+  activity (such as GFP, GCaMP, or Channelrhodopsin) under the control of cre or
+  FLP recominase, or a tetracycline transactivator system. The gene engineered
+  into the reporter line will not be expressed unless the protein that controls
+  reporter gene expression (such as cre or FLP) is present, such as by breeding
+  a mouse from the reporter line with a mouse from a specific {term}`Driver
+  line` that expresses the control protein. Injecting a virus that delivers cre
+  or FLP in a cell type specific manner can also trigger the expression of the
+  reporter gene.
 
 Retinotopy
-  <b>retinotopy</b> refers to the mapping of visual space on to neural space. 
-  Most visual areas of the brain contain an orderly map of visual space such that 
+  <b>retinotopy</b> refers to the mapping of visual space on to neural space.
+  Most visual areas of the brain contain an orderly map of visual space such that
   neighboring regions in space are represented by neighboring regions in the brain.
   Retinotopic maps are typically measured in terms of altitude (aka vertical retinotopy),
   referring to the axis from upper to lower visual field, and and azimuth
   (aka horizontal retinotopy), referring to the axis from left to right in space.
 
 ROI
-  A <b>region of interest</b> is a general term that describes a subregion of an image. 
+  A <b>region of interest</b> is a general term that describes a subregion of an image.
   When used in reference to two photon calcium imaging, an ROI is the mask containing pixels thought to belong to a single neuron.
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
-  When used in reference to drifting gratings, spatial frequency means the distance between the 
-  bars of the grating. Typically measured as cycles per degree. 
+  When used in reference to drifting gratings, spatial frequency means the distance between the
+  bars of the grating. Typically measured as cycles per degree.
 
 Targeted structure
   The brain region where data was collected from.
@@ -207,14 +216,15 @@ Transgenic line
 
 Two-photon calcium imaging
   A term for techniques which measure neural activity of neurons by measuring a
-  fluorescent calcium indicator. These indicators are usually a protein expressed
-  in a cell, such as {term}`GCaMP`, often using a specific combination of {term}`Driver line`
-  and {term}`Reporter line`s to express GCaMP in a specific subset of neurons.
-  Fluorescent dyes can also be used to perform calcium imaging. At
-  rest a neuron has low levels of calcium, and when the neuron spikes calcium
-  flows into the neuron and raises the level of calcium, which binds to the calcium indicator
-  and increases the emitted fluorescence in a specific wavelength. See here for a review
-  on two-photon calcium imaging as a technique: https://doi.org/10.1016/j.neuron.2006.05.019
+  fluorescent calcium indicator. These indicators are usually a protein
+  expressed in a cell, such as {term}`GCaMP`, often using a specific combination
+  of {term}`Driver line` and {term}`reporter line`s to express GCaMP in a
+  specific subset of neurons. Fluorescent dyes can also be used to perform
+  calcium imaging. At rest a neuron has low levels of calcium, and when the
+  neuron spikes calcium flows into the neuron and raises the level of calcium,
+  which binds to the calcium indicator and increases the emitted fluorescence in
+  a specific wavelength. See {cite:t}`svoboda2006` for a review of two-photon
+  calcium imaging.
 
 
 waveform
@@ -222,4 +232,20 @@ spike
   In a system neuroscience setting, this often refers to the voltage over time
   measured with an electrode when an individual neuron produces an action
   potential.
+
+unit
+  A putative neuron in extracellular elecrophysiology, with varying degrees of
+  confidence assigned to it. In extracellular electrophysiology, neurons are
+  referred to as *units*, because we cannot guarantee that all the spikes
+  assigned to one unit actually originate from a single cell. Unlike in
+  two-photon imaging, where you can visualize each neuron throughout the entire
+  experiment, with electrophysiology we can only “see” a neuron when it fires a
+  spike. If a neuron moves relative to the probe, or if it’s far away from the
+  probe, some of its spikes may get mixed together with those from other
+  neurons. Because of this inherent ambiguity, quality metrics allow you to find
+  the right units for your analysis. Even highly contaminated units can contain
+  potentially valuable information about brain states, but certain types of
+  analysis require more stringent quality thresholds to ensure that all of the
+  included units are well isolated from their neighbors.
+
 :::
