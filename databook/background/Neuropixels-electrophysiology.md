@@ -19,10 +19,15 @@ neuronal dynamics.
 ## Spikes and LFPs: the dual storytellers
 
 1. **{term}`spike`s**: These are the digital currency of the brain. Each spike
-   signifies the action potential of a neuron. With advancements in
-   multi-electrode arrays and silicon probes, we can now concurrently monitor
-   the spiking activity of hundreds, if not thousands, of neurons spanning many
-   brain regions.
+   signifies the action potential of a neuron, which propagates down that
+   neuron's axon and causes neurotransmitters to be released onto downstream
+   neurons. In vertebrates, the majority of synaptic release is triggered by
+   all-or-none action potentials, and as a result recording the action
+   potentials from a neuron to a first approximation describes that neuron's
+   contribution to the ongoing computations occuring in the brain. With
+   advancements in multi-electrode arrays and silicon probes, we can now
+   concurrently monitor the spiking activity of hundreds, if not thousands, of
+   neurons spanning many brain regions.
 
 2. **{term}`local field potential`s (LFP)**: These oscillatory signals are
    slower and reflect the summed activity of many neurons, encapsulating both
@@ -44,20 +49,20 @@ Silicon probes are microfabricated devices that pack many electrodes together at
 very high spatial densities. For the reasons below, silicon probes have
 dramatically improved our capacity to observe neural dynamics:
 
-- **High-Density Recording**: The sheer density of electrodes on a silicon probe
+- **High-density recording**: The sheer density of electrodes on a silicon probe
   allows the measurement of an individual action potential with multiple
   electrodes, or channels. It also allows multiple regions of the brain to
   measured at the same time, as a single shank of silicon can have electrodes
   patterned along its length.
 
-- **Enhanced Spike Sorting**: Observing individual action potentials on several
+- **Enhanced spike sorting**: Observing individual action potentials on several
   electrodes inherently improves spike sorting—the process of attributing spikes
   to specific neurons. With traditional methods, overlapping spikes from
   neighboring neurons were challenging to disentangle. Silicon probes, due to
   their spatial configuration, offer higher-resolution data, aiding more
   accurate spike discrimination and sorting.
 
-- **Minimally Invasive**: Their microscale size ensures reduced tissue damage
+- **Minimally invasive**: Their microscale size ensures reduced tissue damage
   for the same number of electrodes, permitting longer recording sessions with
   maintained tissue integrity.
 
@@ -126,6 +131,7 @@ In summary, spike sorting is an indispensable tool in modern neuroscience,
 bridging the gap between raw, continuous voltage recordings and the discrete,
 individualistic firing patterns of neurons.
 
+(neuropixels-data-processing)=
 ## Processing of Neuropixels extracellular electrophysiology
 
 :::{figure} https://allensdk.readthedocs.io/en/latest/_static/neuropixels_data_processing.png

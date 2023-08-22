@@ -67,7 +67,7 @@ their neighbors.
 
 ## Data processing
 
-See the section on {doc}`../background/Neuropixels-electrophysiology`.
+See the section on [Neuropixels data processing](neuropixels-data-processing).
 
 ## Visual stimulus sets
 

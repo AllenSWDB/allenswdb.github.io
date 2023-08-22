@@ -11,7 +11,7 @@ kernelspec:
   name: allensdk
 ---
 
-# Extracellular Electrophysiology Data
+# Full example of accessing Visual Coding Neuropixels data
 
 At the Allen Institute for Brain Science we carry out in vivo extracellular
 electrophysiology (ecephys) experiments in awake animals using high-density
