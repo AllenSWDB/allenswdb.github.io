@@ -8,6 +8,7 @@ chapters:
   sections:
   - file: background/Mouse-visual-system
   - file: background/transgenic-tools
+  - file: background/experimental-setup
   - file: background/Neuropixels-electrophysiology
     sections:
     - file: visual-coding-np/vcnp-quality-metrics
