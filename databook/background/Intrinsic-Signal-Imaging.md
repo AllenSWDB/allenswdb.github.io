@@ -5,7 +5,7 @@ When a brain region is activated, it receives an influx of oxygenated arterial b
 The Allen Institute pipelines routinely use ISI to map the retinotopic organization of visual cortex. Briefly, mice are lightly anesthetized and placed in the ISI rig. The right visual field is stimulated with bars composed of an alternating checkerboard pattern and drifting in the four cardinal directions (up, down, left, right). The resulting ISI data can be used to compute altitude and azimuth maps which reveal how the stimulus monitor is spatially represented on the cortical surface. Because each visual area contains an independent map of visual space, these altitude and azimuth maps can then be segmented to infer the boundaries of individual visual cortical areas as shown below. Operators use these functional maps to center their imaging field-of-view or Neuropixels probe insertions on particular visual areas of interest, taking further care to record from the portion of each area that responds to stimuli in the center of the stimulus monitor.
 
 :::{figure}  ../resources/background_isi_imaging_example.png
-:name: np-data-processing-schematic-ref
+:name: isi-ref
 :align: center
 :width: 800
 
