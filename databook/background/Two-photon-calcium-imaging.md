@@ -1,6 +1,6 @@
 # Calcium imaging
 
-{doc}`Neuropixels_electrophysiology` is just one of many methods that is used to
+{doc}`Neuropixels-electrophysiology` is just one of many methods that is used to
 measure activity from individual neurons. Another class of methods involve
 taking optical measurements of fluorescent compounds that change their
 properties in response to action potentials. Some compounds change their
