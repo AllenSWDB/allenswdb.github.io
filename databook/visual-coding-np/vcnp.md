@@ -16,13 +16,14 @@ kernelspec:
 The Visual Coding – Neuropixels project uses high-density extracellular
 electrophysiology (Ecephys) probes to record spikes from a wide variety of
 regions in the mouse brain. Our experiments are designed to study the activity
-of the visual cortex and thalamus in the context of passive visual stimulation,
-but these data can be used to address a wide variety of topics.
+of the visual cortex and thalamus in the context of passive visual stimulation
+as is described in {cite:t}`siegle2021a`, but these data can be used to address
+a wide variety of topics.
 
 Spike-sorted data and metadata are available via the AllenSDK as
-[Neurodata Without Borders (NWB)](https://www.nwb.org/) files. However, if
-you’re using the AllenSDK to interact with the data, no knowledge of the NWB
-data format is required.
+[Neurodata Without Borders (NWB)](https://www.nwb.org/) files
+{cite:p}`teeters2015`. However, if you’re using the AllenSDK to interact with
+the data, no knowledge of the NWB data format is required.
 
 ## Getting started
 
@@ -30,7 +31,7 @@ To jump right in, check out the {doc}`quick start guide<./vcnp-quickstart>`,
 which will show you how to download the data, align spikes to a visual stimulus,
 and decode natural images from neural activity patterns. For a quick summary of
 experimental design and data access, see the
-[cheat sheet](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/0f/5d/0f5d22c9-f8f6-428c-9f7a-2983631e72b4/neuropixels_cheat_sheet_nov_2019.pdf).
+{doc}`vcnp-cheatsheet`.
 
 If you would like more example code, the {doc}`full example notebook<./vcnp-session>`
 covers all of the ways to access data for each experiment.
