@@ -82,7 +82,8 @@ Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
-Intrinsic signal imaging
+intrinsic signal imaging
+ISI
   Intrinsic signal imaging, also called ISI, is a method to measure changes in
   blood flow associated with neural activity using reflectance of red light on
   the brain's surface, measured using a standard CCD camera. The amount of red
