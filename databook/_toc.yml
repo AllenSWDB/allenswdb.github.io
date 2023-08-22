@@ -26,6 +26,7 @@ chapters:
 - file: visual-coding-np/vcnp
   sections:
   - file: visual-coding-np/vcnp-quickstart
+  - file: visual-coding-np/vcnp-cheatsheet
   - file: visual-coding-np/vcnp-data-access
   - file: visual-coding-np/vcnp-units
   - file: visual-coding-np/vcnp-receptive-fields
