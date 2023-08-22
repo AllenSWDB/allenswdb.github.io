@@ -1,4 +1,4 @@
-# Visual Coding 2-photon
+# Visual Coding — 2-photon
 
 The Visual Coding 2-photon dataset is a survey of in vivo physiological activity
 in the awake mouse cortex. Neural activity was recorded using {term}`Two-photon
