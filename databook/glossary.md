@@ -57,7 +57,7 @@ GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
   mammalian brain. In cortex, most GABAergic neurons are local interneurons.
 
-genetically encoded calcium indicator
+genetically-encoded calcium indicator
 GECI
   A protein expressed by a cell that will change its fluorescence upon binding
   to a Ca{sup}`2+` ion. Used to visualize neural activity with fluorescence
