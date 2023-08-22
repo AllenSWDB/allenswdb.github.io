@@ -18,11 +18,11 @@ fluorescence microscopy.
 ## Fluorescence: translating calcium into light
 
 Central to calcium imaging is the concept of fluorescence. Calcium-sensitive
-dyes and genetically-encoded calcium indicators (GECIs) are introduced into
-neurons, which, upon binding to calcium, undergo changes in their fluorescence
-properties. By recording these changes, we obtain a dynamic picture of neural
-activity across populations of neurons, providing insights into how neural
-ensembles encode, process, and transmit information.
+dyes and {term}`genetically-encoded calcium indicator`s (GECIs) are introduced
+into neurons, which, upon binding to calcium, undergo changes in their
+fluorescence properties. By recording these changes, we obtain a dynamic picture
+of neural activity across populations of neurons, providing insights into how
+neural ensembles encode, process, and transmit information.
 
 ## Advantages in the context of systems neuroscience
 
