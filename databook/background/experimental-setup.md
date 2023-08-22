@@ -17,7 +17,10 @@ A mouse with the head bar. Image from {cite:t}`groblewski2020`.
 
 This head-bar can clamped into a recording setup and go back to nearly the same
 location for each clamp cycle. The clamp used in these experiments does so with
-< 10um precision.
+< 10um precision. This level of precision is particularly important in
+Ca{sup}`2+` imaging experiments, because it allows the experimenter to reliably
+return to the same cells across multiple sessions. Further, in experiments that
+include {term}`ISI`, it allows for targeting recordings to specified structures.
 
 :::{figure} ../resources/Groblewski_head_bar_lock_in.jpg
 ---
