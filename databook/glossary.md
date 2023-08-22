@@ -17,11 +17,14 @@ Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
   DNA between specific sites known as <b>loxP</b> sequences. As used in these
-  experiments, Cre is used with loxP {term}`reporter` lines in order to drive
+  experiments, Cre is used with loxP {term}`Reporter line` in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells.
 
+CSV
+  Shorthand for "comma separated values", a common file format for storing
+  tabular data where each row is a line and each column is separated by a comma.
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -32,10 +35,6 @@ Driver line
   The driver line determines what cell population is targeted, and the
   reporter line determines what will be expressed in that specific cell population
   (for example, GFP, GCaMP, or Channelrhodopsin).
-
-CSV
-  Shorthand for "comma separated values", a common file format for storing
-  tabular data where each row is a line and each column is separated by a comma.
 
 Ephys
   Shorthand for electrophysiology.
@@ -74,10 +73,26 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
-
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
+
+Intrinsic signal imaging
+  Intrinsic signal imaging, also called ISI, is a method to measure changes in
+  blood flow associated with neural activity using reflectance of red light on
+  the brain's surface, measured using a standard CCD camera. The amount of red
+  light reflected by the brain tissue increases when oxygenated hemoglobin
+  perfuses the local region. The timecourse of the ISI signal is slow, and the
+  magnitude of the reflectance changes are small. As a result, the use of periodic
+  stimuli can aid in signal detection. A common use of ISI is to map
+  {term}retinotopy across the brain surface by moving a slowly drifting bar across
+  the visual field then measuring the signal in each pixel at the frequency of the
+  periodic drifting bar. ISI has also been used to identify orientation maps in
+  species with organized orientation maps like cats and primates, as well as to
+  map the location of the whisker barrels in somatosensory cortex of the mouse.
+  For additional papers using ISI to map the organization of the mouse visual
+  cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
+
 
 local field potential
 LFP
@@ -211,7 +226,7 @@ Temporal frequency
 Transgenic line
   A mouse line whose genome has been altered by the introduction of one or more
   foreign DNA sequences. For these contexts, this typical involves using
-  {term}`Cre line`s to drive the expression of a {term}`reporter` within a
+  {term}`Cre line`s to drive the expression of a {term}`Reporter line` within a
   specific subset of cells.
 
 Two-photon calcium imaging
