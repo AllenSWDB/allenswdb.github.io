@@ -26,14 +26,14 @@ neural ensembles encode, process, and transmit information.
 
 ## Advantages in the context of systems neuroscience
 
-- **Granular View**: Calcium imaging enables a detailed view of neural
+- **Granular view**: Calcium imaging enables a detailed view of neural
   populations, capturing the dynamics of hundreds to thousands of neurons
   simultaneously. Better yet, some microscopes can resolve individual synapses
   or other cellular compartments.
-- **Cell-type Specificity**: Thanks to advances in molecular biology, we can
+- **Cell-type specificity**: Thanks to advances in molecular biology, we can
   direct GECIs to specific neuron types, granting us the power to dissect neural
   circuits with cell-type precision.
-- **Temporal Insights**: While the temporal resolution of calcium imaging
+- **Temporal insights**: While the temporal resolution of calcium imaging
   doesn't match that of direct electrical recordings, indicators have become
   faster over each generation. Even compartively "slow" indicators such as
   GCaMP6s are still fast enough to detect when a group of action potentials
