@@ -90,9 +90,8 @@ Intrinsic signal imaging
   periodic drifting bar. ISI has also been used to identify orientation maps in
   species with organized orientation maps like cats and primates, as well as to
   map the location of the whisker barrels in somatosensory cortex of the mouse.
-  Here are a few papers using ISI to map the organization of the mouse visual
-  cortex: https://doi.org/10.1016/S0896-6273(03)00286-1,
-  https://doi.org/10.1523/JNEUROSCI.1124-14.2014
+  For additional papers using ISI to map the organization of the mouse visual
+  cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
 
 
 local field potential
