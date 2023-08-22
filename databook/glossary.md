@@ -73,16 +73,26 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
-
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
 Intrinsic signal imaging
-Intrinsic signal imaging, also called ISI, is a method to measure changes in blood flow associated with neural activity using reflectance of red light on the brain's surface, measured using a standard CCD camera. 
-The amount of red light reflected by the brain tissue increases when oxygenated hemoglobin perfuses the local region. The timecourse of the ISI signal is slow, and the magnitude of the reflectance changes are small. As a result, the use of periodic stimuli can aid in signal detection. A common use of ISI is to map {term}retinotopy across the brain surface by moving a slowly drifting bar across the visual field then measuring the signal in each pixel at the frequency of the periodic drifting bar. ISI has also been used to identify orientation maps in species
-with organized orientation maps like cats and primates, as well as to map the location of the whisker barrels in
-somatosensory cortex of the mouse. Here are a few papers using ISI to map the organization of the mouse visual cortex: https://doi.org/10.1016/S0896-6273(03)00286-1, https://doi.org/10.1523/JNEUROSCI.1124-14.2014 
+  Intrinsic signal imaging, also called ISI, is a method to measure changes in
+  blood flow associated with neural activity using reflectance of red light on
+  the brain's surface, measured using a standard CCD camera. The amount of red
+  light reflected by the brain tissue increases when oxygenated hemoglobin
+  perfuses the local region. The timecourse of the ISI signal is slow, and the
+  magnitude of the reflectance changes are small. As a result, the use of periodic
+  stimuli can aid in signal detection. A common use of ISI is to map
+  {term}retinotopy across the brain surface by moving a slowly drifting bar across
+  the visual field then measuring the signal in each pixel at the frequency of the
+  periodic drifting bar. ISI has also been used to identify orientation maps in
+  species with organized orientation maps like cats and primates, as well as to
+  map the location of the whisker barrels in somatosensory cortex of the mouse.
+  Here are a few papers using ISI to map the organization of the mouse visual
+  cortex: https://doi.org/10.1016/S0896-6273(03)00286-1,
+  https://doi.org/10.1523/JNEUROSCI.1124-14.2014
 
 
 local field potential
