@@ -64,7 +64,61 @@ For more information on these:
 https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/quality_metrics
 https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms
 
+### The `units` table
 
+The units table contains important information about each unit that was
+recorded, including its spike sorting quality metrics, its 3D position in the
+Allen Common Coordinate Framework, and the structure in which it's located.
+
+Here is a brief summary of the columns in this table:
+
+| column name                         | description                                                                                            |
+|:------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| `unit_id`                           | the identifier for this unit assigned by the AllenSDK (unique across the entire dataset)               |
+| `waveform_PT_ratio`                 | peak-to-trough ratio of the average spike waveform                                                     |
+| `waveform_amplitude`                | amplitude (in microvolts) of the average spike waveform                                                |
+| `amplitude_cutoff`                  | a measure of the approximate fraction of spikes missing from this unit (default threshold = 0.1)       |
+| `cluster_id`                        | the identifier for this unit assigned by the spike sorting algorithm (unique within each probe)        |
+| `cumulative_drift`                  | the integrated distance (in microns) that the unit drifted across the whole session                    |
+| `d_prime`                           | a measure of how separable this unit's waveforms are from its neighbors'                               |
+| `firing_rate`                       | mean spike rate across the whole session                                                               |
+| `isi_violations`                    | a measure of this unit's level of contamination (default threshold = 0.5)                              |
+| `isolation_distance`                | a measure of how separable this unit's waveforms are from its neighbors' (higher is better)            |
+| `L_ratio`                           | a measure of how separable this unit's waveforms are from its neighbors' (lower is better)             |
+| `local_index`                       | the index of this unit within the probe it was recorded with                                           |
+| `max_drift`                         | the maximum distance (in microns) the unit drifted across the whole session                            |
+| `nn_hit_rate`                       | a measure of this unit's level of contamination                                                        |
+| `nn_miss_rate`                      | a measure of the fraction of spike missing from this unit                                              |
+| `peak_channel_id`                   | the identifier for this unit's peak channel (can be used as an index into the `session.channels` table |
+| `presence_ratio`                    | the fraction of the session over which this unit had spikes detected (default threshold = 0.9)         |
+| `waveform_recovery_slope`           | slope of the waveform between the trough and the peak                                                  |
+| `waveform_repolarization_slope`     | slope of the waveform back to 0 after the peak                                                         |
+| `silhouette_score`                  | a measure of this unit's level of contamination                                                        |
+| `snr`                               | the ratio of the waveform amplitude relative to the background noise on the peak channel               |
+| `waveform_spread`                   | distance the waveform extends above and below the peak channel                                         |
+| `waveform_velocity_above`           | speed of waveform propagation above the peak channel                                                   |
+| `waveform_velocity_below`           | speed of waveform propagation below the peak channel                                                   |
+| `waveform_duration`                 | time between the waveform peak and trough                                                              |
+| `filtering`                         | filter properties of the probe used to record this unit                                                |
+| `probe_channel_number`              | local index of this unit's peak channel                                                                |
+| `probe_horizontal_position`         | horizontal position of this unit on the probe                                                          |
+| `probe_id`                          | identifier of the probe used to record this unit                                                       |
+| `probe_vertical_position`           | vertical position of this unit on the probe                                                            |
+| `structure_acronym`                 | CCF region where this unit is located                                                                  |
+| `ecephys_structure_id`              | CCF structure ID where this unit is located                                                            |
+| `ecephys_structure_acronym`         | alias for `structure_acronym`                                                                          |
+| `anterior_posterior_ccf_coordinate` | CCF coordinate along the A/P axis                                                                      |
+| `dorsal_ventral_ccf_coordinate`     | CCF coordinate along the D/V axis                                                                      |
+| `left_right_ccf_coordinate`         | CCF coordinate along the L/R axis                                                                      |
+| `probe_description`                 | name of the probe used to record this unit                                                             |
+| `location`                          | not used                                                                                               |
+| `probe_sampling_rate`               | spike band sampling rate of the probe used to record this unit                                         |
+| `probe_lfp_sampling_rate`           | LFP band sampling rate of the probe used to record this unit                                           |
+| `probe_has_lfp_data`                | `True` if LFP data was recorded on the same probe                                                      |
+
+
+
+### Working with the `units` table
 :::{admonition} Example: Units
 Get the `units` dataframe for this session.
 
