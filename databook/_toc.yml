@@ -26,13 +26,13 @@ chapters:
 - file: visual-coding-np/vcnp
   sections:
   - file: visual-coding-np/vcnp-quickstart
-  - file: visual-coding-np/vcnp-cheatsheet
   - file: visual-coding-np/vcnp-data-access
   - file: visual-coding-np/vcnp-units
   - file: visual-coding-np/vcnp-receptive-fields
   - file: visual-coding-np/vcnp-lfp
   - file: visual-coding-np/vcnp-optotagging
   - file: visual-coding-np/vcnp-session
+  - file: visual-coding-np/vcnp-cheatsheet
   - file: visual-coding-np/vcnp-links
 - file: cell-type-lookup-table/ctlut-background
   sections:
