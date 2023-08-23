@@ -58,9 +58,9 @@ Rather than describe these for every table, they will just be mentioned briefly 
 
 ## Synapse Table
 
-Table name: `pni_synapses_v2`
+Table name: `synapses_pni_v2`
 
-The only synapse table is `pni_synapses_v2`. This is by far the largest table in the dataset with 337 million entries, one for each synapse.
+The only synapse table is `synapses_pni_v2`. This is by far the largest table in the dataset with 337 million entries, one for each synapse.
 It contains the following columns (in addition to the bookkeeping columns):
 
 ```{dropdown} Column Definitions
@@ -419,7 +419,7 @@ The column descriptions are:
 * - Table Name
   - Number of Annotations
   - Description
-* - `pni_synapses_v2`
+* - `synapses_pni_v2`
   - 337,312,429
   - The locations of synapses and the segment ids of the pre and post-synaptic automated synapse detection.
 * - `nucleus_detection_v0`
