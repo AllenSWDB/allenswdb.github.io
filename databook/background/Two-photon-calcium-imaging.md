@@ -59,7 +59,3 @@ excite a fluorophore {cite:p}`denk1990`. With two-photon excitation, the
 absorption is a nonlinear function of photon density, allowing microscopes to
 only excite a single voxel of tissue at a time. This improves our ability to
 image the activity of {term}`GECI` expressing neurons in intact tissue.
-
-There are limits to what we can see using two-photon miscroscopy, however. Two-photon excitation generates fluorescence primarily from the focal plane, but out-of-focus fluorescence from outside the focal plane will contaminate the view. This out-of-focus fluorescence increases as the focus is pushed deeper into tissue {cite:p}`takasaki`. This can be problematic when imaging densely expressed GECIs where there is fluoresence throughout the tissue, where the image quality degrades with imaging depth. However, using {term}`Cre line`s that limit the GECI expression only to deep neurons (e.g. Cre lines specific to layer 5 or layer 6 pyramidal neurons) can avoid this problem.
-
-![2P3P](/resources/2P3P.png)
