@@ -66,10 +66,14 @@ There are limits to what we can see using two-photon miscroscopy, however. Two-p
 
 ## Event detection
 
-The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluoresence traces. However, population recordings like the ones in our Visual Coding 2-photon and Visual Behavior Ophys datasets, are routinely made with lower spatial and temporal resolution. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
+The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluoresence traces. However, population recordings like the ones in our Visual Coding 2-photon and Visual Behavior Ophys datasets, are routinely made with lower spatial and temporal resolutions. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
 
 ![downsampling](/resources/Huang_downsampling.png)
 
-There are several algorithms for detecting "events" based on the DF/F traces. We used a L0 method described in {cite:p}`jewell`. At the downsampled resolution, the ability to detect 1- or 2-AP events is relatively low, particularly for data collected with GCaMP6f.
+There are several algorithms for detecting "events" based on the DF/F traces. We used a L0 method described in {cite:p}`jewell`. At the downsampled imaging resolution, the ability to detect 1- or 2-AP events is relatively low, particularly for data collected with GCaMP6f.
 
 ![events](/resources/Huang_eventprobability.png)
+
+The validation dataset above examines closely the relationship between extracted events and firing rate for excitatory neurons and how that depends on the spatial and temporal resolution {cite:p}`huang`. This relationship is different for inhibitory {term}`Interneuron`s. Specifically, the relationship between fluorescence and firing rate is different for {term}`parvalbumin-positive interneuron`s than it is for {term}`Somatostatin cell`s and {term}`VIP cells`s {cite:p}`khan`. Parvalbumin is a calcium buffer and calcium imaging data of these neurons should be considered judiciously. While general increases/decreases in activity are reflected in the fluorescence signal, analyses focused on more precise event rate estimates and temporal precision should likely be avoided for these PV neurons.
+
+![inhib](/resources/Khan_2018_inhib_fig.png)
