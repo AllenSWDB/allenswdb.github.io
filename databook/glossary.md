@@ -247,6 +247,13 @@ Two-photon calcium imaging
   a specific wavelength. See {cite:t}`svoboda2006` for a review of two-photon
   calcium imaging.
 
+
+waveform
+spike
+  In a system neuroscience setting, this often refers to the voltage over time
+  measured with an electrode when an individual neuron produces an action
+  potential.
+
 unit
   A putative neuron in extracellular elecrophysiology, with varying degrees of
   confidence assigned to it. In extracellular electrophysiology, neurons are
@@ -262,9 +269,4 @@ unit
   analysis require more stringent quality thresholds to ensure that all of the
   included units are well isolated from their neighbors.
 
-waveform
-spike
-  In a system neuroscience setting, this often refers to the voltage over time
-  measured with an electrode when an individual neuron produces an action
-  potential.
 :::
