@@ -31,7 +31,7 @@ neural ensembles encode, process, and transmit information.
   simultaneously. Better yet, some microscopes can resolve individual synapses
   or other cellular compartments.
 - **Cell-type specificity**: Thanks to advances in molecular biology, we can
-  direct GECIs to specific neuron types, granting us the power to dissect neural
+  target GECIs to specific neuron types, granting us the power to dissect neural
   circuits with cell-type precision.
 - **Temporal insights**: While the temporal resolution of calcium imaging
   doesn't match that of direct electrical recordings, indicators have become
@@ -64,4 +64,12 @@ There are limits to what we can see using two-photon miscroscopy, however. Two-p
 
 ![2P3P](/resources/2P3P.png)
 
+## Event detection
 
+The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluoresence traces. However, population recordings like the ones in our Visual Coding 2-photon and Visual Behavior Ophys datasets, are routinely made with lower spatial and temporal resolution. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
+
+![downsampling](/resources/Huang_downsampling.png)
+
+There are several algorithms for detecting "events" based on the DF/F traces. We used a L0 method described in {cite:p}`jewell`. At the downsampled resolution, the ability to detect 1- or 2-AP events is relatively low, particularly for data collected with GCaMP6f.
+
+![events](/resources/Huang_eventprobability.png)
