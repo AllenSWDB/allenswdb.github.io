@@ -277,11 +277,12 @@ behavior_session._stimuli._presentations.value['color'] = behavior_session.stimu
 Now make some simple plotting functions to plot these datastreams
 
 ```{code-cell} ipython3
-def plot_running(ax, initial_time, final_time):
+def plot_running(ax, behavior_session, initial_time, final_time):
     '''
     a simple function to plot running speed between two specified times on a specified axis
     inputs:
         ax: axis on which to plot
+        behavior_session: a behavior session object
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
@@ -291,11 +292,12 @@ def plot_running(ax, initial_time, final_time):
     ax.plot(running_sample['timestamps'],
             running_sample['speed'])
 
-def plot_licks(ax, initial_time, final_time):
+def plot_licks(ax, behavior_session, initial_time, final_time):
     '''
     a simple function to plot licks as dots between two specified times on a specified axis
     inputs:
         ax: axis on which to plot
+        behavior_session: a behavior session object
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
@@ -305,11 +307,12 @@ def plot_licks(ax, initial_time, final_time):
     ax.plot(licking_sample['timestamps'], np.zeros_like(licking_sample['timestamps']),
             marker = 'o', color = 'black', linestyle = 'none')
     
-def plot_rewards(ax, initial_time, final_time):
+def plot_rewards(ax, behavior_session, initial_time, final_time):
     '''
     a simple function to plot rewards between two specified times as blue diamonds on a specified axis
     inputs:
         ax: axis on which to plot
+        behavior_session: a behavior session object
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
@@ -319,11 +322,12 @@ def plot_rewards(ax, initial_time, final_time):
     ax.plot(rewards_sample['timestamps'], np.zeros_like(rewards_sample['timestamps']),
             marker = 'd', color = 'blue', linestyle = 'none', markersize = 12, alpha = 0.5)
     
-def plot_stimuli(ax, ti, tf):
+def plot_stimuli(ax, behavior_session, intial_time, final_time):
     '''
     a simple function to plot stimuli as colored vertical spans on a s
     inputs:
         ax: axis on which to plot
+        behavior_session: a behavior session object
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
@@ -342,10 +346,10 @@ final_time = 800 # final time for plot, in seconds
 
 plt.clf()
 fig, ax = plt.subplots(figsize = (15,5))
-plot_running(ax, initial_time, final_time)
-plot_licks(ax, initial_time, final_time)
-plot_rewards(ax, initial_time, final_time)
-plot_stimuli(ax, initial_time, final_time)
+plot_running(ax, behavior_session, initial_time, final_time)
+plot_licks(ax, behavior_session, initial_time, final_time)
+plot_rewards(ax, behavior_session, initial_time, final_time)
+plot_stimuli(ax, behavior_session, initial_time, final_time)
 
 ax.legend(['running speed', 'licks', 'rewards'])
 
