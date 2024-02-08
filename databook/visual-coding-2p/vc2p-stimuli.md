@@ -151,7 +151,7 @@ print("phases: ", np.sort(static_gratings_table.phase.dropna().unique()))
 
 ```{admonition} What is the phase of the grating?
 :class: tip
-The phase refers to the relative position of the grating. Phase 0 and Phase 0.5 are 180° apart so that the peak of the grating of phase 0 lines up with the rought of phase 0.5.
+The phase refers to the relative position of the grating. Phase 0 and Phase 0.5 are 180° apart so that the peak of the grating of phase 0 lines up with the trough of phase 0.5.
 
 ![phase](/resources/phase_figure_2.png)
 ```
