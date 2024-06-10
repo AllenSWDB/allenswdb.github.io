@@ -16,74 +16,95 @@ chapters:
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
   - file: background/Intrinsic-Signal-Imaging
-- file: visual-coding-2p/vc2p-background
+#
+# Just to draw attention to this needing stuff
+- file: physiology/physiology                             # This is a placeholder file that should get (NEEDS) actual content
+# We have many spaces around it
+# 
   sections:
-  - file: visual-coding-2p/vc2p-dataset
-  - file: visual-coding-2p/vc2p-session-data
-  - file: visual-coding-2p/vc2p-stimuli
-  - file: visual-coding-2p/vc2p-evoked-response
-  - file: visual-coding-2p/vc2p-cross-session-data
-  - file: visual-coding-2p/vc2p-analysis
-- file: visual-coding-np/vcnp
-  sections:
-  - file: visual-coding-np/vcnp-quickstart
-  - file: visual-coding-np/vcnp-data-access
-  - file: visual-coding-np/vcnp-units
-  - file: visual-coding-np/vcnp-receptive-fields
-  - file: visual-coding-np/vcnp-lfp
-  - file: visual-coding-np/vcnp-optotagging
-  - file: visual-coding-np/vcnp-session
-  - file: visual-coding-np/vcnp-cheatsheet
-  - file: visual-coding-np/vcnp-links
-- file: cell-type-lookup-table/ctlut-background
-  sections:
-  - file: cell-type-lookup-table/ctlut-session-data
-  - file: cell-type-lookup-table/ctlut-optotagging
-  - file: cell-type-lookup-table/ctlut-accessing-data
-  - file: cell-type-lookup-table/ctlut-identifying-tagged-units
-- file: visual-behavior/vb-background
-  sections:
-  - file: visual-behavior/VB-Behavior
-    title: Visual Behavior Task
+  - file: physiology/visual-coding-2p/vc2p-background
     sections:
-    - file: visual-behavior/VB-BehaviorSessionData
-      title: Behavior Session Data
-  - file: visual-behavior/VB-Ophys
+    - file: physiology/visual-coding-2p/vc2p-dataset
+    - file: physiology/visual-coding-2p/vc2p-session-data
+    - file: physiology/visual-coding-2p/vc2p-stimuli
+    - file: physiology/visual-coding-2p/vc2p-evoked-response
+    - file: physiology/visual-coding-2p/vc2p-cross-session-data
+    - file: physiology/visual-coding-2p/vc2p-analysis
+  # - file: visual-behavior/vb-background                 # This section needs to go somewhere, but not sure where yet; background stuff on visual behavior.
+  #  sections:
+  #  - file: visual-behavior/VB-Behavior
+  #    title: Visual Behavior Task
+  #    sections:
+  #    - file: visual-behavior/VB-BehaviorSessionData
+  #      title: Behavior Session Data
+  - file: physiology/visual-behavior/VB-Ophys
     title: Visual Behavior Ophys
     sections:
-    - file: visual-behavior/VBO-Dataset
+    - file: physiology/visual-behavior/VBO-Dataset
       title: Visual Behavior Ophys Dataset
-    - file: visual-behavior/VBO-ExperimentData
+    - file: physiology/visual-behavior/VBO-ExperimentData
       title: Ophys Experiment Data
-    - file: visual-behavior/VBO-Tutorial-Compare_trial_types
+    - file: physiology/visual-behavior/VBO-Tutorial-Compare_trial_types
       title: Tutorial Comparing Trial Types
-    - file: visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
+    - file: physiology/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
       title: Tutorial Downloading Data
-  - file: visual-behavior/VB-Neuropixels
+# New file here
+  - file: physiology/mFISH/mFISH                                     # No idea what this is, but here we are. May get restructured again
+    sections:
+      - file: physiology/mFISH/mFISH-Dataset                         # Also a placeholder that should get (NEEDS) actual content
+# Which should not be neglected
+  - file: physiology/visual-coding-np/vcnp
+    sections:
+    - file: physiology/visual-coding-np/vcnp-quickstart
+    - file: physiology/visual-coding-np/vcnp-data-access
+    - file: physiology/visual-coding-np/vcnp-units
+    - file: physiology/visual-coding-np/vcnp-receptive-fields
+    - file: physiology/visual-coding-np/vcnp-lfp
+    - file: physiology/visual-coding-np/vcnp-optotagging
+    - file: physiology/visual-coding-np/vcnp-session
+    - file: physiology/visual-coding-np/vcnp-cheatsheet
+    - file: physiology/visual-coding-np/vcnp-links
+  - file: physiology/visual-behavior/VB-Neuropixels
     title: Visual Behavior Neuropixels
     sections:
-    - file: visual-behavior/VBN-Dataset
-    - file: visual-behavior/VBN-SessionData
-    - file: visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
+    - file: physiology/visual-behavior/VBN-Dataset
+    - file: physiology/visual-behavior/VBN-SessionData
+    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
       title: Tutorial Aligning Neural Data to Stimuli
-    - file: visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
+    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
       title: Tutorial Aligning Behavioral Data to Task Events
-    - file: visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+    - file: physiology/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
       title: Tutorial Analyzing LFP data
-- file: microns-em/em-background
+  - file: physiology/cell-type-lookup-table/ctlut-background
+    sections:
+    - file: physiology/cell-type-lookup-table/ctlut-session-data
+    - file: physiology/cell-type-lookup-table/ctlut-optotagging
+    - file: physiology/cell-type-lookup-table/ctlut-accessing-data
+    - file: physiology/cell-type-lookup-table/ctlut-identifying-tagged-units
+# New files here
+  - file: physiology/np-ultra/np-ultra                     # Also a placeholder that needs actual content
+- file: stimuli/stimuli
   sections:
-  - file: microns-em/em-structural-data.md
-  - file: microns-em/proofreading.md
-  - file: microns-em/em-neuroglancer.md
-  - file: microns-em/em-dash-apps.md
-  - file: microns-em/em-caveclient-setup.md
-  - file: microns-em/em-querying-tables.md
-  - file: microns-em/key-tables.md
-  - file: microns-em/em-volume-data.md
-  - file: microns-em/em-skeletons.md
-  - file: microns-em/em-meshes.md
-  - file: microns-em/em-functional_data.md
-  - file: microns-em/em-coordinates.md
-  - file: microns-em/em-ultrastructure.md
+    - file: stimuli/stim-passive
+    - file: stimuli/stim-behavior
+- file: pyNWB/pyNWB                             # Also a placeholder that needs actual content
+# Which should not be neglected
+- file: anatomy/anatomy
+  - file: anatomy/microns-em/em-background
+    sections:
+    - file: anatomy/microns-em/em-structural-data.md
+    - file: anatomy/microns-em/proofreading.md
+    - file: anatomy/microns-em/em-neuroglancer.md
+    - file: anatomy/microns-em/em-dash-apps.md
+    - file: anatomy/microns-em/em-caveclient-setup.md
+    - file: anatomy/microns-em/em-querying-tables.md
+    - file: anatomy/microns-em/key-tables.md
+    - file: anatomy/microns-em/em-volume-data.md
+    - file: anatomy/microns-em/em-skeletons.md
+    - file: anatomy/microns-em/em-meshes.md
+    - file: anatomy/microns-em/em-functional_data.md
+    - file: anatomy/microns-em/em-coordinates.md
+    - file: anatomy/microns-em/em-ultrastructure.md
+#  - file: This will be something on Single Cell Whole Brain Anatomy once we've determined a name
 - file: glossary
 - file: bibliography
