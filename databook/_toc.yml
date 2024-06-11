@@ -16,11 +16,11 @@ chapters:
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
   - file: background/Intrinsic-Signal-Imaging
-#
-# Just to draw attention to this needing stuff
+  #
+  # Just to draw attention to this needing stuff
 - file: physiology/physiology                             # This is a placeholder file that should get (NEEDS) actual content
-# We have many spaces around it
-# 
+  # We have many spaces around it
+  # 
   sections:
   - file: physiology/visual-coding-2p/vc2p-background
     sections:
@@ -48,11 +48,11 @@ chapters:
       title: Tutorial Comparing Trial Types
     - file: physiology/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
       title: Tutorial Downloading Data
-# New file here
+  # New file here
   - file: physiology/mFISH/mFISH                                     # No idea what this is, but here we are. May get restructured again
     sections:
       - file: physiology/mFISH/mFISH-Dataset                         # Also a placeholder that should get (NEEDS) actual content
-# Which should not be neglected
+  # Which should not be neglected
   - file: physiology/visual-coding-np/vcnp
     sections:
     - file: physiology/visual-coding-np/vcnp-quickstart
@@ -81,15 +81,16 @@ chapters:
     - file: physiology/cell-type-lookup-table/ctlut-optotagging
     - file: physiology/cell-type-lookup-table/ctlut-accessing-data
     - file: physiology/cell-type-lookup-table/ctlut-identifying-tagged-units
-# New files here
+  # New files here
   - file: physiology/np-ultra/np-ultra                     # Also a placeholder that needs actual content
 - file: stimuli/stimuli
   sections:
     - file: stimuli/stim-passive
     - file: stimuli/stim-behavior
 - file: pyNWB/pyNWB                             # Also a placeholder that needs actual content
-# Which should not be neglected
+  # Which should not be neglected
 - file: anatomy/anatomy
+  sections:
   - file: anatomy/microns-em/em-background
     sections:
     - file: anatomy/microns-em/em-structural-data.md
