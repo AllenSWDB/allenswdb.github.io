@@ -153,7 +153,7 @@ docs
 
 # Jupyterlab
 **/_build
-#**.ipynb Actually, pls send this right now
+**.ipynb
 
 # No data please
 **.npz
