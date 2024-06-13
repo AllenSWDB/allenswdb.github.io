@@ -412,12 +412,16 @@ We can see that as expected, events trace is much cleaner than dff and it genera
 
 ## Stimulus presentations
 
-The `stimulus_presentations` table contains one entry for each stimulus that was presented during the session, along with important metadata including stimulus `start_time` and `end_time`, as well as `image_name`, and whether the stimulus was an image change (`is_change` = True) or an image omission (`omitted` = True).
+The `stimulus_presentations` table contains one entry for each stimulus that was presented during the session, along with important metadata including stimulus `start_time` and `end_time`, as well as `image_name`, and whether the stimulus was an image change (`is_change` = True) or an image omission (`omitted` = True). `stimulus_block` and `stimulus_block_name` indicate the type of stimulus mice were presented at a given point in a session. To select active change detection behavior, first we need to filter the table for `change_detection_behavior` or `1` block. Note that different sessions may have different number of stimulus blocks, thus `change_detection_behavior` may be assosiated with either `0` or `1` in stimulus block column.
 
 Get stimulus information for this experiment and assign it to a table called `stimulus_table`
 
 ```{code-cell} ipython3
 stimulus_table = ophys_experiment.stimulus_presentations.copy()
+stimulus_table = stimulus_table[stimulus_table.stimulus_block_name=='change_detection_behavior']
+stimulus_table.reset_index(drop=True, inplace=True) # resetting index starts df at stimulus 0
+# give index a name
+stimulus_table.index.name = 'stimulus_presentations_id'
 stimulus_table.head(10)
 ```
 
