@@ -45,47 +45,52 @@ chapters:
     - file: physiology/ephys/visual-coding-np/vcnp-session
     - file: physiology/ephys/visual-coding-np/vcnp-cheatsheet
     - file: physiology/ephys/visual-coding-np/vcnp-links
-  - file: physiology/ephys/np-ultra/np-ultra-background                     # Also a placeholder that needs actual content
+  - file: physiology/ephys/np-types/np-background                     # Also a placeholder that needs actual content
+    sections:
+      file: np-ultra
+      file: np-opto
   - file: physiology/cell-type-lookup-table/ctlut-background
     sections:
     - file: physiology/cell-type-lookup-table/ctlut-session-data
     - file: physiology/cell-type-lookup-table/ctlut-optotagging
     - file: physiology/cell-type-lookup-table/ctlut-accessing-data
     - file: physiology/cell-type-lookup-table/ctlut-identifying-tagged-units
+  - file: physiology/visual-behavior/VB-Ophys
+    title: Visual Behavior Ophys
+    sections:
+    - file: physiology/visual-behavior/VBO-Dataset
+      title: Visual Behavior Ophys Dataset
+    - file: physiology/visual-behavior/VBO-ExperimentData
+      title: Ophys Experiment Data
+    - file: physiology/visual-behavior/VBO-Tutorial-Compare_trial_types
+      title: Tutorial Comparing Trial Types
+    - file: physiology/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
+      title: Tutorial Downloading Data
+  - file: physiology/visual-behavior/VB-Neuropixels
+    title: Visual Behavior Neuropixels
+    sections:
+    - file: physiology/visual-behavior/VBN-Dataset
+    - file: physiology/visual-behavior/VBN-SessionData
+    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
+      title: Tutorial Aligning Neural Data to Stimuli
+    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
+      title: Tutorial Aligning Behavioral Data to Task Events
+    - file: physiology/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+      title: Tutorial Analyzing LFP data
+    sections:
+
   # New files here
 - file: stimuli/stimuli
   sections:
   - file: stimuli/passive-visual-stimuli
   - file: stimuli/change-detection-task
-  - file: stimuli/visual-behavior/vb-background                 # This section needs to go somewhere, but not sure where yet; background stuff on visual behavior.
+  - file: stimuli/visual-behavior/vb-background
     sections:
     - file: stimuli/visual-behavior/VB-Behavior
       title: Visual Behavior Task
       sections:
       - file: stimuli/visual-behavior/VB-BehaviorSessionData
         title: Behavior Session Data
-    - file: stimuli/visual-behavior/VB-Ophys
-      title: Visual Behavior Ophys
-      sections:
-      - file: stimuli/visual-behavior/VBO-Dataset
-        title: Visual Behavior Ophys Dataset
-      - file: stimuli/visual-behavior/VBO-ExperimentData
-        title: Ophys Experiment Data
-      - file: stimuli/visual-behavior/VBO-Tutorial-Compare_trial_types
-        title: Tutorial Comparing Trial Types
-      - file: stimuli/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
-        title: Tutorial Downloading Data
-    - file: stimuli/visual-behavior/VB-Neuropixels
-      title: Visual Behavior Neuropixels
-      sections:
-      - file: stimuli/visual-behavior/VBN-Dataset
-      - file: stimuli/visual-behavior/VBN-SessionData
-      - file: stimuli/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
-        title: Tutorial Aligning Neural Data to Stimuli
-      - file: stimuli/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
-        title: Tutorial Aligning Behavioral Data to Task Events
-      - file: stimuli/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
-        title: Tutorial Analyzing LFP data
 - file: pyNWB/pyNWB                             # Also a placeholder that needs actual content
   # Which should not be neglected
 - file: anatomy/anatomy
