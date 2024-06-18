@@ -162,15 +162,6 @@ Pyramidal cell
   dendrite. In visual cortex, pyramidal cells are by far the most common type of
   excitatory neuron.
 
-Somatostatin cell
-  A type of interneuron expressing the molecular marker somatostatin (SST, or
-  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
-  neurons, and have important roles in regulating the activity of excitatory
-  neurons.
-
-VIP cell
-  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
-
 Receptive field
   definition here
 
@@ -217,6 +208,12 @@ ROI
   A <b>region of interest</b> is a general term that describes a subregion of an image.
   When used in reference to two photon calcium imaging, an ROI is the mask containing pixels thought to belong to a single neuron.
 
+Somatostatin cell
+  A type of interneuron expressing the molecular marker somatostatin (SST, or
+  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
+  neurons, and have important roles in regulating the activity of excitatory
+  neurons.
+
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
   When used in reference to drifting gratings, spatial frequency means the distance between the
@@ -261,6 +258,9 @@ unit
   potentially valuable information about brain states, but certain types of
   analysis require more stringent quality thresholds to ensure that all of the
   included units are well isolated from their neighbors.
+
+VIP cell
+  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 waveform
 spike
