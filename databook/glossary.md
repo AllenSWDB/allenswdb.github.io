@@ -91,7 +91,7 @@ ISI
   perfuses the local region. The timecourse of the ISI signal is slow, and the
   magnitude of the reflectance changes are small. As a result, the use of periodic
   stimuli can aid in signal detection. A common use of ISI is to map
-  {term}retinotopy across the brain surface by moving a slowly drifting bar across
+  {term}`retinotopy` across the brain surface by moving a slowly drifting bar across
   the visual field then measuring the signal in each pixel at the frequency of the
   periodic drifting bar. ISI has also been used to identify orientation maps in
   species with organized orientation maps like cats and primates, as well as to
