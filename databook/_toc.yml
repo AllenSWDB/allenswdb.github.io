@@ -76,7 +76,6 @@ chapters:
     sections:
     - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
       sections:
-      - physiology/stimuli/passive-visual-stimuli/visual-stimuli-2p
       - physiology/stimuli/passive-visual-stimuli/visual-stimuli-np
     - file: physiology/stimuli/visual-behavior/VB-Behavior
       title: Visual Behavior Task

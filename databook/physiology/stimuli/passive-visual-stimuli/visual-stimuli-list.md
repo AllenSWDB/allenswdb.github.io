@@ -2,7 +2,7 @@
 
 # Probably want figures of the stimuli
 
-# N.B. content here is copied directly from [here](vc2p-stimuli.md) (mod Python). Tutorial is also here (maybe should stay under vc2p?), but may be useful to clearly list the stimuli in one place (esp. since this is also used for VC-NP).
+# N.B. content here is copied directly from [here](vc2p-stimuli.md) (mod Python). Tutorial is also here (maybe should stay under vc2p?), but may be useful to clearly list the stimuli in one place (esp. since this is also used for VC-NP). Note that the stimuli specific to VC-NP are not listed here yet, probably will include them at a later date.
 
 As we saw in the [overview](vc2p-dataset.md), there were a range of visual stimuli presented to the mice in these experiments. 
 
@@ -34,7 +34,7 @@ There are three different natural movie stimuli:
 Natural movie one is presented in every session. It is 30 seconds long and is repeated 10 times in each session.
 Natural movie two is presented in three_session_B. It is 30 seconds long and is repeated 10 times.
 Natural movie three is presented in three_session_A. It is 2 minutes long and is presented a total of 10 times, but in two epochs.
-All of these movies are from the opening scene of <b>Touch of Evil</b>, and Orson Welles film. This was selected because it is a continuous shot with no camera cuts and with a variety of different motion signals. 
+All of these movies are from the opening scene of <b>Touch of Evil</b>, an Orson Welles film. This was selected because it is a continuous shot with no camera cuts and with a variety of different motion signals. 
 
 ## Locally Sparse Noise
 The locally sparse noise stimulus is used to map the spatial receptive field of the neurons. There are three stimuli that are used. For the data published in June 2016 and October 2016, the <b>locally_sparse_noise</b> stimulus was used, and these were presented in the session called <b>three_session_C</b>. For the data published after that, both <b>locally_sparse_noise_4deg</b> and <b>locally_sparse_noise_8deg</b> were used and these were presented in <b>three_session_C2</b>.
