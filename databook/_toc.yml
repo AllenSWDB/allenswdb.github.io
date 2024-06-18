@@ -57,13 +57,13 @@ chapters:
     - file: physiology/ephys/visual-behavior/VB-Neuropixels
       title: Visual Behavior Neuropixels
       sections:
-      - file: physiology/visual-behavior/VBN-Dataset
-      - file: physiology/visual-behavior/VBN-SessionData
-      - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
+      - file: physiology/ephys/visual-behavior/VBN-Dataset
+      - file: physiology/ephys/visual-behavior/VBN-SessionData
+      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
         title: Tutorial Aligning Neural Data to Stimuli
-      - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
+      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
         title: Tutorial Aligning Behavioral Data to Task Events
-      - file: physiology/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
         title: Tutorial Analyzing LFP data
     - file: physiology/ephys/cell-type-lookup-table/ctlut-background
       sections:
@@ -75,15 +75,13 @@ chapters:
   - file: physiology/stimuli/stimuli
     sections:
     - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
-      sections:
-      - physiology/stimuli/passive-visual-stimuli/visual-stimuli-np
     - file: physiology/stimuli/visual-behavior/VB-Behavior
       title: Visual Behavior Task
       sections:
       - file: physiology/stimuli/visual-behavior/VB-BehaviorSessionData
         title: Behavior Session Data
   - file: physiology/pyNWB/pyNWB                    # Also a placeholder that needs actual content
-- file: anatomy/anatomy
+- file: anatomy/anatomy                    # Also a placeholder that needs actual content
   sections:
   - file: anatomy/microns-em/em-background
     sections:
@@ -100,6 +98,6 @@ chapters:
     - file: anatomy/microns-em/em-functional_data.md
     - file: anatomy/microns-em/em-coordinates.md
     - file: anatomy/microns-em/em-ultrastructure.md
-  #- file: This will be something on Single Cell Whole Brain Anatomy once we've determined a name
+  - file: anatomy/single-cell-morphology/scm-background                    # Also a placeholder that needs actual content
 - file: glossary
 - file: bibliography
