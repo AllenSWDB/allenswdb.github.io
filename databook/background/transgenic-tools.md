@@ -84,7 +84,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
 
 <b>Nr5a1-Cre</b>
-: In cortex, drives expression in excitatory nerons in layer 6.
+: In cortex, drives expression in excitatory neurons in layer 6.
 
 <b>Ntsr1-Cre_GN220</b>
 : In cortex, drives expression in a sub-population of excitatory neurons in layer 4.
@@ -119,7 +119,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 
 A reporter line is a transgenic mouse line in which mice have had the gene for a
 *reporter* inserted into their genome, with a lox-STOP-lox preceeding it so that
-expression does not occur in the absense of Cre. Common reporters are
+expression does not occur in the absence of Cre. Common reporters are
 fluorescent proteins (like GFP), opsins (like ChR2), or calcium indicators (like
 GCaMP). Here are the reporter lines used in our data sets:
 

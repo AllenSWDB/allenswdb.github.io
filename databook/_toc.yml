@@ -11,13 +11,11 @@ chapters:
   - file: background/experimental-setup
   - file: background/Neuropixels-electrophysiology
     sections:
-    - file: visual-coding-np/vcnp-quality-metrics
+    - file: physiology/ephys/visual-coding/vcnp-quality-metrics
   - file: background/Two-photon-calcium-imaging
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
   - file: background/Intrinsic-Signal-Imaging
-  #
-  # Just to draw attention to this needing stuff
 - file: physiology/physiology                    # Also a placeholder that needs actual content
   sections:
   - file: physiology/ophys/ophys-background                    # Also a placeholder that needs actual content
@@ -46,40 +44,37 @@ chapters:
   - file: physiology/ephys/ephys-background                    # Also a placeholder that needs actual content
     sections:
     - file: physiology/ephys/visual-coding/vcnp
-    sections:
-    - file: physiology/ephys/visual-coding/vcnp-quickstart
-    - file: physiology/ephys/visual-coding/vcnp-data-access
-    - file: physiology/ephys/visual-coding/vcnp-units
-    - file: physiology/ephys/visual-coding/vcnp-receptive-fields
-    - file: physiology/ephys/visual-coding/vcnp-lfp
-    - file: physiology/ephys/visual-coding/vcnp-optotagging
-    - file: physiology/ephys/visual-coding/vcnp-session
-    - file: physiology/ephys/visual-coding/vcnp-cheatsheet
-    - file: physiology/ephys/visual-coding/vcnp-links
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-background
-    sections:
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
+      sections:
+      - file: physiology/ephys/visual-coding/vcnp-quickstart
+      - file: physiology/ephys/visual-coding/vcnp-data-access
+      - file: physiology/ephys/visual-coding/vcnp-units
+      - file: physiology/ephys/visual-coding/vcnp-receptive-fields
+      - file: physiology/ephys/visual-coding/vcnp-lfp
+      - file: physiology/ephys/visual-coding/vcnp-optotagging
+      - file: physiology/ephys/visual-coding/vcnp-session
+      - file: physiology/ephys/visual-coding/vcnp-cheatsheet
+      - file: physiology/ephys/visual-coding/vcnp-links
     - file: physiology/ephys/visual-behavior/VB-Neuropixels
-    title: Visual Behavior Neuropixels
-    sections:
-    - file: physiology/visual-behavior/VBN-Dataset
-    - file: physiology/visual-behavior/VBN-SessionData
-    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
-      title: Tutorial Aligning Neural Data to Stimuli
-    - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
-      title: Tutorial Aligning Behavioral Data to Task Events
-    - file: physiology/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
-      title: Tutorial Analyzing LFP data
+      title: Visual Behavior Neuropixels
+      sections:
+      - file: physiology/visual-behavior/VBN-Dataset
+      - file: physiology/visual-behavior/VBN-SessionData
+      - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
+        title: Tutorial Aligning Neural Data to Stimuli
+      - file: physiology/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
+        title: Tutorial Aligning Behavioral Data to Task Events
+      - file: physiology/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+        title: Tutorial Analyzing LFP data
+    - file: physiology/ephys/cell-type-lookup-table/ctlut-background
+      sections:
+      - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
+      - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
+      - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
+      - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
     - file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
   - file: physiology/stimuli/stimuli
-  sections:
-  - file: physiology/stimuli/passive-visual-stimuli
-  - file: physiology/stimuli/change-detection-task
-  - file: physiology/stimuli/visual-behavior/vb-background
     sections:
+    - file: physiology/stimuli/passive-visual-stimuli/passive-visual-stimuli                    # Also a placeholder that needs actual content
     - file: physiology/stimuli/visual-behavior/VB-Behavior
       title: Visual Behavior Task
       sections:

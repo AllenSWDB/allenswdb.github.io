@@ -1,7 +1,7 @@
 # Behavioral apparatus
 
 Neurons in the visual system often have spatially selective receptive fields,
-that is, they tend to responds to stimuli shown in a particular part of visual
+that is, they tend to respond to stimuli shown in a particular part of visual
 space. In order to repeatably show stimuli to a mouse, the mice need to be
 head-fixed. For all the datasets described here, this means that mice have had a
 head bar that was surgically implanted prior to the experiment. For more details
@@ -57,5 +57,5 @@ width: 800
 name: screen-on-rig
 ---
 
-The second benefit of head fixation is that it holds the mouses head place to
+The second benefit of head fixation is that it holds the mouse's head in place to
 facilitate neural recordings.
