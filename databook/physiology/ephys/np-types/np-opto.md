@@ -1,3 +1,0 @@
-# Neuropixels Opto - will probably get folded into the a larger section later
-
-Neuropixels Opto is another variant of the Neuropixels probe. It is based on the Neuropixels 1.0 probe, with the same 384 channels and 960 electrodes, but also includes optical emission sites on the probe. This allows lasers of various wavelengths to be emitted from the probe and activate light-gated ion channels in optotagged neurons. 
