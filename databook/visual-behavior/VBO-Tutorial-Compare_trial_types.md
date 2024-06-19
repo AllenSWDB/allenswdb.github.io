@@ -148,11 +148,19 @@ Lets look at the dataframe of stimulus presentations. This tells us the attribut
 stimulus_presentations = ophys_experiment.stimulus_presentations
 stimulus_presentations.head()
 ```
+To select information about stimuli in change behavior task only, we need to filter our table by stimulus block name.
+
+```{code-cell} ipython3
+stimulus_presentaions = stimulus_presentations[stimulus_presentaions.stimulus_block_name=='change_detection_behavior'].copy()
+stimulus_presentaions.reset_index(drop=True, inplace=True) # resetting index starts df at stimulus 0
+# give index a name
+stimulus_presentaions.index.name = 'stimulus_presentations_id'
+```
 
 Note that there is an image name called 'omitted'. This represents the time that a stimulus would have been shown, had it not been omitted from the regular stimulus cadence. They are included here for ease of analysis, but it's important to note that they are not actually stimuli. They are the lack of expected stimuli.
 
 ```{code-cell} ipython3
-stimulus_presentations.query('image_name == "omitted"').head()
+stimulus_presentaions.query('image_name == "omitted"').head()
 ```
 
 ### Running speed
@@ -254,7 +262,7 @@ def plot_stimuli(trial, ax):
     '''
     plot stimuli as colored bars on specified axis
     '''
-    stimuli = ophys_experiment.stimulus_presentations.copy()
+    stimuli = ophys_experiment.stimulus_presentations.query('stimulus_block_name' == @change_detection_behavior').copy()
     stimuli = add_image_colors(stimuli)
     stimuli = stimuli[(stimuli.end_time >= trial['start_time'].values[0]) & 
                       (stimuli.start_time <= trial['stop_time'].values[0])]
