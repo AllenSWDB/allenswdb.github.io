@@ -32,11 +32,11 @@ bars below are 20 degrees for the mouse data but 1 degree for the monkey!
 ![rfs](/resources/NiellHubermann_RFs.png)
 
 Using {term}`Two-photon calcium imaging` allowed large populations of neurons to
-be recorded across the cortex, and another key early result was that mouse (and
+be recorded across the cortex, and another key early result was that mice (and
 rodents broadly) lack the orientation columns found in primates and cats. While
 the latter species have neurons that are tuned with similar orientations
 organized in columns, the rodent visual cortex has a "salt and pepper"
-organization, where the orientation selectively of neighboring neurons are
+organization, where the orientation selectivity of neighboring neurons are
 randomly organized. {cite:p}`ohki`
 
 Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s)

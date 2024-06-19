@@ -142,7 +142,7 @@ individualistic firing patterns of neurons.
 Neuropixels data processing
 :::
 
-Neuropixels are silicon probes contain 374 or 384 channels that continuously
+Neuropixels are silicon probes containing 374 or 384 channels that continuously
 detect voltage fluctuations in the surrounding neural tissue. Each channel is
 split into two separate data streams, or *bands*, on the probes. The *spike
 band* is digitized at 30 kHz, and contains information about action potentials
@@ -181,7 +181,7 @@ and the ecephys section of the AllenSDK.
 
 ## Neuropixels Opto
 
-The Neuropixels Opto probe is based on the Neuropixels 1.0 probe, but with added optical stimulation capabilities, making it an excellent tool for optogenetic experiments. Like the NP 1.0, the NP Opto has 384 recording channels and 960 electrodes, and allow simultaneous dual-band recording in the spike band and LFP band. Unlike the NP 1.0, the NP opto also contains integrated photonic waveguides, allowing for light stimulation at 28 *emission sites* down the bottom 1400 um of the shank (14 red sites and 14 blue sites, spaced 100 um apart).
+The Neuropixels Opto probe is based on the Neuropixels 1.0 probe, but includes added optical stimulation capabilities, making it an excellent tool for optogenetic experiments. Like the NP 1.0, the NP Opto has 384 recording channels and 960 electrodes, and allow simultaneous dual-band recording in the spike band and LFP band. Unlike the NP 1.0, the NP opto also contains integrated photonic waveguides, allowing for light stimulation at 28 *emission sites* down the bottom 1400 um of the shank (14 red sites and 14 blue sites, spaced 100 um apart).
 
 :::{figure} ../resources/NP-opto-configuration.png
 :name: np-opto
@@ -192,3 +192,9 @@ Schematic of the NP Opto channel and site arrangement, courtesy of IMEC.
 :::
 
 The NP Opto is hugely advantageous over more traditional laser stimulation methods, especially for techniques like optotagging. Making sure the electrode locations align with the area illuminated by the laser is a common problem when stimulating with implanted fibers or surface laser stimulation, but the NP Opto solves this issue, as the light emission sites are situated directly on the probe.
+
+## Neuropixels Ultra
+
+The Neuropixels Ultra is also based on the Neuropixels 1.0 probe. Neuropixels Ultra differs from Neuropixels 1.0 and 2.0 in the density of the recording sites and therefore the resolution of the imaging produced. In NP 1.0 and 2.0, the spacing of the recording sites were on the order of 10 $\mu$m, reducing their ability to resolve images at smaller energy scales. Additionally, probe drift of a few micrometers could result in significant signal loss if the drift resulted in a previously sampled unit entering a 'blind spot'.
+
+NP Ultra, in contrast, has significantly decreased electrode size and grid spacing and therefore significantly increased the density of the recording sites. In NP Ultra, the probe sites are squares with lengths of 5 $\mu$m spaced 1 $\mu$m apart, allowing the probe to resolve much smaller spatial regions. However, since the number of channels is unchanged, NP Ultra also has a reduced overall length of the region from which data can be recorded. That is, NP Ultra gathers data from a smaller region of the brain, but in higher detail, than NP 1.0 or NP 2.0. The higher resolution allows researchers to examine individual units with much higher detail, as well as to see signals with very short lifetimes.
