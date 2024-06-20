@@ -45,6 +45,26 @@ visual areas each contain a distinct map of {term}`Retinotopy`, i.e. each visual
 area has its own map of visual space. The borders between higher visual areas
 can be identified based on reversals in the retinotopic map at area boundaries.
 
+The retinotopic map is often studied using intrinsic signal imaging (ISI), which
+utilizes the difference in the absorption spectra between deoxygenated and
+oxygenated hemoglobin. The cortical surface is exposed to red light and the
+subsequent reflection is measured using a CCD sensor. This allows researchers 
+to identify where oxygenated blood is being diverted, allowing for identification
+of active regions, albeit with relatively low resolution (~200 $\mu$m, ~1-2 s).
+
+To create a retinotopic map, mice are exposed to drifting stimuli while ISI
+is being done. The resulting data is then used to compute altitude and azimuth
+maps for the cortical surface. Each independent cortical map can then be 
+identified with a different visual cortical area. An example is shown below:
+
+:::{figure}  ../resources/background_isi_imaging_example.png
+:name: isi-ref
+:align: center
+:width: 800
+
+Images and averaged maps generated post-acquisition. All selected trials are averaged to produce azimuth (A) and altitude (B) maps, and a map of visual field sign with segmented area boundaries overlaid on a vasculature image (C). From the altitude and azimuth maps and segmented area boundaries, a map of visual eccentricity (D), a map of eccentricity from the V1 centroid (E), and a target map (F) are computed. List of acronyms: Primary Visual Area (VISp), Posterolateral visual area (VISpl), Laterointermediate area (VISli), Lateral visual area (VISl), Anteromedial visual area (VISal), Laterolateral anterior visual area (VISlla), Rostrolateral visual area (VISrl), Anteromedial visual area (VISam), Posteromedial visual area (VISpm), Medial visual area (VISm), Mediomedial anterior visual area (VISmma), Mediomedial posterior visual area (VISmmp). Scale bar in degrees for A, B, D & E.
+:::
+
 An early question was whether neurons in different mouse {term}`HVA`s had distinct
 visual responses to subserve distinct functions. One framing of this question is
 whether there are streams akin to the dorsal and ventral streams in primate and
