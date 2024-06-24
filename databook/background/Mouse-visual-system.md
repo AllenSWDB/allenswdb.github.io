@@ -45,7 +45,7 @@ visual areas each contain a distinct map of {term}`Retinotopy`, i.e. each visual
 area has its own map of visual space. The borders between higher visual areas
 can be identified based on reversals in the retinotopic map at area boundaries.
 
-We use intrinsic signal imaging (ISI) to create a {term}`retinotopic map`, utilizing
+We use intrinsic signal imaging ({term}`ISI`) to create a {term}`retinotopic map`, utilizing
 the difference in the absorption spectra between deoxygenated and
 oxygenated hemoglobin. Measuring this activity while mice view a drifting stimulus,
 we can create a map of altitude and azimuth across the cortical surface. This map
