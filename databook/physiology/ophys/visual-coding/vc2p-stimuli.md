@@ -194,7 +194,7 @@ What is the inter trial interval?
 
 ## Natural scenes
 The natural scenes stimulus consists of 118 black and white images that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blank sweeps, where the images are replaced by the mean luminance gray, interleaved among the trials.
-The images are taken from three different image sets including CITATIONS HERE
+The images are taken from three different image sets: the Berkeley Segmentation Dataset, van Hateren Natural Image Dataset, and McGill Calibrated Colour Image Database.
 
 Let's find the session in the experiment container we're exploring that contains the natural scenes stimulus.
 
