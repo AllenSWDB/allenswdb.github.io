@@ -25,7 +25,7 @@ experiments](https://www.youtube.com/watch?v=8VdFf3egwfg) of David Hubel and
 Torsten Wiesel who had developed the tungsten electrode. Inserting the electrode
 in the V1 of an anasethized cat, they were able to determine what visual
 stimulus drove the activity of the neuron they were recording, and in this way
-they mapped the {term}`receptive field` of the neuron. (Add citation to paper)
+they mapped the {term}`receptive field` of the neuron. {cite:p}`hubel59`
 
 Over the last sixty years, extensive work has been done using this approach,
 recording from single or small groups of neurons in V1 as well as other regions
