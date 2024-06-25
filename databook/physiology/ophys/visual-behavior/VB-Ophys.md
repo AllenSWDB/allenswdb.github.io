@@ -12,7 +12,7 @@ Data for each experiment is packaged in Neurodata Without Borders (NWB) files th
 
 ![change_detection_task](/resources/change_detection_task.png)
 
-To learn about the task structure and behavioral training procedure, see the <b>VISUAL BEHAVIOR TASK</b> page. 
+To learn about the task structure and behavioral training procedure, see the <b>[visual behavior task](VB-Behavior)</b> page. 
 
 ## 2-Photon Calcium Imaging
 
@@ -20,9 +20,9 @@ Neural activity was measured as calcium fluorescence in cells expressing the gen
 
 ![transgenic_lines](/resources/vbo_transgenic_lines.png)
 
-Single-plane imaging sessions were acquired using a Scientifica 2-photon microscope at 30Hz frame rate, with one imaging plane per session. Multi-plane imaging sessions were acquired at 11Hz frame rate using a modified Mesoscope 2-photon microscope, with 8 imaging planes recorded in each session. Using a multiplexing approach allowed pairs of imaging planes to be recorded nearly simultaneously. Paired planes were always in the same cortical area, but were located at different depths within the cortex. 
+Single-plane imaging sessions were acquired using a Scientifica 2-photon microscope at 30Hz frame rate, with one imaging plane per session. Multi-plane imaging sessions were acquired at 11Hz frame rate using a modified Mesoscope 2-photon microscope, with 8 imaging planes recorded in each session. A multiplexing approach was used to enable pairs of imaging planes to be recorded nearly simultaneously. Paired planes were always in the same cortical area, but were located at different depths within the cortex. 
 
-As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas, the primary visual cortex (VISp, also called V1) and a higher visual area (VISl, also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the <b>Dataset Summary</b> section.
+As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas, the {term}`primary visual cortex` (VISp, also called V1) and a {term}`higher visual area` (VISl, also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the <b>Dataset Summary</b> section.
 
 ![area_targeting](/resources/vbo_area_targeting.png)
 

@@ -56,13 +56,13 @@ because we cannot guarantee that all the spikes assigned to one unit actually
 originate from a single cell. Unlike in two-photon imaging, where you can
 visualize each neuron throughout the entire experiment, with electrophysiology
 we can only “see” a neuron when it fires a spike. If a neuron moves relative to
-the probe, or if it’s far away from the probe, some of its spikes may get mixed
+the probe, or if the neuron is far away from the probe, some of its spikes may get mixed
 together with those from other neurons. Because of this inherent ambiguity, we
 provide a variety of quality metrics to allow you to find the right units for
 your analysis. Even highly contaminated units contain potentially valuable
-information about brain states, so we didn’t want to leave them out of the
-dataset. But certain types of analysis require more stringent quality
-thresholds, to ensure that all of the included units are well isolated from
+information about brain states, so they are still included within the
+dataset. However, certain types of analysis require more stringent quality
+thresholds to ensure that all of the included units are well isolated from
 their neighbors.
 :::
 
@@ -81,7 +81,7 @@ Neuropixels visual stimulus sets
 :::
 
 A central aim of the Visual Coding – Neuropixels project is to measure the
-impact of visual stimuli on neurons throughout the mouse visual system. To that
+impact of visual stimuli on neurons throughout the [mouse visual system](mouse-visual-system). To that
 end, all mice viewed one of two possible stimulus sets, known as
 *Brain Observatory 1.1* or *Functional Connectivity*. Both stimulus sets began
 with a Gabor stimulus flashed at 81 different locations on the screen, used to
@@ -90,7 +90,7 @@ brief flashes of light or dark, to measure the temporal dynamics of the visual
 response.
 
 The remainder of the visual stimulus set either consisted of the same stimuli
-shown in the two-photon experiments (*Brain Observatory 1.1*), or a subset of
+shown in the [two-photon experiments](vc2p-stimuli) (*Brain Observatory 1.1*), or a subset of
 those stimuli shown with a higher number of repeats. We also added a dot motion
 stimulus, to allow us to measure the speed tuning of units across the mouse
 visual system.

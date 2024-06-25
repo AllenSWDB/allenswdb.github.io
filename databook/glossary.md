@@ -20,7 +20,8 @@ Cre line
   experiments, Cre is used with loxP {term}`Reporter line` in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells.
+  to be restricted to particular subset of cells. For specific lines used, see
+  the section on [transgenic tools](transgenic-tools).
 
 CSV
   Shorthand for "comma separated values", a common file format for storing
@@ -51,6 +52,9 @@ FSI
     also referred to as fast spiking neurons. This feature is sometimes used
     to putatively label neurons with narrow spikes as particular cell types,
     such as {term}`PV+ neuron`s, among others.
+
+fluorophore
+    Fluorophores are a type of molecule which are excited by absorbing light
 
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
@@ -134,6 +138,7 @@ Neuropixels
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
+Optotagging
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
   ion channels (using a {term}`reporter line` ) in a specific subpopulation of
@@ -197,6 +202,7 @@ Reporter line
   reporter gene.
 
 Retinotopy
+retinotopic map
   <b>retinotopy</b> refers to the mapping of visual space on to neural space.
   Most visual areas of the brain contain an orderly map of visual space such that
   neighboring regions in space are represented by neighboring regions in the brain.
