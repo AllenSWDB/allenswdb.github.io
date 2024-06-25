@@ -340,7 +340,7 @@ The locally sparse noise stimuli have the same temporal structure as the natural
 
 (lsn_stimulus_template)=
 ### Stimulus template
-The stimulus template is an array that contains the images of the locally sparse noice stimulus that were presented to the mouse. This can be accessed using `get_stimulus_template()`. Let's look at the first frame:
+The stimulus template is an array that contains the images of the locally sparse noise stimulus that were presented to the mouse. This can be accessed using `get_stimulus_template()`. Let's look at the first frame:
 
 ```{code-cell} ipython3
 lsn_template = data_set.get_stimulus_template('locally_sparse_noise')
