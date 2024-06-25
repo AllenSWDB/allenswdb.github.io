@@ -12,6 +12,7 @@ chapters:
   - file: background/Neuropixels-electrophysiology
     sections:
     - file: physiology/ephys/visual-coding/vcnp-quality-metrics
+    - file: physiology/ephys/neuropixels-description
   - file: background/Two-photon-calcium-imaging
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
