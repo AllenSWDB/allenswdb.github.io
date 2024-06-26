@@ -37,7 +37,7 @@ First, this reliability allows the mouse to be reproducibly positioned on a rig.
 For the datasets presented here, the mouse will be placed on a running wheel in
 front of a screen. A set of cameras monitor the mouse's face, eye position, and
 pupil size. For more information, see the
-[Allen Brain Observtory white paper](http://help.brain-map.org/download/attachments/10616846/VisualCoding_Overview.pdf?version=5&modificationDate=1538066962631&api=v2).
+[Allen Brain Observatory white paper](http://help.brain-map.org/download/attachments/10616846/VisualCoding_Overview.pdf?version=5&modificationDate=1538066962631&api=v2).
 
 :::{figure} ../resources/MouseOnRig.JPG
 ---
