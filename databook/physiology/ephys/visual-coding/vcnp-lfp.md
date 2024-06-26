@@ -30,7 +30,7 @@ time-series analysis of the LFP signals.
 This Jupyter notebook will demonstrate how to access and analyze LFP data from
 the Neuropixels Visual Coding dataset. LFP, which stands for "local field
 potential," contains information about low-frequency (0.1-500 Hz) voltage
-fluctations around each recording site. It's complementary to the spiking
+fluctuations around each recording site. It's complementary to the spiking
 activity, and can be analyzed on its own or in conjunction with spikes.
 
 This tutorial will cover the following topics:
@@ -101,7 +101,7 @@ session.probes
 
 There are six probes available, and all of them have LFP data. Note that there
 is a small subset of probes across the entire dataset that only have spike data,
-due to high levels of electrical noise contamining the LFP band. To see which
+due to high levels of electrical noise contaminating the LFP band. To see which
 sessions are missing LFP data, you can check the `probes` table from the
 `EcephysProjectCache`:
 
@@ -478,7 +478,7 @@ lfp_subset.plot()
 plt.show()
 ```
 
-This signal contains compononts of multiple frequencies. We can isolate a
+This signal contains components of multiple frequencies. We can isolate a
 frequency band of interest by filtering. To do this we'll want to convert our
 data into standard numpy arrays for easier processing using the DataArray
 object's `values` property.

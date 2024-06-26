@@ -364,7 +364,7 @@ plt.plot([0.9, 0.9],[0,max_value], ':')
 It's clear that most units have a presence ratio of 0.9 or higher, which means
 they are present for at least 90% of the recording. Units with lower presence
 ratio are likely to have drifted out of the recording, or had waveforms that
-changed so dramatically they were assigend to separate clusters.
+changed so dramatically they were assigned to separate clusters.
 
 Calculating the exact fraction of units with presence ratio above 0.9 is easy:
 
@@ -470,7 +470,7 @@ The calculation for ISI violations comes from {cite:t}`hill2011`. Rather than
 reporting the fraction of spikes with ISI violations, their metric reports the
 relative firing rate of the hypothetical neurons that are generating these
 violations. You can interpret an ISI violations value of 0.5 as meaning that
-contamining spikes are occurring at roughly half the rate of "true" spikes for
+contaminating spikes are occurring at roughly half the rate of "true" spikes for
 that unit. In cases of highly contaminated units, the ISI violations value can
 sometimes be even greater than 1.
 
@@ -620,7 +620,7 @@ includes as many "other" spikes as are contained in the original unit's cluster,
 after normalizing the clusters by their standard deviation in each dimension
 (Mahalanobis distance). The higher the isolation distance, the more a unit is
 separated from its neighbors in PC space, and therefore the lower the likelihood
-that it's contamined by spikes from multiple units.
+that it's contaminated by spikes from multiple units.
 
 Let's look at the range of isolation distances across different brain regions:
 
@@ -831,7 +831,7 @@ spread
 
 velocity_above
 : Slope of spike propagation velocity traveling in dorsal direction from soma
-  (note to avoid infinite values, this is actaully the inverse of velocity:
+  (note to avoid infinite values, this is actually the inverse of velocity:
   ms/mm)
 
 velocity_below

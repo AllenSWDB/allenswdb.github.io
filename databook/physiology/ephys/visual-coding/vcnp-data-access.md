@@ -336,7 +336,7 @@ The default filter values are as follows:
 For more information about these quality metrics and how to interpret them,
 please refer to {doc}`this tutorial<vcnp-quality-metrics>`.
 
-If you want to see _all_ of the available units, it's straightfoward to disable
+If you want to see _all_ of the available units, it's straightforward to disable
 the quality metrics filters when retrieving this table:
 
 ```{code-cell} ipython3
