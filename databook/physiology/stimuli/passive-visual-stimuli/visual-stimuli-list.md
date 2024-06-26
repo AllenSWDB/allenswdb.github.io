@@ -23,7 +23,7 @@ The phase refers to the relative position of the grating. Phase 0 and Phase 0.5 
 
 ## Natural Scenes
 The natural scenes stimulus consists of a 118 black and whiteimages that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the images are replaced by the mean luminance gray, interleaved in among the trials.
-The images are taken from three different image sets including CITATIONS HERE
+The images are taken from three different image sets: the Berkeley Segmentation Dataset {cite:p}`MartinFTM01`, van Hateren Natural Image Dataset {cite:p}`van_hateren`, and McGill Calibrated Colour Image Database {cite:p}`olmos`.
 
 ## Natural Movies
 There are three different natural movie stimuli:
