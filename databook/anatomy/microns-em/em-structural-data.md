@@ -14,7 +14,7 @@ kernelspec:
 
 # Dataset Basics
 
-One of the more complicated things about using connectomics data is that it's both highly multimodal — there are images, tables, meshes, and more — and that it has been designed to be dynamic, as the segmentation changes with proofeading and carries changes to synaptic connectivity and more.
+One of the more complicated things about using connectomics data is that it's both highly multimodal — there are images, tables, meshes, and more — and that it has been designed to be dynamic, as the segmentation changes with proofreading and carries changes to synaptic connectivity and more.
 This section will cover what types of data exist and how to access them.
 
 The types of data we will describe here are:
