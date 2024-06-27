@@ -105,7 +105,7 @@ spike_waveforms = units.waveform_mean
 spike_qc = units.default_qc
 ```
 
-The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding-np/vcnp-quality-metrics`.
+The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding/vcnp-quality-metrics`.
 
 +++
 
