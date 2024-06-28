@@ -109,7 +109,7 @@ for i in range(100):
 ```
 
 ## Static gratings
-The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flasshed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
+The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flashed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
 Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the grating is replaced by the mean luminance gray, interleaved among the trials.
 
 Let's find the session in the experiment container we're exploring that contains the static gratings stimulus.
@@ -162,7 +162,7 @@ How many blank sweep trials are there?
 len(static_gratings_table[np.isnan(static_gratings_table.orientation)])
 ```
 
-How many trials are there of any one stimulus codition?
+How many trials are there of any one stimulus condition?
 
 ```{code-cell} ipython3
 ori=30

@@ -56,7 +56,7 @@ The `ophys_session_table` contains metadata for every 2-photon imaging (aka opti
 
 The `ophys_experiment_table` contains metadata for every <b>ophys experiment</b> in the dataset, which corresponds to a single imaging plane recorded in a single session at a specific `imaging_depth` and `targeted_structure`, and associated with a unique `ophys_experiment_id`. A key part of the experimental design is targeting a given population of neurons, contained in one imaging plane, across multiple days with several different `session_types` (further described below) to examine the impact of varying sensory and behavioral conditions on single cell responses.
 
-The collection of all imaging sessions for a given imaging plane is referred to as an <b>ophys container</b>, associated with a unique `ophys_container_id`. If the data for a given `session_type` does not meet the QC criteria on the first try, an attempt is made to re-acquire the session_type on a different recording day (this is called a retake). Thus each <b>ophys container</b> may contain different numbers of sessions, depending on which sessions and imaging planes passed QC, and how many retakes occured. 
+The collection of all imaging sessions for a given imaging plane is referred to as an <b>ophys container</b>, associated with a unique `ophys_container_id`. If the data for a given `session_type` does not meet the QC criteria on the first try, an attempt is made to re-acquire the session_type on a different recording day (this is called a retake). Thus each <b>ophys container</b> may contain different numbers of sessions, depending on which sessions and imaging planes passed QC, and how many retakes occurred. 
 
 ### Ophys cells 
 
@@ -75,7 +75,7 @@ Note that this represents a multi-plane imaging dataset. For single-plane imagin
 
 In this dataset, mice are trained on a visual change detection task. This task involves a continuous stream of stimuli, and mice learn to lick in response to a change in the stimulus identity to earn a water reward. There are different stages of training in this task, described below. The metadata for each behavior session in the dataset can be found in the `behavior_session_table` and can be used to identify behavior sessions you may want to analyze.
 
-The `behavior_session_table` includes every session for every mouse in the dataset, regardless of whether it occured during 2-photon imaging or during behavior training.
+The `behavior_session_table` includes every session for every mouse in the dataset, regardless of whether it occurred during 2-photon imaging or during behavior training.
 
 Here is how to load the `behavior_session_table` from the cache
 
@@ -87,7 +87,7 @@ print(f"Total number of behavior sessions: {len(behavior_sessions)}")
 behavior_sessions.head()
 ```
 
-This table gives us lots of useful metadata about each behavior session, including the genotype, sex and age of the mouse, the experimental design that was used (indicated by the `project_code`), the type of session that was run, and whether the session occured under a 2-photon microscope or in the behavior training facility. 
+This table gives us lots of useful metadata about each behavior session, including the genotype, sex and age of the mouse, the experimental design that was used (indicated by the `project_code`), the type of session that was run, and whether the session occurred under a 2-photon microscope or in the behavior training facility. 
 
 ```python
 behavior_sessions.columns
@@ -263,7 +263,7 @@ Mice are progressed through a series of training stages to shape their behavior 
 
 ![training](/resources/automated_training.png)
 
-Training with the change detection task begins with simple static grating stimuli, changing between 0 and 90 degrees in orientation. On the very first day, mice are automatically given a water reward when the orientation of the stimulus changes (`TRAINING_0_gratings_autorewards_15min`). On subsequent days, mice must lick following the change in order to receive a water reward (`TRAINING_1_gratings`). In the next stage, stimuli are flashed, with a 500ms inter stimulus interal of mean luminance gray screen (`TRAINING_2_gratings_flashed`). 
+Training with the change detection task begins with simple static grating stimuli, changing between 0 and 90 degrees in orientation. On the very first day, mice are automatically given a water reward when the orientation of the stimulus changes (`TRAINING_0_gratings_autorewards_15min`). On subsequent days, mice must lick following the change in order to receive a water reward (`TRAINING_1_gratings`). In the next stage, stimuli are flashed, with a 500ms inter stimulus interval of mean luminance gray screen (`TRAINING_2_gratings_flashed`). 
 
 Once mice perform the task well with gratings, they are transitioned to natural image stimuli. Different groups of mice are trained with different sets of images, as described in the `project_code` section above. In the following description, we use `X` as a placeholder for image set `A`, `B`, `G` and `H` in the `session_type` name. 
 
@@ -286,7 +286,7 @@ During the 2-photon imaging portion of the experiment, mice perform the task wit
 
 ![experimental_design](/resources/vbo_experimental_design_sessions.png)
 
-Interleaved between active behavior sessions are <b>passive viewing</b> sessions where mice are given their daily water ahead of the sesssion (and are thus satiated) and view the stimulus with the lick spout retracted so they are unable to earn water rewards. This allows comparison of neural activity in response to stimuli under different behavioral contexts - active task engagement and passive viewing without reward. Passive sessions include `OPHYS_2_images_A_passive` (passive session with familiar images), and `OPHYS_5_images_A_passive` (passive session with novel images).
+Interleaved between active behavior sessions are <b>passive viewing</b> sessions where mice are given their daily water ahead of the session (and are thus satiated) and view the stimulus with the lick spout retracted so they are unable to earn water rewards. This allows comparison of neural activity in response to stimuli under different behavioral contexts - active task engagement and passive viewing without reward. Passive sessions include `OPHYS_2_images_A_passive` (passive session with familiar images), and `OPHYS_5_images_A_passive` (passive session with novel images).
 
 <b> What `session_types` belong to each `project_code`? </b>
 
@@ -467,7 +467,7 @@ ophys_cells_table[ophys_cells_table.cell_specimen_id==cell_specimen_id].session_
 
 This cell was only detected in one session. In order for neurons to be detected by the segmentation algorithm, they must have some activity at some point during the session, so that there is enough calcium fluorescence for them to be observed. When a cell is detected in some sessions and not others, it most likely means that it was not active in all sessions. 
 
-Another possibility is that the imaging plane was not perfectly matched from one day to the next, and the cell simply wasnt present on some days. This is less likely to occur in this dataset because of our strict quality control process designed to remove improperly matched sessions from the dataset. The imaging plane recorded in each session is compared with an anatomical stack acquired +/-30 um around the targeted imaging plane location, and the distance from the target location is computed for each session. Experiments where the imaging plane was >10um from the target location are discarded. Given the size of a neuron's cell body (~15-30um), and the z-resolution of the microscope (~5um point spread function), this criterion ensures that the experiments included in the dataset are well matched across sessions and the same cells are within the recorded field of view from day to day.
+Another possibility is that the imaging plane was not perfectly matched from one day to the next, and the cell simply wasn't present on some days. This is less likely to occur in this dataset because of our strict quality control process designed to remove improperly matched sessions from the dataset. The imaging plane recorded in each session is compared with an anatomical stack acquired +/-30 um around the targeted imaging plane location, and the distance from the target location is computed for each session. Experiments where the imaging plane was >10um from the target location are discarded. Given the size of a neuron's cell body (~15-30um), and the z-resolution of the microscope (~5um point spread function), this criterion ensures that the experiments included in the dataset are well matched across sessions and the same cells are within the recorded field of view from day to day.
 
 # Technical whitepaper
 
