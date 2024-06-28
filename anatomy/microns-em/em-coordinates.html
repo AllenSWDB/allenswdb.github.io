@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Coordinate Systems &#8212; SWDB 2023 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'anatomy/microns-em/em-coordinates';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/anatomy/microns-em/em-coordinates.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ultrastructure Resources" href="em-ultrastructure.html" />
+    <link rel="prev" title="MICrONS Functional Data" href="em-functional_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology/physiology.html">Physiology</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ophys/ophys-background.html">Optical Physiology</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ophys/learning/learning.html">Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ophys/inhibitory-balance/inhibitory-balance.html">Inhibitory Balance</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ephys/ephys-background.html">Electrophysiology</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/np-ultra/np-ultra.html">Neuropixels Ultra</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/stimuli/stimuli.html">Stimuli</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+
+
+
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../physiology/pyNWB/pyNWB.html">pyNWB</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../anatomy.html">Anatomy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="em-background.html">EM Connectomics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="key-tables.html">Annotation Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-volume-data.html">Imagery and Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Coordinate Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../single-cell-morphology/scm-background.html">Single Cell Morphology</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/anatomy/microns-em/em-coordinates.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fanatomy/microns-em/em-coordinates.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/anatomy/microns-em/em-coordinates.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Coordinate Systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-transform">Standard Transform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-standard-transform">Why use Standard Transform?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-standard-transform">How to use Standard Transform.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-points">Transforming points</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-meshes-and-skeletons">Transforming meshes and skeletons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="coordinate-systems">
+<h1>Coordinate Systems<a class="headerlink" href="#coordinate-systems" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Because of the many different data representations, dealing with coordinates in the MICrONs data is not entirely simple and it is easy to make mistakes by converting between coordinate systems incorrectly.</p>
+<p>There are three main coordinate systems that wind up getting used:</p>
+<ol class="arabic simple">
+<li><p><strong>Voxel coordinates</strong> are the coordinates of a point in the original image volume.
+These are the coordinates that are used to index into the volumes you can see in Neuroglancer, but each number has a potentially different unit.
+In the MICrONs data, a voxel is 4 nm wide in the x and y directions, and 40 nm long in the z direction.
+This means that a 1x1x1 micron cube would be represented by a 250x250x25 voxel span.
+<em>Annotations</em> (such as synapses) are stored in voxel coordinates.</p></li>
+<li><p><strong>Nanometer coordinates</strong> are the coordinates of a point in the original image volume, but in nanometers.
+This is equivalent to the voxel coordinate multiplied by the voxel resolution, with no further transformation applied.
+<em>Mesh and skeleton vertices</em> are stored in nanometer coordinates.</p></li>
+<li><p><strong>Transformed coordinates</strong> reflect a trasnsformation that has been applied to the original image volume.
+This transformation is a rotation to make the pia surface as flat as possible, a translation to move the pial surface to y=0, and a scaling to bring coordinates into microns.
+Transformed coordinates are convenient for more accurate computations of depth and the pia-to-white-matter axis, but are not stored by default.
+A python package <code class="docutils literal notranslate"><span class="pre">standard_transform</span></code> helps convert data to and from transformed coordinates.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that in all of these coordinate systems (including Neuroglancer), the y axis <em>increases</em> with depth. This is a standard definition when working with images, but is the opposite of what you usually think of with points.
+Because of that, when plotting annotations or neuroanatomy in matplotlib, you will usually have to invert the y axis with <code class="docutils literal notranslate"><span class="pre">ax.invert_yaxis()</span></code>.</p>
+</div>
+</section>
+<section id="standard-transform">
+<h2>Standard Transform<a class="headerlink" href="#standard-transform" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/ceesem/standard_transform">Standard Transform</a> is a python package designed to convert voxel and nanometer coordinates to transformed coordinates, with particular emphasis on the MICrONs data.</p>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h3>
+<p>Standard Transform can be installed from pip: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">standard_transform</span></code></p>
+</section>
+<section id="why-use-standard-transform">
+<h3>Why use Standard Transform?<a class="headerlink" href="#why-use-standard-transform" title="Permalink to this heading">#</a></h3>
+<p>Let’s look at the coordinates of every excitatory neuron in the MICrONs data to see why we might want to use transformed coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="s1">&#39;minnie65_public&#39;</span><span class="p">)</span>
+
+<span class="n">ct_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s1">&#39;aibs_soma_nuc_metamodel_preds_v117&#39;</span><span class="p">,</span> <span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># convert to nanometers</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_x_nm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_x&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_y_nm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_y&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_z_nm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_position_z&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">40</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;pt_position_x_nm&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pt_position_y_nm&#39;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">ct_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10_000</span><span class="p">),</span> <span class="c1"># Pick a random sample of 10,000 points, enough to see the shape of the data.</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Important to flip the y axis to have y increase with depth!</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AuthException</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="s1">&#39;minnie65_public&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ct_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s1">&#39;aibs_soma_nuc_metamodel_preds_v117&#39;</span><span class="p">,</span> <span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># convert to nanometers</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/frameworkclient.py:99,</span> in <span class="ni">CAVEclient.__new__</span><span class="nt">(cls, datastack_name, server_address, auth_token_file, auth_token_key, auth_token, global_only, max_retries, pool_maxsize, pool_block, desired_resolution, info_cache, write_server_cache)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>     <span class="k">return</span> <span class="n">CAVEclientGlobal</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">server_address</span><span class="o">=</span><span class="n">server_address</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="n">auth_token_file</span><span class="o">=</span><span class="n">auth_token_file</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">info_cache</span><span class="o">=</span><span class="n">info_cache</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="k">return</span> <span class="n">CAVEclientFull</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="n">datastack_name</span><span class="o">=</span><span class="n">datastack_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">server_address</span><span class="o">=</span><span class="n">server_address</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="n">auth_token_file</span><span class="o">=</span><span class="n">auth_token_file</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="n">auth_token_key</span><span class="o">=</span><span class="n">auth_token_key</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>         <span class="n">auth_token</span><span class="o">=</span><span class="n">auth_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="n">max_retries</span><span class="o">=</span><span class="n">max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="n">pool_maxsize</span><span class="o">=</span><span class="n">pool_maxsize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>         <span class="n">pool_block</span><span class="o">=</span><span class="n">pool_block</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">desired_resolution</span><span class="o">=</span><span class="n">desired_resolution</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="n">info_cache</span><span class="o">=</span><span class="n">info_cache</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/frameworkclient.py:364,</span> in <span class="ni">CAVEclientFull.__init__</span><span class="nt">(self, datastack_name, server_address, auth_token_file, auth_token_key, auth_token, max_retries, pool_maxsize, pool_block, desired_resolution, info_cache)</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l2cache</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">363</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_resolution</span> <span class="o">=</span> <span class="n">desired_resolution</span>
+<span class="ne">--&gt; </span><span class="mi">364</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">local_server</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="n">av_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get_aligned_volume_info</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">366</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aligned_volume_name</span> <span class="o">=</span> <span class="n">av_info</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/frameworkclient.py:227,</span> in <span class="ni">CAVEclientGlobal.info</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InfoServiceClient</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">227</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_info</span> <span class="o">=</span> <span class="n">InfoServiceClient</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">server_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">server_address</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>             <span class="n">datastack_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">datastack_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>             <span class="n">auth_client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>             <span class="n">max_retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>             <span class="n">pool_maxsize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pool_maxsize</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>             <span class="n">pool_block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pool_block</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>             <span class="n">over_client</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>             <span class="n">info_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_info_cache</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/infoservice.py:53,</span> in <span class="ni">InfoServiceClient</span><span class="nt">(server_address, datastack_name, auth_client, api_version, verify, max_retries, pool_maxsize, pool_block, over_client, info_cache)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">endpoints</span><span class="p">,</span> <span class="n">api_version</span> <span class="o">=</span> <span class="n">_api_endpoints</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">api_version</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">SERVER_KEY</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="n">verify</span><span class="o">=</span><span class="n">verify</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">InfoClient</span> <span class="o">=</span> <span class="n">client_mapping</span><span class="p">[</span><span class="n">api_version</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">return</span> <span class="n">InfoClient</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="n">server_address</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">auth_header</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">api_version</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">endpoints</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="n">SERVER_KEY</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">datastack_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="n">verify</span><span class="o">=</span><span class="n">verify</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">max_retries</span><span class="o">=</span><span class="n">max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">pool_maxsize</span><span class="o">=</span><span class="n">pool_maxsize</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="n">pool_block</span><span class="o">=</span><span class="n">pool_block</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="n">over_client</span><span class="o">=</span><span class="n">over_client</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="n">info_cache</span><span class="o">=</span><span class="n">info_cache</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/infoservice.py:104,</span> in <span class="ni">InfoServiceClientV2.__init__</span><span class="nt">(self, server_address, auth_header, api_version, endpoints, server_name, datastack_name, verify, max_retries, pool_maxsize, pool_block, over_client, info_cache)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="bp">self</span><span class="o">.</span><span class="n">info_cache</span> <span class="o">=</span> <span class="n">info_cache</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">if</span> <span class="n">datastack_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">104</span>     <span class="n">ds_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_datastack_info</span><span class="p">(</span><span class="n">datastack_name</span><span class="o">=</span><span class="n">datastack_name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_aligned_volume_name</span> <span class="o">=</span> <span class="n">ds_info</span><span class="p">[</span><span class="s2">&quot;aligned_volume&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_aligned_volume_id</span> <span class="o">=</span> <span class="n">ds_info</span><span class="p">[</span><span class="s2">&quot;aligned_volume&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/infoservice.py:161,</span> in <span class="ni">InfoServiceClientV2.get_datastack_info</span><span class="nt">(self, datastack_name, use_stored)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="bp">self</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="bp">self</span><span class="o">.</span><span class="n">info_cache</span><span class="p">[</span><span class="n">datastack_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datastack_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/base.py:89,</span> in <span class="ni">handle_response</span><span class="nt">(response, as_json, log_warning)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Deal with potential errors in endpoint response and return json for default case&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="n">_raise_for_status</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">log_warning</span><span class="o">=</span><span class="n">log_warning</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">89</span> <span class="n">_check_authorization_redirect</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">as_json</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/caveclient/base.py:103,</span> in <span class="ni">_check_authorization_redirect</span><span class="nt">(response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="n">first_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">urlp</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">first_url</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>         <span class="k">raise</span> <span class="n">AuthException</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>             <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You have not setup a token to access</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="s2"> </span><span class="si">{</span><span class="n">first_url</span><span class="si">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="s2"> with the current auth configuration.</span><span class="se">\n</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="s2"> Read the documentation at </span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="s2"> https://caveclient.readthedocs.io/en/latest/guide/authentication.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="s2"> or follow instructions under </span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="s2"> client.auth.get_new_token() for how to set a valid API token.</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="s2"> after initializing a global client with</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="s2"> client=CAVEclient(server_address=&quot;</span><span class="si">{</span><span class="n">urlp</span><span class="o">.</span><span class="n">scheme</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;://&quot;</span><span class="o">+</span><span class="w"> </span><span class="n">urlp</span><span class="o">.</span><span class="n">netloc</span><span class="si">}</span><span class="s2">&quot;)&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>         <span class="p">)</span>
+
+<span class="ne">AuthException</span>: You have not setup a token to access
+<span class="ne">https</span>://global.daf-apis.com/info/api/v2/datastack/full/minnie65_public
+<span class="k">with</span> <span class="n">the</span> <span class="n">current</span> <span class="n">auth</span> <span class="n">configuration</span><span class="o">.</span>
+
+<span class="n">Read</span> <span class="n">the</span> <span class="n">documentation</span> <span class="n">at</span> 
+<span class="ne">https</span>://caveclient.readthedocs.io/en/latest/guide/authentication.html
+<span class="ow">or</span> <span class="n">follow</span> <span class="n">instructions</span> <span class="n">under</span> 
+<span class="n">client</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_new_token</span><span class="p">()</span> <span class="k">for</span> <span class="n">how</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">API</span> <span class="n">token</span><span class="o">.</span>
+<span class="n">after</span> <span class="n">initializing</span> <span class="n">a</span> <span class="k">global</span> <span class="n">client</span> <span class="k">with</span>
+<span class="n">client</span><span class="o">=</span><span class="n">CAVEclient</span><span class="p">(</span><span class="n">server_address</span><span class="o">=</span><span class="s2">&quot;https://global.daf-apis.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is just the raw positions, converted to nanometers.
+You can see a few aspects that might make this hard to work with.
+First, if you look along the top of the data, you can see that the pia surface is not flat.
+In fact, there’s a roughly 5 degree slope from the left to the right.
+Second, if you look at the location of the pia surface, it’s at around y = 0.4 * 10^6.
+Not only are these units large, the offset is arbitrary and it would make much more sense to anchor y=0 to the pial surface.</p>
+<p>Let’s see how we can do this with <code class="docutils literal notranslate"><span class="pre">standard_transform</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">standard_transform</span> <span class="kn">import</span> <span class="n">minnie_ds</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X_transformed</span> <span class="o">=</span> <span class="n">minnie_ds</span><span class="o">.</span><span class="n">transform_vx</span><span class="o">.</span><span class="n">apply_dataframe</span><span class="p">(</span><span class="s1">&#39;pt_position&#39;</span><span class="p">,</span> <span class="n">ct_df</span><span class="p">)</span>
+<span class="n">X_transformed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">)</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_xt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_transformed</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_yt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_transformed</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ct_df</span><span class="p">[</span><span class="s1">&#39;pt_zt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_transformed</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;pt_xt&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pt_yt&#39;</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">ct_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10_000</span><span class="p">),</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you can see that the surface is much more aligned with the x-axis, and the cells in layer 1 start just below y=0.
+In addition, the units have been converted to microns, which is much more readable and more consistent with measurements in other modalities.</p>
+</section>
+<section id="how-to-use-standard-transform">
+<h3>How to use Standard Transform.<a class="headerlink" href="#how-to-use-standard-transform" title="Permalink to this heading">#</a></h3>
+<p>A number of examples are available in the <a class="reference external" href="https://github.com/ceesem/standard_transform">standard_transform readme</a>.</p>
+<section id="transforming-points">
+<h4>Transforming points<a class="headerlink" href="#transforming-points" title="Permalink to this heading">#</a></h4>
+<p>The main functions when working with point data are <code class="docutils literal notranslate"><span class="pre">transform_vx</span></code> and <code class="docutils literal notranslate"><span class="pre">transform_nm</span></code>, which transform from voxel coordinates and from nanometer coordinates respectively.
+In the above example, you will note that because we were working with annotations, we used the voxel coordinate transform.</p>
+<p>Each of the two transforms has the same functions that can be used:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">minnie_ds.{transform}.apply(x)</span></code>: This converts an <code class="docutils literal notranslate"><span class="pre">Nx3</span></code> array of points from the original space to an <code class="docutils literal notranslate"><span class="pre">Nx3</span></code> array of transformed coordinates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minnie_ds.{transform}.apply_project(projection_axis,</span> <span class="pre">x)</span></code>: This converts an <code class="docutils literal notranslate"><span class="pre">Nx3</span></code> array of points from the original space to an <code class="docutils literal notranslate"><span class="pre">N</span></code>-length array of transformed coordinates, taking only values along the given axis (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, or <code class="docutils literal notranslate"><span class="pre">z</span></code>). This is typically done along the <code class="docutils literal notranslate"><span class="pre">y</span></code> axis to get the depth of each point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minnie_ds.{transform}.apply_dataframe(column_name,</span> <span class="pre">df,</span> <span class="pre">Optional[projection_axis])</span></code>: This takes points from a dataframe column (or collection of three dataframe columns named <code class="docutils literal notranslate"><span class="pre">{column_name}_x</span></code>, <code class="docutils literal notranslate"><span class="pre">{column_name}_y</span></code>, and <code class="docutils literal notranslate"><span class="pre">{column_name}_z</span></code>) and converts them to transformed coordinates. If <code class="docutils literal notranslate"><span class="pre">projection_axis</span></code> is given, it will only return the values along that axis.</p></li>
+</ul>
+<p>Where <code class="docutils literal notranslate"><span class="pre">{transform}</span></code> is either <code class="docutils literal notranslate"><span class="pre">transform_vx</span></code> or <code class="docutils literal notranslate"><span class="pre">transform_nm</span></code>.</p>
+<p>You can also invert a transformation, for example if you want to convert transformed coordinates back to voxel coordinates to view in Neuroglancer.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">minnie_ds.{transform}.invert(X)</span></code>: This maps from an Nx3 array in the <em>transformed space</em> back to the original space (voxel or nanometer coordiantes, depending on which transform you used).</p></li>
+</ul>
+</section>
+<section id="transforming-meshes-and-skeletons">
+<h4>Transforming meshes and skeletons<a class="headerlink" href="#transforming-meshes-and-skeletons" title="Permalink to this heading">#</a></h4>
+<p>Standard transform has the capability to transform MeshParty skeletons, MeshWorks, and MeshWork annotations using these same transforms as above.</p>
+<p>For example, to transform all the vertices of meshwork object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nrn_transformed</span> <span class="o">=</span> <span class="n">minnie_ds</span><span class="o">.</span><span class="n">transform_nm</span><span class="o">.</span><span class="n">apply_meshwork_vertices</span><span class="p">(</span><span class="n">nrn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, Meshwork objects also have annotations in dataframes as well as vertices.
+In order to transform these points, we need to specify both the name of the dataframe table and the columns to transform as a dictionary.
+For example, if you want to also remap the <code class="docutils literal notranslate"><span class="pre">ctr_pt_position</span></code> values from the <code class="docutils literal notranslate"><span class="pre">pre_syn</span></code> table and <code class="docutils literal notranslate"><span class="pre">post_syn</span></code> tables (which are in voxels by default), you would use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">anno_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pre_syn&#39;</span><span class="p">:</span> <span class="s1">&#39;ctr_pt_position&#39;</span><span class="p">,</span> <span class="s1">&#39;post_syn&#39;</span><span class="p">:</span> <span class="s1">&#39;ctr_pt_position}</span>
+<span class="n">nrn_transformed</span> <span class="o">=</span> <span class="n">minnie_ds</span><span class="o">.</span><span class="n">transform_vx</span><span class="o">.</span><span class="n">apply_meshwork_annotations</span><span class="p">(</span><span class="n">nrn_transformed</span><span class="p">,</span> <span class="n">anno_dict</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that without the <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> parameter, these meshwork transformations will return a new object, while if<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> the original object is modified.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./anatomy/microns-em"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="em-functional_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MICrONS Functional Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="em-ultrastructure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ultrastructure Resources</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-transform">Standard Transform</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-standard-transform">Why use Standard Transform?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-standard-transform">How to use Standard Transform.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-points">Transforming points</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-meshes-and-skeletons">Transforming meshes and skeletons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saskia de Vries, Marina Garrett, Corbett Bennett, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

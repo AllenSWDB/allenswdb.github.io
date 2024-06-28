@@ -1,0 +1,87 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def get_change_time_from_stim_table(row):
+    '''
+    Given a particular row in the trials table,
+    find the corresponding change time in the
+    stimulus presentations table
+    '''
+    table = stimulus_presentations
+    change_frame = row['change_frame']
+    if np.isnan(change_frame):
+        return np.nan
+
+    change_time = table[table.start_frame==change_frame]\
+                    ['start_time'].values[0]
+
+    return change_time
+
+change_times = trials.apply(get_change_time_from_stim_table, axis=1)
+trials['change_time_with_display_delay'] = change_times
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[11], line 17[0m
+[1;32m     12[0m     change_time [38;5;241m=[39m table[table[38;5;241m.[39mstart_frame[38;5;241m==[39mchange_frame]\
+[1;32m     13[0m                     [[38;5;124m'[39m[38;5;124mstart_time[39m[38;5;124m'[39m][38;5;241m.[39mvalues[[38;5;241m0[39m]
+[1;32m     15[0m     [38;5;28;01mreturn[39;00m change_time
+[0;32m---> 17[0m change_times [38;5;241m=[39m [43mtrials[49m[38;5;241;43m.[39;49m[43mapply[49m[43m([49m[43mget_change_time_from_stim_table[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
+[1;32m     18[0m trials[[38;5;124m'[39m[38;5;124mchange_time_with_display_delay[39m[38;5;124m'[39m] [38;5;241m=[39m change_times
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/pandas/core/frame.py:9568[0m, in [0;36mDataFrame.apply[0;34m(self, func, axis, raw, result_type, args, **kwargs)[0m
+[1;32m   9557[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapply[39;00m [38;5;28;01mimport[39;00m frame_apply
+[1;32m   9559[0m op [38;5;241m=[39m frame_apply(
+[1;32m   9560[0m     [38;5;28mself[39m,
+[1;32m   9561[0m     func[38;5;241m=[39mfunc,
+[0;32m   (...)[0m
+[1;32m   9566[0m     kwargs[38;5;241m=[39mkwargs,
+[1;32m   9567[0m )
+[0;32m-> 9568[0m [38;5;28;01mreturn[39;00m [43mop[49m[38;5;241;43m.[39;49m[43mapply[49m[43m([49m[43m)[49m[38;5;241m.[39m__finalize__([38;5;28mself[39m, method[38;5;241m=[39m[38;5;124m"[39m[38;5;124mapply[39m[38;5;124m"[39m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/pandas/core/apply.py:764[0m, in [0;36mFrameApply.apply[0;34m(self)[0m
+[1;32m    761[0m [38;5;28;01melif[39;00m [38;5;28mself[39m[38;5;241m.[39mraw:
+[1;32m    762[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mapply_raw()
+[0;32m--> 764[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mapply_standard[49m[43m([49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/pandas/core/apply.py:891[0m, in [0;36mFrameApply.apply_standard[0;34m(self)[0m
+[1;32m    890[0m [38;5;28;01mdef[39;00m [38;5;21mapply_standard[39m([38;5;28mself[39m):
+[0;32m--> 891[0m     results, res_index [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mapply_series_generator[49m[43m([49m[43m)[49m
+[1;32m    893[0m     [38;5;66;03m# wrap results[39;00m
+[1;32m    894[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mwrap_results(results, res_index)
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/pandas/core/apply.py:907[0m, in [0;36mFrameApply.apply_series_generator[0;34m(self)[0m
+[1;32m    904[0m [38;5;28;01mwith[39;00m option_context([38;5;124m"[39m[38;5;124mmode.chained_assignment[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m):
+[1;32m    905[0m     [38;5;28;01mfor[39;00m i, v [38;5;129;01min[39;00m [38;5;28menumerate[39m(series_gen):
+[1;32m    906[0m         [38;5;66;03m# ignore SettingWithCopy here in case the user mutates[39;00m
+[0;32m--> 907[0m         results[i] [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mf[49m[43m([49m[43mv[49m[43m)[49m
+[1;32m    908[0m         [38;5;28;01mif[39;00m [38;5;28misinstance[39m(results[i], ABCSeries):
+[1;32m    909[0m             [38;5;66;03m# If we have a view on v, we need to make a copy because[39;00m
+[1;32m    910[0m             [38;5;66;03m#  series_generator will swap out the underlying data[39;00m
+[1;32m    911[0m             results[i] [38;5;241m=[39m results[i][38;5;241m.[39mcopy(deep[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+
+Cell [0;32mIn[11], line 12[0m, in [0;36mget_change_time_from_stim_table[0;34m(row)[0m
+[1;32m      9[0m [38;5;28;01mif[39;00m np[38;5;241m.[39misnan(change_frame):
+[1;32m     10[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39mnan
+[0;32m---> 12[0m change_time [38;5;241m=[39m [43mtable[49m[43m[[49m[43mtable[49m[38;5;241;43m.[39;49m[43mstart_frame[49m[38;5;241;43m==[39;49m[43mchange_frame[49m[43m][49m[43m\[49m
+[1;32m     13[0m [43m                [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mstart_time[39;49m[38;5;124;43m'[39;49m[43m][49m[38;5;241;43m.[39;49m[43mvalues[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m
+[1;32m     15[0m [38;5;28;01mreturn[39;00m change_time
+
+[0;31mIndexError[0m: index 0 is out of bounds for axis 0 with size 0
+
