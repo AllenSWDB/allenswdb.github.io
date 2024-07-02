@@ -193,8 +193,8 @@ What is the inter trial interval?
 ```
 
 ## Natural scenes
-The natural scenes stimulus consists of a 118 black and whiteimages that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the images are replaced by the mean luminance gray, interleaved in among the trials.
-The images are taken from three different image sets including CITATIONS HERE
+The natural scenes stimulus consists of 118 black and white images that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blank sweeps, where the images are replaced by the mean luminance gray, interleaved among the trials.
+The images are taken from three different image sets: the Berkeley Segmentation Dataset {cite:p}`MartinFTM01`, van Hateren Natural Image Dataset {cite:p}`van_hateren`, and McGill Calibrated Colour Image Database {cite:p}`olmos`.
 
 Let's find the session in the experiment container we're exploring that contains the natural scenes stimulus.
 
@@ -256,7 +256,7 @@ There are three different natural movie stimuli:
 Natural movie one is presented in every session. It is 30 seconds long and is repeated 10 times in each session.
 Natural movie two is presented in three_session_B. It is 30 seconds long and is repeated 10 times.
 Natural movie three is presented in three_session_A. It is 2 minutes long and is presented a total of 10 times, but in two epochs.
-All of these movies are from the opening scene of <b>Touch of Evil</b>, and Orson Welles film. This was selected because it is a continuous shot with no camera cuts and with a variety of different motion signals. 
+All of these movies are from the opening scene of <b>Touch of Evil</b>, an Orson Welles film. This was selected because it is a continuous shot with no camera cuts and with a variety of different motion signals. 
 
 ```{code-cell} ipython3
 session_id = boc.get_ophys_experiments(experiment_container_ids=[experiment_container_id], stimuli=['natural_movie_one'])[0]['id']
@@ -340,7 +340,7 @@ The locally sparse noise stimuli have the same temporal structure as the natural
 
 (lsn_stimulus_template)=
 ### Stimulus template
-The stimulus template is an array that contains the images of the locally sparse noice stimulus that were presented to the mouse. This can be accessed using `get_stimulus_template()`. Let's look at the first frame:
+The stimulus template is an array that contains the images of the locally sparse noise stimulus that were presented to the mouse. This can be accessed using `get_stimulus_template()`. Let's look at the first frame:
 
 ```{code-cell} ipython3
 lsn_template = data_set.get_stimulus_template('locally_sparse_noise')
