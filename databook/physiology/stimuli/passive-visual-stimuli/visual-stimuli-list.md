@@ -2,16 +2,16 @@
 
 # Probably want figures of the stimuli
 
-# N.B. content here is copied directly from [here](vc2p-stimuli.md) (mod Python). Tutorial is also here (maybe should stay under vc2p?), but may be useful to clearly list the stimuli in one place (esp. since this is also used for VC-NP). Note that the stimuli specific to VC-NP are not listed here yet, probably will include them at a later date.
+# N.B. content here is copied directly from [here](vc2p-stimuli.md) (mod Python). May be useful to clearly list the stimuli in one place (esp. since some stimuli for VC-2P are also used for VC-NP). Note that the stimuli specific to VC-NP are not listed here yet, probably will include them at a later date.
 
 # Placeholder for now, will need to be made more generic
 
 ## Drifting Gratings
-The drifting gratings stimulus consists of a sinusoidal grating that is presented on the monitor that moves orthogonal to the orientation of the grating, moving in one of 8 directions (called <b>orientation</b>) and at one of 5 <b>temporal frequencies</b>. The directions are specified in units of degrees and temporal frequency in Hz. The grating has a spatial frequency of 0.04 cycles per degree and a contrast of 80%.
+The drifting gratings stimuli consist of a sinusoidal grating, moving in one of 8 directions (called <b>orientation</b>) orthogonal to the orientation of the grating, and at one of 5 <b>temporal frequencies</b>. The directions are specified in degrees and temporal frequency in Hz. The grating has a spatial frequency of 0.04 cycles per degree and a contrast of 80%.
 Each trial is presented for 2 seconds with 1 second of mean luminance gray in between trials.
 
 ## Static Gratings
-The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flasshed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
+The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flashed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
 Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the grating is replaced by the mean luminance gray, interleaved among the trials.
 
 ```{admonition} What is the phase of the grating?
