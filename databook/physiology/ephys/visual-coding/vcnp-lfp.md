@@ -678,14 +678,22 @@ It looks like this region of the probe is on the border between LGd and LP nucle
 
 ## Invalid time intervals
 
-On some occasions there were problems with data acquisition for a brief period of time. These problems didn't necessitate failing the entire experiment, but they did invalidate the data during those times. During these periods, the channel data for affected probes is recorded as `NaN`. Depending on your analysis goals, you might need to work around these invalid times.
+On some occasions there were problems with data acquisition for a brief period of time. These problems didn't necessitate failing the entire experiment, but they did invalidate the data during those times. Depending on your analysis goals, you might need to work around these invalid times. Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a `start_time` or `stop_time` that overlaps with any of the invalid intervals.
 
-Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a `start_time` or `stop_time` that overlaps with any of the invalid intervals. You can determine if your trial has any invalid times, and if so, what those time periods are using `session.get_invalid_times()`. It returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. If there are no invalid times in that session, the returned DataFrame will be empty.
-
+When we access the `spike_times` of a session with invalid time intervals for the first time, we get a warning about it:
 ```{code-cell} ipython3
 # Example session with invalid times
 session_id = 732592105
 session = cache.get_session_data(session_id=session_id)
+session.spike_times;
+```
+
+Notice the warning:
+
+> UserWarning: Session includes invalid time intervals that could be accessed with the attribute 'invalid_times',Spikes within these intervals are invalid and may need to be excluded from the analysis.
+
+You can determine which time intervals are invalid using `session.get_invalid_times()` which returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. You can always use this to check whether a session has invalid times &mdash; if it doesn't, the returned DataFrame will be empty &mdash; but  if you don't see a warning, it is free of invalid intervals.
+```{code-cell} ipython3
 session.get_invalid_times()
 ```
 
