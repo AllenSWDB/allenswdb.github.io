@@ -678,14 +678,6 @@ It looks like this region of the probe is on the border between LGd and LP nucle
 
 ## Invalid time intervals
 
-```{code-cell} ipython3
-import allensdk
-from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
-
-manifest_path = "C:/datafiles/allensdk-cache/manifest.json"
-cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
-```
-
 On some occasions there were problems with data acquisition for a brief period of time. These problems didn't necessitate failing the entire experiment, but they did invalidate the data during those times. During these periods, the channel data for affected probes is recorded as `NaN`. Depending on your analysis goals, you might need to work around these invalid times.
 
 Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a `start_time` or `stop_time` that overlaps with any of the invalid intervals. You can determine if your trial has any invalid times, and if so, what those time periods are using `session.get_invalid_times()`. It returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. If there are no invalid times in that session, the returned DataFrame will be empty.
