@@ -380,7 +380,6 @@ You can use the code sample above to align the LFP to any type of event (e.g.
 spike times, running onset, optogenetic stimuli) just by changing the
 `trial_window` and `time_selection` variables.
 
-
 ### Suggestions for further analysis
 
 * How do the time delays of stimulus-evoked LFP deflections vary across areas and depths? Are these delays different for different stimulus conditions?
@@ -676,3 +675,36 @@ It looks like this region of the probe is on the border between LGd and LP nucle
 * How does the cortical CSD vary across visual areas? Are there consistent patterns across all areas?
 
 * Are the locations of sources and sinks correlated with other features of the LFP, such as power in different frequency bands?
+
+## Invalid time intervals
+
+```{code-cell} ipython3
+import allensdk
+from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
+
+manifest_path = "C:/datafiles/allensdk-cache/manifest.json"
+cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
+```
+
+On some occasions there were problems with data acquisition for a brief period of time. These problems didn't necessitate failing the entire experiment, but they did invalidate the data during those times. During these periods, the channel data for affected probes is recorded as `NaN`. Depending on your analysis goals, you might need to work around these invalid times.
+
+Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a `start_time` or `stop_time` that overlaps with any of the invalid intervals. You can determine if your trial has any invalid times, and if so, what those time periods are using `session.get_invalid_times()`. It returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. If there are no invalid times in that session, the returned DataFrame will be empty.
+
+```{code-cell} ipython3
+# Example session with invalid times
+session_id = 732592105
+session = cache.get_session_data(session_id=session_id)
+session.get_invalid_times()
+```
+
+The tags give us information about what caused the invalid times. In this case, they were caused by a malfunctioning probe. We can examine the data on that probe and see that during the invalid timespans, the data are `NaN`.
+```{code-cell} ipython3
+bad_probe_id = 733744653
+timespan = slice(882.517, 962.562)
+
+# Get the Local Field Potentials from the temporarily malfunctioning probe
+lfp = session.get_lfp(bad_probe_id)
+lfp.sel(time=timespan).to_pandas()
+```
+
+For more information on why there were issues with data acquisition in these instances, see the "Invalid intervals" section of our [whitepaper](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/80/75/8075a100-ca64-429a-b39a-569121b612b2/neuropixels_visual_coding_-_white_paper_v10.pdf).
