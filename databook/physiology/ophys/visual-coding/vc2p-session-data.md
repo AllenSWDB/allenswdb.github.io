@@ -110,7 +110,7 @@ plt.xlabel("Time (s)")
 plt.xlim(1900,2200)
 ```
 
-The signal we are most interested in the the DF/F - the change in fluorescence normalized by the baseline fluorescence. The baseline flourescence was computed as the median fluorescence in a 180s window centered on each time point. The result is the dff trace:
+The signal we are most interested in the the DF/F - the change in fluorescence normalized by the baseline fluorescence. The baseline fluorescence was computed as the median fluorescence in a 180s window centered on each time point. The result is the dff trace:
 
 ```{code-cell} ipython3
 ts, dff = data_set.get_dff_traces()

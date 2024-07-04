@@ -133,7 +133,7 @@ fig.tight_layout()
 
 Some key observations:
 * The hit rate remains high for the first ~46 minutes of the session
-* The false alarm rate graduall declines during the first ~25 minutes of the session.
+* The false alarm rate gradual declines during the first ~25 minutes of the session.
 * d' peaks when the hit rate is still high, but the false alarm rate dips
 * The hit rate and d' fall off dramatically after ~46 minutes. This is likely due to the animal becoming sated and losing motivation to perform
 
@@ -373,7 +373,7 @@ fig, axes = make_trial_plot(trial)
 Notes:
 * The image identity changed just after t = 2361 seconds (note the color change in the vertical spans)
 * The animal was running steadily prior to the image change, then slowed to a stop after the change
-* The first lick occured about 500 ms after the change, and triggered an immediate reward
+* The first lick occurred about 500 ms after the change, and triggered an immediate reward
 * The pupil area shows some missing data - these were points that were filtered out as outliers.
 * There appears to be one neuron that was responding regularly to the stimulus prior to the change.
 

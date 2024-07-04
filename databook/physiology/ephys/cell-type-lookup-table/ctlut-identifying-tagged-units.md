@@ -13,7 +13,7 @@ kernelspec:
 
 # Identifying tagged neurons
 
-As described in the optotagging section, identifying cells in an electrophysiological recording relies on looking for responses that are precicely synced with the laser stimuli. This notebook will go over how to align responses of recorded units to the laser presentations, calculate some metrics to determine how responsive the unit is, and then perform the same over all units collected during a session in order to assign cell type labels.
+As described in the optotagging section, identifying cells in an electrophysiological recording relies on looking for responses that are precisely synced with the laser stimuli. This notebook will go over how to align responses of recorded units to the laser presentations, calculate some metrics to determine how responsive the unit is, and then perform the same over all units collected during a session in order to assign cell type labels.
 
 ## Import required packages
 Since the data is packaged as nwb files, you'll need to import hdmf_zarr to interact with the data. The metadata for each experiment is stored as .json files, so you'll want to import json as well.

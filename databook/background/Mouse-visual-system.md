@@ -16,7 +16,7 @@ an "allocentric" pathway.
 
 ## Cortical physiology
 
-Starting in the early 2000s, researchers begans studying visual physiology and
+Starting in the early 2000s, researchers began studying visual physiology and
 behavior in the mouse in earnest. Cris Niell used extracellular
 electrophysiology to record receptive fields of neurons in the mouse
 {term}`Primary visual cortex`, finding receptive fields that looked very similar
