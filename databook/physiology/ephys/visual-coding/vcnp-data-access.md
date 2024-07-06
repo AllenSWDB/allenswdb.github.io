@@ -651,3 +651,36 @@ download_links = [retrieve_lfp_link(probe_id) for probe_id in probes.index.value
 
 _ = [print(link) for link in download_links]
 ```
+
+## Invalid Time Intervals
+
+On some occasions there were problems with data acquisition for a brief period of time. These problems didn't necessitate failing the entire experiment, but they did invalidate the data during those times. Depending on your analysis goals, you might need to work around these invalid times. Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a `start_time` or `stop_time` that overlaps with any of the invalid intervals.
+
+When we access the `spike_times` of a session with invalid time intervals for the first time, we get a warning about it:
+```{code-cell} ipython3
+# Example session with invalid times
+session_id = 732592105
+session = cache.get_session_data(session_id=session_id)
+session.spike_times;
+```
+
+Notice the warning:
+
+> UserWarning: Session includes invalid time intervals that could be accessed with the attribute 'invalid_times',Spikes within these intervals are invalid and may need to be excluded from the analysis.
+
+You can determine which time intervals are invalid using `session.get_invalid_times()` which returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. You can always use this to check whether a session has invalid times &mdash; if it doesn't, the returned DataFrame will be empty &mdash; but  if you don't see a warning, it is free of invalid intervals.
+```{code-cell} ipython3
+session.get_invalid_times()
+```
+
+The tags give us information about what caused the invalid times. In this case, they were caused by a malfunctioning probe. We can examine the data on that probe and see that during the invalid timespans, the data are `NaN`.
+```{code-cell} ipython3
+bad_probe_id = 733744653
+timespan = slice(882.517, 962.562)
+
+# Get the Local Field Potentials from the temporarily malfunctioning probe
+lfp = session.get_lfp(bad_probe_id)
+lfp.sel(time=timespan).to_pandas()
+```
+
+For more information on why there were issues with data acquisition in these instances, see the "Invalid intervals" section of our [whitepaper](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/80/75/8075a100-ca64-429a-b39a-569121b612b2/neuropixels_visual_coding_-_white_paper_v10.pdf).
