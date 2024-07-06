@@ -15,7 +15,7 @@ kernelspec:
 
 The purpose of this dataset is to create a ground-truth dataset of responses from known striatal cell types so that we can look for differences in their physiological properties. But how do we know if the units we pick up during ephys belong to a specific cell type? We use a technique known as "optotagging."
 
-For a deeper overview of the technique, check out the section on {doc}`../background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
+For a deeper overview of the technique, check out the section on {doc}`../../../background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
 
 # Opsins
 
