@@ -43,9 +43,9 @@ neural ensembles encode, process, and transmit information.
   GCaMP6s are still fast enough to detect when a group of action potentials
   occur, even if it is difficult to discern individual action potentials.
 - **Longitudinal recordings**: Because calcium imaging allows experimenters to see the shape of individual
-neurons, as well as their arrangement with respect to each other and other tissue features
-(like vasculature), experimenters can measure the activity of the same neurons
-over multiple days or weeks. This can provide insight into how neural activity changes over the course of learning.
+  neurons as well as their arrangement with respect to each other and other tissue features
+  (like vasculature), experimenters can measure the activity of the same neurons
+  over multiple days or weeks. This can provide insight into how neural activity changes over the course of learning.
 
 ## Two-photon calcium imaging
 
