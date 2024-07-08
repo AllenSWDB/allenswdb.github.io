@@ -22,7 +22,7 @@ Neural activity was measured as calcium fluorescence in cells expressing the gen
 
 Single-plane imaging sessions were acquired using a Scientifica 2-photon microscope at 30Hz frame rate, with one imaging plane per session. Multi-plane imaging sessions were acquired at 11Hz frame rate using a modified Mesoscope 2-photon microscope, with 8 imaging planes recorded in each session. A multiplexing approach was used to enable pairs of imaging planes to be recorded nearly simultaneously. Paired planes were always in the same cortical area, but were located at different depths within the cortex. 
 
-As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas, the {term}`primary visual cortex` (VISp, also called V1) and a {term}`higher visual area` (VISl, also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the <b>Dataset Summary</b> section.
+As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas: {term}`VISp` and VISI, one of the {term}`HVA`s (also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the <b>Dataset Summary</b> section.
 
 ![area_targeting](/resources/vbo_area_targeting.png)
 

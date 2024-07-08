@@ -6,7 +6,7 @@ The Visual Behavior Neuropixels dataset consists of electrophysiological recordi
 
 This dataset includes multi-regional Neuropixels recordings from up to six probes at once. The probes target six visual cortical areas including {term}`VISp`, VISl, VISal, VISrl, VISam, and VISpm. In addition, multiple subcortical areas are also typically measured, including visual thalamic areas LGd and LP as well as units in the hippocampus and midbrain.
 
-Recordings were made in three [genotypes](transgenic-tools): C57BL6J, Sst-IRES-Cre; Ai32, and Vip-IRES-Cre; Ai32. By crossing Sst and Vip lines to the Ai32 ChR2 reporter mouse, we were able to activate putative Sst+ and Vip+ cortical {term}`interneurons` by stimulating the cortical surface with blue light during an {term}`optotagging` protocol at the end of each session.
+Recordings were made in three [genotypes](transgenic-tools): wild type, Sst-IRES-Cre; Ai32, and Vip-IRES-Cre; Ai32. By crossing Sst and Vip lines to the Ai32 ChR2 reporter mouse, we were able to activate putative Sst+ and Vip+ cortical {term}`interneurons` by stimulating the cortical surface with blue light during an {term}`optotagging` protocol at the end of each session.
 
 ![probeandopto](/resources/probe_diagram_with_optagging.webp)
 

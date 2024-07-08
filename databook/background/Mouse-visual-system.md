@@ -42,7 +42,7 @@ randomly organized. {cite:p}`ohki`
 Beyond {term}`V1` there are additional higher visual areas ({term}`HVA`s)
 which receive input from V1 and are connected in a hierarchical manner. HVAs
 each contain a distinct map of {term}`Retinotopy`, i.e. each visual
-area contains a complete map of the visual space. The borders between higher visual 
+area contains a map of the visual space. The borders between higher visual 
 areas can be identified based on reversals in the retinotopic map at area boundaries.
 
 We use intrinsic signal imaging ({term}`ISI`) to create a {term}`retinotopic map`, utilizing

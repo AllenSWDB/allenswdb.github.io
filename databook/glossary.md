@@ -1,6 +1,11 @@
 # Glossary
 
 :::{glossary}
+Action potential
+  A characteristic signal that appears in excitable cell membranes, which takes the
+  form of an electric potential difference waveform that propagates down the length
+  of the cell membrane. In neurons, these indicate neuron activation. See {term}`Spike`.
+
 Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
@@ -22,10 +27,6 @@ Cre line
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells. For specific lines used, see
   the section on [transgenic tools](transgenic-tools).
-
-CSV
-  Shorthand for "comma separated values", a common file format for storing
-  tabular data where each row is a line and each column is separated by a comma.
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -54,7 +55,9 @@ FSI
     such as {term}`PV+ neuron`s, among others.
 
 fluorophore
-    Fluorophores are a type of molecule which are excited by absorbing light
+  A type of molecule which absorb light and re-emit it at a longer wavelength 
+  in a process called fluorescence. As a result, fluorophores fluoresce only 
+  while exposed to a light source.
 
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
@@ -138,7 +141,6 @@ Neuropixels
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
 
-Optotagging
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
   ion channels (using a {term}`reporter line` ) in a specific subpopulation of
@@ -146,6 +148,9 @@ Optogenetics
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
+Optotagging
+  A technique that uses {term}`optogenetics` in order to identify neurons that belong to
+  a specific subpopulation. See: [Optotagging](Optotagging).
 
 Parvalbumin-positive interneuron
 PV+ neuron

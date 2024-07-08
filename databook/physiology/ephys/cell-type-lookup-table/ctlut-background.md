@@ -1,6 +1,6 @@
 # Cell Type Look-up Table
 
-The cell type look-up table dataset is a collection of recordings taken from the mouse striatum with the goal of collecting a ground truth data set detailing the responses of different striatal cell types. Data was collected using [extracellular electrophysiology](Neuropixels-electrophysiology). We used [transgenic tools](transgenic-tools) to target expression of [light-gated ion channels](https://en.wikipedia.org/wiki/Light-gated_ion_channel) (e.g. CoChR, ChrimsonR, and ChRmine) in specific cell types. During recordings, mice were awake and head-fixed on a running wheel.
+The cell type look-up table dataset is a collection of recordings taken from the mouse striatum with the goal of collecting a ground truth data set detailing the responses of different striatal cell types. Data was collected using [extracellular electrophysiology](Neuropixels-electrophysiology). We used [transgenic tools](transgenic-tools) to target expression of [light-gated ion channels](https://en.wikipedia.org/wiki/Light-gated_ion_channel) (e.g. CoChR, ChrimsonR, and ChRmine) in specific cell types. During recordings, mice were awake and head-fixed on a running disk.
 
 ## Background
 
