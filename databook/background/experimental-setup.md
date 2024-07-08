@@ -1,7 +1,7 @@
 # Behavioral apparatus
 
 Neurons in the visual system often have spatially selective receptive fields,
-that is, they tend to responds to stimuli shown in a particular part of visual
+that is, they tend to respond to stimuli shown in a particular part of visual
 space. In order to repeatably show stimuli to a mouse, the mice need to be
 head-fixed. For all the datasets described here, this means that mice have had a
 head bar that was surgically implanted prior to the experiment. For more details
@@ -37,7 +37,7 @@ First, this reliability allows the mouse to be reproducibly positioned on a rig.
 For the datasets presented here, the mouse will be placed on a running wheel in
 front of a screen. A set of cameras monitor the mouse's face, eye position, and
 pupil size. For more information, see the
-[Allen Brain Observtory white paper](http://help.brain-map.org/download/attachments/10616846/VisualCoding_Overview.pdf?version=5&modificationDate=1538066962631&api=v2).
+[Allen Brain Observatory white paper](http://help.brain-map.org/download/attachments/10616846/VisualCoding_Overview.pdf?version=5&modificationDate=1538066962631&api=v2).
 
 :::{figure} ../resources/MouseOnRig.JPG
 ---
@@ -57,5 +57,5 @@ width: 800
 name: screen-on-rig
 ---
 
-The second benefit of head fixation is that it holds the mouses head place to
+The second benefit of head fixation is that it holds the mouse's head in place to
 facilitate neural recordings.

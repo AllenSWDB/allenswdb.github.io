@@ -1,6 +1,6 @@
 # Ophys ephys comparison
 
-Extracellular electrophysiology (ephys) and two-photon calcium imaging (ophys) are widely used methods for measuring physiological activity with single-cell resolution across large populations of cortical neurons. While each of these two modalities has distinct advantages and disadvantages, neither provides complete, unbiased information about the underlying neural population. As a result, we need to undersand how scientific conclusions may be skewed by the recording modalities to best interpret data. 
+Extracellular electrophysiology (ephys) and two-photon calcium imaging (ophys) are widely used methods for measuring physiological activity with single-cell resolution across large populations of cortical neurons. While each of these two modalities has distinct advantages and disadvantages, neither provides complete, unbiased information about the underlying neural population. As a result, we need to understand how scientific conclusions may be skewed by the recording modalities to best interpret data. 
 
 There are some key differences that are readily apparent between ephys and ophys. For starters, spatial sampling is inherently different between the two modalities. Two-photon calcium imaging typically yields data in a single plane tangential to the cortical surface, and is limited to depths of <1 mm due to a combination of light scattering and absorption in tissue. Even with multiplane imaging, these planes are almost always orthogonal to the surface of these cortex. Extracellular electrophysiology, on the other hand, utilizes microelectrodes embedded in the tissue, and thus dense recordings are easiest to perform along a straight line, normal to the cortical surface, in order to minimize per-channel tissue displacement. Linear probes provide simultaneous access to neurons in both cortex and subcortical structures, but make it difficult to sample many neurons from the same cortical layer.
 
@@ -23,7 +23,7 @@ Calcium indicators exhibit a non-linear response to the firing rate of neurons, 
 This effect is apparent in the sparsification of the responses of neurons when measured with ophys compared to ephys. Response tuning appears sharper and sparser.
 
 ## Conclusion
-Ultimately, neither ephys or ophys perfectly capture the neural activity of the underlying neural population. They are each imperfect lenses on the true neural activity with distinct advantanges and disadvantages. Care should be used when analyzing these data to take the limitations of these modalities into account when interpreting the derived results.
+Ultimately, neither ephys or ophys perfectly capture the neural activity of the underlying neural population. They are each imperfect lenses on the true neural activity with distinct advantages and disadvantages. Care should be used when analyzing these data to take the limitations of these modalities into account when interpreting the derived results.
 
 {cite:t}`siegle2021` is a complete manuscript on this comparison with much more
 detail that you can explore.

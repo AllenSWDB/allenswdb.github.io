@@ -16,7 +16,7 @@ an "allocentric" pathway.
 
 ## Cortical physiology
 
-Starting in the early 2000s, researchers begans studying visual physiology and
+Starting in the early 2000s, researchers began studying visual physiology and
 behavior in the mouse in earnest. Cris Niell used extracellular
 electrophysiology to record receptive fields of neurons in the mouse
 {term}`Primary visual cortex`, finding receptive fields that looked very similar
@@ -32,11 +32,11 @@ bars below are 20 degrees for the mouse data but 1 degree for the monkey!
 ![rfs](/resources/NiellHubermann_RFs.png)
 
 Using {term}`Two-photon calcium imaging` allowed large populations of neurons to
-be recorded across the cortex, and another key early result was that mouse (and
+be recorded across the cortex, and another key early result was that mice (and
 rodents broadly) lack the orientation columns found in primates and cats. While
 the latter species have neurons that are tuned with similar orientations
 organized in columns, the rodent visual cortex has a "salt and pepper"
-organization, where the orientation selectively of neighboring neurons are
+organization, where the orientation selectivity of neighboring neurons are
 randomly organized. {cite:p}`ohki`
 
 Beyond {term}`V1` there are additional higher visual areas (or {term}`HVA`s)
@@ -44,6 +44,21 @@ that receive input from V1 and are connected in a hierarchical manner. Higher
 visual areas each contain a distinct map of {term}`Retinotopy`, i.e. each visual
 area has its own map of visual space. The borders between higher visual areas
 can be identified based on reversals in the retinotopic map at area boundaries.
+
+We use intrinsic signal imaging ({term}`ISI`) to create a {term}`retinotopic map`, utilizing
+the difference in the absorption spectra between deoxygenated and
+oxygenated hemoglobin. Measuring this activity while mice view a drifting stimulus,
+we can create a map of altitude and azimuth across the cortical surface. This map
+can then be used to identify cortical boundaries as detailed above. An example
+can be seen in this figure:
+
+:::{figure}  ../resources/background_isi_imaging_example.png
+:name: isi-ref
+:align: center
+:width: 800
+
+Images and averaged maps generated post-acquisition. All selected trials are averaged to produce azimuth (A) and altitude (B) maps, and a map of visual field sign with segmented area boundaries overlaid on a vasculature image (C). From the altitude and azimuth maps and segmented area boundaries, a map of visual eccentricity (D), a map of eccentricity from the V1 centroid (E), and a target map (F) are computed. List of acronyms: Primary Visual Area (VISp), Posterolateral visual area (VISpl), Laterointermediate area (VISli), Lateral visual area (VISl), Anteromedial visual area (VISal), Laterolateral anterior visual area (VISlla), Rostrolateral visual area (VISrl), Anteromedial visual area (VISam), Posteromedial visual area (VISpm), Medial visual area (VISm), Mediomedial anterior visual area (VISmma), Mediomedial posterior visual area (VISmmp). Scale bar in degrees for A, B, D & E. {cite:p}`abovc`
+:::
 
 An early question was whether neurons in different mouse {term}`HVA`s had distinct
 visual responses to subserve distinct functions. One framing of this question is

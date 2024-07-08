@@ -52,7 +52,7 @@ A driver line is a transgenic mouse line in which mice have had the gene for Cre
 or another recombinase inserted into their genome, commonly under the control of
 a specific promoter. Promoters are often expressed pretty broadly across the
 brain, but can also be extremely specific. Here are the driver lines and their
-expression patterns for lines used in our data sets. Note that in the absense of
+expression patterns for lines used in our data sets. Note that in the absence of
 a reporter, Cre on its own does not greatly affect the mouse's physiology.
 
 <b>Adora2a-Cre</b>
@@ -84,7 +84,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
 
 <b>Nr5a1-Cre</b>
-: In cortex, drives expression in excitatory nerons in layer 6.
+: In cortex, drives expression in excitatory neurons in layer 6.
 
 <b>Ntsr1-Cre_GN220</b>
 : In cortex, drives expression in a sub-population of excitatory neurons in layer 4.
@@ -118,8 +118,8 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 ## Reporter lines used here
 
 A reporter line is a transgenic mouse line in which mice have had the gene for a
-*reporter* inserted into their genome, with a lox-STOP-lox preceeding it so that
-expression does not occur in the absense of Cre. Common reporters are
+*reporter* inserted into their genome, with a lox-STOP-lox preceding it so that
+expression does not occur in the absence of Cre. Common reporters are
 fluorescent proteins (like GFP), opsins (like ChR2), or calcium indicators (like
 GCaMP). Here are the reporter lines used in our data sets:
 
@@ -171,13 +171,13 @@ expression only takes place if the gene infects a cell that is already
 expressing Cre.
 
 <b>AAV2-Syn-Flex-ChrimsonR-tdTomato</b>
-: Cre dependent expression of ChrimsonR, fused with tdTomato for visualisation.
+: Cre dependent expression of ChrimsonR, fused with tdTomato for visualization.
 
 <b>pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE</b>
-: Cre dependent expression of ChRmine, fused with mScarlet for visualisation.
+: Cre dependent expression of ChRmine, fused with mScarlet for visualization.
 
 <b>AAV5-hSyn-DIO-somBiPOLES-mCerulean</b>
-: Cre dependent expression of BiPOLES, fused with mCerulean for visualisation.
+: Cre dependent expression of BiPOLES, fused with mCerulean for visualization.
 
 ### Enhancer AAVs
 
@@ -189,9 +189,9 @@ type without needing to use a driver line.
 
 <b>D1 enhancer - CoChR</b>
 : rAAV-3xcore2_eHGT_779m-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
-  CoChR in direct pathway MSNs, fused with GFP for visualisation.
+  CoChR in direct pathway MSNs, fused with GFP for visualization.
 
 <b>D2 enhancer - CoChR</b>
 : rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA or
   rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
-  CoChR in indirect pathway MSNs, fused with GFP for visualisation.
+  CoChR in indirect pathway MSNs, fused with GFP for visualization.

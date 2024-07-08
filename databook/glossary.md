@@ -1,7 +1,7 @@
 # Glossary
 
 :::{glossary}
-basket cell
+Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
   molecular marker parvalbumin (PV), but not all basket cells are PV+: some
@@ -39,7 +39,7 @@ Driver line
 Ephys
   Shorthand for electrophysiology.
 
-fast spiking neuron
+Fast spiking neuron
 FSN
 FSI
     Fast spiking neurons are so called because of their "narrow," fast action
@@ -56,7 +56,7 @@ GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
   mammalian brain. In cortex, most GABAergic neurons are local interneurons.
 
-genetically-encoded calcium indicator
+Genetically-encoded calcium indicator
 GECI
   A protein expressed by a cell that will change its fluorescence upon binding
   to a Ca{sup}`2+` ion. Used to visualize neural activity with fluorescence
@@ -82,7 +82,7 @@ Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
-intrinsic signal imaging
+Intrinsic signal imaging
 ISI
   Intrinsic signal imaging, also called ISI, is a method to measure changes in
   blood flow associated with neural activity using reflectance of red light on
@@ -91,7 +91,7 @@ ISI
   perfuses the local region. The timecourse of the ISI signal is slow, and the
   magnitude of the reflectance changes are small. As a result, the use of periodic
   stimuli can aid in signal detection. A common use of ISI is to map
-  {term}retinotopy across the brain surface by moving a slowly drifting bar across
+  {term}`retinotopy` across the brain surface by moving a slowly drifting bar across
   the visual field then measuring the signal in each pixel at the frequency of the
   periodic drifting bar. ISI has also been used to identify orientation maps in
   species with organized orientation maps like cats and primates, as well as to
@@ -100,7 +100,7 @@ ISI
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
 
 
-local field potential
+Local field potential
 LFP
   Transient electrical potential generated in nervous tissue by the summed
   activity of cells in that tissue. This is typically measured in a lower
@@ -111,12 +111,12 @@ Martinotti cell
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
   2/3 and layer 5.
 
-minnie column
+Minnie column
   A colloquial name for the 100 micron by 100 micron square column of cortex
   targeted for the census across layers. This column is a particularly well
   proofread collection of cells.
 
-minnie dataset
+Minnie dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
 
 Neurogliaform cell
@@ -137,12 +137,12 @@ Ophys
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
   ion channels (using a {term}`reporter line` ) in a specific subpopulation of
-  cells (using a {term}`Driver line`) to enable termporally precise control of
+  cells (using a {term}`Driver line`) to enable temporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
 
-parvalbumin-positive interneuron
+Parvalbumin-positive interneuron
 PV+ neuron
     Fast spiking neurons, also known as fast spiking interneurons, is a
     short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
@@ -155,21 +155,12 @@ Primary visual cortex
 V1
 VISp
   The largest visual area in cortex that receives inputs from the Lateral
-  geniculate nucleus of thalamus. Often refered to as <b>V1</b> or <b>VISp</b>.
+  geniculate nucleus of thalamus. Often referred to as <b>V1</b> or <b>VISp</b>.
 
 Pyramidal cell
   A type of excitatory neuron with a characteristic cell body shape and apical
   dendrite. In visual cortex, pyramidal cells are by far the most common type of
   excitatory neuron.
-
-Somatostatin cell
-  A type of interneuron expressing the molecular marker somatostatin (SST, or
-  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
-  neurons, and have important roles in regulating the activity of excitatory
-  neurons.
-
-VIP cell
-  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Receptive field
   definition here
@@ -187,17 +178,17 @@ RS
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
 
-reporter
+Reporter
  An exogenous coding region joined to a promoter sequence or element in an
  expression vector that is introduced into cells to provide the means for
  measuring the promoter activity
  [source](https://www.promega.com/resources/guides/cell-biology/bioluminescent-reporters/#:~:text=What%20is%20a%20Reporter%20Gene,for%20measuring%20the%20promoter%20activity.).
 
-reporter line
+Reporter line
   A <b>reporter line</b> is a transgenic mouse line that is engineered to
   express a specific protein that enables monitoring or manipulation of neural
   activity (such as GFP, GCaMP, or Channelrhodopsin) under the control of cre or
-  FLP recominase, or a tetracycline transactivator system. The gene engineered
+  FLP recombinase, or a tetracycline transactivator system. The gene engineered
   into the reporter line will not be expressed unless the protein that controls
   reporter gene expression (such as cre or FLP) is present, such as by breeding
   a mouse from the reporter line with a mouse from a specific {term}`Driver
@@ -216,6 +207,12 @@ Retinotopy
 ROI
   A <b>region of interest</b> is a general term that describes a subregion of an image.
   When used in reference to two photon calcium imaging, an ROI is the mask containing pixels thought to belong to a single neuron.
+
+Somatostatin cell
+  A type of interneuron expressing the molecular marker somatostatin (SST, or
+  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
+  neurons, and have important roles in regulating the activity of excitatory
+  neurons.
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
@@ -247,8 +244,8 @@ Two-photon calcium imaging
   a specific wavelength. See {cite:t}`svoboda2006` for a review of two-photon
   calcium imaging.
 
-unit
-  A putative neuron in extracellular elecrophysiology, with varying degrees of
+Unit
+  A putative neuron in extracellular electrophysiology, with varying degrees of
   confidence assigned to it. In extracellular electrophysiology, neurons are
   referred to as *units*, because we cannot guarantee that all the spikes
   assigned to one unit actually originate from a single cell. Unlike in
@@ -262,8 +259,11 @@ unit
   analysis require more stringent quality thresholds to ensure that all of the
   included units are well isolated from their neighbors.
 
-waveform
-spike
+VIP cell
+  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+
+Waveform
+Spike
   In a system neuroscience setting, this often refers to the voltage over time
   measured with an electrode when an individual neuron produces an action
   potential.

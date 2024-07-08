@@ -21,7 +21,7 @@ The speed of the change in conformation will vary by opsin, but is generally ver
 ## Laser stimulus
 
 In order to drive spiking in cells expressing opsins, we need to shine a laser on them. In particular:
-* the wavelength of the light must be well matched to the peak absorbtion of the opsin
+* the wavelength of the light must be well matched to the peak absorption of the opsin
 * the light must have enough power to force conformational changes in enough of the opsin to cause the neuron to spike
 * the path of the laser and the recording electrode must be well aligned, such that the neurons being picked up in a recording are also receiving laser light
 
@@ -29,7 +29,7 @@ In addition, the shape of the light stimulus should match the application. Optot
 
 ## Identifying tagged units
 
-Laser presentation in a mouse expressing opsins in its neurons will certainly drive responses, but we need to be very careful in analysing this data to avoid false positives. Common pitfalls include:
+Laser presentation in a mouse expressing opsins in its neurons will certainly drive responses, but we need to be very careful in analyzing this data to avoid false positives. Common pitfalls include:
 * Electrical artifacts caused by laser onset may be confused for a responsive neuron
 * Neurons may be indirectly activated via synaptic transmission from neurons that were directly activated by the opsin
 
