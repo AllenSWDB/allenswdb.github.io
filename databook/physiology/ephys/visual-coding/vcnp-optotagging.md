@@ -188,7 +188,7 @@ Aligning spikes to light pulses is a bit more involved than aligning spikes to
 visual stimuli. This is because we haven't yet created convenience functions for
 performing this alignment automatically, such as
 `session.presentationwise_spike_times` or
-`sesssion.presentationwise_spike_counts`. We are planning to incorporate such
+`session.presentationwise_spike_counts`. We are planning to incorporate such
 functions into the AllenSDK in the future, but for now, you'll have to write
 your own code for extracting spikes around light pulses (or copy the code
 below).

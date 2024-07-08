@@ -16,7 +16,7 @@ kernelspec:
 
 The `minnie65_public` data release includes a number of annotation tables that help label the dataset.
 This section describes the content of each of these tables — [see here for instructions for how to query and filter tables](em:query-tables).
-Unless otherwise specificied (i.e. via `desired_resolution`), all positions are in units of 4,4,40 nm/voxel resolution.
+Unless otherwise specified (i.e. via `desired_resolution`), all positions are in units of 4,4,40 nm/voxel resolution.
 
 ## Common Fields
 
@@ -53,7 +53,7 @@ Rather than describe these for every table, they will just be mentioned briefly 
 * - `target_id` (optional)
   - Some tables reference other tables, particularly the nucleus table. If present, this column will be the same as `id`.
 * - `created_ref` / `valid_ref` / `id_ref` (optional)
-  - For reference tables, the data shows both the created/valid/id of the reference annotation and the target annotation. The values with the `_ref` suffix are those of the reference table (usually something like proofreading state or cell type) and the values without a suffix ar ethose of the target table (usually a nucleus). 
+  - For reference tables, the data shows both the created/valid/id of the reference annotation and the target annotation. The values with the `_ref` suffix are those of the reference table (usually something like proofreading state or cell type) and the values without a suffix are those of the target table (usually a nucleus). 
 ```
 
 ## Synapse Table
@@ -113,7 +113,7 @@ Note that the `id` column is the same as the nucleus id.
 (em:cell-type-tables)=
 ## Cell Type Tables
 
-There are several tables that contain information about the cell type of neurons in the dataset, with each table representing a different method of doing the classificaiton.
+There are several tables that contain information about the cell type of neurons in the dataset, with each table representing a different method of doing the classification.
 Because each method requires a different kind of information, not all cells are present in all tables.
 Each of the cell types tables has the same format and in all cases the `id` column references the nucleus id of the cell in question.
 
@@ -228,7 +228,7 @@ This table contains all neurons within a well-proofread 100 micron square column
 in {term}`VISp` spanning all layers. Excitatory neurons and inhibitory neurons
 were distinguished manually, and subclasses were assigned based on a data-driven
 clustering of the neuronal features. Inhibitory neurons were classified based on
-how they distributed they synaptic outputs onto target cells, while exictatory
+how they distributed they synaptic outputs onto target cells, while excitatory
 neurons were classified based on a collection of dendritic features. For more
 details, see the section on the {term}`minnie column` or read the
 preprint {cite:t}`schneider-mizell2023`. Note that all cell type labels in this
@@ -322,7 +322,7 @@ The key columns are:
       - Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many neurogliaform cells and layer 1 interneurons fall into this category.  
     * - `ITC`
       - Inhibitory
-      - Inhibitory targeting cells, a cluster of inhibitory neurons that preferntially target other inhibitory neurons. Most {term}`VIP cell`s would be ITCs.
+      - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP cell`s would be ITCs.
     ```
 ```
 

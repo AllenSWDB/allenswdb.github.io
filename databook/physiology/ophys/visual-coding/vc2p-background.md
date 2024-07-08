@@ -23,7 +23,7 @@ There is a long history of studying the activity of neurons in the visual
 system. Some of the earliest work stems from [classic
 experiments](https://www.youtube.com/watch?v=8VdFf3egwfg) of David Hubel and
 Torsten Wiesel who had developed the tungsten electrode. Inserting the electrode
-in the V1 of an anasethized cat, they were able to determine what visual
+in the V1 of an anesthetized cat, they were able to determine what visual
 stimulus drove the activity of the neuron they were recording, and in this way
 they mapped the {term}`receptive field` of the neuron. {cite:p}`hubel59`
 

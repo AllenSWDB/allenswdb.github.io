@@ -11,7 +11,7 @@ The drifting gratings stimulus consists of a sinusoidal grating that is presente
 Each trial is presented for 2 seconds with 1 second of mean luminance gray in between trials.
 
 ## Static Gratings
-The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flasshed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
+The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flashed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%.
 Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the grating is replaced by the mean luminance gray, interleaved among the trials.
 
 ```{admonition} What is the phase of the grating?
@@ -22,7 +22,7 @@ The phase refers to the relative position of the grating. Phase 0 and Phase 0.5 
 ```
 
 ## Natural Scenes
-The natural scenes stimulus consists of a 118 black and whiteimages that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the images are replaced by the mean luminance gray, interleaved in among the trials.
+The natural scenes stimulus consists of a 118 black and white images that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the images are replaced by the mean luminance gray, interleaved in among the trials.
 The images are taken from three different image sets: the Berkeley Segmentation Dataset {cite:p}`MartinFTM01`, van Hateren Natural Image Dataset {cite:p}`van_hateren`, and McGill Calibrated Colour Image Database {cite:p}`olmos`.
 
 ## Natural Movies

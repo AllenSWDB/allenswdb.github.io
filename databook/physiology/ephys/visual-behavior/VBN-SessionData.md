@@ -100,7 +100,7 @@ stimulus
 : stimulus class shown for each image flash
 
 stimulus_distribution
-: Probablity distribution used for drawing change times. Either ‘exponential’ or ‘geometric’
+: Probability distribution used for drawing change times. Either ‘exponential’ or ‘geometric’
 
 stimulus_duration_sec
 : duration in seconds of each stimulus image presentation (or 'flash')

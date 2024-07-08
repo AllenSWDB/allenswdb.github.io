@@ -41,7 +41,7 @@ Imagery is downloaded as blocks of 8-bit values (0-255) that indicate grayscale 
 Alternatively, segmentation can be kept as a dictionary of boolean masks, where each key is a root ID and each value is a boolean mask of the same shape as the imagery.
 
 Detailed information on the options can be found in the [documentation](https://github.com/AllenInstitute/ImageryClient).
-A typical example would be to use ImageryClien to download and visualize a 512x512 pixel cutout of imagery and segmentation centered on a specific location based on the coordinates in Neuroglancer:
+A typical example would be to use ImageryClient to download and visualize a 512x512 pixel cutout of imagery and segmentation centered on a specific location based on the coordinates in Neuroglancer:
 
 
 ```{code-cell}
@@ -62,5 +62,5 @@ image, segs = img_client.image_and_segmentation_cutout(ctr,
 )
 
 ic.composite_overlay(segs, imagery=image, palette='husl').convert("RGB")
-# Note: the final `.convert('RGB')` is needed to build this documetnation, but is not required to run locally.
+# Note: the final `.convert('RGB')` is needed to build this documentation, but is not required to run locally.
 ```

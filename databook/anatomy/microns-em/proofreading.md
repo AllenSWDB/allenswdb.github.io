@@ -15,7 +15,7 @@ kernelspec:
 (em:proofreading-data-quality)=
 # Proofreading and Data Quality
 
-Understanding this variablity in data quality is *critical* when analyzing the data.
+Understanding this variability in data quality is *critical* when analyzing the data.
 Automated segmentation of neuronal processes in dense EM imaging is challenging at the size of entire neurons, which can have millimeters of axons and dendrites.
 The automated segmentation algorithms used in the EM data for this project are not perfect, and so proofreading is necessary to correct errors in the segmentation.
 However, while automated proofreading methods are starting to appear, in general the proofreading process is time consuming and involves a lot of manual attention.
@@ -50,7 +50,7 @@ However, if your analysis truly demands knowing if a particular neuron is connec
 
 * - Pre Axon Status
   - Post Dendrite Status
-  - Analyzabiity
+  - Analyzability
 * - Unproofread
   - Unproofread
   - Not analyzable
@@ -72,11 +72,11 @@ However, due to
 ## Proofreading efforts
 There have been several different proofreading efforts in the MICrONS data with different goals and levels of comprehensiveness.
 Importantly, neurons were not selected for proofreading randomly, but rather chosen based on various criteria.
-A few of the most signifcant proofreading efforts are described below.
+A few of the most significant proofreading efforts are described below.
 
 * Excitatory neuron proofreading for functional connectomics. Excitatory neurons in retinotopically matched ares of VISp and RL were proofread to enable functional connectomics analysis, looking for the relationship between functional similarity and synaptic connectivity. 
 * Martinotti cell proofreading. Extremely extensive reconstructions of several layer 5 Martinotti cells in VISp were performed to enable analysis of the relationship between morphology and transcriptomics.
-* Minnie Column. A 100 micron square area of VISp for a comprehensive census of its neuronal population across all layers. Originally, excitatory neurons in this column had dendritic cleaning and extension and inhibitory neurons had comprehensive cleaning and substantail but incomplete extension. However, this population has become a hub for proofreading and cell typing, and will be discussed further in the section below.
+* Minnie Column. A 100 micron square area of VISp for a comprehensive census of its neuronal population across all layers. Originally, excitatory neurons in this column had dendritic cleaning and extension and inhibitory neurons had comprehensive cleaning and substantial but incomplete extension. However, this population has become a hub for proofreading and cell typing, and will be discussed further in the section below.
 
 ## Proofreading tables
 
@@ -94,7 +94,7 @@ Location of the Minnie column (yellow) within the dataset. Top view.
 ```
 
 The Minnie Column is a collection of more than 1,300 neurons whose nucleus centroid fell within a 100 x 100 micron square (viewed from the top) and extending across all layers.
-This was originally considered a region of interest for a [comprehensive census of the neuronal population](https://www.biorxiv.org/content/10.1101/2023.01.23.525290v2), and thus all neurons in this region were proofread to some extent and manually evaulated.
+This was originally considered a region of interest for a [comprehensive census of the neuronal population](https://www.biorxiv.org/content/10.1101/2023.01.23.525290v2), and thus all neurons in this region were proofread to some extent and manually evaluated.
 All excitatory neurons had their dendrites cleaned and extended to assess dendritic morphology and synaptic inputs, while inhibitory neurons had both their dendrites cleaned and extended, and then their axons were extensively cleaned and extended to capture their targeting properties.
 Efforts were made to extend inhibitory axons to every major region of their arbor, but not every individual tip was followed and the resulting analysis focused on population-level connectivity rather than individual connections.
 

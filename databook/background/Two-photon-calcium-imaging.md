@@ -35,11 +35,11 @@ neural ensembles encode, process, and transmit information.
   circuits with cell-type precision.
 - **Temporal insights**: While the temporal resolution of calcium imaging
   doesn't match that of direct electrical recordings, indicators have become
-  faster over each generation. Even compartively "slow" indicators such as
+  faster over each generation. Even comparatively "slow" indicators such as
   GCaMP6s are still fast enough to detect when a group of action potentials
   occur, even if it is difficult to discern individual action potentials.
 - **Longitudinal recordings**: Because you can see the shape of individual
-  cells, their arrangement with respect to eachother, and other tissue featuers
+  cells, their arrangement with respect to each other, and other tissue features
   like vasculature, experimenters can measure the activity of the same neurons
   over days. This can provide insight into how neural activity changes over the
   course of learning.

@@ -24,7 +24,7 @@ neuronal dynamics.
    neurons. In vertebrates, the majority of synaptic release is triggered by
    all-or-none action potentials, and as a result recording the action
    potentials from a neuron to a first approximation describes that neuron's
-   contribution to the ongoing computations occuring in the brain. With
+   contribution to the ongoing computations occurring in the brain. With
    advancements in multi-electrode arrays and silicon probes, we can now
    concurrently monitor the spiking activity of hundreds, if not thousands, of
    neurons spanning many brain regions.
