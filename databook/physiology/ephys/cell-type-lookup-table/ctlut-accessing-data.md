@@ -17,7 +17,7 @@ kernelspec:
 
 ## Overview
 
-This notebook will go over how to load the cell type lookup table data and access its contents. Unlike other Allen Institute data sets, this data was very recently collected and is not publicly available, so you will access it by attaching the "cell_type_lookup_table_nwb" data asset and interacting with it through your capsule.
+This notebook will go over how to load the cell type lookup table data and access its contents. Unlike other Allen Institute data sets, this data was very recently collected and is not publicly available, so you will access it by attaching the `cell_type_lookup_table_nwb` data asset and interacting with it through your capsule.
 
 +++
 
@@ -48,10 +48,12 @@ nwbfile_read = io.read()
 
 If you'd like to explore the contents of the nwb file in a widget with a graphical user interface, you can install nwb2widget in your environment, then run:
 
-```{hint}
+:::{hint}
+```{code}
 from nwbwidgets import nwb2widget
 nwb2widget(nwbfile_read)
 ```
+:::
 
 +++
 
@@ -105,7 +107,7 @@ spike_waveforms = units.waveform_mean
 spike_qc = units.default_qc
 ```
 
-The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding-np/vcnp-quality-metrics`.
+The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding/vcnp-quality-metrics`.
 
 +++
 
@@ -132,8 +134,4 @@ Finally, you can also find the animal's running speed throughout the session.
 ```{code-cell} ipython3
 running_speed = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity'].data
 running_timestamps = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity'].timestamps
-```
-
-```{code-cell} ipython3
-
 ```

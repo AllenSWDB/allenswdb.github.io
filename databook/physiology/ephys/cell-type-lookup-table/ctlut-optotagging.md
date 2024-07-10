@@ -15,7 +15,7 @@ kernelspec:
 
 The purpose of this dataset is to create a ground-truth dataset of responses from known striatal cell types so that we can look for differences in their physiological properties. But how do we know if the units we pick up during ephys belong to a specific cell type? We use a technique known as "optotagging."
 
-For a deeper overview of the technique, check out the section on {doc}`../background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
+For a deeper overview of the technique, check out the section on {doc}`../../../background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
 
 # Opsins
 
@@ -39,7 +39,8 @@ We want to be able to drive the expression of the above opsins only in specific 
 
 To determine the genotype of the animal for each session (and thus which driver line it's part of, and which cells are expressing Cre), use the following command:
 
-```{hint}
+:::{hint}
+```{code-cell} ipython3
 import json
 
 subject_json = 'path-to-subject-json'
@@ -48,6 +49,7 @@ with open(subject_json, 'r', ) as f:
     
 subject_data['genotype']
 ```
+:::
 
 The genotype for these experiments can be one of several:
 * Drd1a-Cre: This driver line drives expression of Cre in striatal direct pathway neurons (D1)
@@ -60,7 +62,8 @@ Another method of getting opsins into cells is to use enhancer viruses. These vi
 
 To determine which viruses were injected into a given animal, use the following commands:
 
-```{hint}
+:::{hint}
+```{code-cell} ipython3
 import json
 
 procedures_json = 'path-to-procedures-json'
@@ -71,6 +74,7 @@ virus_names = []
     for material in procedures['injections'][0]['injection_materials']:
         virus_names.append(material['name'])
 ```
+:::
 
 You will produce a list of all the shortened virus names that were injected into this mouse. There are generally multiple viruses, as we want to tag different cell types with different opsins!
 
@@ -82,11 +86,13 @@ Each experimental session contains an epoch during which laser is presented. We 
 
 The trial table contains information about each laser presentation that took place, and can be loaded with the following code:
 
-```{hint}
+:::{hint}
+```{code-cell} ipython3
 io = NWBZarrIO('path-to-nwb-file', "r")
 nwbfile_read = io.read()
 stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
 ```
+:::
 
 # Identifying tagged neurons
 
