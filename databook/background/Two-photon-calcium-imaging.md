@@ -1,3 +1,4 @@
+(two-photon-calcium-imaging)=
 # Calcium imaging
 
 {doc}`Neuropixels-electrophysiology` is just one of many methods that is used to
