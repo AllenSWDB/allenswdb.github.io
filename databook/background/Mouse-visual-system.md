@@ -1,3 +1,4 @@
+(mouse-visual-system)=
 # Mouse visual system
 
 For several decades, much of the work studying visual physiology was carried out
