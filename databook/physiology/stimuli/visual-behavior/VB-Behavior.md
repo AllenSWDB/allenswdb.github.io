@@ -87,7 +87,7 @@ Task parameters for each `session_type` for <b>VisualBehaviorOphysProjectCache</
 
 ![task_parameters_ophys](/resources/task_parameters_ophys.png)
 
-Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](VB-Ophys.md)page for more information on dataset variants.
+Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](vb-ophys) page for more information on dataset variants.
 
 Task parameters for each `session_type` for <b>VisualBehaviorNeuropixelsProjectCache</b> datasets:
 
