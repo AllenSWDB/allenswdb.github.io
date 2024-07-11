@@ -13,7 +13,7 @@ Data for each experiment is packaged in Neurodata Without Borders (NWB) files th
 
 ![change_detection_task](/resources/change_detection_task.png)
 
-To learn about the task structure and behavioral training procedure, see the [Visual Behavior Task](../stimuli/visual-behavior/VB-Behavior.md) section.
+To learn about the task structure and behavioral training procedure, see the [Visual Behavior Task](vb-behavior) section.
 
 ## 2-Photon Calcium Imaging
 
@@ -47,7 +47,7 @@ The `session_type` indicates whether a session was a behavior training session (
 
 The number included in the `session_type` just after whether it is `TRAINING_` or `OPHYS_` indicates the order in which the session occurred in the overall training or imaging sequence. `OPHYS_` session numbers 0-3 in the name are always using the same image set that was shown during behavioral training. `OPHYS_` session numbers 4-6 are always using the new image set that was shown for the first time during 2-photon imaging. 
 
-To learn more about the differences in task parameters for different `session_type`s, see the [Visual Behavior Task](../stimuli/visual-behavior/VB-Behavior.md) page.
+To learn more about the differences in task parameters for different `session_type`s, see the [Visual Behavior Task](vb-behavior-session-types) page.
 
 ## Data Structure
 
