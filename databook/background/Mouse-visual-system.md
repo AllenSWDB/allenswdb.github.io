@@ -54,7 +54,7 @@ can then be used to identify cortical boundaries as detailed above. An example
 can be seen in this figure:
 
 :::{figure}  ../resources/background_isi_imaging_example.png
-:name: isi-ref
+:name: mouse-visual-system:isi-ref
 :align: center
 :width: 800
 
