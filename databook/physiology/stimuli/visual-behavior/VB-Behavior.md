@@ -1,3 +1,4 @@
+(vb-behavior)=
 # Visual Behavior Task Overview
 
 The Visual Behavior Ophys and Visual Behavior Neuropixels datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.
@@ -63,7 +64,7 @@ The Visual Behavior Neuropixels dataset used a distinct stimulus configuration t
 
 The inclusion of 2 shared images between the familiar and novel image sets allows for examination of the effects of stimulus context on learned sensory responses. A key question is - do mice (behaviorally, or neurophysiologically) treat the two shared images the same, regardless of whether they are intermixed with other familiar stimuli versus when they are intermixed with novel stimuli?
 
-
+(vb-behavior-session-types)=
 ## Session Types
 
 The stages of behavioral training and different types of neurophysiology sessions are described by their `session_type`. The `session_type` indicates whether the session occurred during training or during neural activity measurements, as well as what stimulus was used and whether the session was active behavior or passive viewing session in the case of Visual Behavior Ophys sessions (Visual Behavior Neuropixels sessions have active and passive blocks in the same session).
