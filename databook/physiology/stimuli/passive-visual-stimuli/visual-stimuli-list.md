@@ -2,7 +2,7 @@
 
 # Probably want figures of the stimuli
 
-# N.B. content here is copied directly from [here](vc2p-stimuli.md) (mod Python). Tutorial is also here (maybe should stay under vc2p?), but may be useful to clearly list the stimuli in one place (esp. since this is also used for VC-NP). Note that the stimuli specific to VC-NP are not listed here yet, probably will include them at a later date.
+# N.B. content here is copied directly from [here](../../ophys/visual-coding/vc2p-stimuli.md) (mod Python). Tutorial is also here (maybe should stay under vc2p?), but may be useful to clearly list the stimuli in one place (esp. since this is also used for VC-NP). Note that the stimuli specific to VC-NP are not listed here yet, probably will include them at a later date.
 
 # Placeholder for now, will need to be made more generic
 
