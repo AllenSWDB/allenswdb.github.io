@@ -39,7 +39,7 @@ boc.get_all_targeted_structures()
 We see that data was collected in six different visual areas. VISp is the
 primary visual cortex, also known as V1. The others are higher visual areas that
 surround VISp. You can learn more about these areas and how we map them
-{doc}`here <mouse-visual-system>`.
+{ref}`here <mouse-visual-system>`.
 
 ## Cre lines and reporters
 We used Cre lines to drive the expression of GCaMP6 in specific populations of neurons. We can find a list of all the cre lines used in this dataset with a similar function
