@@ -150,6 +150,8 @@ data
 results
 scratch
 docs
+# Ignore the command-line output from the reproducible runs
+output
 
 # Jupyterlab
 **/_build
