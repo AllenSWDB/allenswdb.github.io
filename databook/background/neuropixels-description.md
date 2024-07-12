@@ -1,6 +1,6 @@
-## Neuropixels Probes
+# Neuropixels Probes
 
-# TO DO: NEEDS FIGURES
+## TO DO: NEEDS FIGURES
 
 Neuropixels are silicon probes which continuously detect voltage fluctuations in the surrounding neural tissue on 374 or 384 channels (depending on the model). Each channel is split into two separate data streams, or *bands*, on the probes. The *spike band* is digitized at 30 kHz with a 500 Hz high-pass filter, and contains information about {term}`action potentials` fired by neurons directly adjacent to the probe. The *{term}`LFP` band* is digitized at 2.5 kHz, and records the low-frequency (<1000 Hz) fluctuations that result from synchronized neural activity over a wider area. The shanks are generally 10 mm long with a 70 µm width.
 
