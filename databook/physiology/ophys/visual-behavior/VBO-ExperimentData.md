@@ -792,7 +792,7 @@ colormap['omitted'] = (1,1,1) # set omitted stimulus to white color
 
 # add the colors for each image to the stimulus presentations table in the dataset
 stimulus_presentations = ophys_experiment.stimulus_presentations
-stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[str(image_name)])
 ```
 
 Here are some plotting functions for convenience.
@@ -914,7 +914,7 @@ colormap = {image_name: sns.color_palette()[image_number] for image_number, imag
 colormap['omitted'] = (1,1,1)
 
 # add the colors for each image to the stimulus presentations table in the dataset
-ophys_experiment.stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+ophys_experiment.stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[str(image_name)])
 ```
 
 ```{code-cell} ipython3

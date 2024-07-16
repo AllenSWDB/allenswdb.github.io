@@ -271,7 +271,7 @@ First, add a column to the stimulus_presentations table that assigns a unique co
 ```{code-cell} ipython3
 unique_stimuli = [stimulus for stimulus in behavior_session.stimulus_presentations['image_name'].unique()]
 colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
-behavior_session._stimuli._presentations.value['color'] = behavior_session.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+behavior_session._stimuli._presentations.value['color'] = behavior_session.stimulus_presentations['image_name'].map(lambda image_name: colormap[str(image_name)])
 ```
 
 Now make some simple plotting functions to plot these datastreams
