@@ -5,3 +5,10 @@ These pages contain executable Python code. Any failures will be listed here wit
 
 ```{nb-exec-table}
 ```
+
+## Module List
+
+```{code-cell} ipython3
+from pip._internals import main as pipmain
+pipmain('freeze')
+```
