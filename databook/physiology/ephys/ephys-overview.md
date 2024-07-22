@@ -1,8 +1,8 @@
-# Ophys background
+# Ephys
 
 ## PLACEHOLDER - intended to make the ToC layout "nice", so that Physiology has subsections Ophys / Ephys / Stimuli / pyNWB, each of which then have their own subsections
 
-This section contains information about the ophys datasets and some of their uses.
+This section contains information about the ephys datasets and some of their uses.
 
 ## Visual Coding
 
@@ -14,14 +14,14 @@ We have used large-scale physiological recordings in behaving animals to charact
 
 This dataset can be used to address questions such as: How do different types of neurons in the brain encode sensory and behavioral information? Are these representations flexible depending on motivation or expectation? How are interactions across cortical areas and depths modified by experience? 
 
-Using single- and multi-plane 2-photon calcium imaging in the visual cortex of transgenic mice expressing the calcium indicator GCaMP6f in populations of excitatory and inhibitory neurons, we have recorded neural activity during performance of a visual change detection task from 50,482 neurons in 704 in vivo imaging sessions. A key aspect of the experimental design is the repeated imaging of the same populations of neurons across multiple days, allowing analysis of single cell changes across behavioral and sensory conditions, including task engagement and stimulus novelty.
+We used Neuropixels probes to measure spiking activity of neuronal populations distributed across multiple visual cortical regions, in addition to subcortical structures such as the thalamus, hippocampus and midbrain, while mice performed the change detection task. Overall, this dataset includes ~200,000 recorded neurons (units) from 153 experimental sessions. The simultaneous recording of activity across multiple visual areas permits analysis of inter-regional interactions and signal flow during visually guided behavior. In addition, each experimental session includes a passive stimulus replay block that allows investigation of task-dependent modulation sensory and behavioral coding. 
 
 For information on the stimuli used, see [Change Detection Task](change_detection_Task).
 
-## Learning
+## Cell Type Look-Up Table
 
 Content here
 
-## Inhibitory Balance
+## Neuropixels Ultra
 
 Content here
