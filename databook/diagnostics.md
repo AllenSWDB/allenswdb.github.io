@@ -27,9 +27,11 @@ import subprocess
 ```{code-cell}
 :tags: [remove-input]
 
+origin_url = subprocess.run(['git', 'remote', 'get-url', 'origin'], capture_output=True).stdout.decode().strip()
 branch = subprocess.run(['git', 'branch', '--show-current'], capture_output=True).stdout.decode().strip()
 commit_id = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True).stdout.decode().strip()
 
+print(f'{"Remote":<11}: {origin_url}')
 print(f'{"Branch":<11}: {branch}')
 print(f'{"Commit Hash":<11}: {commit_id}')
 ```
