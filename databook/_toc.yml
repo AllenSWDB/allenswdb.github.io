@@ -12,13 +12,14 @@ chapters:
   - file: background/Neuropixels-electrophysiology
     sections:
     - file: physiology/ephys/visual-coding/vcnp-quality-metrics
-    - file: physiology/ephys/neuropixels-description
+    - file: background/neuropixels-description
   - file: background/Two-photon-calcium-imaging
   - file: background/Ophys-ephys-comparison
   - file: background/Optotagging.md
 - file: physiology/physiology                    # Also a placeholder that needs actual content
   sections:
-  - file: physiology/ophys/ophys-background                    # Also a placeholder that needs actual content
+  - file: physiology/ophys/ophys-overview                    # Also a placeholder that needs actual content
+    title: Optical Physiology
     sections:
     - file: physiology/ophys/visual-coding/vc2p-background
       sections:
@@ -33,6 +34,8 @@ chapters:
       sections:
       - file: physiology/ophys/visual-behavior/VBO-Dataset
         title: Visual Behavior Ophys Dataset
+      - file: physiology/ophys/visual-behavior/VB-BehaviorSessionData
+        title: Behavior Session Data
       - file: physiology/ophys/visual-behavior/VBO-ExperimentData
         title: Ophys Experiment Data
       - file: physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types
@@ -41,7 +44,8 @@ chapters:
         title: Tutorial Downloading Data
     - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
     - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
-  - file: physiology/ephys/ephys-background                    # Also a placeholder that needs actual content
+  - file: physiology/ephys/ephys-overview                    # Also a placeholder that needs actual content
+    title: Electrophysiology
     sections:
     - file: physiology/ephys/visual-coding/vcnp
       sections:
@@ -77,9 +81,6 @@ chapters:
     - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
     - file: physiology/stimuli/visual-behavior/VB-Behavior
       title: Visual Behavior Task
-      sections:
-      - file: physiology/stimuli/visual-behavior/VB-BehaviorSessionData
-        title: Behavior Session Data
   - file: physiology/pyNWB/pyNWB                    # Also a placeholder that needs actual content
 - file: anatomy/anatomy                    # Also a placeholder that needs actual content
   sections:
