@@ -41,7 +41,9 @@ These pages contain executable Python code. Any failures will be listed here wit
 
 ```{nb-exec-table}
 ```
-## Python Version
+
+## Environment
+### Python Version
 
 ```{code-cell}
 :tags: [remove-input]
@@ -50,7 +52,7 @@ import sys
 print(sys.version)
 ```
 
-## Installed Modules
+### Installed Modules
 
 ```{code-cell}
 :tags: [remove-input]
@@ -58,7 +60,7 @@ print(sys.version)
 print(subprocess.run(['pip', 'freeze'], capture_output=True).stdout.decode())
 ```
 
-## Attached Data
+### Attached Data
 
 ```{code-cell}
 :tags: [remove-input]
