@@ -18,7 +18,7 @@ chapters:
   - file: background/Optotagging.md
 - file: physiology/physiology                    # Also a placeholder that needs actual content
   sections:
-  - file: physiology/ophys/ophys-background                    # Also a placeholder that needs actual content
+  - file: physiology/ophys/ophys-overview                    # Also a placeholder that needs actual content
     title: Optical Physiology
     sections:
     - file: physiology/ophys/visual-coding/vc2p-background
@@ -44,7 +44,7 @@ chapters:
         title: Tutorial Downloading Data
     - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
     - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
-  - file: physiology/ephys/ephys-background                    # Also a placeholder that needs actual content
+  - file: physiology/ephys/ephys-overview                    # Also a placeholder that needs actual content
     title: Electrophysiology
     sections:
     - file: physiology/ephys/visual-coding/vcnp
