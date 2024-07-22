@@ -162,7 +162,7 @@ How many blank sweep trials are there?
 len(static_gratings_table[np.isnan(static_gratings_table.orientation)])
 ```
 
-How many trials are there of any one stimulus codition?
+How many trials are there of any one stimulus condition?
 
 ```{code-cell} ipython3
 ori=30

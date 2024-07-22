@@ -42,7 +42,7 @@ ns = NaturalScenes(data_set)
 
 For each stimulus, there are two dataframes called `sweep_response` and `mean_sweep_response` that quantify the individual trial responses of each neuron. The sweep_response dataframe contains the DF/F for each neuron for each trial. The index of the dataframe matches the stimulus table for the stimulus, and the columns are the cell indexes (as strings).
 
-For this dataframe, DF/F was computed using the mean fluorescence in the 1 second prior to the start of the trial as the Fo. The sweep response contains this DF/F for each neuron spaning from 1 second before the start of the trial to 1 second after the end of the trial. In addition to the responses of each neuron, there is one additional column that captures the running speed of the mouse during the same time span of each trial. This column is titled 'dx'.
+For this dataframe, DF/F was computed using the mean fluorescence in the 1 second prior to the start of the trial as the Fo. The sweep response contains this DF/F for each neuron spanning from 1 second before the start of the trial to 1 second after the end of the trial. In addition to the responses of each neuron, there is one additional column that captures the running speed of the mouse during the same time span of each trial. This column is titled 'dx'.
 
 The mean_sweep_response (with the same index and columns as sweep_response) calculates the mean value of the DF/F in the sweep response dataframe during each trial for each neuron. The column titled 'dx' averages the running speed in the same way.
 
@@ -77,6 +77,6 @@ cell_specimen_table.head()
 ```
 
 ## Caveat
-The anaylsis file and the metrics in the cell specimen table were computed from the DF/F as described above. While this is not incorrect, per se, there are some caveats to this. Metrics such as DSI which are defined as (pref-null)/(pref+null) are expected to be contrained to +/- 1. However, we can have trials with negative DF/F, especially using it as we do here, in which case these metrics will not be contrained in this way. This can make it difficult to interpret the resulting values. 
+The analysis file and the metrics in the cell specimen table were computed from the DF/F as described above. While this is not incorrect, per se, there are some caveats to this. Metrics such as DSI which are defined as (pref-null)/(pref+null) are expected to be contained to +/- 1. However, we can have trials with negative DF/F, especially using it as we do here, in which case these metrics will not be contained in this way. This can make it difficult to interpret the resulting values. 
 
 These analysis objects and metrics are not invalid, but be sure to use and interpret them appropriately.

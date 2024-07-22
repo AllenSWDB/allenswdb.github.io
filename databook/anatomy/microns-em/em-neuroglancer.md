@@ -68,7 +68,7 @@ The basic controls for navigation are:
 * `scroll wheel up/down` moves the imagery in Z.
 * `right click` jumps the 3d view to the clicked location in either the imagery or on a segmented object.
 * `double click` selects a segmentation and loads its mesh into the 3d view. Double clicking on a selected neuron deselects it.
-* `control-scrool` zooms the view under the cursor in or out.
+* `control-scroll` zooms the view under the cursor in or out.
 * `z` snaps the view to the closest right angle.
 
 You can paste a position into Neuroglancer by clicking the x, y, z coordinate in the upper left corner and pasting a space or comma-separated list of numbers and hitting enter.
@@ -111,7 +111,7 @@ A typical sharing URL looks like the following:
 https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/4684616269037568
 ```
 The first part is the URL for the Neuroglancer viewer, while the part after the `?json_url=` is a URL that points to a JSON file that contains the state.
-The number at the end of the URL is used to uniquely identify the state and can be used programatically to retrieve information.
+The number at the end of the URL is used to uniquely identify the state and can be used programmatically to retrieve information.
 
 ```{warning}
 If a URL contains `?local_id=` instead of `?json_url`, that means that it cannot be viewed by anyone else or even in another browser on your own computer.
@@ -164,7 +164,7 @@ The python package `nglui` was made to make it easy to generate Neuroglancer sta
 The package can be installed with `pip install nglui`.
 
 :::{important}
-The `nglui` package interacts prominantly with `caveclient` and annotations queried from the database.
+The `nglui` package interacts prominently with `caveclient` and annotations queried from the database.
 See the section on [querying the database](em:query-tables-section) to learn more.
 :::
 

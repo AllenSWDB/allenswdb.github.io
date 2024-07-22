@@ -76,7 +76,7 @@ client.auth.setup_token(make_new=False)
 ``` 
 
 This will open a new browser window and ask you to log in.
-After lgging in, the page will display your current token (the value after the `token:`).
+After logging in, the page will display your current token (the value after the `token:`).
 Copy this token, and save it to your computer using the following:
 
 ```python

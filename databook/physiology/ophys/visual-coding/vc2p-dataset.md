@@ -19,7 +19,7 @@ import pandas as pd
 
 We will start exploring the parameters of the dataset to learn what data is available.
 
-First we need to access the dataset. We will use the AllenSDK and the BrainObservatoryCache to do so. First we need to set this up - the key step is to provide a <b>manifest file</b>. The SDK uses this file to know what data is available and organize the files it downloads. If you instantiate the BrainObservatoryCache without proviing a manifest file, it will create one in your working directory.
+First we need to access the dataset. We will use the AllenSDK and the BrainObservatoryCache to do so. First we need to set this up - the key step is to provide a <b>manifest file</b>. The SDK uses this file to know what data is available and organize the files it downloads. If you instantiate the BrainObservatoryCache without providing a manifest file, it will create one in your working directory.
 
 ```{code-cell} ipython3
 from allensdk.core.brain_observatory_cache import BrainObservatoryCache
@@ -83,7 +83,7 @@ These are described more extensively in [Visual stimuli](vc2p-stimuli.md).
 ## Experiment containers & sessions
 The <b>experiment container</b> describes a set of 3 imaging <b>sessions</b> performed for the same field of view (ie. same targeted structure and imaging depth in the same mouse that targets the same set of neurons). Each experiment container has a unique ID number.
 
-We will identify all the experiment containers for a given stucture and Cre line:
+We will identify all the experiment containers for a given structure and Cre line:
 
 ```{code-cell} ipython3
 visual_area = 'VISp'

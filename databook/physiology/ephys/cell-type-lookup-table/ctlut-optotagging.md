@@ -19,7 +19,7 @@ For a deeper overview of the technique, check out the section on {doc}`/backgrou
 
 # Opsins
 
-In order to drive spiking activity using laser light, we have to make neurons produce light-gated ion channels, herethefore referred to as "opsins." These opsins will change their conformation when exposed to specific wavelengths of light, opening a channel that allows ions to cross the cell membrane, most commonly sodium for light-triggered excitation or chloride for light-triggered inhibition.
+In order to drive spiking activity using laser light, we have to make neurons produce light-gated ion channels, hereafter referred to as "opsins." These opsins will change their conformation when exposed to specific wavelengths of light, opening a channel that allows ions to cross the cell membrane, most commonly sodium for light-triggered excitation or chloride for light-triggered inhibition.
 
 The opsins used in this data set were:
 * CoChR: a blue-light activated sodium channel
@@ -56,7 +56,7 @@ The genotype for these experiments can be one of several:
 
 # Enhancer viruses
 
-Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presense of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types.
+Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presence of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types.
 
 To determine which viruses were injected into a given animal, use the following commands:
 
@@ -90,7 +90,7 @@ stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
 
 # Identifying tagged neurons
 
-As stated previously, if you know which cell types should be expressing which opsin, you can label units collected during electrophysiology by cell type based on their responses to laser pulses. However, this is not necessarily as straightforward as it might appear: neurons are interconnected and constantly communicating with each other, so changing the activity of one cell will undoubtedly have effects on its neighbors as well. As such, one needs to be very careful in analysing laser responses to make sure you are only considering cells that are directly activated by the laser.
+As stated previously, if you know which cell types should be expressing which opsin, you can label units collected during electrophysiology by cell type based on their responses to laser pulses. However, this is not necessarily as straightforward as it might appear: neurons are interconnected and constantly communicating with each other, so changing the activity of one cell will undoubtedly have effects on its neighbors as well. As such, one needs to be very careful in analyzing laser responses to make sure you are only considering cells that are directly activated by the laser.
 
 Common metrics for identifying tagged cells include:
 * significant increase in firing rate during laser presentation

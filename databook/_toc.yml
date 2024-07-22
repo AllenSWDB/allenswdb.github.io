@@ -56,6 +56,7 @@ chapters:
       - file: physiology/ephys/visual-coding/vcnp-lfp
       - file: physiology/ephys/visual-coding/vcnp-optotagging
       - file: physiology/ephys/visual-coding/vcnp-session
+      - file: physiology/ephys/visual-coding/vcnp-stimulus
       - file: physiology/ephys/visual-coding/vcnp-cheatsheet
       - file: physiology/ephys/visual-coding/vcnp-links
     - file: physiology/ephys/visual-behavior/VB-Neuropixels
