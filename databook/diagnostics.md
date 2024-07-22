@@ -65,3 +65,11 @@ else:
         depth = len(f.parts) - base
         print(' ' * depth + f.name)
 ```
+
+```python
+raise RuntimeError()
+```
+
+```python
+print("This cell should still execute, even though there's an error above")
+```
