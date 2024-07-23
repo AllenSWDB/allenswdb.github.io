@@ -173,7 +173,7 @@ Pyramidal cell
   excitatory neuron.
 
 Receptive field
-  definition here
+  In a sensory context, the receptive field of a neuron is the region of the stimulus domain in which sensory stimulus needs to lie in order to evoke a response.  For visual cortical cells, for example, the receptive field is the region of visual space in which stimuli can evoke neural responses.  In a computational context, this notion is often generalized multiple dimensions (e.g. space, time, frequency, etc.) and thus equates to the necessary stimulus features that drive neural response (e.g. a localized grating of a specific orientation and frequency).  
 
 Regular Spiking neuron
 RS
