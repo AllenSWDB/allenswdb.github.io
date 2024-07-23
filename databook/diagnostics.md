@@ -59,25 +59,3 @@ print(sys.version)
 
 print(subprocess.run(['pip', 'freeze'], capture_output=True).stdout.decode())
 ```
-
-### Attached Data
-
-```{code-cell}
-:tags: [remove-input]
-
-from pathlib import Path
-
-data = Path('/data/')
-
-if not data.exists():
-    print("No data attached")
-else:
-    base = len(data.parts)
-    for f in data.glob('**'):
-        depth = len(f.parts) - base
-
-        if depth > 2:
-          continue
-          
-        print(' ' * depth + f.name)
-```
