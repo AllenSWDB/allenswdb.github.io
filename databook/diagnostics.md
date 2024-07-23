@@ -75,5 +75,9 @@ else:
     base = len(data.parts)
     for f in data.glob('**'):
         depth = len(f.parts) - base
+
+        if depth > 2:
+          continue
+          
         print(' ' * depth + f.name)
 ```
