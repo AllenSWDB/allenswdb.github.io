@@ -6,9 +6,9 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.14.7
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: ctlut
   language: python
-  name: allensdk
+  name: ctlut
 ---
 
 # Optotagging
