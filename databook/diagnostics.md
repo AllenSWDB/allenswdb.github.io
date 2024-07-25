@@ -7,16 +7,16 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.1
+    jupytext_version: 1.16.2
 kernelspec:
   display_name: allensdk
   language: python
-  name: allensdk
+  name: python3
 ---
 
 # Diagnostics
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input]
 
 import subprocess
@@ -24,7 +24,7 @@ import subprocess
 
 ## Databook Version Info
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input]
 
 origin_url = subprocess.run(['git', 'remote', 'get-url', 'origin'], capture_output=True).stdout.decode().strip()
@@ -45,17 +45,25 @@ These pages contain executable Python code. Any failures will be listed here wit
 ## Environment
 ### Python Version
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input]
 
 import sys
 print(sys.version)
 ```
 
-### Installed Modules
+### Environments
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input]
 
-print(subprocess.run(['pip', 'freeze'], capture_output=True).stdout.decode())
+from IPython.display import display, Markdown, Code
+from pathlib import Path
+
+envs_dir = Path('/opt/envs')
+for folder in envs_dir.glob('*/'):
+    display(Markdown(f'#### `{folder}`'))
+
+    pkgs = subprocess.run([str(folder.joinpath('python').absolute()), '-m', 'pip', 'freeze'], capture_output=True).stdout.decode().strip()
+    display(Code(pkgs))
 ```
