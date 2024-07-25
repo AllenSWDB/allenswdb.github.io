@@ -42,8 +42,8 @@ chapters:
         title: Tutorial Comparing Trial Types
       - file: physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
         title: Tutorial Downloading Data
-    - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
-    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
+#    - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
+#    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
   - file: physiology/ephys/ephys-overview                    # Also a placeholder that needs actual content
     title: Electrophysiology
     sections:
