@@ -1,3 +1,16 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.2
+kernelspec:
+  display_name: base
+  language: python
+  name: python3
+---
+
 # Generalized Linear Model (GLM)
 
 This tutorial will discuss the basics of a generalized linear model (GLM) and showcase some methods for performing a regression with a GLM in Python. This tutorial assumes that you are comfortable with the content included in the regression tutorial.
@@ -8,8 +21,7 @@ Ordinary linear regression can be a powerful tool in short-range regimes, but it
 
 The generalized linear model is a method of circumventing this problem. GLMs are finicky and more complicated to get working than standard linear regression models, but are able to model non-linear variance, which may result in enhanced predictive power.
 
-
-```python
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.integrate as itgrl
@@ -30,6 +42,8 @@ itgrl.quad(lambda x: np.exp(-(x-5)**2/8)/np.sqrt(4 * np.pi), 4.9, 5.1)
 ```
 
 Fig. 1: An example PDF for a particular measurement in a general linear model. The black line at $y=5$ shows the expectation value of the measurement, which is what we think we will see on average if we do many trials with the same inputs and conditions. The blue curve indicates the probability of the actual measurement; for example, this plot indicates approximately a 5.6% chance of measuring between 4.9 and 5.1 on any given trial. Note that since this is a continuous PDF, $\lim_{\epsilon\rightarrow 0} \int_{x-\epsilon}^{x+\epsilon} dx P(x) = 0$ and we must always specify an interval in which we wish the measurement to fall.
+
++++
 
 ### Theory
 
@@ -55,8 +69,7 @@ $g(\vec{\mu_i}) =\beta x$
 
 This function may in general be nonlinear, and so we have split our model into both a linear part (the linear predictor) and a potentially nonlinear part (the link function). In other words, rather than assuming our response is linear in the independent variables, we are allowing our response to be *any* invertible function of our independent variables. This *link function* may in general have many forms, but for a given PDF, there is always a canonical choice of link function. Note that in the case where the action of g is the identity or scalar multiples thereof, the generalized linear model becomes the general linear model. Once we have our mean, we will then insert it into our probability distribution function and analyze our data according to that model.
 
-
-```python
+```{code-cell} ipython3
 # generate some fake Poisson data
 
 rng = np.random.default_rng()
@@ -73,6 +86,8 @@ plt.show()
 
 Fig. 2: An example set of measurements where for a given set of inputs, the resulting measurements are not normally distributed about the mean. An example of this might be presenting the exact same stimulus under the exact same conditions to the same mouse, and observing the number of times a particular neuron spiked in a one-second interval. 
 
++++
+
 ## Example: Generalized linear model for spike train analysis
 
 A concrete example of where this is useful is in spike train analysis. The number of spikes $N\in Z^+_0$ is discretized and bounded from below by zero, which will generally rule out a Gaussian distribution. If the spikes are uncorrelated events (that is, the neuron spiking does not change the probability of future spikes), then this precisely matches a Poisson distribution:
@@ -85,8 +100,7 @@ In order to construct our generalized linear model, we will need three ingredien
 
 To showcase this, we'll generate some fake data and then attempt to fit it using a GLM.
 
-
-```python
+```{code-cell} ipython3
 # sklearn imports necessary
 
 from sklearn.linear_model import PoissonRegressor as PR
@@ -118,8 +132,7 @@ So here, we have a predictor that is continuous (that is, $x\in\mathbb(R)^+_0$),
 
 Firstly, we'll need to split our data into a train, validate, and test set. The training set will be the data we use to compute the weights of our models, making sure that it is never exposed to the data in either the validate or test set. We will then use the validate set to compare the performance of our models, again ensuring that the models never see the test set. Finally, once we've selected a model, we'll use the test set to evaluate its predictive power. Since it has never seen the new data at each new step, the model was not constructed to take into account those measurements, and thus they can provide an unbiased evaluator.
 
-
-```python
+```{code-cell} ipython3
 x_train, x_validate, y_train, y_validate = train_test_split(x0, y, train_size = 0.5)
 x_validate, x_test, y_validate, y_test = train_test_split(x_validate, y_validate, test_size = 0.5)
 
@@ -140,14 +153,12 @@ for i in range(3):
 
 Here, we've randomly selected half our data for inclusion in the train set, a quarter of data for the validate set, and the remaining quarter in the test set. We will now use `scikit-learn` to construct our GLM. We'll ask it to use a Poisson regressor to construct a GLM. Although it will do all the work for us "behind-the-scenes", we should remember the theory section so we understand what it's doing and why it's doing it so that we are able to adapt to different conditions when necessary! In this case, `PoissonRegressor` constructs a GLM with the usual three ingredients; it assumes a Poisson distribution and uses a $\log(\cdot)$ link function to compute the weights in the linear predictor $\eta = \beta x$.
 
-
-```python
+```{code-cell} ipython3
 pr = PR()
 pr.fit(x_train.reshape(-1, 1), y_train)
 ```
 
-
-```python
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(x_validate, y_validate, 'o')
 ax.plot(x0.reshape(-1,1), pr.predict(x0.reshape(-1,1)), '-')
@@ -158,8 +169,7 @@ ax.set_ylim(0, 20)
 
 So, as we can see, the Poisson regressor predicts a slow exponential decay in our system. Let's compare it to what a linear regressor would have predicted:
 
-
-```python
+```{code-cell} ipython3
 from sklearn.linear_model import LinearRegression as LR
 
 lr = LR()
@@ -185,18 +195,16 @@ Here, we're using a linear regressor to second order (so, positing a parabolic r
 
 Let's compare their performance quantitatively using `cross_validate`.
 
-
-```python
+```{code-cell} ipython3
 poisson_error = np.mean(cross_validate(pr, x_train.reshape(-1,1), y_train, cv=4)['test_score'])
 linear_error = np.mean(cross_validate(lr, x_2nd, y_train, cv=4)['test_score'])
 
 display(Markdown(rf"""Poisson $R^2$ value: {poisson_error}"""))
 display(Markdown(rf"""Linear $R^2$ value: {linear_error}"""))
-
 ```
 
 So as we can see here, the $R^2$ values show that the Poisson regressor does a relatively better job as compared to the linear regressor. Again, we might be able to improve the linear regressor's performance by changing the basis to a higher order polynomial. For the Poisson regressor, but we can see that we have already gotten good results from our GLM. 
 
 Note that this example was specific to one type of GLM: a Poisson distribution using a logarithmic link function. In general, we will need to select the model we want to use for our GLM based on the features of our data. A list of GLMs supported by `scikit-learn` can be found [here](https://scikit-learn.org/stable/auto_examples/linear_model/index.html).
 
-
++++

@@ -1,11 +1,23 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.2
+kernelspec:
+  display_name: base
+  language: python
+  name: python3
+---
+
 # Principal Component Analysis
 
 This tutorial will cover the basics of PCA (principal component analysis). This is a technique using linear algebra to project a dataset in high dimensions (that is, with a large number of free parameters: $f(x_1, x_2, ..., x_n)$) onto a lower-dimensional subspace (so that there are fewer free parameters to compare: $f'(x'_1, x'_2, ..., x'_m)$ with $m<n$). In PCA, the parameters of the data considered are called **principal components**. We will go into detail about the mathematical underpinning of why this works and show a PCA computation in detail on random data.
 
 Here, we'll only use ```numpy``` to perform the analysis.
 
-
-```python
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 ```
@@ -16,8 +28,7 @@ To illustrate the process of PCA, we'll first show how it looks on a simple two-
 
 We'll start with some randomly generated data in two dimensions:
 
-
-```python
+```{code-cell} ipython3
 data = np.ndarray([2,100])
 data[0] = np.random.default_rng().normal(50, 10, size=(1, 100))
 data[1] = np.random.default_rng().normal(0, 10, size=(1, 100)) + data[0]
@@ -33,8 +44,7 @@ In order to understand the variance in our data using as few numbers as possible
 
 To demonstrate, there is some code below that shows an ellipse drawn around this simple (randomly generated) 2-d dataset. Note that this is the same data as above, but the scale is different on the plot, so it may look a litle different.
 
-
-```python
+```{code-cell} ipython3
 cov_simple = np.cov(data[0], data[1])
 lambda_, x = np.linalg.eig(cov_simple)
 lambda_ = np.sqrt(lambda_)
@@ -53,8 +63,7 @@ The orientation and shape of the ellipse is always fixed by the data itself, so 
 
 If we examine the axes of the ellipse, one can see that they form an equally valid basis for our data space as the x-y axes we've chosen here.  In this choice of basis (remember that we can set our origin to be wherever we want and we can rotate our axes freely in any vector space), we have maximized the amount of variance along one basis vector. These basis vectors are called the *principal components* of our data. See below:
 
-
-```python
+```{code-cell} ipython3
 ax = plt.subplot(111)
 ell = Ellipse(xy=(np.mean(data[0]), np.mean(data[1])), width=lambda_[0]*6, height=lambda_[1]*6, angle=np.rad2deg(np.arctan(x[1,0]/x[0, 0])), edgecolor='r', facecolor='none')
 ax.add_artist(ell)
@@ -85,12 +94,13 @@ Now this is a simple two-dimensional example without working through the real pr
 
 Next, we'll do an example in higher dimensions, showing the details of how the actual analysis is performed.
 
++++
+
 ## An example in higher dimensions, with mathematical details
 
 Again, we'll use randomly generated data. Below, we generate using a random Gaussian distribution on our first variable, and then for the following variables we give them linear dependencies on the other variables with random Gaussian noise.
 
-
-```python
+```{code-cell} ipython3
 data = np.ndarray([8,100])
 data[0] = np.random.default_rng().normal(50, 10, size=(1, 100))
 data[1] = np.random.default_rng().normal(10, 10, size=(1, 100)) + 0.2 * data[0]
@@ -108,8 +118,7 @@ So, the matrix elements are defined $C_{ij} = \langle(y_i - \bar{y_j})(y_j - \ba
 
 Luckily, we don't need to write a function to compute the covariance matrix, or compute it by hand, since numpy has a built-in function to estimate it for us.
 
-
-```python
+```{code-cell} ipython3
 
 cov_mat = np.cov(data)
 print(np.matrix(cov_mat))
@@ -117,8 +126,7 @@ print(np.matrix(cov_mat))
 
 To better understand the covariance, we can look at a graphical representation of its values. We should expect that the whole thing is symmetric, as mentioned previously.
 
-
-```python
+```{code-cell} ipython3
 plt.imshow(cov_mat)
 plt.colorbar()
 plt.ylabel("Variable Number")
@@ -133,22 +141,22 @@ The covariance matrix is a *linear operator* acting on our data. Working in some
 
 In fact, one of the nice things about an eigen-decomposition is that, as long as none of the eigenvalues are 0, any matrix can be rewritten as a purely diagonal matrix of its eigenvalues, and the rewritten matrix is exactly equivalent to the original matrix (so long as the vectors it acts upon are similarly rewritten). This is called a change of basis. It works in exactly the same way that switching from Cartesian coordinates to polar coordinates does not change a vector, only how it's written. Moreover, the new basis will have basis vectors defined by the eigenvectors, and these are guaranteed to be orthogonal, which makes writing down vectors in this basis very simple. This process is called *matrix diagonalization*.
 
++++
+
 This is relevant because of how we are going to work with the covariance matrix. As mentioned before, the basis we have chosen for the covariance matrix so far (i.e. the variables $\vec{x}$ that we measured) is in general non-orthogonal, so that a vector in the data space will be quite difficult to interpret. Moreover, the entries of the covariance matrix $C_{ij}$ tell us how correlated $x_i$ and $x_j$ are, but in the form we currently have for the covariance matrix, $x_i$ is correlated with every variable and is therefore somewhat of a nightmare to study!
 
 But what if we could write the covariance matrix in a form where each variable $x'_i$ was correlated with exactly one other variable $x'j$? Then we would be able to study the correlations very easily. And we are already equipped with a way to rewrite the covariance matrix both in an orthogonal basis and with each variable being exactly correlated with one other - by performing an eigen-decomposition! Moreover, since the covariance matrix is symmetric and positive semi-definite, it is guaranteed to admit a nice diagonalization.
 
 So we will need to perform an eigen-decomposition of $C$. The ```scikit-learn``` package actually has functions to do this for us, but since we didn't import it, we'll just have to use the native methods in ```numpy```! Fortunately, ```numpy``` has an eigenspace solver built into it, which will return the eigenvalues and the (right) eigenvectors of the matrix for us. Note that the list of eigenvectors is ordered to match the order of the eigenvalues so that the $i^{th}$ eigenvector is associated with the $i^{th}$ eigenvalue, and that the eigenvectors are automatically normalized.
 
-
-```python
+```{code-cell} ipython3
 eigenvalues, eigenvectors = np.linalg.eig(cov_mat)
 print(eigenvalues)
 ```
 
 Note that the eigenvectors are returned as columns, so that the $i^{th}$ eigenvector is accessed using ```eigenvectors[:, i]```. We can plot our eigenvalues to see our principal values:
 
-
-```python
+```{code-cell} ipython3
 plt.plot(eigenvalues)
 plt.xlabel("Eigenvalue Number")
 plt.ylabel("Eigenvalue Value")
@@ -160,29 +168,25 @@ In exchange for losing the clear physical meaning of each variable, we get to tr
 
 So, for example, in the above, we can see that the $0^{th}$ eigenvalue is the largest by far. We can take a look at its associated eigenvector:
 
-
-```python
+```{code-cell} ipython3
 print(eigenvectors[:, 0])
 ```
 
 What this is telling us is that this particular linear combination of the variables we started with accounts for a very large amount of the variance in the data sample, or, in other words, this particular relationship between our original basis variables explains the largest degree of their correlations. We can compute the exact amount that it accounts for by simply dividing the eigenvalue associated with it by the sum of all the eigenvalues of the covariance matrix (the sum of the eigenvalues is also known as the trace of the covariance matrix $Tr(C) = \sum_i \lambda_i^C$):
 
-
-```python
+```{code-cell} ipython3
 print(eigenvalues[0]/np.sum(eigenvalues))
 ```
 
 So, the principal component has contributions from all our original variables (time, pressure, etc.) except for the Planck's constant variable, which is pretty much what we expect, since the constant variable is constant and thus should be completely uncorrelated with everything (otherwise, the value of a physical constant would be changing, and our universe would collapse). Moreover, this single eigenvector accounts for a significant portion of the variance in our dataset (how much exactly, of course, will vary from run to run since we generated our data randomly). We can continue by looking at the rest of the eigenvalues to see how much of the variation in the data can be explained using them:
 
-
-```python
+```{code-cell} ipython3
 print((eigenvalues[0] + eigenvalues[1] + eigenvalues[2] + eigenvalues[4] + eigenvalues[6])/np.sum(eigenvalues))
 ```
 
 Here, we can see that only five eigenvectors (principal components) capture almost all the information about the variance in our dataset. The remaining eigenvectors have associated eigenvalues that are almost zero, and so they contribute very little variance to our data. This means that if we restrict our analysis from eight variables to five, we still keep most of the correlations, while we filter out the variables that are effectively irrelevant or very weakly correlated. In other words, we can reduce from studying eight variables to only studying five. In this particular example, actually, we could continue adding eigenvalues to see that we only need seven total to capture *all* the variance:
 
-
-```python
+```{code-cell} ipython3
 print((np.sum(eigenvalues)-eigenvalues[7])/np.sum(eigenvalues))
 ```
 
@@ -196,24 +200,21 @@ When encountering something like this, other methods are necessary to determine 
 
 Anyway, once we know how to reduce the dimensionality of our data, the next step is to actually do the reduction. This means we need to project our data onto the lower-dimensional subspace. For simplicity, let's suppose we decide that the first two principal components (eigenvectors) are all we need for our analysis. The covariance matrix operates on the data space, but it acts on centered data (recall from the definition that we subtract the means). Thus, we will need our data itself to be centered, which we can do simply by subtracting the means.
 
-
-```python
+```{code-cell} ipython3
 means = np.mean(data, axis=1)
 centered_data = data - np.transpose(np.tile(means, (100,1)))
 ```
 
 Note that the centered data here is an 8x100 matrix, and our eigenvectors are 8x1 vectors:
 
-
-```python
+```{code-cell} ipython3
 print("Our centered data is a " + str(centered_data.shape) + " tensor.")
 print("Our principal components (eigenvectors) are " + str(eigenvectors[:,0].shape) + " tensors." )
 ```
 
 We should also see how much of the variance we expect to capture with using only two principal components:
 
-
-```python
+```{code-cell} ipython3
 print((eigenvalues[0] + eigenvalues[1])/np.sum(eigenvalues))
 ```
 
@@ -227,8 +228,7 @@ Here, $\vec{x_i}$ is the vector we are projecting, $\vec{A}$ is the first princi
 
 We can no longer look at our individual variables (e.g. time, pressure, entropy, etc...), but now are studying what the data looks like on this plane defined by PC1 and PC2.
 
-
-```python
+```{code-cell} ipython3
 projections = np.dot(np.transpose(eigenvectors[:,0:2]),centered_data)
 plt.scatter(projections[0,:],projections[1,:])
 plt.ylabel('PC2')

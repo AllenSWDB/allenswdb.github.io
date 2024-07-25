@@ -107,9 +107,11 @@ parts:
     chapters:
     - file: computational/data-analysis/data-analysis.md
       sections:
-      - file: computational/data-analysis/pca.md
+      - file: computational/data-analysis/PCA.md
       - file: computational/data-analysis/regression.md
-      - file: computational/data-analysis/glm.md
+      - file: computational/data-analysis/GLM.md
       - file: computational/data-analysis/classification.md
-- file: glossary
-- file: bibliography
+  - caption: Resources
+    chapters:
+      - file: glossary
+      - file: bibliography

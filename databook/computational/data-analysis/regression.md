@@ -1,7 +1,19 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.2
+kernelspec:
+  display_name: base
+  language: python
+  name: python3
+---
+
 This tutorial will cover the basics of analyzing data using regression using Python's ```numpy``` and ```scikit-learn``` packages.
 
-
-```python
+```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -33,6 +45,8 @@ This function is the sum of squared errors. To understand how it captures the er
 
 Finally, in order to do our regression, we choose how many terms we want in our regression (what the maximum value of j is), and then find the values of the weights $w_j$ that minimize the error. An example will follow to make this clearer.
 
++++
+
 ### Example: Linear regression on a one-dimensional dataset
 
 First, we will generate some fake data that we will then attempt to approximate. This is slightly unrealistic, since on a real dataset the best model to generate the data will not be known. The function that we will use shall be:
@@ -41,8 +55,7 @@ $F(x) = \text{2 Exp}(-5x)$
 
 This has been chosen since it is an exponential decay, which appears frequently in nature. We will also generate some data, which will have some random noise attached to it.
 
-
-```python
+```{code-cell} ipython3
 # Create the generating function
 
 x0 = np.linspace(0,1.0, 100)
@@ -72,8 +85,7 @@ Before we start doing any analysis, we will separate the data at random into tra
 
 ```scikit-learn``` automatically comes with a function to do this, ```train_test_split```, which we imported above. We will apply it twice to get our three sets:
 
-
-```python
+```{code-cell} ipython3
 x_train, x_validate, y_train, y_validate = train_test_split(x, y, train_size = 0.5)
 x_validate, x_test, y_validate, y_test = train_test_split(x_validate, y_validate, test_size = 0.5)
 
@@ -96,16 +108,14 @@ Notice that in the split we have done, the training set has twice as many data p
 
 Now, we're performing a linear regression; again, we will use ```scikit-learn```, which comes with a ```LinearRegression``` model in it. The ```fit``` method in that model requires a two-dimensional array of shape (samples, dimensions), so we will reshape our data to match its arguments:
 
-
-```python
+```{code-cell} ipython3
 lr = LR()
 lr.fit(x_train.reshape(-1, 1), y_train)
 ```
 
 Now we can compare to our validate set to see how well the model works:
 
-
-```python
+```{code-cell} ipython3
 fig, ax = plt.subplots()
 ax.plot(x_validate, y_validate, 'o')
 ax.plot(x0.reshape(-1,1), lr.predict(x0.reshape(-1,1)), '-')
@@ -116,8 +126,7 @@ ax.set_ylim(-1,2)
 
 As we can see, our linear fit doesn't really match the shape of the data particularly well. However, we only included two terms $f(x) = w_0 \mathbb{1} + w_1 x$ in our fit, so we can always try truncating at higher order. We define a function to return the value of each basis function $\phi_i$ for each data point $x_j$ in the polynomial to $n^{th}$ order. What this means is that at first order, this function will return an Nx1 array, which contains all the $x_i$ values from $i = 1$ to $i = N$. At second order, it will return an Nx2 array, where the first column is all the values $x_i$ and the second column is all the values $x_i^2$; at third order we will have a third column with the values $x_i^3$, and so forth.
 
-
-```python
+```{code-cell} ipython3
 def nth_polynomial(x, n):
     return np.stack([x**i for i in range(1, n+1)], axis=1)
 ```
@@ -126,8 +135,7 @@ Now we will try fitting our data to the polynomial at successively higher orders
 
 Now we'll compare the fits to the training data:
 
-
-```python
+```{code-cell} ipython3
 max_order = 9
 
 lr_list = [LR() for i in range(max_order)]
@@ -150,8 +158,7 @@ for i, lr in enumerate(lr_list):
 
 And now we can compare them to the validation set:
 
-
-```python
+```{code-cell} ipython3
 fig, ax = plt.subplots(3,3, figsize=(15,15))
 
 for i, lr in enumerate(lr_list):
@@ -167,8 +174,7 @@ for i, lr in enumerate(lr_list):
 
 Since comparing by eye is imprecise, it would be better to see how the fits perform quantitatively. Since we're testing the model's validity, we'll use the $R^2$ value to gauge their goodness-of-fit here - the coefficient of determination measures how much of the target's variance is explained by the model, which is precisely what we want. (Contrast this, for example, with the $\chi^2$ measure, which measures how much the target depends on a particular feature.) We will try to maximize our $R^2$ value and we will compare it to our test set:
 
-
-```python
+```{code-cell} ipython3
 R2_vals = []
 
 for i, lr in enumerate(lr_list):
@@ -204,6 +210,8 @@ One thing we must be aware of as we increase the order of our fits is the possib
 
 Thus, there is a precise tuning that we must do with these kinds of models. If we include too few features, we may end up underfitting and our model will have no predictive power. If we include too many features, we may overfit and our model will likewise have no predictive power.
 
++++
+
 ### More Ways to do Cross-Validation
 
 The process we have done above is called cross-validation. We did it by hand, but there are multiple tools to quickly cross-validate a model. Here, we will see two other methods using ```scikit-learn``` and two of its functions ```cross_validate``` and ```KFold```.
@@ -214,8 +222,7 @@ The ```cross_validate``` function natively uses a k-fold process when it perform
 
 For simplicity, we will reuse our dataset from above and compare our various models' performances. The ```cross_validate``` function's arguments here are (object to use for fit, data to fit, target data, cv = number of folds). The object to use for fit in this case is the ```LR()```, instructing the function to use a linear regression. We provide the values of the basis functions $\phi_i$ for each order as the data to fit to in the second argument. The third argument are the target values, i.e. the corresponding $y$ values to each $x_i$. The fourth argument is the number of folds to use for the k-fold process.
 
-
-```python
+```{code-cell} ipython3
 cv_mean_error = np.zeros_like(lr_list)
 
 for i, lr in enumerate(lr_list):
@@ -232,18 +239,18 @@ ax.set_xlabel('polynomial order')
 
 The output of the `cross_validate` function is a `Dictionary` type object, with a variety of keys that can be used to access details about the cross-validation. Here, we are mainly interested in the `'test_score'` key, and we average over the results from all the k-folds in order to assess the performance of the model.
 
++++
+
 Or we can also use ```KFold``` directly.
 
-
-```python
+```{code-cell} ipython3
 va, (ax1, ax2, ax3) = plt.subplots(3,1, figsize = (10,20))
 ax1.plot(x_train, y_train, 'o')
 ax2.plot(x_validate, y_validate, 'o')
 ax3.plot(x_test, y_test, 'o')
 ```
 
-
-```python
+```{code-cell} ipython3
 folds = KFold(n_splits=4)
 
 scores = np.zeros_like(lr_list)
@@ -267,8 +274,7 @@ ax.set_xlabel('polynomial order')
 
 Regardless of which method we choose, the cross-validation process will give us a best fit model. Finally, we can apply that model we find to the test data:
 
-
-```python
+```{code-cell} ipython3
 best_model_index = np.argmax(scores)
 lr_best = lr_list[best_model_index]
 x_nth = nth_polynomial(x_train, best_model_index+1)
@@ -286,4 +292,4 @@ As we can see here, our model roughly matches the shape of the data; it's not pe
 
 Other methods of regression do exist to try to improve on this. One extension, for example, is the *generalized linear model*, which permits us to add a degree of non-linearity to our regression (this is the topic of another tutorial). The method of fitting you should select should ultimately be specific to the experiment and features of the data you are interested in, as different models will perform better or worse in different circumstances.
 
-
++++
