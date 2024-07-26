@@ -61,9 +61,10 @@ from IPython.display import display, Markdown, Code
 from pathlib import Path
 
 envs_dir = Path('/opt/envs')
+venv_python = Path('./bin/python')
 for folder in envs_dir.glob('*/'):
     display(Markdown(f'#### `{folder}`'))
 
-    pkgs = subprocess.run([str(folder.joinpath('python').absolute()), '-m', 'pip', 'freeze'], capture_output=True).stdout.decode().strip()
+    pkgs = subprocess.run([str(folder.joinpath(venv_python).absolute()), '-m', 'pip', 'freeze'], capture_output=True).stdout.decode().strip()
     display(Code(pkgs))
 ```
