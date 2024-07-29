@@ -48,10 +48,12 @@ While much of the historical, and ongoing, work studying visual physiology was p
 [more here, with references!]
 
 ## Technique
-For the **Visual Coding 2-Photon** dataset we used
-{doc}`two-photon calcium imaging<../background/Two-photon-calcium-imaging>` to
+
+For the **Visual Coding 2-photon** dataset we used
+{ref}`two-photon calcium imaging <two-photon-calcium-imaging>` to
+
 record the activity of populations of neurons. We used
-{doc}`transgenic tools<../background/transgenic-tools>` that use
+{ref}`transgenic tools <background-transgenic-tools>` that use
 {term}`Cre line`s to drive the expression of {term}`GCaMP`6 in a specific
 population of neurons. These could be excitatory or inhibitory neurons, they
 could be broadly expressed or confined to neurons within specific layers or even

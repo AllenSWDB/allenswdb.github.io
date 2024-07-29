@@ -1,3 +1,4 @@
+(vb-ophys)=
 # Visual Behavior Ophys Dataset Overview
 
 The Visual Behavior Ophys dataset was generated using in vivo 2-photon calcium imaging (also called optical physiology, or “ophys”) to measure the activity of genetically identified neurons in the visual cortex of mice performing a go/no-go visual change detection task. The same population of neurons was recorded over multiple days with varying sensory and behavioral contexts, including familiar and novel stimuli, and passive exposure sessions. This dataset can be used to evaluate the influence of experience, expectation, and task engagement on neural coding and dynamics in excitatory and inhibitory cell populations. 
@@ -12,7 +13,7 @@ Data for each experiment is packaged in Neurodata Without Borders (NWB) files th
 
 ![change_detection_task](/resources/change_detection_task.png)
 
-To learn about the task structure and behavioral training procedure, see the <b>[visual behavior task](VB-Behavior)</b> page. 
+To learn about the task structure and behavioral training procedure, see the [Visual Behavior Task](vb-behavior) section.
 
 ## 2-Photon Calcium Imaging
 
@@ -22,7 +23,7 @@ Neural activity was measured as calcium fluorescence in cells expressing the gen
 
 Single-plane imaging sessions were acquired using a Scientifica 2-photon microscope at 30Hz frame rate, with one imaging plane per session. Multi-plane imaging sessions were acquired at 11Hz frame rate using a modified Mesoscope 2-photon microscope, with 8 imaging planes recorded in each session. A multiplexing approach was used to enable pairs of imaging planes to be recorded nearly simultaneously. Paired planes were always in the same cortical area, but were located at different depths within the cortex. 
 
-As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas: {term}`VISp` and VISI, one of the {term}`HVA`s (also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the <b>Dataset Summary</b> section.
+As an example, one possible imaging configuration is shown below, with 4 imaging planes located in each of two visual areas, the primary visual cortex (VISp, also called V1) and a higher visual area (VISl, also called LM). A description of the imaging configuration used in each variant of the Visual Behavior Ophys dataset is provided below in the [](vbo-dataset-variants) section.
 
 ![area_targeting](/resources/vbo_area_targeting.png)
 
@@ -46,7 +47,7 @@ The `session_type` indicates whether a session was a behavior training session (
 
 The number included in the `session_type` just after whether it is `TRAINING_` or `OPHYS_` indicates the order in which the session occurred in the overall training or imaging sequence. `OPHYS_` session numbers 0-3 in the name are always using the same image set that was shown during behavioral training. `OPHYS_` session numbers 4-6 are always using the new image set that was shown for the first time during 2-photon imaging. 
 
-To learn more about the differences in task parameters for different `session_type`s, see the [Visual Behavior Task](VB-Behavior.md) page.
+To learn more about the differences in task parameters for different `session_type`s, see the [Visual Behavior Task](vb-behavior-session-types) page.
 
 ## Data Structure
 
