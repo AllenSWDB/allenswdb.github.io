@@ -33,10 +33,10 @@ of the visual system, characterizing the spatial and temporal features that best
 drive neurons. Despite decades of this research, there were several outstanding
 questions:
 
-First, stemming from that initial work of Hubel and Wiesel, the field converged on a standard model for the neurons in V1 in which each neuron's activity is modeled by a spatiotemporal filter followed by a static nonlinearity. Yet, the reality is that such models do not predict many neurons well, particular in response to more naturalistic stimuli.
+First, stemming from that initial work of Hubel and Wiesel, the field converged on a standard model for the neurons in {term}`V1` in which each neuron's activity is modeled by a spatiotemporal filter followed by a static nonlinearity. Yet, the reality is that such models do not predict many neurons well, particular in response to more naturalistic stimuli.
 {cite:p}`olshausen_field`
 
-Second, as neurons in different parts of the visual circuit were found to respond to different features, there were open question as to what the computations were that transformed the simple responses of the neurons in the early visual system into the more complex features.
+Second, as neurons in different parts of the visual circuit were found to respond to different features, there were open questions as to what the computations were that transformed the simple responses of the neurons in the early visual system into the more complex features.
 
 The <b>Allen Brain Observatory Visual Coding</b> datasets were collected in large part to address these questions. These are survey datasets, recording the physiological activity of neurons in the visual system of the mouse in different parts of the visual circuit in response to a variety of visual stimuli (both "artificial" and "naturalistic").
 
@@ -44,11 +44,11 @@ Need survey
 “what would be most helpful is to accumulate a database of single-unit or multi-unit data (stimuli and neural responses) that would allow modelers to test their best theory under ecological conditions"
 
 ## Visual physiology in mice
-While much of the historical, and ongoing, work studying visual physiology was performed in cats and primates, mouse has emerged as a model organism for visual physiology in the past two decades.
+While much of the historical, and ongoing, work studying visual physiology was performed in cats and primates, the mouse has emerged as a model organism for visual physiology in the past two decades.
 [more here, with references!]
 
 ## Technique
-For the **Visual Coding 2-photon** dataset we used
+For the **Visual Coding 2-Photon** dataset we used
 {doc}`two-photon calcium imaging<../background/Two-photon-calcium-imaging>` to
 record the activity of populations of neurons. We used
 {doc}`transgenic tools<../background/transgenic-tools>` that use
