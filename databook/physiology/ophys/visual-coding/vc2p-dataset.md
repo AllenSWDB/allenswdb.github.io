@@ -36,26 +36,26 @@ What brain regions were recorded across the dataset? To determine this we use a 
 boc.get_all_targeted_structures()
 ```
 
-We see that data was collected in six different visual areas. VISp is the
-primary visual cortex, also known as V1. The others are higher visual areas that
+We see that data was collected in six different visual areas. {term}`VISp` is the
+primary visual cortex, also known as V1. The others are higher visual areas ({term}`HVA`s) that
 surround VISp. You can learn more about these areas and how we map them
 {ref}`here <mouse-visual-system>`.
 
 ## Cre lines and reporters
-We used Cre lines to drive the expression of GCaMP6 in specific populations of neurons. We can find a list of all the cre lines used in this dataset with a similar function
+We used {term}`Cre line`s to drive the expression of GCaMP6 in specific populations of neurons. We can find a list of all the cre lines used in this dataset with a similar function
 
 ```{code-cell} ipython3
 boc.get_all_cre_lines()
 ```
 
-Cre is a driver that drives the expression of a reporter. We used four different reporter lines in this dataset.
+Cre is a driver that drives the expression of a reporter. We used four different {term}`reporter line`s in this dataset.
 
 ```{code-cell} ipython3
 boc.get_all_reporter_lines()
 ```
 
 ```{note}
-Reporter lines: All the experiments in this dataset use GCaMP6. The large majority use GCaMP6f and only a few use GCaMP6s. However, you see four different reporters listed here. Why is this? Ai93 is the GCaMP6f reporter we used with the excitatory Cre lines. However, this reporter does not work well for inhibitory Cre lines. We used Ai148, another GCaMP6f reporter, with Vip-IRES-Cre and Sst-IRES-Cre. However, this didn't work with the Pvalb-IRES-Cre. We use Ai162, a GCaMP6s reporter with Pvalb. Additionally, to have a GCaMP6f vs GCaMP6s comparison, we collected a small number of experiments using Ai94 with the Slc17a7-IRES2-Cre. This is a GCaMP6s reporter that complements Ai93. Slc17a7-IRES2-Cre is the only Cre line that was recorded using multiple reporter types.
+Reporter lines: All the experiments in this dataset use {term}`GCaMP`6. The large majority use GCaMP6f and only a few use GCaMP6s. However, you see four different reporters listed here. Why is this? Ai93 is the GCaMP6f reporter we used with the excitatory Cre lines. However, this reporter does not work well for inhibitory Cre lines. We used Ai148, another GCaMP6f reporter, with Vip-IRES-Cre and Sst-IRES-Cre. However, this didn't work with the Pvalb-IRES-Cre. We use Ai162, a GCaMP6s reporter with Pvalb. Additionally, to have a GCaMP6f vs GCaMP6s comparison, we collected a small number of experiments using Ai94 with the Slc17a7-IRES2-Cre. This is a GCaMP6s reporter that complements Ai93. Slc17a7-IRES2-Cre is the only Cre line that was recorded using multiple reporter types.
 ```
 
 See [Transgenic tools](background-transgenic-tools) to learn more about these Cre lines and reporters.
@@ -68,7 +68,7 @@ Each experiment was collected at a single imaging depth.
 boc.get_all_imaging_depths()
 ```
 
-These values are in um below the surface of the cortex. This is a long list and some of the values don't differ by very much. How meaningful is it? We roughly consider depths less than 250 to be layer 2/3, 250-350 to be layer 4, 350-500 to be layer 5, and over 500 to be layer 6. Keep in mind, much of the imaging here was done with layer specific Cre lines, so for most purposes the best way to get layer specificity is to select appropriate Cre lines.
+These values are in µm below the surface of the cortex. This is a long list and some of the values don't differ by very much. How meaningful is it? We roughly consider depths less than 250 to be layer 2/3, 250-350 to be layer 4, 350-500 to be layer 5, and over 500 to be layer 6. Keep in mind, much of the imaging here was done with layer specific Cre lines, so for most purposes the best way to get layer specificity is to select appropriate Cre lines.
 
 ## Visual stimuli
 What were the visual stimuli that we showed to the mice?
