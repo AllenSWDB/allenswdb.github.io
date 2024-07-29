@@ -34,7 +34,7 @@ drive neurons. Despite decades of this research, there were several outstanding
 questions:
 
 First, stemming from that initial work of Hubel and Wiesel, the field converged on a standard model for the neurons in V1 in which each neuron's activity is modeled by a spatiotemporal filter followed by a static nonlinearity. Yet, the reality is that such models do not predict many neurons well, particular in response to more naturalistic stimuli.
-(cite What other 85% doing, etc)
+{cite:p}`olshausen_field`
 
 Second, as neurons in different parts of the visual circuit were found to respond to different features, there were open question as to what the computations were that transformed the simple responses of the neurons in the early visual system into the more complex features.
 
