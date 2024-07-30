@@ -72,7 +72,10 @@ from caveclient import CAVEclient
 
 client = CAVEclient('minnie65_public')
 
-ct_df = client.materialize.query_table('aibs_soma_nuc_metamodel_preds_v117', split_positions=True)
+# set version, for consistency across time
+client.materialize.version = 1078 # Current as of Summer 2024
+
+ct_df = client.materialize.query_table('aibs_metamodel_celltypes_v661', split_positions=True)
 
 # convert to nanometers
 ct_df['pt_position_x_nm'] = ct_df['pt_position_x'] * 4
