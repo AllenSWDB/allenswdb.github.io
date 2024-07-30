@@ -20,7 +20,7 @@ Before using any programmatic access to the data, [you first need to set up your
 ```
 
 ```{code-cell}
-:tags: ["remove-cell"]
+:tags: [remove-cell]
 import os
 import caveclient
 try:
@@ -46,6 +46,9 @@ import os
 from caveclient import CAVEclient
 datastack_name = 'minnie65_public'
 client = CAVEclient(datastack_name)
+
+# set version, for consistency across time
+client.materialize.version = 1078 # Current as of Summer 2024
 
 # Show the description of the datastack
 client.info.get_datastack_info()['description']
@@ -127,7 +130,7 @@ We can get the whole table as a DataFrame:
 ```{code-cell}
 :tags: [remove-stderr]
 
-cell_type_df = client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117().query()
+cell_type_df = client.materialize.tables.aibs_metamodel_celltypes_v661().query()
 cell_type_df.head()
 ```
 
@@ -136,7 +139,7 @@ and we can add similar formatting options as in the last section to the query fu
 ```{code-cell}
 :tags: [remove-stderr]
 
-cell_type_df = client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117().query(split_positions=True, desired_resolution=[1,1,1], select_columns=['pt_position', 'pt_root_id', 'cell_type'], limit=10)
+cell_type_df = client.materialize.tables.aibs_metamodel_celltypes_v661().query(split_positions=True, desired_resolution=[1,1,1], select_columns=['pt_position', 'pt_root_id', 'cell_type'], limit=10)
 cell_type_df
 ```
 
@@ -146,7 +149,7 @@ However, now we can also filter the table to get only cells that are predicted t
 :tags: [remove-stderr]
 
 my_cell_type = "BC"
-client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117(cell_type=my_cell_type).query()
+client.materialize.tables.aibs_metamodel_celltypes_v661(cell_type=my_cell_type).query()
 ```
 
 or maybe we just want the cell types for a particular collection of root ids:
@@ -155,7 +158,7 @@ or maybe we just want the cell types for a particular collection of root ids:
 :tags: [remove-stderr]
 
 my_root_ids = [864691135771677771, 864691135560505569, 864691136723556861]
-client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117(pt_root_id=my_root_ids).query()
+client.materialize.tables.aibs_metamodel_celltypes_v661(pt_root_id=my_root_ids).query()
 ```
 
 You can get a list of all parameters than be used for querying with the standard IPython/Jupyter docstring functionality, e.g. `client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117`.
