@@ -124,7 +124,7 @@ client.materialize.tables.{table_name}({filter options}).query({format and times
 
 where `{table_name}` is the name of the table you want to filter, `{filter options}` is a collection of arguments for filtering the query, and `{format and timestamp options}` are those parameters controlling the format and timestamp of the query.
 
-For example, let's look at the table `aibs_soma_nuc_metamodel_preds_v117`, which has cell type predictions across the dataset.
+For example, let's look at the table `aibs_metamodel_celltypes_v661`, which has cell type predictions across the dataset.
 We can get the whole table as a DataFrame:
 
 ```{code-cell}
@@ -161,7 +161,7 @@ my_root_ids = [864691135771677771, 864691135560505569, 864691136723556861]
 client.materialize.tables.aibs_metamodel_celltypes_v661(pt_root_id=my_root_ids).query()
 ```
 
-You can get a list of all parameters than be used for querying with the standard IPython/Jupyter docstring functionality, e.g. `client.materialize.tables.aibs_soma_nuc_metamodel_preds_v117`.
+You can get a list of all parameters than be used for querying with the standard IPython/Jupyter docstring functionality, e.g. `client.materialize.tables.aibs_metamodel_celltypes_v661`.
 
 ```{note}
 Use of this functionality will show a brief warning that the interface is experimental. This is because the interface is still being developed and may change in the near future in response to user feedback.
