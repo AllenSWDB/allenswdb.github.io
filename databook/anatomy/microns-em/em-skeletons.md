@@ -221,6 +221,33 @@ Do not use the `nrn.mesh.apply_mask` or `nrn.skeleton.apply_mask` functions, whi
 :::{figure} img/branch_plot.png
 :::
 
++++
+
+## Loading a pre-generated skeleton
+
+The skeletons of the meshes are calculated at specific timepoints. The last collection of all neurons in the dataset was at materialization version 661 (June, 2023). 
+
+Both thd . meshwork neuron k objectand the simpler .swc skeletons s are available in th[e BossDB reposito](https://bossdb.org/project/microns-minnie).ry
+
+```{code-cell} python
+# path to the skeleton and meshwork .h5 files
+mesh_path = "s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/meshworks/"
+
+# path to the skeleton .swc files
+skel_path = "s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/skeletons/"
+```
+
+```{code-cell} python
+import skeleton_plot.skel_io as skel_io
+
+# Example skeleton (as of v661)
+nucleus_id = 230650
+segment_id = 864691134940133219
+
+# load a pregenerated neuron skeleton
+nrn = skel_io.load_mw(mesh_path, f"{segment_id}_{nucleus_id}.h5")
+```
+
 ## Annotations
 
 `nrn.anno` has set of annotation tables containing some additional information for analysis.
@@ -237,8 +264,6 @@ For the neurons that have been pre-computed, there is a consistent set of annota
 To access one of the DataFrames, use the name of the table as an attribute of the `anno` object and then get the `.df` property. For example, to get the postsynaptic sites, we can do:
 
 ```{code-cell}
-from meshparty import meshwork
-nrn = meshwork.load_meshwork('data/864691134940133219_skel.h5')
 nrn.anno.post_syn.df.head()
 ```
 
@@ -281,26 +306,28 @@ nrn.anno.pre_syn.filter_query(~axon_mask).df # The "~" is a logical not operatio
 
 As a sanity check, we can use `nglui` to see if these synapses we have labeled as being on the axon are all where we expect.
 
-```{code-cell}
-import os
+```{code-block} python
 from caveclient import CAVEclient
 from nglui.statebuilder.helpers import make_synapse_neuroglancer_link
 
 client = CAVEclient('minnie65_public')
+client.materialize.version = 661 # version at which skeletons were calculated
 
 make_synapse_neuroglancer_link(
     nrn.anno.pre_syn.filter_query(axon_mask).df,
     client,
     return_as="html"
 )
+
 ```
+
+[Neuroglancer link](https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/6278131234111488)
 
 (Click one of the synapse annotations to load the neuron mesh).
 
 Another common example might be to pick one of the child nodes of the soma and get all of the synapses on that branch. We can do this by using the `nrn.skeleton.get_child_nodes` function to get the skeleton vertex indices of the child nodes and then use that to filter the synapses.
 
-```{code-cell}
-
+```{code-block} python
 branch_index = 0 # Let's just use the first child vertex of the root node, which is at the soma by default.
 branch_inds = nrn.downstream_of(nrn.child_index(nrn.root)[branch_index])
 branch_mask = branch_inds.to_mesh_mask
@@ -310,5 +337,7 @@ make_synapse_neuroglancer_link(
     client,
     return_as="html"
 )
+
 ```
-l`
+
+[Neuroglancer link](https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/4584197575409664)

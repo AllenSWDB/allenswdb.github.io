@@ -34,6 +34,9 @@ from meshparty import trimesh_io
 from caveclient import CAVEclient
 client = CAVEclient('minnie65_public')
 
+# set version, for consistency across time
+client.materialize.version = 1078 # Current as of Summer 2024
+
 mm = trimesh_io.MeshMeta(
   cv_path=client.info.segmentation_source(),
   disk_cache_path="meshes",
