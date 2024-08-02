@@ -1,27 +1,18 @@
 # Ophys
 
-## PLACEHOLDER - intended to make the ToC layout "nice", so that Physiology has subsections Ophys / Ephys / Stimuli / pyNWB, each of which then have their own subsections
-
-This section contains information about the ophys datasets and some of their uses.
+This section contains information about the calcium imaging datasets. For these datasets,
+neural activity was recorded using {term}`Two-photon calcium imaging`. Transgenic tools were
+used to target the expression of a fluorescent calcium indicator, {term}`GCaMP`, to a
+specific population of neurons. 
 
 ## Visual Coding
 
-Content here
+The Visual Coding 2-photon dataset is a survey of in vivo physiological activity
+in the awake mouse visual cortex. We collected data across six different visual cortical
+areas, including {term}`V1` and five {term}`HVA`s, using 14 {term}`Transgenic line`s, and
+across the cortical layers. During imaging, mice were awake, head-fixed under the microscope
+and positioned on a running disk that enabled them to run at will (see {doc}`experimental-setup`)). The mice passively viewed an assortment of visual stimuli {doc}`vc2p-stimuli` presented on a monitor. 
 
 ## Visual Behavior
 
-We have used large-scale physiological recordings in behaving animals to characterize how sensation and behavior are encoded in activity across the visual cortex and how these representations are influenced by behavior state, expectation, and experience during an image change detection task. Just like the Visual Coding project, the Visual Behavior project leverages the Allen Brain Observatories to collect highly standardized datasets. 
-
-This dataset can be used to address questions such as: How do different types of neurons in the brain encode sensory and behavioral information? Are these representations flexible depending on motivation or expectation? How are interactions across cortical areas and depths modified by experience? 
-
-Using single- and multi-plane 2-photon calcium imaging in the visual cortex of transgenic mice expressing the calcium indicator GCaMP6f in populations of excitatory and inhibitory neurons, we have recorded neural activity during performance of a visual change detection task from 50,482 neurons in 704 in vivo imaging sessions. A key aspect of the experimental design is the repeated imaging of the same populations of neurons across multiple days, allowing analysis of single cell changes across behavioral and sensory conditions, including task engagement and stimulus novelty.
-
-For information on the stimuli used, see [Change Detection Task](change_detection_task).
-
-## Learning
-
-Content here
-
-## Inhibitory Balance
-
-Content here
+The Visual Behavior Ophys dataset measured the activity of genetically identified neurons in the visual cortex of mice performing a go/no-go visual [Change Detection Task](change_detection_task). The same population of neurons was recorded over multiple days with varying sensory and behavioral contexts, including familiar and novel stimuli, and passive exposure sessions. This dataset can be used to evaluate the influence of experience, expectation, and task engagement on neural coding and dynamics in excitatory and inhibitory cell populations. 
