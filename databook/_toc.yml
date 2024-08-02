@@ -78,7 +78,7 @@ parts:
           - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
           - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
           - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
-        - file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
+        #- file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
       - file: physiology/stimuli/stimuli
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
