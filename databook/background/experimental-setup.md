@@ -1,11 +1,9 @@
 # Behavioral apparatus
 
-Neurons in the visual system often have spatially selective receptive fields,
-which means they tend to respond to stimuli shown in a particular part of visual
-space. In order to repeatably show stimuli to a mouse, the mice therefore need to be
-head-fixed. For all the datasets described here, this means that mice have had a
-head bar that was surgically implanted prior to the experiment. For more details
-about the head bar see {cite:t}`groblewski2020`.
+The physiology experiments here require that mice be head-fixed. This allows the
+mouse's head to be held in a fixed position under a microscope for ophys or under
+electrode manipulators for ephys. For all the physiology datasets described here,
+this means that mice have had a head bar that was surgically implanted prior to the experiment. For more details about the head bar see {cite:t}`groblewski2020`.
 
 :::{figure} ../resources/Groblewski_head_fixed_mouse.jpg
 ---
@@ -34,10 +32,9 @@ System for clamping a head bar with high positional accuracy. Image from
 Head fixation allows two things.
 
 First, this reliability allows the mouse to be reproducibly positioned on a rig.
-For the datasets presented here, the mouse will be placed on a running wheel in
-front of a screen. A set of cameras monitor the mouse's face, eye position, and
-pupil size. For more information, see the
-[Allen Brain Observatory white paper on Neuropixels visual coding](https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/80/75/8075a100-ca64-429a-b39a-569121b612b2/neuropixels_visual_coding_-_white_paper_v10.pdf).
+For the datasets presented here, the mouse will be placed on a running disc in
+front of a monitor. A set of cameras record the mouse's face, eye position, and
+pupil size. 
 
 :::{figure} ../resources/MouseOnRig.JPG
 ---
@@ -56,6 +53,3 @@ then presents stimuli at specific locations in the mouse's field of view.
 width: 800
 name: screen-on-rig
 ---
-
-The second benefit of head fixation is that it holds the mouse's head in place to
-facilitate neural recordings.
