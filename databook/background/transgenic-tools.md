@@ -1,3 +1,4 @@
+(background-transgenic-tools)=
 # Transgenic tools
 
 There are a large number of transgenic tools available that enable scientists to
@@ -15,7 +16,7 @@ technique can be used to induce the expression of a gene of interest by having a
 loxP-STOP-loxP sequence in front of the gene of interest. Without Cre, this gene
 will not be expressed due to the STOP sequence. But when Cre is present, the
 STOP sequence is removed, and the gene will be expressed. This is how we have
-used Cre lines in these experiments to drive the expression of chosen reporters.
+used {term}`Cre line`s in these experiments to drive the expression of chosen reporters.
 
 :::{figure} ../resources/cre-lox-fig-4.png
 :name: cre-lox-ref
@@ -29,7 +30,7 @@ Image taken from
 Genes of interest can be inserted into the mouse with the use of viruses, or the
 creation of transgenic mouse lines that have the gene inserted into their
 genome. A common technique for using transgenic mice is to create separate
-*driver lines* and *reporter lines*, then crossing them together in order to get
+*{term}`driver line`s* and *{term}`reporter line`s*, then crossing them together in order to get
 the desired gene into the desired brain region/cell type/etc. This is much more
 efficient than making making a separate line for every possible gene to be
 directly expressed in every possible cell type: driver and reporter lines allow

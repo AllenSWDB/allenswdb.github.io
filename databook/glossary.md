@@ -1,6 +1,11 @@
 # Glossary
 
 :::{glossary}
+Action potential
+  A characteristic signal that appears in excitable cell membranes, which takes the
+  form of an electric potential difference waveform that propagates down the length
+  of the cell membrane. In neurons, these indicate neuron activation. See {term}`Spike`.
+
 Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
@@ -20,11 +25,8 @@ Cre line
   experiments, Cre is used with loxP {term}`Reporter line` in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
-  to be restricted to particular subset of cells.
-
-CSV
-  Shorthand for "comma separated values", a common file format for storing
-  tabular data where each row is a line and each column is separated by a comma.
+  to be restricted to particular subset of cells. For specific lines used, see
+  the section on [transgenic tools](transgenic-tools).
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -51,6 +53,11 @@ FSI
     also referred to as fast spiking neurons. This feature is sometimes used
     to putatively label neurons with narrow spikes as particular cell types,
     such as {term}`PV+ neuron`s, among others.
+
+fluorophore
+  A type of molecule which absorb light and re-emit it at a longer wavelength 
+  in a process called fluorescence. As a result, fluorophores fluoresce only 
+  while exposed to a light source.
 
 GABA
   Gamma-aminobutyric acid (GABA) is the main inhibitory neurotransmitter in the
@@ -141,6 +148,9 @@ Optogenetics
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
+Optotagging
+  A technique that uses {term}`optogenetics` in order to identify neurons that belong to
+  a specific subpopulation. See: [Optotagging](Optotagging).
 
 Parvalbumin-positive interneuron
 PV+ neuron
@@ -163,7 +173,7 @@ Pyramidal cell
   excitatory neuron.
 
 Receptive field
-  definition here
+  In a sensory context, the receptive field of a neuron is the region of the stimulus domain in which sensory stimulus needs to lie in order to evoke a response.  For visual cortical cells, for example, the receptive field is the region of visual space in which stimuli can evoke neural responses.  In a computational context, this notion is often generalized multiple dimensions (e.g. space, time, frequency, etc.) and thus equates to the necessary stimulus features that drive neural response (e.g. a localized grating of a specific orientation and frequency).  
 
 Regular Spiking neuron
 RS
@@ -197,6 +207,7 @@ Reporter line
   reporter gene.
 
 Retinotopy
+retinotopic map
   <b>retinotopy</b> refers to the mapping of visual space on to neural space.
   Most visual areas of the brain contain an orderly map of visual space such that
   neighboring regions in space are represented by neighboring regions in the brain.

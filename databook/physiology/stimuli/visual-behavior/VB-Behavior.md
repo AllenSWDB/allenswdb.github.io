@@ -1,3 +1,4 @@
+(vb-behavior)=
 # Visual Behavior Task Overview
 
 The Visual Behavior Ophys and Visual Behavior Neuropixels datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.
@@ -117,7 +118,7 @@ Task parameters for each `session_type` for <b>VisualBehaviorOphysProjectCache</
 
 ![task_parameters_ophys](/resources/task_parameters_ophys.png)
 
-Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](VB-Ophys.md) page for more information on dataset variants.
+Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](vb-ophys) page for more information on dataset variants.
 
 Task parameters for each `session_type` for <b>VisualBehaviorNeuropixelsProjectCache</b> datasets:
 
