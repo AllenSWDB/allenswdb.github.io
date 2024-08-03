@@ -203,6 +203,7 @@ How many mice per transgenic line?
 behavior_sessions.groupby(['full_genotype', 'mouse_id']).count().reset_index().groupby('full_genotype').count()[['mouse_id']]
 ```
 
+(vbo-dataset-variants)=
 ## Dataset variants 
 
 Different groups of mice were trained on the task using different image sets and were imaged using different microscopes. These distinct groups of mice are referred to as <b>dataset variants</b> and can be identified using the `project_code` column. 

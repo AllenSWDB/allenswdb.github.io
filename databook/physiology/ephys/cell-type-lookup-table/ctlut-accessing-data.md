@@ -6,9 +6,9 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.15.0
 kernelspec:
-  display_name: allensdk
+  display_name: ctlut
   language: python
-  name: allensdk
+  name: ctlut
 ---
 
 # Accessing cell type lookup table data
@@ -105,7 +105,7 @@ spike_waveforms = units.waveform_mean
 spike_qc = units.default_qc
 ```
 
-The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding-np/vcnp-quality-metrics`.
+The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding/vcnp-quality-metrics`.
 
 +++
 
