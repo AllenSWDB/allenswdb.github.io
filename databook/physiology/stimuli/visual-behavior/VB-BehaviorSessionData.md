@@ -269,9 +269,13 @@ behavior_session.stimulus_timestamps
 First, add a column to the stimulus_presentations table that assigns a unique color to every stimulus
 
 ```{code-cell} ipython3
-unique_stimuli = [stimulus for stimulus in behavior_session.stimulus_presentations['image_name'].unique()]
+stimulus_presentations = behavior_session.stimulus_presentations.copy()
+# limit to change detection block 
+stimulus_presentations = stimulus_presentations[stimulus_presentations.stimulus_block_name=='change_detection_behavior']
+# get unique stimuli and assign them a color
+unique_stimuli = [stimulus for stimulus in stimulus_presentations['image_name'].unique()]
 colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
-behavior_session._stimuli._presentations.value['color'] = behavior_session.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+behavior_session._stimuli._presentations.value['color'] = stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
 ```
 
 Now make some simple plotting functions to plot these datastreams
@@ -331,11 +335,21 @@ def plot_stimuli(ax, behavior_session, intial_time, final_time):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
+    
+    # get the stimulus presentations in the window we provided
     stimulus_presentations_sample = behavior_session.stimulus_presentations.copy()
     stimulus_presentations_sample = stimulus_presentations_sample[(stimulus_presentations_sample.end_time >= initial_time) & 
-                                    (stimulus_presentations_sample.start_time <= final_time)]     
+                                    (stimulus_presentations_sample.start_time <= final_time)]   
+    # get a colormap for the different images
+    image_names = stimulus_presentations_sample[stimulus_presentations_sample.omitted==False].image_name.unique()
+    colors = sns.color_palette('hls', len(image_names))
+    # add white for omissions
+    image_names = np.hstack([image_names, 'omitted'])
+    colors = colors + [(1, 1, 1)] 
+    # loop through images and plot them 
     for idx, stimulus in stimulus_presentations_sample.iterrows():
-        ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus['color'], alpha=0.25)
+        stim_color_ind = np.where(image_names==stimulus['image_name])[0][0]
+        ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=colors[stim_color_ind], alpha=0.25)
 ```
 
 Select a time period during the session and generate the plot
