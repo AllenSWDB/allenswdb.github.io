@@ -76,9 +76,9 @@ The inclusion of 2 shared images between the familiar and novel image sets allow
 
 There are three different types of sessions with natural images, depending on which images were shown during training and which were shown during recording sessions. Assuming 1-8 represent familiar images (shown during training) and a-h represent novel images (shown for the first time during recordings), a given session can be one of the following types: 
  
-1) Familiar only sessions (ex: 1111444443333666666)
-2) Novel only sessions (ex: aaaaaaggggeeeebbb)
-3) Interleaved familiar and novel sessions (ex: 11111bbbbb22222fffffffbbbbb)
+1) Familiar only sessions (ex: 1111444443333666666, where each number represents a unique familiar image)
+2) Novel only sessions (ex: aaaaaaggggeeeebbb, where each letter represents a unique novel image)
+3) Interleaved familiar and novel sessions (ex: 11111bbbbb22222fffffffbbbbb, where numbers indicate familiar and letters indicate novel images)
  
 In the first two session types, the transitions at image changes will always be a change from a familiar image to another familiar image, or from a novel image to another novel image. In the third type of session, you can get familiar-familiar transitions, novel-novel transitions, familiar-novel transitions, and novel-novel transitions.
  

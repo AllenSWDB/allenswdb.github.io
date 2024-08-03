@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-# Import allenSDK and check the version, which should be >2.10.2
+# Import allenSDK and check the version, which should be 2.16.2
 import allensdk
 allensdk.__version__
 ```
@@ -176,9 +176,6 @@ equipment_name
 excitation_lambda
 : (float 64) wavelength (in nanometers) of the two photon laser
 
-experiment_container_id
-: (int) unique identifier for a container
-
 field_of_view_height
 : (int) field of view height in pixels
 
@@ -200,6 +197,9 @@ imaging_plane_group_count
 mouse_id
 : (int)	unique identifier for a mouse
 
+ophys_container_id
+: (int) unique identifier for a container, which connects all sessions acquired for a given ophys field of view
+
 ophys_experiment_id
 : (int) unique identifier for an ophys experiment, corresponding to one imaging plane in one recording session
 
@@ -208,6 +208,9 @@ ophys_frame_rate
 
 ophys_session_id
 : (int) unique identifier for a ophys session
+
+project_code
+: (str) name of the cohort the mouse belonged two; each cohort used a unique stimulus set and imaging configuration
 
 reporter_line
 : (string) reporter line for transgenic mouse
@@ -220,6 +223,9 @@ sex
 
 stimulus_frame_rate
 : (float) frame rate (Hz) at which the visual stimulus is displayed
+
+targeted_imaging_depth
+: (int) target depth within the cortex where the data was intended to be collected 
 
 targeted_structure
 : (string) brain area targeted for the imaging plane in this experiment
@@ -412,14 +418,35 @@ We can see that as expected, events trace is much cleaner than dff and it genera
 
 ## Stimulus presentations
 
-The `stimulus_presentations` table contains one entry for each stimulus that was presented during the session, along with important metadata including stimulus `start_time` and `end_time`, as well as `image_name`, and whether the stimulus was an image change (`is_change` = True) or an image omission (`omitted` = True). `stimulus_block` and `stimulus_block_name` indicate the type of stimulus mice were presented at a given point in a session. To select active change detection behavior, first we need to filter the table for `stimulus_block_name` = `change_detection_behavior` or `stimulus_block` = `1`. Note that different sessions may have different number of stimulus blocks, thus `change_detection_behavior` may be assosiated with either `0` or `1` in `stimulus_block` column.
+The `stimulus_presentations` table contains one entry for each stimulus that was presented during the session, along with important metadata including stimulus `start_time` and `end_time`, as well as `image_name`. 
 
-Get stimulus information for this experiment and assign it to a table called `stimulus_table`
+During training, the only type of stimulus shown is in the context of the change detection task. During ophys sessions, there are additional stimulus periods before and after change detection task performance. `stimulus_block` and `stimulus_block_name` indicate the type of stimulus mice were presented at a given point in a session.
+
+During the `change_detection_behavior` blocks, 
+
+and whether the stimulus was an image change (`is_change` = True) or an image omission (`omitted` = True). 
+To select active change detection behavior, first we need to filter the table for `stimulus_block_name` = `change_detection_behavior` or `stimulus_block` = `1`. Note that different sessions may have different number of stimulus blocks, thus `change_detection_behavior` may be assosiated with either `0` or `1` in `stimulus_block` column.
+
+Get stimulus information for this experiment and assign it to a table called `stimulus_table`. 
+Note the `stimulus_block_name` column. What are the unique values of `stimulus_block_name`?
 
 ```{code-cell} ipython3
 stimulus_table = ophys_experiment.stimulus_presentations.copy()
+print(stimulus_table.stimulus_block_name.unique())
+stimulus_table.head(10)
+```
+
+Select the `change_detection_behavior` block, which is the portion of the session where mice perform the change detection task. 
+
+```{code-cell} ipython3
 stimulus_table = stimulus_table[stimulus_table.stimulus_block_name=='change_detection_behavior']
 stimulus_table.head(10)
+```
+
+How many unique images were shown?
+
+```{code-cell} ipython3
+print(stimulus_table.image_name.unique())
 ```
 
 How many stimuli were omitted?
@@ -434,29 +461,29 @@ dataframe columns:
 stimulus_presentations_id [index]
 : (int) identifier for a stimulus presentation (presentation of an image)
 
+stimulus_block_name
+: (str) name of each stimulus block indicating whether it is a gray screen (spontaneous activity period), change detection behavior task performance, or display of a natural movie
+
+stimulus_block
+: (int) index corresponding to `stimulus_block_name`
+
+image_name
+: (str) Indicates which natural scene image stimulus was shown for this stimulus presentation. Value will be NaN for all stimulus blocks other than `change_detection_behavior`
+
+image_index
+: (int) image index (0-7) for a given session, corresponding to each image name
+
+movie_frame_index
+: (int) index corresponding to the frame in the natural movie that was displayed at the end of some sessions; value will be -99 for all stimulus blocks other than `natural_movie_one`
+
+duration
+: (float) the duration, in seconds, of each stimulus presentation or spontaneous activity period; equivalent to `stop_time` - `start_time`
+
 start_time
 : (float) image presentation start time in seconds
 
 end_time
 : (float) image presentation end time in seconds
-
-image_name
-: *str* Indicates which natural scene image stimulus was shown for this stimulus presentation.
-
-image_index
-: (int) image index (0-7) for a given session, corresponding to each image name
-
-is_change
-: *bool* Indicates whether the image identity changed for this stimulus presentation
-
-omitted
-: (bool) True if no image was shown for this stimulus presentation
-
-trials_id
-: (int) Id to match to the table Index of the trials table.
-
-flashes_since_change
-: *float* Indicates how many flashes of the same image have occurred since the last stimulus change. NaN for blocks 1-4.
 
 start_frame
 : (int) image presentation start frame
@@ -464,8 +491,51 @@ start_frame
 end_frame
 : (float) image presentation end frame
 
-duration
-: (float) duration of an image presentation (flash) in seconds (stop_time - start_time). NaN if omitted
+is_change
+: (bool) whether the stimulus identity changed for this stimulus presentation
+
+is_image_novel
+: (bool) whether the stimulus presentation is an image from the novel (untrained) image set (does not indicate the very first presentation of a given image)
+
+omitted
+: (bool) True if no image was shown for this stimulus presentation
+
+movie_repeat
+: (int) index indicating the order of repeatitions of the 30 second movie clip in the natural_movie_one stimulus block (0-9); value will be -99 for other stimulus blocks
+ 
+flashes_since_change
+: *float* indicates how many flashes of the same image have occurred since the last stimulus change; values will be NaN for stimulus blocks other than `change_detection_behavior`
+
+trials_id
+: (int) Id to match to the table Index of the `trials` table
+
+active
+: (bool) whether the stimulus presentation is part of an active behavior block (i.e mouse performing change detection task, not passive replay)
+
+stimulus_name
+: (str) name of the stimulus set used for the current stimulus block 
+
+is_sham_change
+: (bool) whether the current stimulus presentation could have been a change based on the change time distribution; can be considered as "no-go" trials and used to quantify false alarms 
+
+
+Let's explore the `stimulus_presentations` for the `natural_movie_one` stimulus block. Select the `natural_movie_one` block and inspect the unique values of `image_name`, `movie_repeat`, and `movie_frame_index`.
+
+```{code-cell} ipython3
+movie_stimulus_table = stimulus_table[stimulus_table.stimulus_block_name=='natural_movie_one']
+
+print('Values of `image_name` are:', movie_stimulus_table.unique())
+print('Values of `movie_repeat` are:', movie_repeat.unique())
+print('Values of `movie_frame_index` are:', movie_frame_index.unique())
+```
+
+To visualize the frames of `natural_movie_one` you can use the `get_natural_movie_template` method of the `VisualBehaviorOphysProjectCache`. This function can take a long time to run, since the movie has many frames. Here we will show how to use the function, but comment it out, to save time. 
+
+```{code-cell} ipython3
+# movie_template = cache.get_natural_movie_template()
+```
+
+You can also download the full raw movie as an ndarray using the `get_raw_natural_movie` method. 
 
 
 ## Stimulus templates
