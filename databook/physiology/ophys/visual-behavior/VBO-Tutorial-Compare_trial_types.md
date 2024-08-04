@@ -151,7 +151,7 @@ stimulus_presentations.head()
 To select information about stimuli in change detection behavior task only, we need to filter our table by stimulus block name.
 
 ```{code-cell} ipython3
-stimulus_presentaions = stimulus_presentations[stimulus_presentaions.stimulus_block_name=='change_detection_behavior'].copy()
+stimulus_presentations = stimulus_presentations[stimulus_presentaions.stimulus_block_name=='change_detection_behavior'].copy()
 ```
 
 Note that there is an image name called 'omitted'. This represents the time that a stimulus would have been shown, had it not been omitted from the regular stimulus cadence. They are included here for ease of analysis, but it's important to note that they are not actually stimuli. They are the lack of expected stimuli.

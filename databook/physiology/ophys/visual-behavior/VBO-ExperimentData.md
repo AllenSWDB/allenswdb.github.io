@@ -524,9 +524,9 @@ Let's explore the `stimulus_presentations` for the `natural_movie_one` stimulus 
 ```{code-cell} ipython3
 movie_stimulus_table = stimulus_table[stimulus_table.stimulus_block_name=='natural_movie_one']
 
-print('Values of `image_name` are:', movie_stimulus_table.unique())
-print('Values of `movie_repeat` are:', movie_repeat.unique())
-print('Values of `movie_frame_index` are:', movie_frame_index.unique())
+print('Values of `image_name` are:', movie_stimulus_table.image_name.unique())
+print('Values of `movie_repeat` are:', movie_stimulus_table.movie_repeat.unique())
+print('Values of `movie_frame_index` are:', movie_stimulus_table.movie_frame_index.unique())
 ```
 
 To visualize the frames of `natural_movie_one` you can use the `get_natural_movie_template` method of the `VisualBehaviorOphysProjectCache`. This function can take a long time to run, since the movie has many frames. Here we will show how to use the function, but comment it out, to save time. 
