@@ -7,7 +7,7 @@ specific population of neurons.
 
 ## Visual Coding
 
-The Visual Coding 2-photon dataset is a survey of in vivo physiological activity
+The [Visual Coding 2-photon](vc2p-background) dataset is a survey of in vivo physiological activity
 in the awake mouse visual cortex. We collected data across six different visual cortical
 areas, including {term}`V1` and five {term}`HVA`s, using 14 {term}`Transgenic line`s, and
 across the cortical layers. During imaging, mice were awake, head-fixed under the microscope
@@ -15,4 +15,4 @@ and positioned on a running disk that enabled them to run at will (see {doc}`exp
 
 ## Visual Behavior
 
-The Visual Behavior Ophys dataset measured the activity of genetically identified neurons in the visual cortex of mice performing a go/no-go visual [Change Detection Task](change_detection_task). The same population of neurons was recorded over multiple days with varying sensory and behavioral contexts, including familiar and novel stimuli, and passive exposure sessions. This dataset can be used to evaluate the influence of experience, expectation, and task engagement on neural coding and dynamics in excitatory and inhibitory cell populations. 
+The [Visual Behavior Ophys](VB-Ophys) dataset measured the activity of genetically identified neurons in the visual cortex of mice performing a go/no-go visual [Change Detection Task](change_detection_task). The same population of neurons was recorded over multiple days with varying sensory and behavioral contexts, including familiar and novel stimuli, and passive exposure sessions. This dataset can be used to evaluate the influence of experience, expectation, and task engagement on neural coding and dynamics in excitatory and inhibitory cell populations. 
