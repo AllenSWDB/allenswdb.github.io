@@ -11,7 +11,7 @@ The [Visual Coding 2-photon](vc2p-background) dataset is a survey of in vivo phy
 in the awake mouse visual cortex. We collected data across six different visual cortical
 areas, including {term}`V1` and five {term}`HVA`s, using 14 {term}`Transgenic line`s, and
 across the cortical layers. During imaging, mice were awake, head-fixed under the microscope
-and positioned on a running disk that enabled them to run at will (see {doc}`experimental-setup`)). The mice passively viewed an assortment of visual stimuli {doc}`vc2p-stimuli` presented on a monitor. 
+and positioned on a running disk that enabled them to run at will (see {doc}`experimental-setup`). The mice passively viewed an assortment of visual stimuli {doc}`vc2p-stimuli` presented on a monitor. 
 
 ## Visual Behavior
 
