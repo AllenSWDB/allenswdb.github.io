@@ -9,44 +9,42 @@ fluorescence as the membrane voltage changes. These are called  _voltage indicat
 and provide access to the same signal that intracellular electrodes measure. However,
 the field is still developing voltage indicators that have good optical properties,
 and as a result these are not yet routinely used to measure neural activity in awake
-behaving animals. Another class uses the fact that action potentials trigger [voltage-gated calcium
-channels](https://en.wikipedia.org/wiki/Voltage-gated_calcium_channel) (VGCCs)
-to open and increase the intracellular concentration of calcium. Unlike voltage
-indicators, there are many robust calcium indicators that provide good
-sensitivity and signal-to-noise ratio (SNR). These allow experimenters to observe
-action potentials using fluorescence microscopy.
+behaving animals. Another class uses the fact that action potentials trigger voltage-gated
+calcium channels (VGCCs) to open and increase the intracellular concentration of calcium. 
+Unlike voltage indicators, there are many robust calcium indicators that provide good
+sensitivity and signal-to-noise ratio (SNR). These allow experimenters to observe action potentials using fluorescence microscopy.
 
 ## Fluorescence: translating calcium into light
 
-Calcium-sensitive chemicals (fluorophores), which change their fluorescence properties upon binding to 
-Ca{sup}`2+`, are central to calcium imaging. Fluorophores emit light in a characteristic wavelength
-while being excited by a light source. There are generally two types used in calcium imaging; fluorescent dyes
-and proteins called {term}`genetically-encoded calcium indicator`s (GECIs). Dyes are chemicals which are
-manually introduced into the cell in question, while GECIs are naturally produced by a transgenic line.
-These indicators are introduced into neurons, resulting in the cells glowing when under 
-a fluorescence microscope; the glow changes as calcium concentrations in their environments change.
-We can thus obtain a dynamic picture of neural activity across populations of neurons
-by recording the fluorescence over time, providing insights into how
+Calcium-sensitive chemicals (fluorophores), which change their fluorescence properties upon
+binding to Ca{sup}`2+`, are central to calcium imaging. Fluorophores emit light in a 
+characteristic wavelength while being excited by a light source. There are generally two 
+types used in calcium imaging; fluorescent dyes and proteins called {term
+`genetically-encoded calcium indicator`s (GECIs). Dyes are chemicals which are
+manually introduced into the cell in question, while GECIs are naturally produced by a
+transgenic line. These indicators are introduced into neurons, resulting in the cells glowing 
+when under a fluorescence microscope; the glow changes as calcium concentrations in their 
+environments change. We can thus obtain a dynamic picture of neural activity across 
+populations of neurons by recording the fluorescence over time, providing insights into how
 neural ensembles encode, process, and transmit information.
 
 ## Advantages in the context of systems neuroscience
 
-- **Granular view**: Calcium imaging enables a detailed view of neural
-  populations, capturing the dynamics of hundreds to thousands of neurons
-  simultaneously. Better yet, some microscopes can resolve individual synapses
-  or other cellular compartments.
+- **Granular view**: Calcium imaging enables a detailed view of large neural populations, 
+  capturing the dynamics of hundreds to thousands of neurons simultaneously. Better yet, 
+  some microscopes can resolve dendrites, individual synapses, or other cellular compartments.
 - **Cell-type specificity**: Thanks to advances in molecular biology, we can
   target GECIs to specific neuron types, granting us the power to dissect neural
   circuits with cell-type precision.
-- **Temporal insights**: While the temporal resolution of calcium imaging
-  doesn't match that of direct electrical recordings, indicators have become
-  faster over each generation. Even comparatively "slow" indicators such as
-  GCaMP6s are still fast enough to detect when a group of action potentials
-  occur, even if it is difficult to discern individual action potentials.
-- **Longitudinal recordings**: Because calcium imaging allows experimenters to see the shape of individual
-  neurons as well as their arrangement with respect to each other and other tissue features
-  (like vasculature), experimenters can measure the activity of the same neurons
-  over multiple days or weeks. This can provide insight into how neural activity changes over the course of learning.
+- **Longitudinal recordings**: Because calcium imaging allows experimenters to see the shape  
+  of individual neurons as well as their arrangement with respect to each other and other 
+  tissue features (like vasculature), experimenters can measure the activity of the same 
+  neurons over multiple days or weeks. This can provide insight into how neural activity
+  changes over the course of learning.
+- **Anatomical context**: Being able to localize imaged neurons in the tissue permits calcium
+  imaging to be combined with other anatomical modalities. Following calcium imaging
+  experiments with electron microscopy or spatial transcriptomics can link physiology with
+  connectivity or transcriptomically defined cell types.
 
 ## Two-photon calcium imaging
 
@@ -78,6 +76,6 @@ There are several algorithms for detecting "events" based on the DF/F traces. We
 
 ![events](/resources/Huang_eventprobability.png)
 
-The validation dataset above examines closely the relationship between extracted events and firing rate for excitatory neurons and how that depends on the spatial and temporal resolution {cite:p}`huang`. This relationship is different for inhibitory {term}`Interneuron`s. Specifically, the relationship between fluorescence and firing rate is different for {term}`parvalbumin-positive interneuron`s than it is for {term}`Somatostatin cell`s and {term}`VIP cell`s {cite:p}`khan`. Parvalbumin is a calcium buffer and calcium imaging data of these neurons should be considered judiciously. While general increases/decreases in activity are reflected in the fluorescence signal, analyses focused on more precise event rate estimates and temporal precision should likely be avoided for these PV neurons.
+The validation dataset above examines closely the relationship between extracted events and firing rate for excitatory neurons and how that depends on the spatial and temporal resolution {cite:p}`huang`. This relationship is different for inhibitory {term}`Interneuron`s. Interneurons have a different relationship between fluorescence and firing rate than excitatory neurons. Moreover, this relationship between fluorescence and firing rate is different for {term}`parvalbumin-positive interneuron`s than it is for {term}`Somatostatin cell`s and {term}`VIP cell`s {cite:p}`khan`. Parvalbumin is a calcium buffer and calcium imaging data of these neurons should be considered judiciously. While general increases/decreases in activity are reflected in the fluorescence signal, analyses focused on more precise event rate estimates and temporal precision should likely be avoided for these PV neurons.
 
 ![inhib](/resources/Khan_2018_inhib_fig.png)
