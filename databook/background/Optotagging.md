@@ -29,7 +29,7 @@ In addition, the shape of the light stimulus should match the application. Optot
 
 ## Identifying tagged units
 
-Laser presentation in a mouse expressing opsins in its neurons will certainly drive responses, but we need to be very careful in analysing this data to avoid false positives. Common pitfalls include:
+Laser presentation in a mouse expressing opsins in its neurons will certainly drive responses, but we need to be very careful in analyzing this data to avoid false positives. Common pitfalls include:
 * Electrical artifacts caused by laser onset may be confused for a responsive neuron
 * Neurons may be indirectly activated via synaptic transmission from neurons that were directly activated by the opsin
 

@@ -142,7 +142,7 @@ cache.list_all_downloaded_manifests()
 
 The `VisualBehaviorOphysProjectCache` determines which version of the dataset to use by loading one of these manifests. By default, the `VisualBehaviorProjectCache` loads either
 
-- the most up-to-date available data manifest, if you are instaniating it on an empty `cache_dir`
+- the most up-to-date available data manifest, if you are instantiating it on an empty `cache_dir`
 
 - the data manifest you were last using, if you are instantiating it on a pre-existing `cache_dir` (in this case, the `VisualBehaviorOphysProjectCache` will emit a warning if a more up-to-data data manifest exists online letting you know that you can, if you choose, move to the more up-to-date data manifest)
 

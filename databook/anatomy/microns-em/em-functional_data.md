@@ -38,10 +38,10 @@ Specifically, the oracle score is the mean signal correlation of the response of
 ## Coregistration
 
 The process of aligning the location of cells from the functional imaging with the same cells in the EM imaging is called **coregistration**.
-It is a challenging problem due to the need for micron-scale alignment of image volumes, despite signifiant differences in the imaging modalities, tissue deformations under different conditions and potential distortions introduced by sample preparation.
+It is a challenging problem due to the need for micron-scale alignment of image volumes, despite significant differences in the imaging modalities, tissue deformations under different conditions and potential distortions introduced by sample preparation.
 
 The dataset contains two approaches to coregistration, one semi-manual and one fully automatic.
-In the semi-manual approach, a transform between the EM data and the 2p data was generated based on fiducual points such as blood vessels and cell bodies.
+In the semi-manual approach, a transform between the EM data and the 2p data was generated based on fiducial points such as blood vessels and cell bodies.
 This transform was then applied to the functional data to identify a location in the EM space, and a human annotator then identified the cell body in the EM data that was a best match to the functional ROI based on location and context.
 In the fully automatic approach, blood vessels were segmented in both 2p and EM volumes, and a transform was generated based on matching this 3d structure.
 More details can be found in the [MICrONS dataset preprint](https://www.biorxiv.org/content/10.1101/2021.07.28.454025v3).
@@ -76,7 +76,7 @@ Relationship between separation threshold (left) and residual (right) and the ac
 The combination of session index, scan index, and ROI unit id uniquely identifies each ROI in the functional data.
 The annotation database contains tables with the results of each of the coregistration methods.
 Each row in each table contains the nucleus id, centroid, and root ID of an EM cell as well as the scan/session/unit indices required to match it.
-In additoin, the residual and score metrics for each match are provided to filter by quality.
+In addition, the residual and score metrics for each match are provided to filter by quality.
 For manual coregistration, the table is called `coregistration_manual_v3` and for automated coregistration, the table is called `apl_functional_coreg_forward_v5`.
 
 Full column definitions can be [found on Annotation Tables page](em:functional-coreg).
@@ -118,7 +118,7 @@ The `.npy` files can be read with the numpy function `np.load` and the `.csv` fi
 ---
 align: center
 ---
-Example images from a variety fo the stimuli used to probe functional responses. Natural movies include scenes from cinema, POV nature videos, and rendered 3d scenes. Monet stimuli are a parametic textured stimulus that varies in orientation and spatial frequency of correlated motion.
+Example images from a variety fo the stimuli used to probe functional responses. Natural movies include scenes from cinema, POV nature videos, and rendered 3d scenes. Monet stimuli are a parametric textured stimulus that varies in orientation and spatial frequency of correlated motion.
 ```
 
 The natural movie data is organized into three files:

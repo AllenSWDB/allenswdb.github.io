@@ -144,7 +144,7 @@ Ophys
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
   ion channels (using a {term}`reporter line` ) in a specific subpopulation of
-  cells (using a {term}`Driver line`) to enable termporally precise control of
+  cells (using a {term}`Driver line`) to enable temporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
@@ -165,7 +165,7 @@ Primary visual cortex
 V1
 VISp
   The largest visual area in cortex that receives inputs from the Lateral
-  geniculate nucleus of thalamus. Often refered to as <b>V1</b> or <b>VISp</b>.
+  geniculate nucleus of thalamus. Often referred to as <b>V1</b> or <b>VISp</b>.
 
 Pyramidal cell
   A type of excitatory neuron with a characteristic cell body shape and apical
@@ -173,7 +173,7 @@ Pyramidal cell
   excitatory neuron.
 
 Receptive field
-  definition here
+  In a sensory context, the receptive field of a neuron is the region of the stimulus domain in which sensory stimulus needs to lie in order to evoke a response.  For visual cortical cells, for example, the receptive field is the region of visual space in which stimuli can evoke neural responses.  In a computational context, this notion is often generalized multiple dimensions (e.g. space, time, frequency, etc.) and thus equates to the necessary stimulus features that drive neural response (e.g. a localized grating of a specific orientation and frequency).  
 
 Regular Spiking neuron
 RS
@@ -198,7 +198,7 @@ Reporter line
   A <b>reporter line</b> is a transgenic mouse line that is engineered to
   express a specific protein that enables monitoring or manipulation of neural
   activity (such as GFP, GCaMP, or Channelrhodopsin) under the control of cre or
-  FLP recominase, or a tetracycline transactivator system. The gene engineered
+  FLP recombinase, or a tetracycline transactivator system. The gene engineered
   into the reporter line will not be expressed unless the protein that controls
   reporter gene expression (such as cre or FLP) is present, such as by breeding
   a mouse from the reporter line with a mouse from a specific {term}`Driver
@@ -256,7 +256,7 @@ Two-photon calcium imaging
   calcium imaging.
 
 Unit
-  A putative neuron in extracellular elecrophysiology, with varying degrees of
+  A putative neuron in extracellular electrophysiology, with varying degrees of
   confidence assigned to it. In extracellular electrophysiology, neurons are
   referred to as *units*, because we cannot guarantee that all the spikes
   assigned to one unit actually originate from a single cell. Unlike in

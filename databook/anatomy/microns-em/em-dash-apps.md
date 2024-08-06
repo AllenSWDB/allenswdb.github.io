@@ -29,11 +29,11 @@ Table viewer input options
 ```
 
 In the Table Viewer, you first select one of the tables from a dropdown in the upper left side.
-The `Live Query` option is not relevent for the public data.
+The `Live Query` option is not relevant for the public data.
 Filter options allow you to limit the query to a subset of the data, if desired.
 Note that filtering can occur in the tables afterward as well.
 The `Cell IDs` field lets you put in one or more root IDs, cell IDs (i.e. "Nucleus ID"), or IDs from the annotation table being queried.
-Note that if you use this option, you havet o set the dropdown to the appropriate ID type.
+Note that if you use this option, you have to set the dropdown to the appropriate ID type.
 The `Value Search` field lets you search for a particular value, such as a specific cell type.
 
 Once you have selected your table and set any pre-query filters, click the `Submit` button to run the query.
@@ -94,7 +94,7 @@ Second, the table can present synaptic partners in a more detailed way.
 ### Visualization tabs
 
 The first and default option in the tabs is **Tables Only** which doesn't actually show any data.
-This is merely a placeholder to let you look directly at the tablular data below.
+This is merely a placeholder to let you look directly at the tabular data below.
 
 The next tab, **Plots** lets you visualize the synaptic output of a neuron.
 We focus on synaptic output only right now, because the data quality is such that automated dendritic reconstructions are reliable, but automated axon reconstructions are not (see [Proofreading section](em:proofreading-data-quality)).
@@ -104,7 +104,7 @@ Because of that, if a neuron has been proofread we trust the cell types of its p
 ---
 align: center
 ---
-Plot view. Left, violin plot of the synaptic distribution of the queried cell. Blue/left is the distribution of the cortical depth of input synapses along, red/right is the distribution of cortical depth of synaptic outputs. Approximate layers are shown. Center, a scatterplot with a dot for each synaptic output of the queried cell that is onto a target with a unique cell body (i.e. no dendritic fragments and no cells erroneously merged into other cells). The y-axis is the depth of the synapse itself, while the x-axis is the depth of the cell body of the target neuron. If a cell body categroy is selected, the dots are colored by the cell type of the target neuron. Right, a bar plot showing of the number of synapses onto target cell types.
+Plot view. Left, violin plot of the synaptic distribution of the queried cell. Blue/left is the distribution of the cortical depth of input synapses along, red/right is the distribution of cortical depth of synaptic outputs. Approximate layers are shown. Center, a scatterplot with a dot for each synaptic output of the queried cell that is onto a target with a unique cell body (i.e. no dendritic fragments and no cells erroneously merged into other cells). The y-axis is the depth of the synapse itself, while the x-axis is the depth of the cell body of the target neuron. If a cell body category is selected, the dots are colored by the cell type of the target neuron. Right, a bar plot showing of the number of synapses onto target cell types.
 ```
 
 These plots are designed to give you a quick overview of a cell's synaptic outputs.
@@ -138,7 +138,7 @@ Table view options.
 
 One of the first things you can see in the table viewer is that it is split into two tabs, **Input** and **Output**, with the tab names for each showing the total number of synapses in each category.
 To move between them, just click the tab you want.
-Above the Input/Ouput tabs is a link to the Neuroglancer view of the synapses show in the table, after filtering and/or selecting a subset of rows.
+Above the Input/Output tabs is a link to the Neuroglancer view of the synapses show in the table, after filtering and/or selecting a subset of rows.
 The table view here is similar to in the Annotation Table Viewer described above.
 You can sort the table by clicking column headers, filter the table using the row underneath the headers, and select individual rows.
 If you select individual rows, the Neuroglancer link will group all synapses from each partner together, making it particularly easy to see how synaptic connectivity relates to neuronal anatomy.

@@ -64,7 +64,7 @@ session_id = 791319847
 session = cache.get_session_data(session_id)
 ```
 
-We can get a high-level summary of this session by acessing its `metadata` attribute:
+We can get a high-level summary of this session by accessing its `metadata` attribute:
 
 ```{code-cell}
 session.metadata

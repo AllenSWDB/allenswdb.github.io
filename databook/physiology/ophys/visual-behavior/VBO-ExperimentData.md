@@ -130,7 +130,7 @@ What are the attributes of the `ophys_experiment` object?
 ```{code-cell} ipython3
 # Get all attributes & methods
 attributes = ophys_experiment.list_data_attributes_and_methods()
-# Let's focus on attribtues for now, remove the methods, which start with "get"
+# Let's focus on attributes for now, remove the methods, which start with "get"
 [attribute for attribute in attributes if 'get' not in attribute]
 ```
 
@@ -279,7 +279,7 @@ y
 mask_image_plane
 : (int) which image plane an ROI resides on. Overlapping ROIs are stored on different mask image planes
 
-max_corretion_down
+max_correction_down
 : (float) max motion correction in down direction in pixels
 
 max_correction_left
@@ -345,12 +345,12 @@ If you don't want dff in a pandas dataframe format, you can convert `dff_traces`
 
 ```{code-cell} ipython3
 dff_array = np.vstack(ophys_experiment.dff_traces.dff.values)
-print('This array contrains dff traces from {} neurons and it is {} samples long.'.format(dff_array.shape[0], dff_array.shape[1]))
+print('This array contains dff traces from {} neurons and it is {} samples long.'.format(dff_array.shape[0], dff_array.shape[1]))
 ```
 
 ### Events
 
-`events` are computed for each cell as described in [Giovannucci et al. 2019](https://pubmed.ncbi.nlm.nih.gov/30652683/). The magnitude of events approximates the firing rate of neurons with the resolusion of about 200 ms. The biggest advantage of using events over dff traces is they exclude prolonged calcium transients that may conteminate neural responses to subsequent stimuli. You can also use `filtered_events` which are events convolved with a filter created using `stats.halfnorm` method to generate a more continuous trace of activity.
+`events` are computed for each cell as described in [Giovannucci et al. 2019](https://pubmed.ncbi.nlm.nih.gov/30652683/). The magnitude of events approximates the firing rate of neurons with the resolution of about 200 ms. The biggest advantage of using events over dff traces is they exclude prolonged calcium transients that may contaminate neural responses to subsequent stimuli. You can also use `filtered_events` which are events convolved with a filter created using `stats.halfnorm` method to generate a more continuous trace of activity.
 
 Examine `events` for the first 10 cells this experiment.
 
@@ -623,7 +623,7 @@ ax.set_title('ophys_experiment_id :'+str(ophys_experiment_id))
 
 ## Task parameters
 
-The `task_parameters` attribute contains information about the struture of the behavior task for that specific session.
+The `task_parameters` attribute contains information about the structure of the behavior task for that specific session.
 
 ```{code-cell} ipython3
 ophys_experiment.task_parameters
@@ -675,9 +675,9 @@ On a given trial, a `change_time` is selected from a geometric distribution betw
 
 On `go` trials, the image identity will change at the selected `change_time`. If the mouse licks within the response window (see `response_window_sec` entry of the `task_parameters attribute), that is considered a hit and a reward will be delivered. If the mouse fails to lick after the change, the trial is considered a miss.
 
-On `catch` trials, a `change_time` is drawn, but the image identity does not change. If the mouse licks within the reward window, this is a false alarm and no reward is delivered. Correctly witholding a lick is called a correct reject.
+On `catch` trials, a `change_time` is drawn, but the image identity does not change. If the mouse licks within the reward window, this is a false alarm and no reward is delivered. Correctly withholding a lick is called a correct reject.
 
-This definition of a `catch` trial is a conservative one, and only consideres the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
+This definition of a `catch` trial is a conservative one, and only considers the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
 
 If the mouse licks prior to the scheduled `change_time`, the trial is `aborted` and starts over again, using the same `change_time` for up to 5 trials in a row. This is to discourage mice from licking frequently, as they have to wait until the change time to get a reward.
 
@@ -803,10 +803,10 @@ def plot_dff_trace(ax, cell_specimen_id, initial_time, final_time):
     '''
         ax: axis on which to plot
         cell_specimen_id: id of the cell to plot
-        intial_time: initial time to plot from
+        initial_time: initial time to plot from
         final_time: final time to plot to
     '''
-    #create a dataframe using dff trace from one seleted cell
+    #create a dataframe using dff trace from one selected cell
     data = {'dff': ophys_experiment.dff_traces.loc[cell_specimen_id]['dff'],
         'timestamps': ophys_experiment.ophys_timestamps}
     df = pd.DataFrame(data)
@@ -815,7 +815,7 @@ def plot_dff_trace(ax, cell_specimen_id, initial_time, final_time):
 
 # function to plot events traces
 def plot_events_trace(ax, cell_specimen_id, initial_time, final_time):
-    # create a dataframe using events trace from one seleted cell
+    # create a dataframe using events trace from one selected cell
     data = {'events': ophys_experiment.events.loc[cell_specimen_id].events,
         'timestamps': ophys_experiment.ophys_timestamps}
     df = pd.DataFrame(data)

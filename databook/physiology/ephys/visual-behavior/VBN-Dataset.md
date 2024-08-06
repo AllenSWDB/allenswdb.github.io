@@ -195,7 +195,7 @@ For more information about many of the metrics included in this table and how to
 `left_right_ccf_coordinate`:            CCF coord in the left/right axis  
 `structure_acronym`:                    CCF acronym for area to which unit was assigned  
 `structure_id`:                         CCF structure ID for the area to which unit was assigned  
-`probe_horizontal_position`:            Horizontal (perpindicular to shank) probe position of each unit's peak channel in microns  
+`probe_horizontal_position`:            Horizontal (perpendicular to shank) probe position of each unit's peak channel in microns  
 `probe_vertical_position`:              Vertical (along shank) probe position of each unit's peak channel in microns
 
 
@@ -208,7 +208,7 @@ For more information about many of the metrics included in this table and how to
 `recovery_slope`:                       Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)  
 `repolarization_slope`:                 Slope of repolarization of 1D waveform to baseline after trough  
 `spread`:                               Range of channels for which the spike amplitude was above 12% of the peak channel amplitude  
-`velocity_above`:                       Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actaully the inverse of velocity: ms/mm)  
+`velocity_above`:                       Slope of spike propagation velocity traveling in dorsal direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)  
 `velocity_below`:                       Slope of spike propagation velocity traveling in ventral direction from soma (note to avoid infinite values, this is actually the inverse of velocity: ms/mm)  
 `snr`:                                  signal-to-noise ratio for 1D waveform        
 
@@ -305,7 +305,7 @@ structure_acronym
 : CCF acronym for area to which channel was assigned  
 
 probe_horizontal_position
-: Horizontal (perpindicular to shank) probe position of each unit's peak channel in microns  
+: Horizontal (perpendicular to shank) probe position of each unit's peak channel in microns  
 
 probe_vertical_position
 : Vertical (along shank) probe position of each unit's peak channel in microns  

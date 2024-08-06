@@ -3,102 +3,116 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: background/background
-  sections:
-  - file: background/Mouse-visual-system
-  - file: background/transgenic-tools
-  - file: background/experimental-setup
-  - file: background/Neuropixels-electrophysiology
-    sections:
-    - file: physiology/ephys/visual-coding/vcnp-quality-metrics
-    - file: background/neuropixels-description
-  - file: background/Two-photon-calcium-imaging
-  - file: background/Ophys-ephys-comparison
-  - file: background/Optotagging.md
-- file: physiology/physiology                    # Also a placeholder that needs actual content
-  sections:
-  - file: physiology/ophys/ophys-background                    # Also a placeholder that needs actual content
-    title: Optical Physiology
-    sections:
-    - file: physiology/ophys/visual-coding/vc2p-background
+parts:
+  - caption: Experimental Data
+    chapters:
+    - file: background/background
       sections:
-      - file: physiology/ophys/visual-coding/vc2p-dataset
-      - file: physiology/ophys/visual-coding/vc2p-session-data
-      - file: physiology/ophys/visual-coding/vc2p-stimuli
-      - file: physiology/ophys/visual-coding/vc2p-evoked-response
-      - file: physiology/ophys/visual-coding/vc2p-cross-session-data
-      - file: physiology/ophys/visual-coding/vc2p-analysis
-    - file: physiology/ophys/visual-behavior/VB-Ophys
-      title: Visual Behavior Ophys
+      - file: background/Mouse-visual-system
+      - file: background/transgenic-tools
+      - file: background/experimental-setup
+      - file: background/Neuropixels-electrophysiology
+        sections:
+        - file: physiology/ephys/visual-coding/vcnp-quality-metrics
+        - file: background/neuropixels-description
+      - file: background/Two-photon-calcium-imaging
+      - file: background/Ophys-ephys-comparison
+      - file: background/Optotagging.md
+    - file: physiology/physiology                    # Also a placeholder that needs actual content
       sections:
-      - file: physiology/ophys/visual-behavior/VBO-Dataset
-        title: Visual Behavior Ophys Dataset
-      - file: physiology/ophys/visual-behavior/VB-BehaviorSessionData
-        title: Behavior Session Data
-      - file: physiology/ophys/visual-behavior/VBO-ExperimentData
-        title: Ophys Experiment Data
-      - file: physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types
-        title: Tutorial Comparing Trial Types
-      - file: physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
-        title: Tutorial Downloading Data
-    - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
-    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
-  - file: physiology/ephys/ephys-background                    # Also a placeholder that needs actual content
-    title: Electrophysiology
-    sections:
-    - file: physiology/ephys/visual-coding/vcnp
+      - file: physiology/ophys/ophys-overview                    # Also a placeholder that needs actual content
+        title: Optical Physiology
+        sections:
+        - file: physiology/ophys/visual-coding/vc2p-background
+          sections:
+          - file: physiology/ophys/visual-coding/vc2p-dataset
+          - file: physiology/ophys/visual-coding/vc2p-session-data
+          - file: physiology/ophys/visual-coding/vc2p-stimuli
+          - file: physiology/ophys/visual-coding/vc2p-evoked-response
+          - file: physiology/ophys/visual-coding/vc2p-cross-session-data
+          - file: physiology/ophys/visual-coding/vc2p-analysis
+        - file: physiology/ophys/visual-behavior/VB-Ophys
+          title: Visual Behavior Ophys
+          sections:
+          - file: physiology/ophys/visual-behavior/VBO-Dataset
+            title: Visual Behavior Ophys Dataset
+          - file: physiology/ophys/visual-behavior/VB-BehaviorSessionData
+            title: Behavior Session Data
+          - file: physiology/ophys/visual-behavior/VBO-ExperimentData
+            title: Ophys Experiment Data
+          - file: physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types
+            title: Tutorial Comparing Trial Types
+          - file: physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
+            title: Tutorial Downloading Data
+    #    - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
+    #    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
+      - file: physiology/ephys/ephys-overview                    # Also a placeholder that needs actual content
+        title: Electrophysiology
+        sections:
+        - file: physiology/ephys/visual-coding/vcnp
+          sections:
+          - file: physiology/ephys/visual-coding/vcnp-quickstart
+          - file: physiology/ephys/visual-coding/vcnp-data-access
+          - file: physiology/ephys/visual-coding/vcnp-units
+          - file: physiology/ephys/visual-coding/vcnp-receptive-fields
+          - file: physiology/ephys/visual-coding/vcnp-lfp
+          - file: physiology/ephys/visual-coding/vcnp-optotagging
+          - file: physiology/ephys/visual-coding/vcnp-session
+          - file: physiology/ephys/visual-coding/vcnp-stimulus
+          - file: physiology/ephys/visual-coding/vcnp-cheatsheet
+          - file: physiology/ephys/visual-coding/vcnp-links
+        - file: physiology/ephys/visual-behavior/VB-Neuropixels
+          title: Visual Behavior Neuropixels
+          sections:
+          - file: physiology/ephys/visual-behavior/VBN-Dataset
+          - file: physiology/ephys/visual-behavior/VBN-SessionData
+          - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
+            title: Tutorial Aligning Neural Data to Stimuli
+          - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
+            title: Tutorial Aligning Behavioral Data to Task Events
+          - file: physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
+            title: Tutorial Analyzing LFP data
+        - file: physiology/ephys/cell-type-lookup-table/ctlut-background
+          sections:
+          - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
+          - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
+          - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
+          - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
+        #- file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
+      - file: physiology/stimuli/stimuli
+        sections:
+        - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
+        - file: physiology/stimuli/visual-behavior/VB-Behavior
+          title: Visual Behavior Task
+      - file: physiology/pyNWB/pyNWB                    # Also a placeholder that needs actual content
+    - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
-      - file: physiology/ephys/visual-coding/vcnp-quickstart
-      - file: physiology/ephys/visual-coding/vcnp-data-access
-      - file: physiology/ephys/visual-coding/vcnp-units
-      - file: physiology/ephys/visual-coding/vcnp-receptive-fields
-      - file: physiology/ephys/visual-coding/vcnp-lfp
-      - file: physiology/ephys/visual-coding/vcnp-optotagging
-      - file: physiology/ephys/visual-coding/vcnp-session
-      - file: physiology/ephys/visual-coding/vcnp-cheatsheet
-      - file: physiology/ephys/visual-coding/vcnp-links
-    - file: physiology/ephys/visual-behavior/VB-Neuropixels
-      title: Visual Behavior Neuropixels
+      - file: anatomy/microns-em/em-background
+        sections:
+        - file: anatomy/microns-em/em-structural-data.md
+        - file: anatomy/microns-em/proofreading.md
+        - file: anatomy/microns-em/em-neuroglancer.md
+        - file: anatomy/microns-em/em-dash-apps.md
+        - file: anatomy/microns-em/em-caveclient-setup.md
+        - file: anatomy/microns-em/em-querying-tables.md
+        - file: anatomy/microns-em/key-tables.md
+        - file: anatomy/microns-em/em-volume-data.md
+        - file: anatomy/microns-em/em-skeletons.md
+        - file: anatomy/microns-em/em-meshes.md
+        - file: anatomy/microns-em/em-functional_data.md
+        - file: anatomy/microns-em/em-coordinates.md
+        - file: anatomy/microns-em/em-ultrastructure.md
+      - file: anatomy/single-cell-morphology/scm-background                    # Also a placeholder that needs actual content
+  - caption: Computational Tools
+    chapters:
+    - file: computational/data-analysis/data-analysis.md
       sections:
-      - file: physiology/ephys/visual-behavior/VBN-Dataset
-      - file: physiology/ephys/visual-behavior/VBN-SessionData
-      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
-        title: Tutorial Aligning Neural Data to Stimuli
-      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.ipynb
-        title: Tutorial Aligning Behavioral Data to Task Events
-      - file: physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.ipynb
-        title: Tutorial Analyzing LFP data
-    - file: physiology/ephys/cell-type-lookup-table/ctlut-background
-      sections:
-      - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
-      - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
-      - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
-      - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
-    - file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
-  - file: physiology/stimuli/stimuli
-    sections:
-    - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
-    - file: physiology/stimuli/visual-behavior/VB-Behavior
-      title: Visual Behavior Task
-  - file: physiology/pyNWB/pyNWB                    # Also a placeholder that needs actual content
-- file: anatomy/anatomy                    # Also a placeholder that needs actual content
-  sections:
-  - file: anatomy/microns-em/em-background
-    sections:
-    - file: anatomy/microns-em/em-structural-data.md
-    - file: anatomy/microns-em/proofreading.md
-    - file: anatomy/microns-em/em-neuroglancer.md
-    - file: anatomy/microns-em/em-dash-apps.md
-    - file: anatomy/microns-em/em-caveclient-setup.md
-    - file: anatomy/microns-em/em-querying-tables.md
-    - file: anatomy/microns-em/key-tables.md
-    - file: anatomy/microns-em/em-volume-data.md
-    - file: anatomy/microns-em/em-skeletons.md
-    - file: anatomy/microns-em/em-meshes.md
-    - file: anatomy/microns-em/em-functional_data.md
-    - file: anatomy/microns-em/em-coordinates.md
-    - file: anatomy/microns-em/em-ultrastructure.md
-  - file: anatomy/single-cell-morphology/scm-background                    # Also a placeholder that needs actual content
-- file: glossary
-- file: bibliography
+      - file: computational/data-analysis/PCA.md
+      - file: computational/data-analysis/regression.md
+      - file: computational/data-analysis/GLM.md
+      - file: computational/data-analysis/classification.md
+    - file: computational/nwb-files/pynwb_tutorial.md
+  - caption: Resources
+    chapters:
+      - file: glossary
+      - file: bibliography

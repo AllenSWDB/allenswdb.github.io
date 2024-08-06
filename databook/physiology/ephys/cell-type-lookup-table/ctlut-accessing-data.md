@@ -6,9 +6,9 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.15.0
 kernelspec:
-  display_name: allensdk
+  display_name: ctlut
   language: python
-  name: allensdk
+  name: ctlut
 ---
 
 # Accessing cell type lookup table data

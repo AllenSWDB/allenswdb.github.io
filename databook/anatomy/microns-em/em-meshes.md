@@ -34,6 +34,9 @@ from meshparty import trimesh_io
 from caveclient import CAVEclient
 client = CAVEclient('minnie65_public')
 
+# set version, for consistency across time
+client.materialize.version = 1078 # Current as of Summer 2024
+
 mm = trimesh_io.MeshMeta(
   cv_path=client.info.segmentation_source(),
   disk_cache_path="meshes",
@@ -58,7 +61,7 @@ mm = trimesh_io.download_meshes(
 ```
 
 ```{note}
-Meshes can be hundresds of megabytes in size, so be careful about downloading too many if the internet is not acting well or your computer doesn't have much disk space!
+Meshes can be hundreds of megabytes in size, so be careful about downloading too many if the internet is not acting well or your computer doesn't have much disk space!
 ```
 
 ## Healing Mesh Gaps
@@ -73,7 +76,7 @@ Example of a continuous neuron whose mesh has a gap.
 
 Many meshes are not actually fully continuous due to small gaps in the segmentation.
 However, information collected during proofreading allows one to partially repair these gaps by adding in links where the segmentation was merged across a small gap.
-If you are just visualizaing a mesh, these gaps are not a problem, but if you want to do analysis on the mesh, you will want to heal these gaps.
+If you are just visualizing a mesh, these gaps are not a problem, but if you want to do analysis on the mesh, you will want to heal these gaps.
 Conveniently, there's a function to do this:
 
 ```{code-block} python

@@ -1,3 +1,4 @@
+(vb-behavior)=
 # Visual Behavior Task Overview
 
 The Visual Behavior Ophys and Visual Behavior Neuropixels datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.
@@ -17,7 +18,7 @@ On each trial of the task, a change time is selected from a geometric distributi
 
 ![change_times](/resources/change_time_trial_types.png)
 
-On "catch" trials, a change is drawn but the image identity does not change. If the mouse licks within the reward window following the sham change, the trial is considered a false alarm and no reward is delivered. Correctly witholding a lick on a catch trial is a correct reject. This definition of a `catch` trial is a conservative one, and only consideres the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
+On "catch" trials, a change is drawn but the image identity does not change. If the mouse licks within the reward window following the sham change, the trial is considered a false alarm and no reward is delivered. Correctly withholding a lick on a catch trial is a correct reject. This definition of a `catch` trial is a conservative one, and only considers the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
 
 ![trial_types](/resources/Trial_diagram.png)
 
@@ -43,11 +44,11 @@ During recording sessions (but not during training), stimulus presentations are 
 
 ### Visual Stimuli
 
-Mice are initally trained with high contrast, full field, square wave static grating stimuli that change in orientation and phase. These simple stimuli were used to help mice learn the initial task rules with highly salient, easy to detect stimulus changes.
+Mice are initially trained with high contrast, full field, square wave static grating stimuli that change in orientation and phase. These simple stimuli were used to help mice learn the initial task rules with highly salient, easy to detect stimulus changes.
 
 ![gratings](/resources/gratings.png)
 
-After learning the task with gratings, mice transitionied to performing the task with natural image stimuli. 8 images were shown in each session.
+After learning the task with gratings, mice transitioned to performing the task with natural image stimuli. 8 images were shown in each session.
 
 As indicated above, the Visual Behavior Ophys project used different image sets in different groups of mice. Three groups of mice, indicated by their `project_code`, also called "dataset variant", were shown image sets A and B. In some mice, image set A was used during training, and in other mice, image set B was used during training. This was done to provide a control for the effects of novelty on visual responses (i.e. whether the image set was seen during training or not) versus the effects of the stimulus features themselves (some images may drive stronger activity than others).
 
@@ -61,12 +62,12 @@ The Visual Behavior Neuropixels dataset used a distinct stimulus configuration t
 
 ![image_set_H](/resources/image_set_H_shared.png)
 
-The inclusion of 2 shared images between the familiar and novel image sets allows for examination of the effects of stimulus context on learned sensory responses. A key question is - do mice (behaviorally, or neurophysiologically) treat the two shared images the same, regardlesss of whether they are intermixed with other familiar stimuli versus when they are intermixed with novel stimuli?
+The inclusion of 2 shared images between the familiar and novel image sets allows for examination of the effects of stimulus context on learned sensory responses. A key question is - do mice (behaviorally, or neurophysiologically) treat the two shared images the same, regardless of whether they are intermixed with other familiar stimuli versus when they are intermixed with novel stimuli?
 
-
+(vb-behavior-session-types)=
 ## Session Types
 
-The stages of behavioral training and different types of neurophysiology sessions are described by their `session_type`. The `session_type` indicates whether the session occured during training or during neural activity measurements, as well as what stimulus was used and whether the session was active behavior or passive viewing session in the case of Visual Behavior Ophys sessions (Visual Behavior Neuropixels sessions have active and passive blocks in the same session).
+The stages of behavioral training and different types of neurophysiology sessions are described by their `session_type`. The `session_type` indicates whether the session occurred during training or during neural activity measurements, as well as what stimulus was used and whether the session was active behavior or passive viewing session in the case of Visual Behavior Ophys sessions (Visual Behavior Neuropixels sessions have active and passive blocks in the same session).
 
 Parsing the `session_type` names:
 
@@ -87,7 +88,7 @@ Task parameters for each `session_type` for <b>VisualBehaviorOphysProjectCache</
 
 ![task_parameters_ophys](/resources/task_parameters_ophys.png)
 
-Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](VB-Ophys.md)page for more information on dataset variants.
+Note that the letter `X` is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the [Visual Behavior Ophys](vb-ophys) page for more information on dataset variants.
 
 Task parameters for each `session_type` for <b>VisualBehaviorNeuropixelsProjectCache</b> datasets:
 
@@ -103,13 +104,13 @@ The second training stage (`TRAINING_1_gratings`) also used grating stimuli, but
 
 The third training stage (`TRAINING_2_gratings_flashed`) introduced a 500 millisecond gray screen interval in between changes in grating orientation. This requires the mouse to remember what was shown previously and perform a comparison with a short term memory delay. In this case, the question posed to the mice is - "is what i am seeing now the same thing that i saw 500 milliseconds ago?"
 
-Once mice consistently peform the task up to criterion level with gratings, they transition to natural scene images, and all subsequent sessions are performed with image change detection.
+Once mice consistently perform the task up to criterion level with gratings, they transition to natural scene images, and all subsequent sessions are performed with image change detection.
 
 In the `TRAINING_5` stage, mice must consistently perform the task at criterion level (>d-prime of 1) for at least 2 out of 3 days to graduate to the `handoff_ready` state. At this point, mice move on to either Ophys or Ephys recordings once there is availability on the recording systems for a new mouse. Thus, the time spent in `TRAINING_5` is not contingent on the animals behavior as it was for all previous stages. Instead, operational considerations determine when mice move from `TRAINING_5` to the neural recordings stage.
 
 Before the neural recordings begin, the mice spend several days habituating to performing the task on the 2-photon or neuropixels system, to get used to the different sights, sounds, and smells that are present compared to when they were training in the behavior facility. These `session_types` have the word `habituation` in the name.
 
-After habituation, mice progress through the subsequent stages roughly in order, regardless of task performance. Occassionally specific `session_type`s are re-acquired if the initial attempt did not pass quality control criteria. The goal is to acquire at least one successful session of each post-training `session_type` for `OPHYS` and `EPHYS` for each mouse.
+After habituation, mice progress through the subsequent stages roughly in order, regardless of task performance. Occasionally specific `session_type`s are re-acquired if the initial attempt did not pass quality control criteria. The goal is to acquire at least one successful session of each post-training `session_type` for `OPHYS` and `EPHYS` for each mouse.
 
 For the Visual Behavior Neuropixels dataset, there are only 2 `EPHYS` session types, one with image set G and one with image set H. Each session has an active behavior block, followed by a passive replay of the same stimulus sequence observed during behavior, but with the lick spout retracted.
 

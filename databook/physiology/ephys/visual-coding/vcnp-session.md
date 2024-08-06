@@ -109,7 +109,7 @@ things:
 ```{code-cell} ipython3
 output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
 manifest_path = os.path.join(output_dir, "manifest.json")
-resources_dir = Path('/root/capsule/databook/resources')
+resources_dir = Path('/opt/databook/databook/resources')
 DOWNLOAD_LFP = False
 ```
 
@@ -678,7 +678,7 @@ _ = ax.set_ylabel("Area cm^2")
 
 We record local field potential on a subset of channels at 2500 Hz. Even
 subsampled and compressed, these data are quite large, so we store them
-seperately for each probe.
+separately for each probe.
 
 ```{code-cell} ipython3
 
@@ -779,7 +779,7 @@ else:
 ### Suggested exercises
 
 If you would hands-on experience with the `EcephysSession` class, please
-consider working through some of these excercises.
+consider working through some of these exercises.
 
 - **tuning curves** : Pick a stimulus parameter, such as orientation on drifting
   gratings trials. Plot the mean and standard error of spike counts for each
@@ -795,7 +795,7 @@ consider working through some of these excercises.
     1. apply the offset to the spike times in the moving train
     2. compute the correlation coefficient between the newly offset moving train
     and the fixed train. You should then be able to plot the obtained
-    correlation coeffients as a function of the offset.
+    correlation coefficients as a function of the offset.
 - **unit clustering** : First, extract a set of unitwise features. You might
   draw these from the mean waveforms, for instance:
     - mean duration between waveform peak and trough (on the unit's peak

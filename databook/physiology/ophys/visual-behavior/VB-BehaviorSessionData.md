@@ -127,7 +127,7 @@ Below we will give a brief overview of what data is available for each `Behavior
 
 Let's look at some of the attributes of the last "handoff ready session"
 
-We can filter the full table to get the last `TRAINING_5_images_A_handoff_ready` session. This would have been the last training session before the animal was subsequently handed off to the ophys team, after which all sessions were performed on a two-photon miroscope.
+We can filter the full table to get the last `TRAINING_5_images_A_handoff_ready` session. This would have been the last training session before the animal was subsequently handed off to the ophys team, after which all sessions were performed on a two-photon microscope.
 
 Each `session_type` is distinguished by what stimulus was shown and what stage of training or imaging the mouse was in. 
 
@@ -165,7 +165,7 @@ behavior_session.metadata
 
 ### Task parameters
 
-The `task_parameters` attribute contains information about the struture of the behavior task for that specific session. 
+The `task_parameters` attribute contains information about the structure of the behavior task for that specific session. 
 
 Here we can see that the `stimulus_duration_sec` is 0.25 seconds and the `blank_duration_sec` is 0.5 seconds. This determines the inter-stimulus interval. 
 
@@ -189,9 +189,9 @@ On a given trial, a `change_time` is selected from a geometric distribution betw
 
 On `go` trials, the image identity will change at the selected `change_time`. If the mouse licks within the response window (see `response_window_sec` entry of the `task_parameters attribute), that is considered a hit and a reward will be delivered. If the mouse fails to lick after the change, the trial is considered a miss.
 
-On `catch` trials, a `change_time` is drawn, but the image identity does not change. If the mouse licks within the reward window, this is a false alarm and no reward is delivered. Correctly witholding a lick is called a correct reject. 
+On `catch` trials, a `change_time` is drawn, but the image identity does not change. If the mouse licks within the reward window, this is a false alarm and no reward is delivered. Correctly withholding a lick is called a correct reject. 
 
-This definition of a `catch` trial is a conservative one, and only consideres the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
+This definition of a `catch` trial is a conservative one, and only considers the non-change stimulus presentations that are drawn from the same distribution as the change times. A less restrictive definition could consider every non-change stimulus presentation as a catch trial, and the false alarm rate can be computed this way as well.
 
 If the mouse licks prior to the scheduled `change_time`, the trial is `aborted` and starts over again, using the same `change_time` for up to 5 trials in a row. This is to discourage mice from licking frequently, as they have to wait until the change time to get a reward.
 
@@ -205,7 +205,7 @@ We can examine one trial in some detail. Let's randomly select a hit trial.
 
 Some things to note:
 * The trial started at 831.2635398912244 seconds (`start_time`) relative to the start of the session.
-* The stimulus changed from 'im063' (`intial_image_name`) to 'im069' (`change_image_name`) at t = 834.287206646593 seconds (`change_time`) relative to the start of the session.
+* The stimulus changed from 'im063' (`initial_image_name`) to 'im069' (`change_image_name`) at t = 834.287206646593 seconds (`change_time`) relative to the start of the session.
 * The animal's first lick (`lick_times[0]`) and `response_time` was at t = 834.69975263 seconds relative to the start of the session.
 * The `response_latency`, which is `response_time` - `change_time`, was 0.41254598174464263 seconds.
 * A reward (`reward_time`) was delivered at 834.6997526283376 seconds relative to the start of the session. This was coincident with the first lick.
@@ -283,7 +283,7 @@ def plot_running(ax, behavior_session, initial_time, final_time):
     inputs:
         ax: axis on which to plot
         behavior_session: a behavior session object
-        intial_time: initial time to plot from
+        initial_time: initial time to plot from
         final_time: final time to plot to
     '''
     running_sample = behavior_session.running_speed.copy()
@@ -298,7 +298,7 @@ def plot_licks(ax, behavior_session, initial_time, final_time):
     inputs:
         ax: axis on which to plot
         behavior_session: a behavior session object
-        intial_time: initial time to plot from
+        initial_time: initial time to plot from
         final_time: final time to plot to
     '''
     licking_sample = behavior_session.licks.copy()
@@ -313,7 +313,7 @@ def plot_rewards(ax, behavior_session, initial_time, final_time):
     inputs:
         ax: axis on which to plot
         behavior_session: a behavior session object
-        intial_time: initial time to plot from
+        initial_time: initial time to plot from
         final_time: final time to plot to
     '''
     rewards_sample = behavior_session.rewards.copy()
@@ -361,7 +361,7 @@ ax.set_title('a short section of the session');
 
 Above, we can see that stimuli were being delivered at a regular cadence (250 ms on, 500 ms off). There were changes to new stimuli at t = 778.6 and t = 793.7, as indicated by the change in the color of the bars. The mouse licked inside of the required response window following both stimulus changes and received a reward coincident with the first lick following the change. The subsequent licks are likely a result of the mouse consuming the water reward. There was also a brief bout of two licks, likely representing impulsivity, at t = 786.9.
 
-## Evalute behavior performance across all sessions for this mouse
+## Evaluate behavior performance across all sessions for this mouse
 
 One useful method of the `BehaviorSession` object is the `get_performance_metrics` method, which returns some summary metrics on the session.
 

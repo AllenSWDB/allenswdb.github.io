@@ -23,9 +23,9 @@ There is a long history of studying the activity of neurons in the visual
 system. Some of the earliest work stems from [classic
 experiments](https://www.youtube.com/watch?v=8VdFf3egwfg) of David Hubel and
 Torsten Wiesel who had developed the tungsten electrode. Inserting the electrode
-in the V1 of an anasethized cat, they were able to determine what visual
+in the V1 of an anesthetized cat, they were able to determine what visual
 stimulus drove the activity of the neuron they were recording, and in this way
-they mapped the {term}`receptive field` of the neuron. (Add citation to paper)
+they mapped the {term}`receptive field` of the neuron. {cite:p}`hubel59`
 
 Over the last sixty years, extensive work has been done using this approach,
 recording from single or small groups of neurons in V1 as well as other regions
@@ -34,7 +34,7 @@ drive neurons. Despite decades of this research, there were several outstanding
 questions:
 
 First, stemming from that initial work of Hubel and Wiesel, the field converged on a standard model for the neurons in {term}`V1` in which each neuron's activity is modeled by a spatiotemporal filter followed by a static nonlinearity. Yet, the reality is that such models do not predict many neurons well, particular in response to more naturalistic stimuli.
-(cite What other 85% doing, etc)
+{cite:p}`olshausen_field`
 
 Second, as neurons in different parts of the visual circuit were found to respond to different features, there were open questions as to what the computations were that transformed the simple responses of the neurons in the early visual system into the more complex features.
 
@@ -48,10 +48,12 @@ While much of the historical, and ongoing, work studying visual physiology was p
 [more here, with references!]
 
 ## Technique
-For the **Visual Coding 2-Photon** dataset we used
-{doc}`two-photon calcium imaging<../background/Two-photon-calcium-imaging>` to
+
+For the **Visual Coding 2-photon** dataset we used
+{ref}`two-photon calcium imaging <two-photon-calcium-imaging>` to
+
 record the activity of populations of neurons. We used
-{doc}`transgenic tools<../background/transgenic-tools>` that use
+{ref}`transgenic tools <background-transgenic-tools>` that use
 {term}`Cre line`s to drive the expression of {term}`GCaMP`6 in a specific
 population of neurons. These could be excitatory or inhibitory neurons, they
 could be broadly expressed or confined to neurons within specific layers or even

@@ -19,7 +19,7 @@ import pandas as pd
 
 We will start exploring the parameters of the dataset to learn what data is available.
 
-First we need to access the dataset. We will use the AllenSDK and the BrainObservatoryCache to do so. First we need to set this up - the key step is to provide a <b>manifest file</b>. The SDK uses this file to know what data is available and organize the files it downloads. If you instantiate the BrainObservatoryCache without proviing a manifest file, it will create one in your working directory.
+First we need to access the dataset. We will use the AllenSDK and the BrainObservatoryCache to do so. First we need to set this up - the key step is to provide a <b>manifest file</b>. The SDK uses this file to know what data is available and organize the files it downloads. If you instantiate the BrainObservatoryCache without providing a manifest file, it will create one in your working directory.
 
 ```{code-cell} ipython3
 from allensdk.core.brain_observatory_cache import BrainObservatoryCache
@@ -39,7 +39,7 @@ boc.get_all_targeted_structures()
 We see that data was collected in six different visual areas. {term}`VISp` is the
 primary visual cortex, also known as V1. The others are higher visual areas ({term}`HVA`s) that
 surround VISp. You can learn more about these areas and how we map them
-{doc}`here <../background/Mouse-visual-system>`.
+{ref}`here <mouse-visual-system>`.
 
 ## Cre lines and reporters
 We used {term}`Cre line`s to drive the expression of GCaMP6 in specific populations of neurons. We can find a list of all the cre lines used in this dataset with a similar function
@@ -58,7 +58,7 @@ boc.get_all_reporter_lines()
 Reporter lines: All the experiments in this dataset use {term}`GCaMP`6. The large majority use GCaMP6f and only a few use GCaMP6s. However, you see four different reporters listed here. Why is this? Ai93 is the GCaMP6f reporter we used with the excitatory Cre lines. However, this reporter does not work well for inhibitory Cre lines. We used Ai148, another GCaMP6f reporter, with Vip-IRES-Cre and Sst-IRES-Cre. However, this didn't work with the Pvalb-IRES-Cre. We use Ai162, a GCaMP6s reporter with Pvalb. Additionally, to have a GCaMP6f vs GCaMP6s comparison, we collected a small number of experiments using Ai94 with the Slc17a7-IRES2-Cre. This is a GCaMP6s reporter that complements Ai93. Slc17a7-IRES2-Cre is the only Cre line that was recorded using multiple reporter types.
 ```
 
-See [Transgenic tools](../background/transgenic-tools.md) to learn more about these Cre lines and reporters.
+See [Transgenic tools](background-transgenic-tools) to learn more about these Cre lines and reporters.
 
 (imaging_depths)=
 ## Imaging depths
@@ -83,7 +83,7 @@ These are described more extensively in [Visual stimuli](vc2p-stimuli.md).
 ## Experiment containers & sessions
 The <b>experiment container</b> describes a set of 3 imaging <b>sessions</b> performed for the same field of view (ie. same targeted structure and imaging depth in the same mouse that targets the same set of neurons). Each experiment container has a unique ID number.
 
-We will identify all the experiment containers for a given stucture and Cre line:
+We will identify all the experiment containers for a given structure and Cre line:
 
 ```{code-cell} ipython3
 visual_area = 'VISp'

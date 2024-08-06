@@ -13,7 +13,7 @@ kernelspec:
 
 # Units
 
- The primary data in this dataset is the recorded acrtivity of isolated units. A
+ The primary data in this dataset is the recorded activity of isolated units. A
  number of metrics are used to isolate units through spike sorting, and these
  metrics can be used to access how well isolated they are and the quality of
  each unit. The `units` dataframe provides many of these metrics, as well as
@@ -55,7 +55,7 @@ session = cache.get_session_data(session_id)
 
 **1D Waveform features:**
 
-```{image} ../resources/spike_waveform.png
+```{image} /resources/spike_waveform.png
 :name: spike-waveform
 ```
 
@@ -217,7 +217,7 @@ plt.show()
 
 ### Spike Times
 
-The primary data in this dataset is the recorded acrtivity of isolated units.
+The primary data in this dataset is the recorded activity of isolated units.
 The `spike times` is a dictionary of spike times for each units in the session.
 
 :::{admonition} Example: Spike Times
@@ -335,7 +335,7 @@ channel of the probe. This is contained in the `mean_waveforms` object. This is
 the characteristic pattern that distinguishes each unit in spike sorting, and it
 can also help inform us regarding differences between cell types.
 
-We will use this in conjuction with the `channel_structure_intervals` function
+We will use this in conjunction with the `channel_structure_intervals` function
 which tells us where each channel is located in the brain. This will let us get
 a feel for the spatial extent of the extracellular action potential waveforms in
 relation to specific structures.

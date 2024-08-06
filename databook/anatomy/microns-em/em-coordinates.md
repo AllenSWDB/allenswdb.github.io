@@ -43,7 +43,7 @@ This means that a 1x1x1 micron cube would be represented by a 250x250x25 voxel s
 This is equivalent to the voxel coordinate multiplied by the voxel resolution, with no further transformation applied.
 *Mesh and skeleton vertices* are stored in nanometer coordinates.
 
-3. **Transformed coordinates** reflect a trasnsformation that has been applied to the original image volume.
+3. **Transformed coordinates** reflect a transformation that has been applied to the original image volume.
 This transformation is a rotation to make the pia surface as flat as possible, a translation to move the pial surface to y=0, and a scaling to bring coordinates into microns.
 Transformed coordinates are convenient for more accurate computations of depth and the pia-to-white-matter axis, but are not stored by default.
 A python package `standard_transform` helps convert data to and from transformed coordinates.
@@ -72,7 +72,10 @@ from caveclient import CAVEclient
 
 client = CAVEclient('minnie65_public')
 
-ct_df = client.materialize.query_table('aibs_soma_nuc_metamodel_preds_v117', split_positions=True)
+# set version, for consistency across time
+client.materialize.version = 1078 # Current as of Summer 2024
+
+ct_df = client.materialize.query_table('aibs_metamodel_celltypes_v661', split_positions=True)
 
 # convert to nanometers
 ct_df['pt_position_x_nm'] = ct_df['pt_position_x'] * 4
@@ -148,7 +151,7 @@ Where `{transform}` is either `transform_vx` or `transform_nm`.
 
 You can also invert a transformation, for example if you want to convert transformed coordinates back to voxel coordinates to view in Neuroglancer.
 
-* `minnie_ds.{transform}.invert(X)`: This maps from an Nx3 array in the *transformed space* back to the original space (voxel or nanometer coordiantes, depending on which transform you used).
+* `minnie_ds.{transform}.invert(X)`: This maps from an Nx3 array in the *transformed space* back to the original space (voxel or nanometer coordinates, depending on which transform you used).
 
 #### Transforming meshes and skeletons
 
