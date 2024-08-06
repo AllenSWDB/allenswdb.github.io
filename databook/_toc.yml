@@ -111,7 +111,6 @@ parts:
       - file: computational/data-analysis/regression.md
       - file: computational/data-analysis/GLM.md
       - file: computational/data-analysis/classification.md
-    - file: computational/nwb-files/pynwb_tutorial.md
   - caption: Resources
     chapters:
       - file: glossary
