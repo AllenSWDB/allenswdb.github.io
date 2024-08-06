@@ -92,7 +92,7 @@ context.
 
 :::{note}
 For more complete details about the generation of the volume, please see
-{cite:t}`schneider-mizell2023`.
+{cite:t}`MICrONS-2021`.
 :::
 
 The MICrONs dataset is an EM volume of mouse visual cortex that spans all
