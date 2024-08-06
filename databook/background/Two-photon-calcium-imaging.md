@@ -19,7 +19,7 @@ sensitivity and signal-to-noise ratio (SNR). These allow experimenters to observ
 Calcium-sensitive chemicals (fluorophores), which change their fluorescence properties upon
 binding to Ca{sup}`2+`, are central to calcium imaging. Fluorophores emit light in a 
 characteristic wavelength while being excited by a light source. There are generally two 
-types used in calcium imaging; fluorescent dyes and proteins called {term
+types used in calcium imaging; fluorescent dyes and proteins called {term}
 `genetically-encoded calcium indicator`s (GECIs). Dyes are chemicals which are
 manually introduced into the cell in question, while GECIs are naturally produced by a
 transgenic line. These indicators are introduced into neurons, resulting in the cells glowing 
