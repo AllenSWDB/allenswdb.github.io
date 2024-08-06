@@ -18,6 +18,10 @@ Basket cell
 Bipolar cell
   A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
 
+CCF
+Common Coordinate Framework
+  The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
