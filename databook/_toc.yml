@@ -13,11 +13,11 @@ parts:
       - file: background/experimental-setup
       - file: background/Neuropixels-electrophysiology
         sections:
-        - file: physiology/ephys/visual-coding/vcnp-quality-metrics
         - file: background/neuropixels-description
+        - file: physiology/ephys/visual-coding/vcnp-quality-metrics
+        - file: background/Optotagging.md
       - file: background/Two-photon-calcium-imaging
       - file: background/Ophys-ephys-comparison
-      - file: background/Optotagging.md
     - file: physiology/physiology                    # Also a placeholder that needs actual content
       sections:
       - file: physiology/ophys/ophys-overview                    # Also a placeholder that needs actual content
@@ -111,7 +111,6 @@ parts:
       - file: computational/data-analysis/regression.md
       - file: computational/data-analysis/GLM.md
       - file: computational/data-analysis/classification.md
-    - file: computational/nwb-files/pynwb_tutorial.md
   - caption: Resources
     chapters:
       - file: glossary

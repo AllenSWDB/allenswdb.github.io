@@ -136,7 +136,7 @@ Neuropixels
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
   hundred of single units from a single probe with minimal brain damage.
-  {cite:t}`jun2017` describes these probes.
+  {cite:t}`jun2017` describes these probes; a summary can also be found [here](neuropixels-description).
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
