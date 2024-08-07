@@ -26,6 +26,7 @@ We are using tools from BrainGlobe to help navigate this ontology {cite:p}`claud
 
 ```{code-cell} ipython3
 from pprint import pprint
+import os
 import brainglobe_atlasapi as atlasapi
 from brainglobe_atlasapi import BrainGlobeAtlas
 atlasapi.config.write_config_value('brainglobe_dir', '../../data/.brainglobe')
@@ -78,5 +79,6 @@ This can be very valuable if you are look for any neurons that are located in a 
 To see the entire structure of the tree you can use
 
 ```{code-cell} ipython3
+hide output
 atlas.structures
 ```
