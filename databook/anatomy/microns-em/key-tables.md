@@ -56,6 +56,8 @@ Rather than describe these for every table, they will just be mentioned briefly 
   - For reference tables, the data shows both the created/valid/id of the reference annotation and the target annotation. The values with the `_ref` suffix are those of the reference table (usually something like proofreading state or cell type) and the values without a suffix are those of the target table (usually a nucleus). 
 ```
 
++++
+
 ## Synapse Table
 
 Table name: `synapses_pni_v2`
@@ -79,18 +81,44 @@ It contains the following columns (in addition to the bookkeeping columns):
   - A position in the center of the detected synaptic junction. Of all points in the synapse table, this is usually the closest point to the surface (and thus mesh) of both neurons. Because it is at the edge of cells, it is not associated with a root id.
 ```
 
-## Nucleus Table
++++
 
-Table name: `nucleus_ref_neuron_svm`
+## Nucleus Tables
+The 'nucleus centroid' of a cell is unlikely to change with proofreading, and so is a useful static identifier for a given cell. The results of automatic nucleus segmentation and neuron-detection are avialable in the following tables. These tables are often the 'reference' table for other annotations.
+
+### Nucleus Detection Table
+
+Table name: `nucleus_detection_v0`
 
 Nucleus detection has been used to define unique cells in the dataset.
 Distinct from the neuronal segmentation, a convolutional neural network was trained to segment nuclei.
 Each nucleus detection was given a unique ID, and the centroid of the nucleus was recorded as well as its volume.
+Many other tables in the dataset are reference tables on `nucleus_detection_v0`, meaning they are linked by the same annotation id. 
+The id of the segmented nucelus, a 6-digit integer, is static across data versions and for this reason is the preferred method to identify the same 'cell' across time. 
+
+The key conucleus_detection_v0` are:s_detectio
+
+```{dropdown} Column Definitions
+```{list-table} 
+:header-rows: 1
+:name: Nucleus Table
+* - Column
+  - Description
+* - `id`
+  - 6-digit number of the segmentation for that nucleus; 'nucleus ID'.
+* - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
+  - Bound spatial point columns associated with the centroid of the nucleus.
+```
+
+Note that the `id` column is the nucleus ID, also called the 'soma ID' or the 'cell ID'.n_v### Neuron-Nucleus Table
+
+Table name: `nucleus_ref_neuron_svm`
+
 While the table of centroids for all nuclei is `nucleus_detection_v0`, this includes neuronal nuclei, non-neuronal nuclei, and some erroneous detections.
 The table `nucleus_ref_neuron_svm` shows the results of a classifier that was trained to distinguish neuronal nuclei from non-neuronal nuclei and errors.
 For the purposes of analysis, we recommend using the `nucleus_ref_neuron_svm` table to get the most broad collection of neurons in the dataset.
 
-The key columns of `nucleus_ref_neuron_svm` are:
+The key columns of `nucleus_ref_neuron_svf_neuron_svm` are:
 
 ```{dropdown} Column Definitions
 ```{list-table} 
@@ -108,22 +136,116 @@ The key columns of `nucleus_ref_neuron_svm` are:
   - The output of the classifier. All values will be either `neuron` or `not-neuron` (glia or error) for this table.
 ```
 
-Note that the `id` column is the same as the nucleus id.
+Note that the `id` cas the nucleus id.umn is the same 
+a
+
++++
 
 (em:cell-type-tables)=
 ## Cell Type Tables
 
-There are several tables that contain information about the cell type of neurons in the dataset, with each table representing a different method of doing the classification.
+There are several tables that contain information about the cell type of neurons in the dataset, with each table representing a different method of doing the classificaiton.
 Because each method requires a different kind of information, not all cells are present in all tables.
-Each of the cell types tables has the same format and in all cases the `id` column references the nucleus id of the cell in question.
+Each of the cell types tables has the same format and in all cases the `id` column references the nucleus id of the cell in questio
 
----
+### Manual Cell Types (V1 Column)
+
+Table name: `allen_v1_column_types_slanted_ref` and `aibs_column_nonneuronal_ref`
+
+A subset of nucleus detections in a 100 um column (n=2204) in VISp were manually classified by anatomists at the Allen Institute into categories of cell subclasses, first distinguishing cells into classes of non-neuronal, excitatory and inhibitory. 
+
+The key column
+```{list-table} 
+:header-rows: 1
+:name: AIBS Manual Cell Types, V1 Column
+* - Column
+  - Description
+* - `id`
+  - Soma ID for the cell.
+* - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
+  - Bound spatial point columns associated with the centroid of the nucleus.
+* - `classification-system`
+  - One of `aibs_coarse_excitatory` or `aibs_coarse_inhibitory` for detected neurons, or `aibs_coarse_nonneuronal` for non-neurons (glia/pericytes).
+* - `cell_type`
+  - One of several cell types, detailed below
+```
+
+```{dropdown} Manual Cell Types (neurons)
+```{list-table} 
+:header-rows: 1
+:name: Manual Cell Types (neurons)
+* - Cell Type
+  - Subclass
+  - Description
+* - `23P`
+  - Excitatory
+  - Layer 2/3 cells
+* - `4P` 
+  - Excitatory 
+  - Layer 4 cells 
+* - `5P-IT` 
+  - Excitatory 
+  - Layer 5 **i**ntra**t**elencephalic cells 
+* - `5P-ET` 
+  - Excitatory 
+  - Layer 5 **e**xtra**t**elencephalic cells 
+* - `5P-NP`
+  - Excitatory
+  - Layer 5 near-projecting cells
+* - `6P-IT`
+  - Excitatory
+  - Layer 6 **i**ntra**t**elencephalic cells
+* - `6P-CT`
+  - Excitatory
+  - Layer 6 **c**ortico**t**halamic cells
+* - `BC`
+  - Inhibitory
+  - {term}`basket cell`
+* - `BPC`
+  - Inhibitory
+  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
+* - `MC`
+  - Inhibitory
+  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`Somatostatin cell`, not only those with a {term}`Martinotti cell` morphology.
+* - `Unsure` 
+  - Inhibitory
+  - Unsure. *In practice, this label also is used for all likely-inhibitory neurons that did not match other types*
+```
+
+
+```{dropdown} Manual Cell Types (non-neurons)
+```{list-table} 
+:header-rows: 1
+:name: Manual Cell Types (non-neurons)
+* - Cell Type
+  - Subclass
+  - Description
+* - `OPC`
+  - Non-neuronal
+  - Oligodendrocyte precursor cells
+* - `astrocyte`
+  - Non-neuronal
+  - Astrocytes
+* - `microglia`
+  - Non-neuronal
+  - Microglia
+* - `pericyte`
+  - Non-neuronal
+  - Pericytes
+* - `oligo`
+  - Non-neuronal
+  - Oligodendroc``s are:
+
++++
+
 ### Predictions from soma/nucleus features
 
-Table name: `aibs_soma_nuc_metamodel_preds_v117`
+Table name: `aibs_metamodel_celltypes_v661`
 
 This table contains the results of a hierarchical classifier trained on features of the cell body and nucleus of cells. This was applied to most cells in the dataset that had complete cell bodies (e.g. not cut off by the edge of the data). For more details, see [Elabbady et al. 2022](https://www.biorxiv.org/content/10.1101/2022.07.20.499976v1). In general, this does a good job, but sometimes confuses layer 5 inhibitory neurons as being excitatory: 
+
 The key columns are:
+
 
 ```{dropdown} Column Definitions
 ```{list-table}
@@ -135,67 +257,71 @@ The key columns are:
   - Soma ID for the cell.
 * - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
   - Bound spatial point columns associated with the centroid of the cell nucleus.
-* - `classification-system`
-  - Either `aibs_neuronal` for neurons (Excitatory or inhibitory) or `aibs_non-neuronal` for non-neurons (glia/pericytes).
-* - `cell_type`
-  - One of several cell types:
-    ```{list-table}
-    :header-rows: 1
-    * - Cell Type
-      - Subclass
-      - Description
-    * - `23P`
-      - Excitatory
-      - Layer 2/3 cells 
-    * - `4P`
-      - Excitatory
-      - Layer 4 cells
-    * - `5P-IT`
-      - Excitatory
-      - Layer 5 **i**ntra**t**elencephalic cells
-    * - `5P-ET`
-      - Excitatory
-      - Layer 5 **e**xtra**t**elencephalic cells
-    * - `5P-NP`
-      - Excitatory
-      - Layer 5 near-projecting cells
-    * - `6P-IT`
-      - Excitatory
-      - Layer 6 **i**ntra**t**elencephalic cells
-    * - `6P-CT`
-      - Excitatory
-      - Layer 6 **c**ortico**t**halamic cells
-    * - `BC`
-      - Inhibitory
-      - {term}`basket cell`
-    * - `BPC`
-      - Inhibitory
-      - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
-    * - `MC`
-      - Inhibitory
-      - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`Somatostatin cell`, not only those with a {term}`Martinotti cell` morphology.
-    * - `NGC`
-      - Inhibitory
-      - Neurogliaform cells. In practice, this label also is used for all inhibitory neurons in layer 1, many of which may not be neurogliaform cells although they might be in the same molecular family.
-    * - `OPC`
-      - Non-neuronal
-      - Oligodendrocyte precursor cells
-    * - `astrocyte`
-      - Non-neuronal
-      - Astrocytes
-    * - `microglia`
-      - Non-neuronal
-      - Microglia
-    * - `pericyte`
-      - Non-neuronal
-      - Pericytes
-    * - `oligo`
-      - Non-neuronal
-      - Oligodendrocytes
-    ```
+* - `classification-system`One of `excitatory_neuron` or `inhibitory_neuron` for detected neurons, or `nonneuron` for non-neurons (glia/pericytes)tes).
+* - `cell_type`One of several cell types, detailed below
 ```
 
----
+```{dropdown} Soma-Nuc Metamodel Cell types
+```{list-table} 
+:header-rows: 1
+:name: AIBS Soma Nuc Metamodel: Cell Type definitions
+* - Cell Type
+  - Subclass
+  - Descrip* - `23P`
+  - Excitatory
+  - Layer 2/3 cells
+* - `4P` 
+  - Excitatory 
+  - Layer 4 cells 
+* - `5P-IT` 
+  - Excitatory 
+  - Layer 5 **i**ntra**t**elencephalic cells 
+* - `5P-ET` 
+  - Excitatory 
+  - Layer 5 **e**xtra**t**elencephalic cells 
+* - `5P-NP`
+  - Excitatory
+  - Layer 5 near-projecting cells
+* - `6P-IT`
+  - Excitatory
+  - Layer 6 **i**ntra**t**elencephalic cells
+* - `6P-CT`
+  - Excitatory
+  - Layer 6 **c**ortico**t**halamic cells
+* - `BC`
+  - Inhibitory
+  - {term}`basket cell`
+* - `BPC`
+  - Inhibitory
+  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
+* - `MC`
+  - Inhibitory
+  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`Somatostatin cell`, not only those with a {term}`Martinotti cell` morphology.
+* - `NGC` 
+  - Inhibitory 
+  - Neurogliaform cell. *In practice, this label also is used for all inhibitory neurons in layer 1, many of which may not be neurogliaform cells although they might be in the same molecular family*
+* - `OPC`
+  - Non-neuronal
+  - Oligodendrocyte precursor cells
+* - `astrocyte`
+  - Non-neuronal
+  - Astrocytes
+* - `microglia`
+  - Non-neuronal
+  - Microglia
+* - `pericyte`
+  - Non-neuronal
+  - Pericytes
+* - `oligo`
+  - Non-neuronal
+  - Oligodendrocytes
+```
+
+Previous versions of this table include: `aibs_soma_nuc_metamodel_preds_v117` (run on a subset of data, the V1 column) and `aibs_soma_nuc_exc_mtype_preds_v117` (using training data labeled by another classifier: see `mtypes` below). 
+   `
+
++++
+
 ### Coarse prediction from spine detection
 Table name: `baylor_log_reg_cell_type_coarse_v1`
 
@@ -219,24 +345,22 @@ The key columns are:
   - `excitatory` or `inhibitory`
 ```
 
----
++++
+
 ### Fine prediction from dendritic features
 
-Table name: `allen_column_mtypes_v1`
+Table name: `aibs_metamodel_mtypes_v661_v2`
 
-This table contains all neurons within a well-proofread 100 micron square column
-in {term}`VISp` spanning all layers. Excitatory neurons and inhibitory neurons
-were distinguished manually, and subclasses were assigned based on a data-driven
-clustering of the neuronal features. Inhibitory neurons were classified based on
-how they distributed they synaptic outputs onto target cells, while excitatory
-neurons were classified based on a collection of dendritic features. For more
+This table contains all detected neurons across the dataset, 
+
+Excitatory neurons and inhibitory neurons were distinguished with the `soma_nucleus` model above, and subclasses were assigned based on a data-driven clustering of the neuronal features. Inhibitory neurons were classified based on how they distributed they synaptic outputs onto target cells, while exictatory neurons were classified based on a collection of dendritic feature. 
+
+
+For more
 details, see the section on the {term}`minnie column` or read the
-preprint {cite:t}`schneider-mizell2023`. Note that all cell type labels in this
-column come from a clustering specific to this paper, and while they are
-intended to align with the broader literature they are not a direct mapping or a
-well-established convention. For a more conventional set of labels on the same
-set of cells, look at the table `allen_v1_column_types_slanted_ref`. Cell types
-in that table align with those in `aibs_soma_nuc_metamodel_preds_v117` above.
+preprint {cite:t}`schneider-mizell20Note that all cell-type labels in this table come from a clustering specific to this paper, and while they are intended to align with the broader literature they are not a direct mapping or a well-established convention. 
+
+For a more conventional set of labels on the same set of cells, look at the manual table `allen_v1_column_types_slanted_ref`. Cell types in that table align with those in the `aibs_metamodel_celltypes_v661` classifier above.bove.
 
 The key columns are:
 
@@ -244,7 +368,7 @@ The key columns are:
 ```{dropdown} Column Definitions
 ```{list-table}
 :header-rows: 1
-:name: Column M-type Table
+Column M-type Table
 * - Column
   - Description
 * - `id`
@@ -254,79 +378,78 @@ The key columns are:
 * - `classification-system`
   - `excitatory` or `inhibitory`.
 * - `cell_type`
-  - One of several cell types.
-    ```{list-table}
-    :header-rows: 1
-    * - Cell Type
-      - Subclass
-      - Description
-    * - `L2a`
-      - Excitatory
-      - A cluster of layer 2 (upper layer 2/3) excitatory neurons.
-    * - `L2b`
-      - Excitatory
-      - A cluster of layer 2 (upper layer 2/3) excitatory neurons.
-    * - `L3a`
-      - Excitatory
-      - A cluster of excitatory neurons transitioning between upper and lower layer 2/3.
-    * - `L3b`
-      - Excitatory
-      - A cluster of layer 3 (upper layer 2/3) excitatory neurons.
-    * - `L3c`
-      - Excitatory
-      - A cluster of layer 3 (upper layer 2/3) excitatory neurons.
-    * - `L4a`
-      - Excitatory
-      - The largest cluster of layer 4 excitatory neurons.
-    * - `L4b`
-      - Excitatory
-      - Another cluster of layer 4 excitatory neurons.
-    * - `L4c`
-      - Excitatory
-      - A cluster of layer 4 excitatory neurons along the border with layer 5.
-    * - `L5a`
-      - Excitatory
-      - A cluster of layer 5 IT neurons at the top of layer 5.
-    * - `L5b`
-      - Excitatory
-      - A cluster of layer 5 IT neurons throughout layer 5.
-    * - `L5ET`
-      - Excitatory
-      - The cluster of layer 5 ET neurons.
-    * - `L5NP`
-      - Excitatory
-      - The cluster of layer 5 NP neurons.
-    * - `L6a`
-      - Excitatory
-      - A cluster of layer 6 IT neurons at the top of layer 6.
-    * - `L6b`
-      - Excitatory
-      - A cluster of layer 6 IT neurons throughout layer 6. Note that this is different than the label "Layer 6b" which refers to a narrow band at the border between layer 6 and white matter.
-    * - `L6c`
-      - Excitatory
-      - A cluster of tall layer 6 cells (unsure if IT or CT).
-    * - `L6CT`
-      - Excitatory
-      - A cluster of tall layer 6 cells matching manual CT labels.
-    * - `L6wm`
-      - Excitatory
-      - A cluster of layer 6 cells along the border with white matter.
-    * - `PTC`
-      - Inhibitory
-      - Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to {term}`basket cell`s.
-    * - `DTC`
-      - Inhibitory
-      - Dendrite targeting cells, a cluster of inhibitory neurons that target the distal dendrites of excitatory neurons. Most SST cells would be DTCS.
-    * - `STC`
-      - Inhibitory
-      - Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many neurogliaform cells and layer 1 interneurons fall into this category.  
-    * - `ITC`
-      - Inhibitory
-      - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP cell`s would be ITCs.
-    ```
+  - One of several cel, detailed below
 ```
 
----
+```{dropdown} Motif Cell types (mtypes)
+```{list-table} 
+:header-rows: 1
+:name: M-type: Cell Type defin* - Cell Type
+  - Subclass
+  - Description
+* - `L2a` 
+  - Excitatory 
+  - A cluster of layer 2 (upper layer 2/3) excitatory neurons * -  `L2b`
+  -  Excitatory
+  -  A cluster of layer 2 (upper layer 2/3) excitatory neurons * - | `L3a
+  - | Excitator
+  - | A cluster of excitatory neurons transitioning between upper and lower layer 2/|* - 
+| `L3
+  -  | Excitat
+  -  | A cluster of layer 3 (upper layer 2/3) excitatory neuros * - 
+| `L
+  - ` | Excitat
+  - y | A cluster of layer 3 (upper layer 2/3) excitatory neurns* -  
+| 
+  - a` | Excita
+  -  ry | The largest cluster of layer 4 excitatory neuon* - | 
+| 
+  - 4b` | Excit
+  - ory | Another cluster of layer 4 excitatory neo* -  | 
+|
+  - L4c` | Exci
+  - tory | A cluster of layer 4 excitatory neurons along the border with lye* - `L5a` 
+  - Excitatory 
+  - A cluster of layer 5 IT neurons at the top of layer 5  * -| `L5b
+  -  Excitatory
+  -  A cluster of layer 5 IT neurons throughout layer 5  cel`L5ET` 
+  - Excitatory 
+  - The cluster of layer 5 ET neurons  * -  `L5NP`
+  -  Excitator
+  -  The cluster of layer 5 NP neurons * - | `L6a
+  - | Excitator
+  - | A cluster of layer 6 IT neurons at the top of layer |* - 
+| `L6
+  -  | Excitato
+  -  | A cluster of layer 6 IT neurons throughout layer 6. *Note that this is different than the label "Layer 6b" which refers to a narrow band at the border between layer 6 and white matte * - 
+| `L
+  - ` | Excitat
+  - y | A cluster of tall layer 6 cells (unsure if IT or )* -  
+| `L
+  - T` | Excita
+  - ry | A cluster of tall layer 6 cells matching manual CT la
+* - | 
+| `
+  - wm` | Excit
+  - ory | A cluster of layer 6 cells along the border with white m
+* - `PTC` 
+  - Inhibitory 
+  - Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to **basket cell** 
+* -  `DTC
+  -  Inhibitory
+  -  Dendrite targeting cells, a cluster of inhibitory neurons that target the distal dendrites of excitatory neurons. Most **SST cells** would be DTC
+* - | `STC
+  - | Inhibitor
+  - | Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many **neurogliaform cells** and layer 1 interneurons fall into this catego * - 
+| `IT
+  -  | Inhibito
+  -  | Inhibitory targeting cells, a cluster of inhibitory neurons that preferntially target other inhibitory neuro s. Most **VIP cells** would be Is |t
+
+Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)er |  family*
+```bes.
+ `
+
++++
 
 (em:proofreading-tables)=
 ## Proofreading Tables
@@ -365,7 +488,34 @@ The key columns are:
 ```
 
 
----
+This table has been superseded by: `proofreading_status_and_strategy` as of version 1078. 
+
+The key columns are:
+
+```{dropdown}  Column Definitions
+```{list-table} 
+:header-rows: 1
+
+* - Column
+  - Description
+* - `id`
+  - ID within the proofreading table (not cell id).
+* - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
+  - Bound spatial point columns associated with the centroid of the cell nucleus being proofread.
+* - `valid_id`
+  - The root id of the neuron when it the proofreading assessment was made.
+* - `status_dendrite`
+  - Boolean, `True` if the dendrite is at least 'clean', or `False` if not proofread
+* - `status_axon`
+  - Boolean, `True` if the axon is at least 'clean', or `False` if not proofread
+* - `strategy_dendrite`
+  - The strategy empolyed when proofreading the dendrite.
+* - `strategy_axon`
+  - The strategy employed when proofreading the axon. 
+```
+
++++
+
 (em:functional-coreg)=
 ## Functional Coregistration Tables
 
@@ -406,11 +556,9 @@ The column descriptions are:
   Larger values indicate fewer nearby neurons that could be confused with the assigned neuron.
 ```
 
++++
 
-
----
-
-## All Tables
+## Other tables
 
 ```{list-table}
 :header-rows: 1

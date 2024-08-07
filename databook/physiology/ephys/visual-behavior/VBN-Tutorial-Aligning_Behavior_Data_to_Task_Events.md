@@ -313,8 +313,12 @@ def get_change_time_from_stim_table(row):
     if np.isnan(change_frame):
         return np.nan
 
-    change_time = table[table.start_frame==change_frame]\
-                    ['start_time'].values[0]
+    change_times = table[table.start_frame==change_frame]['start_time'].values
+
+    if len(change_times) == 0:
+        return np.nan
+    else:
+        return change_times[0]
 
     return change_time
 

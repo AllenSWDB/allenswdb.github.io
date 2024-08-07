@@ -94,7 +94,8 @@ Location of the Minnie column (yellow) within the dataset. Top view.
 ```
 
 The Minnie Column is a collection of more than 1,300 neurons whose nucleus centroid fell within a 100 x 100 micron square (viewed from the top) and extending across all layers.
-This was originally considered a region of interest for a [comprehensive census of the neuronal population](https://www.biorxiv.org/content/10.1101/2023.01.23.525290v2), and thus all neurons in this region were proofread to some extent and manually evaluated.
+
+This was originally considered a region of interest for a comprehensive census of the neuronal population {cite:t}`schneider-mizell2023`, and thus all neurons in this region were proofread to some extent and manually evaluated.
 All excitatory neurons had their dendrites cleaned and extended to assess dendritic morphology and synaptic inputs, while inhibitory neurons had both their dendrites cleaned and extended, and then their axons were extensively cleaned and extended to capture their targeting properties.
 Efforts were made to extend inhibitory axons to every major region of their arbor, but not every individual tip was followed and the resulting analysis focused on population-level connectivity rather than individual connections.
 

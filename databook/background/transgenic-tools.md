@@ -50,7 +50,7 @@ reporter in a subset of cells defined by the driver line. Image taken from
 ## Driver lines used here
 
 A driver line is a transgenic mouse line in which mice have had the gene for Cre
-or another recombinase inserted into their genome, commonly under the control of
+or another recombinase (such as tTA) inserted into their genome, commonly under the control of
 a specific promoter. Promoters are often expressed pretty broadly across the
 brain, but can also be extremely specific. Here are the driver lines and their
 expression patterns for lines used in our data sets. Note that in the absence of
@@ -61,6 +61,11 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
   D2 dopamine receptor. These are MSNs part of the indirect pathway.
 
 <b>Camk2a-tTA</b>
+: The is a broadly expressed promoter that uses the tetracycline-controlled transactivator
+protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of
+our applications, we combine both Cre and tTA to drive the expression of our reporters.
+
+<b>Cart-IRES2-Cre</b>
 :
 
 <b>Chat-IRES-Cre-neo</b>
@@ -68,6 +73,10 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 
 <b>Cux2-CreERT2</b>
 : In cortex, drives expression in excitatory neurons in layer 2/3 and 4.
+
+<b>Dbh-Cre-KI</b>
+: Drives expression in noradrenergic and adrenegic neurons - i.e. neurons that release
+norepinephrine.
 
 <b>Drd1a-Cre</b>
 : In striatum, drives expression in medium spiny neurons (MSNs) expressing the
@@ -83,6 +92,9 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 
 <b>Fezf2-CreER</b>
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
+
+<b>Gal-Cre_KI187</b>
+:
 
 <b>Nr5a1-Cre</b>
 : In cortex, drives expression in excitatory neurons in layer 6.
@@ -102,6 +114,10 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 <b>Scnn1a-Tg3-Cre</b>
 : In cortex, drives expression in a sub-population of excitatory neurons in
   layer 4. Only found in primary sensory areas (e.g. VISp)
+
+<b>Slc17a6-IRES-Cre</b>
+: A pan-excitatory driver - drives expression in excitatory neurons - with weak expression
+in cortex.
 
 <b>Slc17a7-IRES2-Cre</b>
 : In cortex, a pan-excitatory driver - drives expression in excitatory neurons
@@ -126,25 +142,28 @@ GCaMP). Here are the reporter lines used in our data sets:
 
 <b>Ai93</b>
 : TITL-GCaMP6f-D. Cre/Tet dependent fluorescent GCaMP6f indicator expressing
-  GCaMP6 <i>fast</i>. This has lower expression that the Ai148 described below
-  and is often used alongside Camk2a-tTA to enhance the expression in excitatory
-  neurons.
+  GCaMP6 <i>fast</i>. This is often used alongside Camk2a-tTA to enhance the
+  expression in excitatory neurons.
 
 <b>Ai94</b>
 : TITL-GCaMP6s;Rosa26-ZtTA. Cre/Tet dependent fluorescent GCaMP6s indicator
-  expressing GCaMP6 <i>slow</i>. This has lower expression that the Ai162
-  described below and is often used alongside Camk2a-tTA to enhance the
-  expression in excitatory neurons.
+  expressing GCaMP6 <i>slow</i>. This is often used alongside Camk2a-tTA to
+  enhance the expression in excitatory neurons.
 
 <b>Ai148</b>
 : TIT2L-GC6f-ICL-tTA2_D. Cre/Tet dependent fluorescent GCaMP6f indicator
   expressing GCaMP6 <i>fast</i>. This is a second generation reporter that uses
-  a new TIGRE2 construct that drives higher expression.
+  a new TIGRE2 construct that contains more tTA to drive higher expression.
 
 <b>Ai162</b>
 : TIT2L-GC6s-ICL-tTA2_D. Cre/Tet dependent fluorescent GCaMP6s indicator
   expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses
-  a new TIGRE2 construct that drives higher expression.
+  a new TIGRE2 construct that contains more tTA to drives higher expression.
+
+<b>Ai166</b>
+: TIT2L-MORF-ICL-tTA2. A Cre dependent reporter that drives sparse labeling with
+GFP. The MORF introduces a stochastic translational switch, only labeling 1-5% of
+Cre+ neurons.
 
 <b>Ai32</b>
 : Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE. Cre dependent expression of
@@ -179,6 +198,16 @@ expressing Cre.
 
 <b>AAV5-hSyn-DIO-somBiPOLES-mCerulean</b>
 : Cre dependent expression of BiPOLES, fused with mCerulean for visualization.
+
+<b>AAV-PHP-eB_Syn-Flex-2xTRE-tTA</b>
+: Cre dependent tTA promoter. Often this is used to regulate the gain of expression
+of Cre/Tet dependent reporters - e.g. to get sparse but strong labeling.
+
+<b>AAV-PHP-eB-7xTRE-3x-GFP</b>
+: A Cre/Tet dependent reporter that expresses {term}`GFP`.
+
+<b>AAV-PHP-eB-7xTRE-TdTomato</b>
+: A Cre/Tet dependent reporter that expresses TdTomato, a red fluorescent protein.
 
 ### Enhancer AAVs
 
