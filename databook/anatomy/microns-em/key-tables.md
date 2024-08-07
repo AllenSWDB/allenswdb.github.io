@@ -271,7 +271,7 @@ The key columns are:
 ````{dropdown} Soma-Nuc Metamodel Cell types
 ```{list-table} 
 :header-rows: 1
-:name: AIBS Soma Nuc Metamodel - Cell Type definitions
+:name: "AIBS Soma Nuc Metamodel: Cell Type definitions"
 * - Cell Type
   - Subclass
   - Description
@@ -390,7 +390,7 @@ The key columns are:
 ````{dropdown} Motif Cell types (mtypes)
 ```{list-table} 
 :header-rows: 1
-:name: M-type: Cell Type defin
+:name: "M-type: Cell Type definition"
 * - Cell Type
   - Subclass
   - Description
