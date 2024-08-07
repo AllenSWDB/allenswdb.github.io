@@ -77,6 +77,9 @@ GCaMP
   as their kinetics — primarily with regards to their decay. For more see
   {cite:t}`chen2013`.
 
+GFP
+  Green fluorescent protein. Discovered at FHL.
+
 Higher visual area
 HVA
   A **higher visual area** is a term for cortical visual areas that receive
