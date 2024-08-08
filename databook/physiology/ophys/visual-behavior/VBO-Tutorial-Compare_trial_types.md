@@ -246,7 +246,7 @@ def add_image_colors(stimulus_presentations):
     colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
     colormap['omitted'] = [1, 1, 1] # assign white to omitted
     # add color column to stimulus presentations
-    stimulus_presentations['color'] = stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+    stimulus_presentations['color'] = stimulus_presentations['image_name'].map(lambda image_name: colormap[str(image_name)])
     return stimulus_presentations
 
 
