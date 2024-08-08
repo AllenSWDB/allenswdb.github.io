@@ -30,7 +30,7 @@ Cre line
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells. For specific lines used, see
-  the section on [transgenic tools](transgenic-tools).
+  the section on [transgenic tools](/databook/background/transgenic-tools).
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -149,7 +149,7 @@ Neuropixels
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
   hundred of single units from a single probe with minimal brain damage.
-  {cite:t}`jun2017` describes these probes; a summary can also be found [here](neuropixels-description).
+  {cite:t}`jun2017` describes these probes; a summary can also be found [here](/databook/background/neuropixels-description).
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
@@ -163,7 +163,7 @@ Optogenetics
 
 Optotagging
   A technique that uses {term}`optogenetics` in order to identify neurons that belong to
-  a specific subpopulation. See: [Optotagging](Optotagging).
+  a specific subpopulation. See: [Optotagging](/databook/background/Optotagging).
 
 Parvalbumin-positive interneuron
 PV+ neuron
