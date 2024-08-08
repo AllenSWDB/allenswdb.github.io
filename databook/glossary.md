@@ -92,6 +92,12 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
+hyperparameter
+  A free parameter that controls behaviors in machine learning algorithms. These
+  are distinct from parameters which control behaviors of the models developed by
+  the algorithms; hyperparameters affect how the algorithm finds the models in
+  the first place.
+
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
