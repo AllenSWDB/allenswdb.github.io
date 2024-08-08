@@ -81,11 +81,8 @@ This will return a subset of the full `behavior_session_table` in which the mous
 What we then see is a table that has metadata for every session performed by this mouse, in sequential order. The `equipment_name` column tells us where the session was run on that day and the `session_type` column tells us the name of the session type. See the technical white paper for a detailed description of the progression of stages.
 
 ```{code-cell} ipython3
-{
-    "tags": [
-        "hide-output"
-    ]
-}
+
+:tags: [hide-output]
 
 this_mouse_table = behavior_session_table.query('mouse_id == @mouse_id').sort_values(by = 'date_of_acquisition')
 # note that the following is functionally equivalent if you find the syntax easier to read: 

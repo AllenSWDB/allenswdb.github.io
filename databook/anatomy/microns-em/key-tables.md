@@ -267,7 +267,7 @@ The key columns are:
 ```{dropdown} Soma-Nuc Metamodel Cell types
 ```{list-table} 
 :header-rows: 1
-:name: AIBS Soma Nuc Metamodel: Cell Type definitions
+:name: AIBS Soma Nuc Metamodel - Cell Type definitions
 * - Cell Type
   - Subclass
   - Description

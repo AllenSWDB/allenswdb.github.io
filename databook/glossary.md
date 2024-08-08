@@ -23,14 +23,14 @@ Common Coordinate Framework
   The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
 Cre line
-  The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
+  The Cre-lox system is a site-specific recombinase technology. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
   DNA between specific sites known as <b>loxP</b> sequences. As used in these
   experiments, Cre is used with loxP {term}`Reporter line` in order to drive
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells. For specific lines used, see
-  the section on [transgenic tools](/databook/background/transgenic-tools).
+  the section on [transgenic tools](background/transgenic-tools.md).
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -149,7 +149,7 @@ Neuropixels
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
   hundred of single units from a single probe with minimal brain damage.
-  {cite:t}`jun2017` describes these probes; a summary can also be found [here](/databook/background/neuropixels-description).
+  {cite:t}`jun2017` describes these probes; a summary can also be found [here](background/neuropixels-description).
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
@@ -163,7 +163,7 @@ Optogenetics
 
 Optotagging
   A technique that uses {term}`optogenetics` in order to identify neurons that belong to
-  a specific subpopulation. See: [Optotagging](/databook/background/Optotagging).
+  a specific subpopulation. See: [Optotagging](background/Optotagging).
 
 Parvalbumin-positive interneuron
 PV+ neuron
