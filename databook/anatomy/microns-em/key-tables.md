@@ -235,6 +235,7 @@ The key column
 * - `oligo`
   - Non-neuronal
   - Oligodendroc``s are:
+```
 
 +++
 
@@ -453,8 +454,7 @@ Column M-type Table
 * -  `ITC`
   -  Inhibitory
   -  Inhibitory targeting cells, a cluster of inhibitory neurons that preferntially target other inhibitory neurons. Most **VIP cells** would be (MISSING CHARACTERS) Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)er |  family* (MISSING CHARACTERS)
-```bes.
- `
+```
 
 +++
 
