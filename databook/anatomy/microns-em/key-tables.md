@@ -262,8 +262,10 @@ The key columns are:
   - Soma ID for the cell.
 * - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
   - Bound spatial point columns associated with the centroid of the cell nucleus.
-* - `classification-system`One of `excitatory_neuron` or `inhibitory_neuron` for detected neurons, or `nonneuron` for non-neurons (glia/pericytes)tes).
-* - `cell_type`One of several cell types, detailed below
+* - `classification-system`
+  - One of `excitatory_neuron` or `inhibitory_neuron` for detected neurons, or `nonneuron` for non-neurons (glia/pericytes).
+* - `cell_type`
+  - One of several cell types, detailed below
 ```
 
 ````{dropdown} Soma-Nuc Metamodel Cell types
@@ -458,7 +460,6 @@ The key columns are:
 ```
 
 Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)
-```
 ````
 
 +++
@@ -625,3 +626,4 @@ The column descriptions are:
 * - `baylor_gnn_cell_type_fine_model_v2`
   - 49,051
   - Reference annotations indicated the output of a graph neural network model predicting the cell type based on the human labels in allen_v1_column_types_slanted_ref.
+```

@@ -18,6 +18,10 @@ Basket cell
 Bipolar cell
   A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
 
+CCF
+Common Coordinate Framework
+  The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
@@ -26,7 +30,7 @@ Cre line
   recombinase of the loxP sites and drive the expression of the reporter. As Cre
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells. For specific lines used, see
-  the section on [transgenic tools](transgenic-tools).
+  the section on [transgenic tools](/databook/background/transgenic-tools).
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -88,6 +92,12 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
+hyperparameter
+  A free parameter that controls behaviors in machine learning algorithms. These
+  are distinct from parameters which control behaviors of the models developed by
+  the algorithms; hyperparameters affect how the algorithm finds the models in
+  the first place.
+
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
@@ -139,7 +149,7 @@ Neuropixels
   and the Allen Institute. These devices utilize modern integrated circuit
   design to miniaturize aspects of electrophysiology, enabling recordings of
   hundred of single units from a single probe with minimal brain damage.
-  {cite:t}`jun2017` describes these probes; a summary can also be found [here](neuropixels-description).
+  {cite:t}`jun2017` describes these probes; a summary can also be found [here](/databook/background/neuropixels-description).
 
 Ophys
   Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
@@ -153,7 +163,7 @@ Optogenetics
 
 Optotagging
   A technique that uses {term}`optogenetics` in order to identify neurons that belong to
-  a specific subpopulation. See: [Optotagging](Optotagging).
+  a specific subpopulation. See: [Optotagging](/databook/background/Optotagging).
 
 Parvalbumin-positive interneuron
 PV+ neuron

@@ -68,7 +68,7 @@ There are limits to what we can see using two-photon miscroscopy, however. Two-p
 
 ## Event detection
 
-The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluorescence traces. However, population recordings like the ones in our [ophys](ophys-background) datasets, are routinely made with lower spatial and temporal resolutions. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
+The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluorescence traces. However, population recordings like the ones in our [ophys](/databook/physiology/ophys/ophys-overview) datasets, are routinely made with lower spatial and temporal resolutions. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
 
 ![downsampling](/resources/Huang_downsampling.png)
 

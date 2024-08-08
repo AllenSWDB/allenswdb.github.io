@@ -13,7 +13,7 @@ kernelspec:
 
 # Visual Stimuli
 
-Two possible stimulus sets were used in the Visual Coding - Neuropixels project, known as `Brain Observatory 1.1` or `Functional Connectivity`. The former is largely similar to the visual stimuli used in the Visual Coding 2-photon dataset, with some key adaptations (described below). Each mouse only saw one of these two stimulus sets. It addition to these visual stimuli, an [optotagging](Optotagging.md) stimulus was also used in each of these sessions.
+Two possible stimulus sets were used in the Visual Coding - Neuropixels project, known as `Brain Observatory 1.1` or `Functional Connectivity`. The former is largely similar to the visual stimuli used in the Visual Coding 2-photon dataset, with some key adaptations (described below). Each mouse only saw one of these two stimulus sets. It addition to these visual stimuli, an [optotagging](../../../background/Optotagging.md) stimulus was also used in each of these sessions.
 
 ## Brain Observatory 1.1
 
