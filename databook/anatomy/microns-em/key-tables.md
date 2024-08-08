@@ -257,8 +257,10 @@ The key columns are:
   - Soma ID for the cell.
 * - `pt_position` \ `pt_supervoxel_id` \ `pt_root_id`
   - Bound spatial point columns associated with the centroid of the cell nucleus.
-* - `classification-system`One of `excitatory_neuron` or `inhibitory_neuron` for detected neurons, or `nonneuron` for non-neurons (glia/pericytes)tes).
-* - `cell_type`One of several cell types, detailed below
+* - `classification-system`
+  - One of `excitatory_neuron` or `inhibitory_neuron` for detected neurons, or `nonneuron` for non-neurons (glia/pericytes).
+* - `cell_type`
+  - One of several cell types, detailed below
 ```
 
 ```{dropdown} Soma-Nuc Metamodel Cell types
@@ -267,7 +269,8 @@ The key columns are:
 :name: AIBS Soma Nuc Metamodel: Cell Type definitions
 * - Cell Type
   - Subclass
-  - Descrip* - `23P`
+  - Description
+  - `23P`
   - Excitatory
   - Layer 2/3 cells
 * - `4P` 
@@ -389,63 +392,67 @@ Column M-type Table
   - Description
 * - `L2a` 
   - Excitatory 
-  - A cluster of layer 2 (upper layer 2/3) excitatory neurons * -  `L2b`
+  - A cluster of layer 2 (upper layer 2/3) excitatory neurons 
+* -  `L2b`
   -  Excitatory
-  -  A cluster of layer 2 (upper layer 2/3) excitatory neurons * - | `L3a
-  - | Excitator
-  - | A cluster of excitatory neurons transitioning between upper and lower layer 2/|* - 
-| `L3
-  -  | Excitat
-  -  | A cluster of layer 3 (upper layer 2/3) excitatory neuros * - 
-| `L
-  - ` | Excitat
-  - y | A cluster of layer 3 (upper layer 2/3) excitatory neurns* -  
-| 
-  - a` | Excita
-  -  ry | The largest cluster of layer 4 excitatory neuon* - | 
-| 
-  - 4b` | Excit
-  - ory | Another cluster of layer 4 excitatory neo* -  | 
-|
-  - L4c` | Exci
-  - tory | A cluster of layer 4 excitatory neurons along the border with lye* - `L5a` 
-  - Excitatory 
-  - A cluster of layer 5 IT neurons at the top of layer 5  * -| `L5b
+  -  A cluster of layer 2 (upper layer 2/3) excitatory neurons 
+* -  `L3a`
   -  Excitatory
-  -  A cluster of layer 5 IT neurons throughout layer 5  cel`L5ET` 
-  - Excitatory 
-  - The cluster of layer 5 ET neurons  * -  `L5NP`
+  -  A cluster of excitatory neurons transitioning between upper and lower layer 2/3
+* -  `L3b`
+  -  Excitatory
+  -  A cluster of layer 3 (upper layer 2/3) excitatory neurons 
+* -  `L3c`
+  -  Excitatory
+  -  A cluster of layer 3 (upper layer 2/3) excitatory neurons
+* -  `L4a`
+  -  Excitatory
+  -  The largest cluster of layer 4 excitatory neurons
+* -  `L4b` 
+  -  Excitatory
+  -  Another cluster of layer 4 excitatory neurons* 
+* -  `L4c`
+  -  Excitatory 
+  -  A cluster of layer 4 excitatory neurons along the border with lye (MISSING CHARACTERS)
+* -  `L5a` 
+  -  Excitatory 
+  -  A cluster of layer 5 IT neurons at the top of layer 5  
+* -  `L5b`
+  -  Excitatory
+  -  A cluster of layer 5 IT neurons throughout layer 5 cel (MISSING CHARACTERS)
+* -  `L5ET` 
+  -  Excitatory 
+  -  The cluster of layer 5 ET neurons  (MISSING CHARACTERS)
+* -  `L5NP`
   -  Excitator
-  -  The cluster of layer 5 NP neurons * - | `L6a
-  - | Excitator
-  - | A cluster of layer 6 IT neurons at the top of layer |* - 
-| `L6
-  -  | Excitato
-  -  | A cluster of layer 6 IT neurons throughout layer 6. *Note that this is different than the label "Layer 6b" which refers to a narrow band at the border between layer 6 and white matte * - 
-| `L
-  - ` | Excitat
-  - y | A cluster of tall layer 6 cells (unsure if IT or )* -  
-| `L
-  - T` | Excita
-  - ry | A cluster of tall layer 6 cells matching manual CT la
-* - | 
-| `
-  - wm` | Excit
-  - ory | A cluster of layer 6 cells along the border with white m
-* - `PTC` 
-  - Inhibitory 
-  - Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to **basket cell** 
-* -  `DTC
+  -  The cluster of layer 5 NP neurons (MISSING CHARACTERS)
+* -  `L6a`
+  -  Excitatory
+  -  A cluster of layer 6 IT neurons at the top of layer
+* -  `L6b`
+  -  Excitatory
+  -  A cluster of layer 6 IT neurons throughout layer 6. *Note that this is different than the label "Layer 6b" which refers to a narrow band at the border between layer 6 and white matter (MISSING CHARACTERS)
+* -  `L6` (MISSING CHARACTERS)
+  -  Excitatory
+  -  A cluster of tall layer 6 cells (unsure if IT or (MISSING CHARACTERS)
+* -  `L6` (MISSING CHARACTERS)
+  -  Excitatory
+  -  A cluster of tall layer 6 cells matching manual CT la (MISSING CHARACTERS)
+* -  `L6wm` (MISSING CHARACTERS)
+  -  Excitatory
+  -  A cluster of layer 6 cells along the border with white m (MISSING CHARACTERS)
+* -  `PTC` 
+  -  Inhibitory 
+  -  Perisomatic targeting cells, a cluster of inhibitory neurons that target the soma and proximal dendrites of excitatory neurons. Approximately corresponds to **basket cell** 
+* -  `DTC`
   -  Inhibitory
   -  Dendrite targeting cells, a cluster of inhibitory neurons that target the distal dendrites of excitatory neurons. Most **SST cells** would be DTC
-* - | `STC
-  - | Inhibitor
-  - | Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many **neurogliaform cells** and layer 1 interneurons fall into this catego * - 
-| `IT
-  -  | Inhibito
-  -  | Inhibitory targeting cells, a cluster of inhibitory neurons that preferntially target other inhibitory neuro s. Most **VIP cells** would be Is |t
-
-Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)er |  family*
+* -  `STC`
+  -  Inhibitory
+  -  Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many **neurogliaform cells** and layer 1 interneurons fall into this category (MISSING CHARACTERS)
+* -  `ITC`
+  -  Inhibitory
+  -  Inhibitory targeting cells, a cluster of inhibitory neurons that preferntially target other inhibitory neurons. Most **VIP cells** would be (MISSING CHARACTERS) Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)er |  family* (MISSING CHARACTERS)
 ```bes.
  `
 

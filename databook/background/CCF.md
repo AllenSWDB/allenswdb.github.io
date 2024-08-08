@@ -29,7 +29,7 @@ from pprint import pprint
 import os
 import brainglobe_atlasapi as atlasapi
 from brainglobe_atlasapi import BrainGlobeAtlas
-atlasapi.config.write_config_value('brainglobe_dir', '../../data/.brainglobe')
+atlasapi.config.write_config_value('brainglobe_dir', '/root/capsule/data/.brainglobe')
 ```
 
 First we import the atlas we want to use. There are multiple resolutions available, but for exploring the ontology we can use any. Here we'll use the 25um version.
