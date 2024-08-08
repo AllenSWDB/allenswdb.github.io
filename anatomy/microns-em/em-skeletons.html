@@ -1,0 +1,1493 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Skeletons &#8212; SWDB 2023 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'anatomy/microns-em/em-skeletons';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/anatomy/microns-em/em-skeletons.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Meshes" href="em-meshes.html" />
+    <link rel="prev" title="Imagery and Segmentation" href="em-volume-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2023 Data Book - Home"/>
+    <script>document.write(`<img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2023 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology/physiology.html">Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/stimuli/stimuli.html">Stimuli</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physiology/pyNWB/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../anatomy.html">Anatomy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="em-background.html">EM Connectomics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="key-tables.html">Annotation Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-volume-data.html">Imagery and Segmentation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-data.html">Single Cell Morphology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/classification.html">Classification</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/anatomy/microns-em/em-skeletons.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fanatomy/microns-em/em-skeletons.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/anatomy/microns-em/em-skeletons.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Skeletons</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-meshwork-files">Working with Meshwork Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meshwork-nrn-mesh-vs-nrn-skeleton">Meshwork nrn.mesh vs nrn.skeleton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton-properties-and-methods">Skeleton Properties and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-sets-of-points">Indexing And Selecting Sets of Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-pre-generated-skeleton">Loading a pre-generated skeleton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations">Annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-annotations-by-skeleton-arbor">Filtering Annotations by Skeleton Arbor</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="skeletons">
+<h1>Skeletons<a class="headerlink" href="#skeletons" title="Permalink to this heading">#</a></h1>
+<p>Often in thinking about neurons, you want to measure things along a linear dimension of a neuron.
+However, the segmentation is a full complex 3d shape that makes this non-trivial.
+There are methods for reducing the shape of a segmented neuron down to a linear tree like structure usually referred to as a skeleton. We have precalculated skeletons for a large number of cells in the dataset, including all the proofread cells, and many of the excitatory cells with a single soma in the dataset, and these are available on the hard drives and in the aws directory.
+These skeletons are stored in an h5 file format, and also contain annotations on the skeletons that have the synapses, which skeleton nodes are axon and which are dendrite, and which are likely the apical dendrite of excitatory neurons.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/skeleton-cartoon.png" src="../../_images/skeleton-cartoon.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Cartoon illustration of “level 2” graph and skeletons.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In order to understand these skeletons, you have to understand how large scale EM data is represented. Portions of 3d space are broken up into chunks, such as the grid in the image above. Neurons, such as the cartoon green cell above, span many chunks. Components of the segmentation that live within a single chunk are called level 2 ids, this is because in fact the chunks get iteratively combined into larger chunks, until the chunks span the whole volume. We call this the PyChunkedGraph or PCG, after the library which we use to store and interact with this representation. Level 0 is the voxels, level 1 refers to the grouping of voxels within the chunk (also known as supervoxels) and level 2 are the groups of supervoxels within a chunk. A segmentation result can be thought of as a graph at any of these levels, where the voxels, supervoxels, or level 2 ids that are part of the same object are connected. In the above diagram, the PCG level 2 graph is represented as the light red lines.</p>
+<p>Such graphs are useful in that they track all the parts of the neuron that are connected to one another, but they aren’t skeletons, because the graph is not directed, and isn’t a simple branching structure.</p>
+<p>In order to turn them into a skeleton we have to run an algorithm, that finds a tree like structure that covers the graph and gets close to every node. This is called the TEASAR algorithm and you can read more about how to skeletonize graphs in the <a class="reference external" href="https://meshparty.readthedocs.io/en/latest/guide/skeletons.html#skeletonization">MeshParty documentation</a>.</p>
+<p>The result of the algorithm, when applied to a level 2 graph, is a linear tree (like the dotted purple one shown above), where a subset of the level 2 chunks are vertices in that tree, but all the unused level 2 nodes “near” a vertex (red unfilled circles) on the graph are mapped to one of the skeleton vertices (black arrows). This means there are two sets of indices, mesh indices, and skeleton indices, which have a mapping between them (see diagram above).</p>
+<p>The Meshwork library allows us to easily store these representations and helps us relate them to each other. A Meshwork object is a data structure that is designed to have three main components that are kept in sync with mesh and skeleton indices:</p>
+<ul class="simple">
+<li><p>mesh: the graph of PCG level2 ID nodes that are skeletonized, stored as a standard meshparty mesh. Note that this is not the high resolution mesh that you see in neuroglancer.</p></li>
+<li><p>skeleton: a meshparty skeleton,</p></li>
+<li><p>anno : is a class that holds dataframes and adds some extra info to keep track of indexing.</p></li>
+</ul>
+<section id="working-with-meshwork-files">
+<h2>Working with Meshwork Files<a class="headerlink" href="#working-with-meshwork-files" title="Permalink to this heading">#</a></h2>
+<p>Loading a meshwork file imports the level 2 graph (the “mesh”), the skeleton, and a collection of associated annotations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">meshparty</span> <span class="kn">import</span> <span class="n">meshwork</span>
+<span class="n">nrn</span> <span class="o">=</span> <span class="n">meshwork</span><span class="o">.</span><span class="n">load_meshwork</span><span class="p">(</span><span class="n">mesh_filename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The main three properties of the meshwork object are:</p>
+<ul class="simple">
+<li><p>nrn.mesh : The l2graph representation of the reconstruction.</p></li>
+<li><p>nrn.skeleton : The skeleton representation of the reconstruction.</p></li>
+<li><p>nrn.anno : A table of annotation dataframes and associated metadata that links them to specific vertices in the mesh and skeleton.</p></li>
+</ul>
+</section>
+<section id="meshwork-nrn-mesh-vs-nrn-skeleton">
+<h2>Meshwork nrn.mesh vs nrn.skeleton<a class="headerlink" href="#meshwork-nrn-mesh-vs-nrn-skeleton" title="Permalink to this heading">#</a></h2>
+<p>Skeletons are “tree-like”, where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions “away from root” and “towards root” and few types of vertices have special names:</p>
+<ul class="simple">
+<li><p>Branch point: vertices with two or more children, where a neuronal process splits.</p></li>
+<li><p>End point: vertices with no children, where a neuronal process ends.</p></li>
+<li><p>Root point: The one vertex with no parent node. By convention, we typically set the root vertex at the cell body, so these are equivalent to “away from soma” and “towards soma”.</p></li>
+<li><p>Segment: A collection of vertices along an unbranched region, between one branch point and the next end point or branch point downstream.</p></li>
+</ul>
+<p>Meshes are arbitrary collections of vertices and edges, but do not have a notion of “parent” or “child” “branch point” or “end point”. Here, this means the “mesh” used here includes a vertex for every level 2 chunk, even where it is thick like at a cell body or very thick dendrite. However, by default this means that there is not always a well-defined notion of parent or child nodes, or towards or away from root.</p>
+<p>In contrast “Meshes” (really, graphs of connected vertices) do not have a unique “inward” and “outward” direction. For the sake of rapid skeletonization, the “meshes” we use here are really the graph of level 2 vertices as described above. These aren’t a mesh in the visualization sense of the section on <a class="reference internal" href="em-meshes.html#em-meshes"><span class="std std-ref">downloading Meshes</span></a>, but have the same data representation.</p>
+<p>To handle this, the meshwork object associates each mesh vertices with a single nearby skeleton vertex, and each skeleton vertex is associated with one or more mesh vertices. By representing data this way, annotations like synapses can be directly associated with a mesh vertex (because synapses can be anywhere on the object) and then mapped to the skeleton in order to enjoy the topological benefits of the skeleton representation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># By the definition of skeleton vs mesh, we would expect that mesh contains more vertices than the skeleton. </span>
+<span class="c1"># We can see this by looking at the size of the skeleton vertex location array vs the size of the mesh vertex location array.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skeleton vertices array length:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mesh vertices array length:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let us try to visualize the skeleton:</span>
+<span class="c1"># Visualize the whole skeleton </span>
+
+<span class="c1"># here&#39;s a simple way to plot vertices of the skeleton</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span> 
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id2">
+<img alt="../../_images/skeleton_scatterplot.png" src="../../_images/skeleton_scatterplot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Scatterplot of skeleton vertices as a point cloud.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="skeleton-properties-and-methods">
+<h2>Skeleton Properties and Methods<a class="headerlink" href="#skeleton-properties-and-methods" title="Permalink to this heading">#</a></h2>
+<p>To plot this skeleton in a more sophisticated way, you have to start thinking of it as a graph, and the meshwork object has a bunch of tools and properties to help you utilize the skeleton graph.</p>
+<p>Let’s list some of the most useful ones below You access each of these with nrn.skeleton.* Use the ? to read more details about each one</p>
+<p><strong>Properties</strong></p>
+<ul class="simple">
+<li><p>`branch_points``: a list of skeleton vertices which are branches</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">root</span></code>: the skeleton vertex which is the soma</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_to_root</span></code>: an array the length of vertices which tells you how far away from the root each vertex is</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">root_position</span></code>: the position of the root node in nanometers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_points</span></code>: the tips of the neuron</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cover_paths</span></code>: a list of arrays containing vertex indices that describe individual paths that in total cover the neuron without repeating a vertex. Each path starts at an end point and continues toward root, stopping once it gets to a vertex already listed in a previously defined path. Paths are ordered to start with the end points farthest from root first. Each skeleton vertex appears in exactly one cover path.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">csgraph</span></code>: a scipy.sparse.csr.csr_matrix containing a graph representation of the skeleton. Useful to do more advanced graph operations and algorithms. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html">https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kdtree</span></code>: a scipy.spatial.ckdtree.cKDTree containing the vertices of skeleton as a kdtree. Useful for quickly finding points that are nearby. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html</a></p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path_length(paths=None)</span></code>: the path length of the whole neuron if no arguments, or pass a list of paths to get the path length of that. A path is just a list of vertices which are connected by edges.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path_to_root(vertex_index)</span></code>: returns the path to the root from the passed vertex</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path_between(source_index,</span> <span class="pre">target_index)</span></code>: the shortest path between the source vertex index and the target vertex index</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_nodes(vertex_indices)</span></code>: a list of arrays listing the children of the vertex indices passed in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent_nodes(vertex_indices)</span></code>: an array listing the parent of the vertex indices passed in</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A better way to plot a neuron is to use cover_paths</span>
+<span class="c1"># and plot those as 3d lines</span>
+<span class="k">def</span> <span class="nf">plot_neuron_skeleton</span><span class="p">(</span><span class="n">neuron</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">cover_path</span> <span class="ow">in</span> <span class="n">neuron</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">cover_paths</span><span class="p">:</span>
+        <span class="n">path_verts</span> <span class="o">=</span> <span class="n">neuron</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">cover_path</span><span class="p">,:]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path_verts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">path_verts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">path_verts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">plot_neuron_skeleton</span><span class="p">(</span><span class="n">nrn</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="indexing-and-selecting-sets-of-points">
+<h2>Indexing And Selecting Sets of Points<a class="headerlink" href="#indexing-and-selecting-sets-of-points" title="Permalink to this heading">#</a></h2>
+<p>The meshworks object contains a mesh with lots of vertices and a skeleton which holds a subset of these vertices. Therefore, in python these points have different “indices” in the mesh and skeleton. For example, if the mesh contains 10000 vertices, the indexing of those would run from 0 - 9999. The skeleton, which contains a subset of 100 of these would have indexing from 0-99. How would you figure out which of the mesh vertices these correspond to?</p>
+<p>Luckily, we have some really nifty functions that help us distinguish those:</p>
+<p>Let us first look at some attributes in the meshworks objects:</p>
+<p>A few nifty function for subselecting points: <code class="docutils literal notranslate"><span class="pre">downstream</span> <span class="pre">points</span></code> and `path_between``.
+For a given point, downstream points are defined as points on paths from endpoints to the root which are further than the given point. For example, if the skeleton path is : A-B-C-D-E where A is the root, D and E are downstream points of C. With branching, this can be more complex. To find the downstream points from say the 9th branch point, we can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Downstream points</span>
+<span class="n">nrn</span><span class="o">.</span><span class="n">downstream_of</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">branch_points</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">path_between</span></code> returns the vertices from one point to another. For example, we can get the every mesh vertex from the end point 5 to the root point. As a quick visualization, we can look at the distance to root along the, showing that it is decreasing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">nrn</span><span class="o">.</span><span class="n">distance_to_root</span><span class="p">(</span>
+        <span class="n">nrn</span><span class="o">.</span><span class="n">path_between</span><span class="p">(</span>
+            <span class="n">nrn</span><span class="o">.</span><span class="n">end_points</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+            <span class="n">nrn</span><span class="o">.</span><span class="n">root</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="mi">1_000</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distance from root ($\mu m$)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Vertex along path&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id3">
+<img alt="../../_images/distance_to_root.png" src="../../_images/distance_to_root.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Distance to root along graph path indicated above. Note that this flattens out at zero because “distance” is computed along the skeleton and many graph vertices in the level 2 graph are associated with the soma vertex of the skeleton.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="masking">
+<h2>Masking<a class="headerlink" href="#masking" title="Permalink to this heading">#</a></h2>
+<p>Just like meshes, we can mask the meshwork object. Like all basic meshwork functions, the expected input is in mesh vertices. Importantly, doing so will be synchronized across the mesh, the skeleton, and annotations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s now use masking to highlight one particular cover path.</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="n">plot_neuron_skeleton</span><span class="p">(</span><span class="n">nrn</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+
+<span class="n">nrn</span><span class="o">.</span><span class="n">reset_mask</span><span class="p">()</span>  <span class="c1"># This just makes sure we are working with the same baseline object.</span>
+
+<span class="c1"># This will make a mask with only the vertices in the first cover path.</span>
+<span class="k">with</span> <span class="n">neuron</span><span class="o">.</span><span class="n">mask_context</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">cover_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_mesh_mask</span><span class="p">)</span> <span class="k">as</span> <span class="n">nrnf</span><span class="p">:</span>
+  <span class="n">plot_neuron_skeleton</span><span class="p">(</span><span class="n">nrnf</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+      <span class="n">nrnf</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">root_position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+      <span class="n">nrnf</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">root_position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+      <span class="n">nrnf</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">root_position</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+  <span class="p">)</span>
+</pre></div>
+</div>
+<p>While <code class="docutils literal notranslate"><span class="pre">mask_context</span></code> acts to mask the skeleton and then unmasks it at the end of operations, you can also just mask a skeleton and let it stay that way.
+In that case, use the <code class="docutils literal notranslate"><span class="pre">nrn.apply_mask</span></code> function.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not use the <code class="docutils literal notranslate"><span class="pre">nrn.mesh.apply_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">nrn.skeleton.apply_mask</span></code> functions, which will not synchronize the mask across the mesh, skeleton, and annotations.</p>
+</div>
+<figure class="align-default">
+<img alt="../../_images/branch_plot.png" src="../../_images/branch_plot.png" />
+</figure>
+</section>
+<section id="loading-a-pre-generated-skeleton">
+<h2>Loading a pre-generated skeleton<a class="headerlink" href="#loading-a-pre-generated-skeleton" title="Permalink to this heading">#</a></h2>
+<p>The skeletons of the meshes are calculated at specific timepoints. The last collection of all neurons in the dataset was at materialization version 661 (June, 2023).</p>
+<p>Both thd . meshwork neuron k objectand the simpler .swc skeletons s are available in th<a class="reference external" href="https://bossdb.org/project/microns-minnie">e BossDB reposito</a>.ry</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># path to the skeleton and meshwork .h5 files</span>
+<span class="n">mesh_path</span> <span class="o">=</span> <span class="s2">&quot;s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/meshworks/&quot;</span>
+
+<span class="c1"># path to the skeleton .swc files</span>
+<span class="n">skel_path</span> <span class="o">=</span> <span class="s2">&quot;s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/skeletons/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skeleton_plot.skel_io</span> <span class="k">as</span> <span class="nn">skel_io</span>
+
+<span class="c1"># Example skeleton (as of v661)</span>
+<span class="n">nucleus_id</span> <span class="o">=</span> <span class="mi">230650</span>
+<span class="n">segment_id</span> <span class="o">=</span> <span class="mi">864691134940133219</span>
+
+<span class="c1"># load a pregenerated neuron skeleton</span>
+<span class="n">nrn</span> <span class="o">=</span> <span class="n">skel_io</span><span class="o">.</span><span class="n">load_mw</span><span class="p">(</span><span class="n">mesh_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">segment_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">nucleus_id</span><span class="si">}</span><span class="s2">.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="annotations">
+<h2>Annotations<a class="headerlink" href="#annotations" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">nrn.anno</span></code> has set of annotation tables containing some additional information for analysis.
+Each annotation table has both a Pandas DataFrame object storing data and additional information that allow the rows of the DataFrame to be mapped to mesh and skeleton vertices.
+For the neurons that have been pre-computed, there is a consistent set of annotation tables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">post_syn</span></code>: Postsynaptic sites (inputs) for the cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pre_syn</span></code>: Presynaptic sites (outputs) for the cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_axon</span></code>: List of vertices that have been labeled as part of the axon</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lvl2_ids</span></code>: Gives the PCG level 2 id for each mesh vertex, largely for book-keeping reasons.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment_properties</span></code>: For each vertex, information about the approximate radius, surface area, volume, and length of the segment it is on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vol_prop</span></code>: For every vertex, information about the volume and surface area of the level 2 id it is associated with.</p></li>
+</ul>
+<p>To access one of the DataFrames, use the name of the table as an attribute of the <code class="docutils literal notranslate"><span class="pre">anno</span></code> object and then get the <code class="docutils literal notranslate"><span class="pre">.df</span></code> property. For example, to get the postsynaptic sites, we can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">post_syn</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ctr_pt_position</th>
+      <th>id</th>
+      <th>post_pt_level2_id</th>
+      <th>post_pt_mesh_ind</th>
+      <th>post_pt_position</th>
+      <th>post_pt_root_id</th>
+      <th>post_pt_supervoxel_id</th>
+      <th>pre_pt_position</th>
+      <th>pre_pt_root_id</th>
+      <th>pre_pt_supervoxel_id</th>
+      <th>size</th>
+      <th>post_pt_mesh_ind_filt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[167494, 178677, 22973]</td>
+      <td>147824610</td>
+      <td>159893593257935774</td>
+      <td>6887</td>
+      <td>[167518, 178672, 22972]</td>
+      <td>864691134940133219</td>
+      <td>87835999220528052</td>
+      <td>[167440, 178598, 22980]</td>
+      <td>864691135947747425</td>
+      <td>87765630476372999</td>
+      <td>3400</td>
+      <td>6887</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[138824, 196821, 23152]</td>
+      <td>97189471</td>
+      <td>155955348832780498</td>
+      <td>2332</td>
+      <td>[138796, 196792, 23151]</td>
+      <td>864691134940133219</td>
+      <td>83897754795009976</td>
+      <td>[138892, 196914, 23159]</td>
+      <td>864691136785011310</td>
+      <td>83897823514489547</td>
+      <td>2012</td>
+      <td>2332</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[166258, 197684, 22697]</td>
+      <td>140170915</td>
+      <td>159685029646041267</td>
+      <td>6778</td>
+      <td>[166246, 197648, 22691]</td>
+      <td>864691134940133219</td>
+      <td>87627435608336600</td>
+      <td>[166200, 197720, 22703]</td>
+      <td>864691135444655596</td>
+      <td>87627435608350744</td>
+      <td>4648</td>
+      <td>6778</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[133332, 199584, 23091]</td>
+      <td>82926370</td>
+      <td>155181704963686535</td>
+      <td>1570</td>
+      <td>[133310, 199542, 23095]</td>
+      <td>864691134940133219</td>
+      <td>83124110925853251</td>
+      <td>[133374, 199602, 23084]</td>
+      <td>864691135932458297</td>
+      <td>83124110925839549</td>
+      <td>3604</td>
+      <td>1570</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[133018, 175450, 24556]</td>
+      <td>80426591</td>
+      <td>155108106538320623</td>
+      <td>1471</td>
+      <td>[133022, 175372, 24562]</td>
+      <td>864691134940133219</td>
+      <td>83050512501003437</td>
+      <td>[132972, 175482, 24555]</td>
+      <td>864691135361023474</td>
+      <td>83050512500997552</td>
+      <td>1808</td>
+      <td>1471</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>However, in addition to these rows, you can also easily get the mesh vertex index or skeleton vertex index that a row corresponds to with <code class="docutils literal notranslate"><span class="pre">nrn.anno.post_syn.mesh_index</span></code> or <code class="docutils literal notranslate"><span class="pre">nrn.anno.post_syn.skel_index</span></code> respectively.
+This seems small, but it allows you to integrate skeleton-like measurements with annotations trivially.</p>
+<p>For example, to get the distance from the cell body for each postsynaptic site, we can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrn</span><span class="o">.</span><span class="n">distance_to_root</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">post_syn</span><span class="o">.</span><span class="n">mesh_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([107741.13371277,  50763.05639648,  89650.54669189, ...,
+        53957.32983398,  67804.22151184,  52812.87652588])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">nrn.distance_to_root</span></code>, like all basic meshwork object functions, expects a mesh vertex index rather than a skeleton vertex index.</p>
+</div>
+<p>A common pattern is to copy a synapse dataframe and then add columns to it.
+For example, to add the distance to root to the postsynaptic sites, we can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">syn_df</span> <span class="o">=</span> <span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">pre_syn</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">syn_df</span><span class="p">[</span><span class="s1">&#39;dist_to_root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nrn</span><span class="o">.</span><span class="n">distance_to_root</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">pre_syn</span><span class="o">.</span><span class="n">mesh_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="filtering-annotations-by-skeleton-arbor">
+<h3>Filtering Annotations by Skeleton Arbor<a class="headerlink" href="#filtering-annotations-by-skeleton-arbor" title="Permalink to this heading">#</a></h3>
+<p>Each annotation table has a ‘filter_query’ method that takes a boolean mesh mask and returns only those rows of the dataframe associated with those particular locations on the mesh. Let’s use what we learned above in two examples: first, getting all input synapses within 50 microns of the root and second, getting all input synapses on one particular branch off of the soma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtr</span> <span class="o">=</span> <span class="n">nrn</span><span class="o">.</span><span class="n">distance_to_root</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1_000</span>   <span class="c1"># Convert from nanometers to microns</span>
+<span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">post_syn</span><span class="o">.</span><span class="n">filter_query</span><span class="p">(</span> <span class="n">dtr</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ctr_pt_position</th>
+      <th>id</th>
+      <th>post_pt_level2_id</th>
+      <th>post_pt_mesh_ind</th>
+      <th>post_pt_position</th>
+      <th>post_pt_root_id</th>
+      <th>post_pt_supervoxel_id</th>
+      <th>pre_pt_position</th>
+      <th>pre_pt_root_id</th>
+      <th>pre_pt_supervoxel_id</th>
+      <th>size</th>
+      <th>post_pt_mesh_ind_filt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>[157726, 193046, 22788]</td>
+      <td>127341851</td>
+      <td>158488142519730768</td>
+      <td>5752</td>
+      <td>[157706, 193094, 22795]</td>
+      <td>864691134940133219</td>
+      <td>86430548482153326</td>
+      <td>[157682, 192972, 22780]</td>
+      <td>864691136824031086</td>
+      <td>86430548482140967</td>
+      <td>11020</td>
+      <td>5752</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>[151982, 191342, 23145]</td>
+      <td>120502078</td>
+      <td>157713880242454752</td>
+      <td>4892</td>
+      <td>[152038, 191390, 23149]</td>
+      <td>864691134940133219</td>
+      <td>85656286204696158</td>
+      <td>[151996, 191298, 23140]</td>
+      <td>864691135489252804</td>
+      <td>85656286204685856</td>
+      <td>6928</td>
+      <td>4892</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>[150364, 191008, 23443]</td>
+      <td>112691936</td>
+      <td>157502705290445181</td>
+      <td>4655</td>
+      <td>[150330, 190992, 23435]</td>
+      <td>864691134940133219</td>
+      <td>85445111253025608</td>
+      <td>[150438, 190954, 23442]</td>
+      <td>864691136827445870</td>
+      <td>85445111253035274</td>
+      <td>5252</td>
+      <td>4655</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>[154448, 194194, 23180]</td>
+      <td>120218955</td>
+      <td>158066067560726725</td>
+      <td>5285</td>
+      <td>[154378, 194200, 23178]</td>
+      <td>864691134940133219</td>
+      <td>86008473522980712</td>
+      <td>[154520, 194204, 23181]</td>
+      <td>864691136757444974</td>
+      <td>86008473522981601</td>
+      <td>312</td>
+      <td>5285</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>[154090, 190584, 22953]</td>
+      <td>120378123</td>
+      <td>157995217713103485</td>
+      <td>5202</td>
+      <td>[154072, 190652, 22947]</td>
+      <td>864691134940133219</td>
+      <td>85937623675692998</td>
+      <td>[154078, 190578, 22960]</td>
+      <td>864691136713068398</td>
+      <td>85937623675711336</td>
+      <td>9116</td>
+      <td>5202</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3431</th>
+      <td>[156296, 195908, 23183]</td>
+      <td>127450278</td>
+      <td>158347817415344328</td>
+      <td>5610</td>
+      <td>[156264, 195978, 23183]</td>
+      <td>864691134940133219</td>
+      <td>86290223377588084</td>
+      <td>[156252, 195838, 23182]</td>
+      <td>864691135210513856</td>
+      <td>86290223377588010</td>
+      <td>7036</td>
+      <td>5610</td>
+    </tr>
+    <tr>
+      <th>3434</th>
+      <td>[147054, 185786, 23994]</td>
+      <td>110381182</td>
+      <td>157079805697721156</td>
+      <td>3949</td>
+      <td>[147026, 185772, 23992]</td>
+      <td>864691134940133219</td>
+      <td>85022211660301024</td>
+      <td>[147124, 185818, 24002]</td>
+      <td>864691135658301314</td>
+      <td>85022211660316873</td>
+      <td>9124</td>
+      <td>3949</td>
+    </tr>
+    <tr>
+      <th>3436</th>
+      <td>[154928, 196122, 23050]</td>
+      <td>116358701</td>
+      <td>158136711182811181</td>
+      <td>5356</td>
+      <td>[154940, 196164, 23050]</td>
+      <td>864691134940133219</td>
+      <td>86079117144942192</td>
+      <td>[154934, 196072, 23055]</td>
+      <td>864691136032031675</td>
+      <td>86079117144945472</td>
+      <td>3968</td>
+      <td>5356</td>
+    </tr>
+    <tr>
+      <th>3437</th>
+      <td>[150724, 186076, 23779]</td>
+      <td>112536188</td>
+      <td>157572386906964425</td>
+      <td>4735</td>
+      <td>[150760, 185998, 23771]</td>
+      <td>864691134940133219</td>
+      <td>85514792869314896</td>
+      <td>[150720, 186090, 23783]</td>
+      <td>864691136195284556</td>
+      <td>85514861588802988</td>
+      <td>508</td>
+      <td>4735</td>
+    </tr>
+    <tr>
+      <th>3438</th>
+      <td>[149372, 190040, 23289]</td>
+      <td>112691418</td>
+      <td>157361830363136488</td>
+      <td>4400</td>
+      <td>[149382, 190088, 23280]</td>
+      <td>864691134940133219</td>
+      <td>85304236325525055</td>
+      <td>[149360, 190010, 23283]</td>
+      <td>864691136195284556</td>
+      <td>85304236325524912</td>
+      <td>2124</td>
+      <td>4400</td>
+    </tr>
+  </tbody>
+</table>
+<p>473 rows × 12 columns</p>
+</div></div></div>
+</div>
+<p>We can also use one set of annotations as an input to filter query from another set of annotations. For example, due to errors in segmentation or mistakes in synapse detection, there can be synaptic outputs on the dendrite. However, if we have an <code class="docutils literal notranslate"><span class="pre">is_axon</span></code> annotation that simply contains a collection of vertices that correspond to the cell’s axon. We can use this annotation to create a mask and filter out all of the synapses that are not on the axon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axon_mask</span> <span class="o">=</span> <span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">is_axon</span><span class="o">.</span><span class="n">mesh_mask</span>
+<span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">pre_syn</span><span class="o">.</span><span class="n">filter_query</span><span class="p">(</span><span class="o">~</span><span class="n">axon_mask</span><span class="p">)</span><span class="o">.</span><span class="n">df</span> <span class="c1"># The &quot;~&quot; is a logical not operation that flips True and False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ctr_pt_position</th>
+      <th>id</th>
+      <th>post_pt_position</th>
+      <th>post_pt_root_id</th>
+      <th>post_pt_supervoxel_id</th>
+      <th>pre_pt_level2_id</th>
+      <th>pre_pt_mesh_ind</th>
+      <th>pre_pt_position</th>
+      <th>pre_pt_root_id</th>
+      <th>pre_pt_supervoxel_id</th>
+      <th>size</th>
+      <th>pre_pt_mesh_ind_filt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>65</th>
+      <td>[162422, 198658, 23978]</td>
+      <td>134156279</td>
+      <td>[162390, 198688, 23981]</td>
+      <td>864691136785500782</td>
+      <td>87134991972525815</td>
+      <td>159192586009969622</td>
+      <td>6439</td>
+      <td>[162464, 198636, 23985]</td>
+      <td>864691134940133219</td>
+      <td>87134991972537317</td>
+      <td>972</td>
+      <td>6439</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>[157086, 198862, 23150]</td>
+      <td>127450957</td>
+      <td>[157010, 198908, 23151]</td>
+      <td>864691135952299043</td>
+      <td>86361004438641166</td>
+      <td>158418529756905664</td>
+      <td>5697</td>
+      <td>[157164, 198808, 23156]</td>
+      <td>864691134940133219</td>
+      <td>86360935719148064</td>
+      <td>668</td>
+      <td>5697</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>[174372, 191708, 23157]</td>
+      <td>155609310</td>
+      <td>[174306, 191714, 23158]</td>
+      <td>864691136210173628</td>
+      <td>88752579668012861</td>
+      <td>160810104986271912</td>
+      <td>7366</td>
+      <td>[174362, 191656, 23156]</td>
+      <td>864691134940133219</td>
+      <td>88752510948535116</td>
+      <td>2888</td>
+      <td>7366</td>
+    </tr>
+    <tr>
+      <th>456</th>
+      <td>[147822, 191848, 24173]</td>
+      <td>110894360</td>
+      <td>[147772, 191806, 24171]</td>
+      <td>864691135393532914</td>
+      <td>85093405104959624</td>
+      <td>157150999142727859</td>
+      <td>4073</td>
+      <td>[147868, 191768, 24170]</td>
+      <td>864691134940133219</td>
+      <td>85093405104962373</td>
+      <td>5068</td>
+      <td>4073</td>
+    </tr>
+    <tr>
+      <th>486</th>
+      <td>[134460, 194490, 22866]</td>
+      <td>84031640</td>
+      <td>[134458, 194454, 22867]</td>
+      <td>864691135528294084</td>
+      <td>83264161152691689</td>
+      <td>155321755190165812</td>
+      <td>1665</td>
+      <td>[134424, 194532, 22865]</td>
+      <td>864691134940133219</td>
+      <td>83264161152685771</td>
+      <td>4112</td>
+      <td>1665</td>
+    </tr>
+    <tr>
+      <th>490</th>
+      <td>[175468, 203358, 22627]</td>
+      <td>158325494</td>
+      <td>[175478, 203300, 22634]</td>
+      <td>864691134988925306</td>
+      <td>88894828917712054</td>
+      <td>160952422955484181</td>
+      <td>7444</td>
+      <td>[175454, 203396, 22626]</td>
+      <td>864691134940133219</td>
+      <td>88894828917704472</td>
+      <td>1308</td>
+      <td>7444</td>
+    </tr>
+    <tr>
+      <th>517</th>
+      <td>[135018, 192856, 23553]</td>
+      <td>86645797</td>
+      <td>[135062, 192872, 23550]</td>
+      <td>864691136210178236</td>
+      <td>83334323805717938</td>
+      <td>155391917910130691</td>
+      <td>1731</td>
+      <td>[135004, 192878, 23557]</td>
+      <td>864691134940133219</td>
+      <td>83334323872216719</td>
+      <td>292</td>
+      <td>1731</td>
+    </tr>
+    <tr>
+      <th>604</th>
+      <td>[148492, 207248, 23239]</td>
+      <td>112357047</td>
+      <td>[148486, 207244, 23240]</td>
+      <td>864691135853648185</td>
+      <td>85165835299321100</td>
+      <td>157223429336990100</td>
+      <td>4211</td>
+      <td>[148462, 207276, 23241]</td>
+      <td>864691134940133219</td>
+      <td>85165835299314732</td>
+      <td>2144</td>
+      <td>4211</td>
+    </tr>
+    <tr>
+      <th>1017</th>
+      <td>[156432, 189900, 23033]</td>
+      <td>125728175</td>
+      <td>[156470, 189928, 23033]</td>
+      <td>864691133262391923</td>
+      <td>86289398677197625</td>
+      <td>158346992714515502</td>
+      <td>5599</td>
+      <td>[156402, 189886, 23034]</td>
+      <td>864691134940133219</td>
+      <td>86289398677193502</td>
+      <td>2652</td>
+      <td>5599</td>
+    </tr>
+    <tr>
+      <th>1067</th>
+      <td>[128170, 199156, 23519]</td>
+      <td>71166059</td>
+      <td>[128102, 199184, 23512]</td>
+      <td>864691136012791778</td>
+      <td>82420354765068733</td>
+      <td>154477948802433940</td>
+      <td>902</td>
+      <td>[128160, 199106, 23519]</td>
+      <td>864691134940133219</td>
+      <td>82420354765076207</td>
+      <td>1584</td>
+      <td>902</td>
+    </tr>
+    <tr>
+      <th>1293</th>
+      <td>[156188, 191520, 22873]</td>
+      <td>127340911</td>
+      <td>[156258, 191546, 22880]</td>
+      <td>864691136210178236</td>
+      <td>86289604835470780</td>
+      <td>158276830128767512</td>
+      <td>5520</td>
+      <td>[156152, 191638, 22877]</td>
+      <td>864691134940133219</td>
+      <td>86219236091245799</td>
+      <td>1632</td>
+      <td>5520</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As a sanity check, we can use <code class="docutils literal notranslate"><span class="pre">nglui</span></code> to see if these synapses we have labeled as being on the axon are all where we expect.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+<span class="kn">from</span> <span class="nn">nglui.statebuilder.helpers</span> <span class="kn">import</span> <span class="n">make_synapse_neuroglancer_link</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="s1">&#39;minnie65_public&#39;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">661</span> <span class="c1"># version at which skeletons were calculated</span>
+
+<span class="n">make_synapse_neuroglancer_link</span><span class="p">(</span>
+    <span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">pre_syn</span><span class="o">.</span><span class="n">filter_query</span><span class="p">(</span><span class="n">axon_mask</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">client</span><span class="p">,</span>
+    <span class="n">return_as</span><span class="o">=</span><span class="s2">&quot;html&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/6278131234111488">Neuroglancer link</a></p>
+<p>(Click one of the synapse annotations to load the neuron mesh).</p>
+<p>Another common example might be to pick one of the child nodes of the soma and get all of the synapses on that branch. We can do this by using the <code class="docutils literal notranslate"><span class="pre">nrn.skeleton.get_child_nodes</span></code> function to get the skeleton vertex indices of the child nodes and then use that to filter the synapses.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branch_index</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Let&#39;s just use the first child vertex of the root node, which is at the soma by default.</span>
+<span class="n">branch_inds</span> <span class="o">=</span> <span class="n">nrn</span><span class="o">.</span><span class="n">downstream_of</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">child_index</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">root</span><span class="p">)[</span><span class="n">branch_index</span><span class="p">])</span>
+<span class="n">branch_mask</span> <span class="o">=</span> <span class="n">branch_inds</span><span class="o">.</span><span class="n">to_mesh_mask</span>
+
+<span class="n">make_synapse_neuroglancer_link</span><span class="p">(</span>
+    <span class="n">nrn</span><span class="o">.</span><span class="n">anno</span><span class="o">.</span><span class="n">post_syn</span><span class="o">.</span><span class="n">filter_query</span><span class="p">(</span><span class="n">branch_mask</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">client</span><span class="p">,</span>
+    <span class="n">return_as</span><span class="o">=</span><span class="s2">&quot;html&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/4584197575409664">Neuroglancer link</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./anatomy/microns-em"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="em-volume-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Imagery and Segmentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="em-meshes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Meshes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-meshwork-files">Working with Meshwork Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meshwork-nrn-mesh-vs-nrn-skeleton">Meshwork nrn.mesh vs nrn.skeleton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton-properties-and-methods">Skeleton Properties and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-selecting-sets-of-points">Indexing And Selecting Sets of Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-pre-generated-skeleton">Loading a pre-generated skeleton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations">Annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-annotations-by-skeleton-arbor">Filtering Annotations by Skeleton Arbor</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saskia de Vries, Marina Garrett, Corbett Bennett, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
