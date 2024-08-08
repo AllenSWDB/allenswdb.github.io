@@ -82,8 +82,6 @@ This can be very valuable if you are look for any neurons that are located in a 
 To see the entire structure of the tree you can use
 
 ```{code-cell} ipython3
-{
-    "tags": ["hide-output"]
-}
+:tags: [hide-output]
 atlas.structures
 ```
