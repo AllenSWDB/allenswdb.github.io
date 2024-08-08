@@ -18,6 +18,10 @@ Basket cell
 Bipolar cell
   A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
 
+CCF
+Common Coordinate Framework
+  The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology.. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
@@ -77,6 +81,9 @@ GCaMP
   as their kinetics — primarily with regards to their decay. For more see
   {cite:t}`chen2013`.
 
+GFP
+  Green fluorescent protein. Discovered at FHL.
+
 Higher visual area
 HVA
   A **higher visual area** is a term for cortical visual areas that receive
@@ -84,6 +91,12 @@ HVA
   visual hierarchy. In primates, higher visual areas include V2, V3, V4, V5, MT,
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
+
+hyperparameter
+  A free parameter that controls behaviors in machine learning algorithms. These
+  are distinct from parameters which control behaviors of the models developed by
+  the algorithms; hyperparameters affect how the algorithm finds the models in
+  the first place.
 
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse

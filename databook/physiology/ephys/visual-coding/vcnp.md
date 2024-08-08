@@ -90,7 +90,7 @@ brief flashes of light or dark, to measure the temporal dynamics of the visual
 response.
 
 The remainder of the visual stimulus set either consisted of the same stimuli
-shown in the [two-photon experiments](vc2p-stimuli) (*Brain Observatory 1.1*), or a subset of
+shown in the [two-photon experiments](../../ophys/visual-coding/vc2p-stimuli) (*Brain Observatory 1.1*), or a subset of
 those stimuli shown with a higher number of repeats. We also added a dot motion
 stimulus, to allow us to measure the speed tuning of units across the mouse
 visual system.
