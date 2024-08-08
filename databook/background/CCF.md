@@ -26,12 +26,12 @@ We are using tools from BrainGlobe to help navigate this ontology {cite:p}`claud
 
 ```{code-cell} ipython3
 from pprint import pprint
+import brainglobe_atlasapi as atlasapi
+from brainglobe_atlasapi import BrainGlobeAtlas
 import os
 data_dir = '/root/capsule/data/.brainglobe'
 if not os.access(data_dir, os.R_OK):
-  print("Permissions error")
-import brainglobe_atlasapi as atlasapi
-from brainglobe_atlasapi import BrainGlobeAtlas
+  print('Access error: permissions')
 atlasapi.config.write_config_value('brainglobe_dir', '/root/capsule/data/.brainglobe')
 ```
 
