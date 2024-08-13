@@ -66,7 +66,7 @@ protein (tTA) to drive the expression of reporters under the TRE or tetO element
 our applications, we combine both Cre and tTA to drive the expression of our reporters.
 
 <b>Cart-IRES2-Cre</b>
-:
+: Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus.
 
 <b>Chat-IRES-Cre-neo</b>
 : Drives expression in cholinergic neurons.
@@ -75,8 +75,8 @@ our applications, we combine both Cre and tTA to drive the expression of our rep
 : In cortex, drives expression in excitatory neurons in layer 2/3 and 4.
 
 <b>Dbh-Cre-KI</b>
-: Drives expression in noradrenergic and adrenegic neurons - i.e. neurons that release
-norepinephrine.
+: Labels a small population of ~1200 neurons in the Pons (per hemisphere) that release
+  norepinephrine to targets brainwide (except striatum)
 
 <b>Drd1a-Cre</b>
 : In striatum, drives expression in medium spiny neurons (MSNs) expressing the
@@ -94,7 +94,8 @@ norepinephrine.
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
 
 <b>Gal-Cre_KI187</b>
-:
+: Targets neurons that express the neuropeptide Galanin, chosen to label neurons in midline and
+  interlaminar nuclei in the thalamus. Also targets cells in the hypothalamus, pons and medulla.
 
 <b>Nr5a1-Cre</b>
 : In cortex, drives expression in excitatory neurons in layer 6.
@@ -116,8 +117,8 @@ norepinephrine.
   layer 4. Only found in primary sensory areas (e.g. VISp)
 
 <b>Slc17a6-IRES-Cre</b>
-: A pan-excitatory driver - drives expression in excitatory neurons - with weak expression
-in cortex.
+: Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus
+  midbrain, and brainstem but with weak expression in cortex.
 
 <b>Slc17a7-IRES2-Cre</b>
 : In cortex, a pan-excitatory driver - drives expression in excitatory neurons
