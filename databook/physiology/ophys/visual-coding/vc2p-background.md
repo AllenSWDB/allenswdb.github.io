@@ -64,7 +64,7 @@ a single visual area at a single imaging depth.
 ## Experiment
 Awake mice were head-fixed under a 2-photon microscope, on a running disc. Their running was self driven, and we see great variability in the amount of running between mice. A population of neurons was targeted to image using the transgenic tools as described. The neurons express {term}`GCaMP`6 such that whenever the neurons are active, the neurons light up. The mice are presented with a variety of {doc}`./vc2p-stimuli` and the fluorescence of the neurons is recorded using the 2-photon microscope. In addition to the neural activity, the running speed of the mouse is recorded, along with the position and area of the pupil. The far right panel below shows the eye position of this mouse superimposed on the stimulus that is being shown.
 
-<video controls src="/resources/VicCoginExpt.mp4"></video>
+<video controls src="../../../resources/VisCodingExpt.mp4"></video>
 
 ## Questions to explore
 There are many ways to explore these datasets, so these are not exhaustive by any means.
