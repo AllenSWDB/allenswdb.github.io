@@ -25,7 +25,7 @@ import skeleton_plot as skelplot
 To read in one neuron morphology, you need to use the cloud location of the data and the skeleton id that you are interested in accessing. Cloudvolume can then read the data as follows: 
 
 ```{code-cell} ipython3
-input_directory = f"file://{data_root}/exaSPIM_609281_2022-11-03_13-49-18_reconstructions"
+input_directory = f"/data/exaSPIM_609281_2022-11-03_13-49-18_reconstructions"
 skeleton_id = 1
 
 cv_obj = cloudvolume.CloudVolume(input_directory) # Initialize cloud volume
