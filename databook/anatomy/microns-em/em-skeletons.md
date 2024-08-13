@@ -25,7 +25,7 @@ cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
 del cglob
 ```
 
-
+(skeletons)=
 # Skeletons 
 
 Often in thinking about neurons, you want to measure things along a linear dimension of a neuron.

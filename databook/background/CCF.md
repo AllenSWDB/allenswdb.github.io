@@ -17,6 +17,12 @@ kernelspec:
 
 The Allen Mouse Brain Common Coordinate Framework ({term}`CCF`) is a 3D reference space by creating an average brain at 10um voxel resolution from serial two-photon tomography images of 1,675 young adult C57Bl6/J mice. Using multimodal reference data, we parcellated the entire brain directly in 3D, labeling every voxel with a brain structure spanning 43 isocortical areas and their layers, 314 subcortical gray matter structures, 81 fiber tracts, and 8 ventricular structures. The CCF enables the integration of data across modalities that have been registered into the common space. {cite:p}`wangccf`
 
+:::{figure} ../resources/ccf.png
+---
+align: center
+---
+:::
+
 In the data here, the CCF is used in a few ways. One, is to specify the location of ephys units. This localization is done post-hoc, when the probe tract is imaged and registered to the CCF. This allows scientists to assign brain structure locations to the sorted units.
 The second is for the single cell whole brain reconstruction data. During image processing, the brain is registered to the CCF, allowing each node of the skeleton to be mapped to a brain structure. This allows scientists to know where each soma is located, what structures its dendrites originate in, and where its axons project to. 
 
@@ -82,8 +88,6 @@ This can be very valuable if you are look for any neurons that are located in a 
 To see the entire structure of the tree you can use
 
 ```{code-cell} ipython3
-{
-    "tags": ["hide-output"]
-}
+:tags: [hide-output]
 atlas.structures
 ```
