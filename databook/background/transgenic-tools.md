@@ -226,3 +226,17 @@ type without needing to use a driver line.
 : rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA or
   rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
   CoChR in indirect pathway MSNs, fused with GFP for visualization.
+
+## Do transgenic tools impact physiology or behavior?
+
+Using transgenic tools to record or manipulate activity rests on an assumption that the expression of these tools does not greatly impact the underlying physiology or behavior that is being studied. Is this a fair assumption? Largely yes, but not 100%.
+
+The exogenous expression of proteins have been shown to have neurotoxic effects. {Emx results here}
+
+Another way that we examined this was by performing Neuropixels recordings from mice expressing GCaMP6f under the control of several of the driver lines used in the Visual Coding 2P dataset. The question here is whether the exogenous expression of these proteins (Cre, tTA, and GCaMP6f) in particular neurons would alter the underlying physiology of the population.  We compared recordings from Vip-IRES-Cre;Ai148, Sst-IRES-Cre;Ai148, Cux2-CreERT2;Camk2a-tTA;Ai93, and Slc17a7-IRES2-Cre;Camk2a-tTA;Ai93 with those from wild-type mice. Comparing unit yield, firing rate, burst fractions, responsiveness, and lifetime sparseness, we did not find significant differences between these populations. {cite:t}`siegle2021`
+
+![gcampnp](/resources/gcamp_neuropixels.pdf)
+
+However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:t}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
+
+![run_saccade](/resources/run_saccade_cre.png)
