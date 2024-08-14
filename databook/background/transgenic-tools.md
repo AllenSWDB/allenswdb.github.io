@@ -231,12 +231,29 @@ type without needing to use a driver line.
 
 Using transgenic tools to record or manipulate activity rests on an assumption that the expression of these tools does not greatly impact the underlying physiology or behavior that is being studied. Is this a fair assumption? Largely yes, but not 100%.
 
-The exogenous expression of proteins have been shown to have neurotoxic effects. One notable example is the occurrence of aberrant electrical events in (primarily) Emx1-IRES-Cre;Camk2a-tTA;Ai93 mice that resemble interictal events. These are large, concerted electrical events that spread across most of cortex. As putative interictal events, these might be associated with epileptiform seizures, though they themselves are not seizures. Indeed, no other aberrant behavior or activity was reported in these mice. And while the mechanism of why these mice exhibit these events is unclear, it is likely related to very broad exogenous expression of tTA and GCaMP6f starting very early in development. {cite:t}`emx`
+The exogenous expression of proteins have been shown to have neurotoxic effects. One notable example is the occurrence of aberrant electrical events in (primarily) Emx1-IRES-Cre;Camk2a-tTA;Ai93 mice that resemble interictal events. These are large, concerted electrical events that spread across most of cortex. As putative interictal events, these might be associated with epileptiform seizures, though they themselves are not seizures. Indeed, no other aberrant behavior or activity was reported in these mice. And while the mechanism of why these mice exhibit these events is unclear, it is likely related to very broad exogenous expression of tTA and GCaMP6f starting very early in development. {cite:p}`emx`
 
-We further examined whether transgenic expression of GCaMP6 effect physiology this was by performing Neuropixels recordings from mice expressing GCaMP6f under the control of several of the driver lines used in the Visual Coding 2P dataset. The question here is whether the exogenous expression of these proteins (Cre, tTA, and GCaMP6f) in particular neurons would alter the underlying physiology of the population.  We compared recordings from Vip-IRES-Cre;Ai148, Sst-IRES-Cre;Ai148, Cux2-CreERT2;Camk2a-tTA;Ai93, and Slc17a7-IRES2-Cre;Camk2a-tTA;Ai93 with those from wild-type mice. Comparing unit yield, firing rate, burst fractions, responsiveness, and lifetime sparseness, we did not find significant differences between these populations. {cite:t}`siegle2021`
+We further examined whether transgenic expression of GCaMP6 effect physiology this was by performing Neuropixels recordings from mice expressing GCaMP6f under the control of several of the driver lines used in the Visual Coding 2P dataset. The question here is whether the exogenous expression of these proteins (Cre, tTA, and GCaMP6f) in particular neurons would alter the underlying physiology of the population.  We compared recordings from Vip-IRES-Cre;Ai148, Sst-IRES-Cre;Ai148, Cux2-CreERT2;Camk2a-tTA;Ai93, and Slc17a7-IRES2-Cre;Camk2a-tTA;Ai93 with those from wild-type mice. Comparing unit yield, firing rate, burst fractions, responsiveness, and lifetime sparseness, we did not find significant differences between these populations. {cite:p}`siegle2021`
 
-![gcampnp](/resources/gcamp_neuropixels.png)
+:::{figure} ../resources/gcamp_neuropixels.png
+:name: gcamp_neuropixels
+:align: center
+:width: 800
 
-However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:t}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
+Comparing responses across GCaMP-expressing mouse lines. (A) GCaMP expression patterns for the four lines used for ephys experiments. (B) Unit yield (following QC filtering) for five
+areas and five genotypes. Error bars represent standard deviation across experiments; each dot represents a data point from one experiment. (C) Distribution of firing rates for neurons from each mouse line, aggregated across experiments. (D) Distribution of burst fraction (fraction of all spikes that participate in bursts) for neurons from each mouse line, aggregated across experiments. Dots represent the median of each distribution, shown in relation to a reference value of 0.3. (E) Fraction of neurons deemed responsive to drifting gratings, grouped by genotype. (F) Distribution of lifetime sparseness in response to a drifting grating stimulus, grouped by genotype. In panels (C–F), colored numbers indicate the Jensen–Shannon distance
+between the wild-type distribution and the distributions of the four GCaMP-expressing mouse lines. {cite:p}`siegle2021`
+:::
+
+However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:p}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
 
 ![run_saccade](/resources/run_saccade_cre.png)
+:::{figure} ../resources/run_saccade_cre.png
+:name: run_saccade_cre
+:align: center
+:width: 800
+
+(Top) Distribution of mean running speeds per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session. (Bottom) Distribution of number of saccades made per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session.
+:::
+
+ 
