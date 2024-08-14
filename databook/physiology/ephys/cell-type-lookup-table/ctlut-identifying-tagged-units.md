@@ -6,9 +6,9 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.15.0
 kernelspec:
-  display_name: ctlut
+  display_name: Python 3 (ipykernel)
   language: python
-  name: ctlut
+  name: python3
 ---
 
 # Identifying tagged neurons
@@ -27,19 +27,50 @@ import os
 import numpy as np
 ```
 
-## Determining identity of laser responsive cells
+## Identifying tagged cells
 
-Every experimental session may have a different set of tagged neurons. The identity of any laser-responsive units can be inferred from the mouse's genotype and viruses injected, both of which can be found in the metadata. A list of the mouse lines used in this data set and what they tag can be found in the optotagging section.
+Every experimental session may have a different set of neurons expressing light-sensitive opsins and thus able to be identified by their laser responses. In this data set, the identities of tagged neurons were pre-computed and added to the units table.
 
 ```{code-cell} ipython3
 # an 'arbitrarily' selected session
 session = '661398_2023-04-03_15-47-29'
-session_directory = f'/data/cell_type_lookup_table_nwb/ecephys_{session}_nwb'
+session_directory = f'/data/SWDB 2024 CTLUT data/ecephys_{session}_nwb'
 
 nwb_file = os.path.join(session_directory, f'ecephys_{session}_experiment1_recording1.nwb.zarr')
 io = NWBZarrIO(nwb_file, "r")
 nwbfile_read = io.read()
 ```
+
+```{code-cell} ipython3
+units = nwbfile_read.units[:]
+np.unique(units.predicted_cell_type)
+```
+
+We can see that this session had tagged D1 and D2 cells, and every unit has a label attached marking it as one of these two types or as "untagged." But how did we arrive at these labels?
+
+```{code-cell} ipython3
+units.columns
+```
+
+Many of the columns in the units table are various metrics describing the laser responsiveness of the units to the two different colors of laser (red and blue). These metrics are:
+* best_site: the NPopto emission site that elicited the largest response in the unit.
+* mean_latency: the mean time from laser onset to the unit's response. The unit's response is computed as the time at which the unit's firing rate becomes two standard deviations higher than its baseline.
+* mean_jitter: the standard deviation of the unit's mean response latency.
+* mean_reliability: the proportion of trials during which the unit has spikes during the laser presentation period.
+* num_sig_pulses_paired: the number of laser pulses (out of 5) that elicited a significant increase in spike rate, as computed using a paired test (Wilcoxon signed-rank test).
+* channel_diff: the distance (in number of electrodes) between the best emission site and the peak electrode channel.
+
+For this data set, units were considered to be tagged D1 or D2 units if they 1) had a significant response to all five laser pulses of the appropriate color\*, and 2) had a channel_diff of less than 25. Tagged neurons are expected to have very reliable, low-latency responses to laser pulses. In addition, we would expect the emission site that evokes the highest response to be close to the electrode closest to the neurons: if it isn't this makes us suspect the unit is a light artifact or contaminated!
+
+For tagged cholinergic cells, an additional criterion of mean_latency less than 7 ms (0.007 s) was added. This is to avoid considering cells tagged if they were indirectly activated by other laser-activated neurons. Because D1 and D2 cells are GABAergic, this is less of a concern for them.
+
++++
+
+*\*Note*: the laser pulses criterion is actually a little more complicated. For units tagged with a blue-responsive opsin (e.g. CoChR), we look for all five blue pulses eliciting significant responses and *no more* than one red pulse eliciting a significant response. For units tagged with a red-responsive opsin (e.g. Chrmine), we look for at least four red pulses eliciting significant responses. This is because red opsins often have strong activation even to short wavelengths, but blue opsins do not have responses to long wavelengths. Thus, we find true blue responses by specifying they can not also have a red response. Additionally, opsins like Chrmine have slower response dynamics, and often don't respond to the first pulse, but have reliable responses to the rest, so we relax that criterion.
+
++++
+
+How do we know which cell type is tagged with which opsin? By looking at the metadata! The identity of any laser-responsive units can be inferred from the mouse's genotype and viruses injected, both of which can be found in the metadata. A list of the mouse lines used in this data set and what they tag can be found in the optotagging section.
 
 ```{code-cell} ipython3
 # subject.json contains info about the mouse, procedures.json contains info about surgeries and such that were performed
@@ -67,9 +98,13 @@ print(virus_names)
 
 So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was injected with two viruses: an enhancer delivering CoChR to D1 cells, and a Cre-dependent virus delivering ChRmine. From this, we can conclude that this mouse should express CoChR in D1 cells and ChRmine in D2 cells. Therefore, any cells responding to (only) blue laser pulses are D1 cells, and cells responding to red laser pulses are D2 cells!
 
+With this information, you can take a look at the other laser response metrics and try other criteria for assigning cell identities, if you don't trust the ones in the units table!
+
 +++
 
 ## Visualizing cell responses
+
+If you really, *really* don't trust the cell identities in the units table, you can directly analyze their responses to laser presentation!
 
 How do we tell if a cell is laser-responsive? We should take a look at the spiking activity during laser presentations. To do this, let's align the spike timestamps to the laser trial timestamps.
 
@@ -94,8 +129,7 @@ stimulus_table.columns
 unit_device = units.device_name.loc[unit_id]
 max_laser_power = max(stimulus_table['power']) # be careful with this in the future, different color lasers are sometimes presented at different powers!
 
-#filtered_stimulus_table = stimulus_table.query('emission_location == @unit_device and power == @max_laser_power')
-filtered_stimulus_table = stimulus_table.query('emission_location == @unit_device and power == 0.1')
+filtered_stimulus_table = stimulus_table.query('emission_location == @unit_device and power == @max_laser_power')
 filtered_stimulus_table
 ```
 
