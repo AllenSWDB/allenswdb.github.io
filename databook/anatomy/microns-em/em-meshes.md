@@ -99,7 +99,7 @@ Several of the most important properties are:
 * `mesh.graph_edges` : An `(M+M_l) x 2` list of integers, with each row specifying a pair of graph edges, which is the collection of both `mesh.edges` and `mesh.link_edges`.
 * `mesh.csgraph` : A [Scipy Compressed Sparse Graph](https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html) representation of the mesh as an `NxN` graph of vertices connected to one another using graph edges and with edge weights being the distance between vertices. This is particularly useful for computing shortest paths between vertices.
 
-```{Important}
+```{important}
 MICrONs meshes are not generally "watertight", a property that would enable a number of properties to be computed natively by Trimesh. Because of this, Trimesh-computed properties relating to solid forms or volumes like `mesh.volume` or `mesh.center_mass` do not have sensible values and other approaches should be taken. Unfortunately, because of the Trimesh implementation of these properties it is up to the user to be aware of this issue.
 ```
 
@@ -165,3 +165,64 @@ align: center
 ---
 Soma cutout from a full-neuron mesh.
 ```
+
+## Working with Meshwork Files
+
+Loading a meshwork file imports the level 2 graph (the "mesh"), the skeleton, and a collection of associated annotations.
+
+```{code-block} python
+from meshparty import meshwork
+nrn = meshwork.load_meshwork(mesh_filename)
+```
+
+The main three properties of the meshwork object are:
+
+* nrn.mesh : The l2graph representation of the reconstruction.
+* nrn.skeleton : The skeleton representation of the reconstruction.
+* nrn.anno : A table of annotation dataframes and associated metadata that links them to specific vertices in the mesh and skeleton.
+
+## Meshwork nrn.mesh vs nrn.skeleton
+Skeletons are "tree-like", where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions "away from root" and "towards root" and few types of vertices have special names:
+
+* Branch point: vertices with two or more children, where a neuronal process splits.
+* End point: vertices with no children, where a neuronal process ends.
+* Root point: The one vertex with no parent node. By convention, we typically set the root vertex at the cell body, so these are equivalent to "away from soma" and "towards soma".
+* Segment: A collection of vertices along an unbranched region, between one branch point and the next end point or branch point downstream.
+
+Visit the [EM Skeletons page](skeletons) see more about skeletons, how to generate them, and how to work with them.
+
+Meshes are arbitrary collections of vertices and edges, but do not have a notion of "parent" or "child" "branch point" or "end point". Here, this means the "mesh" used here includes a vertex for every level 2 chunk, even where it is thick like at a cell body or very thick dendrite. However, by default this means that there is not always a well-defined notion of parent or child nodes, or towards or away from root.
+
+In contrast "Meshes" (really, graphs of connected vertices) do not have a unique "inward" and "outward" direction. For the sake of rapid skeletonization, the "meshes" we use here are really the graph of level 2 vertices as described above. These aren't a mesh in the visualization sense of the section on [downloading Meshes](em:meshes), but have the same data representation.
+
+To handle this, the meshwork object associates each mesh vertices with a single nearby skeleton vertex, and each skeleton vertex is associated with one or more mesh vertices. By representing data this way, annotations like synapses can be directly associated with a mesh vertex (because synapses can be anywhere on the object) and then mapped to the skeleton in order to enjoy the topological benefits of the skeleton representation.
+
+:::{code-block} python
+# By the definition of skeleton vs mesh, we would expect that mesh contains more vertices than the skeleton. 
+# We can see this by looking at the size of the skeleton vertex location array vs the size of the mesh vertex location array.
+
+print('Skeleton vertices array length:', len(nrn.skeleton.vertices))
+print('Mesh vertices array length:', len(nrn.mesh.vertices))
+:::
+
+:::{code-block} python
+#Let us try to visualize the skeleton:
+# Visualize the whole skeleton 
+
+# here's a simple way to plot vertices of the skeleton
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+%matplotlib notebook 
+
+fig = plt.figure(figsize=(6, 6))
+ax = plt.axes(projection='3d')
+ax.scatter3D(nrn.skeleton.vertices[:,0], nrn.skeleton.vertices[:,1], nrn.skeleton.vertices[:,2], s=1)
+:::
+
+:::{figure} img/skeleton_scatterplot.png
+---
+align: center
+---
+Scatterplot of skeleton vertices as a point cloud.
+:::
+
