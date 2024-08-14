@@ -247,7 +247,6 @@ between the wild-type distribution and the distributions of the four GCaMP-expre
 
 However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:p}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
 
-![run_saccade](/resources/run_saccade_cre.png)
 :::{figure} ../resources/run_saccade_cre.png
 :name: run_saccade_cre
 :align: center
