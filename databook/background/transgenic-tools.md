@@ -237,6 +237,13 @@ We further examined whether transgenic expression of GCaMP6 effect physiology th
 
 ![gcampnp](/resources/gcamp_neuropixels.png)
 
+Comparing responses across GCaMP-expressing mouse lines. (A) GCaMP expression patterns for the four lines used for ephys experiments. (B) Unit yield (following QC filtering) for five
+areas and five genotypes. Error bars represent standard deviation across experiments; each dot represents a data point from one experiment. (C) Distribution of firing rates for neurons from each mouse line, aggregated across experiments. (D) Distribution of burst fraction (fraction of all spikes that participate in bursts) for neurons from each mouse line, aggregated across experiments. Dots represent the median of each distribution, shown in relation to a reference value of 0.3. (E) Fraction of neurons deemed responsive to drifting gratings, grouped by genotype. (F) Distribution of lifetime sparseness in response to a drifting grating stimulus, grouped by genotype. In panels (C–F), colored numbers indicate the Jensen–Shannon distance
+between the wild-type distribution and the distributions of the four GCaMP-expressing mouse lines. {cite:t}`siegle2021`
+
 However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:t}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
 
 ![run_saccade](/resources/run_saccade_cre.png)
+
+(Top) Distribution of mean running speeds per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session. (Bottom) Distribution of number of saccades made per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single sesison.
+ 
