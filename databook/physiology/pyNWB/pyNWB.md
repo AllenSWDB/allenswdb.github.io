@@ -55,7 +55,11 @@ This stores all the information contained in the NWB file into a ```NWBFile``` o
 nwb2widget(nwbfile_read);
 ```
 
-<img src="../../resources/output_nwb_read.png" alt="Output of nwb2widget" width="1000"/>
+:::{figure} ../../resources/output_nwb_read.PNG
+---
+align: center
+---
+:::
 
 The various types of data contained in the file when loaded into Python are simply attributes of the ```nwbfile_read``` object, which we access in the usual way ```nwbfile_read.*```. Depending on the table of interest, they might be stored as different types of objects, however; for example, several are stored as objects specific to the ```pynwb``` package.
 
