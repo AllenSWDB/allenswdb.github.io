@@ -460,7 +460,6 @@ The key columns are:
 ```
 
 Previous versions of this table include: `allen_column_mtypes_v1` (run on a subset of data, the V1 column)
-```
 ````
 
 +++
