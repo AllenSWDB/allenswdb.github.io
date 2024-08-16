@@ -1,13 +1,12 @@
 ---
 jupytext:
-  formats: md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.11.5
+    jupytext_version: 1.15.0
 kernelspec:
-  display_name: Python 3
+  display_name: allensdk
   language: python
   name: allensdk
 ---
@@ -17,15 +16,16 @@ kernelspec:
 In order to access data on the cloud directly, you can use python. The packages you need to use are: `cloudvolume` and `meshparty`. Cloud volume is a toolbox that helps you read and write data from the cloud, and meshparty is a toolbox that enables you to perform analysis on the data. So what we will do is to first read in the data using cloud volume and then convert it to a meshparty skeleton object so that we can analyse it.
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
 import cloudvolume
 from meshparty import skeleton 
 import skeleton_plot as skelplot
 ```
 
-To read in one neuron morphology, you need to use the cloud location of the data and the skeleton id that you are interested in accessing. Cloudvolume can then read the data as follows: 
+To read in one neuron morphology, you need to use the cloud location of the data and the skeleton id that you are interested in accessing. Cloudvolume can then read the data as follows:
 
 ```{code-cell} ipython3
-input_directory = f"/data/exaSPIM_609281_2022-11-03_13-49-18_reconstructions"
+input_directory = f"file:///data/exaSPIM_609281_2022-11-03_13-49-18_reconstructions/precomputed/"
 skeleton_id = 1
 
 cv_obj = cloudvolume.CloudVolume(input_directory) # Initialize cloud volume
@@ -62,4 +62,3 @@ ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
 ax.axis('off')
 ```
-
