@@ -4,9 +4,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.15.0
 kernelspec:
-  display_name: ctlut
+  display_name: Python 3 (ipykernel)
   language: python
   name: ctlut
 ---

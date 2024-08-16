@@ -9,7 +9,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.16.2
 kernelspec:
-  display_name: allensdk
+  display_name: python3
   language: python
   name: python3
 ---
@@ -20,6 +20,9 @@ kernelspec:
 :tags: [remove-input]
 
 import subprocess
+from datetime import datetime
+
+print(f"Diagnostics report compiled at: {datetime.now()}")
 ```
 
 ## Databook Version Info

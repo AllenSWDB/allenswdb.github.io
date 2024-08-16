@@ -232,6 +232,12 @@ ROI
   A <b>region of interest</b> is a general term that describes a subregion of an image.
   When used in reference to two photon calcium imaging, an ROI is the mask containing pixels thought to belong to a single neuron.
 
+Saccade
+  A rapid and ballistic eye movement that shifts the visual field between two fixation points. Mice are not foveal animals, and their eye movements are different from foveal animals (such as humans).
+
+Skeleton
+  A linear tree-like structure that defines the shape of a neuron. 
+
 Somatostatin cell
   A type of interneuron expressing the molecular marker somatostatin (SST, or
   sometimes SOM). SST cells tend to target the distal dendrites of excitatory

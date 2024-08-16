@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.15.0
 kernelspec:
-  display_name: ctlut
+  display_name: Python 3 (ipykernel)
   language: python
   name: ctlut
 ---
@@ -39,7 +39,7 @@ Let's try loading one session's worth of data to see how to work with it.
 ```{code-cell} ipython3
 # an 'arbitrarily' selected session
 session = '661398_2023-04-03_15-47-29'
-session_directory = f'/data/cell_type_lookup_table_nwb/ecephys_{session}_nwb'
+session_directory = f'/data/SWDB 2024 CTLUT data/ecephys_{session}_nwb'
 
 nwb_file = os.path.join(session_directory, f'ecephys_{session}_experiment1_recording1.nwb.zarr')
 io = NWBZarrIO(nwb_file, "r")
@@ -103,26 +103,49 @@ spike_waveforms = units.waveform_mean
 
 # whether or not each unit passed default qc metrics
 spike_qc = units.default_qc
+
+# the predicted cell type of each unit
+cell_type_id = units.predicted_cell_type
 ```
 
-The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding/vcnp-quality-metrics`.
+The majority of the rest of the data stored for the units are the various qc metrics, which are detailed in {doc}`../visual-coding/vcnp-quality-metrics`, or laser response metrics, detailed in {doc}`./ctlut-identifying-tagged-units`.
 
 +++
 
-## Stimulus data
+## Experimental epochs
 
-Another very relevant piece of data you may wish to load is information about the laser stimulation.
+You may wish to know the time points at which different parts of the experimental session took place. For instance, you may wish to know when laser presentations took place to verify the laser responses of tagged units, or find the epoch before laser presentations to analyze spontaneous cell responses.
 
 ```{code-cell} ipython3
-# load the stimulus table
-stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
-
 # get the different epochs and their beginning and end times
 epochs = nwbfile_read.intervals['epochs'].to_dataframe()
 ```
 
+## Stimulus data
+
+If you wanted to verify the laser responses of tagged units, you may wish to load information about the laser stimulation. This is saved as a trials table indicating the times of each laser stimulation and information about the stimulation that took place.
+
 ```{code-cell} ipython3
-epochs
+# load the stimulus table
+stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
+```
+
+You can also load the stimulus templates: the voltage traces sent to the laser during stimulation, giving you a read of the laser's power over time. The names of the template match the ones in the trials table.
+
+```{code-cell} ipython3
+stimulus_template = nwbfile_read.stimulus_template
+```
+
+## LFP data
+
+You can load the LFP (local field potential) data collected for each experiment. There are 384 channels of this data, for every electrode on the Neuropixels probe, as it was collected concurrently with the spiking data.
+
+```{code-cell} ipython3
+# load LFP data (for probe A, change the string for probe B)
+lfp_data = nwbfile_read.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP']
+lfp = lfp_data.data
+start_time = lfp_data.starting_time
+acquisition_rate = lfp_data.rate
 ```
 
 ## Running data
@@ -130,8 +153,9 @@ epochs
 Finally, you can also find the animal's running speed throughout the session.
 
 ```{code-cell} ipython3
-running_speed = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity'].data
-running_timestamps = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity'].timestamps
+running = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity']
+running_speed = running.data
+running_timestamps = running.timestamps
 ```
 
 ```{code-cell} ipython3

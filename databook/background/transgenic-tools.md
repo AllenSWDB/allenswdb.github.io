@@ -117,8 +117,7 @@ our applications, we combine both Cre and tTA to drive the expression of our rep
   layer 4. Only found in primary sensory areas (e.g. VISp)
 
 <b>Slc17a6-IRES-Cre</b>
-: Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus
-  midbrain, and brainstem but with weak expression in cortex.
+: Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex.
 
 <b>Slc17a7-IRES2-Cre</b>
 : In cortex, a pan-excitatory driver - drives expression in excitatory neurons
@@ -192,13 +191,13 @@ expression only takes place if the gene infects a cell that is already
 expressing Cre.
 
 <b>AAV2-Syn-Flex-ChrimsonR-tdTomato</b>
-: Cre dependent expression of ChrimsonR, fused with tdTomato for visualization.
+: Cre dependent expression of ChrimsonR, fused with tdTomato for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (590 nm peak).
 
 <b>pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE</b>
-: Cre dependent expression of ChRmine, fused with mScarlet for visualization.
+: Cre dependent expression of ChRmine, fused with mScarlet for visualization. Cells expressing ChRmine are depolarized by illumination with yellow light (520 nm peak).
 
 <b>AAV5-hSyn-DIO-somBiPOLES-mCerulean</b>
-: Cre dependent expression of BiPOLES, fused with mCerulean for visualization.
+: Cre dependent expression of BiPOLES, fused with mCerulean for visualization. BiPOLES is a fusion of ChrminsonR and GtACR, meaning cells expressing it are depolarized by red light and hyperpolarized by blue light.
 
 <b>AAV-PHP-eB_Syn-Flex-2xTRE-tTA</b>
 : Cre dependent tTA promoter. Often this is used to regulate the gain of expression
@@ -247,7 +246,6 @@ between the wild-type distribution and the distributions of the four GCaMP-expre
 
 However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:p}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
 
-![run_saccade](/resources/run_saccade_cre.png)
 :::{figure} ../resources/run_saccade_cre.png
 :name: run_saccade_cre
 :align: center
