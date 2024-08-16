@@ -20,9 +20,9 @@ parts:
       - file: background/Ophys-ephys-comparison
       - file: background/CCF.md
       - file: background/metadata.md
-    - file: physiology/physiology                    # Also a placeholder that needs actual content
+    - file: physiology/physiology
       sections:
-      - file: physiology/ophys/ophys-overview                    # Also a placeholder that needs actual content
+      - file: physiology/ophys/ophys-overview
         title: Optical Physiology
         sections:
         - file: physiology/ophys/visual-coding/vc2p-background
@@ -48,7 +48,7 @@ parts:
             title: Tutorial Downloading Data
     #    - file: physiology/ophys/learning/learning                    # Also a placeholder that needs actual content
     #    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
-      - file: physiology/ephys/ephys-overview                    # Also a placeholder that needs actual content
+      - file: physiology/ephys/ephys-overview
         title: Electrophysiology
         sections:
         - file: physiology/ephys/visual-coding/vcnp
@@ -83,10 +83,10 @@ parts:
         #- file: physiology/ephys/np-ultra/np-ultra                    # Also a placeholder that needs actual content
       - file: physiology/stimuli/stimuli
         sections:
-        - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list                    # Also a placeholder that needs actual content
+        - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
           title: Visual Behavior Task
-      - file: physiology/pyNWB/pyNWB                    # Also a placeholder that needs actual content
+      - file: physiology/pyNWB/pyNWB
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
       - file: anatomy/microns-em/em-background
@@ -120,3 +120,4 @@ parts:
     chapters:
       - file: glossary
       - file: bibliography
+      - file: contributors

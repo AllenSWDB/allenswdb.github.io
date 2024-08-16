@@ -1,10 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: SWDB 2023 Data Book
-author: Saskia de Vries, Marina Garrett, Corbett Bennett, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
+title: SWDB 2024 Data Book
+author: Allen Institute Summer Workshop on the Dynamic Brain
 logo: ./resources/cropped-SummerWorkshop_Header.png
-copyright: "2023"
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
