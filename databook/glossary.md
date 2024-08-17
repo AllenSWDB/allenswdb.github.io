@@ -22,6 +22,9 @@ CCF
 Common Coordinate Framework
   The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
+Container
+  *There is no consistent use of this term*
+
 Cre line
   The Cre-lox system is a site-specific recombinase technology. Cre-recombinase
   is a tyrosine site-specific recombinase that catalyzes the recombination of
@@ -31,6 +34,9 @@ Cre line
   is often expressed within a specific gene, this allows the reporter expression
   to be restricted to particular subset of cells. For specific lines used, see
   the section on [transgenic tools](background/transgenic-tools.md).
+
+Dataset
+  *There is no consistent use of this term*
 
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
@@ -44,6 +50,9 @@ Driver line
 
 Ephys
   Shorthand for electrophysiology.
+
+Experiment
+  *There is no consistent use of this term*
 
 Fast spiking neuron
 FSN
@@ -234,6 +243,9 @@ ROI
 
 Saccade
   A rapid and ballistic eye movement that shifts the visual field between two fixation points. Mice are not foveal animals, and their eye movements are different from foveal animals (such as humans).
+
+Session
+  A physiological and/or behavioral recording that happens at one time.
 
 Skeleton
   A linear tree-like structure that defines the shape of a neuron. 
