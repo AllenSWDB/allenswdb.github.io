@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: base
   language: python
-  name: python3
+  name: allensdk
 ---
 
 This tutorial will cover the basics of analyzing data using regression using Python's ```numpy``` and ```scikit-learn``` packages.
