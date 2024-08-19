@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: base
   language: python
-  name: python3
+  name: allensdk
 ---
 
 # Principal Component Analysis
