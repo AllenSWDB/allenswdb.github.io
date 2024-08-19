@@ -37,10 +37,13 @@ data = np.ndarray([2,100])
 data[0] = np.random.default_rng().normal(50, 10, size=(1, 100))
 data[1] = np.random.default_rng().normal(0, 10, size=(1, 100)) + data[0]
 
+x_range = (data[0].max() - data[0].min())/2 * 1.07
+y_range = (data[1].max() - data[1].min())/2 * 1.07
+
 ax = plt.subplot(111)
 ax.set_aspect(1)
-ax.set_xlim([np.mean(data[0])-lambda_[0]*6, np.mean(data[0])+lambda_[0]*6])
-ax.set_ylim([np.mean(data[1])-lambda_[1]*4, np.mean(data[1])+lambda_[1]*3])
+ax.set_xlim([np.mean(data[0])-x_range, np.mean(data[0])+x_range])
+ax.set_ylim([np.mean(data[1])-y_range, np.mean(data[1])+y_range])
 plt.scatter(data[0], data[1])
 plt.xlabel('Variable 1')
 plt.ylabel('Variable 2')
@@ -63,8 +66,8 @@ As we can see, our data looks like it has some correlations, which implies that 
 ax = plt.subplot(111)
 ax.set_aspect(1)
 plt.scatter(data[0], data[1])
-ax.set_xlim([np.mean(data[0])-lambda_[0]*6, np.mean(data[0])+lambda_[0]*6])
-ax.set_ylim([np.mean(data[1])-lambda_[1]*4, np.mean(data[1])+lambda_[1]*3])
+ax.set_xlim([np.mean(data[0])-x_range, np.mean(data[0])+x_range])
+ax.set_ylim([np.mean(data[1])-y_range, np.mean(data[1])+y_range])
 ax.annotate("",
             xy=(min(data[0]), 
                 np.mean(data[1])),
