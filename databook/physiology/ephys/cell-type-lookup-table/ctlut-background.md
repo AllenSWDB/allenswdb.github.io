@@ -4,7 +4,7 @@ The cell type look-up table dataset is a collection of recordings taken from the
 
 ## Background
 
-It is a well known fact that neurons in the brain are not homogeneous: they differ in terms of morphology, connectivity, gene expression, and other factors. These differences imply a difference in function, and indeed, different "types" of neurons have been found to play distinct roles in the computations performed by the brain, whether that be sensory processing, motor output, or decision-making (CITATIONS). As such, any modern study on the function of the brain needs to take cell type into account.
+It is a well known fact that neurons in the brain are not homogeneous: they differ in terms of morphology, connectivity, gene expression, and other factors. These differences imply a difference in function, and indeed, different "types" of neurons have been found to play distinct roles in the computations performed by the brain, whether that be sensory processing, motor output, or decision-making {cite:p}`Cox2019`. As such, any modern study on the function of the brain needs to take cell type into account.
 
 However, determining the identity of individual neurons can pose a challenge in the middle of a recording. This is especially true for extracellular electrophysiology, as we have no access to the information usually used to determine a cell's type, such as morphology or gene expression. This is a big blow to a technique that otherwise has unparalleled reach in terms of temporal resolution and access to different brain areas.
 
