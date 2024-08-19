@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
-  name: ctlut
+  name: python3
 ---
 
 # Identifying tagged neurons
