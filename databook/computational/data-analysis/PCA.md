@@ -151,7 +151,7 @@ Fig. 3: Scatter plot of data with alternate orthogonal axes drawn in red. Here, 
 
 If instead of drawing the arrows capturing the spread of the data parallel to the variables, we draw them drawn at an angle, we can pick some directions so that one line is as long as possible and the other line is as small as possible. The line describing each is now some combination of our variables, so that we have two functions of the form $\text{Variable 2} = m(\text{Variable 1}) + b$ which describe the two lines we've drawn here, and they intersect each other at an angle of $\frac{\pi}{2}$.
 
-All we've done here is rotated our axes. Instead of using 'Variable 1' as our x-axis and 'Variable 2' as our y-axis, we're now using some combination of the two $a(\text{Variable 1}) + b(\text{Variable 1})$ for the x-axis and a different combination for the y-axis. However, the point is that we can pick the degree by which we rotate to be whatever makes the spread in our new $x'$ direction as big (as small) as possible, and the spread in our new $y'$ direction as small (as big) as possible.
+All we've done here is rotated our axes. Instead of using 'Variable 1' as our x-axis and 'Variable 2' as our y-axis, we're now using some combination of the two $a(\text{Variable 1}) + b(\text{Variable 2})$ for the x-axis and a different combination for the y-axis. However, the point is that we can pick the degree by which we rotate to be whatever makes the spread in our new $x'$ direction as big (as small) as possible, and the spread in our new $y'$ direction as small (as big) as possible.
 
 Now, if we're using these new directions, we can compress our data down onto the longer axis. This results (again) in only one dimension to analyze (since a line is a one-dimensional object). But if we've chosen our angle correctly, the amount of information that we are discarding (the length of the smaller axis) is as small as possible! So by a clever change of axes, we can minimize the information loss associated with our dimensionality reduction.
 
@@ -530,6 +530,7 @@ session_id = 798911424
 session = cache.get_session_data(session_id)
 
 units = session.units
+unit_metrics = cache.get_unit_analysis_metrics_by_session_type('brain_observatory_1.1')
 units_VISp = units[units.ecephys_structure_acronym == 'VISp']
 unit_metrics_VISp = unit_metrics.loc[units_VISp.index.values]
 ```

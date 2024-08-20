@@ -11,14 +11,10 @@ kernelspec:
   name: allensdk
 ---
 
-## <img src="../resources/cropped-SummerWorkshop_Header.png">  
-
-<h1 align="center">Classification Tutorial SWDB 2022 </h1> 
-<h3 align="center">Monday, August 29, 2022</h3> 
+# Classification Tutorial
 
 +++
 
-<div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 <p>
 This tutorial covers some general concepts in classification and highlights useful functionality in the sklearn package for performing classification.
     </p>
@@ -391,10 +387,7 @@ Note that Class 2 is predicted with high accuracy, while Class 0 and Class 1 are
 
 +++
 
-<div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
-<p>
-
-### Once again, lets try to decoding in the Visual Behavior dataset.
+### Once again, let's try to perform decoding in the Visual Behavior dataset.
     
 <p>
     Specifically, we will try and decode which image was presented to a mouse during a string of behavior trials
