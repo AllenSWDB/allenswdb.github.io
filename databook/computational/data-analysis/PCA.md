@@ -581,7 +581,7 @@ Fig. 10: The covariance matrix for the units in our dataset. Notice here our cov
 Our next step, as usual, is to then perform the eigendecomposition. The eigenvectors we find are what are referred to as "principal components" in the context of this particular type of analysis.
 
 ```{code-cell} ipython3
-lambda_, eigenvectors = np.linalg.eig(cov_mat)
+lambda_, eigenvectors = np.linalg.eig(unit_cov)
 
 plt.plot(eigenvalues)
 plt.xlabel('Eigenvector')
