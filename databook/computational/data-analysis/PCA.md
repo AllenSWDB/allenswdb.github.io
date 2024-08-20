@@ -530,6 +530,7 @@ session_id = 798911424
 session = cache.get_session_data(session_id)
 
 units = session.units
+unit_metrics = cache.get_unit_analysis_metrics_by_session_type('brain_observatory_1.1')
 units_VISp = units[units.ecephys_structure_acronym == 'VISp']
 unit_metrics_VISp = unit_metrics.loc[units_VISp.index.values]
 ```
