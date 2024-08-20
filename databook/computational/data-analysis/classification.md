@@ -414,7 +414,7 @@ elif 'Windows'  in platstring:
 elif ('amzn' in platstring):
     # then on AWS
     data_root = "/data/"
-    data_dirname = 'visual-behavior-neuropixels-data'
+    data_dirname = 'visual-behavior-neuropixels'
     use_static = True
 else:
     # then your own linux platform
