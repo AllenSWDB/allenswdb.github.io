@@ -34,10 +34,8 @@ In this tutorial you will learn:
 - How to cross-validate your classifier
 - How to use non-linear classifiers, in this case K nearest neighbors
 - How to use these classifiers to decode stimulus identify in visual cortex.
-            
 
-
-```{code-cell} ipython3
+```{code-cell}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -48,7 +46,7 @@ import numpy as np
 
 Here, we'll generate a 2D dataset with partial overlap.
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn import datasets
 X, y = datasets.make_classification(n_features=2,n_redundant=0,random_state=1,n_samples=1000)
         
@@ -61,7 +59,7 @@ Note that the shape of the independent set $X$ is `(num_samples, num_dimensions)
 
 The following function can visualize the datasets we'll generate in this tutorial.
 
-```{code-cell} ipython3
+```{code-cell}
 def plot_classes(X, y, xlabel=None, ylabel=None, names=None, ax=None):
     
     classes = np.unique(y)    
@@ -91,7 +89,7 @@ def plot_classes(X, y, xlabel=None, ylabel=None, names=None, ax=None):
 
 Let's plot our data to get an idea of what it looks like.
 
-```{code-cell} ipython3
+```{code-cell}
 ax = plot_classes(X, y);
 ```
 
@@ -99,7 +97,7 @@ Now let's train a classifier to predict the class of a given point.
 
 It's important to split our data into a *train* and *test* set to ensure that our classifier can generalize to data that it hasn't yet seen. Again sklearn provides a straightforward function to make this split. Here, by specifying `test_size=0.2`, We're telling the function that we want 20% of the data held-out for testing.
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn import model_selection
 
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.2)
@@ -116,7 +114,7 @@ The first classification algorithm we'll try, and one typically worth trying fir
 
 *Here's more information on [Linear Discriminant Analysis](https://towardsdatascience.com/linear-discriminant-analysis-explained-f88be6c1e00b) if you want to learn more.*
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 classifier = LDA()
@@ -131,7 +129,7 @@ The `fit` method trains the classifier to learn the categories from the training
 This next function can visualize the test data that are correctly versus incorrectly classified.
 Correctly classified data are displayed as filled circles, whereas incorrectly classified data are displayed as open circles.
 
-```{code-cell} ipython3
+```{code-cell}
 def plot_test_performance(X, y, y_hat, xlabel=None, ylabel = None, names = None, ax = None):
     
     classes = np.unique(y_test)
@@ -168,7 +166,7 @@ def plot_test_performance(X, y, y_hat, xlabel=None, ylabel = None, names = None,
 
 Let's look at which points were correctly classified in our test data.
 
-```{code-cell} ipython3
+```{code-cell}
 plot_test_performance(X_test,y_test,y_hat);
 ```
 
@@ -176,7 +174,7 @@ Note that an open circle indicates that the data point should belong to the give
 
 Classifiers create a <u>decision boundary</u> between regions that will be classified differently. Visualizing the decision boundary can be useful to understand what the model believes about the classes. sklearn provides a handy class called `DecisionBoundaryDisplay` to aid in this. We'll create a simple wrapper function to create some useful defaults:
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn.inspection import DecisionBoundaryDisplay
 from matplotlib.colors import LinearSegmentedColormap
 
@@ -195,7 +193,7 @@ def plot_classifier_boundary(classifier, X, num_classes=2, ax = None):
 
 Now let's take a look at the decision boundary for our classifier.
 
-```{code-cell} ipython3
+```{code-cell}
 ax = plot_classifier_boundary(classifier,X)
 ax = plot_test_performance(X_test,y_test,y_hat, ax=ax);
 ```
@@ -204,7 +202,7 @@ The classifier essentially learns to classify the data based on whether the firs
 
 The next exercise illustrates an important aspect of training classifiers: since the classifier learns both the generalizable structure of the data that we're trying to capture as well as the specific variation (noise) in the training data, **the performance of a classifier can be no better on the test data than on the training data**. Typically, it's worse. This phenomenon is called **overfitting**. Overfitting is characterized by poor accuracy on the test dataset, while accuracy in training remains high. Overfitting indicates that the classifier has learned too much of the noise present in the training data.
 
-```{code-cell} ipython3
+```{code-cell}
 train_accuracy = []
 test_accuracy = []
 num_folds = 5
@@ -228,13 +226,13 @@ Try playing with the number of samples in the dataset above. You'll notice that 
 
 Next, let's try a dataset that isn't so easily separated by a linear classifier.
 
-```{code-cell} ipython3
+```{code-cell}
 X, y = datasets.make_moons(noise=0.2,random_state=0,n_samples=1000)
     
 plot_classes(X,y);
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X,y,test_size=0.2)
 
 classifier = LDA()
@@ -253,7 +251,7 @@ Let's try a non-linear classifier. K-nearest neighbors is a very straightforward
 
 *Here's more on [K-nearest neighbors](https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761) if you want to learn more.*
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn import neighbors
 
 classifier = neighbors.KNeighborsClassifier()
@@ -267,7 +265,7 @@ plot_test_performance(X_test, y_test, y_hat_knn, ax=ax);
 
 The performance of the KNN classifier depends on the number of neighbors that are considered for deciding class membership. We can determine the best value of K through **validation**.
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn import neighbors
 
 k_to_try = np.arange(2, 250, 1)
@@ -289,7 +287,7 @@ plt.show()
 
 Now let's use the best value of K from validation to see how well it generalizes to the hold-out test set.
 
-```{code-cell} ipython3
+```{code-cell}
 best_K = k_to_try[np.argmax(val_performance)]
 
 classifier = neighbors.KNeighborsClassifier(n_neighbors=best_K)
@@ -304,7 +302,7 @@ print("Test Performance: " + str(np.mean(y_test == y_hat)))
 
 Let's quantitatively compare the performance of LDA and KNN.
 
-```{code-cell} ipython3
+```{code-cell}
 test_accuracy = np.array([
                           (y_test==y_hat_lda).mean(),
                           (y_test==y_hat_knn).mean()
@@ -322,7 +320,7 @@ plt.show()
 
 There are many more types of datasets you can make with scikit-learn, many of which are not linearly classifiable. See the [sklearn-documentation on generated datasets](https://scikit-learn.org/stable/datasets/sample_generators.html#generated-datasets) for more datasets and information.
 
-```{code-cell} ipython3
+```{code-cell}
 X, y = datasets.make_circles(noise=0.1, factor=0.5, random_state=1,n_samples=1000)
     
 plot_classes(X,y);
@@ -330,13 +328,13 @@ plot_classes(X,y);
 
 Now let's look at a dataset with more than two classes.
 
-```{code-cell} ipython3
+```{code-cell}
 X, y = datasets.make_blobs(n_features=2, centers=3, random_state=4, n_samples=1000)
        
 plot_classes(X,y);
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.2)
 
 classifier = neighbors.KNeighborsClassifier()
@@ -353,7 +351,7 @@ Note that the red and blue classes overlap, but neither overlaps with the green 
 
 #### Confusion Matrix
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn.metrics import confusion_matrix
 
 C = confusion_matrix(y_test, y_hat, normalize = 'all') 
@@ -393,7 +391,7 @@ Note that Class 2 is predicted with high accuracy, while Class 0 and Class 1 are
     Specifically, we will try and decode which image was presented to a mouse during a string of behavior trials
     </p>
 
-```{code-cell} ipython3
+```{code-cell}
 import allensdk
 from allensdk.brain_observatory.\
     behavior.behavior_project_cache.\
@@ -403,8 +401,6 @@ import os
 import platform
 platstring = platform.platform()
 
-data_dirname = 'visual-behavior-neuropixels'
-use_static = False
 if 'Darwin' in platstring or 'macOS' in platstring:
     # macOS 
     data_root = "/Volumes/Brain2022/"
@@ -414,25 +410,19 @@ elif 'Windows'  in platstring:
 elif ('amzn' in platstring):
     # then on AWS
     data_root = "/data/"
-    data_dirname = 'visual-behavior-neuropixels'
-    use_static = True
 else:
     # then your own linux platform
     # EDIT location where you mounted hard drive
     data_root = "/media/$USERNAME/Brain2022/"
-#data_root = '../Data'
-
-# get the cache location
-cache_dir = os.path.join(data_root, data_dirname)
 
 # cache = VisualBehaviorNeuropixelsProjectCache.from_s3_cache(cache_dir=cache_dir)
 cache = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
-            cache_dir=cache_dir, use_static_cache=use_static)
+            cache_dir=data_root, use_static_cache=True)
 ```
 
 We are going to examine the session looking at familiar images that contains the most V1 units.
 
-```{code-cell} ipython3
+```{code-cell}
 area = 'VISp'
 # You have actually seen this code before, so we won't spend time on it...
 units_table = cache.get_unit_table()
@@ -453,7 +443,7 @@ session = cache.get_ecephys_session(ecephys_session_id=familiar_session_with_mos
 
 Now we will transform the data to be a dictionary of spike times for each unit.
 
-```{code-cell} ipython3
+```{code-cell}
 # Get unit information
 session_units = session.get_units()
 # Channel information
@@ -472,20 +462,20 @@ this_spiketimes = dict(zip(this_units.index, [session.spike_times[ii] for ii in 
 
 Next, get the stimulus table for the behavior session:
 
-```{code-cell} ipython3
+```{code-cell}
 active_stims = session.stimulus_presentations[session.stimulus_presentations.stimulus_block==0 ]
 ```
 
-We are going to look at time bins after each stimulus presentation, so we will count the number of spikes 0-50ms after each presentation, 50-100ms after each presentation, etc. This is very similar to constructing a PSTH, but we are going to keep each neurons response on each trial separate so that we can try to decode trial identity. This will give as a matrix `Xbins` with dimensions `(Trials, Neurons, TimeBins)`. 
+We are going to look at time bins after each stimulus presentation, so we will count the number of spikes 0-50ms after each presentation, 50-100ms after each presentation, etc. This is very similar to constructing a PSTH, but we are going to keep each neurons response on each trial separate so that we can try to decode trial identity. This will give as a matrix `Xbins` with dimensions `(Trials, Neurons, TimeBins)`.
 
-```{code-cell} ipython3
+```{code-cell}
 # Look we want to look at time 750 ms after the start of the trial.
 dt = .05 # Time is in seconds
 time = np.arange(0,.75+dt,dt)
 time
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # Declare and empty variable X
 Xbins = np.zeros((len(active_stims),len(this_spiketimes),len(time)-1))
 # This Loop is a little slow...be patient
@@ -498,9 +488,9 @@ for jj,key in enumerate(this_spiketimes):
         Xbins[ii,jj,:] = np.histogram(this_spiketimes[key][startInd:endInd]-trial.start_time,time)[0]
 ```
 
-To decode image identity, what we actually need is is (𝑇,𝑛) matrix with row per time sample and one column per neuron/dimension. Why did we just go to the trouble of constructing such a fancy `Xbins`? The reason is that it gives us the flexibility to look at how well activity can be decoded from different epochs of a given image presentation. Lets start by trying to decode activity between 0 and 250 ms after the start of the trial. 
+To decode image identity, what we actually need is is (𝑇,𝑛) matrix with row per time sample and one column per neuron/dimension. Why did we just go to the trouble of constructing such a fancy `Xbins`? The reason is that it gives us the flexibility to look at how well activity can be decoded from different epochs of a given image presentation. Lets start by trying to decode activity between 0 and 250 ms after the start of the trial.
 
-```{code-cell} ipython3
+```{code-cell}
 X250 = np.sum(Xbins[:,:,time[:-1]<=.250],axis=2)
 X250.shape
 ```
@@ -509,7 +499,7 @@ The `np.unique` command in NumPy has a handy feature that converts non-numeric c
 
 `np.unique` returns a list of each unique value in a list. The inverse of the unique function provides the index needed to return that list back to its original state. Conveniently, for a discrete variable, this means that the inverse returned by the `unique` function provides a integer category marker for non-integer data.
 
-```{code-cell} ipython3
+```{code-cell}
 [unq,cat]= np.unique(active_stims.image_name,return_inverse=True)
 unq
 ```
@@ -518,7 +508,7 @@ unq
 
 We should take a moment to note that unsupervised learning and dimensionality reduction techniques, like PCA, are often useful in assessing how successful a decoding algorithm might be. If you can easily visualize stratification in your data, it will likely be easy for a classifier to determine boundaries between groups in your data. Lets take a moment to look at the first two PCs of our response matrix, X. Do you think we are going to have much luck with our classifier?
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn.decomposition import PCA
 pca = PCA()
 trans = pca.fit_transform(X250)
@@ -534,7 +524,7 @@ Looks like this is likely going to work!
 
 We are now ready to try decoding from `X250`! As before, we start by splitting into training and testing data.
 
-```{code-cell} ipython3
+```{code-cell}
 X_train, X_test, cat_train, cat_test =  model_selection.train_test_split(
     X250, cat,
     test_size=0.2, 
@@ -542,14 +532,14 @@ X_train, X_test, cat_train, cat_test =  model_selection.train_test_split(
 )
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # Fit the classifier
 classifier250 = LDA()
 classifier250.fit(X_train,cat_train)
 cat_hat = classifier250.predict(X_test) #NOW you know why this variable was called "cat"
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # And Visuallize the confusion matrix
 C = confusion_matrix(cat_test,cat_hat,normalize='true')           
 plt.figure(figsize=(8,8))
@@ -568,14 +558,14 @@ plt.show()
 
 V1 was a (maybe too) easy example for this problem. To see this, we can use cross validation to estimate the performance of our model. Our decoding is very nearly perfect! This is how you know you are seeing a cherry-picked tutorial example...it almost never happens in real life...
 
-```{code-cell} ipython3
+```{code-cell}
 scores = model_selection.cross_val_score(classifier250, X250, cat, cv=5)
 scores
 ```
 
 The structure of our `Xbins` matrix, however, allows us to ask harder questions. Lets say, for example, we want to try to decode image identity in the 250ms AFTER the image presentation:
 
-```{code-cell} ipython3
+```{code-cell}
 # Get the prediction matrix for this time epoch
 X500 = np.sum(Xbins[:,:,np.bitwise_and(time[:-1]<=.750,time[:-1]>.500)],axis=2)
 classifier500 = LDA()
@@ -587,7 +577,7 @@ Suddenly, decoding doesn't seem so easy!
 
 We are still doing 'OK,' in that we decode image identity better with accuracy better than guessing, but not as well as before. Now the confusion matrix becomes more useful; we can ask whether decoding errors are the same for all images. Are some stimuli less often confused than others later in the presentation sequence?
 
-```{code-cell} ipython3
+```{code-cell}
 X_train_500, X_test_500, cat_train_500, cat_test_500 = model_selection.train_test_split(
     X500, cat,
     test_size=0.2, 
@@ -615,21 +605,21 @@ plt.show()
 
 It is also worth noting that models fit in one condition can be applied to another. This can be useful it trying comparing population representations between conditions. We might, for example, want to know how well a model fit to the first 250ms of each image presentation (`X250`) does at predicting the identity during the next 250ms (`X500`). This will will give us a sense of whether neurons in the population qualitatively change their image preference once the stimulus turns off, or whether there responses are simply less consistent.
 
-```{code-cell} ipython3
+```{code-cell}
 score = classifier250.score(X500,cat)
 score
 ```
 
 This question can be asked in either direction.
 
-```{code-cell} ipython3
+```{code-cell}
 score = classifier500.score(X250,cat)
 score
 ```
 
-#### Exercise 1: We built the Xbins array to be more fine grained than we have used thus far.  Loop through each in this array and cross validate a linear classifier using each time bin. Plot the scores relative to the time from stimulus onset. 
+#### Exercise 1: We built the Xbins array to be more fine grained than we have used thus far.  Loop through each in this array and cross validate a linear classifier using each time bin. Plot the scores relative to the time from stimulus onset.
 
-```{code-cell} ipython3
+```{code-cell}
 
 ```
 
@@ -639,7 +629,7 @@ Understanding the model behind different classification methods can help underst
 
 Think for a moment about what the difference in performance between the linear model and your chosen model tells you about either your model or the V1 population.
 
-```{code-cell} ipython3
+```{code-cell}
 
 ```
 
@@ -652,7 +642,7 @@ One example of this is a decision tree. Decision trees are useful because the re
 
 A Decision tree object also returns a "feature_importances_" variable. Feature importance (see "Gini Importance") gives a sense of how heavily each feature is weighted in the decision tree. In this case, It tells us how important each cell is in the classifier's decision process.
 
-```{code-cell} ipython3
+```{code-cell}
 from sklearn.tree import DecisionTreeClassifier
 
 classifier = DecisionTreeClassifier(random_state=0)
