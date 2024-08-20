@@ -410,7 +410,6 @@ elif 'Windows'  in platstring:
 elif ('amzn' in platstring):
     # then on AWS
     data_root = "/data/"
-    use_static = True
 else:
     # then your own linux platform
     # EDIT location where you mounted hard drive
