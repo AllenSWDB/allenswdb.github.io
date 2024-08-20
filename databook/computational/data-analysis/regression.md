@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.16.2
 kernelspec:
-  display_name: base
+  display_name: allensdk
   language: python
   name: allensdk
 ---
@@ -393,13 +393,22 @@ plt.show()
 It's certainly hard to tell, but it looks like there might be a connection here. Both of these are plotted against time, and they both have a lot of change over the course of the experiment, but it's hard to tell if they occur around the same times, or if there's a relationship of some kind between dff and running speed. A regression might help. As above, we start by splitting our data.
 
 ```{code-cell} ipython3
-data = np.ndarray(dx[0], events[1])
-dx_train, dx_validate = train_test_split(data[0], )
-events_train, events_validate = train_test_split(data[1])
-dx_validate
+print(dx_filtered)
 
-dx_train, dx_validate, events_train, events_validate = train_test_split(data[0], data[1], train_size = 0.5)
-dx_validate, dx_test, events_validate, events_test = train_test_split(dx_validate, events_validate, test_size = 0.5)
+print(len(dx_filtered))
+print(len(events))
+```
+
+```{code-cell} ipython3
+L = dx.shape[0]
+
+dx_train = dx[:L//2]
+dx_validate = dx[L//2:3*L//4]
+dx_test = dx[3*L//4:]
+
+events_train = events[:,:L//2]
+events_validate = events[:,L//2:3*L//4]
+events_test = events[:,3*L//4:]
 ```
 
 For this particular regression, we'll also bin our data, so that we can group data points that are roughly similar to each other. We'll lose some granularity and predictive power, but we'll make the analysis faster and simpler.
@@ -501,7 +510,7 @@ running_nth_order = nth_polynomial(running_bin_train, best_model_index+1)
 print(lr_best.score(running_nth_order, events_bin_train))
 ```
 
-So once we use data the models haven't seen before, the best of them has a score of 0.296; roughly 30% of the variance in our data is explained by this model. There's certainly other factors confounding this analysis, but at the least, it seems like there's some correlation between the running speed and the df/f.
+So once we use data the models haven't seen before, we find that around 30% of the variance in our data is explained by this model. There's certainly other factors confounding this analysis, but at the least, it seems like there's some correlation between the running speed and the df/f.
 
 +++
 
