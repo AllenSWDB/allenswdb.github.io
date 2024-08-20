@@ -618,7 +618,7 @@ centered_norm_firing_rates = norm_firing_rates - np.transpose(np.tile(mean_rates
 projected_data = np.dot(np.transpose(eigenvectors[:,0:2]), centered_norm_firing_rates)
 orientations = presentations.orientation.values.astype('int')
 
-pc.scatter(projected_data[0,:], projected_data[1,:], c=orientations, cmap='tab10')
+plt.scatter(projected_data[0,:], projected_data[1,:], c=orientations, cmap='tab10')
 plt.title('Principal Components 1 and 2')
 plt.xlabel('PC1')
 plt.ylabel('PC2')
