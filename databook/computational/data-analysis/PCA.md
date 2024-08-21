@@ -583,7 +583,7 @@ Our next step, as usual, is to then perform the eigendecomposition. The eigenvec
 ```{code-cell} ipython3
 lambda_, eigenvectors = np.linalg.eig(unit_cov)
 
-plt.plot(eigenvalues)
+plt.plot(lambda_)
 plt.xlabel('Eigenvector')
 plt.ylabel('Amount of Variance Associated')
 ```
