@@ -310,17 +310,12 @@ def get_change_time_from_stim_table(row):
     '''
     table = stimulus_presentations
     change_frame = row['change_frame']
-    if np.isnan(change_frame):
+    if change_frame == -99: #indicates aborted trial
         return np.nan
 
     change_times = table[table.start_frame==change_frame]['start_time'].values
 
-    if len(change_times) == 0:
-        return np.nan
-    else:
-        return change_times[0]
-
-    return change_time
+    return change_times[0]
 
 change_times = trials.apply(get_change_time_from_stim_table, axis=1)
 trials['change_time_with_display_delay'] = change_times
