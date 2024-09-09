@@ -10,13 +10,13 @@ the cortical layers.
 
 During imaging, mice were awake, head-fixed under the microscope, and positioned
 on a running disk that enabled them to run at will. The mice passively viewed an
-assortment of visual stimuli {doc}`vc2p-stimuli` presented on a
-monitor. Cameras recorded the eye position of the eye pointed at the monitor.
-Thus, in addition to the neural activity, we also have measured the mouse's
-running activity, and the pupil position, and pupil area of the mouse's eye.
-(Keep in mind that the pupil area is largely controlled by the amount of light,
-which is kept relatively constant during these experiments. Thus the dynamic
-range of the pupil area is likely less than in non-visual experiments.)
+assortment of [visual stimuli](vc2p-stimuli.md) presented on a monitor. Cameras
+recorded the eye position of the eye pointed at the monitor. Thus, in addition to
+the neural activity, we also have measured the mouse's running activity, and the
+pupil position, and pupil area of the mouse's eye. (Keep in mind that the pupil
+area is largely controlled by the amount of light, which is kept relatively constant
+during these experiments. Thus the dynamic range of the pupil area is likely less
+than in non-visual experiments.)
 
 ## Background
 There is a long history of studying the activity of neurons in the visual
@@ -38,23 +38,15 @@ First, stemming from that initial work of Hubel and Wiesel, the field converged 
 
 Second, as neurons in different parts of the visual circuit were found to respond to different features, there were open questions as to what the computations were that transformed the simple responses of the neurons in the early visual system into the more complex features.
 
-The <b>Allen Brain Observatory Visual Coding</b> datasets were collected in large part to address these questions. These are survey datasets, recording the physiological activity of neurons in the visual system of the mouse in different parts of the visual circuit in response to a variety of visual stimuli (both "artificial" and "naturalistic").
-
-Need survey
-“what would be most helpful is to accumulate a database of single-unit or multi-unit data (stimuli and neural responses) that would allow modelers to test their best theory under ecological conditions"
-
-## Visual physiology in mice
-While much of the historical, and ongoing, work studying visual physiology was performed in cats and primates, the mouse has emerged as a model organism for visual physiology in the past two decades.
-[more here, with references!]
+The <b>Allen Brain Observatory Visual Coding</b> datasets were collected in large part to address these questions. These are survey datasets, recording the physiological activity of neurons of different cell types, different layers, and different areas of the visual system of the mouse in response to a variety of visual stimuli (both "artificial" and "naturalistic").
 
 ## Technique
 
 For the **Visual Coding 2-photon** dataset we used
 {ref}`two-photon calcium imaging <two-photon-calcium-imaging>` to
-
 record the activity of populations of neurons. We used
 {ref}`transgenic tools <background-transgenic-tools>` that use
-{term}`Cre line`s to drive the expression of {term}`GCaMP`6 in a specific
+{term}`Cre line`s to drive the expression of genetically encoded {term}`GCaMP`6 in a specific
 population of neurons. These could be excitatory or inhibitory neurons, they
 could be broadly expressed or confined to neurons within specific layers or even
 subtypes within a layer. In this dataset, we performed single plane imaging such
@@ -64,7 +56,7 @@ a single visual area at a single imaging depth.
 ## Experiment
 Awake mice were head-fixed under a 2-photon microscope, on a running disc. Their running was self driven, and we see great variability in the amount of running between mice. A population of neurons was targeted to image using the transgenic tools as described. The neurons express {term}`GCaMP`6 such that whenever the neurons are active, the neurons light up. The mice are presented with a variety of {doc}`./vc2p-stimuli` and the fluorescence of the neurons is recorded using the 2-photon microscope. In addition to the neural activity, the running speed of the mouse is recorded, along with the position and area of the pupil. The far right panel below shows the eye position of this mouse superimposed on the stimulus that is being shown.
 
-<video controls src="/resources/VicCoginExpt.mp4"></video>
+<video controls src="../../../resources/VisCodingExpt.mp4"></video>
 
 ## Questions to explore
 There are many ways to explore these datasets, so these are not exhaustive by any means.

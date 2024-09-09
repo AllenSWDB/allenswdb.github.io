@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-# Import allenSDK and check the version, which should be >2.10.2
+# Import allenSDK and check the version, which should be 2.16.2
 import allensdk
 allensdk.__version__
 ```
@@ -81,6 +81,8 @@ This will return a subset of the full `behavior_session_table` in which the mous
 What we then see is a table that has metadata for every session performed by this mouse, in sequential order. The `equipment_name` column tells us where the session was run on that day and the `session_type` column tells us the name of the session type. See the technical white paper for a detailed description of the progression of stages.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 this_mouse_table = behavior_session_table.query('mouse_id == @mouse_id').sort_values(by = 'date_of_acquisition')
 # note that the following is functionally equivalent if you find the syntax easier to read: 
 # this_mouse_table = behavior_session_table[behavior_session_table['mouse_id'] == mouse_id]
@@ -266,15 +268,7 @@ behavior_session.stimulus_timestamps
 
 ## Plot behavior data for a portion of one session
 
-First, add a column to the stimulus_presentations table that assigns a unique color to every stimulus
-
-```{code-cell} ipython3
-unique_stimuli = [stimulus for stimulus in behavior_session.stimulus_presentations['image_name'].unique()]
-colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
-behavior_session._stimuli._presentations.value['color'] = behavior_session.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
-```
-
-Now make some simple plotting functions to plot these datastreams
+Make some simple plotting functions to plot these datastreams
 
 ```{code-cell} ipython3
 def plot_running(ax, behavior_session, initial_time, final_time):
@@ -331,11 +325,22 @@ def plot_stimuli(ax, behavior_session, intial_time, final_time):
         intial_time: initial time to plot from
         final_time: final time to plot to
     '''
+    
+    # get the stimulus presentations in the window we provided
     stimulus_presentations_sample = behavior_session.stimulus_presentations.copy()
     stimulus_presentations_sample = stimulus_presentations_sample[(stimulus_presentations_sample.end_time >= initial_time) & 
-                                    (stimulus_presentations_sample.start_time <= final_time)]     
+                                    (stimulus_presentations_sample.start_time <= final_time)]   
+    # get a colormap for the different images
+    image_names = stimulus_presentations_sample[stimulus_presentations_sample.omitted==False].image_name.unique()
+    colors = sns.color_palette('hls', len(image_names))
+    # add white for omissions
+    image_names = np.hstack([image_names, 'omitted'])
+    colors = colors + [(1, 1, 1)] 
+    # loop through images and plot them 
     for idx, stimulus in stimulus_presentations_sample.iterrows():
-        ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=stimulus['color'], alpha=0.25)
+        stim_color_ind = np.where(image_names==stimulus['image_name'])[0][0]
+        ax.axvspan(stimulus['start_time'], stimulus['end_time'], color=colors[stim_color_ind], alpha=0.25)
+
 ```
 
 Select a time period during the session and generate the plot

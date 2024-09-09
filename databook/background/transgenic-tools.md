@@ -66,7 +66,7 @@ protein (tTA) to drive the expression of reporters under the TRE or tetO element
 our applications, we combine both Cre and tTA to drive the expression of our reporters.
 
 <b>Cart-IRES2-Cre</b>
-:
+: Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus.
 
 <b>Chat-IRES-Cre-neo</b>
 : Drives expression in cholinergic neurons.
@@ -75,8 +75,8 @@ our applications, we combine both Cre and tTA to drive the expression of our rep
 : In cortex, drives expression in excitatory neurons in layer 2/3 and 4.
 
 <b>Dbh-Cre-KI</b>
-: Drives expression in noradrenergic and adrenegic neurons - i.e. neurons that release
-norepinephrine.
+: Labels a small population of ~1200 neurons in the Pons (per hemisphere) that release
+  norepinephrine to targets brainwide (except striatum)
 
 <b>Drd1a-Cre</b>
 : In striatum, drives expression in medium spiny neurons (MSNs) expressing the
@@ -94,7 +94,8 @@ norepinephrine.
 : In cortex, drives expression in corticofugal excitatory neurons in layer 5.
 
 <b>Gal-Cre_KI187</b>
-:
+: Targets neurons that express the neuropeptide Galanin, chosen to label neurons in midline and
+  interlaminar nuclei in the thalamus. Also targets cells in the hypothalamus, pons and medulla.
 
 <b>Nr5a1-Cre</b>
 : In cortex, drives expression in excitatory neurons in layer 6.
@@ -116,8 +117,7 @@ norepinephrine.
   layer 4. Only found in primary sensory areas (e.g. VISp)
 
 <b>Slc17a6-IRES-Cre</b>
-: A pan-excitatory driver - drives expression in excitatory neurons - with weak expression
-in cortex.
+: Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex.
 
 <b>Slc17a7-IRES2-Cre</b>
 : In cortex, a pan-excitatory driver - drives expression in excitatory neurons
@@ -191,13 +191,13 @@ expression only takes place if the gene infects a cell that is already
 expressing Cre.
 
 <b>AAV2-Syn-Flex-ChrimsonR-tdTomato</b>
-: Cre dependent expression of ChrimsonR, fused with tdTomato for visualization.
+: Cre dependent expression of ChrimsonR, fused with tdTomato for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (590 nm peak).
 
 <b>pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE</b>
-: Cre dependent expression of ChRmine, fused with mScarlet for visualization.
+: Cre dependent expression of ChRmine, fused with mScarlet for visualization. Cells expressing ChRmine are depolarized by illumination with yellow light (520 nm peak).
 
 <b>AAV5-hSyn-DIO-somBiPOLES-mCerulean</b>
-: Cre dependent expression of BiPOLES, fused with mCerulean for visualization.
+: Cre dependent expression of BiPOLES, fused with mCerulean for visualization. BiPOLES is a fusion of ChrminsonR and GtACR, meaning cells expressing it are depolarized by red light and hyperpolarized by blue light.
 
 <b>AAV-PHP-eB_Syn-Flex-2xTRE-tTA</b>
 : Cre dependent tTA promoter. Often this is used to regulate the gain of expression
@@ -225,3 +225,33 @@ type without needing to use a driver line.
 : rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA or
   rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
   CoChR in indirect pathway MSNs, fused with GFP for visualization.
+
+## Do transgenic tools impact physiology or behavior?
+
+Using transgenic tools to record or manipulate activity rests on an assumption that the expression of these tools does not greatly impact the underlying physiology or behavior that is being studied. Is this a fair assumption? Largely yes, but not 100%.
+
+The exogenous expression of proteins have been shown to have neurotoxic effects. One notable example is the occurrence of aberrant electrical events in (primarily) Emx1-IRES-Cre;Camk2a-tTA;Ai93 mice that resemble interictal events. These are large, concerted electrical events that spread across most of cortex. As putative interictal events, these might be associated with epileptiform seizures, though they themselves are not seizures. Indeed, no other aberrant behavior or activity was reported in these mice. And while the mechanism of why these mice exhibit these events is unclear, it is likely related to very broad exogenous expression of tTA and GCaMP6f starting very early in development. {cite:p}`emx`
+
+We further examined whether transgenic expression of GCaMP6 effect physiology this was by performing Neuropixels recordings from mice expressing GCaMP6f under the control of several of the driver lines used in the Visual Coding 2P dataset. The question here is whether the exogenous expression of these proteins (Cre, tTA, and GCaMP6f) in particular neurons would alter the underlying physiology of the population.  We compared recordings from Vip-IRES-Cre;Ai148, Sst-IRES-Cre;Ai148, Cux2-CreERT2;Camk2a-tTA;Ai93, and Slc17a7-IRES2-Cre;Camk2a-tTA;Ai93 with those from wild-type mice. Comparing unit yield, firing rate, burst fractions, responsiveness, and lifetime sparseness, we did not find significant differences between these populations. {cite:p}`siegle2021`
+
+:::{figure} ../resources/gcamp_neuropixels.png
+:name: gcamp_neuropixels
+:align: center
+:width: 800
+
+Comparing responses across GCaMP-expressing mouse lines. (A) GCaMP expression patterns for the four lines used for ephys experiments. (B) Unit yield (following QC filtering) for five
+areas and five genotypes. Error bars represent standard deviation across experiments; each dot represents a data point from one experiment. (C) Distribution of firing rates for neurons from each mouse line, aggregated across experiments. (D) Distribution of burst fraction (fraction of all spikes that participate in bursts) for neurons from each mouse line, aggregated across experiments. Dots represent the median of each distribution, shown in relation to a reference value of 0.3. (E) Fraction of neurons deemed responsive to drifting gratings, grouped by genotype. (F) Distribution of lifetime sparseness in response to a drifting grating stimulus, grouped by genotype. In panels (C–F), colored numbers indicate the Jensen–Shannon distance
+between the wild-type distribution and the distributions of the four GCaMP-expressing mouse lines. {cite:p}`siegle2021`
+:::
+
+However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. {cite:p}`de_vries_lecoq_buice` Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.
+
+:::{figure} ../resources/run_saccade_cre.png
+:name: run_saccade_cre
+:align: center
+:width: 800
+
+(Top) Distribution of mean running speeds per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session. (Bottom) Distribution of number of saccades made per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session.
+:::
+
+ 

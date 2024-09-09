@@ -6,7 +6,7 @@ The Visual Behavior Neuropixels dataset consists of electrophysiological recordi
 
 This dataset includes multi-regional Neuropixels recordings from up to six probes at once. The probes target six visual cortical areas including {term}`VISp`, VISl, VISal, VISrl, VISam, and VISpm. In addition, multiple subcortical areas are also typically measured, including visual thalamic areas LGd and LP as well as units in the hippocampus and midbrain.
 
-Recordings were made from mice in three [genotypes](transgenic-tools): wild type, Sst-IRES-Cre; Ai32, and Vip-IRES-Cre; Ai32. By crossing Sst and Vip lines to the Ai32 ChR2 reporter mouse, we were able to activate putative Sst+ and Vip+ cortical {term}`interneurons` by stimulating the cortical surface with blue light during an {term}`optotagging` protocol at the end of each session.
+Recordings were made from mice in three [genotypes](background-transgenic-tools): wild type, Sst-IRES-Cre; Ai32, and Vip-IRES-Cre; Ai32. By crossing Sst and Vip lines to the Ai32 ChR2 reporter mouse, we were able to activate putative Sst+ and Vip+ cortical {term}`interneuron`s by stimulating the cortical surface with blue light during an {term}`optotagging` protocol at the end of each session.
 
 ![probeandopto](/resources/probe_diagram_with_optagging.webp)
 
@@ -43,7 +43,7 @@ between flash starts. There were 75 trials for each condition (light and dark fl
 
 *Passive replay*: The stimulus encountered by the mouse during the active behavior block was replayed frame-for-frame. Note however that the lick spout was retracted for this block and the mouse was therefore unable to earn rewards.
 
-*Optotagging*: [Optotagging](Optotagging) epoch during which we stimulated the surface of the brain with blue light to activate ChR2-expressing cortical interneurons
+*Optotagging*: [Optotagging](../../../background/Optotagging) epoch during which we stimulated the surface of the brain with blue light to activate ChR2-expressing cortical interneurons
 
 The video below shows brief snippets of each of the stimuli described above. Note that a spherical warping was applied to all stimuli to ensure that the apparent size, speed, and spatial frequency were constant across the monitor as seen from the mouse’s perspective. The images shown below have not been warped, and thus appear windowed at the corners.
 

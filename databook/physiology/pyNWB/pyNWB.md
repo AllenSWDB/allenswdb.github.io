@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.2
+    jupytext_version: 1.15.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -39,7 +39,7 @@ To manipulate the data in the file, we will first need to find the file we're in
 ```{code-cell} ipython3
 mouse_id = '655565'
 
-nwb_file = '/data/cell_type_lookup_table_nwb/ecephys_655565_2023-03-31_14-47-36_nwb/ecephys_655565_2023-03-31_14-47-36_experiment1_recording1.nwb.zarr'
+nwb_file = '/data/SWDB 2024 CTLUT data/ecephys_655565_2023-03-31_14-47-36_nwb/ecephys_655565_2023-03-31_14-47-36_experiment1_recording1.nwb.zarr'
 ```
 
 So far, all we've done is find the path and store it as a string in Python. Now that we have the NWB file's path, we still need to load it into Python, which we can do using ```NWBZarrIO```.
@@ -55,7 +55,11 @@ This stores all the information contained in the NWB file into a ```NWBFile``` o
 nwb2widget(nwbfile_read);
 ```
 
-<img src="../../resources/output_nwb_read.png" alt="Output of nwb2widget" width="1000"/>
+:::{figure} ../../resources/output_nwb_read.PNG
+---
+align: center
+---
+:::
 
 The various types of data contained in the file when loaded into Python are simply attributes of the ```nwbfile_read``` object, which we access in the usual way ```nwbfile_read.*```. Depending on the table of interest, they might be stored as different types of objects, however; for example, several are stored as objects specific to the ```pynwb``` package.
 
@@ -105,7 +109,7 @@ Here, we can see the full list of columns stored in our ```DataFrame```:
 - `half_width` - width of the waveform at half the trough amplitude (based on 1D waveform)
 - `ks_unit_id` - unit ID assigned by Kilosort
 
-Note that the columns may vary from experiment to experiment, so it's a good idea to check what columns are stored in any NWB file that you open.
+Note that the columns may vary from experiment to experiment, so it's a good idea to check what columns are stored in any NWB file that you open. For instance, this file contains the above standard columns that appear in most NWB files from the Allen Institute, but also many more columns detailing the unit's response to laser stimulation. These columns are further explained in the [cell type lookup table tutorials.](../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md)
 
 To access data from a specific unit, we look at the row corresponding to that unit:
 
@@ -150,12 +154,12 @@ plt.show()
 
 From above, we can see that most of the channels recorded the same values over time; the channel's recording at any given time is indicated by the color of the plot at that time. Since most horizontal lines we can draw on this plot are monochromatic, we can conclude that the channel in question did not record any interesting variation in electric potential.
 
-However, there is something interesting happening on channels 200 to 250!
+However, there is something interesting happening on channels 20 to 50!
 
 We can plot the shape of the potential over time on those channels. Now, instead of a three-dimensional plot, we will have a two-dimensional plot of voltage over time, with each distinct line representing a different channel:
 
 ```{code-cell} ipython3
-plt.plot(units.waveform_mean.loc[418][:,200:250])
+plt.plot(units.waveform_mean.loc[418][:,20:50])
 plt.ylabel("uV")
 plt.xlabel("Time (us)")
 plt.show()
@@ -212,7 +216,7 @@ plt.ylabel("Voltage (V)", fontsize=16)
 plt.show()
 ```
 
-Here, we can see that our stimulus is a square wave with a period of about 20 Hz and an amplitude of just under 0.5 Volts.
+Here, we can see that our stimulus is a square wave with a frequency of 20 Hz and an amplitude of just under 0.5 Volts.
 
 +++
 
@@ -320,18 +324,26 @@ lfp_num_samples = lfp_es.data.shape[0]
 lfp_timestamps = lfp_es.starting_time + np.arange(lfp_num_samples) / lfp_es.rate
 ```
 
-Next we can examine what's contained in the data. Instead of looking at all 384 channels, we can examine just a single channel:
+Next we can examine what's contained in the data. Here, we'll pick a specific interval instead of plotting for the entire experiment to enhance legibility. (As with the previous section, we would still need to do a significant amount of signal processing to analyze this data).
+
+```{code-cell} ipython3
+plt.imshow(lfp_es.data[50000:60000,0:350].T, origin='lower', aspect='auto')
+plt.ylabel('Channel')
+plt.xlabel('Sample')
+```
+
+Here, we are not plotting channels above 350, as they were outside of the brain and thus did not have meaningful data. In this time period, we can see some clear oscillatory activity in channels 200-350, which were likely in the cortex.
+
++++
+
+Instead of looking at all 384 channels, we can also examine just a single channel, and we can plot it against time to see what the LFP looked like for that channel.
 
 ```{code-cell} ipython3
 channel = 99
 raw_data = lfp_es.data[:, channel]
 
 print(raw_data.shape)
-```
 
-And we can plot it against time to see what the LFP looked like for that channel. Here, we'll pick a specific interval instead of plotting for the entire experiment to enhance legibility. (As with the previous section, we would still need to do a significant amount of signal processing to analyze this data).
-
-```{code-cell} ipython3
 plt.plot(lfp_timestamps[50000:60000], raw_data[50000:60000])
 plt.xlabel("Time (s)", fontsize=16)
 plt.ylabel("LFP (uV)", fontsize=16)
@@ -344,13 +356,7 @@ Finally, we can also examine the information contained in the electrodes attribu
 print(lfp_es.electrodes.shape)
 ```
 
-Here, we can see that we have ten entries for every channel. We can examine what information is stored in a particular channel:
-
-```{code-cell} ipython3
-print(lfp_es.electrodes[channel])
-```
-
-And we can see that the electrode tells us about the channel, its coordinates, and it has the gain in micro-Volts.
+Here, we can see that we have ten entries for every channel.
 
 +++
 
@@ -358,4 +364,8 @@ The NWB file contains other data as well which can be explored using the methods
 
 ```{code-cell} ipython3
 io.close()
+```
+
+```{code-cell} ipython3
+
 ```
