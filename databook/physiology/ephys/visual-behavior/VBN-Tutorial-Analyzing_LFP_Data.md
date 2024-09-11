@@ -410,7 +410,7 @@ units_on_lfp_chans = units_on_lfp_chans.merge(chans, left_on='peak_channel_id', 
 
 #Select a unit in V1
 v1_units = units_on_lfp_chans[units_on_lfp_chans.structure_acronym.str.contains('VISp')]
-unit_id = v1_units.index.values[5]
+unit_id = v1_units.index.values[-1]
 
 #Get the peak channel ID for this unit (the channel on which it had the greatest spike amplitude)
 peak_chan_id = units_on_lfp_chans.loc[unit_id]['peak_channel_id']
