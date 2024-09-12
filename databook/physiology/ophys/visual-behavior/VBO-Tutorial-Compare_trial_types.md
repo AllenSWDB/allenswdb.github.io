@@ -259,7 +259,7 @@ def plot_stimuli(trial, ax):
     '''
     plot stimuli as colored bars on specified axis
     '''
-    stimuli = ophys_experiment.stimulus_presentations.query('stimulus_block_name' == 'change_detection_behavior').copy()
+    stimuli = ophys_experiment.stimulus_presentations.query("stimulus_block_name == 'change_detection_behavior'").copy()
     stimuli = add_image_colors(stimuli)
     stimuli = stimuli[(stimuli.end_time >= trial['start_time'].values[0]) & 
                       (stimuli.start_time <= trial['stop_time'].values[0])]
