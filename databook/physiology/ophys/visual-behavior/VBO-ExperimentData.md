@@ -855,15 +855,15 @@ First, get stimulus information.
 
 ```{code-cell} ipython3
 # create a list of all unique stimuli presented in this experiment
-unique_stimuli = [stimulus for stimulus in ophys_experiment.stimulus_presentations['image_name'].unique()]
+unique_stimuli = [stimulus for stimulus in stimulus_table['image_name'].unique()]
 
 # create a colormap with each unique image having its own color
 colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
 colormap['omitted'] = (1,1,1) # set omitted stimulus to white color
 
 # add the colors for each image to the stimulus presentations table in the dataset
-stimulus_presentations = ophys_experiment.stimulus_presentations
-stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+stimulus_presentations = stimulus_table.copy()
+stimulus_presentations['color'] = stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
 ```
 
 Here are some plotting functions for convenience.
@@ -978,14 +978,15 @@ cell_specimen_ids = ophys_experiment.cell_specimen_table.index.values # a list o
 
 ```{code-cell} ipython3
 # create a list of all unique stimuli presented in this experiment
-unique_stimuli = [stimulus for stimulus in ophys_experiment.stimulus_presentations['image_name'].unique()]
+unique_stimuli = [stimulus for stimulus in stimulus_table['image_name'].unique()]
 
 # create a colormap with each unique image having its own color
 colormap = {image_name: sns.color_palette()[image_number] for image_number, image_name in enumerate(np.sort(unique_stimuli))}
 colormap['omitted'] = (1,1,1)
 
 # add the colors for each image to the stimulus presentations table in the dataset
-ophys_experiment.stimulus_presentations['color'] = ophys_experiment.stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
+stimulus_presentations = stimulus_table.copy()
+stimulus_presentations['color'] = stimulus_presentations['image_name'].map(lambda image_name: colormap[image_name])
 ```
 
 ```{code-cell} ipython3
