@@ -5,4 +5,6 @@
 
 This is the repository for the Data Book for SWDB
 
+For instructions on building the databook, see [here](https://allenswdb.github.io/build-instructions.html).
+
 Copyright 2024 Allen Institute
