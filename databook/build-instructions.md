@@ -6,7 +6,7 @@ Once the capsule is set up (and your GitHub credentials are loaded into your mai
 
 The second way is by opening the terminal and then executing the build script, either manually line-by-line or by the run script in the `/root/capsule/code/` directory. This has a speed advantage over the reproducible run - as long as you keep the terminal session open (paused is also okay), Code Ocean will remember what it's already built. The first build will be the same speed as the Reproducible Run, but any future builds in the same terminal session will be significantly faster; depending on what changes have been made, the build time is usually on the order of tens of seconds.
 
-The commands needed to build are as follows:
+The commands needed to build are found in the run script and are as follows:
 
 ```
 cd /opt/databook/
