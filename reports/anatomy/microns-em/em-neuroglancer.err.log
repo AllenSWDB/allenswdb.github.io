@@ -1,0 +1,560 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from nglui.statebuilder import helpers
+
+helpers.make_neuron_neuroglancer_link(
+    client,
+    864691135122603047,
+    show_inputs=True,
+    show_outputs=True,
+)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mRecursionError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[4], line 3[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnglui[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstatebuilder[39;00m [38;5;28;01mimport[39;00m helpers
+[0;32m----> 3[0m [43mhelpers[49m[38;5;241;43m.[39;49m[43mmake_neuron_neuroglancer_link[49m[43m([49m
+[1;32m      4[0m [43m    [49m[43mclient[49m[43m,[49m
+[1;32m      5[0m [43m    [49m[38;5;241;43m864691135122603047[39;49m[43m,[49m
+[1;32m      6[0m [43m    [49m[43mshow_inputs[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m      7[0m [43m    [49m[43mshow_outputs[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m      8[0m [43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/nglui/statebuilder/helpers.py:727[0m, in [0;36mmake_neuron_neuroglancer_link[0;34m(client, root_ids, return_as, shorten, show_inputs, show_outputs, sort_inputs, sort_outputs, sort_ascending, input_color, output_color, contrast, timestamp, view_kws, point_column, pre_pt_root_id_col, post_pt_root_id_col, input_layer_name, output_layer_name, ngl_url, link_text, target_site)[0m
+[1;32m    725[0m data_resolution_post [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    726[0m [38;5;28;01mif[39;00m show_inputs:
+[0;32m--> 727[0m     syn_in_df [38;5;241m=[39m [43mclient[49m[38;5;241;43m.[39;49m[43mmaterialize[49m[38;5;241m.[39msynapse_query(
+[1;32m    728[0m         post_ids[38;5;241m=[39mroot_ids,
+[1;32m    729[0m         timestamp[38;5;241m=[39mtimestamp,
+[1;32m    730[0m         desired_resolution[38;5;241m=[39mclient[38;5;241m.[39minfo[38;5;241m.[39mviewer_resolution(),
+[1;32m    731[0m         split_positions[38;5;241m=[39m[38;5;28;01mTrue[39;00m,
+[1;32m    732[0m     )
+[1;32m    733[0m     data_resolution_pre [38;5;241m=[39m syn_in_df[38;5;241m.[39mattrs[[38;5;124m"[39m[38;5;124mdataframe_resolution[39m[38;5;124m"[39m]
+[1;32m    734[0m     [38;5;28;01mif[39;00m sort_inputs:
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/frameworkclient.py:449[0m, in [0;36mCAVEclientFull.materialize[0;34m(self)[0m
+[1;32m    444[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    445[0m [38;5;124;03mA client for the materialization service. See [client.materialize](../client_api/materialize.md)[39;00m
+[1;32m    446[0m [38;5;124;03mfor more information.[39;00m
+[1;32m    447[0m [38;5;124;03m"""[39;00m
+[1;32m    448[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 449[0m     [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;241m=[39m [43mMaterializationClient[49m[43m([49m
+[1;32m    450[0m [43m        [49m[43mserver_address[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mlocal_server[49m[43m,[49m
+[1;32m    451[0m [43m        [49m[43mauth_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mauth[49m[43m,[49m
+[1;32m    452[0m [43m        [49m[43mdatastack_name[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_datastack_name[49m[43m,[49m
+[1;32m    453[0m [43m        [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43minfo[49m[38;5;241;43m.[39;49m[43mget_datastack_info[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43msynapse_table[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m    454[0m [43m        [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_max_retries[49m[43m,[49m
+[1;32m    455[0m [43m        [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_maxsize[49m[43m,[49m
+[1;32m    456[0m [43m        [49m[43mpool_block[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_block[49m[43m,[49m
+[1;32m    457[0m [43m        [49m[43mover_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m    458[0m [43m        [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    459[0m [43m    [49m[43m)[49m
+[1;32m    460[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:201[0m, in [0;36mMaterializationClient[0;34m(server_address, datastack_name, auth_client, cg_client, synapse_table, api_version, version, verify, max_retries, pool_maxsize, pool_block, desired_resolution, over_client)[0m
+[1;32m    189[0m endpoints, api_version [38;5;241m=[39m _api_endpoints(
+[1;32m    190[0m     api_version,
+[1;32m    191[0m     SERVER_KEY,
+[0;32m   (...)[0m
+[1;32m    197[0m     verify[38;5;241m=[39mverify,
+[1;32m    198[0m )
+[1;32m    200[0m MatClient [38;5;241m=[39m client_mapping[api_version]
+[0;32m--> 201[0m [38;5;28;01mreturn[39;00m [43mMatClient[49m[43m([49m
+[1;32m    202[0m [43m    [49m[43mserver_address[49m[43m,[49m
+[1;32m    203[0m [43m    [49m[43mauth_header[49m[43m,[49m
+[1;32m    204[0m [43m    [49m[43mapi_version[49m[43m,[49m
+[1;32m    205[0m [43m    [49m[43mendpoints[49m[43m,[49m
+[1;32m    206[0m [43m    [49m[43mSERVER_KEY[49m[43m,[49m
+[1;32m    207[0m [43m    [49m[43mdatastack_name[49m[43m,[49m
+[1;32m    208[0m [43m    [49m[43mcg_client[49m[38;5;241;43m=[39;49m[43mcg_client[49m[43m,[49m
+[1;32m    209[0m [43m    [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[43msynapse_table[49m[43m,[49m
+[1;32m    210[0m [43m    [49m[43mversion[49m[38;5;241;43m=[39;49m[43mversion[49m[43m,[49m
+[1;32m    211[0m [43m    [49m[43mverify[49m[38;5;241;43m=[39;49m[43mverify[49m[43m,[49m
+[1;32m    212[0m [43m    [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[43mmax_retries[49m[43m,[49m
+[1;32m    213[0m [43m    [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[43mpool_maxsize[49m[43m,[49m
+[1;32m    214[0m [43m    [49m[43mpool_block[49m[38;5;241;43m=[39;49m[43mpool_block[49m[43m,[49m
+[1;32m    215[0m [43m    [49m[43mover_client[49m[38;5;241;43m=[39;49m[43mover_client[49m[43m,[49m
+[1;32m    216[0m [43m    [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    217[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:1924[0m, in [0;36mMaterializationClientV3.__init__[0;34m(self, *args, **kwargs)[0m
+[1;32m   1922[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1923[0m     [38;5;28;01mif[39;00m metadata[[38;5;241m0[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m metadata[[38;5;241m1[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1924[0m         tables [38;5;241m=[39m [43mTableManager[49m[43m([49m
+[1;32m   1925[0m [43m            [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfc[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m1[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m
+[1;32m   1926[0m [43m        [49m[43m)[49m
+[1;32m   1927[0m [38;5;28mself[39m[38;5;241m.[39m_tables [38;5;241m=[39m tables
+[1;32m   1928[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:669[0m, in [0;36mTableManager.__init__[0;34m(self, client, metadata, schema)[0m
+[1;32m    667[0m populate_table_cache(client, metadata[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_table_metadata)
+[1;32m    668[0m [38;5;28;01mfor[39;00m tn [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_tables:
+[0;32m--> 669[0m     [38;5;28msetattr[39m([38;5;28mself[39m, tn, [43mmake_query_filter[49m[43m([49m[43mtn[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_table_metadata[49m[43m[[49m[43mtn[49m[43m][49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:623[0m, in [0;36mmake_query_filter[0;34m(table_name, meta, client)[0m
+[1;32m    614[0m [38;5;28;01mdef[39;00m [38;5;21mmake_query_filter[39m(table_name, meta, client):
+[1;32m    615[0m     (
+[1;32m    616[0m         pts,
+[1;32m    617[0m         val_cols,
+[1;32m    618[0m         all_unbd_pts,
+[1;32m    619[0m         table_map,
+[1;32m    620[0m         rename_map,
+[1;32m    621[0m         table_list,
+[1;32m    622[0m         desc,
+[0;32m--> 623[0m     ) [38;5;241m=[39m [43mget_table_info[49m[43m([49m[43mtable_name[49m[43m,[49m[43m [49m[43mmeta[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m
+[1;32m    624[0m     class_vals [38;5;241m=[39m make_class_vals(
+[1;32m    625[0m         pts, val_cols, all_unbd_pts, table_map, rename_map, table_list
+[1;32m    626[0m     )
+[1;32m    627[0m     QueryFilter [38;5;241m=[39m attrs[38;5;241m.[39mmake_class(
+[1;32m    628[0m         table_name, class_vals, bases[38;5;241m=[39m(make_kwargs_mixin(client),)
+[1;32m    629[0m     )
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/cachetools/__init__.py:741[0m, in [0;36mcached.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    739[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[1;32m    740[0m     [38;5;28;01mpass[39;00m  [38;5;66;03m# key not found[39;00m
+[0;32m--> 741[0m v [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    742[0m [38;5;28;01mtry[39;00m:
+[1;32m    743[0m     cache[k] [38;5;241m=[39m v
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:267[0m, in [0;36mget_table_info[0;34m(tn, meta, client, allow_types, merge_schema, suffixes)[0m
+[1;32m    265[0m     name_ref [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    266[0m [38;5;28;01melse[39;00m:
+[0;32m--> 267[0m     schema [38;5;241m=[39m [43mtable_metadata[49m[43m([49m[43mref_table[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m)
+[1;32m    268[0m     ref_pts, ref_cols, ref_unbd_pts [38;5;241m=[39m get_col_info(
+[1;32m    269[0m         meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m], client, allow_types[38;5;241m=[39mallow_types, omit_fields[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mtarget_id[39m[38;5;124m"[39m]
+[1;32m    270[0m     )
+[1;32m    271[0m     name_base [38;5;241m=[39m ref_table
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/cachetools/__init__.py:741[0m, in [0;36mcached.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    739[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[1;32m    740[0m     [38;5;28;01mpass[39;00m  [38;5;66;03m# key not found[39;00m
+[0;32m--> 741[0m v [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    742[0m [38;5;28;01mtry[39;00m:
+[1;32m    743[0m     cache[k] [38;5;241m=[39m v
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:314[0m, in [0;36mtable_metadata[0;34m(table_name, client, meta)[0m
+[1;32m    312[0m     warnings[38;5;241m.[39msimplefilter(action[38;5;241m=[39m[38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m)
+[1;32m    313[0m     [38;5;28;01mif[39;00m meta [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 314[0m         meta [38;5;241m=[39m [43mclient[49m[38;5;241;43m.[39;49m[43mmaterialize[49m[38;5;241m.[39mget_table_metadata(table_name)
+[1;32m    315[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m meta:
+[1;32m    316[0m     meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m] [38;5;241m=[39m meta[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema_type[39m[38;5;124m"[39m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/frameworkclient.py:449[0m, in [0;36mCAVEclientFull.materialize[0;34m(self)[0m
+[1;32m    444[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    445[0m [38;5;124;03mA client for the materialization service. See [client.materialize](../client_api/materialize.md)[39;00m
+[1;32m    446[0m [38;5;124;03mfor more information.[39;00m
+[1;32m    447[0m [38;5;124;03m"""[39;00m
+[1;32m    448[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 449[0m     [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;241m=[39m [43mMaterializationClient[49m[43m([49m
+[1;32m    450[0m [43m        [49m[43mserver_address[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mlocal_server[49m[43m,[49m
+[1;32m    451[0m [43m        [49m[43mauth_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mauth[49m[43m,[49m
+[1;32m    452[0m [43m        [49m[43mdatastack_name[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_datastack_name[49m[43m,[49m
+[1;32m    453[0m [43m        [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43minfo[49m[38;5;241;43m.[39;49m[43mget_datastack_info[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43msynapse_table[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m    454[0m [43m        [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_max_retries[49m[43m,[49m
+[1;32m    455[0m [43m        [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_maxsize[49m[43m,[49m
+[1;32m    456[0m [43m        [49m[43mpool_block[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_block[49m[43m,[49m
+[1;32m    457[0m [43m        [49m[43mover_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m    458[0m [43m        [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    459[0m [43m    [49m[43m)[49m
+[1;32m    460[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:201[0m, in [0;36mMaterializationClient[0;34m(server_address, datastack_name, auth_client, cg_client, synapse_table, api_version, version, verify, max_retries, pool_maxsize, pool_block, desired_resolution, over_client)[0m
+[1;32m    189[0m endpoints, api_version [38;5;241m=[39m _api_endpoints(
+[1;32m    190[0m     api_version,
+[1;32m    191[0m     SERVER_KEY,
+[0;32m   (...)[0m
+[1;32m    197[0m     verify[38;5;241m=[39mverify,
+[1;32m    198[0m )
+[1;32m    200[0m MatClient [38;5;241m=[39m client_mapping[api_version]
+[0;32m--> 201[0m [38;5;28;01mreturn[39;00m [43mMatClient[49m[43m([49m
+[1;32m    202[0m [43m    [49m[43mserver_address[49m[43m,[49m
+[1;32m    203[0m [43m    [49m[43mauth_header[49m[43m,[49m
+[1;32m    204[0m [43m    [49m[43mapi_version[49m[43m,[49m
+[1;32m    205[0m [43m    [49m[43mendpoints[49m[43m,[49m
+[1;32m    206[0m [43m    [49m[43mSERVER_KEY[49m[43m,[49m
+[1;32m    207[0m [43m    [49m[43mdatastack_name[49m[43m,[49m
+[1;32m    208[0m [43m    [49m[43mcg_client[49m[38;5;241;43m=[39;49m[43mcg_client[49m[43m,[49m
+[1;32m    209[0m [43m    [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[43msynapse_table[49m[43m,[49m
+[1;32m    210[0m [43m    [49m[43mversion[49m[38;5;241;43m=[39;49m[43mversion[49m[43m,[49m
+[1;32m    211[0m [43m    [49m[43mverify[49m[38;5;241;43m=[39;49m[43mverify[49m[43m,[49m
+[1;32m    212[0m [43m    [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[43mmax_retries[49m[43m,[49m
+[1;32m    213[0m [43m    [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[43mpool_maxsize[49m[43m,[49m
+[1;32m    214[0m [43m    [49m[43mpool_block[49m[38;5;241;43m=[39;49m[43mpool_block[49m[43m,[49m
+[1;32m    215[0m [43m    [49m[43mover_client[49m[38;5;241;43m=[39;49m[43mover_client[49m[43m,[49m
+[1;32m    216[0m [43m    [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    217[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:1924[0m, in [0;36mMaterializationClientV3.__init__[0;34m(self, *args, **kwargs)[0m
+[1;32m   1922[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1923[0m     [38;5;28;01mif[39;00m metadata[[38;5;241m0[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m metadata[[38;5;241m1[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1924[0m         tables [38;5;241m=[39m [43mTableManager[49m[43m([49m
+[1;32m   1925[0m [43m            [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfc[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m1[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m
+[1;32m   1926[0m [43m        [49m[43m)[49m
+[1;32m   1927[0m [38;5;28mself[39m[38;5;241m.[39m_tables [38;5;241m=[39m tables
+[1;32m   1928[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:669[0m, in [0;36mTableManager.__init__[0;34m(self, client, metadata, schema)[0m
+[1;32m    667[0m populate_table_cache(client, metadata[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_table_metadata)
+[1;32m    668[0m [38;5;28;01mfor[39;00m tn [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_tables:
+[0;32m--> 669[0m     [38;5;28msetattr[39m([38;5;28mself[39m, tn, [43mmake_query_filter[49m[43m([49m[43mtn[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_table_metadata[49m[43m[[49m[43mtn[49m[43m][49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:623[0m, in [0;36mmake_query_filter[0;34m(table_name, meta, client)[0m
+[1;32m    614[0m [38;5;28;01mdef[39;00m [38;5;21mmake_query_filter[39m(table_name, meta, client):
+[1;32m    615[0m     (
+[1;32m    616[0m         pts,
+[1;32m    617[0m         val_cols,
+[1;32m    618[0m         all_unbd_pts,
+[1;32m    619[0m         table_map,
+[1;32m    620[0m         rename_map,
+[1;32m    621[0m         table_list,
+[1;32m    622[0m         desc,
+[0;32m--> 623[0m     ) [38;5;241m=[39m [43mget_table_info[49m[43m([49m[43mtable_name[49m[43m,[49m[43m [49m[43mmeta[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m
+[1;32m    624[0m     class_vals [38;5;241m=[39m make_class_vals(
+[1;32m    625[0m         pts, val_cols, all_unbd_pts, table_map, rename_map, table_list
+[1;32m    626[0m     )
+[1;32m    627[0m     QueryFilter [38;5;241m=[39m attrs[38;5;241m.[39mmake_class(
+[1;32m    628[0m         table_name, class_vals, bases[38;5;241m=[39m(make_kwargs_mixin(client),)
+[1;32m    629[0m     )
+
+    [0;31m[... skipping similar frames: cached.<locals>.decorator.<locals>.wrapper at line 741 (1 times)][0m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:267[0m, in [0;36mget_table_info[0;34m(tn, meta, client, allow_types, merge_schema, suffixes)[0m
+[1;32m    265[0m     name_ref [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    266[0m [38;5;28;01melse[39;00m:
+[0;32m--> 267[0m     schema [38;5;241m=[39m [43mtable_metadata[49m[43m([49m[43mref_table[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m)
+[1;32m    268[0m     ref_pts, ref_cols, ref_unbd_pts [38;5;241m=[39m get_col_info(
+[1;32m    269[0m         meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m], client, allow_types[38;5;241m=[39mallow_types, omit_fields[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mtarget_id[39m[38;5;124m"[39m]
+[1;32m    270[0m     )
+[1;32m    271[0m     name_base [38;5;241m=[39m ref_table
+
+    [0;31m[... skipping similar frames: cached.<locals>.decorator.<locals>.wrapper at line 741 (1 times)][0m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:314[0m, in [0;36mtable_metadata[0;34m(table_name, client, meta)[0m
+[1;32m    312[0m     warnings[38;5;241m.[39msimplefilter(action[38;5;241m=[39m[38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m)
+[1;32m    313[0m     [38;5;28;01mif[39;00m meta [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 314[0m         meta [38;5;241m=[39m [43mclient[49m[38;5;241;43m.[39;49m[43mmaterialize[49m[38;5;241m.[39mget_table_metadata(table_name)
+[1;32m    315[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m meta:
+[1;32m    316[0m     meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m] [38;5;241m=[39m meta[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema_type[39m[38;5;124m"[39m)
+
+    [0;31m[... skipping similar frames: cached.<locals>.decorator.<locals>.wrapper at line 741 (530 times), MaterializationClient at line 201 (265 times), MaterializationClientV3.__init__ at line 1924 (265 times), TableManager.__init__ at line 669 (265 times), get_table_info at line 267 (265 times), make_query_filter at line 623 (265 times), CAVEclientFull.materialize at line 449 (265 times), table_metadata at line 314 (265 times)][0m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/frameworkclient.py:449[0m, in [0;36mCAVEclientFull.materialize[0;34m(self)[0m
+[1;32m    444[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    445[0m [38;5;124;03mA client for the materialization service. See [client.materialize](../client_api/materialize.md)[39;00m
+[1;32m    446[0m [38;5;124;03mfor more information.[39;00m
+[1;32m    447[0m [38;5;124;03m"""[39;00m
+[1;32m    448[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 449[0m     [38;5;28mself[39m[38;5;241m.[39m_materialize [38;5;241m=[39m [43mMaterializationClient[49m[43m([49m
+[1;32m    450[0m [43m        [49m[43mserver_address[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mlocal_server[49m[43m,[49m
+[1;32m    451[0m [43m        [49m[43mauth_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mauth[49m[43m,[49m
+[1;32m    452[0m [43m        [49m[43mdatastack_name[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_datastack_name[49m[43m,[49m
+[1;32m    453[0m [43m        [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43minfo[49m[38;5;241;43m.[39;49m[43mget_datastack_info[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43msynapse_table[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m    454[0m [43m        [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_max_retries[49m[43m,[49m
+[1;32m    455[0m [43m        [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_maxsize[49m[43m,[49m
+[1;32m    456[0m [43m        [49m[43mpool_block[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_pool_block[49m[43m,[49m
+[1;32m    457[0m [43m        [49m[43mover_client[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m    458[0m [43m        [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    459[0m [43m    [49m[43m)[49m
+[1;32m    460[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_materialize
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:201[0m, in [0;36mMaterializationClient[0;34m(server_address, datastack_name, auth_client, cg_client, synapse_table, api_version, version, verify, max_retries, pool_maxsize, pool_block, desired_resolution, over_client)[0m
+[1;32m    189[0m endpoints, api_version [38;5;241m=[39m _api_endpoints(
+[1;32m    190[0m     api_version,
+[1;32m    191[0m     SERVER_KEY,
+[0;32m   (...)[0m
+[1;32m    197[0m     verify[38;5;241m=[39mverify,
+[1;32m    198[0m )
+[1;32m    200[0m MatClient [38;5;241m=[39m client_mapping[api_version]
+[0;32m--> 201[0m [38;5;28;01mreturn[39;00m [43mMatClient[49m[43m([49m
+[1;32m    202[0m [43m    [49m[43mserver_address[49m[43m,[49m
+[1;32m    203[0m [43m    [49m[43mauth_header[49m[43m,[49m
+[1;32m    204[0m [43m    [49m[43mapi_version[49m[43m,[49m
+[1;32m    205[0m [43m    [49m[43mendpoints[49m[43m,[49m
+[1;32m    206[0m [43m    [49m[43mSERVER_KEY[49m[43m,[49m
+[1;32m    207[0m [43m    [49m[43mdatastack_name[49m[43m,[49m
+[1;32m    208[0m [43m    [49m[43mcg_client[49m[38;5;241;43m=[39;49m[43mcg_client[49m[43m,[49m
+[1;32m    209[0m [43m    [49m[43msynapse_table[49m[38;5;241;43m=[39;49m[43msynapse_table[49m[43m,[49m
+[1;32m    210[0m [43m    [49m[43mversion[49m[38;5;241;43m=[39;49m[43mversion[49m[43m,[49m
+[1;32m    211[0m [43m    [49m[43mverify[49m[38;5;241;43m=[39;49m[43mverify[49m[43m,[49m
+[1;32m    212[0m [43m    [49m[43mmax_retries[49m[38;5;241;43m=[39;49m[43mmax_retries[49m[43m,[49m
+[1;32m    213[0m [43m    [49m[43mpool_maxsize[49m[38;5;241;43m=[39;49m[43mpool_maxsize[49m[43m,[49m
+[1;32m    214[0m [43m    [49m[43mpool_block[49m[38;5;241;43m=[39;49m[43mpool_block[49m[43m,[49m
+[1;32m    215[0m [43m    [49m[43mover_client[49m[38;5;241;43m=[39;49m[43mover_client[49m[43m,[49m
+[1;32m    216[0m [43m    [49m[43mdesired_resolution[49m[38;5;241;43m=[39;49m[43mdesired_resolution[49m[43m,[49m
+[1;32m    217[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:1924[0m, in [0;36mMaterializationClientV3.__init__[0;34m(self, *args, **kwargs)[0m
+[1;32m   1922[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1923[0m     [38;5;28;01mif[39;00m metadata[[38;5;241m0[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m metadata[[38;5;241m1[39m][38;5;241m.[39mresult() [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1924[0m         tables [38;5;241m=[39m [43mTableManager[49m[43m([49m
+[1;32m   1925[0m [43m            [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfc[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[43mmetadata[49m[43m[[49m[38;5;241;43m1[39;49m[43m][49m[38;5;241;43m.[39;49m[43mresult[49m[43m([49m[43m)[49m
+[1;32m   1926[0m [43m        [49m[43m)[49m
+[1;32m   1927[0m [38;5;28mself[39m[38;5;241m.[39m_tables [38;5;241m=[39m tables
+[1;32m   1928[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mfc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:669[0m, in [0;36mTableManager.__init__[0;34m(self, client, metadata, schema)[0m
+[1;32m    667[0m populate_table_cache(client, metadata[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_table_metadata)
+[1;32m    668[0m [38;5;28;01mfor[39;00m tn [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_tables:
+[0;32m--> 669[0m     [38;5;28msetattr[39m([38;5;28mself[39m, tn, [43mmake_query_filter[49m[43m([49m[43mtn[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_table_metadata[49m[43m[[49m[43mtn[49m[43m][49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:623[0m, in [0;36mmake_query_filter[0;34m(table_name, meta, client)[0m
+[1;32m    614[0m [38;5;28;01mdef[39;00m [38;5;21mmake_query_filter[39m(table_name, meta, client):
+[1;32m    615[0m     (
+[1;32m    616[0m         pts,
+[1;32m    617[0m         val_cols,
+[1;32m    618[0m         all_unbd_pts,
+[1;32m    619[0m         table_map,
+[1;32m    620[0m         rename_map,
+[1;32m    621[0m         table_list,
+[1;32m    622[0m         desc,
+[0;32m--> 623[0m     ) [38;5;241m=[39m [43mget_table_info[49m[43m([49m[43mtable_name[49m[43m,[49m[43m [49m[43mmeta[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m
+[1;32m    624[0m     class_vals [38;5;241m=[39m make_class_vals(
+[1;32m    625[0m         pts, val_cols, all_unbd_pts, table_map, rename_map, table_list
+[1;32m    626[0m     )
+[1;32m    627[0m     QueryFilter [38;5;241m=[39m attrs[38;5;241m.[39mmake_class(
+[1;32m    628[0m         table_name, class_vals, bases[38;5;241m=[39m(make_kwargs_mixin(client),)
+[1;32m    629[0m     )
+
+    [0;31m[... skipping similar frames: cached.<locals>.decorator.<locals>.wrapper at line 741 (1 times)][0m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:267[0m, in [0;36mget_table_info[0;34m(tn, meta, client, allow_types, merge_schema, suffixes)[0m
+[1;32m    265[0m     name_ref [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    266[0m [38;5;28;01melse[39;00m:
+[0;32m--> 267[0m     schema [38;5;241m=[39m [43mtable_metadata[49m[43m([49m[43mref_table[49m[43m,[49m[43m [49m[43mclient[49m[43m)[49m[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m)
+[1;32m    268[0m     ref_pts, ref_cols, ref_unbd_pts [38;5;241m=[39m get_col_info(
+[1;32m    269[0m         meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m], client, allow_types[38;5;241m=[39mallow_types, omit_fields[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mtarget_id[39m[38;5;124m"[39m]
+[1;32m    270[0m     )
+[1;32m    271[0m     name_base [38;5;241m=[39m ref_table
+
+    [0;31m[... skipping similar frames: cached.<locals>.decorator.<locals>.wrapper at line 741 (1 times)][0m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/tools/table_manager.py:314[0m, in [0;36mtable_metadata[0;34m(table_name, client, meta)[0m
+[1;32m    312[0m     warnings[38;5;241m.[39msimplefilter(action[38;5;241m=[39m[38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m)
+[1;32m    313[0m     [38;5;28;01mif[39;00m meta [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 314[0m         meta [38;5;241m=[39m [43mclient[49m[38;5;241;43m.[39;49m[43mmaterialize[49m[38;5;241;43m.[39;49m[43mget_table_metadata[49m[43m([49m[43mtable_name[49m[43m)[49m
+[1;32m    315[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m meta:
+[1;32m    316[0m     meta[[38;5;124m"[39m[38;5;124mschema[39m[38;5;124m"[39m] [38;5;241m=[39m meta[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mschema_type[39m[38;5;124m"[39m)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/cachetools/__init__.py:741[0m, in [0;36mcached.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    739[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[1;32m    740[0m     [38;5;28;01mpass[39;00m  [38;5;66;03m# key not found[39;00m
+[0;32m--> 741[0m v [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    742[0m [38;5;28;01mtry[39;00m:
+[1;32m    743[0m     cache[k] [38;5;241m=[39m v
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:519[0m, in [0;36mMaterializationClientV2.get_table_metadata[0;34m(self, table_name, datastack_name, version, log_warning)[0m
+[1;32m    517[0m     datastack_name [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdatastack_name
+[1;32m    518[0m [38;5;28;01mif[39;00m version [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 519[0m     version [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mversion[49m
+[1;32m    520[0m endpoint_mapping [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdefault_url_mapping
+[1;32m    521[0m endpoint_mapping[[38;5;124m"[39m[38;5;124mdatastack_name[39m[38;5;124m"[39m] [38;5;241m=[39m datastack_name
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:280[0m, in [0;36mMaterializationClientV2.version[0;34m(self)[0m
+[1;32m    276[0m [38;5;250m[39m[38;5;124;03m"""The version of the materialization. Can be used to set up the[39;00m
+[1;32m    277[0m [38;5;124;03mclient to default to a specific version when timestamps or versions are not[39;00m
+[1;32m    278[0m [38;5;124;03mspecified in queries. If not set, defaults to the most recent version."""[39;00m
+[1;32m    279[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_version [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 280[0m     [38;5;28mself[39m[38;5;241m.[39m_version [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmost_recent_version[49m[43m([49m[43m)[49m
+[1;32m    281[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_version
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:335[0m, in [0;36mMaterializationClientV2.most_recent_version[0;34m(self, datastack_name)[0m
+[1;32m    318[0m [38;5;28;01mdef[39;00m [38;5;21mmost_recent_version[39m([38;5;28mself[39m, datastack_name[38;5;241m=[39m[38;5;28;01mNone[39;00m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mint[39m:
+[1;32m    319[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    320[0m [38;5;124;03m    Get the most recent version of materialization for this datastack name[39;00m
+[1;32m    321[0m 
+[0;32m   (...)[0m
+[1;32m    332[0m [38;5;124;03m        Most recent version of materialization for this datastack name[39;00m
+[1;32m    333[0m [38;5;124;03m    """[39;00m
+[0;32m--> 335[0m     versions [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mget_versions[49m[43m([49m[43mdatastack_name[49m[38;5;241;43m=[39;49m[43mdatastack_name[49m[43m)[49m
+[1;32m    336[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39mmax(np[38;5;241m.[39marray(versions))
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/caveclient/materializationengine.py:360[0m, in [0;36mMaterializationClientV2.get_versions[0;34m(self, datastack_name, expired)[0m
+[1;32m    358[0m url [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_endpoints[[38;5;124m"[39m[38;5;124mversions[39m[38;5;124m"[39m][38;5;241m.[39mformat_map(endpoint_mapping)
+[1;32m    359[0m query_args [38;5;241m=[39m {[38;5;124m"[39m[38;5;124mexpired[39m[38;5;124m"[39m: expired}
+[0;32m--> 360[0m response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msession[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mparams[49m[38;5;241;43m=[39;49m[43mquery_args[49m[43m)[49m
+[1;32m    361[0m [38;5;28mself[39m[38;5;241m.[39mraise_for_status(response)
+[1;32m    362[0m [38;5;28;01mreturn[39;00m response[38;5;241m.[39mjson()
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/sessions.py:602[0m, in [0;36mSession.get[0;34m(self, url, **kwargs)[0m
+[1;32m    594[0m [38;5;250m[39m[38;5;124mr[39m[38;5;124;03m"""Sends a GET request. Returns :class:`Response` object.[39;00m
+[1;32m    595[0m 
+[1;32m    596[0m [38;5;124;03m:param url: URL for the new :class:`Request` object.[39;00m
+[1;32m    597[0m [38;5;124;03m:param \*\*kwargs: Optional arguments that ``request`` takes.[39;00m
+[1;32m    598[0m [38;5;124;03m:rtype: requests.Response[39;00m
+[1;32m    599[0m [38;5;124;03m"""[39;00m
+[1;32m    601[0m kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mallow_redirects[39m[38;5;124m"[39m, [38;5;28;01mTrue[39;00m)
+[0;32m--> 602[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mrequest[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mGET[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43murl[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/sessions.py:575[0m, in [0;36mSession.request[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
+[1;32m    562[0m [38;5;66;03m# Create the Request.[39;00m
+[1;32m    563[0m req [38;5;241m=[39m Request(
+[1;32m    564[0m     method[38;5;241m=[39mmethod[38;5;241m.[39mupper(),
+[1;32m    565[0m     url[38;5;241m=[39murl,
+[0;32m   (...)[0m
+[1;32m    573[0m     hooks[38;5;241m=[39mhooks,
+[1;32m    574[0m )
+[0;32m--> 575[0m prep [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mprepare_request[49m[43m([49m[43mreq[49m[43m)[49m
+[1;32m    577[0m proxies [38;5;241m=[39m proxies [38;5;129;01mor[39;00m {}
+[1;32m    579[0m settings [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mmerge_environment_settings(
+[1;32m    580[0m     prep[38;5;241m.[39murl, proxies, stream, verify, cert
+[1;32m    581[0m )
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/sessions.py:484[0m, in [0;36mSession.prepare_request[0;34m(self, request)[0m
+[1;32m    481[0m     auth [38;5;241m=[39m get_netrc_auth(request[38;5;241m.[39murl)
+[1;32m    483[0m p [38;5;241m=[39m PreparedRequest()
+[0;32m--> 484[0m [43mp[49m[38;5;241;43m.[39;49m[43mprepare[49m[43m([49m
+[1;32m    485[0m [43m    [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mmethod[49m[38;5;241;43m.[39;49m[43mupper[49m[43m([49m[43m)[49m[43m,[49m
+[1;32m    486[0m [43m    [49m[43murl[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43murl[49m[43m,[49m
+[1;32m    487[0m [43m    [49m[43mfiles[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mfiles[49m[43m,[49m
+[1;32m    488[0m [43m    [49m[43mdata[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mdata[49m[43m,[49m
+[1;32m    489[0m [43m    [49m[43mjson[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mjson[49m[43m,[49m
+[1;32m    490[0m [43m    [49m[43mheaders[49m[38;5;241;43m=[39;49m[43mmerge_setting[49m[43m([49m
+[1;32m    491[0m [43m        [49m[43mrequest[49m[38;5;241;43m.[39;49m[43mheaders[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mheaders[49m[43m,[49m[43m [49m[43mdict_class[49m[38;5;241;43m=[39;49m[43mCaseInsensitiveDict[49m
+[1;32m    492[0m [43m    [49m[43m)[49m[43m,[49m
+[1;32m    493[0m [43m    [49m[43mparams[49m[38;5;241;43m=[39;49m[43mmerge_setting[49m[43m([49m[43mrequest[49m[38;5;241;43m.[39;49m[43mparams[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparams[49m[43m)[49m[43m,[49m
+[1;32m    494[0m [43m    [49m[43mauth[49m[38;5;241;43m=[39;49m[43mmerge_setting[49m[43m([49m[43mauth[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mauth[49m[43m)[49m[43m,[49m
+[1;32m    495[0m [43m    [49m[43mcookies[49m[38;5;241;43m=[39;49m[43mmerged_cookies[49m[43m,[49m
+[1;32m    496[0m [43m    [49m[43mhooks[49m[38;5;241;43m=[39;49m[43mmerge_hooks[49m[43m([49m[43mrequest[49m[38;5;241;43m.[39;49m[43mhooks[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mhooks[49m[43m)[49m[43m,[49m
+[1;32m    497[0m [43m[49m[43m)[49m
+[1;32m    498[0m [38;5;28;01mreturn[39;00m p
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/models.py:369[0m, in [0;36mPreparedRequest.prepare[0;34m(self, method, url, headers, files, data, params, auth, cookies, hooks, json)[0m
+[1;32m    367[0m [38;5;28mself[39m[38;5;241m.[39mprepare_url(url, params)
+[1;32m    368[0m [38;5;28mself[39m[38;5;241m.[39mprepare_headers(headers)
+[0;32m--> 369[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mprepare_cookies[49m[43m([49m[43mcookies[49m[43m)[49m
+[1;32m    370[0m [38;5;28mself[39m[38;5;241m.[39mprepare_body(data, files, json)
+[1;32m    371[0m [38;5;28mself[39m[38;5;241m.[39mprepare_auth(auth, url)
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/models.py:626[0m, in [0;36mPreparedRequest.prepare_cookies[0;34m(self, cookies)[0m
+[1;32m    623[0m [38;5;28;01melse[39;00m:
+[1;32m    624[0m     [38;5;28mself[39m[38;5;241m.[39m_cookies [38;5;241m=[39m cookiejar_from_dict(cookies)
+[0;32m--> 626[0m cookie_header [38;5;241m=[39m [43mget_cookie_header[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cookies[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m    627[0m [38;5;28;01mif[39;00m cookie_header [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    628[0m     [38;5;28mself[39m[38;5;241m.[39mheaders[[38;5;124m"[39m[38;5;124mCookie[39m[38;5;124m"[39m] [38;5;241m=[39m cookie_header
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/cookies.py:147[0m, in [0;36mget_cookie_header[0;34m(jar, request)[0m
+[1;32m    141[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    142[0m [38;5;124;03mProduce an appropriate Cookie header string to be sent with `request`, or None.[39;00m
+[1;32m    143[0m 
+[1;32m    144[0m [38;5;124;03m:rtype: str[39;00m
+[1;32m    145[0m [38;5;124;03m"""[39;00m
+[1;32m    146[0m r [38;5;241m=[39m MockRequest(request)
+[0;32m--> 147[0m [43mjar[49m[38;5;241;43m.[39;49m[43madd_cookie_header[49m[43m([49m[43mr[49m[43m)[49m
+[1;32m    148[0m [38;5;28;01mreturn[39;00m r[38;5;241m.[39mget_new_headers()[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mCookie[39m[38;5;124m"[39m)
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:1373[0m, in [0;36mCookieJar.add_cookie_header[0;34m(self, request)[0m
+[1;32m   1369[0m [38;5;28;01mtry[39;00m:
+[1;32m   1371[0m     [38;5;28mself[39m[38;5;241m.[39m_policy[38;5;241m.[39m_now [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_now [38;5;241m=[39m [38;5;28mint[39m(time[38;5;241m.[39mtime())
+[0;32m-> 1373[0m     cookies [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cookies_for_request[49m[43m([49m[43mrequest[49m[43m)[49m
+[1;32m   1375[0m     attrs [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_cookie_attrs(cookies)
+[1;32m   1376[0m     [38;5;28;01mif[39;00m attrs:
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:1299[0m, in [0;36mCookieJar._cookies_for_request[0;34m(self, request)[0m
+[1;32m   1297[0m cookies [38;5;241m=[39m []
+[1;32m   1298[0m [38;5;28;01mfor[39;00m domain [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_cookies[38;5;241m.[39mkeys():
+[0;32m-> 1299[0m     cookies[38;5;241m.[39mextend([38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cookies_for_domain[49m[43m([49m[43mdomain[49m[43m,[49m[43m [49m[43mrequest[49m[43m)[49m)
+[1;32m   1300[0m [38;5;28;01mreturn[39;00m cookies
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:1288[0m, in [0;36mCookieJar._cookies_for_domain[0;34m(self, domain, request)[0m
+[1;32m   1286[0m cookies_by_name [38;5;241m=[39m cookies_by_path[path]
+[1;32m   1287[0m [38;5;28;01mfor[39;00m cookie [38;5;129;01min[39;00m cookies_by_name[38;5;241m.[39mvalues():
+[0;32m-> 1288[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_policy[49m[38;5;241;43m.[39;49m[43mreturn_ok[49m[43m([49m[43mcookie[49m[43m,[49m[43m [49m[43mrequest[49m[43m)[49m:
+[1;32m   1289[0m         _debug([38;5;124m"[39m[38;5;124m   not returning cookie[39m[38;5;124m"[39m)
+[1;32m   1290[0m         [38;5;28;01mcontinue[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:1110[0m, in [0;36mDefaultCookiePolicy.return_ok[0;34m(self, cookie, request)[0m
+[1;32m   1108[0m     fn_name [38;5;241m=[39m [38;5;124m"[39m[38;5;124mreturn_ok_[39m[38;5;124m"[39m[38;5;241m+[39mn
+[1;32m   1109[0m     fn [38;5;241m=[39m [38;5;28mgetattr[39m([38;5;28mself[39m, fn_name)
+[0;32m-> 1110[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [43mfn[49m[43m([49m[43mcookie[49m[43m,[49m[43m [49m[43mrequest[49m[43m)[49m:
+[1;32m   1111[0m         [38;5;28;01mreturn[39;00m [38;5;28;01mFalse[39;00m
+[1;32m   1112[0m [38;5;28;01mreturn[39;00m [38;5;28;01mTrue[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:1124[0m, in [0;36mDefaultCookiePolicy.return_ok_verifiability[0;34m(self, cookie, request)[0m
+[1;32m   1123[0m [38;5;28;01mdef[39;00m [38;5;21mreturn_ok_verifiability[39m([38;5;28mself[39m, cookie, request):
+[0;32m-> 1124[0m     [38;5;28;01mif[39;00m request[38;5;241m.[39munverifiable [38;5;129;01mand[39;00m [43mis_third_party[49m[43m([49m[43mrequest[49m[43m)[49m:
+[1;32m   1125[0m         [38;5;28;01mif[39;00m cookie[38;5;241m.[39mversion [38;5;241m>[39m [38;5;241m0[39m [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39mstrict_rfc2965_unverifiable:
+[1;32m   1126[0m             _debug([38;5;124m"[39m[38;5;124m   third-party RFC 2965 cookie during unverifiable [39m[38;5;124m"[39m
+[1;32m   1127[0m                    [38;5;124m"[39m[38;5;124mtransaction[39m[38;5;124m"[39m)
+
+File [0;32m/opt/conda/lib/python3.10/http/cookiejar.py:738[0m, in [0;36mis_third_party[0;34m(request)[0m
+[1;32m    728[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    729[0m 
+[1;32m    730[0m [38;5;124;03mRFC 2965, section 3.3.6:[39;00m
+[0;32m   (...)[0m
+[1;32m    735[0m 
+[1;32m    736[0m [38;5;124;03m"""[39;00m
+[1;32m    737[0m req_host [38;5;241m=[39m request_host(request)
+[0;32m--> 738[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m domain_match(req_host, reach([43mrequest[49m[38;5;241;43m.[39;49m[43morigin_req_host[49m)):
+[1;32m    739[0m     [38;5;28;01mreturn[39;00m [38;5;28;01mTrue[39;00m
+[1;32m    740[0m [38;5;28;01melse[39;00m:
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/cookies.py:96[0m, in [0;36mMockRequest.origin_req_host[0;34m(self)[0m
+[1;32m     94[0m [38;5;129m@property[39m
+[1;32m     95[0m [38;5;28;01mdef[39;00m [38;5;21morigin_req_host[39m([38;5;28mself[39m):
+[0;32m---> 96[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mget_origin_req_host[49m[43m([49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/cookies.py:47[0m, in [0;36mMockRequest.get_origin_req_host[0;34m(self)[0m
+[1;32m     46[0m [38;5;28;01mdef[39;00m [38;5;21mget_origin_req_host[39m([38;5;28mself[39m):
+[0;32m---> 47[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mget_host[49m[43m([49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.10/site-packages/requests/cookies.py:44[0m, in [0;36mMockRequest.get_host[0;34m(self)[0m
+[1;32m     43[0m [38;5;28;01mdef[39;00m [38;5;21mget_host[39m([38;5;28mself[39m):
+[0;32m---> 44[0m     [38;5;28;01mreturn[39;00m [43murlparse[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_r[49m[38;5;241;43m.[39;49m[43murl[49m[43m)[49m[38;5;241m.[39mnetloc
+
+File [0;32m/opt/conda/lib/python3.10/urllib/parse.py:400[0m, in [0;36murlparse[0;34m(url, scheme, allow_fragments)[0m
+[1;32m    380[0m [38;5;250m[39m[38;5;124;03m"""Parse a URL into 6 components:[39;00m
+[1;32m    381[0m [38;5;124;03m<scheme>://<netloc>/<path>;<params>?<query>#<fragment>[39;00m
+[1;32m    382[0m 
+[0;32m   (...)[0m
+[1;32m    397[0m [38;5;124;03mNote that % escapes are not expanded.[39;00m
+[1;32m    398[0m [38;5;124;03m"""[39;00m
+[1;32m    399[0m url, scheme, _coerce_result [38;5;241m=[39m _coerce_args(url, scheme)
+[0;32m--> 400[0m splitresult [38;5;241m=[39m [43murlsplit[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mscheme[49m[43m,[49m[43m [49m[43mallow_fragments[49m[43m)[49m
+[1;32m    401[0m scheme, netloc, url, query, fragment [38;5;241m=[39m splitresult
+[1;32m    402[0m [38;5;28;01mif[39;00m scheme [38;5;129;01min[39;00m uses_params [38;5;129;01mand[39;00m [38;5;124m'[39m[38;5;124m;[39m[38;5;124m'[39m [38;5;129;01min[39;00m url:
+
+File [0;32m/opt/conda/lib/python3.10/urllib/parse.py:465[0m, in [0;36murlsplit[0;34m(url, scheme, allow_fragments)[0m
+[1;32m    444[0m [38;5;28;01mdef[39;00m [38;5;21murlsplit[39m(url, scheme[38;5;241m=[39m[38;5;124m'[39m[38;5;124m'[39m, allow_fragments[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m    445[0m [38;5;250m    [39m[38;5;124;03m"""Parse a URL into 5 components:[39;00m
+[1;32m    446[0m [38;5;124;03m    <scheme>://<netloc>/<path>?<query>#<fragment>[39;00m
+[1;32m    447[0m 
+[0;32m   (...)[0m
+[1;32m    462[0m [38;5;124;03m    Note that % escapes are not expanded.[39;00m
+[1;32m    463[0m [38;5;124;03m    """[39;00m
+[0;32m--> 465[0m     url, scheme, _coerce_result [38;5;241m=[39m [43m_coerce_args[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mscheme[49m[43m)[49m
+[1;32m    466[0m     [38;5;66;03m# Only lstrip url as some applications rely on preserving trailing space.[39;00m
+[1;32m    467[0m     [38;5;66;03m# (https://url.spec.whatwg.org/#concept-basic-url-parser would strip both)[39;00m
+[1;32m    468[0m     url [38;5;241m=[39m url[38;5;241m.[39mlstrip(_WHATWG_C0_CONTROL_OR_SPACE)
+
+File [0;32m/opt/conda/lib/python3.10/urllib/parse.py:128[0m, in [0;36m_coerce_args[0;34m(*args)[0m
+[1;32m    122[0m [38;5;28;01mdef[39;00m [38;5;21m_coerce_args[39m([38;5;241m*[39margs):
+[1;32m    123[0m     [38;5;66;03m# Invokes decode if necessary to create str args[39;00m
+[1;32m    124[0m     [38;5;66;03m# and returns the coerced inputs along with[39;00m
+[1;32m    125[0m     [38;5;66;03m# an appropriate result coercion function[39;00m
+[1;32m    126[0m     [38;5;66;03m#   - noop for str inputs[39;00m
+[1;32m    127[0m     [38;5;66;03m#   - encoding function otherwise[39;00m
+[0;32m--> 128[0m     str_input [38;5;241m=[39m [38;5;28;43misinstance[39;49m[43m([49m[43margs[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m,[49m[43m [49m[38;5;28;43mstr[39;49m[43m)[49m
+[1;32m    129[0m     [38;5;28;01mfor[39;00m arg [38;5;129;01min[39;00m args[[38;5;241m1[39m:]:
+[1;32m    130[0m         [38;5;66;03m# We special-case the empty string to support the[39;00m
+[1;32m    131[0m         [38;5;66;03m# "scheme=''" default argument to some functions[39;00m
+[1;32m    132[0m         [38;5;28;01mif[39;00m arg [38;5;129;01mand[39;00m [38;5;28misinstance[39m(arg, [38;5;28mstr[39m) [38;5;241m!=[39m str_input:
+
+[0;31mRecursionError[0m: maximum recursion depth exceeded while calling a Python object
+
