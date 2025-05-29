@@ -134,14 +134,12 @@ gene will only expressed if the virus infects a cell that makes use of this
 specific enhancer. This allows us to deliver genes directly to a specific cell
 type without needing to use a driver line.
 
-<b>D1 enhancer - CoChR</b>
-: rAAV-3xcore2_eHGT_779m-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
-  CoChR in direct pathway MSNs, fused with GFP for visualization.
-
-<b>D2 enhancer - CoChR</b>
-: rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA or
-  rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA. Drives expression of
-  CoChR in indirect pathway MSNs, fused with GFP for visualization.
+| name | description | datasets |
+|------|-------------|----------|
+| rAAV-3xcore2_eHGT_779m-minBG-CoChR-EGFP-WPRE3-BGHpA | D1 enhancer - CoChR. Drives expression of CoChR in direct pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
+| rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA | D2 enhancer - CoChR. Drives expression of CoChR in indirect pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
+| rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA | D2 enhancer - CoChR | Drives expression of
+  CoChR in indirect pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
 
 ## Do transgenic tools impact physiology or behavior?
 
