@@ -59,9 +59,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Name | Description | MGI ID | Datasets|
 |------|-------------|--------|---------|
 | Adora2a-Cre | In striatum, drives expression in medium spiny neurons (MSNs) expressing the D2 dopamine receptor. These are MSNs part of the indirect pathway. | MGI:3852493 | Cell Type Lookup Table |
-| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator
-protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of
-our applications, we combine both Cre and tTA to drive the expression of our reporters. | | Visual Coding 2P, Visual Behavior 2P |
+| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters. | | Visual Coding 2P, Visual Behavior 2P |
 | Cart-IRES2-Cre | Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus. | MGI:5704439 | Single Cell Morphology |
 | Chat-IRES-Cre-neo | Drives expression in cholinergic neurons. | | |
 | Cux2-CreERT2 | In cortex, drives expression in excitatory neurons in layer 2/3 and 4. | MGI:5014172 | Visual Coding 2P |
