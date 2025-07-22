@@ -6,6 +6,14 @@ Placeholder for background on stimuli.
 
 Content here
 
-## Visual Behavior
+## Change detection Behavior
+
+Content here
+
+## Dynamic Foraging Behavior
+
+Content here
+
+## Brain Computer Interface
 
 Content here

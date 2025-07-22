@@ -51,8 +51,10 @@ parts:
           - file: physiology/ophys/V1DD/V1DD-dataset
           - file: physiology/ophys/V1DD/V1DD-session-data
           - file: physiology/ophys/V1DD/V1DD-stimuli
+        # - file: physiology/ophys/BCI/BCI-overview
+        #   sections:
+        #   - file: physiology/ophys/BCI/BCI-Task
     #    - file: physiology/ophys/learning/learning                  
-      # Also a placeholder that needs actual content
     #    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
       - file: physiology/ephys/ephys-overview
         title: Electrophysiology
@@ -92,7 +94,10 @@ parts:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
           title: Visual Behavior Task
+        # - file: physiology/stimuli/dynamic-foraging
+        # - file: physiology/stimuli/brain-computer-interface
       - file: physiology/pyNWB/pyNWB
+      # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
       - file: anatomy/microns-em/em-background
