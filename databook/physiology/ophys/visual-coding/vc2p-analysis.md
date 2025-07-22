@@ -68,7 +68,7 @@ plt.title("Signal correlation")
 ```
 
 ## Cell specimen table
-In addition the the analysis tables, there are response metrics that have been computed for each neuron using the responses that are stored in the analysis files. These metrics describe the visual activity and response properties of the neurons and can be useful in identifying relevant neurons for analysis. Each metric name has a suffix that is the abbreviation of the stimulus it was computed from (e.g. dg=drifting gratings, lsn=locally sparse noise). These metrics and how they were computed are described extensively in this [whitepaper](https://help.brain-map.org/download/attachments/10616846/VisualCoding_VisualStimuli.pdf?version=3&modificationDate=1497305590322&api=v2).
+In addition the the analysis tables, there are response metrics that have been computed for each neuron using the responses that are stored in the analysis files. These metrics describe the visual activity and response properties of the neurons and can be useful in identifying relevant neurons for analysis. Each metric name has a suffix that is the abbreviation of the stimulus it was computed from (e.g. dg=drifting gratings, lsn=locally sparse noise). These metrics and how they were computed are described extensively in this [whitepaper](https://community.brain-map.org/uploads/short-url/uOe7nlLdLLIIivh5PeL8a0g7gV7.pdf).
 
 ```{code-cell} ipython3
 cell_specimen_table = pd.DataFrame(boc.get_cell_specimens())
