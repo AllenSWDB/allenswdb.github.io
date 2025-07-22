@@ -10,4 +10,9 @@ Each session imaged a single volume in a single column. Each volume consisted of
 
 ![v1dd_volumes](/resources/v1dd_volumes.png)
 
-Each of the five columns had five stacked volumes, spanning ~50 um to 514 um. The center column was imaged even deeper using 3-photon imaging. This increases the signal to noise ratio for deep imaging of dense lines. [See 2P3P comparison](2P3P-fig)
+Each of the five columns had five stacked volumes, spanning ~50 um to 514 um. The center column was extended deeper to the white matter using single plane 3-photon imaging. This increases the signal to noise ratio for deep imaging of dense lines. [See 2P3P comparison](2P3P-fig)
+
+![v1dd_columns_volumes](/resource/v1dd_columns_volumes.png)
+
+Calcium imaging of this ~1 cubic mm was performed on four mice. One mouse was then chosen for electron microscopy and reconstruction.
+
