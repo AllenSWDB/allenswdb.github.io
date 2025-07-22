@@ -17,7 +17,7 @@ kernelspec:
 
 ## Overview
 
-This notebook will go over how to load the cell type lookup table data and access its contents. Unlike other Allen Institute data sets, this data was very recently collected and is not publicly available, so you will access it by attaching the "cell_type_lookup_table_nwb" data asset and interacting with it through your capsule.
+This notebook will go over how to load the cell type lookup table data and access its contents. 
 
 +++
 
