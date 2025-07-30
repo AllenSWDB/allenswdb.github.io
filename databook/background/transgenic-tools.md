@@ -59,7 +59,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Name | Description | MGI ID | Datasets|
 |------|-------------|--------|---------|
 | Adora2a-Cre | In striatum, drives expression in medium spiny neurons (MSNs) expressing the D2 dopamine receptor. These are MSNs part of the indirect pathway. | MGI:3852493 | Cell Type Lookup Table |
-| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters. | | Visual Coding 2P, Visual Behavior 2P |
+| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters. | | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
 | Cart-IRES2-Cre | Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus. | MGI:5704439 | Single Cell Morphology |
 | Chat-IRES-Cre-neo | Drives expression in cholinergic neurons. | | |
 | Cux2-CreERT2 | In cortex, drives expression in excitatory neurons in layer 2/3 and 4. | MGI:5014172 | Visual Coding 2P |
@@ -75,7 +75,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Rorb-IRES2-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:5507855 | Visual Coding 2P |
 | Scnn1a-Tg3-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. Only found in primary sensory areas (e.g. VISp). | MGI:3850187 | Visual Coding 2P |
 | Slc17a6-IRES-Cre | Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex. | MGI:6758055 | |
-| Slc17a7-IRES2-Cre | In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. | MGI:5507862 | Visual Coding 2P, Visual Behavior 2P |
+| Slc17a7-IRES2-Cre | In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. | MGI:5507862 | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
 | Sst-IRES-Cre | Drives expression in Somatostatin inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
 | Tlx3-Cre_PL56 | In cortex, drives expression in cortico-cortical projecting excitatory neurons in layer 5. | MGI:5311700 | Visual Coding 2P |
 | Vip-IRES-Cre | Drives expression in Vasoactive Intestinal Peptide inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
@@ -91,11 +91,12 @@ GCaMP). Here are the reporter lines used in our datasets:
 | Shorthand | Name | Description | MGI ID | Datasets |
 |-----------|------|-------------|--------|----------|
 | Ai93 | TITL-GCaMP6f-D | Cre/Tet dependent fluorescent GCaMP6f indicator expressing GCaMP6 <i>fast</i>. This is often used alongside Camk2a-tTA to enhance the expression in excitatory neurons. | MGI:5558086 | Visual Coding 2P, Visual Behavior 2P |
-| Ai94 | TITL-GCaMP6s;Rosa26-ZtTA | Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is often used alongside Camk2a-tTA to enhance the expression in excitatory neurons. | MGI:5607576 | Visual Coding 2P |
+| Ai94 | TITL-GCaMP6s;Rosa26-ZtTA | Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is often used alongside Camk2a-tTA to enhance the expression in excitatory neurons. | MGI:5607576 | Visual Coding 2P, V1 Deep Dive |
 | Ai148 | TIT2L-GC6f-ICL-tTA2_D | Cre/Tet dependent fluorescent GCaMP6f indicator expressing GCaMP6 <i>fast</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drive higher expression. | MGI:5904003 | Visual Coding 2P, Visual Behavior 2P |
 | Ai162 | TIT2L-GC6s-ICL-tTA2_D | Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drives higher expression. | MGI:6151062 | Visual Coding 2P |
 | Ai166 | TIT2L-MORF-ICL-tTA2 | A Cre dependent reporter that drives sparse labeling with GFP. The MORF introduces a stochastic translational switch, only labeling 1-5% of Cre+ neurons. | MGI:6441963 | Single Cell Morphology |
 | Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels |
+| TetO-GCaMP6s | TetO-GCaMP6s | MGI:5553332 | V1 Deep Dive |
 
 ## Viruses used here
 
@@ -167,4 +168,3 @@ However, we do observe some differences in behavior across the different transge
 (Top) Distribution of mean running speeds per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session. (Bottom) Distribution of number of saccades made per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session.
 :::
 
- 

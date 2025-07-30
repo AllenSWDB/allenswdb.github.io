@@ -12,4 +12,4 @@
 - Galen Lynch
 - Adrian Roggenbach
 - Casey Schneider-Mizell
-- Sarmishtaa Seshamani
+- Sharmishtaa Seshamani
