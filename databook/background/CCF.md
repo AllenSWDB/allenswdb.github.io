@@ -15,13 +15,30 @@ kernelspec:
 (common_coordinate_framework)=
 # Common Coordinate Framework
 
-The Allen Mouse Brain Common Coordinate Framework ({term}`CCF`) is a 3D reference space by creating an average brain at 10um voxel resolution from serial two-photon tomography images of 1,675 young adult C57Bl6/J mice. Using multimodal reference data, we parcellated the entire brain directly in 3D, labeling every voxel with a brain structure spanning 43 isocortical areas and their layers, 314 subcortical gray matter structures, 81 fiber tracts, and 8 ventricular structures. The CCF enables the integration of data across modalities that have been registered into the common space. {cite:p}`wangccf`
+The Allen Mouse Brain Common Coordinate Framework ({term}`CCF`) is a 3D reference space that was defined by creating an average brain at 10um voxel resolution from serial two-photon tomography images of 1,675 young adult C57Bl6/J mice. This space allows us to attach coordinates to any point or structure in the brain. Using multimodal reference data, we parcellated the entire brain directly in 3D, labeling every voxel with a brain structure spanning 43 isocortical areas and their layers, 314 subcortical gray matter structures, 81 fiber tracts, and 8 ventricular structures. The CCF enables the integration of data across modalities that have been registered into the common space. {cite:p}`wangccf`
 
 :::{figure} ../resources/ccf.png
 ---
 align: center
 ---
 :::
+
+A good analogy for the CCF is geographic coordinates. The Allen Institute has geographic coordinates of (47.6254128287214, -122.33880091795054). This allows us to pinpoint it on a globe or a map. We can also annotate this location at different levels of resolution, saying it is located in the United States or Washington state or Seattle or Westlake Ave. Depending on what you are doing, you might prefer to ask about different levels of the geographic hierarchy. 
+
+:::{figure} ../resources/ccf_allen_maps.png
+---
+align: center
+---
+:::
+
+Likewise, an example neuron in the brain has CCF coordinates of (4625.3821881875, 2534.79472175, 2977.33168800001). We can pinpoint this in the brain, and we can annotate it's location as being in the Isocortex, the Somatosenory areas, the Primary somatosensory area, or the Primary somatosensory area, mouth. And again, depending on the context, you might choose to use different levels of the CCF hierarchy to describe its location. You might be looking for all neurons in the Somatosensory areas to compare against those in Motor areas, or you might want to compare mouth neurons in the primary somatosensory area to the nose neurons.
+
+:::{figure} ../resources/ccf_example_neuron.png
+---
+align: center
+---
+:::
+
 
 In the data here, the CCF is used in a few ways. One, is to specify the location of ephys units. This localization is done post-hoc, when the probe tract is imaged and registered to the CCF. This allows scientists to assign brain structure locations to the sorted units.
 The second is for the single cell whole brain reconstruction data. During image processing, the brain is registered to the CCF, allowing each node of the skeleton to be mapped to a brain structure. This allows scientists to know where each soma is located, what structures its dendrites originate in, and where its axons project to. 
