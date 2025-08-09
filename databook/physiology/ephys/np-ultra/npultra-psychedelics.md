@@ -33,7 +33,7 @@ The Neuropixels Ultra & Psychedelics dataset was collected to explore how differ
 :align: center
 :width: 800
 
-Cell-type specific transgeneic lines used in the NP Ultra & Psychedelics dataset. *Top row*, Representative sections with red insets showing the regions of the brain where images were taken. *Middle row, left*, Representative morphological reconstruction of a Sim1+ ET L5p neuron from the Allen Cell Types Database. *Middle*, Sim1-Cre;Ai32 expression of ChR2-EGFP in L5p ET neurons throughout the cortex. *Right*, Exemplar probe tract from a Neuropixels Ultra recording. *Bottom row*, Same as middle row for Tlx3-Cre;Ai167.
+Cell-type specific transgeneic lines used in the NP Ultra & Psychedelics dataset. *Top row*, Representative sections with red insets showing the regions of the brain where images were taken. *Middle row, left*, Representative morphological reconstruction of a Sim1+ ET L5p neuron from the Allen Cell Types Database. *Middle*, Sim1-Cre;Ai32 expression of ChR2-EGFP in L5p ET neurons throughout the cortex. *Right*, Exemplar probe tract from a Neuropixels Ultra recording. *Bottom row*, Same as the middle row for Tlx3-Cre;Ai167 expressing ChrimsonR-tdTomato.
 :::
 
 L5p neurons were targeted across the brain and identified via optotagging through a whole-hemisphere cranial implant {cite:p}`Bennett2024`. Recordings were made exclusively in the cortex using four Neuropixels Ultra probes in the 192 x 2 site configuration and covered a range of higher-order, associative, and sensory cortical regions.
