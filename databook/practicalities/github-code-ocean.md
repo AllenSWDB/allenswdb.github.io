@@ -1,5 +1,6 @@
 # Creating a Code Ocean capsule synced to GitHub repo
 
+(create-repo)=
 ## GitHub: Create a new repository using one of the templates
 
 - Find the templates here: https://github.com/AllenSWDB/ 
@@ -12,10 +13,11 @@
 align: center
 ---
 :::
-    - Make yourself the owner of the new repository
-    - Give the repository a name.
-    - Select public or private
-    - Click the `create repository` button. You have made a new repository!!
+
+- Make yourself the owner of the new repository
+- Give the repository a name.
+- Select public or private
+- Click the `create repository` button. You have made a new repository!!
 
 In order to sync between your GitHub account and your Code Ocean account, you need to add a token from GitHub to your Code Ocean account.
 
@@ -98,6 +100,7 @@ align: center
 
 At this point, your GitHub and Code Ocean accounts are linked! 
 
+(capsule-clone)=
 ## Code Ocean: Create a capsule from your GitHub repository
 
 - Create a new capsule. Click on the plus icon on the left near the top to Create New. Select the `Clone from Git` option under the "Capsule" header. It's the one with the GitHub icon.
@@ -154,6 +157,8 @@ align: center
 
 - To shut down the capsule when you, click the big red button on the top left. You can leave it on `Hold` to preserve any packages you've installed within jupyterlab, or shut down fully if you need to add new packages to the environment. 
 
+(sync-github)= 
+## Sync with GitHub
 - When you've made changes and have shut down the capsule, you can commit your code to your GitHub repository. You can follow the steps you've learned using the Terminal, or you can use the panel on the right. Include a brief description and click `Commit Changes`
 :::{figure} ../resources/CO_commit.png
 ---
