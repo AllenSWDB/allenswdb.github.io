@@ -89,7 +89,7 @@ align: center
 ---
 :::   
 
--On the top right, click on `Add Credentials` and select `GitHub Credentials` 
+- On the top right, click on `Add Credentials` and select `GitHub Credentials` 
 :::{figure} ../resources/CO_credentials.png
 ---
 align: center
