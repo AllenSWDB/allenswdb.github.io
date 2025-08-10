@@ -92,6 +92,7 @@ parts:
           sections:
           - file: physiology/ephys/np-ultra/npultra-psychedelics
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
+          - file: physiology/ephys/np-ultra/npultra-psychedelics-accessing-data
       - file: physiology/stimuli/stimuli
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
