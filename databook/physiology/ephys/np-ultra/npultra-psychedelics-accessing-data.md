@@ -2,8 +2,9 @@
 
 ## Loading Data
 
-The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can be accessed via NWBZarrIO as:
+The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can be accessed via NWBZarrIO. 
 
+Load an example session:
 ```{code-cell} ipython3
 from hdmf_zarr import NWBZarrIO
 import json
