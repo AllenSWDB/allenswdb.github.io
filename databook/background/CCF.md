@@ -33,7 +33,7 @@ align: center
 
 Likewise, an example neuron in the brain has CCF coordinates of (4625.3821881875, 2534.79472175, 2977.33168800001). We can pinpoint this in the brain, and we can annotate it's location as being in the Isocortex, the Somatosenory areas, the Primary somatosensory area, or the Primary somatosensory area, mouth. And again, depending on the context, you might choose to use different levels of the CCF hierarchy to describe its location. You might be looking for all neurons in the Somatosensory areas to compare against those in Motor areas, or you might want to compare mouth neurons in the primary somatosensory area to the nose neurons.
 
-:::{figure} ../resources/ccf_example_neuron.png
+:::{figure} ../resources/ccf_cell_example.png
 ---
 align: center
 ---
