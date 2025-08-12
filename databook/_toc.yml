@@ -20,13 +20,6 @@ parts:
       - file: background/Ophys-ephys-comparison
       - file: background/CCF.md
       - file: background/metadata.md
-    - file: practicalities/practicalities
-      sections:
-      - file: practicalities/github-code-ocean
-      - file: practicalities/code-ocean-collab
-      - file: practicalities/code-ocean-vs-code
-      - file: practicalities/allensdk-pyNWB
-      - file: practicalities/pyNWB
     - file: physiology/physiology
       sections:
       - file: physiology/ophys/ophys-overview
@@ -135,6 +128,13 @@ parts:
       - file: computational/data-analysis/classification.md
   - caption: Resources
     chapters:
-      - file: glossary
-      - file: bibliography
-      - file: contributors
+    - file: glossary
+    - file: practicalities/practicalities
+      sections:
+      - file: practicalities/github-code-ocean
+      - file: practicalities/code-ocean-collab
+      - file: practicalities/code-ocean-vs-code
+      - file: practicalities/allensdk-pyNWB
+      - file: practicalities/pyNWB
+    - file: bibliography
+    - file: contributors
