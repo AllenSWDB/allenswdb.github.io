@@ -20,6 +20,11 @@ parts:
       - file: background/Ophys-ephys-comparison
       - file: background/CCF.md
       - file: background/metadata.md
+    - file: practicalities/practicalities
+      sections:
+      - file: practicalities/github-code-ocean
+      - file: practicalities/allensdk-pyNWB
+      - file: practicalities/pyNWB
     - file: physiology/physiology
       sections:
       - file: physiology/ophys/ophys-overview
@@ -96,7 +101,6 @@ parts:
           title: Visual Behavior Task
         # - file: physiology/stimuli/dynamic-foraging
         # - file: physiology/stimuli/brain-computer-interface
-      - file: physiology/pyNWB/pyNWB
       # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
