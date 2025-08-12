@@ -11,6 +11,8 @@ kernelspec:
   name: ctlut
 ---
 
+# Visual stimuli
+
 The stimulus set for the V1DD data was modified from the Visual Coding stimulus in order to quickly characterize key features of the visual activity of cortical neurons. Each session (for a given mouse) used the same stimulus. (Two mice use a slightly modified version of the stimulus, see below)
 
 Some key differences between V1DD and Visual Coding stimuli are (1) the windowed drifting gratings, (2) flashed stimuli (natural scenes and locally sparse noise) were flashed at 3Hz to accomodate the slower imaging rate, and (3) the natural scenes were used in two ways (see below).
