@@ -36,4 +36,4 @@ The [natural movies](natural-movies) were presented in different ways for differ
 
 # Spontaneous activity
 
-There were 5 minutes of [spontaneous activity](spontaneous activity) during each session where the monitor was held at the mean luminance gray. 
+There were 5 minutes of [spontaneous activity](spontaneous-activity) during each session where the monitor was held at the mean luminance gray. 
