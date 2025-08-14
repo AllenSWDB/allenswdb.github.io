@@ -1,101 +1,21 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: allensdk
----
+# Electron Microscopy
 
-# EM Connectomics
 
-:::{figure} img/minnie-3d-cells.png
+## What Datasets are available for this course
+
+This year we have two cubic millimeter EM datasets available to work with: MICrONS and V1DD
+
+
+### The MICrONS Dataset
+
+:::{figure} /resources/minnie-3d-cells.png
 ---
 align: center
 ---
-A 3D rendering of cells in the MICrONs dataset.
+The MICrONS Dataset, collected from 2018-2020, publicly available since 2021 but formally released April 2025
 :::
 
-## Background
-The function of the nervous system arises out of a combination of the properties
-of individual neurons and the properties of how they are connected into a larger
-network. The central goal of connectomics is to produce *complete maps* of the
-*connectivity* of the nervous system with *synaptic resolution* and analyze them
-to better understand the organization, development, and function of the nervous
-system. Electron microscopy (EM) has been a central tool in achieving these aims
-for two key reasons: 1) EM can easily image nanometer-scale structures such as
-synapses. This allows one to unambiguously observe chemical synapses and, if
-pushed to high enough resolution, gap junctions. (Note that the MICrONs dataset
-is not high enough resolution to unambiguously observe gap junctions.) 2) Dense
-staining methods allow the complete observation of a of rich collection of
-cellular features, including membranes, nuclei, mitochondria, and much more.
-This allows the reconstruction of the complete morphology of cells.
-
-The general approach to EM involves staining tissue with heavy metals and using
-electrons to imaging thin sections of tissue. Sections can either be created by
-cutting tissue into slices ("serial section") followed by imaging, or by imaging
-the face of a block and shaving off a thin layer of tissue after each run
-("block face"). In both approaches, each section corresponds to only 30–50
-nanometers of thickness (although it can be a millimeter wide), and thus
-assembling a substantial volumes involves thousands or tens of thousands of
-sections in a row. Finally, computational methods are used to align and assemble
-the sections into a single volume and then to segment the volume into individual
-cells and synapses.
-
-While the resolution afforded by EM has been used to study the nervous system
-since 1959, the first true “connectomics” project that merged dense mapping of
-neurons and synaptic connectivity was the study of the nematode *C. elegans* led
-by Sydney Brenner, John White, and others. Advances in EM methods and
-computational methods in the last ten years have allowed tremendous scaling of
-connectomics datasets. The largest current mammalian datasets, including the
-MICrONs volume will consider here, now span more than a cubic millimeter, and
-invertebrate datasets now can cover the entire brain of a fruit fly.
-
-## What questions can be addressed by connectomic datasets?
-For invertebrates like the fruit fly, the nervous system is highly stereotyped
-in both the composition of cells and how they connect to one another. Indeed, in
-the fly many cell types exist as a single pair of cells, one from the left and
-one from the right hemisphere. Connectomic maps from one individual can thus act
-as a nearly universal map of the brain and powerfully inform theoretical and
-experimental studies.
-
-In mouse cortex, this same type of stereotypy does not apply. There is no
-one-to-one match between any given cell in the brain of one mouse and another,
-and thousands of cells in a cortical area can belong to the same cell type.
-Because of this, the types of questions one can ask differ, but dense
-reconstruction of anatomy and connectivity still can be a powerful source of
-insight into questions like:
-* What morphological or connectivity-based cell types can be found?
-* What are the properties of the excitatory networks in cortex and how might
-  they relate to learning rules?
-* What rules dictate how inhibitory cells distribute their synaptic output
-  across target cell types?
-
-In some datasets, such as the MICrONs dataset, calcium imaging of the same
-tissue was performed prior to preparing the structural EM volume.
-In that case, we can address additional questions like:
-* How do functional responses relate to the morphology of cells?
-* How do functional responses relate to the connectivity of cells?
-
-In addition, a whole host of non-neuronal cells are also present, such as
-astrocytes, oligodendrocytes, microglia, and pericytes. Many people are
-interested in studying the relationship between these cells and neurons, and
-connectomic datasets can be a powerful tool to discovery this structural
-context.
-
-## The MICrONs dataset
-
-:::{note}
-For more complete details about the generation of the volume, please see
-{cite:t}`MICrONS-2021`.
-:::
-
-The MICrONs dataset is an EM volume of mouse visual cortex that spans all
+The MICrONs Cubic Millimeter dataset is an EM volume of mouse visual cortex that spans all
 cortical layers, and extends approximately 1 mm in width by 0.5 mm in depth,
 collected as a collaboration between the Allen Institute for Brain Science,
 Baylor College of Medicine, and Princeton University.
@@ -110,8 +30,9 @@ the Tolias lab, then at Baylor College of Medicine. The mouse was shipped to the
 Allen Institute and the same cortical region was prepared for EM, with more than
 25,000 sections cut from the block and imaged across a small fleet of electron
 microscopes. In order to capture the interactions between different visual
-regions, the volume location is at the edge of primary visual cortex and extends
-into higher visual areas AL and RL {cite:ps}`glickfeld_higher-order_2017`.
+regions, the volume location is at the edge of primary visual cortex (VISp) and extends
+into higher visual areas VISal and VISrl.
+
 Imagery was then aligned and segmented by the team of Sebastian Seung at
 Princeton, who also automatically detected synapses and nuclei. A team of
 proofreaders at Johns Hopkins Applied Physics Laboratory helped correct the
@@ -127,5 +48,31 @@ information and the potential for a range of studies, with strengths and
 limitations due to the current state of proofreading and needs of the functional
 data collection.
 
-The next sections of the Data Book will introduce how to access the various
-parts of the dataset and give some guidance about how to use them.
+
+### The V1 Deep-Dive (V1DD)
+
+:::{figure} /resources/v1dd_columns_cells.png
+---
+align: center
+width: 400px
+---
+The V1 Deep-Dive (V1DD) Dataset, collected from 2020-2022, publicly available since August 2025
+:::
+
+Characterizing the relationship between neural function and connectivity is a central problem in
+visual sensory processing. In order to explore this relationship, we have recorded visual
+responses from pan-excitatory neurons within an 800X800 um region of primary visual cortex,
+spanning all visual layers from pia to white matter. This includes ~13,000 neurons per mouse in
+4 mice total, collected from 250 2-photon and 7 3-photon calcium imaging planes spaced by ~16
+um. This dataset will be used to examine the single-cell and population activity in primary visual
+cortex, and along with electron microscopic reconstruction from the same tissue, will serve as a
+valuable resource in studying the functional connectome in mouse cortex. A wide variety of
+visual stimuli were used to characterize neural responses, including drifting gratings, sparse
+noise, natural movies and natural images. We assessed multiple metrics, including receptive
+field profile, direction and orientation selectivity indices, reliability of response, and sparseness
+of response. 
+
+These data are poised to focus on questions of visual encoding and population coding. Of particular focus is questions regarding surround suppression, where having a stimulus that extends beyond a neurons classical receptive field can suppress its response. Comparing the responses to the windowed and full field gratings can reveal such surround suppression - which can potentially be related to differences in connectivity patterns. Surround suppression has also been found to be stronger in superficial layers (e.g. layer 2/3) compared to deeper layers (e.g. layer 5), which can be explored in this dataset.
+
+Other visual stimuli are also valuable for exploring the arrangement of spatial receptive fields or the correlations of neurons within a volume in response to natural movies or spontaneous activity. The behavior variables, including running speed/duration, and pupil area/position, are also of interest.
+
