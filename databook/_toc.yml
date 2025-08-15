@@ -94,7 +94,10 @@ parts:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
           title: Visual Behavior Task
-        # - file: physiology/stimuli/dynamic-foraging
+        - file: physiology/stimuli/dynamic-foraging/Dynamic-Foraging
+          title: Dynamic foraging
+          sections:
+          - file: pyhsiology/stimuli/dynamic-foraging/dynamic-foraging-data
         # - file: physiology/stimuli/brain-computer-interface
       # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
