@@ -17,26 +17,7 @@ nwbfile_path_zarr = '/data/np-ultra-psychedelics/ecephys_714527_2024-05-15_13-00
 with NWBZarrIO(nwbfile_path_zarr, mode='r') as io:
     nwbfile_zarr = io.read()
 ```
-Alternatively, more than one session can be loaded into memory and stored into a list by:
-
-```{code-cell} ipython3 
-import glob
-
-data_mount = '/data/np-ultra-psychedelics/'
-sessions = os.listdir(data_mount)
-
-data = []
-
-for session in sessions:
-    nwbfile_path_zarr = glob.glob(os.path.join(data_mount,session,'**.nwb'))[0]
-
-    with NWBZarrIO(nwbfile_path_zarr, mode='r') as io:
-        nwbfile_zarr = io.read()
-
-    data.append(nwbfile_zarr)
-```
-
-Be aware this method will consume more system resources but will allow faster access to the dataset. To quickly walk through the data, use:
+To quickly walk through the data, use:
 
 ```{code-cell} ipython3
 from nwbwidgets import nwb2widget 
@@ -45,18 +26,35 @@ nwb2widget(nwbfile_zarr)
 ```
 
 ### Loading unit data
-Units in this dataset have undergone postprocessing QC from Kilosort 2.5 and automated curation. Unlike other datasets, curated data can be access via the analysis attribute of the nwb file.
+
+Data for all Kilosort-processed units can be loaded via:
+
+```{code-cell} ipython3
+units_table = nwbfile_zarr.units[:]
+```
+
+Units in this dataset have undergone additional postprocessing QC from Kilosort 2.5 and automated curation. Unlike other datasets, curated data can be accessed via the analysis attribute of the nwb file.
 
 ```{code-cell} ipython3
 analysis_table = nwbfile_zarr.analysis['analysis_table'].to_dataframe()
 ```
 
-Analysis table properties include both extracted unit waveform infomation (amplitude, duration, etc.) but also the timing of spikes during stimulus epochs (e.g. 'Spontaneous_0_spikes' are spikes that occurred during the first spontaneous activity epoch).
+Analysis table properties include both extracted unit spike-time and waveform infomation (amplitude, duration, number or bursts, etc.) but also the timing of spikes during stimulus epochs (e.g. 'Spontaneous_0_spikes' are spikes that occurred during the first spontaneous activity epoch).
+
+The analysis table and unit table data can be aligned by the unique 'ks_units_id' column in both tables. For example, to get the spike times of an optotagged unit in the units table:
+
+```{code-cell} ipython3
+opto_unit = analysis_table[analysis_table['optotagged']==1].iloc[0]
+probe = opto_unit['probe'] #get the probe the unit was recorded on as ks_unit_id is probe-specific
+ks_id = opto_unit['ks_unit_id']
+
+spike_times = unit_table['spike_times'][(unit_table['ks_unit_id']==ks_id)&(unit_table['device_name']==f'Probe{probe}')]
+```
 
 ### Analysis table columns glossary
 | Column name | Definition |
 |----------|----------|
-| ks_unit_id    | The unit ID that corresponds to the unit ID in the post-sorting, pre-curation units table     |
+| ks_unit_id    | The cluster identifier given to a unit during spike sorting. Can be found in both the analysis and units tables.      |
 | probe    | The label of the probe on which the unit was recorded     |
 | probe_type    | the probe type (e.g. 'Passive' or 'Switchable')     |
 | Spontaneous_i_spikes    | Spike times (in seconds) for the spontaneous activity epoch of a given index, i (e.g. 0, 1, etc)     |
@@ -97,7 +95,7 @@ epochs = nwbfile_zarr.stimulus['epochs'].to_dataframe()
 ```
 
 ## Stimulus data
-The only timing-based visual stimulation used during these experiments were Gabor patches presented at various orientations and locations on the screen during receptive field mapping epochs. To find trial-specific information for visual stimuli:
+The visual stimulus used during these experiments were Gabor patches presented at various orientations and locations on the screen during receptive field mapping epochs. To find trial-specific information for visual stimuli:
 
 ```{code-cell} ipython3
 # load the stimulus table
