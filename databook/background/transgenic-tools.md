@@ -74,7 +74,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Rbp4-Cre_KL100 | In cortex, drives expression in excitatory neurons in layer 5. | MGI:4367067 | Visual Coding 2P |
 | Rorb-IRES2-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:5507855 | Visual Coding 2P |
 | Scnn1a-Tg3-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. Only found in primary sensory areas (e.g. VISp). | MGI:3850187 | Visual Coding 2P |
-| Sim1-Cre-KJ18 | In cortex, drives expression in cortico-cortical projecting excitatory neurons in layer 5. | | NP Ultra & Psychedelics |
+| Sim1-Cre-KJ18 | In cortex, drives expression in cortico-subcortical projecting excitatory neurons in layer 5. | | NP Ultra & Psychedelics |
 | Slc17a6-IRES-Cre | Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex. | MGI:6758055 | |
 | Slc17a7-IRES2-Cre | In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. | MGI:5507862 | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
 | Sst-IRES-Cre | Drives expression in Somatostatin inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
