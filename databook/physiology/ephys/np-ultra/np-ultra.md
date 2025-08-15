@@ -1,7 +1,0 @@
-# Neuropixels Ultra
-
-Neuropixels Ultra, like Neuropixels, are high-density extracellular electrophysiology (ephys) probes. Neuropixels Ultra differs from Neuropixels 1.0 and 2.0 in the density of the recording sites and therefore the resolution of the imaging produced. In NP 1.0 and 2.0, the spacing of the recording sites were on the order of 10 $\mu$m, reducing their ability to resolve images at smaller energy scales. Additionally, probe drift of a few micrometers could result in significant signal loss if the drift resulted in a previously sampled unit entering a 'blind spot'.
-
-NP Ultra has significantly decreased electrode size and grid spacing and therefore significantly increased the density of the recording sites. In NP Ultra, the probe sites are squares with lengths of 5 $\mu$m spaced 1 $\mu$m apart, allowing the probe to resolve much smaller spatial regions, but at the cost of reducing the overall length of the region from which data can be recorded. That is, NP Ultra gathers data from a smaller region of the brain, but in higher detail, than NP 1.0 or NP 2.0. The higher resolution allows researchers to examine individual units with much higher detail, as well as to see signals with very short lifetimes.
-
-# Want info on the NP Ultra dataset here + maybe tutorials on accessing things
