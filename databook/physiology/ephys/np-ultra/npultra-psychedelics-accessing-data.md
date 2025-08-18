@@ -41,7 +41,7 @@ analysis_table = nwbfile_zarr.analysis['analysis_table'].to_dataframe()
 
 Analysis table properties include both extracted unit spike-time and waveform infomation (amplitude, duration, number or bursts, etc.) but also the timing of spikes during stimulus epochs (e.g. 'Spontaneous_0_spikes' are spikes that occurred during the first spontaneous activity epoch).
 
-The analysis table and unit table data can be aligned by the unique 'ks_units_id' column in both tables. For example, to get the spike times of an optotagged unit in the units table:
+The analysis table and unit table data can be aligned by the unique `ks_units_id` column in both tables. For example, to get the spike times of an optotagged unit in the units table:
 
 ```{code-cell} ipython3
 opto_unit = analysis_table[analysis_table['optotagged']==1].iloc[0]
@@ -57,9 +57,8 @@ spike_times = unit_table['spike_times'][(unit_table['ks_unit_id']==ks_id)&(unit_
 | ks_unit_id    | The cluster identifier given to a unit during spike sorting. Can be found in both the analysis and units tables.      |
 | probe    | The label of the probe on which the unit was recorded     |
 | probe_type    | the probe type (e.g. 'Passive' or 'Switchable')     |
-| Spontaneous_i_spikes    | Spike times (in seconds) for the spontaneous activity epoch of a given index, i (e.g. 0, 1, etc)     |
-| Spontaneous_i_spikes    | Spike times (in seconds) for the spontaneous activity epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording.     |
-| RFMapping_i_spikes    | Spike times (in seconds) for the receptive field mapping epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording.     |
+| Spontaneous_i_spikes    | Spike times (in seconds) for the spontaneous activity epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording. Empty if no spikes occurred in this epoch. Spike times relative to recording start.    |
+| RFMapping_i_spikes    | Spike times (in seconds) for the receptive field mapping epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording. Empty if no spikes occurred in this epoch. Spike times relative to recording start.    |
 | mean_waveform     |       |
 | Spontaneous_i_waveform    | The 384-channel average waveform (in microvolts) of spike that occurred in the spontaneous activity epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording.     |
 | RFMapping_i_waveform    | The 384-channel average waveform (in $\mu$V) of spike that occurred in the receptive field mapping epoch of a given index, i (e.g. 0, 1, etc). NaN if this epoch did not occur in the recording.     |
