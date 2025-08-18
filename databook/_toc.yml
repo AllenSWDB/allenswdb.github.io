@@ -97,7 +97,6 @@ parts:
           title: Visual Behavior Task
         # - file: physiology/stimuli/dynamic-foraging
         # - file: physiology/stimuli/brain-computer-interface
-      - file: physiology/pyNWB/pyNWB
       # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
@@ -130,6 +129,13 @@ parts:
       - file: computational/data-analysis/classification.md
   - caption: Resources
     chapters:
-      - file: glossary
-      - file: bibliography
-      - file: contributors
+    - file: glossary
+    - file: practicalities/practicalities
+      sections:
+      - file: practicalities/github-code-ocean
+      - file: practicalities/code-ocean-collab
+      - file: practicalities/code-ocean-vs-code
+      - file: practicalities/allensdk-pyNWB
+      - file: practicalities/pyNWB
+    - file: bibliography
+    - file: contributors

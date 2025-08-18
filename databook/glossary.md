@@ -20,7 +20,7 @@ Bipolar cell
 
 CCF
 Common Coordinate Framework
-  The CCF is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
+  The [CCF](background/CCF.md) is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
 Container
   *There is no consistent use of this term*
@@ -161,7 +161,7 @@ Neuropixels
   {cite:t}`jun2017` describes these probes; a summary can also be found [here](background/neuropixels-description).
 
 Ophys
-  Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`.
+  Shorthand for optical physiology, often in reference to {term}`Two-photon calcium imaging`, but can also include other methods such as fiber photometry.
 
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
@@ -251,7 +251,7 @@ Skeleton
   A linear tree-like structure that defines the shape of a neuron. 
 
 Somatostatin cell
-  A type of interneuron expressing the molecular marker somatostatin (SST, or
+  A type of inhibitory interneuron expressing the molecular marker somatostatin (SST, or
   sometimes SOM). SST cells tend to target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
   neurons.
@@ -302,7 +302,7 @@ Unit
   included units are well isolated from their neighbors.
 
 VIP cell
-  A type of interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Waveform
 Spike
