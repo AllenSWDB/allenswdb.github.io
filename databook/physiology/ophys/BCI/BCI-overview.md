@@ -16,8 +16,6 @@ changing their activity as much as the CN.
 In addition to neural and behavioral measurements, targeted 2P single-cell photostimulation was
 performed before and after the task to assess fucntional connectivity and its changes with learning. 
 
-![BCI_schematic](/resources/BCI_schematic.png)
-
 **Background** 
 
 Learning a new task or skill relies on synaptic plasticity to rewire neural circuits. The circuits 
@@ -59,36 +57,6 @@ Because GCaMP and ChRmine are optimally excited by different wavelengths (920 nm
 and photostimulation. Photostimulation targeted single neurons, one at a time, to measure 
 their influence on the recorded population. In this dataset we imaged a single 800x400 microns
  large plane containing ~500 neurons, with GCaMP expression present in both excitatory and inhibitory neurons.
-
- **Experiment** 
-
-Each experimental session consisted of five distinct epochs: pre-spontaneous, pre-photostimulation, 
-BCI, post-spontaneous, and post-photostimulation. All epochs involved fluorescence recordings from 
-the same set of neurons in head-fixed mice. 
-
-
-In the spontaneous epochs, mice were recorded without any instructed behavior. 
-During the pre-spontaneous epoch, we identified a single “conditioned neuron” (CN) 
-that would later control the BCI task. The spontaneous activity of the CN was used to calibrate 
-the mapping between CN activity and lickport speed in the BCI. 
-
-
-In the photostimulation epochs, a single neuron was targeted per at 600 ms time intervals.  
-Target order was randomized, cycling through 50–100 neurons in the field of view, with each neuron 
-stimulated for approximately 20 times (trials). The pre-photostimulation epoch provided a
-baseline connectivity map before learning, while the post-photostimulation epoch was used to assess 
-changes in connectivity following the BCI task. 
-
-
-In the BCI task, mice controlled the position of a motorized lickport using the activity of the CN. 
-At the start of each trial, the lickport began in the “far” position, 7 mm from the mouse. 
-Increases in CN fluorescence moved the lickport toward the mouse at a speed proportional to CN activity.
-Mice had 10 seconds to bring the lickport into the “close” position to obtain a water reward. 
-Failure to reach the close position within the time limit resulted in the lickport retracting 
-to the far position. 
-
-Following the BCI session, post-spontaneous and post-photostimulation epochs were performed
- to measure changes in both network activity and functional connectivity after learning. 
 
  **Questions to explore** 
 * How much does the conditioned neuron increase its activity during the BCI task? 
