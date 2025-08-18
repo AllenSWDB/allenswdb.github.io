@@ -51,7 +51,7 @@ parts:
           - file: physiology/ophys/V1DD/V1DD-dataset
           - file: physiology/ophys/V1DD/V1DD-session-data
           - file: physiology/ophys/V1DD/V1DD-stimuli
-        # - file: physiology/ophys/BCI/BCI-overview
+        - file: physiology/ophys/BCI/BCI-overview
         #   sections:
         #   - file: physiology/ophys/BCI/BCI-Task
     #    - file: physiology/ophys/learning/learning                  
