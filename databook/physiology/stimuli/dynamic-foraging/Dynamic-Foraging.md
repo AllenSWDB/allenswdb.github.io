@@ -24,7 +24,7 @@ The <i>dynamic foraging</i> task was designed to meet these criteria. It has two
 
 In our experiments, thirsty, head-restrained mice perform hundreds of trials each day. A trial begins with an auditory “go” cue, after which mice have a short window in which to lick toward a leftward or rightward tube. Choices are followed by either a water reward or no outcome. Reward probabilities are assigned to each tube and vary over the course of a session. 
 
-:::{figure} ../resources/DF_task.png
+:::{figure} /resources/DF_task.png
 ---
 width: 300px
 align: center
@@ -34,14 +34,14 @@ Fig. 1. Top, cartoon of behavioral task events. Bottom, behavioral data from an 
 
 A critical feature of this task is that it allows us to study learning in real time: mice adjust their behavior as reward probabilities change. There are several parameters that govern how the reward probabilities change over time. We manipulate two in particular: whether reward probabilities on the left and right sides change at the same time (“coupled”) or independently (“uncoupled”) and whether the reward from a choice is available regardless of the mouse’s choice (“baiting”). Baiting is defined such that if an unchosen action would have been rewarded, the reward is delivered upon the next choice of that alternative.
 
-:::{figure} ../resources/DF_curriculum.png
+:::{figure} /resources/DF_curriculum.png
 ---
 width: 300px
 align: left
 ---
 :::
 
-:::{figure} ../resources/DF_parameters.png
+:::{figure} /resources/DF_parameters.png
 ---
 width: 300px
 align: right
@@ -54,14 +54,14 @@ Fig. 2. Left, training curriculum for the dynamic foraging task. Right, task par
 
 The central hypothesis for how mice behave in the dynamic foraging task is that they use recent actions and outcomes to change future behavior. One simple analysis that demonstrates mice use recent actions and outcomes is a logistic regression model that uses past rewards and choices to predict the future left/right choice. 
 
-:::{figure} ../resources/DF_equation.png
+:::{figure} /resources/DF_equation.png
 ---
 width: 300px
 align: center
 ---
 :::
 
-:::{figure} ../resources/DF_learning.png
+:::{figure} /resources/DF_learning.png
 ---
 width: 300px
 align: center
@@ -73,7 +73,7 @@ Fig. 3. Reward-history-dependent learning within and across sessions. (a) Regres
 
 Reinforcement-learning models are useful for inferring the “hidden” variables that a mouse may use while engaged in the foraging task. This is especially true when paired with statistical analyses. For example, Fig. 3 shows that mice use reward history to guide future choices. What might be the mechanism underlying this type of learning? One possibility is that the brain generates errors: discrepancies between the predicted and observed outcomes of actions. This can be formalized in a reinforcement-learning model, whose extracted latent variables can subsequently be linked to neural activity (Fig. 4).
 
-:::{figure} ../resources/DF_Qvalues.png
+:::{figure} /resources/DF_Qvalues.png
 ---
 width: 300px
 align: center

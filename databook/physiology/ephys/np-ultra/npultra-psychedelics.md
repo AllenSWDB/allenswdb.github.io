@@ -15,7 +15,7 @@ Localization of the $5HT_{2A}R$ in the primate cortex. __A__, Dark-field photogr
 
 Current hypotheses of psychedelic effects on the nervous system suggest that the perceptual and cognitive effects of these drugs are related to alterations in pyramidal neuron dendritic excitability via $5HT_{2A}R$ activation {cite:p}`Kwan2022`. Though the exact acute and long-term effects of $5HT_{2A}R$ activation on network activity have yet to be fully elucidated, a growing concensus points toward psychedelic drugs altering dendritic integration and shifting the spike-time distribution of pyramidal neurons during the course of drug exposure while promoting long-term synaptic plasticity and potentiation (LTP). Determining the precise cell-type-specific effects on neuronal firing of psychedelic drug exposure represents and important next step for understand both the therapeutic mechanisms of these compounds as well as what they can tell us about serotonergic signaling in the cortex
 
-:::{figure} ../resources/NPUltra/Kwan_etal_2022_NeuralBasis.png
+:::{figure} /resources/NPUltra/Kwan_etal_2022_NeuralBasis.png
 :name: 5HT2A mechanism of action
 :align: center
 :width: 800
@@ -27,7 +27,7 @@ $5HT_{2A}R$ mechanism of action. __A__, Intracellular signal transduction pathwa
 
 The Neuropixels Ultra & Psychedelics dataset was collected to explore how different subtypes of L5p respond to psilocybin during passive spontaneous activity and with visual stimulation. The two subtypes of L5p identified and assessed in these experiments are defined by the transgenes Sim1-Cre_KJ18;Ai32 and Tlx3-Cre_PL56;Ai167 and correspond to thick-tufted extratelencephalic (ET)-projecting and thin-tufted intratelencephalic (IT)-projecting neurons, respectively. These neurons are morphologically distinct: ET neurons generally have more elaborate dendritic arbors and project to subcortical structures such as basal ganglia, the hippocampus, subcortical nuclei, and brainstem. IT neurons have sparser dendritic arbors and signal within the cortex across both intra- and inter-hemispheric cortical areas.
 
-:::{figure} ../resources/NPUltra/TransgenicLines.png
+:::{figure} /resources/NPUltra/TransgenicLines.png
 :name: L5p-specific expression of Sim1-Cre;Ai32 and Tlx3-Cre;Ai167
 :align: center
 :width: 800
@@ -37,7 +37,7 @@ Cell-type specific transgeneic lines used in the NP Ultra & Psychedelics dataset
 
 L5p neurons were targeted across the brain and identified via optotagging through a whole-hemisphere cranial implant {cite:p}`Bennett2024`. Recordings were made exclusively in the cortex using four Neuropixels Ultra probes in the 192 x 2 site configuration and covered a range of higher-order, associative, and sensory cortical regions.
 
-:::{figure} ../resources/NPUltra/Psychedelic_insertions.png
+:::{figure} /resources/NPUltra/Psychedelic_insertions.png
 :name: NP Ultra insertion locations
 :align: center
 :width: 800
@@ -47,7 +47,7 @@ Insertion location of NP Ultra recordings. __A__, Whole-hemisphere craniotomy im
 
 Indivivdual mice were recorded over two days, one session per day. In the initial session (Day 1), mice were exposed to spontaneous activity (20 minutes), receptive field-mapping (20 minutes), and optotagging (5 minutes) epochs prior to saline (control) injection. Mice were then recorded over two more of these epoch blocks (~45 minutes each) before isoflurane anesthesia administration (1.5% maintainence) was conducted in the final minutes of the experiment with shorter blocks of spontaneous activity and receptive field mapping. The following day (Day 2) adhered to the same experiment structure, now with psilocybin administration (3 mg/kg) and without the final anesthesia epoch. All injections were given as intraperitoneal (IP) injections and isoflurane was given as a vapor with 4% induction.
 
-:::{figure} ../resources/NPUltra/Psychedelics_ExperiimentalProtocol.png
+:::{figure} /resources/NPUltra/Psychedelics_ExperiimentalProtocol.png
 :name: NP Ultra & Psychedelics experimental protocol
 :align: center
 :width: 800
