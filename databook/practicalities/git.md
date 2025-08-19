@@ -12,24 +12,24 @@
 
 # Basic Git Workflows
 
-### Fork a repo (e.g. `swdb_2025_student`)
+## Fork a repo (e.g. `swdb_2025_student`)
 
 Navigate to the [swdb_2025_student](https://github.com/allenInstitute/swdb_2025_student) repo (or just scroll to the top of this page) and click "Fork" at the top right (or just scroll to the top of this page).
 
 
-### Single-user repository -- clone a repository
+## Single-user repository -- clone a repository
 
 Clone from GitHub:
 
 `$ git clone https://github.com/username/swdb_2025_student # clones into ./swdb_2025_student`
 
-### A useful trick
+## A useful trick
 Install your local repo in python so that you can edit in place:
 
 `$ pip install -e swdb_2025_student/`
 
 
-### Single-user repository -- commit a specific set of files, push to server/remote
+## Single-user repository -- commit a specific set of files, push to server/remote
 
 ```
 $ git pull # make sure we have the latest changes from the server
@@ -39,11 +39,11 @@ $ git commit -m "your commit message" # commit staged files
 $ git push # off we go
 ```
 
-### Pull requests -- proposing changes to someone else's repository
+## Pull requests -- proposing changes to someone else's repository
 
 navigate to the repo on Github and "open a pull request"
 
-### Syncing upstream changes
+## Syncing upstream changes
 
 ```
 $ git remote add upstream https://github.com/AllenInstitute/swdb_2025_student
@@ -52,7 +52,7 @@ $ git push origin main
 $ # open a PR
 ```
 
-### Feature branches -- keeping one set of changes isolated from another
+## Feature branches -- keeping one set of changes isolated from another
 
 ```
 $ git checkout main # just to make it clear which branch we start from
@@ -63,7 +63,7 @@ $ git commit -m "your commit message"
 $ git checkout main # change is committed, but not to main
 ```
 
-### Feature branches -- these can be stored remotely too, of course
+## Feature branches -- these can be stored remotely too, of course
 
 ```
 $ git checkout main
@@ -75,7 +75,7 @@ $ git push origin feature_branch
 $ git checkout main
 ```
 
-### Feature branches -- merging your changes back in
+## Feature branches -- merging your changes back in
 
 ```
 $ git checkout feature_branch # make the new branch
