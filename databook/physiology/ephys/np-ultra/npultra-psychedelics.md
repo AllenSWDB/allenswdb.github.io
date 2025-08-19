@@ -6,7 +6,7 @@ The Neuropixels Ultra & Psychedelics project uses ultra-high-density neuropixels
 
 Psychedelic compounds such as psilocybin, lysergic acid diethylamide (LSD), psilocin, and dimethyltryptamine (DMT) are powerful agonists of the metabotropic serotonin 2A receptor ($5HT_{2A}R$) that can produce profound changes in sensory perception, cognition, and behavior. Previous work has shown that this receptor is particularly enriched in the apical dendrites of pyramidal neurons of the mammalian cortex {cite:p}`Jakab1998`. These neurons, specifically layer 5 pyramidal neurons (L5p), are unique for their long-range projections that often reach across corticies and into subcortical structures. L5p have complex dendritic arbors that critical for integrating cortical outputs from higher-order associative areas and bottom-up sensory inputs.
 
-:::{figure} ../resources/Jakab_etal_1998_5HT2AR_localization.png
+:::{figure} /resources/Jakab_etal_1998_5HT2AR_localization.png
 :name: 5HT2AR cellular localization
 :align: center
 :width: 800
