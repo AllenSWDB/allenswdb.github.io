@@ -26,7 +26,7 @@ In our experiments, thirsty, head-restrained mice perform hundreds of trials eac
 
 :::{figure} ../resources/DF_task.png
 ---
-:width: 300px
+width: 300px
 align: center
 ---
 :::
@@ -36,18 +36,18 @@ A critical feature of this task is that it allows us to study learning in real t
 
 :::{figure} ../resources/DF_curriculum.png
 ---
-:width: 300px
+width: 300px
 align: left
 ---
 :::
 
 :::{figure} ../resources/DF_parameters.png
 ---
-:width: 300px
+width: 300px
 align: right
 ---
 :::
-Fig. 2. Left, training curriculum for the dynamic foraging task. Right, task parameters for each stage. 
+Fig. 2. Left, training curriculum for the dynamic foraging task. Right, task parameters for each stage. See below for definitions. 
 
 
 ## Statistical analysis of dynamic foraging behavior
@@ -56,14 +56,14 @@ The central hypothesis for how mice behave in the dynamic foraging task is that 
 
 :::{figure} ../resources/DF_equation.png
 ---
-:width: 300px
+width: 300px
 align: center
 ---
 :::
 
 :::{figure} ../resources/DF_learning.png
 ---
-:width: 300px
+width: 300px
 align: center
 ---
 :::
@@ -75,8 +75,9 @@ Reinforcement-learning models are useful for inferring the “hidden” variable
 
 :::{figure} ../resources/DF_Qvalues.png
 ---
-:width: 300px
+width: 300px
 align: center
 ---
 :::
 Fig. 4. Example session with fitted Q values for left (blue) and right (orange) choices. Below the Q values we show that animal’s licks (black) and whether or not the lick was rewarding (red). The Q values fitted here use a reinforcement-learning model (Q-learning) with 2 learning rates (each one for positive and negative RPEs), a choice kernel to address side bias, and softmax function for determining choice. 
+
