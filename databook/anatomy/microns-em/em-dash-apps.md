@@ -6,7 +6,11 @@ These apps were created using the [Dash](https://plotly.com/dash/) framework, he
 
 ## Table Viewer
 
-The [**Table Viewer (MICrONS)**](https://minnie.microns-daf.com/dash/datastack/minnie65_public/apps/table_viewer/?datastack=%22minnie65_public%22) app allows you to query individual tables in the database, filter them, and visualize the results in Neuroglancer.
+The **Table Viewer (MICrONS)** app allows you to query individual tables in the database, filter them, and visualize the results in Neuroglancer. This dash app exists for both MICrONS and V1DD:
+
+* [**Table Viewer (MICrONS)**](https://minnie.microns-daf.com/dash/datastack/minnie65_public/apps/table_viewer/?datastack=%22minnie65_public%22)
+
+* [**Table Viewer (V1DD)**](https://api.em.brain.allentech.org/dash/datastack/v1dd_public/apps/table_view/?datastack=%22v1dd_public%22)
 
 ```{figure} img/table-viewer.png
 ---
@@ -62,7 +66,11 @@ If the table is too large (well beyond 10,000 rows), there are too many annotati
 
 ## Connectivity and Cell Type Viewer
 
-The other tool is the [**Connectivity Viewer (MICrONS)**](https://minnie.microns-daf.com/dash/datastack/minnie65_public/apps/connectivity/?datastack=%22minnie65_public%22), which is designed to let you glance at the synaptic output or input of a given cell and group connectivity by cell type or other annotations.
+The other tool is the **Connectivity Viewer**, which is designed to let you glance at the synaptic output or input of a given cell and group connectivity by cell type or other annotations.
+
+* [**Connectivity Viewer (MICrONS)**](https://minnie.microns-daf.com/dash/datastack/minnie65_public/apps/connectivity/?datastack=%22minnie65_public%22)
+
+* [**Connectivity Viewer (V1DD)**](https://api.em.brain.allentech.org/dash/datastack/v1dd_public/apps/connectivity/?datastack=%22v1dd_public%22)
 
 ```{figure} img/connectivity-viewer-top.png
 ---
@@ -79,9 +87,11 @@ Note that if you want to use cell IDs from the nucleus detection table, you must
 
 The `Materialization` option allows you to select which version of the dataset to query from. Default is 'latest'.
 
-For the optional `Table` dropdown, there are several tables to choose from, though the most informative will be one of the [cell type classification tables](annotation-tables.html#cell-type-tables). The `aibs_metamodel_celltypes_v661` has the greatest coverage of the dataset, and is described in Perisomatic ultrastructure efficiently classifies cells in mouse cortex" [@elabbady_perisomatic_2025]. 
+For the optional `Table` dropdown, there are several tables to choose from, though the most informative will be one of the [cell type classification tables](annotation-tables.html#cell-type-tables). 
 
-The table `aibs_metamodel_mtypes_v661_v2` is the most current version version of the cell type classification, described in "A connectomic census of mouse visual cortex" (update citation).
+For MICrONS the `aibs_metamodel_celltypes_v661` has the greatest coverage of the dataset, and is described in Perisomatic ultrastructure efficiently classifies cells in mouse cortex" [@elabbady_perisomatic_2025]. The table `aibs_metamodel_mtypes_v661_v2` is the most current version version of the cell type classification, described in "A connectomic census of mouse visual cortex" (update citation).
+
+For V1DD the `cell_type_multifeature_v1` is recommended, and an updated version of the metamodels above.
 
 Pressing "Submit" will query the database for the cell and its synapses.
 

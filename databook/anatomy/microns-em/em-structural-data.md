@@ -1,6 +1,7 @@
 # Dataset Basics
 
-One of the more complicated things about using connectomics data is that it's both highly multimodal — there are images, tables, meshes, and more — and that it has been designed to be dynamic, as the segmentation changes with proofeading and carries changes to synaptic connectivity and more.
+One of the more complicated things about using connectomics data is that it's both highly multimodal — there are images, tables, meshes, and more — and dynamic, as the segmentation changes with proofreading. The changes to the segmentation must be and carried through to map synaptic connectivity and spatial point annotations to the correct cells even as the underlying reconstructions get split or recombined. 
+
 This section will cover what types of data exist and how to access them.
 
 The types of data we will describe here are:
@@ -42,14 +43,14 @@ Particularly useful links here are:
 
 ### V1DD Dataset
 
-The V1DD dataset also has a [public dataset hub](https://global.em.brain.allentech.org/info/datastack/v1dd_public). Go there if you need to look up basic details about the dataset.
+The V1DD electron microscopy datastack also has a [public dataset hub](https://global.em.brain.allentech.org/info/datastack/v1dd_public). This is a resource for basic access details for the dataset.
 
 Particularly useful links here are:
 
 * the [Spelunker neuroglancer link](https://spelunker.cave-explorer.org/#!middleauth+https://global.em.brain.allentech.org/nglstate/api/v1/4855608998100992)
-* * the public Dash Apps
+* the [public Dash Apps](https://api.em.brain.allentech.org/dash/datastack/v1dd_public)
 * the [list of all materialization versions](https://api.em.brain.allentech.org/materialize/views/datastack/v1dd_public)
-* and the annotation tables associated with the most recent release version
+* and the [annotation tables](https://api.em.brain.allentech.org/materialize/views/datastack/v1dd_public/version/1196) associated with the most recent release version (1196)
 
 ## How to reference a neuron
 

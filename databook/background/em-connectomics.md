@@ -56,7 +56,7 @@ In that case, we can address additional questions like:
 
 *   How do functional responses relate to the morphology of cells?
 *   How do functional responses relate to the connectivity of cells?
-*   How does visual coding arise from populaion coding?
+*   How does visual coding arise from population coding?
 
 In addition, a whole host of non-neuronal cells are also present, such as
 astrocytes, oligodendrocytes, microglia, and pericytes. Many people are
@@ -87,7 +87,7 @@ The MICrONS Dataset, collected from 2018-2020, publicly available since 2021 but
 align: left
 width: 400px
 ---
-The V1 Deep-Dive (V1DD) Dataset, collected from 2020-2022, publicly available since August 2025
+The V1 Deep-Dive (V1DD) Dataset, collected and processed from 2019-2022, publicly available since August 2025
 :::
 
 
