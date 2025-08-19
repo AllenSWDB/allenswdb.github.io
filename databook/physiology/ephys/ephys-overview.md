@@ -16,3 +16,7 @@ The [Visual Behavior – Neuropixels](visual-behavior/VB-Neuropixels) dataset co
 ## Cell Type Look-Up Table
 
 The [cell type look-up table](cell-type-lookup-table/ctlut-background) dataset is a collection of recordings taken from the mouse striatum with the goal of collecting a ground truth data set detailing the responses of different striatal cell types.
+
+## Neuropixels Ultra & Psychedelics
+
+The [Neuropixels Ultra & Psychedlics](np-ultra/npultra-psychedelics.md) dataset uses ultra-high-density neuropixels electrophysiology to probe the effects of modulating serotonergic signaling on population-scale neural activity in the cortex using the psychedelic compount psilocybin. 
