@@ -1,6 +1,6 @@
 # Allen SDK and pyNWB
 
-The Mindscope Legacy phsyiology datasets all have tools in the Allen SDK (Software Development Kit) to access and work with the data. This includes [Visual Coding 2-photon](visual-coding/vc2p-background) dataset, [Visual Coding – Neuropixels](visual-coding/vcnp), [Visual Behavior Ophys](visual-behavior/VB-Ophys), and [Visual Behavior – Neuropixels](visual-behavior/VB-Neuropixels). These tools are tailored to these datasets, and are described in detail in this Data Book.
+The Mindscope Legacy phsyiology datasets all have tools in the Allen SDK (Software Development Kit) to access and work with the data. This includes [Visual Coding 2-photon](physiology/ophys/visual-coding/vc2p-background) dataset, [Visual Coding – Neuropixels](physiology/ephys/visual-coding/vcnp), [Visual Behavior Ophys](physiology/ophys/visual-behavior/VB-Ophys), and [Visual Behavior – Neuropixels](physiology/ephys/visual-behavior/VB-Neuropixels). These tools are tailored to these datasets, and are described in detail in this Data Book.
 
 The newer physiology datasets are not access using the Allen SDK, but rather using [pyNWB](https://pynwb.readthedocs.io/en/latest/index.html), a python toolkit for reading and writing NWB files. This is a more generic tool that can be used for any NWB files. 
 

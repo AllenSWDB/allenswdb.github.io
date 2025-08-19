@@ -109,7 +109,7 @@ Here, we can see the full list of columns stored in our ```DataFrame```:
 - `half_width` - width of the waveform at half the trough amplitude (based on 1D waveform)
 - `ks_unit_id` - unit ID assigned by Kilosort
 
-Note that the columns may vary from experiment to experiment, so it's a good idea to check what columns are stored in any NWB file that you open. For instance, this file contains the above standard columns that appear in most NWB files from the Allen Institute, but also many more columns detailing the unit's response to laser stimulation. These columns are further explained in the [cell type lookup table tutorials.](../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md)
+Note that the columns may vary from experiment to experiment, so it's a good idea to check what columns are stored in any NWB file that you open. For instance, this file contains the above standard columns that appear in most NWB files from the Allen Institute, but also many more columns detailing the unit's response to laser stimulation. These columns are further explained in the [cell type lookup table tutorials.](physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md)
 
 To access data from a specific unit, we look at the row corresponding to that unit:
 
