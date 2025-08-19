@@ -14,7 +14,7 @@ Activity changes following learning are remarkably sparse, with only a small fra
 changing their activity as much as the CN. 
 
 In addition to neural and behavioral measurements, targeted 2P single-cell photostimulation was
-performed before and after the task to assess fucntional connectivity and its changes with learning. 
+performed before and after the task to assess functional connectivity and its changes with learning. 
 
 **Background** 
 
