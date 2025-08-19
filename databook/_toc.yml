@@ -90,7 +90,6 @@ parts:
           - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
         - file: physiology/ephys/np-ultra/npultra-psychedelics
           sections:
-          - file: physiology/ephys/np-ultra/npultra-psychedelics
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
           - file: physiology/ephys/np-ultra/npultra-psychedelics-accessing-data
       - file: physiology/stimuli/stimuli
