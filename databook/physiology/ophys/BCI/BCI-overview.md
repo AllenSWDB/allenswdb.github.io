@@ -45,7 +45,7 @@ the learning rules that govern plasticity in motor cortex during learning.
 
 **Technique** 
 
-We used resonant-scanning 2P calcium imaging to record, and two-photon photostimulation to perturb, 
+We used resonant-scanning 2P calcium imaging to record, and 2P photostimulation to perturb, 
 the activity of populations of neurons in layer 2/3 of primary motor cortex (M1). 
 These experiments rely on neurons that co-express the calcium indicator GCaMP and the 
 light-activated ion channel ChRmine. We used a variety of expression strategies in this dataset, 

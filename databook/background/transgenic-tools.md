@@ -128,7 +128,7 @@ expressing Cre.
 | AAV-PHP-eB-7xTRE-3x-GFP | A Cre/Tet dependent reporter that expresses {term}`GFP`. | Single Cell Morphology |
 | AAV-PHP-eB-7xTRE-TdTomato | A Cre/Tet dependent reporter that expresses TdTomato, a red fluorescent protein. | Single Cell Morphology |
 | pAAV-hSyn1-RiboL1-GCaMP8s-WPRE | A reporter that drives expression of GCaMP8s calcium indicator in soma| BCI|
-| pAAV-CaMK11a-ChRmine-oScarlet-Kv2.1-WPRE | CaMK11a driven expression of channelrhodopsin ChRmine fused wit oScarlet for visualization| BCI|
+| pAAV-CaMK11a-ChRmine-oScarlet-Kv2.1-WPRE | CaMK11a driven expression of channelrhodopsin ChRmine fused with oScarlet for visualization| BCI|
 
 ### Enhancer AAVs
 
