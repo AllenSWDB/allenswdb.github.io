@@ -11,7 +11,7 @@ kernelspec:
   name: ctlut
 ---
 
-# Acessing Dynamic Foraging data
+# Accessing Dynamic Foraging data
 
 The Dynamic foraging task is being used to study and model decision making, and is being combined with other modalities of physiology data including electrophysiology and fiber photometry to explore how neurons, networks, and neuromodulators are involved in the task.
 
@@ -30,7 +30,7 @@ import pandas as pd
 ```
 
 ```{code-cell} ipython3
-session_path = '/data/Reads/behavior_729678_2025-01-10_09-24-20_processed_2025-02-22_15-57-11/nwb/behavior_729678_2025-01-10_09-24-20.nwb'
+session_path = '/data/behavior_761433_2025-03-27_08-51-54_processed_2025-03-28_05-00-28/nwb/behavior_761433_2025-03-27_08-51-54.nwb'
 
 io = NWBZarrIO(session_path, "r")
 nwb = io.read()
@@ -232,7 +232,7 @@ reward_size_right
 
 ### Behavioral data
 
-The `acqusition` element of the nwb file has the lick and reward times for the two lick spouts. Here we plot those events alongside the reward probability for the two sides
+The `acquisition` element of the nwb file has the lick and reward times for the two lick spouts. Here we plot those events alongside the reward probability for the two sides
 
 ```{code-cell} ipython3
 fig, ax1 = plt.subplots(figsize=(12,5))
