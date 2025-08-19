@@ -6,13 +6,12 @@ The Neuropixels Ultra & Psychedelics project uses ultra-high-density neuropixels
 
 Psychedelic compounds such as psilocybin, lysergic acid diethylamide (LSD), psilocin, and dimethyltryptamine (DMT) are powerful agonists of the metabotropic serotonin 2A receptor ($5HT_{2A}R$) that can produce profound changes in sensory perception, cognition, and behavior. Previous work has shown that this receptor is particularly enriched in the apical dendrites of pyramidal neurons of the mammalian cortex {cite:p}`Jakab1998`. These neurons, specifically layer 5 pyramidal neurons (L5p), are unique for their long-range projections that often reach across corticies and into subcortical structures. L5p have complex dendritic arbors that critical for integrating cortical outputs from higher-order associative areas and bottom-up sensory inputs.
 
-:::{figure} ../resources/NPUltra/Jakab_etal_1998_5HT2AR_localization.png
+:::{figure} ../resources/Jakab_etal_1998_5HT2AR_localization.png
 :name: 5HT2AR cellular localization
 :align: center
 :width: 800
 
 Localization of the $5HT_{2A}R$ in the primate cortex. __A__, Dark-field photographs show the distribution of 5-HT2A receptor immunoreactivity in two representative sections of the prefron- tal cortex of an adult macaque monkey. __B__, Inset from __A__ showing $5HT_{2A}R$ labeling distribution in the cortical column. __C__ & __D__, insets from __B__. Arrows in __C__ indicate the strongest immunoreactivity in the apical dendrites of L5p neurons. From Jakab & Goldman-Rakic (1998)
-:::
 
 Current hypotheses of psychedelic effects on the nervous system suggest that the perceptual and cognitive effects of these drugs are related to alterations in pyramidal neuron dendritic excitability via $5HT_{2A}R$ activation {cite:p}`Kwan2022`. Though the exact acute and long-term effects of $5HT_{2A}R$ activation on network activity have yet to be fully elucidated, a growing concensus points toward psychedelic drugs altering dendritic integration and shifting the spike-time distribution of pyramidal neurons during the course of drug exposure while promoting long-term synaptic plasticity and potentiation (LTP). Determining the precise cell-type-specific effects on neuronal firing of psychedelic drug exposure represents and important next step for understand both the therapeutic mechanisms of these compounds as well as what they can tell us about serotonergic signaling in the cortex
 
