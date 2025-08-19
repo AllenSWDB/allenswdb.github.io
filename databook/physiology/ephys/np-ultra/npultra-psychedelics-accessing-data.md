@@ -12,7 +12,7 @@ import os
 ```{code-cell} ipython3 
 from hdmf_zarr import NWBZarrIO 
 
-nwbfile_path_zarr = '/data/np-ultra-psychedelics/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
+nwbfile_path_zarr = '/data/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
 
 with NWBZarrIO(nwbfile_path_zarr, mode='r') as io:
     nwbfile_zarr = io.read()
