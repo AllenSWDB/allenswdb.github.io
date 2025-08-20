@@ -64,7 +64,7 @@ opto_unit = analysis_table[analysis_table['optotagged']==1].iloc[0]
 probe = opto_unit['probe'] #get the probe the unit was recorded on as ks_unit_id is probe-specific
 ks_id = opto_unit['ks_unit_id']
 
-spike_times = units_table['spike_times'][(unit_table['ks_unit_id']==ks_id)&(unit_table['device_name']==f'Probe{probe}')]
+spike_times = units_table['spike_times'][(units_table['ks_unit_id']==ks_id)&(units_table['device_name']==f'Probe{probe}')]
 spike_times
 ```
 
