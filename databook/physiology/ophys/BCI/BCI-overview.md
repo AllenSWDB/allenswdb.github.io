@@ -1,22 +1,12 @@
-**Brain Computer Interface Dataset Overview** 
+# Brain Computer Interface Dataset Overview
 
-This dataset contains <i>in-vivo</i> 2P calcium imaging recordings from layer 2/3 neurons in mouse 
-primary motor cortex (M1) during an optical brain–computer interface (BCI) learning task. 
-In this paradigm, mice control the position of a motorized reward port with the activity of a single 
-“conditioned neuron” (CN) in layer 2/3 of M1. Specifically, at the start of the trial, the reward port 
-is far away from the mouse and out of reach. The activity of CN controls the speed of the reward port 
-toward the mouse. If the mouse can move the reward port within reach in 10 seconds from the trial start, 
-a drop of water is earned as a reward (hit). If the mouse fails to bring the reward port close within 
-10 seconds, the reward port returns to the starting position (miss), and a new trial starts. 
-Increasing the activity of the CN results in shorter and more rewarded trials. Mice typically learn 
-to increase the activity of the CN within ~30 trials (~5 minutes), leading to higher reward rates. 
-Activity changes following learning are remarkably sparse, with only a small fraction of neurons 
-changing their activity as much as the CN. 
+This dataset contains <i>in vivo</i> 2P calcium imaging recordings from layer 2/3 neurons in mouse 
+primary motor cortex (M1) during an optical brain–computer interface (BCI) learning task.  In this paradigm, mice control the position of a motorized reward port with the activity of a single  “conditioned neuron” (CN) in layer 2/3 of M1. Specifically, at the start of the trial, the reward port  is far away from the mouse and out of reach. The activity of CN controls the speed of the reward port  toward the mouse. If the mouse can move the reward port within reach in 10 seconds from the trial start, a drop of water is earned as a reward (hit). If the mouse fails to bring the reward port close within  10 seconds, the reward port returns to the starting position (miss), and a new trial starts. Increasing the activity of the CN results in shorter and more rewarded trials. Mice typically learn to increase the activity of the CN within ~30 trials (~5 minutes), leading to higher reward rates. Activity changes following learning are remarkably sparse, with only a small fraction of neurons changing their activity as much as the CN. 
 
 In addition to neural and behavioral measurements, targeted 2P single-cell photostimulation was
 performed before and after the task to assess functional connectivity and its changes with learning. 
 
-**Background** 
+## Background
 
 Learning a new task or skill relies on synaptic plasticity to rewire neural circuits. The circuits 
 modified by plasticity form novel sensory-to-motor associations making the learned behaviors feel 
@@ -27,12 +17,7 @@ rules governing plasticity in these simpler systems, but the relevance of these 
 plasticity in mammalian cortex remain unknown.  
 
 A detailed understanding of the rules governing plasticity during learning in mammalian circuits 
-generally, and in cortical circuits in particular, is currently lacking. While it is well-established 
-that cortical plasticity is critical for learning, understanding how the basic building blocks 
-identified in brain slices operate within the dynamic, recurrent, and highly interconnected networks 
-of the intact brain remains a major challenge. Addressing this gap requires approaches that can both
-precisely define the neural activity patterns linked to a behavioral outcome and measure the resulting
-changes in connectivity within the same local circuit during learning. 
+generally, and in cortical circuits in particular, is currently lacking. While it is well-established that cortical plasticity is critical for learning, understanding how the basic building blocks identified in brain slices operate within the dynamic, recurrent, and highly interconnected networks of the intact brain remains a major challenge. Addressing this gap requires approaches that can both precisely define the neural activity patterns linked to a behavioral outcome and measure the resulting changes in connectivity within the same local circuit during learning. 
 
 To address this challenge we developed two complimentary optical approaches in mouse primary motor 
 cortex (M1). First, we use optical connection-mapping techniques that combine cellular-resolution 
@@ -43,7 +28,7 @@ between the activity of imaged MC motor cortical neurons and behavioral outcomes
 control over which activity patterns are rewarded. Together, these approaches allow us to study 
 the learning rules that govern plasticity in motor cortex during learning.  
 
-**Technique** 
+## Technique
 
 We used resonant-scanning 2P calcium imaging to record, and 2P photostimulation to perturb, 
 the activity of populations of neurons in layer 2/3 of primary motor cortex (M1). 
@@ -58,7 +43,7 @@ and photostimulation. Photostimulation targeted single neurons, one at a time, t
 their influence on the recorded population. In this dataset we imaged a single 800x400 microns
  large plane containing ~500 neurons, with GCaMP expression present in both excitatory and inhibitory neurons.
 
- **Questions to explore** 
+## Questions to explore
 * How much does the conditioned neuron increase its activity during the BCI task? 
 * Do other neurons change their activity during BCI learning? 
 * Using the photostimulation data: 
