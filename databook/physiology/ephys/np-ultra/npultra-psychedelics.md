@@ -1,4 +1,4 @@
-# The Neural Basis of Psychedelic Action
+# Neuropixels Ultra & Psychedelics
 
 The Neuropixels Ultra & Psychedelics project uses ultra-high-density neuropixels electrophysiology to probe the effects of modulating serotonergic signaling on population-scale neural activity in the cortex using the psychedelic compount psilocybin. 
 
