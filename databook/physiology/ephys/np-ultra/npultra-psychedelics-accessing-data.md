@@ -1,14 +1,30 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.15.0
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: ctlut
+---
+
 # Accessing NP Ultra & Psychedelics Data
 
 ## Loading Data
 The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can be accessed via NWBZarrIO. 
 
-Load an example session:
 ```{code-cell} ipython3
 from hdmf_zarr import NWBZarrIO
 import json
 import os
 ```
+
+Load an example session:
+
 ```{code-cell} ipython3 
 from hdmf_zarr import NWBZarrIO 
 
