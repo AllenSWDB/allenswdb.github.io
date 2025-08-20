@@ -44,14 +44,14 @@ nwb2widget(nwbfile_read)
 Data for all Kilosort-processed units can be loaded via:
 
 ```{code-cell} ipython3
-units_table = nwbfile_zarr.units[:]
+units_table = nwbfile_read.units[:]
 units_table.head()
 ```
 
 Units in this dataset have undergone additional postprocessing QC from Kilosort 2.5 and automated curation. Unlike other datasets, curated data can be accessed via the analysis attribute of the nwb file.
 
 ```{code-cell} ipython3
-analysis_table = nwbfile_zarr.analysis['analysis_table'].to_dataframe()
+analysis_table = nwbfile_read.analysis['analysis_table'].to_dataframe()
 analysis_table.head()
 ```
 
@@ -107,7 +107,7 @@ You may wish to know the time points at which different parts of the experimenta
 
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
-epochs = nwbfile_zarr.stimulus['epochs'].to_dataframe()
+epochs = nwbfile_read.stimulus['epochs'].to_dataframe()
 epochs.head()
 ```
 
@@ -116,7 +116,7 @@ The visual stimulus used during these experiments were Gabor patches presented a
 
 ```{code-cell} ipython3
 # load the stimulus table
-stimulus_table = nwbfile_zarr.stimulus['visualstim'].to_dataframe()
+stimulus_table = nwbfile_read.stimulus['visualstim'].to_dataframe()
 stimulus_table.head()
 ```
 
@@ -124,6 +124,6 @@ Optotagging laser stimuli parameters, timing, and additional data can be accesse
 
 ```{code-cell} ipython3
 # load the photostim table
-photostim_table = nwbfile_zarr.stimulus['photostim'].to_dataframe()
+photostim_table = nwbfile_read.stimulus['photostim'].to_dataframe()
 photostim_table.head()
 ```
