@@ -45,12 +45,14 @@ Data for all Kilosort-processed units can be loaded via:
 
 ```{code-cell} ipython3
 units_table = nwbfile_zarr.units[:]
+units_table.head()
 ```
 
 Units in this dataset have undergone additional postprocessing QC from Kilosort 2.5 and automated curation. Unlike other datasets, curated data can be accessed via the analysis attribute of the nwb file.
 
 ```{code-cell} ipython3
 analysis_table = nwbfile_zarr.analysis['analysis_table'].to_dataframe()
+analysis_table.head()
 ```
 
 Analysis table properties include both extracted unit spike-time and waveform infomation (amplitude, duration, number or bursts, etc.) but also the timing of spikes during stimulus epochs (e.g. 'Spontaneous_0_spikes' are spikes that occurred during the first spontaneous activity epoch).
@@ -62,7 +64,8 @@ opto_unit = analysis_table[analysis_table['optotagged']==1].iloc[0]
 probe = opto_unit['probe'] #get the probe the unit was recorded on as ks_unit_id is probe-specific
 ks_id = opto_unit['ks_unit_id']
 
-spike_times = unit_table['spike_times'][(unit_table['ks_unit_id']==ks_id)&(unit_table['device_name']==f'Probe{probe}')]
+spike_times = units_table['spike_times'][(unit_table['ks_unit_id']==ks_id)&(unit_table['device_name']==f'Probe{probe}')]
+spike_times
 ```
 
 ### Analysis table columns glossary
@@ -105,6 +108,7 @@ You may wish to know the time points at which different parts of the experimenta
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
 epochs = nwbfile_zarr.stimulus['epochs'].to_dataframe()
+epochs.head()
 ```
 
 ## Stimulus data
@@ -113,11 +117,13 @@ The visual stimulus used during these experiments were Gabor patches presented a
 ```{code-cell} ipython3
 # load the stimulus table
 stimulus_table = nwbfile_zarr.stimulus['visualstim'].to_dataframe()
+stimulus_table.head()
 ```
 
 Optotagging laser stimuli parameters, timing, and additional data can be accessed by:
 
 ```{code-cell} ipython3
 # load the photostim table
-stimulus_table = nwbfile_zarr.stimulus['photostim'].to_dataframe()
+photostim_table = nwbfile_zarr.stimulus['photostim'].to_dataframe()
+photostim_table.head()
 ```
