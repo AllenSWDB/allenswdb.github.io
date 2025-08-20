@@ -36,7 +36,7 @@ To quickly walk through the data, use:
 ```{code-cell} ipython3
 from nwbwidgets import nwb2widget 
 
-nwb2widget(nwbfile_zarr)
+nwb2widget(nwbfile_read)
 ```
 
 ### Loading unit data
