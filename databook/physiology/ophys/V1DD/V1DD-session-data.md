@@ -14,3 +14,24 @@ kernelspec:
 
 # Accessing V1DD data
 
+We use PyNWB to access these data, similar to many of our other datasets. Let's explore the elements that are available here
+
+```{code-cell} ipython3
+from hdmf_zarr import NWBZarrIO
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+```
+
+```{code-cell} ipython3 
+nwbfile_path = PATH HERE
+
+io = NWBZarrIO(nwbfile_path_zarr, "r")
+nwbfile_read = io.read()
+```
+
+
+
+```{code-cell} ipython3 
+
+```
