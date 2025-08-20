@@ -55,7 +55,7 @@ This stores all the information contained in the NWB file into a ```NWBFile``` o
 nwb2widget(nwbfile_read);
 ```
 
-:::{figure} ../../resources/output_nwb_read.PNG
+:::{figure} /resources/output_nwb_read.PNG
 ---
 align: center
 ---
