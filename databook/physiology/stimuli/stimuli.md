@@ -12,7 +12,7 @@ The visual change detection task is used in the [Visual Behavior Ophys](/physiol
 
 ## Dynamic Foraging Behavior
 
-The Dynamic Foraging behavior is used in the [Dynamic Foraging Behavior](/dynamic-foraging/Dynamic-Foraging) dataset. For this task, thirsty, head-restrained mice perform hundreds of trials each day. A trial begins with an auditory “go” cue, after which mice have a short window in which to lick toward a leftward or rightward tube. Choices are followed by either a water reward or no outcome. Reward probabilities are assigned to each tube and vary over the course of a session. 
+The Dynamic Foraging behavior is used in the [Dynamic Foraging Behavior](../dynamic-foraging/Dynamic-Foraging) dataset. For this task, thirsty, head-restrained mice perform hundreds of trials each day. A trial begins with an auditory “go” cue, after which mice have a short window in which to lick toward a leftward or rightward tube. Choices are followed by either a water reward or no outcome. Reward probabilities are assigned to each tube and vary over the course of a session. 
 
 ## Brain Computer Interface
 

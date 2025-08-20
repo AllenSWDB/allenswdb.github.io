@@ -34,14 +34,14 @@ Fig. 1. Top, cartoon of behavioral task events. Bottom, behavioral data from an 
 
 A critical feature of this task is that it allows us to study learning in real time: mice adjust their behavior as reward probabilities change. There are several parameters that govern how the reward probabilities change over time. We manipulate two in particular: whether reward probabilities on the left and right sides change at the same time (“coupled”) or independently (“uncoupled”) and whether the reward from a choice is available regardless of the mouse’s choice (“baiting”). Baiting is defined such that if an unchosen action would have been rewarded, the reward is delivered upon the next choice of that alternative.
 
-:::{figure} /resources/DF_curriculum.png
+:::{figure} /resources/DF_curriculum.svg
 ---
 width: 300px
 align: left
 ---
 :::
 
-:::{figure} /resources/DF_parameters.png
+:::{figure} /resources/DF_parameters.svg
 ---
 width: 300px
 align: right
