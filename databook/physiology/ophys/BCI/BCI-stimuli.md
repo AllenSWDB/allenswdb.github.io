@@ -1,10 +1,6 @@
 # BCI Stimuli
 
-Each experimental session consisted of five distinct epochs: pre-spontaneous, pre-photostimulation, 
-BCI, post-spontaneous, and post-photostimulation. All epochs involved fluorescence recordings from 
-the same set of neurons in head-fixed mice. 
-
-![BCI_schematic](/resources/BCI_schematic.png)
+Each experimental session consisted of five distinct epochs: pre-spontaneous, pre-photostimulation, BCI, post-spontaneous, and post-photostimulation. All epochs involved fluorescence recordings from the same set of neurons in head-fixed mice. 
 
 ## Spontaneous Activity
 
@@ -26,5 +22,7 @@ In the BCI task, mice controlled the position of a motorized lickport using the 
 Increases in CN fluorescence moved the lickport toward the mouse at a speed proportional to CN activity. Mice had 10 seconds to bring the lickport into the “close” position to obtain a water reward. 
 Failure to reach the close position within the time limit resulted in the lickport retracting 
 to the far position. 
+
+![BCI_schematic](/resources/BCI_schematic.png)
 
 Following the BCI task, additional spontaneous and photostimulation epochs were performed to measure changes in both network activity and functional connectivity after learning. 

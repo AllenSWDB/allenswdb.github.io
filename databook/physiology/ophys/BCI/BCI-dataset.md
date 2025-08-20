@@ -36,7 +36,7 @@ Let's load the data for one recording session using `NWBZarrIO`.
 
 ```{code-cell} ipython3
 # Set filename 
-nwb_path = '/data/brain-computer-interface/single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09/single-plane-ophys_731015_2025-01-10_18-06-31_behavior_nwb' 
+nwb_path = '/data/single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09/single-plane-ophys_731015_2025-01-10_18-06-31_behavior_nwb' 
 
 # Assign file to an NWBZarrIO object 
 io = NWBZarrIO(nwb_path, 'r')
