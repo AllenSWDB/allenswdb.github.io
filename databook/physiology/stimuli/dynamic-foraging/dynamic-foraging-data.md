@@ -28,6 +28,8 @@ These data can be loaded using pynwb
 ```{code-cell} ipython3
 from hdmf_zarr import NWBZarrIO
 import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
 ```
 
 ```{code-cell} ipython3
