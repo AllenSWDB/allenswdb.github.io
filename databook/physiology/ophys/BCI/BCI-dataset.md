@@ -25,6 +25,7 @@ The BCI data is packaged in NWB format with a Zarr backend. To access the data, 
 from hdmf_zarr import NWBZarrIO
 from nwbwidgets import nwb2widget
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
