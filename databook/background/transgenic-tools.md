@@ -59,7 +59,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Name | Description | MGI ID | Datasets|
 |------|-------------|--------|---------|
 | Adora2a-Cre | In striatum, drives expression in medium spiny neurons (MSNs) expressing the D2 dopamine receptor. These are MSNs part of the indirect pathway. | MGI:3852493 | Cell Type Lookup Table |
-| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters. | | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
+| Camk2a-tTA | A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters. | | BCI, Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
 | Cart-IRES2-Cre | Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus. | MGI:5704439 | Single Cell Morphology |
 | Chat-IRES-Cre-neo | Drives expression in cholinergic neurons. | | |
 | Cux2-CreERT2 | In cortex, drives expression in excitatory neurons in layer 2/3 and 4. | MGI:5014172 | Visual Coding 2P |
@@ -75,7 +75,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Rorb-IRES2-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:5507855 | Visual Coding 2P |
 | Scnn1a-Tg3-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. Only found in primary sensory areas (e.g. VISp). | MGI:3850187 | Visual Coding 2P |
 | Sim1-Cre-KJ18 | In cortex, drives expression in cortico-subcortical projecting excitatory neurons in layer 5. | | NP Ultra & Psychedelics |
-| Slc17a6-IRES-Cre | Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex. | MGI:6758055 | |
+| Slc17a6-IRES-Cre | Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex. | MGI:6758055 | BCI|
 | Slc17a7-IRES2-Cre | In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. | MGI:5507862 | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
 | Sst-IRES-Cre | Drives expression in Somatostatin inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
 | Tlx3-Cre_PL56 | In cortex, drives expression in cortico-cortical projecting excitatory neurons in layer 5. | MGI:5311700 | Visual Coding 2P, NP Ultra and Psychedelics |
@@ -99,6 +99,7 @@ GCaMP). Here are the reporter lines used in our datasets:
 | Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra & Psychedelics |
 | TetO-GCaMP6s | TetO-GCaMP6s | MGI:5553332 | V1 Deep Dive |
 | Ai167 | TIT2L-ChrimsonR-tdTomato-ICL-tTA2-WPRE | Cre dependent expression of ChrimsonR fused to enhanced red fluorescent protein (tdTomato) for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (620-750 nm). | MGI:7712128 | NP Ultra & Psychedelics |
+| Ai230 | TIT2L-XCaMPG-WPRE-ICL-ChRmine-oScarlet-IRES2-tTA2-WPRE | Cre dependent expression of ChRmine fused to red fluorescent protein (oScarlet) with the capacity for dual ChRmine-oScarlet/XCaMP-G reporting in the presence of Cre and tTA | MGI:7482009 |BCI |
 
 ## Viruses used here
 
@@ -126,6 +127,8 @@ expressing Cre.
 | AAV-PHP-eB_Syn-Flex-2xTRE-tTA | Cre dependent tTA promoter. Often this is used to regulate the gain of expression of Cre/Tet dependent reporters - e.g. to get sparse but strong labeling. | Single Cell Morphology |
 | AAV-PHP-eB-7xTRE-3x-GFP | A Cre/Tet dependent reporter that expresses {term}`GFP`. | Single Cell Morphology |
 | AAV-PHP-eB-7xTRE-TdTomato | A Cre/Tet dependent reporter that expresses TdTomato, a red fluorescent protein. | Single Cell Morphology |
+| pAAV-hSyn1-RiboL1-GCaMP8s-WPRE | A reporter that drives expression of GCaMP8s calcium indicator in soma| BCI|
+| pAAV-CaMK11a-ChRmine-oScarlet-Kv2.1-WPRE | CaMK11a driven expression of channelrhodopsin ChRmine fused with oScarlet for visualization| BCI|
 
 ### Enhancer AAVs
 
