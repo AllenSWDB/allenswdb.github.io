@@ -19,8 +19,6 @@ The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can b
 
 ```{code-cell} ipython3
 from hdmf_zarr import NWBZarrIO
-import json
-import os
 ```
 
 Load an example session:
