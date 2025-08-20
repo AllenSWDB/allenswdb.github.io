@@ -106,6 +106,7 @@ You may wish to know the time points at which different parts of the experimenta
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
 epochs = nwbfile_read.stimulus['epochs'].to_dataframe()
+epochs
 ```
 
 ## Stimulus data
