@@ -12,8 +12,8 @@ The visual change detection task is used in the [Visual Behavior Ophys](/physiol
 
 ## Dynamic Foraging Behavior
 
-The Dynamic Foraging behavior is used in the [Dynamic Foraging Behavior](../dynamic-foraging/Dynamic-Foraging) dataset. For this task, thirsty, head-restrained mice perform hundreds of trials each day. A trial begins with an auditory “go” cue, after which mice have a short window in which to lick toward a leftward or rightward tube. Choices are followed by either a water reward or no outcome. Reward probabilities are assigned to each tube and vary over the course of a session. 
+The Dynamic Foraging behavior is used in the [Dynamic Foraging Behavior](/dynamic-foraging/Dynamic-Foraging) dataset. For this task, thirsty, head-restrained mice perform hundreds of trials each day. A trial begins with an auditory “go” cue, after which mice have a short window in which to lick toward a leftward or rightward tube. Choices are followed by either a water reward or no outcome. Reward probabilities are assigned to each tube and vary over the course of a session. 
 
 ## Brain Computer Interface
 
-Content here
+In the [Brain Computer Interface](/physiology/ophys/BCI/BCI-overview) task, mice control the position of a motorized lickport using the activity of a single neuron (the conditioned neuron). At the start of each trial, the lickport began in the “far” position, 7 mm from the mouse. Increases in conditioned neuron's fluorescence moves the lickport toward the mouse at a speed proportional to neuron's activity. Mice had 10 seconds to bring the lickport into the “close” position to obtain a water reward. Failure to reach the close position within the time limit resulted in the lickport retracting to the far position. 
