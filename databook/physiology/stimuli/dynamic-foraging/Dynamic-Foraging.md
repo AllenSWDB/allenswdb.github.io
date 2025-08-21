@@ -26,7 +26,7 @@ In our experiments, thirsty, head-restrained mice perform hundreds of trials eac
 
 :::{figure} /resources/DF_task.png
 ---
-width: 300px
+width: 400px
 align: center
 ---
 :::
@@ -69,13 +69,15 @@ align: center
 :::
 Fig. 3. Reward-history-dependent learning within and across sessions. (a) Regression coefficients develop over training stages and display exponential weighting as a function of trial history. (b) Reward-history-dependent learning evolves smoothly across learning stages.
 
+
+
 ## Reinforcement-learning models
 
 Reinforcement-learning models are useful for inferring the “hidden” variables that a mouse may use while engaged in the foraging task. This is especially true when paired with statistical analyses. For example, Fig. 3 shows that mice use reward history to guide future choices. What might be the mechanism underlying this type of learning? One possibility is that the brain generates errors: discrepancies between the predicted and observed outcomes of actions. This can be formalized in a reinforcement-learning model, whose extracted latent variables can subsequently be linked to neural activity (Fig. 4).
 
 :::{figure} /resources/DF_Qvalues.png
 ---
-width: 300px
+width: 400px
 align: center
 ---
 :::
