@@ -28,7 +28,19 @@ del cglob
 (skeletons)=
 # Skeletons 
 
+```{important}
+Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
+```
+
 Often in working with neurons, you want to measure things along a linear dimension of a neuron. Length of axon, for example. Or number of branches. However, the EM segmentation is a complex 3d shape that makes this non-trivial.
+
+```{figure} img/segmentation_mesh_skeleton_representation.png
+---
+align: center
+---
+Electron microscopy data can be represented and rendered in multiple formats, at different levels of abstraction from the original imagery
+```
+
 There are methods for reducing the shape of a segmented neuron down to a linear tree-like structure usually referred to as a **skeleton**. We have precalculated skeletons for a large number of cells in the MICrONS dataset, including the proofread cells with the most complete axons. 
 
 There are several **formats** of EM skeleton that you may encounter in this workshop and tutorial material. See the subsections below for more about them. As a summary:
@@ -45,29 +57,150 @@ However, the different formats may have different metadata attached to each vert
 Any format of skeleton can be converted into a **Meshwork skeleton object** to make use of the graph functions. 
 ```
 
-+++
+### Dataset specificity
+The examples below are written with the MICrONS dataset. To access the V1DD dataset change the datastack from `minnie65_public` to `v1dd_public`
 
-## How EM skeletons are generated
+
+## What is a Precomputed skeleton?
+
+These skeletons are stored in the cloud as a bytes-IO object, which can be viewed in __Neuroglancer__, or downloaded with __CAVEclient.skeleton__ module. These precomputed skeletons also contain annotations on the skeletons that have the synapses, which skeleton nodes are axon and which are dendrite, and which are likely the apical dendrite of excitatory neurons.
+
 
 :::{figure} img/skeleton-cartoon.png
 Cartoon illustration of "level 2" graph and skeletons.
 :::
 
-In order to understand how these skeletons have been made, you have to understand how large scale EM data is represented. Portions of 3d space are broken up into chunks, such as the grid in the image above. Neurons, such as the cartoon green cell above, span many chunks. Components of the segmentation that live within a single chunk are called level 2 ids, this is because in fact the chunks get iteratively combined into larger chunks, until the chunks span the whole volume. We call this the [PyChunkedGraph](https://github.com/CAVEconnectome/PyChunkedGraph) or PCG, after the library which we use to store and interact with this representation. Level 0 is the voxels, level 1 refers to the grouping of voxels within the chunk (also known as supervoxels) and level 2 are the groups of supervoxels within a chunk. A segmentation result can be thought of as a graph at any of these levels, where the voxels, supervoxels, or level 2 ids that are part of the same object are connected. In the above diagram, the PCG level 2 graph is represented as the light red lines.
 
-Such graphs are useful in that they track all the parts of the neuron that are connected to one another, but they aren't skeletons, because the graph is not directed, and isn't a simple branching structure.
+The precomputed format is flexible and scalable, applies for EM data and light microscopy data, and can be rendered in [Neuroglancer](https://spelunker.cave-explorer.org/#!middleauth+https://global.daf-apis.com/nglstate/api/v1/4754960374824960). 
 
-In order to turn them into a skeleton we have to run an algorithm, that finds a tree like structure that covers the graph and gets close to every node. This is called the TEASAR algorithm and you can read more about how to skeletonize graphs in the [MeshParty documentation](https://meshparty.readthedocs.io/en/latest/guide/skeletons.html#skeletonization).
+For more on how skeletons are generated from the mesh objects see the section below, and for additional tools for generating, cacheing, and downloading meshes, [see the Skeleton Service documentation](https://caveconnectome.github.io/CAVEclient/tutorials/skeletonization/)
 
-The result of the algorithm, when applied to a level 2 graph, is a linear tree (like the dotted purple one shown above), where a subset of the level 2 chunks are vertices in that tree, but all the unused level 2 nodes "near" a vertex (red unfilled circles) on the graph are mapped to one of the skeleton vertices (black arrows). This means there are two sets of indices, mesh indices, and skeleton indices, which have a mapping between them (see diagram above).
 
-The MeshParty library allows us to easily store these representations and helps us relate them to each other. A Meshwork object is a data structure that is designed to have three main components that are kept in sync with mesh and skeleton indices:
 
-* mesh: the graph of PCG level2 ID nodes that are skeletonized, stored as a standard meshparty mesh. Note that this is not the high resolution mesh that you see in neuroglancer. [See EM Meshes for more](em:meshes)
-* skeleton: a meshwork skeleton, derived from the simplification of the mesh
-* anno : is a class that holds dataframes and adds some extra info to keep track of indexing.
+## CAVEclient to download skeletons
+Retrieve a skeleton using `get_skeleton()`. The available output_formats (described below) are:
 
-+++
+* `dict` containing vertices, edges, radius, compartment, and various metadata (default if unspecified)
+* `swc` a Pandas Dataframe in the SWC format, with ordered vertices, edges, compartment labels, and radius.
+
+Note: if the skeleton doesn't exist in the server cache, it may take 20-60 seconds to generate the skeleton before it is returned. This function will block during that time. Any subsequent retrieval of the same skeleton should go very quickly however.
+
+```{code-cell} ipython3
+from caveclient import CAVEclient
+import numpy as np
+import pandas as pd
+
+client = CAVEclient("minnie65_public")
+
+# Example: pyramidal cell in v1507
+example_cell_id = 864691135572530981
+```
+
+```{code-cell} ipython3
+# Download as 'SWC' fromat
+
+sk_df = client.skeleton.get_skeleton(example_cell_id, output_format='swc')
+
+sk_df.head()
+```
+
+Skeletons are "tree-like", where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions "away from root" and "towards root" and few types of vertices have special names:
+
+You can see these vertices and edges represented in the alternative `dict` skeleton output.
+
+```{code-cell} ipython3
+sk_dict = client.skeleton.get_skeleton(example_cell_id, output_format='dict')
+
+sk_dict.keys()
+```
+
+Alternately, you can query a set of root_ids, for example all of the **proofread cells** in the dataset, and bulk download the skeletons
+
+```{code-cell} ipython3
+prf_root_ids = client.materialize.tables.proofreading_status_and_strategy(
+    status_axon='t').query()['pt_root_id']
+prf_root_ids.head(3)
+```
+
+### convert dictionary to meshwork skeleton
+We use the python package __Meshparty__ to convert between mesh representations of neurons, and skeleton representations. 
+
+Skeletons are "tree-like", where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions "away from root" and "towards root" and few types of vertices have special names:
+
+Converting the pregenerated skeleton `sk_dict` to a meshwork object `sk` converts the skeleton to a graph object, for convenient representation and analysis.
+
+```{code-cell} ipython3
+from meshparty.skeleton import Skeleton
+
+sk = Skeleton.from_dict(sk_dict)
+```
+
+## Plot with skeleton_plot
+
+
+Our convenience package __skeleton_plot__ renders the skeleton in aligned, 2D views.
+
+```python
+pip install skeleton_plot
+```
+
+Our convenience package __skeleton_plot__ renders the skeleton in aligned, 2D views, with the compartments labeled in different colors. Here, _dendrite_ is red, _axon_ is blue, and _soma_ (the root of the connected graph) is olive
+
+```{code-cell} ipython3
+from skeleton_plot.plot_tools import plot_skel
+
+plot_skel(sk=sk,
+          invert_y=True,
+          pull_compartment_colors=True,
+          plot_soma=True,
+         )
+```
+
+Skeleton plot is is wrapped around matplotlib, and can be treated as any other subplot. There are arguments to adjust the compartment colors and 2D projection direction.
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+f, ax = plt.subplots(1,2, figsize=(7, 10))
+
+# Coronal view
+plot_skel(
+    sk,
+    title="Neuron with compartments \n XY View",
+    line_width=1,
+    plot_soma=True,
+    soma_size = 150,
+    invert_y=True,
+    pull_compartment_colors=True,
+    x="x",
+    y="y",
+    skel_color_map = { 1: "olive", 2: "black", 3: "firebrick",4: "salmon", },
+    ax=ax[0],
+)
+
+# top down view
+plot_skel(
+    sk,
+    title="Neuron with compartments \n XZ View",
+    line_width=1,
+    plot_soma=True,
+    soma_size = 150,
+    invert_y=True,
+    pull_compartment_colors=True,
+    x="x",
+    y="z",
+    skel_color_map = { 1: "olive", 2: "black", 3: "firebrick",4: "salmon", },
+    ax=ax[1],
+)
+
+for aa in ax:
+    aa.spines['right'].set_visible(False) 
+    aa.spines['left'].set_visible(False) 
+    aa.spines['top'].set_visible(False) 
+    aa.spines['bottom'].set_visible(False)
+    aa.axis('off')
+```
 
 ## Working with Meshwork Objects
 Skeletons are "tree-like", where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions "away from root" and "towards root" and few types of vertices have special names:
@@ -101,99 +234,11 @@ Let's list some of the most useful ones below You access each of these with nrn.
 * `child_nodes(vertex_indices)`: a list of arrays listing the children of the vertex indices passed in
 * `parent_nodes(vertex_indices)`: an array listing the parent of the vertex indices passed in
 
-+++
 
-## Example Data Access
-
-+++
-
-### Load precomputed skeleton (v1078)
-
-+++
-
-A [precomputed skeleton](https://github.com/google/neuroglancer/blob/master/src/datasource/precomputed/skeletons.md) is a simplified representation of a neuron where its shape is captured by a tree-like structure that passes through the center of the neuron. More specificy, a precomputed skeleton stores a neuron as a graph with vertices and edges in addition to a collection of vertex-attached attributes that capture morphological and anatomical information about the neuron.
-
-The most recent MICrONS skeletons are those from data release version 1078, which includes skeletonization of all neurons with [proofread axons](em:proofreading-data-quality). The precomputed format is flexible and scalable, and also can be rendered in [Neuroglancer](https://spelunker.cave-explorer.org/#!middleauth+https://global.daf-apis.com/nglstate/api/v1/4754960374824960). 
-
-```{note}
-SWDB 2024 relies on this format when working with the EM and exaSPIM skeletons. The EM skeletons will be available as part of the course's resources, but also in the public repository below.
-```
-
-```{code-cell} python
-# cloudpath to the precomputed EM files
-cv_skel_path = "precomputed://gs://allen_neuroglancer_ccf/em_minnie65_v1078"
-```
-
-```{code-cell} python
-import cloudvolume
-import numpy as np
-
-# Initialize cloud volume
-cv_obj = cloudvolume.CloudVolume(cv_skel_path, use_https = True) 
-
-# Example skeleton (as of v1078)
-skeleton_id = 864691135591041291
-
-# load precomputed neuron skeleton
-cv_sk = cv_obj.skeleton.get(skeleton_id)
-```
-
-```{code-cell} python
-print("This is a precomputed skeleton of an EM neuron...\n")
-print(cv_sk)
-```
-
-We will use MeshParty's `skeleton` object to help plot and analyze the precomputed skeletons. To do this, convert the vertices, edges, and radius of the precomputed format with the `skeleton` module.
-
-```{code-cell} python
-from meshparty import skeleton
-
-sk = skeleton.Skeleton(cv_sk.vertices, 
-                       cv_sk.edges, 
-                       vertex_properties={'radius': cv_sk.radius,
-                                          'compartment': cv_sk.compartment},  
-                       root = len(cv_sk.edges), # set root as final entry
-                       remove_zero_length_edges = False)
-```
-
-#### Plot Skeleton in 2D
-The package [Skeleton-plot](https://github.com/AllenInstitute/skeleton_plot) provides some handy utilities for plotting meshwork skeletons, including:
-
-* specifying the 2D orientation
-* annotating somas
-* labeling compartments by color
-
-```{code-cell} python
-import skeleton_plot as skelplot
-import matplotlib.pyplot as plt
-%matplotlib inline
-
-f, ax = plt.subplots(figsize=(7, 10))
-skelplot.plot_tools.plot_skel(
-    sk,
-    title="Neuron with radius and compartments",
-    line_width=1,
-    plot_soma=True,
-    soma_size = 150,
-    pull_radius=True,
-    invert_y=True,
-    pull_compartment_colors=True,
-    x="x",
-    y="y",
-    skel_color_map = { 1: "olive", 2: "black", 3: "firebrick",4: "salmon", },
-    ax=ax,
-)
-
-ax.spines['right'].set_visible(False) 
-ax.spines['left'].set_visible(False) 
-ax.spines['top'].set_visible(False) 
-ax.spines['bottom'].set_visible(False)
-ax.axis('off')
-```
 
 #### Vertices and Neighborhoods
 
-```{code-cell} python
+```{code-cell} ipython3
 # Vertices
 print(f"There are {len(sk.vertices)} vertices in this neuron", "\n")
 
@@ -211,9 +256,9 @@ downstream_nodes = sk.downstream_nodes(sk.branch_points[3])
 print("Nodes downstream of selected brach are: \n", downstream_nodes, "\n")
 ```
 
-#### Paths and Segments 
+#### Paths and Segments
 
-```{code-cell} python
+```{code-cell} ipython3
 # Segments - path of nodes between two vertices i and j which are assumed to be a root, branch point, or endpoint.
 print("The number of branch segments are: ",len(sk.segments), "\n")
 
@@ -236,7 +281,7 @@ One of the most useful methods of the skeleton meshwork's is the ability to **ma
 
 ***Warning:*** be aware when setting a mask in place--mask operations are additive. To reset the mask completely, use `reset_mask(in_place=True)`.
 
-```{code-cell} python
+```{code-cell} ipython3
 # Let's select a set of nodes from example segment 11
 example_segment = 11
 selected_nodes = sk.segments[example_segment]
@@ -263,7 +308,7 @@ Critically, apply_mask() allows us to mask a neuron according to its compartment
 * 4 - apical dendrite
 * 5+ - custom
 
-```{code-cell} python
+```{code-cell} ipython3
 print("The unique compartment labels in this skeleton are:", np.unique(sk.vertex_properties['compartment']), "\n")
 
 # Select the indices associated with the dendrites
@@ -279,7 +324,7 @@ sk_axon = sk.apply_mask(axon_inds)
 print("Axon pathlength is : ", sk_axon.path_length() / 1000, ' um', "\n")
 ```
 
-```{code-cell} python
+```{code-cell} ipython3
 # Render all the segments in the dendrite graph
 
 fig, ax = plt.subplots(figsize=(4,3), dpi=150)
@@ -298,180 +343,22 @@ ax.invert_yaxis()
 ax.axis('off')
 ```
 
-### Load meshwork h5 file (v661)
+## How EM skeletons are generated
 
-The skeletons of the meshes are calculated at specific timepoints. The most recent collection of all neurons in the dataset was at materialization version 661 (June, 2023). 
+:::{figure} img/skeleton-cartoon.png
+Cartoon illustration of "level 2" graph and skeletons.
+:::
 
-Both the h5. meshwork neuron object and the .swc skeletons are available in the [BossDB repository](https://bossdb.org/project/microns-minnie)
+In order to understand how these skeletons have been made, you have to understand how large scale EM data is represented. Portions of 3d space are broken up into chunks, such as the grid in the image above. Neurons, such as the cartoon green cell above, span many chunks. Components of the segmentation that live within a single chunk are called level 2 ids, this is because in fact the chunks get iteratively combined into larger chunks, until the chunks span the whole volume. We call this the [PyChunkedGraph](https://github.com/CAVEconnectome/PyChunkedGraph) or PCG, after the library which we use to store and interact with this representation. Level 0 is the voxels, level 1 refers to the grouping of voxels within the chunk (also known as supervoxels) and level 2 are the groups of supervoxels within a chunk. A segmentation result can be thought of as a graph at any of these levels, where the voxels, supervoxels, or level 2 ids that are part of the same object are connected. In the above diagram, the PCG level 2 graph is represented as the light red lines.
 
-```{code-cell} python
-# path to the skeleton and meshwork .h5 files
-mesh_path = "s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/meshworks/"
-```
+Such graphs are useful in that they track all the parts of the neuron that are connected to one another, but they aren't skeletons, because the graph is not directed, and isn't a simple branching structure.
 
-```{code-cell} python
-import skeleton_plot.skel_io as skel_io
+In order to turn them into a skeleton we have to run an algorithm, that finds a tree like structure that covers the graph and gets close to every node. This is called the TEASAR algorithm and you can read more about how to skeletonize graphs in the [MeshParty documentation](https://meshparty.readthedocs.io/en/latest/guide/skeletons.html#skeletonization).
 
-# Example skeleton (as of v661)
-nucleus_id = 230650
-segment_id = 864691134940133219
+The result of the algorithm, when applied to a level 2 graph, is a linear tree (like the dotted purple one shown above), where a subset of the level 2 chunks are vertices in that tree, but all the unused level 2 nodes "near" a vertex (red unfilled circles) on the graph are mapped to one of the skeleton vertices (black arrows). This means there are two sets of indices, mesh indices, and skeleton indices, which have a mapping between them (see diagram above).
 
-# load a pregenerated neuron skeleton
-nrn = skel_io.load_mw(mesh_path, f"{segment_id}_{nucleus_id}.h5")
-```
+The MeshParty library allows us to easily store these representations and helps us relate them to each other. A Meshwork object is a data structure that is designed to have three main components that are kept in sync with mesh and skeleton indices:
 
-## Annotations
-
-`nrn.anno` has a set of annotation tables containing some additional information for analysis.
-Each annotation table has both a Pandas DataFrame object storing data and additional information that allow the rows of the DataFrame to be mapped to mesh and skeleton vertices.
-For the neurons that have been pre-computed, there is a consistent set of annotation tables:
-
-* `post_syn`: Postsynaptic sites (inputs) for the cell
-* `pre_syn`: Presynaptic sites (outputs) for the cell
-* `is_axon`: List of vertices that have been labeled as part of the axon
-* `lvl2_ids`: Gives the PCG level 2 id for each mesh vertex, largely for book-keeping reasons.
-* `segment_properties`: For each vertex, information about the approximate radius, surface area, volume, and length of the segment it is on.
-* `vol_prop`: For every vertex, information about the volume and surface area of the level 2 id it is associated with.
-
-To access one of the DataFrames, use the name of the table as an attribute of the `anno` object and then get the `.df` property. For example, to get the postsynaptic sites, we can do:
-
-```{code-cell} python
-nrn.anno.post_syn.df.head(3)
-```
-
-However, in addition to these rows, you can also easily get the mesh vertex index or skeleton vertex index that a row corresponds to with `nrn.anno.post_syn.mesh_index` or `nrn.anno.post_syn.skel_index` respectively.
-This seems small, but it allows you to integrate skeleton-like measurements with annotations trivially.
-
-For example, to get the distance from the cell body for each postsynaptic site, we can do:
-
-```{code-cell} python
-nrn.distance_to_root(nrn.anno.post_syn.mesh_index)
-```
-
-```{important}
-Note that the `nrn.distance_to_root`, like all basic meshwork object functions, expects a mesh vertex index rather than a skeleton vertex index.
-```
-
-A common pattern is to copy a synapse dataframe and then add columns to it.
-For example, to add the distance to root to the postsynaptic sites, we can do:
-
-```{code-cell} python
-syn_df = nrn.anno.pre_syn.df.copy()
-syn_df['dist_to_root'] = nrn.distance_to_root(nrn.anno.pre_syn.mesh_index)
-```
-
-### Filtering Annotations by Skeleton Arbor
-
-Each annotation table has a 'filter_query' method that takes a boolean mesh mask and returns only those rows of the dataframe associated with those particular locations on the mesh. Let's use what we learned above in two examples: first, getting all input synapses within 50 microns of the root and second, getting all input synapses on one particular branch off of the soma.
-
-```{code-cell} python
-dtr = nrn.distance_to_root() / 1_000   # Convert from nanometers to microns
-nrn.anno.post_syn.filter_query( dtr < 50).df
-```
-
-We can also use one set of annotations as an input to filter query from another set of annotations. For example, due to errors in segmentation or mistakes in synapse detection, there can be synaptic outputs on the dendrite. However, if we have an `is_axon` annotation that simply contains a collection of vertices that correspond to the cell's axon. We can use this annotation to create a mask and filter out all of the synapses that are not on the axon.
-
-```{code-cell} python
-axon_mask = nrn.anno.is_axon.mesh_mask
-nrn.anno.pre_syn.filter_query(~axon_mask).df # The "~" is a logical not operation that flips True and False
-```
-
-As a sanity check, we can use `nglui` to see if these synapses we have labeled as being on the axon are all where we expect.
-
-```{code-block} python
-from caveclient import CAVEclient
-from nglui.statebuilder.helpers import make_synapse_neuroglancer_link
-
-client = CAVEclient('minnie65_public')
-client.materialize.version = 661 # version at which skeletons were calculated
-
-make_synapse_neuroglancer_link(
-    nrn.anno.pre_syn.filter_query(axon_mask).df,
-    client,
-    return_as="html"
-)
-
-```
-
-[Neuroglancer link](https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/6278131234111488)
-
-(Click one of the synapse annotations to load the neuron mesh).
-
-Another common example might be to pick one of the child nodes of the soma and get all of the synapses on that branch. We can do this by using the `nrn.skeleton.get_child_nodes` function to get the skeleton vertex indices of the child nodes and then use that to filter the synapses.
-
-```{code-block} python
-branch_index = 0 # Let's just use the first child vertex of the root node, which is at the soma by default.
-branch_inds = nrn.downstream_of(nrn.child_index(nrn.root)[branch_index])
-branch_mask = branch_inds.to_mesh_mask
-
-make_synapse_neuroglancer_link(
-    nrn.anno.post_syn.filter_query(branch_mask).df,
-    client,
-    return_as="html"
-)
-
-```
-
-[Neuroglancer link](https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/4584197575409664)
-
-+++
-
-### Load swc skeleton (v661)
-
-+++
-
-The skeletons of the meshes are calculated at specific timepoints. The most recent collection of all neurons in the dataset was at materialization version 661 (June, 2023). 
-
-Both the h5. meshwork neuron object and the .swc skeletons are available in the [BossDB repository](https://bossdb.org/project/microns-minnie)
-
-+++
-
-```{code-block} python
-# path to the skeleton .swc files
-skel_path = "s3://bossdb-open-data/iarpa_microns/minnie/minnie65/skeletons/v661/skeletons/"
-
-import skeleton_plot.skel_io as skel_io
-
-# Example skeleton (as of v661)
-nucleus_id = 230650
-segment_id = 864691134940133219
-
-# load the .swc skeleton
-sk = skel_io.read_skeleton(skel_path, f"{segment_id}_{nucleus_id}.swc")
-
-```
-
-+++
-
-To get a more accurate understanding of the neuron's morphology, you can pull in information about the radius and compartment labels into your visualization.
-
-Here the axon is colored black, basal dendrites 'firebrick' red, apical dendrites 'salmon' orange, and the soma a green 'olive'.
-
-Compartment label conventions (from from standardized swc files [www.neuromorpho.org](www.neuromorpho.org) )
-
-* 0 - undefined
-* 1 - soma
-* 2 - axon
-* 3 - (basal) dendrite
-* 4 - apical dendrite
-* 5+ - custom
-
-```{code-block} python
-f, ax = plt.subplots(figsize=(7, 10))
-skelplot.plot_tools.plot_skel(
-    sk,
-    title=nucleus_id,
-    line_width=1,
-    plot_soma=True,
-    invert_y=True,
-    pull_compartment_colors=True,
-    x="z",
-    y="y",
-    skel_color_map = { 3: "firebrick",4: "salmon",2: "black",1: "olive" },
-)
-
-ax.spines['right'].set_visible(False) 
-ax.spines['left'].set_visible(False) 
-ax.spines['top'].set_visible(False) 
-ax.spines['bottom'].set_visible(False)
-```
+* mesh: the graph of PCG level2 ID nodes that are skeletonized, stored as a standard meshparty mesh. Note that this is not the high resolution mesh that you see in neuroglancer. [See EM Meshes for more](em:meshes)
+* skeleton: a meshwork skeleton, derived from the simplification of the mesh
+* anno : is a class that holds dataframes and adds some extra info to keep track of indexing.
