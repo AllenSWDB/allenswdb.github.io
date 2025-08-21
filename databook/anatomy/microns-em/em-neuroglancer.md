@@ -14,7 +14,7 @@ kernelspec:
 
 # Neuroglancer
 
-+++
+
 
 ```{note}
 Neuroglancer works best in Chrome and Firefox but does not always work as expected in Safari.
@@ -210,7 +210,7 @@ state_json = client.state.get_state_json(6107390807113728)
 state_parser = parser.StateParser(state_json)
 ```
 
-+++
+
 
 You can now access different aspects of the state through this `state_parser` object.
 
@@ -245,7 +245,7 @@ If you are using tags, the `expand_tags=True` argument will create a column for 
 
 Another option that is sometimes useful is `split_points=True`, which will create a separate column for each x, y, or z coordinate in the annotation.od.d..
 
-+++
+
 
 
 ### Generating Neuroglancer States from Data

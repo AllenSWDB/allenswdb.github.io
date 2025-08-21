@@ -61,7 +61,6 @@ Because of that, when plotting annotations or neuroanatomy in matplotlib, you wi
 
 Standard Transform can be installed from pip: `pip install standard_transform`
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 ### Dataset specific transforms
 
@@ -81,7 +80,7 @@ V1DD transform functions are accessed with:
 from standard_transform.datasets import v1dd_ds
 ```
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
+
 
 ### Why use Standard Transform?
 
@@ -151,7 +150,7 @@ ax.invert_yaxis()
 sns.despine(ax=ax)
 ```
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
+
 
 Now you can see that the surface is much more aligned with the x-axis, and the cells in layer 1 start just below y=0.
 In addition, the units have been converted to microns, which is much more readable and more consistent with measurements in other modalities.
