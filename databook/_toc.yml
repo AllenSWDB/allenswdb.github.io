@@ -96,6 +96,7 @@ parts:
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
           - file: physiology/ephys/np-ultra/npultra-psychedelics-accessing-data
       - file: physiology/stimuli/stimuli
+        title: Stimuli and Behavioral Tasks
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
