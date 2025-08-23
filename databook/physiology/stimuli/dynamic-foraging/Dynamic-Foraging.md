@@ -56,14 +56,14 @@ The central hypothesis for how mice behave in the dynamic foraging task is that 
 
 :::{figure} /resources/DF_equation.png
 ---
-width: 300px
+width: 500
 align: center
 ---
 :::
 
 :::{figure} /resources/DF_learning.png
 ---
-width: 300px
+width: 500
 align: center
 ---
 :::
@@ -77,7 +77,6 @@ Reinforcement-learning models are useful for inferring the “hidden” variable
 
 :::{figure} /resources/DF_Qvalues.png
 ---
-width: 400px
 align: center
 ---
 :::
