@@ -22,6 +22,7 @@ parts:
       - file: background/CCF.md
       - file: background/metadata.md
     - file: physiology/physiology
+      title: Physiology & Behavior
       sections:
       - file: physiology/ophys/ophys-overview
         title: Optical Physiology
