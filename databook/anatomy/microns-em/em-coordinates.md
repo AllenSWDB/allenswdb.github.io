@@ -61,11 +61,32 @@ Because of that, when plotting annotations or neuroanatomy in matplotlib, you wi
 
 Standard Transform can be installed from pip: `pip install standard_transform`
 
+
+### Dataset specific transforms
+
+The structure and size of the **MICrONS** and **V1DD** dataset differ, including in how their cortical layers align and how the axis of sectioning tilted relative to the surface of the brain. 
+
+Standard transform includes convenience functions for both EM datasets. 
+
+MICrONS transform functions are accessed with
+
+```{code-cell} ipython3
+from standard_transform.datasets import minnie_ds
+```
+
+V1DD transform functions are accessed with:
+
+```{code-cell} ipython3
+from standard_transform.datasets import v1dd_ds
+```
+
+
+
 ### Why use Standard Transform?
 
 Let's look at the coordinates of every excitatory neuron in the MICrONs data to see why we might want to use transformed coordinates.
 
-```{code-cell} python
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 import seaborn as sns
 from caveclient import CAVEclient
@@ -73,7 +94,7 @@ from caveclient import CAVEclient
 client = CAVEclient('minnie65_public')
 
 # set version, for consistency across time
-client.materialize.version = 1078 # Current as of Summer 2024
+client.materialize.version = 1507 # Current as of Summer 2025
 
 ct_df = client.materialize.query_table('aibs_metamodel_celltypes_v661', split_positions=True)
 
@@ -105,7 +126,7 @@ Not only are these units large, the offset is arbitrary and it would make much m
 
 Let's see how we can do this with `standard_transform`.
 
-```{code-cell} python
+```{code-cell} ipython3
 from standard_transform import minnie_ds
 import numpy as np
 
@@ -128,6 +149,8 @@ sns.scatterplot(
 ax.invert_yaxis()
 sns.despine(ax=ax)
 ```
+
+
 
 Now you can see that the surface is much more aligned with the x-axis, and the cells in layer 1 start just below y=0.
 In addition, the units have been converted to microns, which is much more readable and more consistent with measurements in other modalities.

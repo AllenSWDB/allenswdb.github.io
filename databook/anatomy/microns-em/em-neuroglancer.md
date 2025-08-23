@@ -12,20 +12,10 @@ kernelspec:
   name: allensdk
 ---
 
-```{code-cell}
-:tags: ["remove-cell"]
-import os
-import caveclient
-try:
-    os.makedirs('~/.cloudvolume/secrets')
-except:
-    pass
-cglob = caveclient.CAVEclient(global_only=True)
-cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
-del cglob
-```
-
 # Neuroglancer
+
+
+
 ```{note}
 Neuroglancer works best in Chrome and Firefox but does not always work as expected in Safari.
 ```
@@ -41,13 +31,25 @@ Neuroglancer can show multiple layers of data, including imagery, segmentation, 
 [Neuroglancer](https://github.com/google/neuroglancer) is a WebGL-based viewer developed by Jeremy Maitin-Shephard at the Google Connectomics team to visualize very large volumetric data, designed in large part for connectomics.
 We often use Neuroglancer to quickly explore data, visualize results in context, and share data.
 
-To look at the MICrONS data in Neuroglancer, [click this link](https://neuroglancer.neuvue.io/#!%7B%22jsonStateServer%22:%22https://global.daf-apis.com/nglstate/api/v1/post%22,%22navigation%22:%7B%22pose%22:%7B%22position%22:%7B%22voxelSize%22:%5B4.0,4.0,40.0%5D%7D%7D,%22zoomFactor%22:2.0%7D,%22showSlices%22:false,%22layout%22:%22xy-3d%22,%22perspectiveZoom%22:2000.0,%22layers%22:%5B%7B%22type%22:%22image%22,%22source%22:%22precomputed://https://bossdb-open-data.s3.amazonaws.com/iarpa_microns/minnie/minnie65/em%22,%22name%22:%22img%22,%22shader%22:%22#uicontrol%20float%20black%20slider(min=0,%20max=1,%20default=0.0)%5Cn#uicontrol%20float%20white%20slider(min=0,%20max=1,%20default=1.0)%5Cnfloat%20rescale(float%20value)%20%7B%5Cn%20%20return%20(value%20-%20black)%20/%20(white%20-%20black);%5Cn%7D%5Cnvoid%20main()%20%7B%5Cn%20%20float%20val%20=%20toNormalized(getDataValue());%5Cn%20%20if%20(val%20%3C%20black)%20%7B%5Cn%20%20%20%20emitRGB(vec3(0,0,0));%5Cn%20%20%7D%20else%20if%20(val%20%3E%20white)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%201.0,%201.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitGrayscale(rescale(val));%5Cn%20%20%7D%5Cn%7D%5Cn%22%7D,%7B%22type%22:%22segmentation_with_graph%22,%22source%22:%22graphene://https://minnie.microns-daf.com/segmentation/table/minnie65_public%22,%22name%22:%22seg%22,%22selectedAlpha%22:0.3,%22objectAlpha%22:1.0,%22notSelectedAlpha%22:0.0%7D,%7B%22type%22:%22annotation%22,%22filterBySegmentation%22:false,%22bracketShortcutsShowSegmentation%22:true,%22annotationSelectionShowsSegmentation%22:true,%22name%22:%22ann%22%7D%5D,%22selectedLayer%22:%7B%22layer%22:%22ann%22,%22visible%22:true%7D%7D).
+
+To view MICrONS data in neuroglancer: [MICrONS Neuroglancer](https://spelunker.cave-explorer.org/#!middleauth+https://global.daf-apis.com/nglstate/api/v1/4658335189041152)
+
+To view V1DD data in neuroglancer: [V1DD Neuroglancer](https://spelunker.cave-explorer.org/#!middleauth+https://global.em.brain.allentech.org/nglstate/api/v1/6116368998989824)
+
 Note that you will need to authenticate with the same Google-associated account that you use to set up CAVEclient.
+
+**For animated data access examples, see [MICrONS Explorer Neuroglancer introduction](https://www.microns-explorer.org/ngl-instructions)**
+
+
+### Dataset specificity
+The examples below are written with the MICrONS dataset. To access the V1DD dataset change the datastack from `minnie65_public` to `v1dd_public`
+
 
 ## Interface Basics
 
 The Neuroglancer interface is divided into panels.
 In the default view, one panel shows the imagery in the X/Y plane (left), one shows a 3d view centered at the same location, and the narrow third panel provides information about the specific layer.
+
 Note that at the center of the each panel is a collection of axis-aligned red, blue and, green lines. The intersection and direction of each of these lines is consistent across all panels.
 
 Along the top left of the view, you can see tabs with different names.
@@ -64,11 +66,11 @@ The collection of all layers, the user view, and all annotations is stored as a 
 
 
 The basic controls for navigation are:
-* `single click/drag` slides the imagery in X/Y and rotates the 3d view.
-* `scroll wheel up/down` moves the imagery in Z.
+* `left click/drag` slides the imagery in X/Y and rotates the 3d view.
+* `scroll wheel up/down` moves the imagery in Z. (track pad two finger scroll; keypad , or . )
 * `right click` jumps the 3d view to the clicked location in either the imagery or on a segmented object.
-* `double click` selects a segmentation and loads its mesh into the 3d view. Double clicking on a selected neuron deselects it.
-* `control-scroll` zooms the view under the cursor in or out.
+* `double left click` selects a segmentation and loads its mesh into the 3d view. Double clicking on a selected neuron deselects it.
+* `control-scroll` zooms the view under the cursor in or out. (track pad two finger expand/contract)
 * `z` snaps the view to the closest right angle.
 
 You can paste a position into Neuroglancer by clicking the x, y, z coordinate in the upper left corner and pasting a space or comma-separated list of numbers and hitting enter.
@@ -81,7 +83,9 @@ This will load all the voxels associated with that object and also display its m
 
 To see the list of selected objects, you can select the segmentation tab (right click on the `seg` tab).
 Underneath the list of options, there is a list of selected root ids and the color assigned to them in the view.
+
 You can change colors of all neurons randomly by pressing `l` or individually change colors as desired.
+
 In addition, you can press the checkbox to hide a selected object while keeping it in the list, or deselect it by clicking on the number itself.
 You can also copy a root id by pressing the clipboard icon next to its number, or copy all selected root ids by pressing the clipboard icon above the list.
 
@@ -104,18 +108,20 @@ Each annotation layer can have one color, which you can change with the color pi
 ## Saving and sharing states
 
 Like many other websites that require logins, you cannot simply send your URL ot another person to have them see the view.
+
 Instead, to save the current state and make it available to yourself or others in the future, you need to save the state with the `Share` button at the top right corner.
 This will then give you a URL that you can copy and share with others or paste yourself.
 A typical sharing URL looks like the following:
-```
-https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/4684616269037568
-```
+
+`https://spelunker.cave-explorer.org/#!middleauth+https://global.daf-apis.com/nglstate/api/v1/4658335189041152`
+
 The first part is the URL for the Neuroglancer viewer, while the part after the `?json_url=` is a URL that points to a JSON file that contains the state.
 The number at the end of the URL is used to uniquely identify the state and can be used programmatically to retrieve information.
 
 ```{warning}
 If a URL contains `?local_id=` instead of `?json_url`, that means that it cannot be viewed by anyone else or even in another browser on your own computer.
 ```
+
 
 ## Navigating Annotations
 
@@ -159,42 +165,87 @@ Together with the `[` and `]` keys to navigate the list, this allows you to quic
 
 ## Programmatic Interaction with Neuroglancer States
 
+```{important}
+Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
+```
+
+```{code-cell} python
+:tags: [remove-cell]
+import os
+import caveclient
+try:
+    os.makedirs('~/.cloudvolume/secrets')
+except:
+    pass
+cglob = caveclient.CAVEclient(global_only=True)
+cglob.auth.save_token(token=os.environ.get('API_SECRET'), overwrite=True)
+del cglob
+```
+
 Visualizing data in Neuroglancer is one of the easiest ways to explore it in its full context.
 The python package `nglui` was made to make it easy to generate Neuroglancer states from data, particularly pandas dataframes, in a progammatic manner.
 The package can be installed with `pip install nglui`.
 
-:::{important}
+```{note}
 The `nglui` package interacts prominently with `caveclient` and annotations queried from the database.
 See the section on [querying the database](em:query-tables-section) to learn more.
-:::
+```
 
 ### Parsing Neuroglancer states
 
-The `nglui.parser` package can be used to parse Neuroglancer states.
+The `nglui.parser` module offers a number of tools to get information about neuroglancer states out of the JSON format that neuroglancer uses. The recommended approach here is to pass a dictionary representation of the JSON object the StateParser class and build various kinds of dataframes from it.
 
 The simplest way to parse the annotations in a Neuroglancer state is to first save the state using the Share button, and then copy the state id (the last number in the URL).
-For example, for the share URL `https://neuroglancer.neuvue.io/?json_url=https://global.daf-apis.com/nglstate/api/v1/5560000195854336`, the state id is `5560000195854336`
 
-You can then download the json and then use the `annotation_dataframe` function to generate a comprehensive dataframe of all the annotations in the state.
+```{important}
+This requires nglui version >= 3.5.0 and <4.0.0 
+```
 
-```{code-cell}
-import os
+```python
 from caveclient import CAVEclient
 from nglui import parser
 
 client = CAVEclient('minnie65_public')
-
-state_id = 5560000195854336
-state = client.state.get_state_json(state_id)
-parser.annotation_dataframe(state)
+state_json = client.state.get_state_json(6107390807113728)
+state_parser = parser.StateParser(state_json)
 ```
 
-Note that tags in the dataframe are stored as a list of integers, with each integer corresponding to one of the tags in the list.
-To get the mapping between the tag index and the tag name for each layer, you can use the `tag_dictionary` function.
 
-```{code-cell}
-parser.tag_dictionary(state, layer_name='syns_out')
+
+You can now access different aspects of the state through this `state_parser` object.
+
+### Layer Data
+For example, to get a list of all layers and their core info, you can use the layer_dataframe method
+
+```python
+state_parser.layer_dataframe()
 ```
+
+will give you a table with a row for each layer and columns for layer name, type, source, and whether the layer is archived (i.e. visible) or not.
+
+You can also get a list of all selected segments with the `selection_dataframe` method.
+
+```python
+state_parser.selection_dataframe()
+```
+
+will give you a dataframe where each row is a selected segment, and columns show layer name, segment id, and whether or not the segment is visible.
+
+### Annotation Data
+
+Finally, you can get a list of all annotations withthe `annotation_dataframe` method. h
+
+```python
+state_parser.annotation_dataframe()
+```
+
+will give you a dataframe where each row is an annotation, and columns show layer name, points locations, annotation type, annotation id, linked segmentations, tags, etc. 
+
+If you are using tags, the `expand_tags=True` argument will create a column for every tag and assign a boolean value to the row based on whether the tag is present in the annotation. 
+
+Another option that is sometimes useful is `split_points=True`, which will create a separate column for each x, y, or z coordinate in the annotation.od.d..
+
+
 
 
 ### Generating Neuroglancer States from Data
@@ -203,20 +254,24 @@ The `nglui.statebuilder` package is used to build Neuroglancer states that expre
 The general pattern is that one makes a "StateBuilder" object that has rules for how to build a Neuroglancer state layer by layer, including selecting certain neurons, and populate layers of annotations.
 You then pass a DataFrame to the StateBuiler, and the rules tell it how to render the DataFrame into a Neuroglancer link.
 The same set of rules can be used on similar dataframes but with different data, such as synapses from different neurons.
-To understand the detailed use of the package, please see the [tutorial](https://github.com/seung-lab/NeuroglancerAnnotationUI/blob/master/examples/statebuilder_examples.ipynb).
+To understand the detailed use of the package, please see the the [NGLUI documentation](https://www.caveconnecto.me/nglui/usage/statebuilder/) (and mind the version differences).
 
 However, a number of basic helper functions allow `nglui` to be used for common functions in just a few lines.
 
 For example, to generate a Neuroglancer state that shows a neuron and its synaptic inputs and outputs, we can use the `make_neuron_neuroglancer_link` helper function.
 
-```{code-cell}
+```{code-cell} 
+from caveclient import CAVEclient
 from nglui.statebuilder import helpers
+
+client = CAVEclient('minnie65_public')
 
 helpers.make_neuron_neuroglancer_link(
     client,
-    864691135122603047,
+    root_ids=864691135441799752,
     show_inputs=True,
     show_outputs=True,
+    target_site='cave-explorer',
 )
 ```
 
@@ -227,5 +282,3 @@ The main helper functions are:
 * `make_point_statebuilder` - Generate a statebuilder that to map a dataframe containing points (by default, formatted like a cell types table) to a Neuroglancer link.
 
 In all cases, please look at the docstrings for more information on how to use the functions.
-
-
