@@ -64,18 +64,18 @@ image the activity of {term}`GECI` expressing neurons in intact tissue.
 
 There are limits to what we can see using two-photon miscroscopy, however. Two-photon excitation generates fluorescence primarily from the focal plane, but out-of-focus fluorescence from outside the focal plane will contaminate the view. This out-of-focus fluorescence increases as the focus is pushed deeper into tissue {cite:p}`takasaki`. This can be problematic when imaging densely expressed GECIs where there is fluorescence throughout the tissue, where the image quality degrades with imaging depth. However, using {term}`Cre line`s that limit the GECI expression only to deep neurons (e.g. Cre lines specific to layer 5 or layer 6 pyramidal neurons) can avoid this problem.
 
-![2P3P](../resources/2P3P.jpg)
+![2P3P](/resources/2P3P.jpg)
 
 ## Event detection
 
 The spatial and temporal resolution of the imaging conditions determine the ability to resolve individual, or even small numbers of, spikes. Validation datasets, in which individual neurons are imaged using 2-photon calcium imagine at the same time as intracellular voltage recordings are made using patch clamp techniques, usually collect data with high spatial and temporal resolution. At these resolutions, single action potentials are discernable from the fluorescence traces. However, population recordings like the ones in our [ophys](/databook/physiology/ophys/ophys-overview) datasets, are routinely made with lower spatial and temporal resolutions. This allows us to image large populations of neurons. But, the result is an inability to reliably resolve low firing rate events {cite:p}`huang`.
 
-![downsampling](../resources/Huang_downsampling.png)
+![downsampling](/resources/Huang_downsampling.png)
 
 There are several algorithms for detecting "events" based on the DF/F traces. We used a L0 method described in {cite:p}`jewell`. At the downsampled imaging resolution, the ability to detect 1- or 2-AP events is relatively low, particularly for data collected with GCaMP6f.
 
-![events](../resources/Huang_eventprobability.png)
+![events](/resources/Huang_eventprobability.png)
 
 The validation dataset above examines closely the relationship between extracted events and firing rate for excitatory neurons and how that depends on the spatial and temporal resolution {cite:p}`huang`. This relationship is different for inhibitory {term}`Interneuron`s. Interneurons have a different relationship between fluorescence and firing rate than excitatory neurons. Moreover, this relationship between fluorescence and firing rate is different for {term}`parvalbumin-positive interneuron`s than it is for {term}`Somatostatin cell`s and {term}`VIP cell`s {cite:p}`khan`. Parvalbumin is a calcium buffer and calcium imaging data of these neurons should be considered judiciously. While general increases/decreases in activity are reflected in the fluorescence signal, analyses focused on more precise event rate estimates and temporal precision should likely be avoided for these PV neurons.
 
-![inhib](../resources/Khan_2018_inhib_fig.png)
+![inhib](/resources/Khan_2018_inhib_fig.png)
