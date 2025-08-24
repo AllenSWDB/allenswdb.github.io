@@ -18,12 +18,21 @@ Basket cell
 Bipolar cell
   A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
 
+BCI
+Brain Computer Interface
+  A method of controlling a computer signal through the activity of a neuron. This can be extended to other types of devices (e.g. joysticks or robotic arms). This is also often referred to as "Brain Machine Interface"
+
 CCF
 Common Coordinate Framework
   The [CCF](background/CCF.md) is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
+ChR2
+Channelrhodopsin
+  A light-gated ion channel used in the field of optogenetics to control neuronal activity with light. 
+
 Container
   *There is no consistent use of this term*
+  Most often this refers to the set of recording sessions for a single ophys imaging plane, but can also refer to the set of sessions for an animal.
 
 Cre line
   The Cre-lox system is a site-specific recombinase technology. Cre-recombinase
@@ -53,6 +62,7 @@ Ephys
 
 Experiment
   *There is no consistent use of this term*
+  It can refer to a stimulus protocol, an entire data collection campaign, or a single session. It is highly ambiguous.
 
 Fast spiking neuron
 FSN
@@ -101,7 +111,7 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
-hyperparameter
+Hyperparameter
   A free parameter that controls behaviors in machine learning algorithms. These
   are distinct from parameters which control behaviors of the models developed by
   the algorithms; hyperparameters affect how the algorithm finds the models in
