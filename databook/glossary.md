@@ -158,6 +158,10 @@ Minnie column
 Minnie dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
 
+NWB
+Neurodata Without Borders
+  A standardized file format for physiology and behavior data. All of our physiology and behavior data is stored in NWB files. The Visual Coding and Visual Behavior data are in NWB files with a hdf backend, while the newer data (V1DD, BCI, Dynamic Foraging, NP Ultra & Psychedelics) have a Zarr backend - which is optimized for cloud access. More info can be found [here](https://nwb.org/)
+
 Neurogliaform cell
   A type of interneuron that makes a diffuse axonal arbor and is thought to release {term}`GABA` through both synaptic release and volume transmission, non-selectively inhibiting neurons nearby.
 
