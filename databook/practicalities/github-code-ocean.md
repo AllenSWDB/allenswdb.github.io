@@ -26,6 +26,7 @@ In order to sync between your GitHub account and your Code Ocean account, you ne
 :::{figure} ../resources/GH_profile.png
 ---
 align: center
+width: 300
 ---
 :::
 
@@ -33,6 +34,7 @@ align: center
 :::{figure} ../resources/GH_settings.png
 ---
 align: center
+width: 200
 ---
 :::
 
@@ -40,6 +42,7 @@ align: center
 :::{figure} ../resources/GH_developer.png
 ---
 align: center
+width: 200
 ---
 :::
 
@@ -47,6 +50,7 @@ align: center
 :::{figure} ../resources/GH_token.png
 ---
 align: center
+width: 200
 ---
 :::
 
@@ -61,6 +65,7 @@ align: center
 :::{figure} ../resources/GH_token_3.png
 ---
 align: center
+width: 300
 ---
 ::: 
 
@@ -68,6 +73,7 @@ align: center
 :::{figure} ../resources/GH_token_4.png
 ---
 align: center
+width: 300
 ---
 :::
 
@@ -86,6 +92,7 @@ align: center
 :::{figure} ../resources/CO_account.png
 ---
 align: center
+width: 200
 ---
 :::   
 
@@ -107,6 +114,7 @@ At this point, your GitHub and Code Ocean accounts are linked!
 :::{figure} ../resources/CO_clone.png
 ---
 align: center
+width: 300
 ---
 :::  
 
@@ -136,6 +144,7 @@ align: center
 :::{figure} ../resources/CO_data.png
 ---
 align: center
+width: 300
 ---
 :::
 
@@ -143,6 +152,7 @@ align: center
 :::{figure} ../resources/CO_jupyterlab.png
 ---
 align: center
+width: 200
 ---
 :::
 
@@ -163,6 +173,7 @@ align: center
 :::{figure} ../resources/CO_commit.png
 ---
 align: center
+width: 300
 ---
 :::
 
@@ -170,6 +181,7 @@ align: center
 :::{figure} ../resources/CO_sync.png
 ---
 align: center
+width: 200
 ---
 :::
 
