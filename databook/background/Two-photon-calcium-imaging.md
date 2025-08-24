@@ -68,7 +68,7 @@ There are limits to what we can see using two-photon miscroscopy, however. Two-p
 <img src="../resources/2P3P.jpg" >
 :::
 
-![2P3P](/resources/2P3P.jpg)
+![2P3P](../resources/2P3P.jpg)
 
 ## Event detection
 
