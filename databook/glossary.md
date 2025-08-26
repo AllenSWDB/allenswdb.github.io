@@ -77,7 +77,7 @@ FSI
     to putatively label neurons with narrow spikes as particular cell types,
     such as {term}`PV+ neuron`s, among others.
 
-fluorophore
+Fluorophore
   A type of molecule which absorb light and re-emit it at a longer wavelength 
   in a process called fluorescence. As a result, fluorophores fluoresce only 
   while exposed to a light source.
@@ -121,6 +121,10 @@ Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
+Interspike interval
+ISI
+  The interspike interval is the the time between two sequential action potentials (spikes) of a neuron. The ISI is used in the quality control of spike-sorting for ephys experiments, assuring that spikes assigned to a unit don't fall within the refactory period of the neuron (a few milliseconds), indicating that there is contaimination between units.. ISI is also used to characterize firing patterns of neurons. 
+
 Intrinsic signal imaging
 ISI
   Intrinsic signal imaging, also called ISI, is a method to measure changes in
@@ -137,7 +141,6 @@ ISI
   map the location of the whisker barrels in somatosensory cortex of the mouse.
   For additional papers using ISI to map the organization of the mouse visual
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
-
 
 Local field potential
 LFP
@@ -316,7 +319,7 @@ Unit
   included units are well isolated from their neighbors.
 
 VIP cell
-  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Waveform
 Spike
