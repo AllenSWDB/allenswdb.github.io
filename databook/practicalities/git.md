@@ -14,7 +14,7 @@
 
 ## Fork a repo (e.g. `swdb_2025_student`)
 
-Navigate to the [swdb_2025_student](https://github.com/allenInstitute/swdb_2025_student) repo (or just scroll to the top of this page) and click "Fork" at the top right (or just scroll to the top of this page).
+Navigate to the [swdb_2025_student](https://github.com/allenInstitute/swdb_2025_student) repo and click "Fork" at the top right.
 
 
 ## Single-user repository -- clone a repository

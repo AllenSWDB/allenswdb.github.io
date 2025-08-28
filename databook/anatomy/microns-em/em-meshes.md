@@ -15,34 +15,85 @@ kernelspec:
 (em:meshes)=
 # Meshes
 
+```{important}
+Before using any programmatic access to the data, [you first need to set up your CAVEclient token](em-content:cave-setup).
+```
+
 When trying to understand the fine 3d morphology of a neuron (e.g. features under 1 micron in scale), meshes are a particularly useful representation.
 More precisely, a mesh is a collection of vertices and faces that define a 3d surface.
 The exact meshes that one sees in Neuroglancer can also be loaded for analysis and visualization in other tools.
 
+
+```{figure} img/segmentation_mesh_skeleton_representation.png
+---
+align: center
+---
+Electron microscopy data can be represented and rendered in multiple formats, at different levels of abstraction from the original imagery
+```
+
+
+### Dataset specificity
+The examples below are written with the MICrONS dataset. To access the V1DD dataset change the datastack from `minnie65_public` to `v1dd_public`
+
+
+
+## What is a mesh?
+A mesh is a set of vertices connected via triangular faces to form a 3 dimensional representation of the outer membrane of a neuron, glia or nucleus.
+
+### Meshes can either be static or dynamic:
+##### Static:
+- pros: smaller files thus easier to work with, multiple levels of detail (lod) which can be accessed (example below)
+- cons: may include false gaps and merges from self contacts, updated less frequently
+
+Example path: `precomputed://gs://iarpa_microns/minnie/minnie65/seg_m1300`
+
+##### Dynamic:
+- pros: highly detailed thus more reflective of biological reality and backed by proofreading infrastructure CAVE (Connectome Annotation Versioning Engine)
+- cons: much larger files, only one level of detail
+  
+Example path: `graphene://https://minnie.microns-daf.com/segmentation/table/minnie65_public`
+
+
+```{note}
+At this time the V1DD dataset does not have static meshes. The dynamic meshes can be loaded from the path: `graphene://https://api.em.brain.allentech.org/segmentation/table/v1dd_public`
+```
+
+
+
 ## Downloading Meshes
 
 The easiest tool for downloading MICrONs meshes is [Meshparty](https://github.com/sdorkenw/MeshParty), which is a python module that can be installed with `pip install meshparty`.
-Documentation for Meshparty can be found [here](https://meshparty.readthedocs.io/en/latest/).
 
-Once installed, the typical way of getting meshes is by using a "MeshMeta" client that is told both the internet location of the meshes (`cv_path`) and a local directory in which to store meshes (`disk_cache_path`).
+The MeshParty object has more useful properties and attributes
+such as:
+* a scipy.csgraph sparse graph object (mesh.csgraph)
+* a networkx graph object (mesh.nxgraph) 
+
+Read more about what you can do with MeshParty on its [Documentation](https://meshparty.readthedocs.io/en/latest/?badge=latest).
+
+In particular it lets you associate _skeletons_, and _annotations_ onto the mesh into a "meshwork" object. 
+
+Once installed, the typical way of getting meshes is by using a "MeshMeta" client that is told both the internet location of the meshes (cloud-volume path or `cv_path`) and a local directory in which to store meshes (`disk_cache_path`).
 Once initialized, the MeshMeta client can be used to download meshes for a given segmentation using its root id (`seg_id`).
 The following code snippet shows how to download an example mesh using a directory "`meshes`" as the local storage folder. 
 
-```{code-block} python
+```{code-cell} python
+:tags: [remove-stderr]
+
 import os
 from meshparty import trimesh_io
 from caveclient import CAVEclient
 client = CAVEclient('minnie65_public')
 
 # set version, for consistency across time
-client.materialize.version = 1078 # Current as of Summer 2024
+client.materialize.version = 1507 # Current as of Summer 2025
 
 mm = trimesh_io.MeshMeta(
   cv_path=client.info.segmentation_source(),
   disk_cache_path="meshes",
 )
 
-root_id = 864691135014128278
+root_id = 864691135545730856
 mesh = mm.mesh(seg_id=root_id)
 ```
 
@@ -50,8 +101,10 @@ One convenience of using the `MeshMeta` approach is that if you have already dow
 
 If you have to download many meshes, it is somewhat faster to use the bulk `download_meshes` function and use multiple threads via the `n_threads` argument. If you download them to the same folder used for the MeshMeta object, they can be loaded through the same interface.
 
-```{code-block} python
-root_ids = [864691135014128278, 864691134940133219]
+
+
+```python
+root_ids = [864691135014128278, 864691135492614239]
 mm = trimesh_io.download_meshes(
     seg_ids=root_ids,
     target_dir='meshes',
@@ -60,9 +113,13 @@ mm = trimesh_io.download_meshes(
 )
 ```
 
+
+
 ```{note}
 Meshes can be hundreds of megabytes in size, so be careful about downloading too many if the internet is not acting well or your computer doesn't have much disk space!
 ```
+
+
 
 ## Healing Mesh Gaps
 
@@ -79,9 +136,9 @@ However, information collected during proofreading allows one to partially repai
 If you are just visualizing a mesh, these gaps are not a problem, but if you want to do analysis on the mesh, you will want to heal these gaps.
 Conveniently, there's a function to do this:
 
-```{code-block} python
+```{code-cell} python
 mesh.add_link_edges(
-    seg_id=864691134940133219, # This needs to be the same as the root id used to download the mesh
+    seg_id=root_id, # This needs to be the same as the root id used to download the mesh
     client=client.chunkedgraph,
 )
 ```
@@ -98,10 +155,13 @@ Several of the most important properties are:
 * `mesh.link_edges` : An `M_l x 2` list of integers, with each row specifying a pair of "link edges" that were used to heal gaps based on proofreading edits.
 * `mesh.graph_edges` : An `(M+M_l) x 2` list of integers, with each row specifying a pair of graph edges, which is the collection of both `mesh.edges` and `mesh.link_edges`.
 * `mesh.csgraph` : A [Scipy Compressed Sparse Graph](https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html) representation of the mesh as an `NxN` graph of vertices connected to one another using graph edges and with edge weights being the distance between vertices. This is particularly useful for computing shortest paths between vertices.
+* `mesh.nxgraph` : a networkx graph object
 
 ```{important}
-MICrONs meshes are not generally "watertight", a property that would enable a number of properties to be computed natively by Trimesh. Because of this, Trimesh-computed properties relating to solid forms or volumes like `mesh.volume` or `mesh.center_mass` do not have sensible values and other approaches should be taken. Unfortunately, because of the Trimesh implementation of these properties it is up to the user to be aware of this issue.
+EM meshes are not generally "watertight", a property that would enable a number of properties to be computed natively by Trimesh. Because of this, Trimesh-computed properties relating to solid forms or volumes like `mesh.volume` or `mesh.center_mass` do not have sensible values and other approaches should be taken. Unfortunately, because of the Trimesh implementation of these properties it is up to the user to be aware of this issue.
 ```
+
+
 
 ## Visualization
 
@@ -135,13 +195,13 @@ In the following example, we will first mask out all vertices that aren't part o
 ```{code-block} python
 from meshparty import mesh_filters
 
-root_id =864691134940133219 
+root_id =864691135492614239 
 root_point = client.materialize.tables.nucleus_detection_v0(pt_root_id=root_id).query()['pt_position'].values[0] * [4,4,40]  # Convert the nucleus location from voxels to nanometers via the data resolution.
 
 mesh = mm.mesh(seg_id=root_id)
 # Heal gaps in the mesh
 mesh.add_link_edges(
-    seg_id=864691134940133219,
+    seg_id=root_id,
     client=client.chunkedgraph,
 )
 
@@ -225,4 +285,3 @@ align: center
 ---
 Scatterplot of skeleton vertices as a point cloud.
 :::
-

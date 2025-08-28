@@ -62,8 +62,8 @@ The V1 Deep-Dive (V1DD) Dataset, collected from 2020-2022, publicly available si
 Characterizing the relationship between neural function and connectivity is a central problem in
 visual sensory processing. In order to explore this relationship, we have recorded visual
 responses from pan-excitatory neurons within an 800X800 um region of primary visual cortex,
-spanning all visual layers from pia to white matter. This includes ~13,000 neurons per mouse in
-4 mice total, collected from 250 2-photon and 7 3-photon calcium imaging planes spaced by ~16
+spanning all visual layers from pia to white matter. This includes ~50,000 neurons per mouse in
+4 mice total, collected from 150 2-photon and 7 3-photon calcium imaging planes spaced by ~16
 um. This dataset will be used to examine the single-cell and population activity in primary visual
 cortex, and along with electron microscopic reconstruction from the same tissue, will serve as a
 valuable resource in studying the functional connectome in mouse cortex. A wide variety of
@@ -73,7 +73,6 @@ field profile, direction and orientation selectivity indices, reliability of res
 of response. 
 
 See more about the [V1DD Physiology](https://allenswdb.github.io/physiology/ophys/V1DD/V1DD-overview.html) under the Physiology section of the databook. 
-
 
 These data are poised to focus on questions of visual encoding and population coding. Of particular focus is questions regarding surround suppression, where having a stimulus that extends beyond a neurons classical receptive field can suppress its response. Comparing the responses to the windowed and full field gratings can reveal such surround suppression - which can potentially be related to differences in connectivity patterns. Surround suppression has also been found to be stronger in superficial layers (e.g. layer 2/3) compared to deeper layers (e.g. layer 5), which can be explored in this dataset.
 

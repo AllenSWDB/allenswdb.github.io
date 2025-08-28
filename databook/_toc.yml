@@ -22,6 +22,7 @@ parts:
       - file: background/CCF.md
       - file: background/metadata.md
     - file: physiology/physiology
+      title: Physiology & Behavior
       sections:
       - file: physiology/ophys/ophys-overview
         title: Optical Physiology
@@ -95,6 +96,7 @@ parts:
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
           - file: physiology/ephys/np-ultra/npultra-psychedelics-accessing-data
       - file: physiology/stimuli/stimuli
+        title: Stimuli and Behavioral Tasks
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
@@ -103,6 +105,7 @@ parts:
           title: Dynamic foraging
           sections:
           - file: physiology/stimuli/dynamic-foraging/dynamic-foraging-data
+            title: Accessing dynamic foraging data
         # - file: physiology/stimuli/brain-computer-interface
       # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content

@@ -18,12 +18,21 @@ Basket cell
 Bipolar cell
   A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
 
+BCI
+Brain Computer Interface
+  A method of controlling a computer signal through the activity of a neuron. This can be extended to other types of devices (e.g. joysticks or robotic arms). This is also often referred to as "Brain Machine Interface"
+
 CCF
 Common Coordinate Framework
   The [CCF](background/CCF.md) is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
+ChR2
+Channelrhodopsin
+  A light-gated ion channel used in the field of optogenetics to control neuronal activity with light. 
+
 Container
   *There is no consistent use of this term*
+  Most often this refers to the set of recording sessions for a single ophys imaging plane, but can also refer to the set of sessions for an animal.
 
 Cre line
   The Cre-lox system is a site-specific recombinase technology. Cre-recombinase
@@ -53,6 +62,7 @@ Ephys
 
 Experiment
   *There is no consistent use of this term*
+  It can refer to a stimulus protocol, an entire data collection campaign, or a single session. It is highly ambiguous.
 
 Fast spiking neuron
 FSN
@@ -67,7 +77,7 @@ FSI
     to putatively label neurons with narrow spikes as particular cell types,
     such as {term}`PV+ neuron`s, among others.
 
-fluorophore
+Fluorophore
   A type of molecule which absorb light and re-emit it at a longer wavelength 
   in a process called fluorescence. As a result, fluorophores fluoresce only 
   while exposed to a light source.
@@ -101,7 +111,7 @@ HVA
   etc. In the mouse, higher visual areas include: VISl, VIsal, VISpm, VISam,
   VISrl among others. For more, see {cite:t}`glickfeld_higher-order_2017`.
 
-hyperparameter
+Hyperparameter
   A free parameter that controls behaviors in machine learning algorithms. These
   are distinct from parameters which control behaviors of the models developed by
   the algorithms; hyperparameters affect how the algorithm finds the models in
@@ -110,6 +120,10 @@ hyperparameter
 Interneuron
   Also known as a local interneuron: a neuron that has short axons and synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
+
+Interspike interval
+ISI
+  The interspike interval is the the time between two sequential action potentials (spikes) of a neuron. The ISI is used in the quality control of spike-sorting for ephys experiments, assuring that spikes assigned to a unit don't fall within the refactory period of the neuron (a few milliseconds), indicating that there is contaimination between units.. ISI is also used to characterize firing patterns of neurons. 
 
 Intrinsic signal imaging
 ISI
@@ -127,7 +141,6 @@ ISI
   map the location of the whisker barrels in somatosensory cortex of the mouse.
   For additional papers using ISI to map the organization of the mouse visual
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
-
 
 Local field potential
 LFP
@@ -147,6 +160,10 @@ Minnie column
 
 Minnie dataset
   A colloquial name for the millimeter-scale MICrONs electron microscopy dataset.
+
+NWB
+Neurodata Without Borders
+  A standardized file format for physiology and behavior data. All of our physiology and behavior data is stored in NWB files. The Visual Coding and Visual Behavior data are in NWB files with a hdf backend, while the newer data (V1DD, BCI, Dynamic Foraging, NP Ultra & Psychedelics) have a Zarr backend - which is optimized for cloud access. More info can be found [here](https://nwb.org/)
 
 Neurogliaform cell
   A type of interneuron that makes a diffuse axonal arbor and is thought to release {term}`GABA` through both synaptic release and volume transmission, non-selectively inhibiting neurons nearby.
@@ -302,7 +319,7 @@ Unit
   included units are well isolated from their neighbors.
 
 VIP cell
-  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for \ context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Waveform
 Spike

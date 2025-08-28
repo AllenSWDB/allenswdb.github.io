@@ -31,6 +31,9 @@ PAC_cell_type_lookup_table_nwb
 exaSPIM_609281_2022-11-03_13-49-18_reconstructions
 SWDB 2024 CTLUT data
 brainglobe_atlasassets_2024-08-01
+ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22 #NP Ultra example
+single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09 #BCI example
+behavior_761433_2025-03-27_08-51-54_processed_2025-03-28_05-00-28 #Dynamic Foraging example
 ```
 
 ## Adding New Jupyter Notebooks

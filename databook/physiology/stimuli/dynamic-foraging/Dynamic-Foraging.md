@@ -26,7 +26,7 @@ In our experiments, thirsty, head-restrained mice perform hundreds of trials eac
 
 :::{figure} /resources/DF_task.png
 ---
-width: 300px
+width: 400px
 align: center
 ---
 :::
@@ -56,18 +56,20 @@ The central hypothesis for how mice behave in the dynamic foraging task is that 
 
 :::{figure} /resources/DF_equation.png
 ---
-width: 300px
+width: 500
 align: center
 ---
 :::
 
 :::{figure} /resources/DF_learning.png
 ---
-width: 300px
+width: 500
 align: center
 ---
 :::
 Fig. 3. Reward-history-dependent learning within and across sessions. (a) Regression coefficients develop over training stages and display exponential weighting as a function of trial history. (b) Reward-history-dependent learning evolves smoothly across learning stages.
+
+
 
 ## Reinforcement-learning models
 
@@ -75,7 +77,6 @@ Reinforcement-learning models are useful for inferring the “hidden” variable
 
 :::{figure} /resources/DF_Qvalues.png
 ---
-width: 300px
 align: center
 ---
 :::
