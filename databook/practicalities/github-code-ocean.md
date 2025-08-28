@@ -4,7 +4,8 @@
 ## GitHub: Create a new repository using one of the templates
 
 - Find the templates here: https://github.com/AllenSWDB/ 
-    Example template: https://github.com/AllenSWDB/swdb_visualbehavior_template
+    SDK template: https://github.com/AllenSWDB/swdb2025_allensdk_environment
+    PyNWB template: https://github.com/AllenSWDB/swdb2025_pynwb_environment
 
 - Use a template to make a new repository. Click the `Use this template` button in the top right corner:
 
