@@ -202,7 +202,7 @@ For details about cell subtypes, reference [this nomenclature page](https://gith
   - Layer 5 **e**xtra**t**elencephalic cells 
 * - `L5NP`
   - Excitatory
-  - Layer 5 near-projecting cells
+  - Layer 5 **n**ear-**p**rojecting cells
 * - `L6IT`
   - Excitatory
   - Layer 6 **i**ntra**t**elencephalic cells
@@ -236,7 +236,7 @@ A similar process to `cell_type_multifeature_v1` above, but with more fine split
 
 ### Neuron-soma table
 
-table name: `neurons_soma_model`
+Table name: `neurons_soma_model`
 
 A subset of nucleus detections predicted be neurons from a model trained on soma and nucleus features. Objects with two cell bodies merged together will likely not be included here, as the classifier was trained on isolated soma only. The table is effectively a filter on `nucleus_detection_v0` and has no additional information
 
@@ -308,8 +308,6 @@ The specific strategies are as follows:
   - The dendrite had incorrectly-merged axon and dendritic segments comprehensively removed, meaning the input synapses are accurate. The dendrite may be incorrectly truncated by segmentation error. Not all dendrite tips have been checked for extension. No comprehensive attempt was made to re-attach spine heads.
 * - `dendrite_extended`
   - The dendrite had incorrectly-merged axon and dendritic segments comprehensively removed, meaning the input synapses are accurate. Every tip was identified, manually inspected, and extended if possible. No comprehensive attempt was made to re-attach spine heads.
-* - `axon_interareal`
-  - The axon was extended with a preference for branches that projected to other brain areas. Some axon branches were fully extended, but local connections may be incomplete. Output synapses represent a sampling of potential partners.
 * - `axon_partially_extended`
   - The axon was extended outward from the soma, following each branch to its termination. Output synapses represent a sampling of potential partners.
 * - `axon_fully_extended`
@@ -395,7 +393,7 @@ Data access example:
 client.materialize.query_table('functional_coregistration_manual_2')
 
 # Content-aware query
-client.materialize.tables.functional_coregistration_manual_2(id=example_nucleus_id).query()
+client.materialize.tables.functional_coregistration_manual_2(pt_root_id)=example_root_id).query()
 ```
 
 
