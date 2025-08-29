@@ -118,17 +118,17 @@ parts:
         - file: anatomy/microns-em/em-dash-apps.md
         - file: anatomy/microns-em/em-caveclient-setup.md
         - file: anatomy/microns-em/em-querying-tables.md
-	- file: anatomy/microns-em/em-coordinates.md
-        - file: anatomy/microns-em/key-tables.md
-          sections:
+      - file: anatomy/microns-em/em-coordinates.md
+      - file: anatomy/microns-em/key-tables.md
+        sections:
           - file: anatomy/microns-em/em-microns-tables.md
           - file: anatomy/microns-em/em-v1dd-tables.md
-        - file: anatomy/microns-em/em-volume-data.md
-        - file: anatomy/microns-em/em-skeletons.md
-        - file: anatomy/microns-em/em-meshes.md
-        - file: anatomy/microns-em/em-functional_data.md
-	- file: anatomy/microns-em/em-functional-v1dd.md
-        - file: anatomy/microns-em/em-ultrastructure.md
+      - file: anatomy/microns-em/em-volume-data.md
+      - file: anatomy/microns-em/em-skeletons.md
+      - file: anatomy/microns-em/em-meshes.md
+      - file: anatomy/microns-em/em-functional_data.md
+      - file: anatomy/microns-em/em-functional-v1dd.md
+      - file: anatomy/microns-em/em-ultrastructure.md
       - file: anatomy/single-cell-morphology/scm-background
         sections:
         -  file: anatomy/single-cell-morphology/scm-imageprocessing.md
