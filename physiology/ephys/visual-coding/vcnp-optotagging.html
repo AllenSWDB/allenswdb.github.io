@@ -1,0 +1,1810 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Optotagging Analysis &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-optotagging';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-optotagging.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Full example of accessing Visual Coding Neuropixels data" href="vcnp-session.html" />
+    <link rel="prev" title="Local field potential (LFP)" href="vcnp-lfp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-optotagging.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-optotagging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-optotagging.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Optotagging Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-datasets-of-interest">Finding datasets of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-optotagging-stimuli">Types of optotagging stimuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-spikes-to-light-pulses">Aligning spikes to light pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-references-cre-units">Identifying Cre+ units</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-across-genotypes">Differences across genotypes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="optotagging-analysis">
+<h1>Optotagging Analysis<a class="headerlink" href="#optotagging-analysis" title="Permalink to this heading">#</a></h1>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook will demonstrate how to analyze responses to optotagging
+stimuli in Neuropixels Brain Observatory datasets. Optotagging makes it possible
+to link <em>in vivo</em> spike trains to genetically defined cell classes. By
+expressing a light-gated ion channel (in this case, ChR2) in a Cre-dependent
+manner, we can activate Cre+ neurons with light pulses delivered to the cortical
+surface. Units that fire action potentials in response to these light pulses are
+likely to express the gene of interest.</p>
+<p>Of course, there are some shortcomings to this approach, most notably that the
+presence of light artifacts can create the appearance of false positives, and
+that false negatives (cells that are Cre+ but do not respond to light) are
+nearly impossible to avoid. We will explain how to deal with these caveats in
+order to incorporate the available cell type information into your analyses.</p>
+<p>This tutorial will cover the following topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-optotag-datasets"><span class="std std-ref">Finding datasets of interest</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-optotagging-stim"><span class="std std-ref">Types of optotagging stimuli</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-opto-alignment"><span class="std std-ref">Aligning spikes to light pulses</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-cre-units"><span class="std std-ref">Identifying Cre+ units</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-genotype-differences"><span class="std std-ref">Differences across genotypes</span></a></p></li>
+</ul>
+<p>This tutorial assumes you’ve already created a data cache, or are working with
+NWB files on AWS. If you haven’t reached that step yet, we recommend going
+through the <a class="reference internal" href="vcnp-data-access.html"><span class="doc">data access tutorial</span></a> first.</p>
+<p>Functions related to analyzing responses to visual stimuli will be covered in
+other tutorials. For a full list of available tutorials, see the
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">SDK documentation</a>.</p>
+<p>First, let’s deal with the necessary imports:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll create an <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object that points to a new or existing manifest file.</p>
+<p>If you’re not sure what a manifest file is or where to put it, please check out
+<a class="reference internal" href="vcnp-data-access.html"><span class="doc">data access tutorial</span></a> before going further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example cache directory path, it determines where downloaded data will be stored</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/&#39;</span>
+<span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-datasets-of-interest">
+<span id="content-references-optotag-datasets"></span><h2>Finding datasets of interest<a class="headerlink" href="#finding-datasets-of-interest" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table contains information about all the experiments available in
+the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code>. The <code class="docutils literal notranslate"><span class="pre">full_genotype</span></code> column contains information about
+the genotype of the mouse used in each experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_table</span><span class="p">()</span>
+
+<span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wt/wt                                              30
+Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt      12
+Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt     8
+Vip-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt       8
+Name: full_genotype, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>About half the mice are wild type (<code class="docutils literal notranslate"><span class="pre">wt/wt</span></code>), while the other half are a cross
+between a Cre line and the Ai32 reporter line. The Cre mice express ChR2 in one
+of three interneuron subtypes: Parvalbumin-positive neurons (<code class="docutils literal notranslate"><span class="pre">Pvalb</span></code>),
+Somatostatin-positive neurons (<code class="docutils literal notranslate"><span class="pre">Sst</span></code>), and Vasoactive Intestinal Polypeptide
+neurons (<code class="docutils literal notranslate"><span class="pre">Vip</span></code>). We know that these genes are expressed in largely
+non-overlapping populations of inhibitory cells, and that, taken together, they
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3556905/#!po=8.92857">cover nearly the entire range of cortical GABAergic neurons</a>,
+with the caveat that VIP+ cells are a subset of a larger group of
+5HT3aR-expressing cells.</p>
+<p>To find experiments performed on a specific genotype, we can filter the sessions
+table on the <code class="docutils literal notranslate"><span class="pre">full_genotype</span></code> column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pvalb_sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;Pvalb&#39;</span><span class="p">)]</span>
+
+<span class="n">pvalb_sessions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>published_at</th>
+      <th>specimen_id</th>
+      <th>session_type</th>
+      <th>age_in_days</th>
+      <th>sex</th>
+      <th>full_genotype</th>
+      <th>unit_count</th>
+      <th>channel_count</th>
+      <th>probe_count</th>
+      <th>ecephys_structure_acronyms</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>721123822</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>707296982</td>
+      <td>brain_observatory_1.1</td>
+      <td>125.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>444</td>
+      <td>2229</td>
+      <td>6</td>
+      <td>[MB, SCig, PPT, NOT, DG, CA1, VISam, nan, LP, ...</td>
+    </tr>
+    <tr>
+      <th>746083955</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>726170935</td>
+      <td>brain_observatory_1.1</td>
+      <td>98.0</td>
+      <td>F</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>582</td>
+      <td>2216</td>
+      <td>6</td>
+      <td>[VPM, TH, LGd, CA3, CA2, CA1, VISal, nan, grey...</td>
+    </tr>
+    <tr>
+      <th>760345702</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>739783171</td>
+      <td>brain_observatory_1.1</td>
+      <td>103.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>501</td>
+      <td>1862</td>
+      <td>5</td>
+      <td>[MB, TH, PP, PIL, DG, CA3, CA1, VISal, nan, gr...</td>
+    </tr>
+    <tr>
+      <th>773418906</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>757329624</td>
+      <td>brain_observatory_1.1</td>
+      <td>124.0</td>
+      <td>F</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>546</td>
+      <td>2232</td>
+      <td>6</td>
+      <td>[PPT, NOT, SUB, ProS, CA1, VISam, nan, APN, DG...</td>
+    </tr>
+    <tr>
+      <th>797828357</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>776061251</td>
+      <td>brain_observatory_1.1</td>
+      <td>107.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>611</td>
+      <td>2232</td>
+      <td>6</td>
+      <td>[PPT, MB, APN, NOT, HPF, ProS, CA1, VISam, nan...</td>
+    </tr>
+    <tr>
+      <th>829720705</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>811322619</td>
+      <td>functional_connectivity</td>
+      <td>112.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>529</td>
+      <td>1841</td>
+      <td>5</td>
+      <td>[SCig, SCop, SCsg, SCzo, POST, VISp, nan, CA1,...</td>
+    </tr>
+    <tr>
+      <th>839557629</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>821469666</td>
+      <td>functional_connectivity</td>
+      <td>115.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>450</td>
+      <td>1853</td>
+      <td>5</td>
+      <td>[APN, NOT, MB, DG, CA1, VISam, nan, VISpm, LGd...</td>
+    </tr>
+    <tr>
+      <th>840012044</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>820866121</td>
+      <td>functional_connectivity</td>
+      <td>116.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>758</td>
+      <td>2298</td>
+      <td>6</td>
+      <td>[APN, DG, CA1, VISam, nan, LP, VISpm, VISp, LG...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The table above contains 8 sessions, 5 of which used the <code class="docutils literal notranslate"><span class="pre">brain_observatory_1.1</span></code>
+visual stimulus, and 3 of which used the <code class="docutils literal notranslate"><span class="pre">functional_connectivity</span></code> stimulus. Any
+experiments with the same stimulus set are identical across genotypes.
+Importantly, the optotagging stimulus does not occur until the end of the
+experiment, so any changes induced by activating a specific set of interneurons
+will not affect the visual responses that we measure.</p>
+</section>
+<section id="types-of-optotagging-stimuli">
+<span id="content-references-optotagging-stim"></span><h2>Types of optotagging stimuli<a class="headerlink" href="#types-of-optotagging-stimuli" title="Permalink to this heading">#</a></h2>
+<p>Let’s load one of the above sessions to see how to extract information about the
+optotagging stimuli that were delivered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">pvalb_sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The optotagging stimulus table is stored separately from the visual stimulus
+table. So instead of calling <code class="docutils literal notranslate"><span class="pre">session.stimulus_presentations</span></code>, we will use
+<code class="docutils literal notranslate"><span class="pre">session.optogenetic_stimulation_epochs</span></code> to load a DataFrame that contains the
+information about the optotagging stimuli:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>condition</th>
+      <th>level</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>duration</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9208.46044</td>
+      <td>a single square pulse</td>
+      <td>2.0</td>
+      <td>9208.46544</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9210.64062</td>
+      <td>a single square pulse</td>
+      <td>1.7</td>
+      <td>9210.65062</td>
+      <td>pulse</td>
+      <td>0.010</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9212.37064</td>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>1.7</td>
+      <td>9213.37064</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9214.40076</td>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>1.3</td>
+      <td>9215.40076</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9216.55091</td>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>2.0</td>
+      <td>9217.55091</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>9778.77516</td>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>2.0</td>
+      <td>9779.77516</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>9780.72530</td>
+      <td>half-period of a cosine wave</td>
+      <td>2.0</td>
+      <td>9781.72530</td>
+      <td>raised_cosine</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>9782.66528</td>
+      <td>a single square pulse</td>
+      <td>1.3</td>
+      <td>9782.67028</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>9784.81538</td>
+      <td>a single square pulse</td>
+      <td>1.3</td>
+      <td>9784.82038</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>9786.60547</td>
+      <td>a single square pulse</td>
+      <td>1.3</td>
+      <td>9786.61547</td>
+      <td>pulse</td>
+      <td>0.010</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>This returns a table with information about each optotagging trial. To find the
+unique conditions across all trials, we can use the following Pandas syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;stimulus_name&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span><span class="s1">&#39;level&#39;</span><span class="p">]</span>
+
+<span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">,</span><span class="s1">&#39;stop_time&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>level</th>
+      <th>stimulus_name</th>
+      <th>duration</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>1.3</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>1.7</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.5 ms pulses at 10 Hz</td>
+      <td>2.0</td>
+      <td>fast_pulses</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>a single square pulse</td>
+      <td>1.3</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>a single square pulse</td>
+      <td>1.7</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>a single square pulse</td>
+      <td>2.0</td>
+      <td>pulse</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>a single square pulse</td>
+      <td>1.3</td>
+      <td>pulse</td>
+      <td>0.010</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a single square pulse</td>
+      <td>1.7</td>
+      <td>pulse</td>
+      <td>0.010</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>a single square pulse</td>
+      <td>2.0</td>
+      <td>pulse</td>
+      <td>0.010</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>half-period of a cosine wave</td>
+      <td>1.3</td>
+      <td>raised_cosine</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>half-period of a cosine wave</td>
+      <td>1.7</td>
+      <td>raised_cosine</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>half-period of a cosine wave</td>
+      <td>2.0</td>
+      <td>raised_cosine</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The optotagging portion of the experiment includes four categories of blue light
+stimuli: 2.5 ms pulses delivered at 10 Hz for one second, a single 5 ms pulse, a
+single 10 ms pulse, and a raised cosine pulse lasting 1 second. All of these
+stimuli are delivered through a 400 micron-diameter fiber optic cable positioned
+to illuminate the surface of visual cortex. Each stimulus is delivered at one of
+three power levels, defined by the peak voltage of the control signal delivered
+to the light source, not the actual light power at the tip of the fiber.</p>
+<p>Unfortunately, light power has not been perfectly matched across experiments. A
+little more than halfway through the data collection process, we switched from
+delivering light through an LED (maximum power at fiber tip = 4 mW) to a laser
+(maximum power at fiber tip = 35 mW), in order to evoke more robust optotagging
+responses. To check whether or not a particular experiment used a laser, you can
+use the following filter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="mi">789848216</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We realize that this makes it more difficult to compare results across
+experiments, but we decided it was better to improve the optotagging yield for
+later sessions than continue to use light levels that were not reliably driving
+spiking responses.</p>
+</section>
+<section id="aligning-spikes-to-light-pulses">
+<span id="content-references-opto-alignment"></span><h2>Aligning spikes to light pulses<a class="headerlink" href="#aligning-spikes-to-light-pulses" title="Permalink to this heading">#</a></h2>
+<p>Aligning spikes to light pulses is a bit more involved than aligning spikes to
+visual stimuli. This is because we haven’t yet created convenience functions for
+performing this alignment automatically, such as
+<code class="docutils literal notranslate"><span class="pre">session.presentationwise_spike_times</span></code> or
+<code class="docutils literal notranslate"><span class="pre">session.presentationwise_spike_counts</span></code>. We are planning to incorporate such
+functions into the AllenSDK in the future, but for now, you’ll have to write
+your own code for extracting spikes around light pulses (or copy the code
+below).</p>
+<p>Let’s choose a stimulus condition (10 ms pulses) and a set of units (visual
+cortex only), then create a DataArray containing binned spikes aligned to the
+start of each stimulus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mf">0.009</span><span class="p">)</span> <span class="o">&amp;</span> \
+                                                <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)]</span>
+
+<span class="n">units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;VIS&#39;</span><span class="p">)]</span>
+
+<span class="n">time_resolution</span> <span class="o">=</span> <span class="mf">0.0005</span> <span class="c1"># 0.5 ms bins</span>
+
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="n">time_resolution</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">optotagging_spike_counts</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">units</span><span class="p">):</span>
+
+    <span class="n">time_resolution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">))</span>
+
+    <span class="n">spike_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trials</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">))</span> <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">unit_idx</span><span class="p">,</span> <span class="n">unit_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+
+        <span class="n">spike_times</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spike_times</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">trial_idx</span><span class="p">,</span> <span class="n">trial_start</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trials</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+
+            <span class="n">in_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">spike_times</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">trial_start</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">*</span> \
+                       <span class="p">(</span><span class="n">spike_times</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">trial_start</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+            <span class="n">binned_times</span> <span class="o">=</span> <span class="p">((</span><span class="n">spike_times</span><span class="p">[</span><span class="n">in_range</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">trial_start</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">/</span> <span class="n">time_resolution</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+            <span class="n">spike_matrix</span><span class="p">[</span><span class="n">trial_idx</span><span class="p">,</span> <span class="n">binned_times</span><span class="p">,</span> <span class="n">unit_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;spike_counts&#39;</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">spike_matrix</span><span class="p">,</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;trial_id&#39;</span><span class="p">:</span> <span class="n">trials</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">:</span> <span class="n">bin_edges</span><span class="p">,</span>
+            <span class="s1">&#39;unit_id&#39;</span><span class="p">:</span> <span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="p">},</span>
+        <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;trial_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">,</span> <span class="s1">&#39;unit_id&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">optotagging_spike_counts</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this DataArray to plot the average firing rate for each unit as a
+function of time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_optotagging_response</span><span class="p">(</span><span class="n">da</span><span class="p">):</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;trial_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">/</span> <span class="n">time_resolution</span><span class="p">,</span>
+               <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">),</span>
+                       <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)],</span>
+               <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">bound</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.0005</span><span class="p">,</span> <span class="mf">0.0095</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Unit #&#39;</span><span class="p">)</span>
+
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean firing rate (Hz)&#39;</span><span class="p">)</span>
+
+<span class="n">plot_optotagging_response</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/0d6d2dc11b827f56cb26a3373a8824aaa4c72b43e8d385ac1eb8390e4320361f.png" src="../../../_images/0d6d2dc11b827f56cb26a3373a8824aaa4c72b43e8d385ac1eb8390e4320361f.png" />
+</div>
+</div>
+<p>In this plot, we can see that a number of units increase their firing rate during the stimulus window, firing a burst of around three spikes. This is typical for Parvalbumin-positive neurons, which fire at high rates under natural conditions.</p>
+<p>However, there are also some units that seem to fire at the very beginning and/or very end of the light pulse. These spikes are almost certainly artifactual, as it takes at least 1 ms to generate a true light-evoked action potential. Therefore, we need to disregard these low-latency “spikes” in our analysis.</p>
+</section>
+<section id="content-references-cre-units">
+<span id="identifying-cre-units"></span><h2>Identifying Cre+ units<a class="headerlink" href="#content-references-cre-units" title="Permalink to this heading">#</a></h2>
+<p>Now that we know how to align spikes, we can start assessing which units are
+reliably driven by the optotagging stimulus and are likely to be Cre+.</p>
+<p>There are a variety of ways to do this, but these are the most important things
+to keep in mind:</p>
+<ul class="simple">
+<li><p>Spikes that occur precisely at the start or end of a light pulse are likely
+artifactual, and need to be ignored.</p></li>
+<li><p>The bright blue light required for optotagging <em>can</em> be seen by the mouse, so
+any spikes that occur more than 40 ms after the stimulus onset may result from
+retinal input, as opposed to direct optogenetic drive.</p></li>
+<li><p>The rate of false negatives (Cre+ cells that are not light-driven) will vary
+across areas, across depths, and across sessions. We’ve tried our best to
+evenly illuminate the entire visual cortex, and to use light powers that can
+drive spikes throughout all cortical layers, but some variation is inevitable.</p></li>
+</ul>
+<p>For these reasons, we’ve found that the 10 ms pulses are the most useful
+stimulus for finding true light-evoked activity. These pulses provide a long
+enough artifact-free window to observe light-evoked spikes, but do not last long
+enough to be contaminated by visually driven activity.</p>
+<p>Using the DataArray we created previously, we can search for units that increase
+their firing rate during the 10 ms pulse:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time_relative_to_stimulus_onset</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="o">-</span><span class="mf">0.002</span><span class="p">))</span>
+
+<span class="n">baseline_rate</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;trial_id&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.008</span>
+
+<span class="n">evoked</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time_relative_to_stimulus_onset</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.009</span><span class="p">))</span>
+
+<span class="n">evoked_rate</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;trial_id&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.008</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing the baseline and evoked rates, we can see a clear subset of units with
+a light-evoked increase in firing rate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">baseline_rate</span><span class="p">,</span> <span class="n">evoked_rate</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">axis_limit</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],</span> <span class="s1">&#39;:k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Baseline rate (Hz)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Evoked rate (Hz)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/25e11aeebf592c4d1ffd45a9a776adecad8e0ba9dec3452cda207bda00094bff.png" src="../../../_images/25e11aeebf592c4d1ffd45a9a776adecad8e0ba9dec3452cda207bda00094bff.png" />
+</div>
+</div>
+<p>We can select a threshold, such as 2x increase in firing rate (red line) to find
+the IDs for units that are robustly driven by the light:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cre_pos_units</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">unit_id</span><span class="p">[(</span><span class="n">evoked_rate</span> <span class="o">/</span> <span class="p">(</span><span class="n">baseline_rate</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># add 1 to prevent divide-by-zero errors</span>
+
+<span class="n">cre_pos_units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([951131472, 951131470, 951131486, 951131478, 951131522, 951131506,
+       951131782, 951131534, 951131558, 951131556, 951131564, 951131560,
+       951131581, 951131589, 951131583, 951131593, 951131612, 951131643,
+       951131689, 951132054, 951132138, 951132140, 951132159, 951132184,
+       951132212, 951132205, 951132224, 951132236, 951133681, 951133822,
+       951133909, 951134030, 951134026, 951134066, 951134100, 951134199,
+       951136071, 951136175, 951136247, 951136394, 951136657, 951136717,
+       951136829, 951137028, 951137073, 951137204, 951140485, 951140617,
+       951141942, 951140861, 951140832, 951140821, 951141065, 951141978,
+       951141097, 951141154, 951141292, 951141373, 951141485, 951141536])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because this is a Parvalbumin-Cre mouse, we expect the majority of light-driven
+units to be fast-spiking interneurons. We can check this by plotting the mean
+waveforms for the units we’ve identified.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">unit_id</span> <span class="ow">in</span> <span class="n">cre_pos_units</span><span class="p">:</span>
+
+    <span class="n">peak_channel</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span><span class="o">.</span><span class="n">peak_channel_id</span>
+    <span class="n">wv</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel_id</span> <span class="o">=</span> <span class="n">peak_channel</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">time</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">wv</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (microvolts)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],[</span><span class="o">-</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span><span class="s1">&#39;:c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<img alt="../../../_images/c84f5d7a26a29922a5aa03c9134b11b8471995cb5f703ee9008392cd602871d0.png" src="../../../_images/c84f5d7a26a29922a5aa03c9134b11b8471995cb5f703ee9008392cd602871d0.png" />
+</div>
+</div>
+<p>Indeed, most of these units have stereotypical “fast-spiking” waveforms (with a
+peak earlier than 1 ms). The outliers are likely parvalbumin-positive pyramidal
+cells.</p>
+</section>
+<section id="differences-across-genotypes">
+<span id="content-references-genotype-differences"></span><h2>Differences across genotypes<a class="headerlink" href="#differences-across-genotypes" title="Permalink to this heading">#</a></h2>
+<p>The example above is a “best-case” scenario. As you look across experiments, you
+will find that there is substantial variability in the fraction of light-driven
+neurons. Some of this can be accounted for by differences in light power. But
+much of the variability can be attributed to genotype: parvalbumin+ cells are
+the most abundant type of inhibitory cells in the cortex, with somastatin+ cells
+coming next, and VIP+ cells a distant third. There are also likely differences
+in our ability to record from different interneuron subtypes. For example,
+parvalbumin+ cells generally fire at the highest rates, which makes them easier
+to detect in extracellular electrophysiology experiments. The size of the cell’s
+soma also plays a role in its recordability, and this likely varies across
+interneuron sub-classes.</p>
+<p>Overall, it is clear that VIP+ cells have proven the most difficult to identify
+through optotagging methods. The VIP-Cre mice we’ve recorded contain <em>very</em> few
+light-driven units: the number is on the order of one per probe, and is
+sometimes zero across the whole experiment. We’re not yet sure whether this is
+due to the difficultly of recording VIP+ cells with Neuropixels probes, or the
+difficulty of driving them with ChR2. To confounding things even further, VIP+
+cells tend to have a <em>disinhibitory</em> effect on the local circuit, so units that
+significantly increase their firing during the 1 s raised cosine light stimulus
+are not guaranteed to be Cre+.</p>
+<p>In any case, it will be helpful to look at some characteristic examples of
+light-evoked responses in Sst-Cre and Vip-Cre mice, so you know what to expect.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;Sst&#39;</span><span class="p">)]</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">sst_sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mf">0.009</span><span class="p">)</span> <span class="o">&amp;</span> \
+                                                <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)]</span>
+
+<span class="n">units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;VIS&#39;</span><span class="p">)]</span>
+
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.0005</span><span class="p">)</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">optotagging_spike_counts</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_optotagging_response</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/7421513bdf1d6c576c33e86c89c9fcea52e0e3834c11c67666058b3f29421191.png" src="../../../_images/7421513bdf1d6c576c33e86c89c9fcea52e0e3834c11c67666058b3f29421191.png" />
+</div>
+</div>
+<p>In this Sst-Cre mouse, we see a smaller fraction of light-driven units than in
+the Pvalb-Cre mouse. The light-driven units tend to spike at a range of
+latencies following light onset, rather than displaying the rhythmic firing
+pattern of Parvalbumin+ cells. Again, note that the spikes that are precisely
+aligned to the light onset or offset are likely artifactual.</p>
+<p>Now that we’ve computed the average responses, we can use the same method as
+above to find the units that are activated by the light.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time_relative_to_stimulus_onset</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="o">-</span><span class="mf">0.002</span><span class="p">))</span>
+
+<span class="n">baseline_rate</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;trial_id&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.008</span>
+
+<span class="n">evoked</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time_relative_to_stimulus_onset</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.009</span><span class="p">))</span>
+
+<span class="n">evoked_rate</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time_relative_to_stimulus_onset&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;trial_id&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.008</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">baseline_rate</span><span class="p">,</span> <span class="n">evoked_rate</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">axis_limit</span> <span class="o">=</span> <span class="mi">175</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],</span> <span class="s1">&#39;:k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">axis_limit</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Baseline rate (Hz)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Evoked rate (Hz)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/4e67077bf8a4d2f0b4c58c714d40dc6666bf9faaf3d63c0e76f5e569d7ffc276.png" src="../../../_images/4e67077bf8a4d2f0b4c58c714d40dc6666bf9faaf3d63c0e76f5e569d7ffc276.png" />
+</div>
+</div>
+<p>There are a smaller fraction of light-driven units in this Sst-Cre mouse, but the effect of optogenetic stimulation is still obvious. Let’s look at the waveforms for the units that increase their firing rate at least 2x above baseline:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cre_pos_units</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">unit_id</span><span class="p">[(</span><span class="n">evoked_rate</span> <span class="o">/</span> <span class="p">(</span><span class="n">baseline_rate</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">unit_id</span> <span class="ow">in</span> <span class="n">cre_pos_units</span><span class="p">:</span>
+
+    <span class="n">peak_channel</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span><span class="o">.</span><span class="n">peak_channel_id</span>
+    <span class="n">wv</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel_id</span> <span class="o">=</span> <span class="n">peak_channel</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">time</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">wv</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (microvolts)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],[</span><span class="o">-</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span><span class="s1">&#39;:c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<img alt="../../../_images/f1b7678fb0df72d68b71be3de5a4335bfdf99f66e3b87895b2b8673c54d40d53.png" src="../../../_images/f1b7678fb0df72d68b71be3de5a4335bfdf99f66e3b87895b2b8673c54d40d53.png" />
+</div>
+</div>
+<p>As expected, we see a mix of fast-spiking and regular-spiking waveforms, in
+contrast to the primarily fast-spiking waveforms of the Parvalbumin+ units.</p>
+<p>Now, let’s take a look at light-evoked activity in a VIP-Cre mouse:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vip_sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;Vip&#39;</span><span class="p">)]</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">vip_sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mf">0.009</span><span class="p">)</span> <span class="o">&amp;</span> \
+                                                <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">optogenetic_stimulation_epochs</span><span class="o">.</span><span class="n">duration</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)]</span>
+
+<span class="n">units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;VIS&#39;</span><span class="p">)]</span>
+
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.0005</span><span class="p">)</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">optotagging_spike_counts</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_optotagging_response</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/84d0edadaf998ff93bcb64bc9948618acd2219b5b6fe9c4578264344cd1d4d6e.png" src="../../../_images/84d0edadaf998ff93bcb64bc9948618acd2219b5b6fe9c4578264344cd1d4d6e.png" />
+</div>
+</div>
+<p>This response looks much different than the examples above. There is only one
+unit (out of more than 350 in cortex) that is obviously responding to the 10 ms
+light pulse. Even though the yield for VIP-Cre mice is extremely low, these
+units will be extremely valuable to analyze. If we can characterize the
+stereotypical firing patterns displayed by labeled VIP+ interneurons, we may be
+able to identify them in unlabeled recordings.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcnp-lfp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Local field potential (LFP)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcnp-session.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Full example of accessing Visual Coding Neuropixels data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-datasets-of-interest">Finding datasets of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-optotagging-stimuli">Types of optotagging stimuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-spikes-to-light-pulses">Aligning spikes to light pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-references-cre-units">Identifying Cre+ units</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-across-genotypes">Differences across genotypes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

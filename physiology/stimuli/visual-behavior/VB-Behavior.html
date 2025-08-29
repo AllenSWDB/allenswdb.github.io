@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Behavior Task Overview &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/stimuli/visual-behavior/VB-Behavior';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/stimuli/visual-behavior/VB-Behavior.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Dynamic Foraging" href="../dynamic-foraging/Dynamic-Foraging.html" />
+    <link rel="prev" title="Visual Stimuli" href="../passive-visual-stimuli/visual-stimuli-list.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../stimuli.html">Stimuli and Behavioral Tasks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/stimuli/visual-behavior/VB-Behavior.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/stimuli/visual-behavior/VB-Behavior.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/stimuli/visual-behavior/VB-Behavior.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Behavior Task Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-detection-task">Change Detection Task</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-flow-and-trial-types">Task Flow and Trial Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-training">Behavior Training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimuli">Visual Stimuli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-novelty">Stimulus Novelty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-parameters">Task Parameters</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-behavior-task-overview">
+<span id="vb-behavior"></span><h1>Visual Behavior Task Overview<a class="headerlink" href="#visual-behavior-task-overview" title="Permalink to this heading">#</a></h1>
+<p>The Visual Behavior Ophys and Visual Behavior Neuropixels datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.</p>
+<p>Running speed, licking, and reward delivery are measured during all behavior sessions. Pupil diameter and eye position are only measured during 2-photon or Neuropixels recording sessions.</p>
+<p><img alt="behavior_timeseries" src="../../../_images/behavior_timeseries_color.png" /></p>
+<section id="change-detection-task">
+<span id="id1"></span><h2>Change Detection Task<a class="headerlink" href="#change-detection-task" title="Permalink to this heading">#</a></h2>
+<p>The task consists of a series of sequentially presented visual stimuli and mice learn to report changes in stimulus identity by licking a spout to earn water rewards. In the final stage of the task, when neural activity measurements are made, natural scene images stimuli are presented for 250 milliseconds followed by a 500 millisecond gray screen interval. This requires that mice compare the current stimulus with the one they saw prior to the gray screen interval, which adds a working memory component to the task. During neural recordings, but not during training, 5% of non-change stimulus presentations are randomly omitted, interrupting the expected stimulus cadence. The stimuli and task parameters used during behavioral training are described in the <b>Behavior Training</b> section below.</p>
+<p><img alt="task" src="../../../_images/change_detection_task.png" /></p>
+<p>In this task, the start of a trial is not explicitly cued to the mouse, and the times of image changes are not predictable. The stimuli appear as a continuous stream, with a variable number of presentations of a given image before the identity of the stimulus changes.</p>
+<section id="task-flow-and-trial-types">
+<h3>Task Flow and Trial Types<a class="headerlink" href="#task-flow-and-trial-types" title="Permalink to this heading">#</a></h3>
+<p>On each trial of the task, a change time is selected from a geometric distribution between 4 and 12 flashes after the time of the last change or the last lick. On “go” trials, the image identity will change at the selected change time. If the mouse licks within the 750 millisecond response window, the trial is considered a <code class="docutils literal notranslate"><span class="pre">hit</span></code> and a reward is delivered. If the mouse fails to lick after the change, the trial is considered a <code class="docutils literal notranslate"><span class="pre">miss</span></code>. If the mouse licks prior to the scheduled change time, the trial is <code class="docutils literal notranslate"><span class="pre">aborted</span></code> and starts over again, using the same change time for up to 5 trials in a row. This is to discourage false alarm licks and help shape the behavior, by requiring that mice wait until the change time to respond and get a reward.</p>
+<p><img alt="change_times" src="../../../_images/change_time_trial_types.png" /></p>
+<p>On “catch” trials, a change time is drawn but the image identity does not change. If the mouse licks within the reward window following the sham change, the trial is considered a <code class="docutils literal notranslate"><span class="pre">false</span> <span class="pre">alarm</span></code> and no reward is delivered. Correctly witholding a lick on a catch trial is a <code class="docutils literal notranslate"><span class="pre">correct</span> <span class="pre">reject</span></code>. This definition of a <code class="docutils literal notranslate"><span class="pre">catch</span></code> trial is a conservative one, and only considers the non-change stimulus presentations that are drawn from the same distribution as the change times to be catch trials. A less restrictive definition could consider every non-change stimulus presentation as a catch. <code class="docutils literal notranslate"><span class="pre">aborted</span></code> trials can also be considered catch trials, as they represent false alarm licks prior to the scheduled change time.</p>
+<p><img alt="trial_types" src="../../../_images/Trial_diagram.png" /></p>
+<p>On change trials, a 3 second “grace period” occurs during which licking behavior does not influence the task flow, to allow time for mice to consume the reward.</p>
+<p><img alt="task_flow" src="../../../_images/task_flow.png" /></p>
+<p>As a result of the above contingencies, the number of times a given image is shown is determined by two things:</p>
+<ol class="arabic simple">
+<li><p>The distribution that the change times are drawn from</p></li>
+<li><p>Whether or not the mouse emits a false alarm lick before the image change is shown</p></li>
+</ol>
+<p>Any false alarm licks (licks that occur outside of the 750 ms reward window and 3 second consumption window following an image change) will abort the trial and the same image will continue to be repeated for the designated number of presentations selected for that trial. As an example, if the change time drawn for a given trial is 8 flashes, and the mouse emits a false alarm lick after 4 flashes, the trial is aborted and the same image continues to be shown for 8 more flashes, giving a total of 16 image repetitions before a change will occur. This serves to discourage false alarms by requiring that mice withhold licking in order to see an image change and have an opportunity for a reward.</p>
+</section>
+</section>
+<section id="behavior-training">
+<h2>Behavior Training<a class="headerlink" href="#behavior-training" title="Permalink to this heading">#</a></h2>
+<p>Mice learned the change detection task through a series of training stages, with transitions between stages determined by specific advancement criteria.</p>
+<p>On the very first day of training, mice observe changes in the orientation of full field static grating stimuli and are automatically rewarded at the time of the orientation change. This serves to form an association between stimulus changes and rewards, and to help the mice learn to interact with the lick spout. On the second day, rewards are contingent on the mouse licking the reward spout after the stimulus changes. In the next stage, a 500ms inter stimulus interval period with mean luminance gray screen is added between 250ms stimulus presentations, incorporating a short-term memory component to the task.</p>
+<p><img alt="training" src="../../../_images/automated_training.png" /></p>
+<p>Once mice successfully and consistently performed orientation change detection with flashed gratings, they moved to the image change detection version of the task. During image change detection, 8 natural scene images were presented during each behavioral session, for a total of 64 possible image transitions. When behavioral performance again reached criterion (d-prime &gt;1 for 2 out of 3 consecutive days), mice were transitioned to the 2-photon imaging or Neuropixels recording stage in which they performed the task during simultaneous measurement of neural activity and behavior.</p>
+<p>During recording sessions (but not during training), stimulus presentations are randomly omitted with a 5% probability, resulting in an extended gray screen period between two presentations of the same stimulus and disrupting the expected cadence of stimulus presentations. The change and pre-change stimulus presentations are never omitted.</p>
+<p><img alt="omissions_schematic" src="../../../_images/omissions.png" /></p>
+<section id="visual-stimuli">
+<h3>Visual Stimuli<a class="headerlink" href="#visual-stimuli" title="Permalink to this heading">#</a></h3>
+<p>Mice are initially trained with high contrast, full field, square wave static grating stimuli that change in orientation and phase. These simple stimuli were used to help mice learn the initial task rules with highly salient, easy to detect stimulus changes.</p>
+<p><img alt="gratings" src="../../../_images/gratings.png" /></p>
+<p>After learning the task with gratings, mice transitioned to performing the task with natural image stimuli. 8 images were shown in each session.</p>
+<p>The Visual Behavior Ophys project used different image sets in different groups of mice. Three groups of mice, indicated by their <code class="docutils literal notranslate"><span class="pre">project_code</span></code>, also called “dataset variant”, were shown image sets A and B. In some mice, image set A was used during training, and in other mice, image set B was used during training. This was done to provide a control for the effects of novelty on visual responses (i.e. whether the image set was seen during training or not) versus the effects of the stimulus features themselves (some images may drive stronger activity than others). See the <span class="xref myst">Visual Behavior Ophys</span> page for more details on the different cohorts and stimulus configurations.</p>
+<p><img alt="image_set_A" src="../../../_images/image_set_A.png" /></p>
+<p><img alt="image_set_B" src="../../../_images/image_set_B.png" /></p>
+<p>The Visual Behavior Neuropixels dataset used a distinct stimulus configuration that included a pair of shared images between the training set, image set G, and the novel image set, image set H. One of the Visual Behavior Ophys dataset variants, indicated by the <code class="docutils literal notranslate"><span class="pre">project_code</span></code> <code class="docutils literal notranslate"><span class="pre">VisualBehaviorMultiscope4areasx2d</span></code> used this same set of images, allowing comparison across the two datasets.</p>
+<p><img alt="image_set_G" src="../../../_images/image_set_G_shared.png" /></p>
+<p><img alt="image_set_H" src="../../../_images/image_set_H_shared.png" /></p>
+<p>The inclusion of 2 shared images between the familiar and novel image sets allows for examination of the effects of stimulus context on learned sensory responses. A key question is - do mice (behaviorally, or neurophysiologically) treat the two shared images the same, regardless of whether they are intermixed with other familiar stimuli versus when they are intermixed with novel stimuli?</p>
+</section>
+<section id="stimulus-novelty">
+<h3>Stimulus Novelty<a class="headerlink" href="#stimulus-novelty" title="Permalink to this heading">#</a></h3>
+<p>There are three different types of sessions with natural images, depending on which images were shown during training and which were shown during recording sessions. Assuming 1-8 represent familiar images (shown during training) and a-h represent novel images (shown for the first time during recordings), a given session can be one of the following types:</p>
+<ol class="arabic simple">
+<li><p>Familiar only sessions (ex: 1111444443333666666, where each number represents a unique familiar image)</p></li>
+<li><p>Novel only sessions (ex: aaaaaaggggeeeebbb, where each letter represents a unique novel image)</p></li>
+<li><p>Interleaved familiar and novel sessions (ex: 11111bbbbb22222fffffffbbbbb, where numbers indicate familiar and letters indicate novel images)</p></li>
+</ol>
+<p>In the first two session types, the transitions at image changes will always be a change from a familiar image to another familiar image, or from a novel image to another novel image. In the third type of session, you can get familiar-familiar transitions, novel-novel transitions, familiar-novel transitions, and novel-novel transitions.</p>
+<p>In the <b>Visual Behavior Neuropixels</b> dataset, mice are trained with familiar only sessions (type 1 described above), and tested with interleaved familiar and novel sessions (type 3 described above).</p>
+<p>In the <b>Visual Behavior Ophys</b> dataset, some cohorts of mice were trained with familiar only and tested with novel only sessions, and others were trained with familiar only and tested with interleaved familiar and novel images. This is described under the <b>Dataset Variants</b> section of the <span class="xref myst">Visual Behavior Ophys</span> page, and in the schematic below which describes the 2-photon imaging and stimulus configurations for each cohort of mice.</p>
+<p><img alt="data_variants" src="../../../_images/vbo_dataset_variants.png" /></p>
+<p>Image sets A and B (red and blue) are always familiar only or novel only, image set G (green) is familiar only, and image set H (purple) is interleaved familiar and novel (6 novel images, 2 familiar images shared with image set H).</p>
+<p>The <b>Visual Behavior Neuropixels</b> dataset used the same stimulus configuration as the 4th cohort of mice in the <b>Visual Behavior Ophys</b> dataset (train with image set G and test with interleaved image set H).</p>
+<p>These experimental design choices result in the dataset containing two types of stimulus novelty – 1) novelty based on local context (i.e. image changes), and 2) novelty in an absolute sense (i.e. images that were never seen before the current session). One could also consider image omissions as a third type of novelty.</p>
+</section>
+</section>
+<section id="session-types">
+<h2>Session Types<a class="headerlink" href="#session-types" title="Permalink to this heading">#</a></h2>
+<p>The stages of behavioral training and different types of neurophysiology sessions are described by their <code class="docutils literal notranslate"><span class="pre">session_type</span></code>. The <code class="docutils literal notranslate"><span class="pre">session_type</span></code> indicates whether the session occured during training or during neural activity measurements, as well as what stimulus was used and whether the session was active behavior or passive viewing session in the case of <b>Visual Behavior Ophys</b> sessions (<b>Visual Behavior Neuropixels</b> sessions have active and passive blocks in the same session).</p>
+<p>Parsing the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> names:</p>
+<p>The first component of the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> tells you whether the session was during <code class="docutils literal notranslate"><span class="pre">TRAINING</span></code> in the behavior facility, during <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> under the two photon microscope, or during <code class="docutils literal notranslate"><span class="pre">EPHYS</span></code> sessions with Neuropixels recordings (examples: <code class="docutils literal notranslate"><span class="pre">OPHYS_1_images_A</span></code>, <code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_B_handoff_ready</span></code>, <code class="docutils literal notranslate"><span class="pre">EPHYS_2_images_H</span></code>)</p>
+<p>The second component of the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> is a number that tells you the order in the training procedure or the intended order of the ophys imaging sequence (examples: <code class="docutils literal notranslate"><span class="pre">OPHYS_4_images_B</span></code>, <code class="docutils literal notranslate"><span class="pre">TRAINING_2_gratings_flashed</span></code>). For ophys sessions, you can also use the <code class="docutils literal notranslate"><span class="pre">session_number</span></code> column of the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> or <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code>.</p>
+<p>Note that ophys sessions can sometimes occur out of order due to QC failures and subsequent retakes, so the <code class="docutils literal notranslate"><span class="pre">date_of_acquisition</span></code>, as well as <code class="docutils literal notranslate"><span class="pre">prior_exposures_to_session_type</span></code> and <code class="docutils literal notranslate"><span class="pre">prior_exposures_to_image_set</span></code> columns of the metadata tables should be used to determine the precise order of sessions for each mouse.</p>
+<p>The third component of the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> tells you which image set was shown during that session (examples: <code class="docutils literal notranslate"><span class="pre">OPHYS_2_images_B</span></code>,  <code class="docutils literal notranslate"><span class="pre">EPHYS_1_images_G</span></code>). You can also use the <code class="docutils literal notranslate"><span class="pre">image_set</span></code> column of the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code>, <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code>, or <code class="docutils literal notranslate"><span class="pre">ecephys_session_table</span></code>.</p>
+<p>The final component of the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> provides additional information that is unique to the session, such as whether it was a <code class="docutils literal notranslate"><span class="pre">passive</span></code> session during ophys or a <code class="docutils literal notranslate"><span class="pre">habituation</span></code> session, or whether the mouse was in the <code class="docutils literal notranslate"><span class="pre">handoff_ready</span></code> state during training, or whether the reward volume was changed (examples: <code class="docutils literal notranslate"><span class="pre">TRAINING_3_images_G_10uL_reward</span></code>, <code class="docutils literal notranslate"><span class="pre">OPHYS_2_images_B_passive</span></code>).</p>
+<section id="task-parameters">
+<h3>Task Parameters<a class="headerlink" href="#task-parameters" title="Permalink to this heading">#</a></h3>
+<p>Task parameters for each <code class="docutils literal notranslate"><span class="pre">session_type</span></code> for <b>VisualBehaviorOphysProjectCache</b> datasets:</p>
+<p><img alt="task_parameters_ophys" src="../../../_images/task_parameters_ophys.png" /></p>
+<p>Note that the letter <code class="docutils literal notranslate"><span class="pre">X</span></code> is used here instead of the exact image set name because the Visual Behavior Ophys project used different image sets in different mice. See the <a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html#vb-ophys"><span class="std std-ref">Visual Behavior Ophys</span></a> page for more information on dataset variants.</p>
+<p>Task parameters for each <code class="docutils literal notranslate"><span class="pre">session_type</span></code> for <b>VisualBehaviorNeuropixelsProjectCache</b> datasets:</p>
+<p><img alt="task_parameters_neuropixels" src="../../../_images/task_parameters_neuropixels.png" /></p>
+<p>As you can see, there are some unique features of the early <code class="docutils literal notranslate"><span class="pre">TRAINING</span></code> sessions.</p>
+<p>The very first behavior session the mice ever experience (<code class="docutils literal notranslate"><span class="pre">TRAINING_0_gratings_autorewards_15min</span></code>) is an associative pairing procedure where changes in static grating stimuli are automatically rewarded, without requiring the mice to lick prior to reward delivery. This initial session helps to teach the mice that changes are associated with rewards.</p>
+<p>All subsequent sessions were operant behavior training sessions where reward delivery was contingent on the mice licking the reward spout to report that they had observed a change in image identity.</p>
+<p>The second training stage (<code class="docutils literal notranslate"><span class="pre">TRAINING_1_gratings</span></code>) also used grating stimuli, but required mice to lick to earn rewards.</p>
+<p>The third training stage (<code class="docutils literal notranslate"><span class="pre">TRAINING_2_gratings_flashed</span></code>) introduced a 500 millisecond gray screen interval in between changes in grating orientation. This requires the mouse to remember what was shown previously and perform a comparison with a short term memory delay. In this case, the question posed to the mice is - “is what i am seeing now the same thing that i saw 500 milliseconds ago?”</p>
+<p>Once mice consistently perform the task up to criterion level with gratings, they transition to natural scene images, and all subsequent sessions are performed with image change detection.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">TRAINING_5</span></code> stage, mice must consistently perform the task at criterion level (&gt;d-prime of 1) for at least 2 out of 3 days to graduate to the <code class="docutils literal notranslate"><span class="pre">handoff_ready</span></code> state. At this point, mice move on to either Ophys or Ephys recordings once there is availability on the recording systems for a new mouse. Thus, the time spent in <code class="docutils literal notranslate"><span class="pre">TRAINING_5</span></code> is not contingent on the animals behavior as it was for all previous stages. Instead, operational considerations determine when mice move from <code class="docutils literal notranslate"><span class="pre">TRAINING_5</span></code> to the neural recordings stage.</p>
+<p>Before the neural recordings begin, the mice spend several days habituating to performing the task on the 2-photon or neuropixels system, to get used to the different sights, sounds, and smells that are present compared to when they were training in the behavior facility. These <code class="docutils literal notranslate"><span class="pre">session_types</span></code> have the word <code class="docutils literal notranslate"><span class="pre">habituation</span></code> in the name.</p>
+<p>After habituation, mice progress through the subsequent stages roughly in order, regardless of task performance. Occasionally specific <code class="docutils literal notranslate"><span class="pre">session_type</span></code>s are re-acquired if the initial attempt did not pass quality control criteria. The goal is to acquire at least one successful session of each post-training <code class="docutils literal notranslate"><span class="pre">session_type</span></code> for <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> and <code class="docutils literal notranslate"><span class="pre">EPHYS</span></code> for each mouse.</p>
+<p>For the Visual Behavior Neuropixels dataset, there are only 2 <code class="docutils literal notranslate"><span class="pre">EPHYS</span></code> session types, one with image set G and one with image set H. Each session has an active behavior block, followed by a passive replay of the same stimulus sequence observed during behavior, but with the lick spout retracted.</p>
+<p>For Visual Behavior Ophys, there are 6 <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> session types, aimed at recording the same population of neurons across multiple days with familiar and novel images, as well as passive viewing and active behavior on different days. Often there can be multiple sessions acquired for each of the 6 <code class="docutils literal notranslate"><span class="pre">session_type</span></code>s due to quality control and retakes. QC is performed on a session wise basis and an imaging plane by imaging plane basis, so if one or two imaging planes of a multi-plane recording session fails to meet QC criteria, the entire session type can be recorded again on a subsequent day. This ensures that the dataset for each mouse is over-complete, rather than lacking in certain dimensions.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./physiology/stimuli/visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../passive-visual-stimuli/visual-stimuli-list.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Stimuli</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../dynamic-foraging/Dynamic-Foraging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dynamic Foraging</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-detection-task">Change Detection Task</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-flow-and-trial-types">Task Flow and Trial Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-training">Behavior Training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimuli">Visual Stimuli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-novelty">Stimulus Novelty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-parameters">Task Parameters</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

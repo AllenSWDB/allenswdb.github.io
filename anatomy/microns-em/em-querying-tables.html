@@ -1,0 +1,2293 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Programmatic Access &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'anatomy/microns-em/em-querying-tables';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/anatomy/microns-em/em-querying-tables.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coordinate Systems" href="em-coordinates.html" />
+    <link rel="prev" title="Setting up CAVEclient" href="em-caveclient-setup.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../anatomy.html">Anatomy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="em-background.html">Electron Microscopy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/anatomy/microns-em/em-querying-tables.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fanatomy/microns-em/em-querying-tables.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/anatomy/microns-em/em-querying-tables.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Programmatic Access</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveclient">CAVEclient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materialization-versions">Materialization versions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveclient-basics">CAVEclient Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-tables">Querying Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-queries">Filtering Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-synapses">Querying Synapses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-proofread-neurons">Querying Proofread neurons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proofread-neurons">Proofread neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-queries-by-proofreading-status">Filtering Queries by proofreading status</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="programmatic-access">
+<span id="em-query-tables-section"></span><h1>Programmatic Access<a class="headerlink" href="#programmatic-access" title="Permalink to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Before using any programmatic access to the data, <a class="reference internal" href="em-caveclient-setup.html#em-content-cave-setup"><span class="std std-ref">you first need to set up your CAVEclient token</span></a>.</p>
+</div>
+<section id="caveclient">
+<h2>CAVEclient<a class="headerlink" href="#caveclient" title="Permalink to this heading">#</a></h2>
+<p>Most programmatic access to the CAVE services occurs through CAVEclient, a Python client to access various types of data from the online services.</p>
+<p>Full documentation for CAVEclient <a class="reference external" href="http://caveclient.readthedocs.io">is available here</a>.</p>
+<p>To initialize a caveclient, we give it a <strong>datastack</strong>, which is a name that defines a particular combination of imagery, segmentation, and annotation database.</p>
+<p>For V1DD public data, use the datastack name <code class="docutils literal notranslate"><span class="pre">v1dd_public</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+<span class="n">datastack_name</span> <span class="o">=</span> <span class="s1">&#39;v1dd_public&#39;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="n">datastack_name</span><span class="p">)</span>
+
+<span class="c1"># set version, for consistency across time</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">1196</span> <span class="c1"># Current as of Summer 2025</span>
+
+<span class="c1"># Show the description of the datastack</span>
+<span class="n">client</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get_datastack_info</span><span class="p">()[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For the MICrONs public data, we use the datastack name <code class="docutils literal notranslate"><span class="pre">minnie65_public</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+<span class="n">datastack_name</span> <span class="o">=</span> <span class="s1">&#39;minnie65_public&#39;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="n">datastack_name</span><span class="p">)</span>
+
+<span class="c1"># set version, for consistency across time</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">1507</span> <span class="c1"># Current as of Summer 2025</span>
+
+<span class="c1"># Show the description of the datastack</span>
+<span class="n">client</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get_datastack_info</span><span class="p">()[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;This is the publicly released version of the minnie65 volume and segmentation. &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The rest of this tutorial entry will use the MICrONS dataset. The same functions apply to both datasets, however the <strong>table names</strong> may differ. Refer to the Key Annotation Tables pages for the respective datasets</p>
+<section id="materialization-versions">
+<h3>Materialization versions<a class="headerlink" href="#materialization-versions" title="Permalink to this heading">#</a></h3>
+<p>Data in CAVE is timestamped and periodically versioned - each (materialization) version corresponds to a specific timestamp. Individual versions are made publicly available. The Materialization client allows one to interact with the materialized annotation tables that were posted to the annotation service. These are called <strong>queries</strong> to the dataset, and available from <code class="docutils literal notranslate"><span class="pre">client.materialize</span></code>. For more, see the <a class="reference external" href="https://caveconnectome.github.io/CAVEclient/tutorials/materialization/">CAVEclient Documentation</a>.</p>
+<p>Periodic updates are made to the public datastack, which will include updates to the available tables. Some cells will have different <code class="docutils literal notranslate"><span class="pre">pt_root_id</span></code> because they have undergone <a class="reference internal" href="proofreading.html#em-proofreading-data-quality"><span class="std std-ref">proofreading</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For analysis consistency, is worth checking the version of the data you are using, and consider specifying the version with <code class="docutils literal notranslate"><span class="pre">client.version</span> <span class="pre">=</span> <span class="pre">your_version</span></code></p>
+<p>Read more about <a class="reference external" href="https://tutorial.microns-explorer.org/materialization-version.html">setting the version of your analysis</a> in the MICrONS tutorials.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see the available materialization versions</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">get_versions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1300, 1078, 117, 661, 343, 1181, 795, 943, 1412, 1507]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And these are their associated timestamps (all timestamps are in UTC):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">get_versions</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">get_timestamp</span><span class="p">(</span><span class="n">version</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version 1300: 2025-01-13 10:10:01.286229+00:00
+Version 1078: 2024-06-05 10:10:01.203215+00:00
+Version 117: 2021-06-11 08:10:00.215114+00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version 661: 2023-04-06 20:17:09.199182+00:00
+Version 343: 2022-02-24 08:10:00.184668+00:00
+Version 1181: 2024-09-16 10:10:01.121167+00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version 795: 2023-08-23 08:10:01.404268+00:00
+Version 943: 2024-01-22 08:10:01.497934+00:00
+Version 1412: 2025-04-29 10:10:01.200893+00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version 1507: 2025-07-31 08:10:01.117494+00:00
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set materialization version, for consistency</span>
+<span class="n">client</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">1507</span> <span class="c1"># current public as of 7/31/2025</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="caveclient-basics">
+<h2>CAVEclient Basics<a class="headerlink" href="#caveclient-basics" title="Permalink to this heading">#</a></h2>
+<p>The most frequent use of the CAVEclient is to query the database for annotations like synapses.
+All database functions are under the <code class="docutils literal notranslate"><span class="pre">client.materialize</span></code> property.
+To see what tables are available, use the <code class="docutils literal notranslate"><span class="pre">get_tables</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">get_tables</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;baylor_gnn_cell_type_fine_model_v2&#39;,
+ &#39;nucleus_alternative_points&#39;,
+ &#39;allen_column_mtypes_v2&#39;,
+ &#39;bodor_pt_cells&#39;,
+ &#39;aibs_metamodel_mtypes_v661_v2&#39;,
+ &#39;allen_v1_column_types_slanted_ref&#39;,
+ &#39;aibs_column_nonneuronal_ref&#39;,
+ &#39;nucleus_ref_neuron_svm&#39;,
+ &#39;apl_functional_coreg_vess_fwd&#39;,
+ &#39;vortex_compartment_targets&#39;,
+ &#39;baylor_log_reg_cell_type_coarse_v1&#39;,
+ &#39;gamlin_2023_mcs&#39;,
+ &#39;l5et_column&#39;,
+ &#39;pt_synapse_targets&#39;,
+ &#39;coregistration_manual_v4&#39;,
+ &#39;cg_cell_type_calls&#39;,
+ &#39;synapses_pni_2&#39;,
+ &#39;nucleus_detection_v0&#39;,
+ &#39;vortex_manual_nodes_of_ranvier&#39;,
+ &#39;bodor_pt_target_proofread&#39;,
+ &#39;nucleus_functional_area_assignment&#39;,
+ &#39;coregistration_auto_phase3_fwd_apl_vess_combined_v2&#39;,
+ &#39;vortex_thalamic_proofreading_status&#39;,
+ &#39;multi_input_spine_predictions_ssa&#39;,
+ &#39;synapse_target_structure&#39;,
+ &#39;proofreading_status_and_strategy&#39;,
+ &#39;coregistration_auto_phase3_fwd_v2&#39;,
+ &#39;vortex_peptidergic_proofreading_status&#39;,
+ &#39;digital_twin_properties_bcm_coreg_v4&#39;,
+ &#39;vortex_astrocyte_proofreading_status&#39;,
+ &#39;digital_twin_properties_bcm_coreg_auto_phase3_fwd_v2&#39;,
+ &#39;digital_twin_properties_bcm_coreg_apl_vess_fwd&#39;,
+ &#39;gamlin_2023_mcs_met_types&#39;,
+ &#39;vortex_manual_myelination_v0&#39;,
+ &#39;synapse_target_predictions_ssa&#39;,
+ &#39;aibs_metamodel_celltypes_v661&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each table, you can see the metadata describing that table.
+For example, let’s look at the <code class="docutils literal notranslate"><span class="pre">nucleus_detection_v0</span></code> table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">get_table_metadata</span><span class="p">(</span><span class="s1">&#39;nucleus_detection_v0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;schema&#39;: &#39;nucleus_detection&#39;,
+ &#39;table_name&#39;: &#39;nucleus_detection_v0&#39;,
+ &#39;created&#39;: &#39;2020-11-02T18:56:35.530100&#39;,
+ &#39;id&#39;: 71748,
+ &#39;aligned_volume&#39;: &#39;minnie65_phase3&#39;,
+ &#39;valid&#39;: True,
+ &#39;schema_type&#39;: &#39;nucleus_detection&#39;,
+ &#39;user_id&#39;: &#39;121&#39;,
+ &#39;description&#39;: &#39;A table of nuclei detections from a nucleus detection model developed by Shang Mu, Leila Elabbady, Gayathri Mahalingam and Forrest Collman. Pt is the centroid of the nucleus detection. id corresponds to the flat_segmentation_source segmentID. Only included nucleus detections of volume&gt;25 um^3, below which detections are false positives, though some false positives above that threshold remain. &#39;,
+ &#39;notice_text&#39;: None,
+ &#39;reference_table&#39;: None,
+ &#39;flat_segmentation_source&#39;: &#39;precomputed://https://bossdb-open-data.s3.amazonaws.com/iarpa_microns/minnie/minnie65/nuclei&#39;,
+ &#39;write_permission&#39;: &#39;PRIVATE&#39;,
+ &#39;read_permission&#39;: &#39;PUBLIC&#39;,
+ &#39;last_modified&#39;: &#39;2022-10-25T19:24:28.559914&#39;,
+ &#39;segmentation_source&#39;: &#39;&#39;,
+ &#39;pcg_table_name&#39;: &#39;minnie3_v1&#39;,
+ &#39;last_updated&#39;: &#39;2025-08-22T22:00:00.077663&#39;,
+ &#39;voxel_resolution&#39;: [4.0, 4.0, 40.0]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>You get a dictionary of values. Two fields are particularly important: the <code class="docutils literal notranslate"><span class="pre">description</span></code>, which offers a text description of the contents of the table and <code class="docutils literal notranslate"><span class="pre">voxel_resolution</span></code> which defines how the coordinates in the table are defined, in nm/voxel.</p>
+</section>
+<section id="querying-tables">
+<span id="em-query-tables"></span><h2>Querying Tables<a class="headerlink" href="#querying-tables" title="Permalink to this heading">#</a></h2>
+<p>To get the contents of a table, use the <code class="docutils literal notranslate"><span class="pre">query_table</span></code> function.
+This will return the whole contents of a table without any filtering, up to for a maximum limit of 200,000 rows.
+The table is returned as a Pandas DataFrame and you can immediately use standard Pandas function on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_type_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s1">&#39;nucleus_detection_v0&#39;</span><span class="p">)</span>
+<span class="n">cell_type_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created</th>
+      <th>superceded_id</th>
+      <th>valid</th>
+      <th>volume</th>
+      <th>pt_supervoxel_id</th>
+      <th>pt_root_id</th>
+      <th>pt_position</th>
+      <th>bb_start_position</th>
+      <th>bb_end_position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>730537</td>
+      <td>2020-09-28 22:40:41.780734+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>32.307937</td>
+      <td>0</td>
+      <td>0</td>
+      <td>[381312, 273984, 19993]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>373879</td>
+      <td>2020-09-28 22:40:41.781788+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>229.045043</td>
+      <td>96218056992431305</td>
+      <td>864691136090135607</td>
+      <td>[228816, 239776, 19593]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>601340</td>
+      <td>2020-09-28 22:40:41.782714+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>426.138010</td>
+      <td>0</td>
+      <td>0</td>
+      <td>[340000, 279152, 20946]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>201858</td>
+      <td>2020-09-28 22:40:41.783784+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>93.753836</td>
+      <td>84955554103121097</td>
+      <td>864691135373893678</td>
+      <td>[146848, 213600, 26267]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>600774</td>
+      <td>2020-09-28 22:40:41.785273+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>135.189791</td>
+      <td>0</td>
+      <td>0</td>
+      <td>[339120, 276112, 19442]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>While most tables are small enough to be returned in full, the synapse table has hundreds of millions of rows and is too large to download this way</p>
+</div>
+<p>Tables have a collection of columns, some of which specify point in space (columns ending in <code class="docutils literal notranslate"><span class="pre">_position</span></code>), some a root id (ending in <code class="docutils literal notranslate"><span class="pre">_root_id</span></code>), and others that contain other information about the object at that point.
+Before describing some of the most important tables in the database, it’s useful to know about a few advanced options that apply when querying any table.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">desired_resolution</span></code> : This parameter allows you to convert the columns specifying spatial points to different resolutions.
+Many tables are stored at a resolution of 4x4x40 nm/voxel, for example, but you can convert to nanometers by setting <code class="docutils literal notranslate"><span class="pre">desired_resolution=[1,1,1]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">split_positions</span></code> : This parameter allows you to split the columns specifying spatial points into separate columns for each dimension.
+The new column names will be the original column name with <code class="docutils literal notranslate"><span class="pre">_x</span></code>, <code class="docutils literal notranslate"><span class="pre">_y</span></code>, and <code class="docutils literal notranslate"><span class="pre">_z</span></code> appended.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select_columns</span></code> : This parameter allows you to get only a subset of columns from the table.
+Once you know exactly what you want, this can save you some cleanup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code> : This parameter allows you to limit the number of rows returned.
+If you are just testing out a query or trying to inspect the kind of data within a table, you can set this to a small number to make sure it works before downloading the whole table.
+Note that this will show a warning so that you don’t accidentally limit your query when you don’t mean to.</p></li>
+</ul>
+<p>For example, using all of these together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_type_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s1">&#39;nucleus_detection_v0&#39;</span><span class="p">,</span> 
+                                              <span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                              <span class="n">desired_resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+                                              <span class="n">select_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pt_position&#39;</span><span class="p">,</span> <span class="s1">&#39;pt_root_id&#39;</span><span class="p">],</span> 
+                                              <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">cell_type_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>201 - &quot;Limited query to 10 rows
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pt_position_x</th>
+      <th>pt_position_y</th>
+      <th>pt_position_z</th>
+      <th>pt_root_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>241856.0</td>
+      <td>374464.0</td>
+      <td>838720.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>227200.0</td>
+      <td>389120.0</td>
+      <td>797160.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>230144.0</td>
+      <td>422336.0</td>
+      <td>795320.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>239488.0</td>
+      <td>386432.0</td>
+      <td>794120.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>239744.0</td>
+      <td>423488.0</td>
+      <td>803120.0</td>
+      <td>864691136050815731</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>245888.0</td>
+      <td>384512.0</td>
+      <td>800120.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>249792.0</td>
+      <td>391680.0</td>
+      <td>807080.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>243328.0</td>
+      <td>403008.0</td>
+      <td>794280.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>247872.0</td>
+      <td>386816.0</td>
+      <td>805320.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>260352.0</td>
+      <td>416640.0</td>
+      <td>802360.0</td>
+      <td>864691135013273238</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="filtering-queries">
+<h2>Filtering Queries<a class="headerlink" href="#filtering-queries" title="Permalink to this heading">#</a></h2>
+<p>Filtering tables so that you only get data about certain rows back is a very common operation.
+While there are filtering options in the <code class="docutils literal notranslate"><span class="pre">query_table</span></code> function (<a class="reference external" href="https://caveclient.readthedocs.io/en/latest/guide/materialization.html">see documentation for more details</a>), a more
+unified filter interface is available through a “table manager” interface.
+Rather than passing a table name to the <code class="docutils literal notranslate"><span class="pre">query_table</span></code> function, <code class="docutils literal notranslate"><span class="pre">client.materialize.tables</span></code> has a subproperty for each table in the database that can be used to filter that table.
+The general pattern for usage is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="p">{</span><span class="n">table_name</span><span class="p">}({</span><span class="nb">filter</span> <span class="n">options</span><span class="p">})</span><span class="o">.</span><span class="n">query</span><span class="p">({</span><span class="nb">format</span> <span class="ow">and</span> <span class="n">timestamp</span> <span class="n">options</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">{table_name}</span></code> is the name of the table you want to filter, <code class="docutils literal notranslate"><span class="pre">{filter</span> <span class="pre">options}</span></code> is a collection of arguments for filtering the query, and <code class="docutils literal notranslate"><span class="pre">{format</span> <span class="pre">and</span> <span class="pre">timestamp</span> <span class="pre">options}</span></code> are those parameters controlling the format and timestamp of the query.</p>
+<p>For example, let’s look at the table <code class="docutils literal notranslate"><span class="pre">aibs_metamodel_celltypes_v661</span></code>, which has cell type predictions across the dataset.
+We can get the whole table as a DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_type_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">aibs_metamodel_celltypes_v661</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+<span class="n">cell_type_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The `client.materialize.tables` interface is experimental and might experience breaking changes before the feature is stabilized.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_ref</th>
+      <th>created_ref</th>
+      <th>valid_ref</th>
+      <th>target_id</th>
+      <th>classification_system</th>
+      <th>cell_type</th>
+      <th>id</th>
+      <th>created</th>
+      <th>valid</th>
+      <th>volume</th>
+      <th>pt_supervoxel_id</th>
+      <th>pt_root_id</th>
+      <th>pt_position</th>
+      <th>bb_start_position</th>
+      <th>bb_end_position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>36916</td>
+      <td>2023-12-19 22:47:18.659864+00:00</td>
+      <td>t</td>
+      <td>336365</td>
+      <td>excitatory_neuron</td>
+      <td>5P-IT</td>
+      <td>336365</td>
+      <td>2020-09-28 22:42:48.966292+00:00</td>
+      <td>t</td>
+      <td>272.488202</td>
+      <td>93606511657924288</td>
+      <td>864691136274724621</td>
+      <td>[209760, 180832, 27076]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1070</td>
+      <td>2023-12-19 22:38:00.472115+00:00</td>
+      <td>t</td>
+      <td>110648</td>
+      <td>excitatory_neuron</td>
+      <td>23P</td>
+      <td>110648</td>
+      <td>2020-09-28 22:45:09.650639+00:00</td>
+      <td>t</td>
+      <td>328.533443</td>
+      <td>79385153184885329</td>
+      <td>864691135489403194</td>
+      <td>[106448, 129632, 25410]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1099</td>
+      <td>2023-12-19 22:38:00.898837+00:00</td>
+      <td>t</td>
+      <td>112071</td>
+      <td>excitatory_neuron</td>
+      <td>23P</td>
+      <td>112071</td>
+      <td>2020-09-28 22:43:34.088785+00:00</td>
+      <td>t</td>
+      <td>272.929423</td>
+      <td>79035988248401958</td>
+      <td>864691136147292311</td>
+      <td>[103696, 149472, 15583]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13259</td>
+      <td>2023-12-19 22:41:14.417986+00:00</td>
+      <td>t</td>
+      <td>197927</td>
+      <td>nonneuron</td>
+      <td>oligo</td>
+      <td>197927</td>
+      <td>2020-09-28 22:43:10.652649+00:00</td>
+      <td>t</td>
+      <td>91.308851</td>
+      <td>84529699506051734</td>
+      <td>864691135655940290</td>
+      <td>[143600, 186192, 26471]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13271</td>
+      <td>2023-12-19 22:41:14.685474+00:00</td>
+      <td>t</td>
+      <td>198087</td>
+      <td>nonneuron</td>
+      <td>astrocyte</td>
+      <td>198087</td>
+      <td>2020-09-28 22:41:36.677186+00:00</td>
+      <td>t</td>
+      <td>161.744978</td>
+      <td>83756261929388963</td>
+      <td>864691135809440972</td>
+      <td>[137952, 190944, 27361]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>and we can add similar formatting options as in the last section to the query function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_type_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">aibs_metamodel_celltypes_v661</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                                                               <span class="n">desired_resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+                                                                               <span class="n">select_columns</span><span class="o">=</span><span class="p">{</span>
+                                                                                   <span class="s1">&#39;nucleus_detection_v0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;pt_position&#39;</span><span class="p">,</span> <span class="s1">&#39;pt_root_id&#39;</span><span class="p">],</span> 
+                                                                                   <span class="s1">&#39;aibs_metamodel_celltypes_v661&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cell_type&#39;</span><span class="p">],</span>
+                                                                               <span class="p">},</span>
+                                                                               <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">cell_type_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The `client.materialize.tables` interface is experimental and might experience breaking changes before the feature is stabilized.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>201 - &quot;Limited query to 10 rows
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pt_position_x</th>
+      <th>pt_position_y</th>
+      <th>pt_position_z</th>
+      <th>pt_root_id</th>
+      <th>cell_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>257600.0</td>
+      <td>487936.0</td>
+      <td>802760.0</td>
+      <td>864691135724233643</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>260992.0</td>
+      <td>493568.0</td>
+      <td>801560.0</td>
+      <td>864691136436395166</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>256256.0</td>
+      <td>466432.0</td>
+      <td>831040.0</td>
+      <td>864691135462260637</td>
+      <td>NGC</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>255744.0</td>
+      <td>480640.0</td>
+      <td>833200.0</td>
+      <td>864691136723556861</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>262144.0</td>
+      <td>505856.0</td>
+      <td>824880.0</td>
+      <td>864691135776658528</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>257536.0</td>
+      <td>521728.0</td>
+      <td>804440.0</td>
+      <td>864691135941166708</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>251840.0</td>
+      <td>552896.0</td>
+      <td>832320.0</td>
+      <td>864691135545065768</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>251136.0</td>
+      <td>546048.0</td>
+      <td>821320.0</td>
+      <td>864691135479369926</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>256000.0</td>
+      <td>626368.0</td>
+      <td>814000.0</td>
+      <td>864691135697633557</td>
+      <td>23P</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>324096.0</td>
+      <td>417920.0</td>
+      <td>658880.0</td>
+      <td>864691135937358133</td>
+      <td>astrocyte</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>However, now we can also filter the table to get only cells that are predicted to have cell type <code class="docutils literal notranslate"><span class="pre">&quot;BC&quot;</span></code> (for “basket cell”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_cell_type</span> <span class="o">=</span> <span class="s2">&quot;BC&quot;</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">aibs_metamodel_celltypes_v661</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="n">my_cell_type</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The `client.materialize.tables` interface is experimental and might experience breaking changes before the feature is stabilized.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created</th>
+      <th>valid</th>
+      <th>volume</th>
+      <th>pt_supervoxel_id</th>
+      <th>pt_root_id</th>
+      <th>id_ref</th>
+      <th>created_ref</th>
+      <th>valid_ref</th>
+      <th>target_id</th>
+      <th>classification_system</th>
+      <th>cell_type</th>
+      <th>pt_position</th>
+      <th>bb_start_position</th>
+      <th>bb_end_position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>369908</td>
+      <td>2020-09-28 22:40:41.814964+00:00</td>
+      <td>t</td>
+      <td>332.862751</td>
+      <td>96002690286851358</td>
+      <td>864691136276011533</td>
+      <td>43009</td>
+      <td>2023-12-19 22:48:53.577191+00:00</td>
+      <td>t</td>
+      <td>369908</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[227104, 207840, 20841]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>193846</td>
+      <td>2020-09-28 22:40:41.897904+00:00</td>
+      <td>t</td>
+      <td>306.148966</td>
+      <td>82838443188669165</td>
+      <td>864691135578780933</td>
+      <td>12051</td>
+      <td>2023-12-19 22:40:57.133228+00:00</td>
+      <td>t</td>
+      <td>193846</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[131568, 168496, 16452]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>615735</td>
+      <td>2020-09-28 22:40:41.957345+00:00</td>
+      <td>t</td>
+      <td>314.539540</td>
+      <td>112181247505371364</td>
+      <td>864691135183493378</td>
+      <td>83044</td>
+      <td>2023-12-19 22:58:50.269173+00:00</td>
+      <td>t</td>
+      <td>615735</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[344880, 161104, 17084]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>613047</td>
+      <td>2020-09-28 22:40:41.982376+00:00</td>
+      <td>t</td>
+      <td>242.159780</td>
+      <td>113234168401651200</td>
+      <td>864691136065413528</td>
+      <td>82324</td>
+      <td>2023-12-19 22:58:39.896999+00:00</td>
+      <td>t</td>
+      <td>613047</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[352688, 141616, 25312]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>402885</td>
+      <td>2020-09-28 22:40:41.994716+00:00</td>
+      <td>t</td>
+      <td>279.232348</td>
+      <td>97621720621533350</td>
+      <td>864691135645529583</td>
+      <td>48951</td>
+      <td>2023-12-19 22:50:24.710643+00:00</td>
+      <td>t</td>
+      <td>402885</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[238848, 211712, 16471]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3360</th>
+      <td>170777</td>
+      <td>2020-09-28 22:45:25.310708+00:00</td>
+      <td>t</td>
+      <td>499.103662</td>
+      <td>81230957054577082</td>
+      <td>864691135065994564</td>
+      <td>8968</td>
+      <td>2023-12-19 22:40:09.246333+00:00</td>
+      <td>t</td>
+      <td>170777</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[119600, 250560, 15373]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3361</th>
+      <td>591219</td>
+      <td>2020-09-28 22:45:25.526753+00:00</td>
+      <td>t</td>
+      <td>567.517839</td>
+      <td>110216764830845707</td>
+      <td>864691135279126177</td>
+      <td>79472</td>
+      <td>2023-12-19 22:57:53.993099+00:00</td>
+      <td>t</td>
+      <td>591219</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[330320, 204752, 25060]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3362</th>
+      <td>208056</td>
+      <td>2020-09-28 22:45:25.401800+00:00</td>
+      <td>t</td>
+      <td>521.621668</td>
+      <td>84540007091735344</td>
+      <td>864691135801456226</td>
+      <td>15548</td>
+      <td>2023-12-19 22:41:48.382554+00:00</td>
+      <td>t</td>
+      <td>208056</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[143472, 262944, 23693]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3363</th>
+      <td>438586</td>
+      <td>2020-09-28 22:45:25.430745+00:00</td>
+      <td>t</td>
+      <td>529.501389</td>
+      <td>99807894274485381</td>
+      <td>864691135395662581</td>
+      <td>55791</td>
+      <td>2023-12-19 22:52:02.582669+00:00</td>
+      <td>t</td>
+      <td>438586</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[254912, 247440, 23680]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>3364</th>
+      <td>419363</td>
+      <td>2020-09-28 22:45:25.436862+00:00</td>
+      <td>t</td>
+      <td>530.642698</td>
+      <td>99716496901116512</td>
+      <td>864691135954384419</td>
+      <td>50504</td>
+      <td>2023-12-19 22:50:48.576826+00:00</td>
+      <td>t</td>
+      <td>419363</td>
+      <td>inhibitory_neuron</td>
+      <td>BC</td>
+      <td>[254416, 90336, 20469]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+  </tbody>
+</table>
+<p>3365 rows × 15 columns</p>
+</div></div></div>
+</div>
+<p>or maybe we just want the cell types for a particular collection of root ids:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_root_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">864691135771677771</span><span class="p">,</span> <span class="mi">864691135560505569</span><span class="p">,</span> <span class="mi">864691136723556861</span><span class="p">]</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">aibs_metamodel_celltypes_v661</span><span class="p">(</span><span class="n">pt_root_id</span><span class="o">=</span><span class="n">my_root_ids</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The `client.materialize.tables` interface is experimental and might experience breaking changes before the feature is stabilized.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_ref</th>
+      <th>created_ref</th>
+      <th>valid_ref</th>
+      <th>target_id</th>
+      <th>classification_system</th>
+      <th>cell_type</th>
+      <th>id</th>
+      <th>created</th>
+      <th>valid</th>
+      <th>volume</th>
+      <th>pt_supervoxel_id</th>
+      <th>pt_root_id</th>
+      <th>pt_position</th>
+      <th>bb_start_position</th>
+      <th>bb_end_position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11282</td>
+      <td>2023-12-19 22:40:43.249642+00:00</td>
+      <td>t</td>
+      <td>19116</td>
+      <td>excitatory_neuron</td>
+      <td>23P</td>
+      <td>19116</td>
+      <td>2020-09-28 22:41:51.767906+00:00</td>
+      <td>t</td>
+      <td>301.426115</td>
+      <td>74737997899501359</td>
+      <td>864691135771677771</td>
+      <td>[72576, 108656, 20291]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15681</td>
+      <td>2023-12-19 22:41:50.365399+00:00</td>
+      <td>t</td>
+      <td>21783</td>
+      <td>excitatory_neuron</td>
+      <td>23P</td>
+      <td>21783</td>
+      <td>2020-09-28 22:41:59.966574+00:00</td>
+      <td>t</td>
+      <td>263.637074</td>
+      <td>75795590176519004</td>
+      <td>864691135560505569</td>
+      <td>[80128, 124000, 16563]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>50080</td>
+      <td>2023-12-19 22:50:42.474168+00:00</td>
+      <td>t</td>
+      <td>4074</td>
+      <td>excitatory_neuron</td>
+      <td>23P</td>
+      <td>4074</td>
+      <td>2020-09-28 22:42:41.341179+00:00</td>
+      <td>t</td>
+      <td>313.678234</td>
+      <td>73543309863605007</td>
+      <td>864691136723556861</td>
+      <td>[63936, 120160, 20830]</td>
+      <td>[nan, nan, nan]</td>
+      <td>[nan, nan, nan]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can get a list of all parameters than be used for querying with the standard IPython/Jupyter docstring functionality, e.g. <code class="docutils literal notranslate"><span class="pre">?client.materialize.tables.aibs_metamodel_celltypes_v661</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>client.materialize.tables.aibs_metamodel_celltypes_v661
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="querying-synapses">
+<h2>Querying Synapses<a class="headerlink" href="#querying-synapses" title="Permalink to this heading">#</a></h2>
+<p>While synapses are stored as any other table in the database, in this case <code class="docutils literal notranslate"><span class="pre">synapses_pni_2</span></code>, this table is much larger than any other table at more than 337 million rows, and it works best when queried in a different way.
+The <code class="docutils literal notranslate"><span class="pre">synapse_query</span></code> function allows you to query the synapse table in a more convenient way than most other tables.</p>
+<p>In particular, the <code class="docutils literal notranslate"><span class="pre">pre_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">post_ids</span></code> let you specify which root id (or collection of root ids) you want to query, with pre_ids indicating the collection of presynaptic neurons and post_ids the collection of postsynaptic neurons.</p>
+<p>Using both <code class="docutils literal notranslate"><span class="pre">pre_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">post_ids</span></code> in one call is effectively a logical AND, returning only those synapses from neurons in the list of <code class="docutils literal notranslate"><span class="pre">pre_ids</span></code> that target neurons in the list of <code class="docutils literal notranslate"><span class="pre">post_ids</span></code>. This can be especially useful if you want to find the connectivity between only the proofread cells, for example</p>
+<p>Let’s look at one particular example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_root_id</span> <span class="o">=</span> <span class="mi">864691136968109774</span>
+<span class="n">syn_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">synapse_query</span><span class="p">(</span><span class="n">pre_ids</span><span class="o">=</span><span class="n">my_root_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of output synapses for </span><span class="si">{</span><span class="n">my_root_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">syn_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">syn_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of output synapses for 864691136968109774: 1499
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created</th>
+      <th>superceded_id</th>
+      <th>valid</th>
+      <th>size</th>
+      <th>pre_pt_supervoxel_id</th>
+      <th>pre_pt_root_id</th>
+      <th>post_pt_supervoxel_id</th>
+      <th>post_pt_root_id</th>
+      <th>pre_pt_position</th>
+      <th>post_pt_position</th>
+      <th>ctr_pt_position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>158405512</td>
+      <td>2020-11-04 06:48:59.403833+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>420</td>
+      <td>89385416926790697</td>
+      <td>864691136968109774</td>
+      <td>89385416926797494</td>
+      <td>864691135546540484</td>
+      <td>[179076, 188248, 20233]</td>
+      <td>[179156, 188220, 20239]</td>
+      <td>[179140, 188230, 20239]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>185549462</td>
+      <td>2020-11-04 06:49:10.903020+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>4832</td>
+      <td>91356016507479890</td>
+      <td>864691136968109774</td>
+      <td>91356016507470163</td>
+      <td>864691135884799088</td>
+      <td>[193168, 190452, 19262]</td>
+      <td>[193142, 190404, 19257]</td>
+      <td>[193180, 190432, 19254]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>138110803</td>
+      <td>2020-11-04 06:49:46.758528+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>3176</td>
+      <td>87263084540201919</td>
+      <td>864691136968109774</td>
+      <td>87263084540199587</td>
+      <td>864691135448518996</td>
+      <td>[163440, 104292, 19808]</td>
+      <td>[163498, 104348, 19806]</td>
+      <td>[163460, 104356, 19804]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>157378264</td>
+      <td>2020-11-04 07:38:27.332669+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>412</td>
+      <td>89374490395905686</td>
+      <td>864691136968109774</td>
+      <td>89374490395921430</td>
+      <td>864691135446953106</td>
+      <td>[179218, 107132, 19372]</td>
+      <td>[179204, 107010, 19383]</td>
+      <td>[179196, 107072, 19380]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>148262628</td>
+      <td>2020-11-04 06:53:27.294021+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>3536</td>
+      <td>88189766885093187</td>
+      <td>864691136968109774</td>
+      <td>88189835604584343</td>
+      <td>864691135250533976</td>
+      <td>[170154, 193170, 21123]</td>
+      <td>[170046, 193240, 21123]</td>
+      <td>[170118, 193220, 21128]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that synapse queries always return the list of every synapse between the neurons in the query, even if there are multiple synapses between the same pair of neurons.</p>
+<p>A common pattern to generate a list of connections between unique pairs of neurons is to group by the root ids of the presynaptic and postsynaptic neurons and then count the number of synapses between them.
+For example, to get the number of synapses from this neuron onto every other neuron, ordered</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">syn_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;pre_pt_root_id&#39;</span><span class="p">,</span> <span class="s1">&#39;post_pt_root_id&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;syn_count&#39;</span><span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="n">by</span><span class="o">=</span><span class="s1">&#39;syn_count&#39;</span><span class="p">,</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># Note that the &#39;id&#39; part here is just a way to quickly extract one column.</span>
+<span class="c1"># This could be any of the remaining column names, but `id` is often convenient because it is common to all tables.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>syn_count</th>
+    </tr>
+    <tr>
+      <th>pre_pt_root_id</th>
+      <th>post_pt_root_id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="11" valign="top">864691136968109774</th>
+      <th>864691135280056225</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>864691135456207722</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>864691134949547516</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>864691135784316467</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>864691135884930672</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>864691135503112029</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>864691135511524816</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>864691135516460996</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>864691135516672708</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>864691135684221938</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1035 rows × 1 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="querying-proofread-neurons">
+<h2>Querying Proofread neurons<a class="headerlink" href="#querying-proofread-neurons" title="Permalink to this heading">#</a></h2>
+<section id="proofread-neurons">
+<h3>Proofread neurons<a class="headerlink" href="#proofread-neurons" title="Permalink to this heading">#</a></h3>
+<p>Proofreading is necessary to obtain accurate reconstructions of a cell. <a class="reference internal" href="proofreading.html#em-proofreading-data-quality"><span class="std std-ref">Read more about proofreading and data quality here</span></a></p>
+<p>The proofreading information for both MICrONS and V1DD is stored in a table called: <code class="docutils literal notranslate"><span class="pre">proofreading_status_and_strategy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proof_all_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s2">&quot;proofreading_status_and_strategy&quot;</span><span class="p">,</span> 
+                                              <span class="n">desired_resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+                                              <span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proof_all_df</span><span class="p">[</span><span class="s2">&quot;strategy_axon&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>axon_partially_extended    1750
+axon_fully_extended         267
+axon_interareal             124
+none                         41
+Name: strategy_axon, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-queries-by-proofreading-status">
+<h3>Filtering Queries by proofreading status<a class="headerlink" href="#filtering-queries-by-proofreading-status" title="Permalink to this heading">#</a></h3>
+<p>We can filter our query to only return rows that match a condition by adding a filter to our query:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proof_axon_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">query_table</span><span class="p">(</span><span class="s2">&quot;proofreading_status_and_strategy&quot;</span><span class="p">,</span> 
+                                               <span class="n">filter_in_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;strategy_axon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;axon_partially_extended&quot;</span><span class="p">,</span> <span class="s2">&quot;axon_fully_extended&quot;</span><span class="p">,</span> <span class="s2">&quot;axon_interareal&quot;</span><span class="p">]},</span> 
+                                               <span class="n">desired_resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+                                               <span class="n">split_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">proof_axon_df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>created</th>
+      <th>superceded_id</th>
+      <th>valid</th>
+      <th>pt_position_x</th>
+      <th>pt_position_y</th>
+      <th>pt_position_z</th>
+      <th>valid_id</th>
+      <th>status_dendrite</th>
+      <th>status_axon</th>
+      <th>strategy_dendrite</th>
+      <th>strategy_axon</th>
+      <th>pt_supervoxel_id</th>
+      <th>pt_root_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2136</th>
+      <td>4002</td>
+      <td>2025-07-22 18:26:32.791280+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>703680.0</td>
+      <td>416064.0</td>
+      <td>907280.0</td>
+      <td>864691135783113040</td>
+      <td>t</td>
+      <td>t</td>
+      <td>dendrite_extended</td>
+      <td>axon_fully_extended</td>
+      <td>88951866083486311</td>
+      <td>864691135783113040</td>
+    </tr>
+    <tr>
+      <th>2137</th>
+      <td>3969</td>
+      <td>2025-07-22 18:26:32.196312+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>685568.0</td>
+      <td>697920.0</td>
+      <td>931040.0</td>
+      <td>864691136313908797</td>
+      <td>t</td>
+      <td>t</td>
+      <td>dendrite_extended</td>
+      <td>axon_fully_extended</td>
+      <td>88328030740880370</td>
+      <td>864691135928941780</td>
+    </tr>
+    <tr>
+      <th>2138</th>
+      <td>4003</td>
+      <td>2025-07-22 18:26:32.804932+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>638976.0</td>
+      <td>477440.0</td>
+      <td>867480.0</td>
+      <td>864691135493371743</td>
+      <td>t</td>
+      <td>t</td>
+      <td>dendrite_extended</td>
+      <td>axon_fully_extended</td>
+      <td>86702127719919273</td>
+      <td>864691135442616392</td>
+    </tr>
+    <tr>
+      <th>2139</th>
+      <td>3951</td>
+      <td>2025-07-22 18:26:31.880460+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>729600.0</td>
+      <td>551424.0</td>
+      <td>922920.0</td>
+      <td>864691135398557473</td>
+      <td>t</td>
+      <td>t</td>
+      <td>dendrite_extended</td>
+      <td>axon_fully_extended</td>
+      <td>89871195310210159</td>
+      <td>864691135360909656</td>
+    </tr>
+    <tr>
+      <th>2140</th>
+      <td>3999</td>
+      <td>2025-07-22 18:26:32.748278+00:00</td>
+      <td>NaN</td>
+      <td>t</td>
+      <td>801024.0</td>
+      <td>834304.0</td>
+      <td>879280.0</td>
+      <td>864691135271848613</td>
+      <td>t</td>
+      <td>t</td>
+      <td>dendrite_extended</td>
+      <td>axon_fully_extended</td>
+      <td>92343584443356753</td>
+      <td>864691135389004929</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A more unified filter interface is available through a “table manager” interface.</p>
+<p>Rather than passing a table name to the <code class="docutils literal notranslate"><span class="pre">query_table</span></code> function, <code class="docutils literal notranslate"><span class="pre">client.materialize.tables</span></code> has a subproperty for each table in the database that can be used to filter that table.</p>
+<p>The general pattern for usage is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="p">{</span><span class="n">table_name</span><span class="p">}({</span><span class="nb">filter</span> <span class="n">options</span><span class="p">})</span><span class="o">.</span><span class="n">query</span><span class="p">({</span><span class="nb">format</span> <span class="ow">and</span> <span class="n">timestamp</span> <span class="n">options</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">{table_name}</span></code> is the name of the table you want to filter, <code class="docutils literal notranslate"><span class="pre">{filter</span> <span class="pre">options}</span></code> is a collection of arguments for filtering the query, and <code class="docutils literal notranslate"><span class="pre">{format</span> <span class="pre">and</span> <span class="pre">timestamp</span> <span class="pre">options}</span></code> are those parameters controlling the format and timestamp of the query.</p>
+<p>With this, we can easily query all proofread cells with proofread axons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proof_axon_df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">proofreading_status_and_strategy</span><span class="p">(</span>
+    <span class="n">strategy_axon</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;axon_partially_extended&quot;</span><span class="p">,</span> <span class="s2">&quot;axon_fully_extended&quot;</span><span class="p">,</span> <span class="s2">&quot;axon_interareal&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="n">select_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pt_root_id&#39;</span><span class="p">,</span><span class="s1">&#39;status_axon&#39;</span><span class="p">,</span><span class="s1">&#39;status_dendrite&#39;</span><span class="p">,</span><span class="s1">&#39;strategy_axon&#39;</span><span class="p">,</span><span class="s1">&#39;strategy_dendrite&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">proof_axon_df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pt_root_id</th>
+      <th>status_axon</th>
+      <th>status_dendrite</th>
+      <th>strategy_axon</th>
+      <th>strategy_dendrite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2136</th>
+      <td>864691135783113040</td>
+      <td>t</td>
+      <td>t</td>
+      <td>axon_fully_extended</td>
+      <td>dendrite_extended</td>
+    </tr>
+    <tr>
+      <th>2137</th>
+      <td>864691135928941780</td>
+      <td>t</td>
+      <td>t</td>
+      <td>axon_fully_extended</td>
+      <td>dendrite_extended</td>
+    </tr>
+    <tr>
+      <th>2138</th>
+      <td>864691135442616392</td>
+      <td>t</td>
+      <td>t</td>
+      <td>axon_fully_extended</td>
+      <td>dendrite_extended</td>
+    </tr>
+    <tr>
+      <th>2139</th>
+      <td>864691135360909656</td>
+      <td>t</td>
+      <td>t</td>
+      <td>axon_fully_extended</td>
+      <td>dendrite_extended</td>
+    </tr>
+    <tr>
+      <th>2140</th>
+      <td>864691135389004929</td>
+      <td>t</td>
+      <td>t</td>
+      <td>axon_fully_extended</td>
+      <td>dendrite_extended</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From here, you can combine the proofreading information (indexed on <code class="docutils literal notranslate"><span class="pre">pt_root_id</span></code>) with either a Cell Types (matched on <code class="docutils literal notranslate"><span class="pre">pt_root_id</span></code>) or a Synapse table (matched on <code class="docutils literal notranslate"><span class="pre">pre_pt_root_id</span></code> for outputs of the cell, <code class="docutils literal notranslate"><span class="pre">post_pt_root_id</span></code> for inputs to the cell)</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./anatomy/microns-em"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="em-caveclient-setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Setting up CAVEclient</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="em-coordinates.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coordinate Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveclient">CAVEclient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materialization-versions">Materialization versions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caveclient-basics">CAVEclient Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-tables">Querying Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-queries">Filtering Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-synapses">Querying Synapses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-proofread-neurons">Querying Proofread neurons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proofread-neurons">Proofread neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-queries-by-proofreading-status">Filtering Queries by proofreading status</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

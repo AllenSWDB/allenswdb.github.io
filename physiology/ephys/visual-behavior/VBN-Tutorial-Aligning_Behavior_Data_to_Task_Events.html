@@ -1,0 +1,1902 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Aligning behavioral data to task events with the stimulus and trials tables &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="LFP Analysis" href="VBN-Tutorial-Analyzing_LFP_Data.html" />
+    <link rel="prev" title="Visual Behavior Neuropixels Quickstart" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VB-Neuropixels.html">Visual Behavior Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Aligning behavioral data to task events with the stimulus and trials tables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-cache">Import the cache</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sessions-table">Get the sessions table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-stimulus-presentations-table">Introduction to the stimulus presentations table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-detection-task-and-passive-replay-blocks-0-and-5">Change detection task and Passive replay (blocks 0 and 5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receptive-field-mapping-gabor-stimulus-block-2">Receptive field mapping gabor stimulus (block 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-field-flashes-block-4">Full field flashes (block 4)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-behavior-trials-table">Introduction to the behavior trials table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-response-latency">Calculating response latency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-running-licking-and-pupil-data-to-task-events">Aligning Running, Licking and Pupil data to task events</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="aligning-behavioral-data-to-task-events-with-the-stimulus-and-trials-tables">
+<h1>Aligning behavioral data to task events with the stimulus and trials tables<a class="headerlink" href="#aligning-behavioral-data-to-task-events-with-the-stimulus-and-trials-tables" title="Permalink to this heading">#</a></h1>
+<p>This notebook outlines the stimulus presentations table and the trials table and shows how you can use them to align behavioral data like running, licking and pupil info to task events. Please note that the VBN project used the same detection of change task as the Visual Behavior 2-Photon dataset. Users are encouraged to explore the <a class="reference external" href="http://portal.brain-map.org/explore/circuits/visual-behavior-2p">documentation</a> and <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">example notebooks</a> for that project for additional context.</p>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href='#Introduction-to-the-stimulus-presentations-table'>Introduction to the stimulus presentations table</a></p></li>
+<li><p><a href='#Introduction-to-the-behavior-trials-table'>Introduction to the behavior trials table</a></p></li>
+<li><p><a href='#Calculating-response-latency'>Calculating response latency</a></p></li>
+<li><p><a href='#Aligning-Running,-Licking-and-Pupil-data-to-task-events'>Aligning Running, Licking and Pupil Data to task events</a></p></li>
+</ul>
+<section id="import-the-cache">
+<h3>Import the cache<a class="headerlink" href="#import-the-cache" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache.</span>\
+    <span class="n">behavior_neuropixels_project_cache</span> \
+    <span class="kn">import</span> <span class="nn">VisualBehaviorNeuropixelsProjectCache</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-the-sessions-table">
+<h3>Get the sessions table<a class="headerlink" href="#get-the-sessions-table" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update this to a valid directory in your filesystem. This is where the data will be stored.</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/&#39;</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorNeuropixelsProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span>
+            <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ecephys_sessions_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ecephys_session_table</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="introduction-to-the-stimulus-presentations-table">
+<h2>Introduction to the stimulus presentations table<a class="headerlink" href="#introduction-to-the-stimulus-presentations-table" title="Permalink to this heading">#</a></h2>
+<p>Every recording session consisted of three major visual stimulus epochs in the following order (diagrammed below):</p>
+<ul class="simple">
+<li><p>An active behavior session during which the mouse performed the change detection task</p></li>
+<li><p>Receptive field mapping and full-field flash stimuli</p></li>
+<li><p>‘Passive’ replay of stimulus shown during active behavior, but without the lickspout so the mouse can no longer respond.</p></li>
+</ul>
+<div>
+<img src="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public_thumbnails/filer_public/65/58/6558f0eb-c3c5-45e6-b645-b2e432200804/active_passive_diagram.png__710x291_q90_subsampling-2.png", width="700"/>
+</div>
+<p>Let’s grab a random session and look at the stimulus presentations dataframe to see how these epochs are labeled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ecephys_session</span><span class="p">(</span>
+           <span class="n">ecephys_session_id</span><span class="o">=</span><span class="mi">1065437523</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimulus_presentations</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">stimulus_presentations</span>
+<span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;stimulus_block&#39;, &#39;image_name&#39;, &#39;duration&#39;, &#39;start_time&#39;, &#39;end_time&#39;,
+       &#39;start_frame&#39;, &#39;end_frame&#39;, &#39;is_change&#39;, &#39;is_image_novel&#39;, &#39;omitted&#39;,
+       &#39;flashes_since_change&#39;, &#39;trials_id&#39;, &#39;contrast&#39;, &#39;position_y&#39;,
+       &#39;temporal_frequency&#39;, &#39;position_x&#39;, &#39;spatial_frequency&#39;,
+       &#39;stimulus_index&#39;, &#39;is_sham_change&#39;, &#39;orientation&#39;, &#39;active&#39;, &#39;color&#39;,
+       &#39;stimulus_name&#39;, &#39;rewarded&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table is a record of every stimulus we presented to the mouse over the course of this experiment. The different stimuli are indexed by the ‘stimulus_block’ column. Let’s group this dataframe by stimulus block and see what stimulus was shown for each block.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">)[[</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;stimulus_name&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;active&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;duration&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;start_time&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stimulus_block</th>
+      <th>stimulus_name</th>
+      <th>active</th>
+      <th>duration</th>
+      <th>start_time</th>
+    </tr>
+    <tr>
+      <th>stimulus_presentations_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Natural_Images_Lum_Matched_set_ophys_G_2019</td>
+      <td>True</td>
+      <td>0.250188</td>
+      <td>28.131464</td>
+    </tr>
+    <tr>
+      <th>4797</th>
+      <td>1</td>
+      <td>spontaneous</td>
+      <td>False</td>
+      <td>10.008420</td>
+      <td>3648.207579</td>
+    </tr>
+    <tr>
+      <th>4798</th>
+      <td>2</td>
+      <td>gabor_20_deg_250ms</td>
+      <td>False</td>
+      <td>0.250208</td>
+      <td>3658.215999</td>
+    </tr>
+    <tr>
+      <th>8443</th>
+      <td>3</td>
+      <td>spontaneous</td>
+      <td>False</td>
+      <td>288.992998</td>
+      <td>4570.232761</td>
+    </tr>
+    <tr>
+      <th>8444</th>
+      <td>4</td>
+      <td>flash_250ms</td>
+      <td>False</td>
+      <td>0.250201</td>
+      <td>4859.225759</td>
+    </tr>
+    <tr>
+      <th>8594</th>
+      <td>5</td>
+      <td>Natural_Images_Lum_Matched_set_ophys_G_2019</td>
+      <td>False</td>
+      <td>0.250213</td>
+      <td>5183.198085</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This shows us the structure of this experiment (and every experiment in this dataset). There are 5 stimuli as follows:</p>
+<p><strong>block 0</strong>: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task <a class="reference external" href="http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels?edit&amp;language=en">here</a>. Also see <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnbeh.2020.00104/full">here</a> for info about our general training strategy.</p>
+<p><strong>block 1</strong>: Brief gray screen</p>
+<p><strong>block 2</strong>: Receptive field mapping. Gabor stimuli used for receptive field mapping. For more details on this stimulus consult <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html">this notebook</a>.</p>
+<p><strong>block 3</strong>: Longer gray screen</p>
+<p><strong>block 4</strong>: Full-field flashes, shown at 80% contrast. Flashes can be black (color = -1) or white (color = 1).</p>
+<p><strong>block 5</strong>: Passive replay. Frame-for-frame replay of the stimulus shown during the change detection task (block 0), but now with the lick spout retracted so the animal can no longer engage in the task.</p>
+<p>Here’s a quick explanation for each of the columns in this table:</p>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Boolean indicating when the change detection task (with the lick spout available to the mouse) was run. This should only be TRUE for block 0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus_block</span></code>: Index of stimulus as described in cells above.</p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus_name</span></code>: Indicates the stimulus category for this stimulus presentation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">contrast</span></code>: Stimulus contrast as defined <a class="reference external" href="https://www.psychopy.org/api/visual/gratingstim.html#psychopy.visual.GratingStim.contrast">here</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Duration of stimulus in seconds</p>
+<p><code class="docutils literal notranslate"><span class="pre">start_time</span></code>: Experiment time when stimulus started. This value is corrected for display lag and therefore indicates when the stimulus actually appeared on the screen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">end_time</span></code>: Experiment time when stimulus ended, also corrected for display lag.</p>
+<p><code class="docutils literal notranslate"><span class="pre">start_frame</span></code>: Stimulus frame index when this stimulus started. This can be used to sync this table to the behavior trials table, for which behavioral data is collected every frame.</p>
+<p><code class="docutils literal notranslate"><span class="pre">end_frame</span></code>: Stimulus frame index when this stimulus ended.</p>
+</section>
+<section id="change-detection-task-and-passive-replay-blocks-0-and-5">
+<h3>Change detection task and Passive replay (blocks 0 and 5)<a class="headerlink" href="#change-detection-task-and-passive-replay-blocks-0-and-5" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">flashes_since_change</span></code>: Indicates how many flashes of the same image have occurred since the last stimulus change.</p>
+<p><code class="docutils literal notranslate"><span class="pre">image_name</span></code>: Indicates which natural image was flashed for this stimulus presentation. To see how to visualize this image, check out <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_neuropixels_data_access.html">this tutorial</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">is_change</span></code>: Indicates whether the image identity changed for this stimulus presentation. When both this value and ‘active’ are TRUE, the mouse was rewarded for licking within the response window.</p>
+<p><code class="docutils literal notranslate"><span class="pre">omitted</span></code>: Indicates whether the image presentation was omitted for this flash. Most image flashes had a 5% probability of being omitted (producing a gray screen). Flashes immediately preceding a change or immediately following an omission could not be omitted.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rewarded</span></code>: Indicates whether a reward was given after this image presentation. During the passive replay block (5), this value indicates that a reward was issued for the corresponding image presentation during the active behavior block (0). No rewards were given during passive replay.</p>
+</section>
+<section id="receptive-field-mapping-gabor-stimulus-block-2">
+<h3>Receptive field mapping gabor stimulus (block 2)<a class="headerlink" href="#receptive-field-mapping-gabor-stimulus-block-2" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">orientation</span></code>: Orientation of gabor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">position_x</span></code>: Position of the gabor along azimuth. The units are in degrees relative to the center of the screen (negative values are nasal).</p>
+<p><code class="docutils literal notranslate"><span class="pre">position_y</span></code>: Position of the gabor along elevation. Negative values are lower elevation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spatial_frequency</span></code>: Spatial frequency of gabor in cycles per degree.</p>
+<p><code class="docutils literal notranslate"><span class="pre">temporal_frequency</span></code>: Temporal frequency of gabor in Hz.</p>
+</section>
+<section id="full-field-flashes-block-4">
+<h3>Full field flashes (block 4)<a class="headerlink" href="#full-field-flashes-block-4" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Color of the full-field flash stimuli. “1” is white and “-1” is black.</p>
+<p>Let’s confirm that the active behavior block (0) and the passive replay block (5) match frame for frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">active_image_presentations</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">passive_image_presentations</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">active_image_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">passive_image_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Taking block 0 as an example, let’s look at the timing of the stimuli. As a reminder, each flash was presented for 250 ms with 500 ms interflash intervals. In addition, flashes were occasionally omitted to investigate expectation signals:</p>
+<div>
+<img src="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public_thumbnails/filer_public/e7/de/e7de5da4-a19f-4ef6-9bc3-3a5b088048ac/task_diagram.png__2320x419_q90_subsampling-2.png", width="900"/>
+</div>
+<p>Now let’s check the timing of our flashes and see how it compares to our intended timing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the active behavior part of the stim table</span>
+<span class="n">active_behavior</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">]</span>
+
+<span class="c1">#for now, let&#39;s leave out the omitted stimuli</span>
+<span class="n">active_behavior_no_omissions</span> <span class="o">=</span> <span class="n">active_behavior</span><span class="p">[</span><span class="n">active_behavior</span><span class="p">[</span><span class="s1">&#39;omitted&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
+
+<span class="c1">#plot histogram of the stimulus durations</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">_</span> <span class="o">=</span>  <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">active_behavior_no_omissions</span><span class="o">.</span><span class="n">duration</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Flash Duration (s)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+
+<span class="n">inter_flash</span> <span class="o">=</span> <span class="n">active_behavior_no_omissions</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">inter_flash</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Inter-flash interval (s)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.axis.XTick at 0x7f1c141465c0&gt;,
+ &lt;matplotlib.axis.XTick at 0x7f1c14146380&gt;,
+ &lt;matplotlib.axis.XTick at 0x7f1c14646830&gt;,
+ &lt;matplotlib.axis.XTick at 0x7f1c1385fac0&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/7ca9700dfd0803edc910321b1cb91f4b40b587e7c6649953c84a3c665ead40a1.png" src="../../../_images/7ca9700dfd0803edc910321b1cb91f4b40b587e7c6649953c84a3c665ead40a1.png" />
+</div>
+</div>
+<p>Looks like the flash duration and interflash intervals are generally what we expect. Note though that a number of inter-flash intervals are twice as long as expected (1.5 s). This is because a small percentage of flashes are omitted. The chance of omitting a flash is nominally 5%, but we’ve also added two extra criteria:</p>
+<ul class="simple">
+<li><p>two omissions can’t happen in a row</p></li>
+<li><p>an omission can’t directly precede the change</p></li>
+</ul>
+<p>This makes the actual chances of an omission a bit less than 5%:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#look at the percentage of flashes that were omissions</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">active_behavior</span><span class="o">.</span><span class="n">omitted</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">active_behavior</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03418803418803419
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="introduction-to-the-behavior-trials-table">
+<h2>Introduction to the behavior trials table<a class="headerlink" href="#introduction-to-the-behavior-trials-table" title="Permalink to this heading">#</a></h2>
+<p>Now let’s explore the behavior trials table. This table contains lots of useful information about every trial in the change detection task.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">trials</span>
+<span class="n">trials</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>initial_image_name</th>
+      <th>change_image_name</th>
+      <th>is_change</th>
+      <th>change_time_no_display_delay</th>
+      <th>go</th>
+      <th>catch</th>
+      <th>lick_times</th>
+      <th>response_time</th>
+      <th>reward_time</th>
+      <th>reward_volume</th>
+      <th>hit</th>
+      <th>false_alarm</th>
+      <th>miss</th>
+      <th>correct_reject</th>
+      <th>aborted</th>
+      <th>auto_rewarded</th>
+      <th>change_frame</th>
+      <th>trial_length</th>
+    </tr>
+    <tr>
+      <th>trials_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>28.08763</td>
+      <td>29.05453</td>
+      <td>im036_r</td>
+      <td>im036_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[28.55387, 28.73684, 29.30404]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>0.96690</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>29.58829</td>
+      <td>36.86108</td>
+      <td>im036_r</td>
+      <td>im078_r</td>
+      <td>True</td>
+      <td>32.59106</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[33.04048, 33.20773, 33.30745, 33.3908, 33.507...</td>
+      <td>33.04048</td>
+      <td>32.74138</td>
+      <td>0.005</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>330</td>
+      <td>7.27279</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>37.09446</td>
+      <td>40.78107</td>
+      <td>im078_r</td>
+      <td>im078_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[40.48052]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>3.68661</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40.84754</td>
+      <td>50.37230</td>
+      <td>im078_r</td>
+      <td>im111_r</td>
+      <td>True</td>
+      <td>46.10256</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[46.73531, 46.83539, 46.95218, 47.06898, 47.20...</td>
+      <td>46.73531</td>
+      <td>46.25277</td>
+      <td>0.005</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>1140</td>
+      <td>9.52476</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>50.60569</td>
+      <td>51.75679</td>
+      <td>im111_r</td>
+      <td>im111_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[51.43985]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>1.15110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Unlike the stimulus presentations table in which every row corresponded to a visual stimulus presentation, for the behavior trials table every row corresponds to one trial of the change detection task. Here is a quick summary of the columns:</p>
+<p><code class="docutils literal notranslate"><span class="pre">start_time</span></code>: Experiment time when this trial began in seconds.</p>
+<p><code class="docutils literal notranslate"><span class="pre">end_time</span></code>: Experiment time when this trial ended.</p>
+<p><code class="docutils literal notranslate"><span class="pre">initial_image_name</span></code>: Indicates which image was shown before the change (or sham change) for this trial</p>
+<p><code class="docutils literal notranslate"><span class="pre">change_image_name</span></code>: Indicates which image was scheduled to be the change image for this trial. Note that if the trial is aborted, a new trial will begin before this change occurs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus_change</span></code>: Indicates whether an image change occurred for this trial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">change_time_no_display_delay</span></code>: Experiment time when the task-control computer commanded an image change. This change time is used to determine the response window during which a lick will trigger a reward. Note that due to display lag, this is not the time when the change image actually appears on the screen. To get this time, you need the stimulus_presentations table (more about this below).</p>
+<p><code class="docutils literal notranslate"><span class="pre">go</span></code>: Indicates whether this trial was a ‘go’ trial. To qualify as a go trial, an image change must occur and the trial cannot be autorewarded.</p>
+<p><code class="docutils literal notranslate"><span class="pre">catch</span></code>: Indicates whether this trial was a ‘catch’ trial. To qualify as a catch trial, a ‘sham’ change must occur during which the image identity does not change. These sham changes are drawn to match the timing distribution of real changes and can be used to calculate the false alarm rate.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lick_times</span></code>: A list indicating when the behavioral control software recognized a lick. Note that this is not identical to the lick times from the licks dataframe, which record when the licks were registered by the lick sensor. The licks dataframe should generally be used for analysis of the licking behavior rather than these times.</p>
+<p><code class="docutils literal notranslate"><span class="pre">response_time</span></code>: Indicates the time when the first lick was registered by the task control software for trials that were not aborted (go or catch). NaN for aborted trials. For a more accurate measure of response time, the licks dataframe should be used.</p>
+<p><code class="docutils literal notranslate"><span class="pre">reward_time</span></code>: Indicates when the reward command was triggered for hit trials. NaN for other trial types.</p>
+<p><code class="docutils literal notranslate"><span class="pre">reward_volume</span></code>: Indicates the volume of water dispensed as reward for this trial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">hit</span></code>: Indicates whether this trial was a ‘hit’ trial. To qualify as a hit, the trial must be a go trial during which the stimulus changed and the mouse licked within the reward window (150-750 ms after the change time).</p>
+<p><code class="docutils literal notranslate"><span class="pre">false_alarm</span></code>: Indicates whether this trial was a ‘false alarm’ trial. To qualify as a false alarm, the trial must be a catch trial during which a sham change occurred and the mouse licked during the reward window.</p>
+<p><code class="docutils literal notranslate"><span class="pre">miss</span></code>: To qualify as a miss trial, the trial must be a go trial during which the stimulus changed but the mouse did not lick within the response window.</p>
+<p><code class="docutils literal notranslate"><span class="pre">correct_reject</span></code>: To qualify as a correct reject trial, the trial must be a catch trial during which a sham change occurred and the mouse withheld licking.</p>
+<p><code class="docutils literal notranslate"><span class="pre">aborted</span></code>: A trial is aborted when the mouse licks before the scheduled change or sham change.</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto_rewarded</span></code>: During autorewarded trials, the reward is automatically triggered after the change regardless of whether the mouse licked within the response window. These always come at the beginning of the session to help engage the mouse in behavior.</p>
+<p><code class="docutils literal notranslate"><span class="pre">change_frame</span></code>: Indicates the stimulus frame index when the change (on go trials) or sham change (on catch trials) occurred. This column can be used to link the trials table with the stimulus presentations table, as shown below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">trial_length</span></code>: Duration of the trial in seconds.</p>
+</section>
+<section id="calculating-response-latency">
+<h2>Calculating response latency<a class="headerlink" href="#calculating-response-latency" title="Permalink to this heading">#</a></h2>
+<p>Let’s combine info from both of these tables to calculate response latency for this session. Note that the change time in the trials table is not corrected for display lag. This is the time that the task control computer used to determine the response window. However, to calculate response latency, we want to use the display lag <em>corrected</em> change times from the stimulus presentations table. Below, we will grab these corrected times and add them to the trials table under the new column label <code class="docutils literal notranslate"><span class="pre">change_time_with_display_delay</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_change_time_from_stim_table</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Given a particular row in the trials table,</span>
+<span class="sd">    find the corresponding change time in the</span>
+<span class="sd">    stimulus presentations table</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">stimulus_presentations</span>
+    <span class="n">change_frame</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;change_frame&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">change_frame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">change_times</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">table</span><span class="o">.</span><span class="n">start_frame</span><span class="o">==</span><span class="n">change_frame</span><span class="p">][</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">change_times</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">change_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">change_time</span>
+
+<span class="n">change_times</span> <span class="o">=</span> <span class="n">trials</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_change_time_from_stim_table</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trials</span><span class="p">[</span><span class="s1">&#39;change_time_with_display_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">change_times</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use this new column to calculate the response latency on ‘hit’ trials. First, we’ll need to get the lick times for this session:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the licks table</span>
+<span class="n">licks</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">licks</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’ll use these to get the response latency:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter for the hit trials</span>
+<span class="n">hit_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">]]</span>
+
+<span class="c1"># find the time of the first lick after each change</span>
+<span class="n">lick_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">licks</span><span class="o">.</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">hit_trials</span><span class="p">[</span><span class="s1">&#39;change_time_with_display_delay&#39;</span><span class="p">])</span>
+<span class="n">first_lick_times</span> <span class="o">=</span> <span class="n">licks</span><span class="o">.</span><span class="n">timestamps</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">lick_indices</span><span class="p">]</span>
+<span class="n">response_latencies</span> <span class="o">=</span> <span class="n">first_lick_times</span> <span class="o">-</span> <span class="n">hit_trials</span><span class="p">[</span><span class="s1">&#39;change_time_with_display_delay&#39;</span><span class="p">]</span>
+
+<span class="c1"># plot the latencies</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Response Latency Histogram for Hit trials&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">response_latencies</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time from change (s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Trial count&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Trial count&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/11f8e7f4c4cd9e9cf03713a2b912aaa08023133466c149e4faec2498fbc5352c.png" src="../../../_images/11f8e7f4c4cd9e9cf03713a2b912aaa08023133466c149e4faec2498fbc5352c.png" />
+</div>
+</div>
+</section>
+<section id="aligning-running-licking-and-pupil-data-to-task-events">
+<h2>Aligning Running, Licking and Pupil data to task events<a class="headerlink" href="#aligning-running-licking-and-pupil-data-to-task-events" title="Permalink to this heading">#</a></h2>
+<p>Now let’s grab the licking, running and pupil tracking data for this session and align it to the behavior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eye_tracking</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">eye_tracking</span>
+<span class="n">running_speed</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">running_speed</span>
+<span class="n">licks</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">licks</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Eye tracking dataframe</strong>: One entry containing ellipse fit parameters for the eye, pupil and corneal reflection for every frame of the eye tracking video stream.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eye_tracking</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamps</th>
+      <th>cr_area</th>
+      <th>eye_area</th>
+      <th>pupil_area</th>
+      <th>likely_blink</th>
+      <th>pupil_area_raw</th>
+      <th>cr_area_raw</th>
+      <th>eye_area_raw</th>
+      <th>cr_center_x</th>
+      <th>cr_center_y</th>
+      <th>...</th>
+      <th>eye_center_x</th>
+      <th>eye_center_y</th>
+      <th>eye_width</th>
+      <th>eye_height</th>
+      <th>eye_phi</th>
+      <th>pupil_center_x</th>
+      <th>pupil_center_y</th>
+      <th>pupil_width</th>
+      <th>pupil_height</th>
+      <th>pupil_phi</th>
+    </tr>
+    <tr>
+      <th>frame</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.98179</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.99846</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.01512</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.03179</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.04846</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p>There seem to be several rows for which there are no valid data. We can use the ‘likely_blink’ column to filter these out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eye_tracking_noblinks</span> <span class="o">=</span> <span class="n">eye_tracking</span><span class="p">[</span><span class="o">~</span><span class="n">eye_tracking</span><span class="p">[</span><span class="s1">&#39;likely_blink&#39;</span><span class="p">]]</span>
+<span class="n">eye_tracking_noblinks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamps</th>
+      <th>cr_area</th>
+      <th>eye_area</th>
+      <th>pupil_area</th>
+      <th>likely_blink</th>
+      <th>pupil_area_raw</th>
+      <th>cr_area_raw</th>
+      <th>eye_area_raw</th>
+      <th>cr_center_x</th>
+      <th>cr_center_y</th>
+      <th>...</th>
+      <th>eye_center_x</th>
+      <th>eye_center_y</th>
+      <th>eye_width</th>
+      <th>eye_height</th>
+      <th>eye_phi</th>
+      <th>pupil_center_x</th>
+      <th>pupil_center_y</th>
+      <th>pupil_width</th>
+      <th>pupil_height</th>
+      <th>pupil_phi</th>
+    </tr>
+    <tr>
+      <th>frame</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>2.69844</td>
+      <td>143.319910</td>
+      <td>64100.607811</td>
+      <td>18344.446003</td>
+      <td>False</td>
+      <td>18344.446003</td>
+      <td>143.319910</td>
+      <td>64100.607811</td>
+      <td>307.495920</td>
+      <td>253.050384</td>
+      <td>...</td>
+      <td>293.215171</td>
+      <td>252.429377</td>
+      <td>154.298080</td>
+      <td>132.236624</td>
+      <td>-0.045388</td>
+      <td>296.119363</td>
+      <td>245.965454</td>
+      <td>76.414779</td>
+      <td>75.552596</td>
+      <td>0.186599</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2.71512</td>
+      <td>144.637343</td>
+      <td>64128.814923</td>
+      <td>18500.396156</td>
+      <td>False</td>
+      <td>18500.396156</td>
+      <td>144.637343</td>
+      <td>64128.814923</td>
+      <td>307.703577</td>
+      <td>252.995883</td>
+      <td>...</td>
+      <td>293.465116</td>
+      <td>252.383047</td>
+      <td>154.610779</td>
+      <td>132.027248</td>
+      <td>-0.047398</td>
+      <td>296.156537</td>
+      <td>246.179364</td>
+      <td>76.738901</td>
+      <td>75.066741</td>
+      <td>0.071866</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2.73178</td>
+      <td>138.430143</td>
+      <td>64228.144166</td>
+      <td>18768.526187</td>
+      <td>False</td>
+      <td>18768.526187</td>
+      <td>138.430143</td>
+      <td>64228.144166</td>
+      <td>307.929085</td>
+      <td>253.125091</td>
+      <td>...</td>
+      <td>293.563823</td>
+      <td>252.333781</td>
+      <td>154.851436</td>
+      <td>132.026242</td>
+      <td>-0.049470</td>
+      <td>296.457157</td>
+      <td>245.953752</td>
+      <td>77.292997</td>
+      <td>75.030102</td>
+      <td>0.000100</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2.74845</td>
+      <td>140.384821</td>
+      <td>64356.597629</td>
+      <td>18790.177151</td>
+      <td>False</td>
+      <td>18790.177151</td>
+      <td>140.384821</td>
+      <td>64356.597629</td>
+      <td>307.710460</td>
+      <td>253.179979</td>
+      <td>...</td>
+      <td>293.503738</td>
+      <td>252.582299</td>
+      <td>154.705897</td>
+      <td>132.414741</td>
+      <td>-0.049801</td>
+      <td>296.389647</td>
+      <td>246.022947</td>
+      <td>77.337566</td>
+      <td>75.251635</td>
+      <td>0.004288</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2.76511</td>
+      <td>153.408346</td>
+      <td>64446.974420</td>
+      <td>18824.413215</td>
+      <td>False</td>
+      <td>18824.413215</td>
+      <td>153.408346</td>
+      <td>64446.974420</td>
+      <td>307.556380</td>
+      <td>253.339529</td>
+      <td>...</td>
+      <td>293.251817</td>
+      <td>252.265215</td>
+      <td>154.720970</td>
+      <td>132.587775</td>
+      <td>-0.040922</td>
+      <td>296.259293</td>
+      <td>246.003218</td>
+      <td>77.407989</td>
+      <td>75.440085</td>
+      <td>-0.036076</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p><strong>Running dataframe</strong>: One entry for each read of the analog input line monitoring the encoder voltage, polled at ~60 Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">running_speed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamps</th>
+      <th>speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>27.11889</td>
+      <td>21.929034</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27.13549</td>
+      <td>31.705640</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27.15263</td>
+      <td>40.125461</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27.16893</td>
+      <td>46.906969</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27.18556</td>
+      <td>51.945394</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Licking dataframe</strong>: One entry for every detected lick onset time,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">licks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamps</th>
+      <th>frame</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>28.55104</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>28.72504</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29.30011</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.02635</td>
+      <td>357</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>33.20237</td>
+      <td>367</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now let’s take a look at running, licking and pupil area for one reward trial</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_before</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#how much time to plot before the reward</span>
+<span class="n">time_after</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#how much time to plot after the reward</span>
+<span class="n">reward_time</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">rewards</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">15</span><span class="p">][</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span> <span class="c1">#get a random reward time</span>
+
+<span class="c1">#Get running data aligned to this reward</span>
+<span class="n">trial_running</span> <span class="o">=</span> <span class="n">running_speed</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= </span><span class="si">{}</span><span class="s1"> and timestamps &lt;= </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span>
+                                    <span class="nb">format</span><span class="p">(</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">,</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">))</span>
+
+<span class="c1">#Get pupil data aligned to this reward</span>
+<span class="n">trial_pupil_area</span> <span class="o">=</span> <span class="n">eye_tracking_noblinks</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= </span><span class="si">{}</span><span class="s1"> and timestamps &lt;= </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span>
+                                    <span class="nb">format</span><span class="p">(</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">,</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">))</span>
+
+<span class="c1">#Get stimulus presentations around this reward</span>
+<span class="n">behavior_presentations</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]]</span>
+<span class="n">behavior_presentations</span> <span class="o">=</span> <span class="n">behavior_presentations</span><span class="p">[(</span><span class="n">behavior_presentations</span><span class="p">[</span><span class="s1">&#39;omitted&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">)]</span>
+<span class="n">trial_stimuli</span> <span class="o">=</span> <span class="n">behavior_presentations</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;end_time &gt;= </span><span class="si">{}</span><span class="s1"> and start_time &lt;= </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>
+                                             <span class="nb">format</span><span class="p">(</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">,</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">))</span>
+
+<span class="c1">#Get licking aligned to this reward</span>
+<span class="n">trial_licking</span> <span class="o">=</span> <span class="n">licks</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= </span><span class="si">{}</span><span class="s1"> and timestamps &lt;= </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span>
+                                    <span class="nb">format</span><span class="p">(</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">,</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">))</span>
+
+
+<span class="c1">#Plot running, pupil area and licks</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">axr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">axp</span> <span class="o">=</span> <span class="n">axr</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">axp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_pupil_area</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_pupil_area</span><span class="p">[</span><span class="s1">&#39;pupil_area&#39;</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">rew_handle</span><span class="p">,</span> <span class="o">=</span> <span class="n">axr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">lick_handle</span><span class="p">,</span> <span class="o">=</span> <span class="n">axr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">])),</span> <span class="s1">&#39;mo&#39;</span><span class="p">)</span>
+<span class="n">axr</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">rew_handle</span><span class="p">,</span> <span class="n">lick_handle</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="s1">&#39;licks&#39;</span><span class="p">])</span>
+
+<span class="n">axr</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;running speed (cm/s)&#39;</span><span class="p">)</span>
+<span class="n">axp</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;pupil area</span><span class="se">\n</span><span class="s1">$(pixels^2)$&#39;</span><span class="p">)</span>
+<span class="n">axr</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Experiment time (s)&#39;</span><span class="p">)</span>
+
+<span class="n">axp</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">axp</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">axp</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="c1">#Plot the image flashes as grey bars.</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.3&#39;</span><span class="p">,</span> <span class="s1">&#39;0.8&#39;</span><span class="p">]</span>
+<span class="n">stimulus_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">stim</span><span class="p">:</span> <span class="n">c</span> <span class="k">for</span> <span class="n">stim</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">trial_stimuli</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">colors</span><span class="p">)}</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">stimulus</span> <span class="ow">in</span> <span class="n">trial_stimuli</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">axr</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span> <span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">stimulus_colors</span><span class="p">[</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/a12c51294648f8d77991f5006072b7b11c75070efe2c6ffe6914b83f26fbf47b.png" src="../../../_images/a12c51294648f8d77991f5006072b7b11c75070efe2c6ffe6914b83f26fbf47b.png" />
+</div>
+</div>
+<p>Here we can see that just after the stimulus change (a little past 449 seconds), the mouse abruptly stops running and begins licking. The reward is delivered shortly after the first lick. We can also begin to see that before the change the pupil and running become entrained to the image flashes.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Behavior Neuropixels Quickstart</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VBN-Tutorial-Analyzing_LFP_Data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LFP Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-cache">Import the cache</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sessions-table">Get the sessions table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-stimulus-presentations-table">Introduction to the stimulus presentations table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-detection-task-and-passive-replay-blocks-0-and-5">Change detection task and Passive replay (blocks 0 and 5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receptive-field-mapping-gabor-stimulus-block-2">Receptive field mapping gabor stimulus (block 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-field-flashes-block-4">Full field flashes (block 4)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-behavior-trials-table">Introduction to the behavior trials table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-response-latency">Calculating response latency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-running-licking-and-pupil-data-to-task-events">Aligning Running, Licking and Pupil data to task events</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

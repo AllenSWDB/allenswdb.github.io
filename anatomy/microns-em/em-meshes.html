@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Meshes &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'anatomy/microns-em/em-meshes';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/anatomy/microns-em/em-meshes.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MICrONS Functional Data" href="em-functional_data.html" />
+    <link rel="prev" title="Skeletons" href="em-skeletons.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../anatomy.html">Anatomy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/anatomy/microns-em/em-meshes.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fanatomy/microns-em/em-meshes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/anatomy/microns-em/em-meshes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Meshes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-specificity">Dataset specificity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mesh">What is a mesh?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meshes-can-either-be-static-or-dynamic">Meshes can either be static or dynamic:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#static">Static:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic">Dynamic:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-meshes">Downloading Meshes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#healing-mesh-gaps">Healing Mesh Gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-meshwork-files">Working with Meshwork Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meshwork-nrn-mesh-vs-nrn-skeleton">Meshwork nrn.mesh vs nrn.skeleton</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="meshes">
+<span id="em-meshes"></span><h1>Meshes<a class="headerlink" href="#meshes" title="Permalink to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Before using any programmatic access to the data, <a class="reference internal" href="em-caveclient-setup.html#em-content-cave-setup"><span class="std std-ref">you first need to set up your CAVEclient token</span></a>.</p>
+</div>
+<p>When trying to understand the fine 3d morphology of a neuron (e.g. features under 1 micron in scale), meshes are a particularly useful representation.
+More precisely, a mesh is a collection of vertices and faces that define a 3d surface.
+The exact meshes that one sees in Neuroglancer can also be loaded for analysis and visualization in other tools.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/segmentation_mesh_skeleton_representation.png" src="../../_images/segmentation_mesh_skeleton_representation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Electron microscopy data can be represented and rendered in multiple formats, at different levels of abstraction from the original imagery</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="dataset-specificity">
+<h2>Dataset specificity<a class="headerlink" href="#dataset-specificity" title="Permalink to this heading">#</a></h2>
+<p>The examples below are written with the MICrONS dataset. To access the V1DD dataset change the datastack from <code class="docutils literal notranslate"><span class="pre">minnie65_public</span></code> to <code class="docutils literal notranslate"><span class="pre">v1dd_public</span></code></p>
+</section>
+<section id="what-is-a-mesh">
+<h2>What is a mesh?<a class="headerlink" href="#what-is-a-mesh" title="Permalink to this heading">#</a></h2>
+<p>A mesh is a set of vertices connected via triangular faces to form a 3 dimensional representation of the outer membrane of a neuron, glia or nucleus.</p>
+<section id="meshes-can-either-be-static-or-dynamic">
+<h3>Meshes can either be static or dynamic:<a class="headerlink" href="#meshes-can-either-be-static-or-dynamic" title="Permalink to this heading">#</a></h3>
+<section id="static">
+<h4>Static:<a class="headerlink" href="#static" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>pros: smaller files thus easier to work with, multiple levels of detail (lod) which can be accessed (example below)</p></li>
+<li><p>cons: may include false gaps and merges from self contacts, updated less frequently</p></li>
+</ul>
+<p>Example path: <code class="docutils literal notranslate"><span class="pre">precomputed://gs://iarpa_microns/minnie/minnie65/seg_m1300</span></code></p>
+</section>
+<section id="dynamic">
+<h4>Dynamic:<a class="headerlink" href="#dynamic" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>pros: highly detailed thus more reflective of biological reality and backed by proofreading infrastructure CAVE (Connectome Annotation Versioning Engine)</p></li>
+<li><p>cons: much larger files, only one level of detail</p></li>
+</ul>
+<p>Example path: <code class="docutils literal notranslate"><span class="pre">graphene://https://minnie.microns-daf.com/segmentation/table/minnie65_public</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this time the V1DD dataset does not have static meshes. The dynamic meshes can be loaded from the path: <code class="docutils literal notranslate"><span class="pre">graphene://https://api.em.brain.allentech.org/segmentation/table/v1dd_public</span></code></p>
+</div>
+</section>
+</section>
+</section>
+<section id="downloading-meshes">
+<h2>Downloading Meshes<a class="headerlink" href="#downloading-meshes" title="Permalink to this heading">#</a></h2>
+<p>The easiest tool for downloading MICrONs meshes is <a class="reference external" href="https://github.com/sdorkenw/MeshParty">Meshparty</a>, which is a python module that can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">meshparty</span></code>.</p>
+<p>The MeshParty object has more useful properties and attributes
+such as:</p>
+<ul class="simple">
+<li><p>a scipy.csgraph sparse graph object (mesh.csgraph)</p></li>
+<li><p>a networkx graph object (mesh.nxgraph)</p></li>
+</ul>
+<p>Read more about what you can do with MeshParty on its <a class="reference external" href="https://meshparty.readthedocs.io/en/latest/?badge=latest">Documentation</a>.</p>
+<p>In particular it lets you associate <em>skeletons</em>, and <em>annotations</em> onto the mesh into a “meshwork” object.</p>
+<p>Once installed, the typical way of getting meshes is by using a “MeshMeta” client that is told both the internet location of the meshes (cloud-volume path or <code class="docutils literal notranslate"><span class="pre">cv_path</span></code>) and a local directory in which to store meshes (<code class="docutils literal notranslate"><span class="pre">disk_cache_path</span></code>).
+Once initialized, the MeshMeta client can be used to download meshes for a given segmentation using its root id (<code class="docutils literal notranslate"><span class="pre">seg_id</span></code>).
+The following code snippet shows how to download an example mesh using a directory “<code class="docutils literal notranslate"><span class="pre">meshes</span></code>” as the local storage folder.</p>
+<div class="cell tag_remove-stderr docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">meshparty</span> <span class="kn">import</span> <span class="n">trimesh_io</span>
+<span class="kn">from</span> <span class="nn">caveclient</span> <span class="kn">import</span> <span class="n">CAVEclient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">CAVEclient</span><span class="p">(</span><span class="s1">&#39;minnie65_public&#39;</span><span class="p">)</span>
+
+<span class="c1"># set version, for consistency across time</span>
+<span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">1507</span> <span class="c1"># Current as of Summer 2025</span>
+
+<span class="n">mm</span> <span class="o">=</span> <span class="n">trimesh_io</span><span class="o">.</span><span class="n">MeshMeta</span><span class="p">(</span>
+  <span class="n">cv_path</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">segmentation_source</span><span class="p">(),</span>
+  <span class="n">disk_cache_path</span><span class="o">=</span><span class="s2">&quot;meshes&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">root_id</span> <span class="o">=</span> <span class="mi">864691135545730856</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">seg_id</span><span class="o">=</span><span class="n">root_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: deduplication not currently supported for this layer&#39;s variable layered draco meshes
+</pre></div>
+</div>
+</div>
+</div>
+<p>One convenience of using the <code class="docutils literal notranslate"><span class="pre">MeshMeta</span></code> approach is that if you have already downloaded a mesh for with a given root id, it will be loaded from disk rather than re-downloaded.</p>
+<p>If you have to download many meshes, it is somewhat faster to use the bulk <code class="docutils literal notranslate"><span class="pre">download_meshes</span></code> function and use multiple threads via the <code class="docutils literal notranslate"><span class="pre">n_threads</span></code> argument. If you download them to the same folder used for the MeshMeta object, they can be loaded through the same interface.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">864691135014128278</span><span class="p">,</span> <span class="mi">864691135492614239</span><span class="p">]</span>
+<span class="n">mm</span> <span class="o">=</span> <span class="n">trimesh_io</span><span class="o">.</span><span class="n">download_meshes</span><span class="p">(</span>
+    <span class="n">seg_ids</span><span class="o">=</span><span class="n">root_ids</span><span class="p">,</span>
+    <span class="n">target_dir</span><span class="o">=</span><span class="s1">&#39;meshes&#39;</span><span class="p">,</span>
+    <span class="n">cv_path</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">segmentation_source</span><span class="p">(),</span>
+    <span class="n">n_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="c1"># Or whatever value you choose above one but less than the number of cores on your computer</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Meshes can be hundreds of megabytes in size, so be careful about downloading too many if the internet is not acting well or your computer doesn’t have much disk space!</p>
+</div>
+</section>
+<section id="healing-mesh-gaps">
+<h2>Healing Mesh Gaps<a class="headerlink" href="#healing-mesh-gaps" title="Permalink to this heading">#</a></h2>
+<figure class="align-center" id="id2">
+<img alt="../../_images/mesh-discontinuity.png" src="../../_images/mesh-discontinuity.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Example of a continuous neuron whose mesh has a gap.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Many meshes are not actually fully continuous due to small gaps in the segmentation.
+However, information collected during proofreading allows one to partially repair these gaps by adding in links where the segmentation was merged across a small gap.
+If you are just visualizing a mesh, these gaps are not a problem, but if you want to do analysis on the mesh, you will want to heal these gaps.
+Conveniently, there’s a function to do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">add_link_edges</span><span class="p">(</span>
+    <span class="n">seg_id</span><span class="o">=</span><span class="n">root_id</span><span class="p">,</span> <span class="c1"># This needs to be the same as the root id used to download the mesh</span>
+    <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">chunkedgraph</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
+<p>Meshes have a large number of properties, many of which come from being based on the <a class="reference external" href="https://trimsh.org/">Trimesh</a> library’s mesh format, and others being specific to MeshParty.</p>
+<p>Several of the most important properties are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.vertices</span></code> : An <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">3</span></code> list of vertices and their 3d location in nanometers, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of vertices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.faces</span></code> : An <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">x</span> <span class="pre">3</span></code> list of integers, with each row specifying a triangle of connected vertex indices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.edges</span></code> : An <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">x</span> <span class="pre">2</span></code> list of integers, with each row specifying a pair of connected vertex indices based off of faces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.edges</span></code> : An <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">x</span> <span class="pre">2</span></code> list of integers, with each row specifying a pair of connected vertex indices based off of faces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.link_edges</span></code> : An <code class="docutils literal notranslate"><span class="pre">M_l</span> <span class="pre">x</span> <span class="pre">2</span></code> list of integers, with each row specifying a pair of “link edges” that were used to heal gaps based on proofreading edits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.graph_edges</span></code> : An <code class="docutils literal notranslate"><span class="pre">(M+M_l)</span> <span class="pre">x</span> <span class="pre">2</span></code> list of integers, with each row specifying a pair of graph edges, which is the collection of both <code class="docutils literal notranslate"><span class="pre">mesh.edges</span></code> and <code class="docutils literal notranslate"><span class="pre">mesh.link_edges</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.csgraph</span></code> : A <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html">Scipy Compressed Sparse Graph</a> representation of the mesh as an <code class="docutils literal notranslate"><span class="pre">NxN</span></code> graph of vertices connected to one another using graph edges and with edge weights being the distance between vertices. This is particularly useful for computing shortest paths between vertices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh.nxgraph</span></code> : a networkx graph object</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>EM meshes are not generally “watertight”, a property that would enable a number of properties to be computed natively by Trimesh. Because of this, Trimesh-computed properties relating to solid forms or volumes like <code class="docutils literal notranslate"><span class="pre">mesh.volume</span></code> or <code class="docutils literal notranslate"><span class="pre">mesh.center_mass</span></code> do not have sensible values and other approaches should be taken. Unfortunately, because of the Trimesh implementation of these properties it is up to the user to be aware of this issue.</p>
+</div>
+</section>
+<section id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h2>
+<p>There are a variety of tools for visualizing meshes in python.
+MeshParty interfaces with VTK, a powerful but complex data visualization library that does not always work well in python.
+The basic pattern for MeshParty’s VTK integration is to create one or more “actors” from the data, and then pass those to a renderer that can be displayed in an interactive approach.
+The following code snippet shows how to visualize a mesh using this approach.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_actor</span> <span class="o">=</span> <span class="n">trimesh_vtk</span><span class="o">.</span><span class="n">mesh_actor</span><span class="p">(</span>
+  <span class="n">mesh</span><span class="p">,</span>
+  <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+  <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">trimesh_vtk</span><span class="o">.</span><span class="n">render_actors</span><span class="p">([</span><span class="n">mesh_actor</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that by default, neurons will appear upside down because the coordinate system of the dataset has the y-axis value increasing along the “downward” pia to white matter axis.
+More documentation on the MeshParty VTK visualization can be <a class="reference external" href="https://meshparty.readthedocs.io/en/latest/source/meshparty.html">found here</a>.</p>
+<p>Other tools worth exploring are <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://polyscope.run/">Polyscope</a>, <a class="reference external" href="https://vedo.embl.es/">Vedo</a>, <a class="reference external" href="https://www.meshlab.net/">MeshLab</a>, and if you have some existing experience, <a class="reference external" href="https://www.blender.org/">Blender</a> (see Blender integration by our friends behind <a class="reference external" href="https://navis.readthedocs.io/en/latest/source/blender.html">Navis</a>, a fly-focused framework analyzing connectomics data).</p>
+</section>
+<section id="masking">
+<h2>Masking<a class="headerlink" href="#masking" title="Permalink to this heading">#</a></h2>
+<p>One of the most common operations on meshes is to mask them to a particular region of interest.
+This can be done by “masking” the mesh with a boolean array of length <code class="docutils literal notranslate"><span class="pre">N</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of vertices in the mesh, with <code class="docutils literal notranslate"><span class="pre">True</span></code> where the vertex should be kept and <code class="docutils literal notranslate"><span class="pre">False</span></code> where it should be omitted.
+There are several convenience functions to generate common masks in the <a class="reference external" href="https://meshparty.readthedocs.io/en/latest/source/meshparty.html#module-meshparty.mesh_filters">Mesh Filters</a> module.</p>
+<p>In the following example, we will first mask out all vertices that aren’t part of the largest connected component of the mesh (i.e. get rid of floating vertices that might arise due to internal surfaces) and then mask out all vertices that are more than 20,000 nm away from the soma center.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">meshparty</span> <span class="kn">import</span> <span class="n">mesh_filters</span>
+
+<span class="n">root_id</span> <span class="o">=</span><span class="mi">864691135492614239</span> 
+<span class="n">root_point</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">materialize</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">nucleus_detection_v0</span><span class="p">(</span><span class="n">pt_root_id</span><span class="o">=</span><span class="n">root_id</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">()[</span><span class="s1">&#39;pt_position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">40</span><span class="p">]</span>  <span class="c1"># Convert the nucleus location from voxels to nanometers via the data resolution.</span>
+
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">mesh</span><span class="p">(</span><span class="n">seg_id</span><span class="o">=</span><span class="n">root_id</span><span class="p">)</span>
+<span class="c1"># Heal gaps in the mesh</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">add_link_edges</span><span class="p">(</span>
+    <span class="n">seg_id</span><span class="o">=</span><span class="n">root_id</span><span class="p">,</span>
+    <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">chunkedgraph</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate and use the largest component mask</span>
+<span class="n">comp_mask</span> <span class="o">=</span> <span class="n">mesh_filters</span><span class="o">.</span><span class="n">filter_largest_component</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">mask_filt</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">apply_mask</span><span class="p">(</span><span class="n">comp_mask</span><span class="p">)</span>
+
+<span class="n">soma_mask</span> <span class="o">=</span> <span class="n">mesh_filters</span><span class="o">.</span><span class="n">filter_spatial_distance_from_points</span><span class="p">(</span>
+    <span class="n">mask_filt</span><span class="p">,</span>
+    <span class="n">root_point</span><span class="p">,</span>
+    <span class="mi">20_000</span><span class="p">,</span> <span class="c1"># Note that this is in nanometers</span>
+<span class="p">)</span>
+<span class="n">mesh_soma</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">apply_mask</span><span class="p">(</span><span class="n">soma_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This resulting mesh is just a small cutout around the soma.</p>
+<figure class="align-center" id="id3">
+<img alt="../../_images/soma_mesh_cutout.png" src="../../_images/soma_mesh_cutout.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Soma cutout from a full-neuron mesh.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="working-with-meshwork-files">
+<h2>Working with Meshwork Files<a class="headerlink" href="#working-with-meshwork-files" title="Permalink to this heading">#</a></h2>
+<p>Loading a meshwork file imports the level 2 graph (the “mesh”), the skeleton, and a collection of associated annotations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">meshparty</span> <span class="kn">import</span> <span class="n">meshwork</span>
+<span class="n">nrn</span> <span class="o">=</span> <span class="n">meshwork</span><span class="o">.</span><span class="n">load_meshwork</span><span class="p">(</span><span class="n">mesh_filename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The main three properties of the meshwork object are:</p>
+<ul class="simple">
+<li><p>nrn.mesh : The l2graph representation of the reconstruction.</p></li>
+<li><p>nrn.skeleton : The skeleton representation of the reconstruction.</p></li>
+<li><p>nrn.anno : A table of annotation dataframes and associated metadata that links them to specific vertices in the mesh and skeleton.</p></li>
+</ul>
+</section>
+<section id="meshwork-nrn-mesh-vs-nrn-skeleton">
+<h2>Meshwork nrn.mesh vs nrn.skeleton<a class="headerlink" href="#meshwork-nrn-mesh-vs-nrn-skeleton" title="Permalink to this heading">#</a></h2>
+<p>Skeletons are “tree-like”, where every vertex (except the root vertex) has a single parent that is closer to the root than it, and any number of child vertices. Because of this, for a skeleton there are well-defined directions “away from root” and “towards root” and few types of vertices have special names:</p>
+<ul class="simple">
+<li><p>Branch point: vertices with two or more children, where a neuronal process splits.</p></li>
+<li><p>End point: vertices with no children, where a neuronal process ends.</p></li>
+<li><p>Root point: The one vertex with no parent node. By convention, we typically set the root vertex at the cell body, so these are equivalent to “away from soma” and “towards soma”.</p></li>
+<li><p>Segment: A collection of vertices along an unbranched region, between one branch point and the next end point or branch point downstream.</p></li>
+</ul>
+<p>Visit the <a class="reference internal" href="em-skeletons.html#skeletons"><span class="std std-ref">EM Skeletons page</span></a> see more about skeletons, how to generate them, and how to work with them.</p>
+<p>Meshes are arbitrary collections of vertices and edges, but do not have a notion of “parent” or “child” “branch point” or “end point”. Here, this means the “mesh” used here includes a vertex for every level 2 chunk, even where it is thick like at a cell body or very thick dendrite. However, by default this means that there is not always a well-defined notion of parent or child nodes, or towards or away from root.</p>
+<p>In contrast “Meshes” (really, graphs of connected vertices) do not have a unique “inward” and “outward” direction. For the sake of rapid skeletonization, the “meshes” we use here are really the graph of level 2 vertices as described above. These aren’t a mesh in the visualization sense of the section on <a class="reference internal" href="#em-meshes"><span class="std std-ref">downloading Meshes</span></a>, but have the same data representation.</p>
+<p>To handle this, the meshwork object associates each mesh vertices with a single nearby skeleton vertex, and each skeleton vertex is associated with one or more mesh vertices. By representing data this way, annotations like synapses can be directly associated with a mesh vertex (because synapses can be anywhere on the object) and then mapped to the skeleton in order to enjoy the topological benefits of the skeleton representation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># By the definition of skeleton vs mesh, we would expect that mesh contains more vertices than the skeleton. </span>
+<span class="c1"># We can see this by looking at the size of the skeleton vertex location array vs the size of the mesh vertex location array.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skeleton vertices array length:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mesh vertices array length:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let us try to visualize the skeleton:</span>
+<span class="c1"># Visualize the whole skeleton </span>
+
+<span class="c1"># here&#39;s a simple way to plot vertices of the skeleton</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span> 
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">nrn</span><span class="o">.</span><span class="n">skeleton</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id4">
+<img alt="../../_images/skeleton_scatterplot.png" src="../../_images/skeleton_scatterplot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Scatterplot of skeleton vertices as a point cloud.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./anatomy/microns-em"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="em-skeletons.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Skeletons</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="em-functional_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MICrONS Functional Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-specificity">Dataset specificity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-mesh">What is a mesh?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meshes-can-either-be-static-or-dynamic">Meshes can either be static or dynamic:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#static">Static:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic">Dynamic:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-meshes">Downloading Meshes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#healing-mesh-gaps">Healing Mesh Gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-meshwork-files">Working with Meshwork Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meshwork-nrn-mesh-vs-nrn-skeleton">Meshwork nrn.mesh vs nrn.skeleton</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

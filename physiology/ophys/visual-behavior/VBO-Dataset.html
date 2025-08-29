@@ -1,0 +1,1107 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Behavior Ophys Dataset &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/visual-behavior/VBO-Dataset';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/visual-behavior/VBO-Dataset.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Behavior Session Data" href="VB-BehaviorSessionData.html" />
+    <link rel="prev" title="Visual Behavior Ophys Dataset Overview" href="VB-Ophys.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VB-Ophys.html">Visual Behavior Ophys</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/visual-behavior/VBO-Dataset.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/visual-behavior/VBO-Dataset.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/visual-behavior/VBO-Dataset.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Behavior Ophys Dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Behavior Ophys Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vbo-metadata-tables">VBO Metadata Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-sessions">Behavior sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-sessions">Ophys sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-experiments">Ophys experiments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-cells">Ophys cells</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-sessions-table">Behavior Sessions Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse-specific-metadata">Mouse specific metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-variants">Dataset variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session Types</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-sessions-table">Ophys Sessions Table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-experiment-table">Ophys Experiment Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imaging-plane-specific-metadata">Imaging plane specific metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-session-types">Properties of session types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-containers">Ophys containers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-cells-table">Ophys cells table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-whitepaper">Technical whitepaper</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-behavior-ophys-dataset">
+<h1>Visual Behavior Ophys Dataset<a class="headerlink" href="#visual-behavior-ophys-dataset" title="Permalink to this heading">#</a></h1>
+<p>The main entry point to the VBO dataset is the <code>VisualBehaviorOphysProjectCache</code> class.  This class is responsible for downloading any requested data or metadata as needed and storing it in well known locations.  For detailed info about how to access this data, check out <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_ophys_data_access.html">this tutorial</a></p>
+<p>We begin by importing the <code>VisualBehaviorOphysProjectCache</code>  class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache</span> <span class="kn">import</span> <span class="n">VisualBehaviorOphysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can specify our cache directory and set up the cache.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this path should point to the location of the dataset on your platform</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/&#39;</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span>
+            <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/behavior_project_cache.py:135: UpdatedStimulusPresentationTableWarning: 
+	As of AllenSDK version 2.16.0, the latest Visual Behavior Ophys data has been significantly updated from previous releases. Specifically the user will need to update all processing of the stimulus_presentations tables. These tables now include multiple stimulus types delineated by the columns `stimulus_block` and `stimulus_block_name`.
+
+The data that was available in previous releases are stored in the block name containing &#39;change_detection&#39; and can be accessed in the pandas table by using: 
+	`stimulus_presentations[stimulus_presentations.stimulus_block_name.str.contains(&#39;change_detection&#39;)]`
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code>VisualBehaviorOphysProjectCache</code> to explore the parameters of this dataset. Let’s start by examining the cache metadata tables.</p>
+<section id="vbo-metadata-tables">
+<h2>VBO Metadata Tables<a class="headerlink" href="#vbo-metadata-tables" title="Permalink to this heading">#</a></h2>
+<p>The data manifest consists of 4 tables:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_cells_table</span></code></p></li>
+</ol>
+<section id="behavior-sessions">
+<h3>Behavior sessions<a class="headerlink" href="#behavior-sessions" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> contains metadata for every <b>behavior session</b> in the dataset, including the full training history for each mouse. Accordingly, some behavior sessions have 2-photon data associated with them, and will have a corresponding <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code>, while others took place during training in the behavior facility. The different training stages that mice are progressed through are described by the <code class="docutils literal notranslate"><span class="pre">session_type</span></code>.</p>
+</section>
+<section id="ophys-sessions">
+<h3>Ophys sessions<a class="headerlink" href="#ophys-sessions" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> contains metadata for every 2-photon imaging (aka optical physiology, or ophys) session in the dataset, associated with a unique <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code>. An <b>ophys session</b> is one continuous recording session under the microscope, and can contain different numbers of imaging planes (aka <code class="docutils literal notranslate"><span class="pre">ophys_experiments</span></code>) depending on which microscope was used. For imaging sessions using the Scientifica single-plane 2P microscope, there will only be one experiment (aka imaging plane) per session. For Multiscope sessions using the multi-plane 2-photon microscope, there can be up to eight imaging planes per session. Quality Control (QC) is performed on each individual imaging plane within a session, so each can fail QC independent of the others. This means that a Multiscope session may not have exactly eight experiments (imaging planes).</p>
+</section>
+<section id="ophys-experiments">
+<h3>Ophys experiments<a class="headerlink" href="#ophys-experiments" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> contains metadata for every <b>ophys experiment</b> in the dataset, which corresponds to a single imaging plane recorded in a single session at a specific <code class="docutils literal notranslate"><span class="pre">imaging_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structure</span></code>, and associated with a unique <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code>. A key part of the experimental design is targeting a given population of neurons, contained in one imaging plane, across multiple days with several different <code class="docutils literal notranslate"><span class="pre">session_types</span></code> (further described below) to examine the impact of varying sensory and behavioral conditions on single cell responses.</p>
+<p>The collection of all imaging sessions for a given imaging plane is referred to as an <b>ophys container</b>, associated with a unique <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code>. If the data for a given <code class="docutils literal notranslate"><span class="pre">session_type</span></code> does not meet the QC criteria on the first try, an attempt is made to re-acquire the session_type on a different recording day (this is called a retake). Thus each <b>ophys container</b> may contain different numbers of sessions, depending on which sessions and imaging planes passed QC, and how many retakes occurred.</p>
+</section>
+<section id="ophys-cells">
+<h3>Ophys cells<a class="headerlink" href="#ophys-cells" title="Permalink to this heading">#</a></h3>
+<p>The `ophys_cells_table` contains the unique IDs of all cells recorded across all experiments. Each cell has two IDs. The `cell_roi_id` is the ID of the cell in a specific session, the `cell_specimen_id` is the ID of the cell after matching across sessions. Thus, the `cell_roi_id` will be unique to a given `ophys_experiment_id` and `ophys_session_id` while the `cell_specimen_id` will be shared across all `phys_session_ids` for a given `ophys_container_id`. As a reminder, the `ophys_container_id` links the same imaging plane recorded across multiple sessions. 
+<p>To understand the difference between an <b>ophys experiment</b>, an <b>ophys session</b>, and an <b>ophys container</b>, the following schematic can be helpful</p>
+<p><img alt="data_structure" src="../../../_images/vbo_data_structure.png" /></p>
+<p>Note that this represents a multi-plane imaging dataset. For single-plane imaging, there will only be one plane (one <b>ophys experiment</b>), corresponding to one row of this diagram.</p>
+<p><b>Let’s look at each of these tables in more detail to learn more about what is in the dataset.</b></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="behavior-sessions-table">
+<h1>Behavior Sessions Table<a class="headerlink" href="#behavior-sessions-table" title="Permalink to this heading">#</a></h1>
+<p>In this dataset, mice are trained on a visual change detection task. This task involves a continuous stream of stimuli, and mice learn to lick in response to a change in the stimulus identity to earn a water reward. There are different stages of training in this task, described below. The metadata for each behavior session in the dataset can be found in the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> and can be used to identify behavior sessions you may want to analyze.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> includes every session for every mouse in the dataset, regardless of whether it occurred during 2-photon imaging or during behavior training.</p>
+<p>Here is how to load the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> from the cache</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This table gives us lots of useful metadata about each behavior session, including the genotype, sex and age of the mouse, the experimental design that was used (indicated by the <code class="docutils literal notranslate"><span class="pre">project_code</span></code>), the type of session that was run, and whether the session occurred under a 2-photon microscope or in the behavior training facility.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<p>Here is a brief description of each column:</p>
+<dl class="simple myst">
+<dt>age_in_days</dt><dd><p><em>int</em> age of mouse in days</p>
+</dd>
+<dt>cre_line</dt><dd><p><em>string</em>	cre driver line for a transgenic mouse</p>
+</dd>
+<dt>date_of_acquisition</dt><dd><p><em>date time object</em>	date and time of experiment acquisition, yyyy-mm-dd hh:mm:ss.</p>
+</dd>
+<dt>driver_line</dt><dd><p><em>list of string</em>	all driver lines for transgenic mouse</p>
+</dd>
+<dt>equipment_name</dt><dd><p><em>string</em>	identifier for equipment data was collected on</p>
+</dd>
+<dt>file_id</dt><dd><p><em>int</em>	 lookup id to retrieve NWB file from S3 or the local cache</p>
+</dd>
+<dt>full_genotype</dt><dd><p><em>string</em>	full genotype of transgenic mouse</p>
+</dd>
+<dt>indicator</dt><dd><p><em>string</em>	calcium indicator associated with transgenic mouse reporter line</p>
+</dd>
+<dt>mouse_id</dt><dd><p><em>int</em>	unique identifier for a mouse</p>
+</dd>
+<dt>ophys_container_id</dt><dd><p><em>int</em>	unique identifier for all ophys containers (grouping of ophys experiments for a given imaging plane) associated with the behavior session</p>
+</dd>
+<dt>ophys_experiment_id</dt><dd><p><em>int</em>	unique identifier for all ophys experiments (imaging planes) associated with the behavior session</p>
+</dd>
+<dt>ophys_session_id</dt><dd><p><em>int</em>	unique identifier for the ophys session associated with the behavior session</p>
+</dd>
+<dt>prior_exposures_to_image_set</dt><dd><p><em>float 64</em>	number of prior sessions where the mouse was exposed to the image set used in the current session, starting at 0 for first exposure</p>
+</dd>
+<dt>prior_exposures_to_omissions</dt><dd><p><em>int 64</em>	number of prior sessions where the mouse exposed to stimulus omissions, starting at 0 for first exposure</p>
+</dd>
+<dt>prior_exposures_to_session_type</dt><dd><p><em>int 64</em>	number of prior sessions where the mouse was exposed to the session type of the current session, starting at 0 for first exposure</p>
+</dd>
+<dt>project_code</dt><dd><p><em>string</em> dataset variant the mouse belongs to, determined by whether single or multi-plane imaging was used, which stimulus set was used during training, and what areas and depths were recorded during ophys</p>
+</dd>
+<dt>reporter_line</dt><dd><p><em>string</em>	reporter line for transgenic mouse</p>
+</dd>
+<dt>session_number</dt><dd><p><em>float 64</em>	 for ophys (non-training) sessions only, session number is the number associated with the session type. (Eg. OPHYS_2_images_A_passive has session_number 2). NaN for training sessions.</p>
+</dd>
+<dt>session_type</dt><dd><p><em>string</em>	type of session indicating whether the session was during behavior training or ophys, which visual stimulus was shown, and whether the session was active behavior or passive imaging</p>
+</dd>
+<dt>sex</dt><dd><p><em>string</em>	sex of the mouse</p>
+</dd>
+</dl>
+<section id="mouse-specific-metadata">
+<h2>Mouse specific metadata<a class="headerlink" href="#mouse-specific-metadata" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">mouse_id</span></code> is a 6-digit unique identifier for each experimental animal in the dataset</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;there are &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">mouse_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="s1">&#39;mice in the dataset&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The transgenic line determines which neurons are labeled in a given mouse, and what they are labeled with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the different transgenic lines included in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">full_genotype</span></code> refers to the full name of the transgenic mouse line, including all driver and reporter lines in the cross. <code class="docutils literal notranslate"><span class="pre">driver_line</span></code> and <code class="docutils literal notranslate"><span class="pre">reporter_line</span></code> have their own unique columns in the table. The first element of the <code class="docutils literal notranslate"><span class="pre">full_genotype</span></code> is the <code class="docutils literal notranslate"><span class="pre">cre_line</span></code> (which also has its own column in the table, and is a subset of <code class="docutils literal notranslate"><span class="pre">driver_line</span></code>). The <code class="docutils literal notranslate"><span class="pre">cre_line</span></code> determines which genetically identified neuron type will be labeled by the <code class="docutils literal notranslate"><span class="pre">reporter_line</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the different cre lines used in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">cre_line</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><img alt="transgenic_lines" src="../../../_images/vbo_transgenic_lines.png" /></p>
+<p>In this dataset, there are 3 <code class="docutils literal notranslate"><span class="pre">cre_lines</span></code>, ‘Slc17a7-IRES2-Cre’, which labels excitatory neurons across all cortical layers, ‘Sst-IRES-Cre’ which labels somatostatin expressing inhibitory interneurons, and ‘Vip-IRES-Cre’, which labels vasoactive intestinal peptide expressing inhibitory interneurons.</p>
+<p>There are also 3 <code class="docutils literal notranslate"><span class="pre">reporter_lines</span></code>, ‘Ai93(TITL-GCaMP6f)’ which expresses the genetically encoded calcium indicator GCaMP6f (f is for ‘fast’, this reporter has fast offset kinetics, but is only moderately sensitive to calcium relative to other sensors) in cre labeled neurons, ‘Ai94(TITL-GCaMP6s)’ which expresses the indicator GCaMP6s (s is for ‘slow’, this reporter is very sensitive to calcium but has slow offset kinetics), and ‘Ai148(TIT2L-GC6f-ICL-tTA2’, which  expresses GCaMP6f using a self-enhancing system to achieve higher expression than other reporter lines (which proved necessary to label inhibitory neurons specifically). The specific <code class="docutils literal notranslate"><span class="pre">indicator</span></code> expressed by each <code class="docutils literal notranslate"><span class="pre">reporter_line</span></code> also has its own column in the table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the different reporter lines used in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">reporter_line</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the different indicators used in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">indicator</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For more information about transgenic lines, see characterization data here: <a class="reference external" href="https://observatory.brain-map.org/visualcoding/transgenic">https://observatory.brain-map.org/visualcoding/transgenic</a></p></li>
+<li><p>for more information on GCaMP6, see this paper: <a class="reference external" href="https://www.nature.com/articles/nature12354">https://www.nature.com/articles/nature12354</a></p></li>
+<li><p>For more information on reporter lines, see these papers: <a class="reference external" href="https://doi.org/10.1016/j.neuron.2015.02.022">https://doi.org/10.1016/j.neuron.2015.02.022</a>, <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0092867418308031">https://www.sciencedirect.com/science/article/pii/S0092867418308031</a></p></li>
+</ul>
+<p>How many mice per transgenic line?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;full_genotype&#39;</span><span class="p">,</span> <span class="s1">&#39;mouse_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;full_genotype&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;mouse_id&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+<section id="dataset-variants">
+<span id="vbo-dataset-variants"></span><h2>Dataset variants<a class="headerlink" href="#dataset-variants" title="Permalink to this heading">#</a></h2>
+<p>Different groups of mice were trained on the task using different image sets and were imaged using different microscopes. These distinct groups of mice are referred to as <b>dataset variants</b> and can be identified using the <code class="docutils literal notranslate"><span class="pre">project_code</span></code> column.</p>
+<p><img alt="data_variants" src="../../../_images/vbo_dataset_variants.png" /></p>
+<p>What are the <code class="docutils literal notranslate"><span class="pre">project_codes</span></code>?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">project_code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For project codes <code class="docutils literal notranslate"><span class="pre">VisualBehavior</span></code> and <code class="docutils literal notranslate"><span class="pre">VisualBehaviorMultiscope</span></code>, mice were trained on image set A, while for <code class="docutils literal notranslate"><span class="pre">VisualBehaviorTask1B</span></code>, mice are trained on image set B. In the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorMultiscope4areasx2d</span></code> project code, mice were trained with image set G. Two images from image set G were included in the novel image set H.</p>
+<p>Collecting datasets from two groups of mice with swapped stimulus conditions (<code class="docutils literal notranslate"><span class="pre">VisualBehavior</span></code> and <code class="docutils literal notranslate"><span class="pre">VisualBehaviorTask1B</span></code>) provides as a control for the effects of novelty, to ensure that any observed changes were truly due to lack of familiarity with the novel image set, rather than a result of specific features of the image set that was used.</p>
+<p>In addition, some mice were imaged on the Scientifica single plane imaging systems (<code class="docutils literal notranslate"><span class="pre">VisualBehavior</span></code> and <code class="docutils literal notranslate"><span class="pre">VisualBehaviorTask1B</span></code>), and other mice were imaged on Multiscope for multi-plane imaging (<code class="docutils literal notranslate"><span class="pre">VisualBehaviorMultiscope</span></code> and <code class="docutils literal notranslate"><span class="pre">VisualBehaviorMultiscope4areasx2d</span></code>).</p>
+<p><b> behavior sessions can take place on different experimental systems </b></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;behavior data could be recorded on these experimental systems:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">equipment_name</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">equipment_name</span></code> values starting with ‘BEH’ indicate behavioral training in the behavior facility, while values starting with ‘CAM2P’ or ‘MESO’ indicate behavior sessions that took place under a 2-photon microscope - either a Scientifica single plane imaging system (‘CAMP2P.4’, ‘CAM2P.4’, or ‘CAM2P.5’) or a modified Mesoscope system, also called Multiscope, for multi-plane imaging (‘MESO.1’).</p>
+<p><b> Getting the project code for all sessions for each mouse </b></p>
+<p>You may have noticed that one of the values of <code class="docutils literal notranslate"><span class="pre">project_code</span></code> was <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. This is because project_code is only defined for ophys sessions, so let’s fill in the gaps so that all mice have a project_code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a table of the project code for each mouse</span>
+<span class="n">project_code_lookup</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="p">[</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">project_code</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;mouse_id&#39;</span><span class="p">)[[</span><span class="s1">&#39;mouse_id&#39;</span><span class="p">,</span><span class="s1">&#39;project_code&#39;</span><span class="p">]]</span>
+<span class="n">project_code_lookup</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">project_code_lookup</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouse_id&#39;</span><span class="p">,</span>
+                                            <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_session&#39;</span><span class="p">,</span> <span class="s1">&#39;_mouse&#39;</span><span class="p">))</span>
+<span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;project_code_session&#39;</span><span class="p">)</span>
+<span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;project_code_mouse&#39;</span><span class="p">:</span> <span class="s1">&#39;project_code&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="session-types">
+<h2>Session Types<a class="headerlink" href="#session-types" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">session_type</span></code> for each behavior session indicates the behavioral training stage or 2-photon imaging conditions for that particular session. This determines what stimuli were shown and what task parameters were used.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the session_types available in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="p">[</span>
+                  <span class="o">~</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><b> <code class="docutils literal notranslate"><span class="pre">TRAINING</span></code> session types </b></p>
+<p>Mice are progressed through a series of training stages to shape their behavior prior to 2-photon imaging. Mice are automatically advanced between stages depending on their behavioral performance. For a detailed description of the change detection task and advancement criteria, please see the <a class="reference external" href="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/4e/be/4ebe2911-bd38-4230-86c8-01a86cfd758e/visual_behavior_2p_technical_whitepaper.pdf">Technical Whitepaper</a></p>
+<p><img alt="training" src="../../../_images/automated_training.png" /></p>
+<p>Training with the change detection task begins with simple static grating stimuli, changing between 0 and 90 degrees in orientation. On the very first day, mice are automatically given a water reward when the orientation of the stimulus changes (<code class="docutils literal notranslate"><span class="pre">TRAINING_0_gratings_autorewards_15min</span></code>). On subsequent days, mice must lick following the change in order to receive a water reward (<code class="docutils literal notranslate"><span class="pre">TRAINING_1_gratings</span></code>). In the next stage, stimuli are flashed, with a 500ms inter stimulus interval of mean luminance gray screen (<code class="docutils literal notranslate"><span class="pre">TRAINING_2_gratings_flashed</span></code>).</p>
+<p>Once mice perform the task well with gratings, they are transitioned to natural image stimuli. Different groups of mice are trained with different sets of images, as described in the <code class="docutils literal notranslate"><span class="pre">project_code</span></code> section above. In the following description, we use <code class="docutils literal notranslate"><span class="pre">X</span></code> as a placeholder for image set <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">H</span></code> in the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> name.</p>
+<p>Training with images begins with a 10ul water reward volume (<code class="docutils literal notranslate"><span class="pre">TRAINING_3_images_X_10uL_reward</span></code>), which is then decreased to 7ul once mice perform the task consistently with images (<code class="docutils literal notranslate"><span class="pre">TRAINING_4_images_X_training</span></code>). When mice have reached criterion to be transferred to the 2-photon imaging portion of the experiment, they are labeled as ‘handoff_ready’ (<code class="docutils literal notranslate"><span class="pre">TRAINING_4_images_X_handoff_ready</span></code>.) If behavior performance returns to below criterion level, they are labeled as ‘handoff_lapsed’(<code class="docutils literal notranslate"><span class="pre">TRAINING_4_images_X_handoff_lapsed</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># reminder about possible session types </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the different session_types available in this dataset are:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="p">[</span>
+                  <span class="o">~</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>Some mice only go up to <code class="docutils literal notranslate"><span class="pre">TRAINING_4</span></code>, while others have an additional training stage labeled <code class="docutils literal notranslate"><span class="pre">TRAINING_5</span></code>. This is due to a minor change made partway through data collection, where an <code class="docutils literal notranslate"><span class="pre">epilogue</span></code> stimulus was introduced during the final training stage prior to 2-photon imaging, in order to habituate the mice to this stimulus, which is used during 2-photon imaging to aid in session to session registration. The <code class="docutils literal notranslate"><span class="pre">epilogue</span></code> stimulus is a 30 second movie clip repeated 10 times, for a total of 5 minutes, that occurs at the end of the <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> sessions. Training sessions with an epilogue movie include <code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_X_epilogue</span></code>, <code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_X_handoff_ready</span></code> , <code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_X_handoff_lapsed</span></code>.</p>
+<p><b> <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> session types </b></p>
+<p>When mice are transferred to the 2-photon rig for the imaging portion of the experiment, they first undergo 1-3 habituation sessions to get accustomed to the new experimental environment (<code class="docutils literal notranslate"><span class="pre">OPHYS_0_images_X_habituation</span></code>). During these sessions, mice perform the task under the microscope, but no experimental data is recorded.</p>
+<p>During the 2-photon imaging portion of the experiment, mice perform the task with the same set of images they saw during training , as well as an additional novel set of images that they did not see during training. This allows evaluation of the impact of different sensory contexts on neural activity - familiarity versus novelty. Sessions with <b>familiar images</b> include those starting with <code class="docutils literal notranslate"><span class="pre">OPHYS_0</span></code>, <code class="docutils literal notranslate"><span class="pre">OPHYS_1</span></code>, <code class="docutils literal notranslate"><span class="pre">OPHYS_2</span></code>, and <code class="docutils literal notranslate"><span class="pre">OPHYS_3</span></code>. Sessions with <b>novel images</b> include those starting with <code class="docutils literal notranslate"><span class="pre">OPHYS_4</span></code>, <code class="docutils literal notranslate"><span class="pre">OPHYS_5</span></code>, and <code class="docutils literal notranslate"><span class="pre">OPHYS_6</span></code>.</p>
+<p><img alt="experimental_design" src="../../../_images/vbo_experimental_design_sessions.png" /></p>
+<p>Interleaved between active behavior sessions are <b>passive viewing</b> sessions where mice are given their daily water ahead of the session (and are thus satiated) and view the stimulus with the lick spout retracted so they are unable to earn water rewards. This allows comparison of neural activity in response to stimuli under different behavioral contexts - active task engagement and passive viewing without reward. Passive sessions include <code class="docutils literal notranslate"><span class="pre">OPHYS_2_images_A_passive</span></code> (passive session with familiar images), and <code class="docutils literal notranslate"><span class="pre">OPHYS_5_images_A_passive</span></code> (passive session with novel images).</p>
+<p><b> What <code class="docutils literal notranslate"><span class="pre">session_types</span></code> belong to each <code class="docutils literal notranslate"><span class="pre">project_code</span></code>? </b></p>
+<p>As described above, mice belonging to different <code class="docutils literal notranslate"><span class="pre">project_codes</span></code> were trained with different image sets, which are indicated by the <code class="docutils literal notranslate"><span class="pre">session_type</span></code>. Lets check which <code class="docutils literal notranslate"><span class="pre">session_types</span></code> exist for each <code class="docutils literal notranslate"><span class="pre">project_code</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">project_code</span> <span class="ow">in</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">project_code</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span> 
+    <span class="n">project_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="p">[</span><span class="n">behavior_sessions</span><span class="o">.</span><span class="n">project_code</span><span class="o">==</span><span class="n">project_code</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> project_code:&#39;</span><span class="p">,</span> <span class="n">project_code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> has these session types:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
+        <span class="n">project_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="p">[</span><span class="o">~</span><span class="n">project_sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ophys-sessions-table">
+<h1>Ophys Sessions Table<a class="headerlink" href="#ophys-sessions-table" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> includes all of the metadata columns available in the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code>, but is indexed using the <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">behavior_session_id</span></code>, and only includes session types beginning in <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> that passed quality control and have 2-photon data available for analysis.</p>
+<p>How many ophys sessions are available?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_session_table</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of ophys sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ophys_sessions</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What columns does the <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> have?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_sessions</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<p>How many imaging planes, indicated by a unique <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code> are there for each <b>ophys session</b>?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># what do the ophys_experiment_id and ophys_container_id columns look like? </span>
+<span class="c1"># are there always the same number of experiments and containers in different sessions? </span>
+<span class="c1"># does the number of experiments and containers depend on the microscope used? </span>
+<span class="n">ophys_sessions</span><span class="p">[[</span><span class="s1">&#39;ophys_experiment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ophys_container_id&#39;</span><span class="p">,</span> <span class="s1">&#39;equipment_name&#39;</span><span class="p">]][:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ophys-experiment-table">
+<h1>Ophys Experiment Table<a class="headerlink" href="#ophys-experiment-table" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> contains all ophys data that is available for analysis, organized by the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code> which is associated with an single imaging plane in a single session.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> contains all the columns in <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> and <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code>, plus a few additional ones specific to individual imaging planes, including <code class="docutils literal notranslate"><span class="pre">imaging_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structure</span></code>.</p>
+<p><b> Here is how to load the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> </b></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiments</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_experiment_table</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of ophys experiments: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ophys_experiments</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ophys_experiments</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Compare the columns of <code class="docutils literal notranslate"><span class="pre">ophys_sessions_table</span></code> with <code class="docutils literal notranslate"><span class="pre">ophys_experiments_table</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_sessions</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiments</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<section id="imaging-plane-specific-metadata">
+<h2>Imaging plane specific metadata<a class="headerlink" href="#imaging-plane-specific-metadata" title="Permalink to this heading">#</a></h2>
+<dl class="simple myst">
+<dt>imaging_depth</dt><dd><p><em>int</em>	depth in microns from the cortical surface, where the data for a given imaging plane was collected</p>
+</dd>
+<dt>targeted_structure</dt><dd><p><em>string</em>	 brain area targeted for a given imaging plane</p>
+</dd>
+</dl>
+<p>What <code class="docutils literal notranslate"><span class="pre">imaging_depths</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structures</span></code> are available? Are they different depending on <code class="docutils literal notranslate"><span class="pre">project_code</span></code>?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through project codes and print the available imaging_depths and targeted_structures</span>
+<span class="k">for</span> <span class="n">project_code</span> <span class="ow">in</span> <span class="n">ophys_experiments</span><span class="o">.</span><span class="n">project_code</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    
+    <span class="n">project_experiments</span> <span class="o">=</span> <span class="n">ophys_experiments</span><span class="p">[</span><span class="n">ophys_experiments</span><span class="o">.</span><span class="n">project_code</span><span class="o">==</span><span class="n">project_code</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">imaging_depths available for&#39;</span><span class="p">,</span> <span class="n">project_code</span><span class="p">,</span> <span class="s1">&#39;include: &#39;</span><span class="p">,</span> <span class="n">project_experiments</span><span class="o">.</span><span class="n">imaging_depth</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">targeted_structures available for&#39;</span><span class="p">,</span> <span class="n">project_code</span><span class="p">,</span> <span class="s1">&#39;include: &#39;</span><span class="p">,</span> <span class="n">project_experiments</span><span class="o">.</span><span class="n">targeted_structure</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Experiments for <code class="docutils literal notranslate"><span class="pre">project_code</span></code>s <b>VisualBehavior</b> and <b>VisualBehaviorTask1B</b> were collected on the Scientifica single-plane 2-photon microscope from the primary visual cortex (VISp).</p>
+<p>Multiscope experiments had different combinations of <code class="docutils literal notranslate"><span class="pre">imaging_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structure</span></code>, with 4 imaging depths and 2 targeted structures for the <b>VisualBehaviorMultiscope</b> <code class="docutils literal notranslate"><span class="pre">project_code</span></code>, and 2 imaging depths and 4 targeted structures for <b>VisualBehaviorMultiscope4areasx2d</b> <code class="docutils literal notranslate"><span class="pre">project_code</span></code>.</p>
+</section>
+<section id="properties-of-session-types">
+<h2>Properties of session types<a class="headerlink" href="#properties-of-session-types" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> also includes a useful parsing of the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> and <code class="docutils literal notranslate"><span class="pre">prior_exposures_to_image_set</span></code> columns that allows you to filter the data by what <code class="docutils literal notranslate"><span class="pre">image_set</span></code> was used, whether a session is active behavior or <code class="docutils literal notranslate"><span class="pre">passive</span></code> viewing, and whether the session was the first exposure to the novel image set or a subsequent exposure (the <code class="docutils literal notranslate"><span class="pre">experience_level</span></code>).</p>
+<dl class="simple myst">
+<dt>image_set</dt><dd><p><em>string</em> image set shown in that session</p>
+</dd>
+<dt>passive</dt><dd><p><em>Boolean</em> True for sessions where the lick spout was removed so that no rewards were delivered, and the mouse received its daily water prior to the session</p>
+</dd>
+<dt>experience_level</dt><dd><p><em>string</em> ‘Familiar’: image set mouse was trained on, ‘Novel 1’: the first session with the novel image set, ‘Novel &gt;1’: a subsequent session with the novel image set</p>
+</dd>
+</dl>
+</section>
+<section id="ophys-containers">
+<h2>Ophys containers<a class="headerlink" href="#ophys-containers" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> is useful for identifying the set of sessions that were recorded from a single imaging plane, called an <b>ophys container</b>.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code> represents a single imaging plane recorded in a specific session, and is associated with a single <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code>. The <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code> indicates the collection of ophys sessions for a given imaging plane and can be used to identify all the sessions available for a given population of neurons.</p>
+<p>Group ophys experiments by the <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code> and count the number of experiments (unique fields of view recorded in unique sessions) that are available for each container.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiments</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ophys_container_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;ophys_session_id&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Group ophys experiments by the <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code> and the <code class="docutils literal notranslate"><span class="pre">session_type</span></code> and count the number of experiments (unique fields of view recorded in unique sessions) that are available for each session type for each container (i.e. field of view). Do all containers have the same <code class="docutils literal notranslate"><span class="pre">session_types</span></code>?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First lets check the first few containers</span>
+<span class="n">ophys_experiments</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ophys_container_id&#39;</span><span class="p">,</span> <span class="s1">&#39;session_type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;ophys_session_id&#39;</span><span class="p">]][:</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now lets check the last few containers</span>
+<span class="n">ophys_experiments</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ophys_container_id&#39;</span><span class="p">,</span> <span class="s1">&#39;session_type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;ophys_session_id&#39;</span><span class="p">]][</span><span class="o">-</span><span class="mi">25</span><span class="p">:]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ophys-cells-table">
+<h1>Ophys cells table<a class="headerlink" href="#ophys-cells-table" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_cells_table</span></code> contains the unique identifiers for each neuron in the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the ophys_cells_table</span>
+<span class="n">ophys_cells_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_cells_table</span><span class="p">()</span>  
+
+<span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">cell_roi_id</span></code> is the ID of each <a class="reference internal" href="../../../glossary.html#term-ROI"><span class="xref std std-term">ROI</span></a> segmented in each ophys_experiment (i.e. a single imaging plane in a single session).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code> is the cell ID assigned after ROIs are matched across sessions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code> is shared across all sessions in which an ROI was segmented and matched, while the <code class="docutils literal notranslate"><span class="pre">cell_roi_id</span></code> is unique to an individual ophys_experiment_id.</p>
+<p>Metadata for each cell in the <code class="docutils literal notranslate"><span class="pre">ophys_cells_table</span></code>, such as the <code class="docutils literal notranslate"><span class="pre">imaging_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structure</span></code>it was recorded in, can be obtained by merging the <code class="docutils literal notranslate"><span class="pre">ophys_cells_table</span></code> with the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> using the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the ophys_experiment_table</span>
+<span class="n">ophys_experiment_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_experiment_table</span><span class="p">()</span>
+<span class="c1"># Merge the ophys_experiment_table with the ophys_cells_table to add metadata for each cell</span>
+<span class="n">ophys_cells_table</span> <span class="o">=</span> <span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ophys_experiment_table</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ophys_experiment_id&#39;</span><span class="p">)</span>
+<span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Let’s look at the metadata for a specific <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code>, which is the cell identifier that links neurons recorded across multiple sessions. How many sessions was this cell identified in?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="mi">1120127083</span>
+<span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">ophys_cells_table</span><span class="p">[</span><span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">cell_specimen_id</span><span class="o">==</span><span class="n">cell_specimen_id</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code> is the same for all sessions recorded for this <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code>.</p>
+<p>Which <code class="docutils literal notranslate"><span class="pre">session_type</span></code>s are available for this cell?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cell_metadata</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Grab another <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code> from this same <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code> and see how many sessions it was recorded in.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_container_id</span> <span class="o">=</span> <span class="n">cell_metadata</span><span class="o">.</span><span class="n">ophys_container_id</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cells_from_this_container</span> <span class="o">=</span> <span class="n">ophys_cells_table</span><span class="p">[</span><span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">ophys_container_id</span><span class="o">==</span><span class="n">ophys_container_id</span><span class="p">]</span><span class="o">.</span><span class="n">cell_specimen_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="n">cells_from_this_container</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">ophys_cells_table</span><span class="p">[</span><span class="n">ophys_cells_table</span><span class="o">.</span><span class="n">cell_specimen_id</span><span class="o">==</span><span class="n">cell_specimen_id</span><span class="p">]</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This cell was only detected in one session. In order for neurons to be detected by the segmentation algorithm, they must have some activity at some point during the session, so that there is enough calcium fluorescence for them to be observed. When a cell is detected in some sessions and not others, it most likely means that it was not active in all sessions.</p>
+<p>Another possibility is that the imaging plane was not perfectly matched from one day to the next, and the cell simply wasn’t present on some days. This is less likely to occur in this dataset because of our strict quality control process designed to remove improperly matched sessions from the dataset. The imaging plane recorded in each session is compared with an anatomical stack acquired +/-30 um around the targeted imaging plane location, and the distance from the target location is computed for each session. Experiments where the imaging plane was &gt;10um from the target location are discarded. Given the size of a neuron’s cell body (~15-30um), and the z-resolution of the microscope (~5um point spread function), this criterion ensures that the experiments included in the dataset are well matched across sessions and the same cells are within the recorded field of view from day to day.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="technical-whitepaper">
+<h1>Technical whitepaper<a class="headerlink" href="#technical-whitepaper" title="Permalink to this heading">#</a></h1>
+<p>For detailed information on experimental procedures and data processing steps used to generate this dataset, see the <a class="reference external" href="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/4e/be/4ebe2911-bd38-4230-86c8-01a86cfd758e/visual_behavior_2p_technical_whitepaper.pdf">Visual Behavior Ophys Technical Whitepaper</a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ophys/visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VB-Ophys.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Behavior Ophys Dataset Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VB-BehaviorSessionData.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Behavior Session Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Behavior Ophys Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vbo-metadata-tables">VBO Metadata Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-sessions">Behavior sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-sessions">Ophys sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-experiments">Ophys experiments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-cells">Ophys cells</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-sessions-table">Behavior Sessions Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse-specific-metadata">Mouse specific metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-variants">Dataset variants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session Types</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-sessions-table">Ophys Sessions Table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-experiment-table">Ophys Experiment Table</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imaging-plane-specific-metadata">Imaging plane specific metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-session-types">Properties of session types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-containers">Ophys containers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ophys-cells-table">Ophys cells table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-whitepaper">Technical whitepaper</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

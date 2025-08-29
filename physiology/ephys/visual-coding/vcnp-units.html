@@ -1,0 +1,1965 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Units &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-units';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-units.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Receptive fields" href="vcnp-receptive-fields.html" />
+    <link rel="prev" title="Accessing Neuropixels Visual Coding Data" href="vcnp-data-access.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-units.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-units.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-units.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Units</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-units">Accessing the units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-units-table">The <code class="docutils literal notranslate"><span class="pre">units</span></code> table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-units-table">Working with the <code class="docutils literal notranslate"><span class="pre">units</span></code> table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spike-times">Spike Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-waveforms">Unit waveforms</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="units">
+<h1>Units<a class="headerlink" href="#units" title="Permalink to this heading">#</a></h1>
+<p>The primary data in this dataset is the recorded activity of isolated units. A
+number of metrics are used to isolate units through spike sorting, and these
+metrics can be used to access how well isolated they are and the quality of
+each unit. The <code class="docutils literal notranslate"><span class="pre">units</span></code> dataframe provides many of these metrics, as well as
+parameterization of the waveform for each unit that passed initial QC,
+including</p>
+<ul class="simple">
+<li><p><strong>firing rate:</strong> mean spike rate during the entire session</p></li>
+<li><p><strong>presence ratio:</strong> fraction of session when spikes are present</p></li>
+<li><p><strong>ISI violations:</strong> rate of refractory period violations</p></li>
+<li><p><strong>Isolation distances:</strong> distance to nearest cluster in Mihalanobis space</p></li>
+<li><p><strong>d’:</strong> classification accuracy based on LDA</p></li>
+<li><p><strong>SNR:</strong> signal to noise ratio</p></li>
+<li><p><strong>Maximum drift:</strong> Maximum change in spike depth during recording</p></li>
+<li><p><strong>Cumulative drift:</strong> Cumulative change in spike depth during recording</p></li>
+</ul>
+<section id="accessing-the-units">
+<h2>Accessing the units<a class="headerlink" href="#accessing-the-units" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example cache directory path, it determines where downloaded data will be stored</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/&#39;</span>
+<span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+<span class="n">session_id</span> <span class="o">=</span> <span class="mi">750332458</span> <span class="c1"># An example session id</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1D Waveform features:</strong></p>
+<img alt="../../../_images/spike_waveform.png" id="spike-waveform" src="../../../_images/spike_waveform.png" />
+<p>For more information on these:</p>
+<p><a class="github reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/quality_metrics">AllenInstitute/ecephys_spike_sorting</a>
+<a class="github reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms">AllenInstitute/ecephys_spike_sorting</a></p>
+<section id="the-units-table">
+<h3>The <code class="docutils literal notranslate"><span class="pre">units</span></code> table<a class="headerlink" href="#the-units-table" title="Permalink to this heading">#</a></h3>
+<p>The units table contains important information about each unit that was
+recorded, including its spike sorting quality metrics, its 3D position in the
+Allen Common Coordinate Framework, and the structure in which it’s located.</p>
+<p>Here is a brief summary of the columns in this table:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>column name</p></th>
+<th class="head text-left"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">unit_id</span></code></p></td>
+<td class="text-left"><p>the identifier for this unit assigned by the AllenSDK (unique across the entire dataset)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_PT_ratio</span></code></p></td>
+<td class="text-left"><p>peak-to-trough ratio of the average spike waveform</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_amplitude</span></code></p></td>
+<td class="text-left"><p>amplitude (in microvolts) of the average spike waveform</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code></p></td>
+<td class="text-left"><p>a measure of the approximate fraction of spikes missing from this unit (default threshold = 0.1)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cluster_id</span></code></p></td>
+<td class="text-left"><p>the identifier for this unit assigned by the spike sorting algorithm (unique within each probe)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cumulative_drift</span></code></p></td>
+<td class="text-left"><p>the integrated distance (in microns) that the unit drifted across the whole session</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">d_prime</span></code></p></td>
+<td class="text-left"><p>a measure of how separable this unit’s waveforms are from its neighbors’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate</span></code></p></td>
+<td class="text-left"><p>mean spike rate across the whole session</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isi_violations</span></code></p></td>
+<td class="text-left"><p>a measure of this unit’s level of contamination (default threshold = 0.5)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isolation_distance</span></code></p></td>
+<td class="text-left"><p>a measure of how separable this unit’s waveforms are from its neighbors’ (higher is better)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">L_ratio</span></code></p></td>
+<td class="text-left"><p>a measure of how separable this unit’s waveforms are from its neighbors’ (lower is better)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">local_index</span></code></p></td>
+<td class="text-left"><p>the index of this unit within the probe it was recorded with</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_drift</span></code></p></td>
+<td class="text-left"><p>the maximum distance (in microns) the unit drifted across the whole session</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code></p></td>
+<td class="text-left"><p>a measure of this unit’s level of contamination</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">nn_miss_rate</span></code></p></td>
+<td class="text-left"><p>a measure of the fraction of spike missing from this unit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">peak_channel_id</span></code></p></td>
+<td class="text-left"><p>the identifier for this unit’s peak channel (can be used as an index into the <code class="docutils literal notranslate"><span class="pre">session.channels</span></code> table</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code></p></td>
+<td class="text-left"><p>the fraction of the session over which this unit had spikes detected (default threshold = 0.9)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_recovery_slope</span></code></p></td>
+<td class="text-left"><p>slope of the waveform between the trough and the peak</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_repolarization_slope</span></code></p></td>
+<td class="text-left"><p>slope of the waveform back to 0 after the peak</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">silhouette_score</span></code></p></td>
+<td class="text-left"><p>a measure of this unit’s level of contamination</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">snr</span></code></p></td>
+<td class="text-left"><p>the ratio of the waveform amplitude relative to the background noise on the peak channel</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_spread</span></code></p></td>
+<td class="text-left"><p>distance the waveform extends above and below the peak channel</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_velocity_above</span></code></p></td>
+<td class="text-left"><p>speed of waveform propagation above the peak channel</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_velocity_below</span></code></p></td>
+<td class="text-left"><p>speed of waveform propagation below the peak channel</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform_duration</span></code></p></td>
+<td class="text-left"><p>time between the waveform peak and trough</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">filtering</span></code></p></td>
+<td class="text-left"><p>filter properties of the probe used to record this unit</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_channel_number</span></code></p></td>
+<td class="text-left"><p>local index of this unit’s peak channel</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_horizontal_position</span></code></p></td>
+<td class="text-left"><p>horizontal position of this unit on the probe</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_id</span></code></p></td>
+<td class="text-left"><p>identifier of the probe used to record this unit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_vertical_position</span></code></p></td>
+<td class="text-left"><p>vertical position of this unit on the probe</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">structure_acronym</span></code></p></td>
+<td class="text-left"><p>CCF region where this unit is located</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ecephys_structure_id</span></code></p></td>
+<td class="text-left"><p>CCF structure ID where this unit is located</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ecephys_structure_acronym</span></code></p></td>
+<td class="text-left"><p>alias for <code class="docutils literal notranslate"><span class="pre">structure_acronym</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">anterior_posterior_ccf_coordinate</span></code></p></td>
+<td class="text-left"><p>CCF coordinate along the A/P axis</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">dorsal_ventral_ccf_coordinate</span></code></p></td>
+<td class="text-left"><p>CCF coordinate along the D/V axis</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">left_right_ccf_coordinate</span></code></p></td>
+<td class="text-left"><p>CCF coordinate along the L/R axis</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_description</span></code></p></td>
+<td class="text-left"><p>name of the probe used to record this unit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td class="text-left"><p>not used</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_sampling_rate</span></code></p></td>
+<td class="text-left"><p>spike band sampling rate of the probe used to record this unit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_lfp_sampling_rate</span></code></p></td>
+<td class="text-left"><p>LFP band sampling rate of the probe used to record this unit</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">probe_has_lfp_data</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if LFP data was recorded on the same probe</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="working-with-the-units-table">
+<h3>Working with the <code class="docutils literal notranslate"><span class="pre">units</span></code> table<a class="headerlink" href="#working-with-the-units-table" title="Permalink to this heading">#</a></h3>
+<div class="admonition-example-units admonition">
+<p class="admonition-title">Example: Units</p>
+<p>Get the <code class="docutils literal notranslate"><span class="pre">units</span></code> dataframe for this session.</p>
+<p>What the the metrics? (i.e. what are the columns for the dataframe?</p>
+<p>How many units are there? How many units per structure?</p>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waveform_PT_ratio</th>
+      <th>waveform_amplitude</th>
+      <th>amplitude_cutoff</th>
+      <th>cluster_id</th>
+      <th>cumulative_drift</th>
+      <th>d_prime</th>
+      <th>firing_rate</th>
+      <th>isi_violations</th>
+      <th>isolation_distance</th>
+      <th>L_ratio</th>
+      <th>...</th>
+      <th>ecephys_structure_id</th>
+      <th>ecephys_structure_acronym</th>
+      <th>anterior_posterior_ccf_coordinate</th>
+      <th>dorsal_ventral_ccf_coordinate</th>
+      <th>left_right_ccf_coordinate</th>
+      <th>probe_description</th>
+      <th>location</th>
+      <th>probe_sampling_rate</th>
+      <th>probe_lfp_sampling_rate</th>
+      <th>probe_has_lfp_data</th>
+    </tr>
+    <tr>
+      <th>unit_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>951817231</th>
+      <td>0.293351</td>
+      <td>101.641410</td>
+      <td>0.001248</td>
+      <td>8</td>
+      <td>392.48</td>
+      <td>6.461795</td>
+      <td>15.773666</td>
+      <td>0.020093</td>
+      <td>147.423046</td>
+      <td>0.000259</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>grey</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.968724</td>
+      <td>1249.998697</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951817222</th>
+      <td>1.427508</td>
+      <td>74.654970</td>
+      <td>0.032535</td>
+      <td>7</td>
+      <td>948.33</td>
+      <td>5.638511</td>
+      <td>6.423025</td>
+      <td>0.007457</td>
+      <td>95.080849</td>
+      <td>0.000727</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>grey</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.968724</td>
+      <td>1249.998697</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951817272</th>
+      <td>0.240866</td>
+      <td>182.350545</td>
+      <td>0.000218</td>
+      <td>13</td>
+      <td>578.80</td>
+      <td>4.865528</td>
+      <td>25.891454</td>
+      <td>0.002123</td>
+      <td>121.137882</td>
+      <td>0.017477</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>grey</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.968724</td>
+      <td>1249.998697</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951817282</th>
+      <td>0.650177</td>
+      <td>183.182025</td>
+      <td>0.000223</td>
+      <td>14</td>
+      <td>545.47</td>
+      <td>4.402664</td>
+      <td>9.177656</td>
+      <td>0.001370</td>
+      <td>59.655811</td>
+      <td>0.025102</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>grey</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.968724</td>
+      <td>1249.998697</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951817316</th>
+      <td>0.387017</td>
+      <td>71.279130</td>
+      <td>0.059431</td>
+      <td>18</td>
+      <td>446.09</td>
+      <td>3.582546</td>
+      <td>10.277127</td>
+      <td>0.050247</td>
+      <td>56.080395</td>
+      <td>0.021113</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>grey</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.968724</td>
+      <td>1249.998697</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;waveform_PT_ratio&#39;, &#39;waveform_amplitude&#39;, &#39;amplitude_cutoff&#39;,
+       &#39;cluster_id&#39;, &#39;cumulative_drift&#39;, &#39;d_prime&#39;, &#39;firing_rate&#39;,
+       &#39;isi_violations&#39;, &#39;isolation_distance&#39;, &#39;L_ratio&#39;, &#39;local_index&#39;,
+       &#39;max_drift&#39;, &#39;nn_hit_rate&#39;, &#39;nn_miss_rate&#39;, &#39;peak_channel_id&#39;,
+       &#39;presence_ratio&#39;, &#39;waveform_recovery_slope&#39;,
+       &#39;waveform_repolarization_slope&#39;, &#39;silhouette_score&#39;, &#39;snr&#39;,
+       &#39;waveform_spread&#39;, &#39;waveform_velocity_above&#39;, &#39;waveform_velocity_below&#39;,
+       &#39;waveform_duration&#39;, &#39;filtering&#39;, &#39;probe_channel_number&#39;,
+       &#39;probe_horizontal_position&#39;, &#39;probe_id&#39;, &#39;probe_vertical_position&#39;,
+       &#39;structure_acronym&#39;, &#39;ecephys_structure_id&#39;,
+       &#39;ecephys_structure_acronym&#39;, &#39;anterior_posterior_ccf_coordinate&#39;,
+       &#39;dorsal_ventral_ccf_coordinate&#39;, &#39;left_right_ccf_coordinate&#39;,
+       &#39;probe_description&#39;, &#39;location&#39;, &#39;probe_sampling_rate&#39;,
+       &#39;probe_lfp_sampling_rate&#39;, &#39;probe_has_lfp_data&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many units are in this session?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>902
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which areas (structures) are they from?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;grey&#39; &#39;VISam&#39; &#39;VISpm&#39; &#39;VISp&#39; &#39;IntG&#39; &#39;IGL&#39; &#39;LGd&#39; &#39;CA3&#39; &#39;DG&#39; &#39;CA1&#39; &#39;VISl&#39;
+ &#39;VISal&#39; &#39;VISrl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many units per area are there?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>grey     558
+VISal     71
+VISp      63
+VISam     60
+VISrl     44
+VISl      38
+VISpm     19
+CA1       16
+CA3       15
+DG         7
+IGL        5
+LGd        4
+IntG       2
+Name: ecephys_structure_acronym, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-example-select-good-units admonition">
+<p class="admonition-title">Example: Select ‘good’ units</p>
+<p>A default is to include units that have a SNR greater than 1 and ISI violations
+less than 0.5 Plot a histogram of the values for each of these metrics? How
+many units meet these criteria? How many per structure?</p>
+</div>
+<p>plot a histogram for SNR</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">snr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/910c0a162d5c156c7946664da8354d259d9094d9162453ac161e3fa72a998663.png" src="../../../_images/910c0a162d5c156c7946664da8354d259d9094d9162453ac161e3fa72a998663.png" />
+</div>
+</div>
+<p>plot a histogram for ISI violations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">isi_violations</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/a0567b59ed59293938cf96cdd72fbdf1f2538a2757f4a5c1e1b2146d9fdf87ff.png" src="../../../_images/a0567b59ed59293938cf96cdd72fbdf1f2538a2757f4a5c1e1b2146d9fdf87ff.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">good_units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">snr</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">isi_violations</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">good_units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>868
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">good_units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>grey     548
+VISal     64
+VISp      62
+VISam     60
+VISrl     37
+VISl      34
+VISpm     18
+CA3       15
+CA1       15
+DG         7
+IGL        4
+LGd        3
+IntG       1
+Name: ecephys_structure_acronym, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-example-compare-the-firing-rate-of-good-units-in-different-structures admonition">
+<p class="admonition-title">Example: Compare the firing rate of good units in different structures</p>
+<p>Make a violinplot of the overall firing rates of units across structures.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ecephys_structure_acronym&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">good_units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;ecephys_structure_acronym&#39;, ylabel=&#39;firing_rate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/2f6abbc17dd80a2e176624c5c9c4386d45b480d916f08c1bfd7da1a9250bf38c.png" src="../../../_images/2f6abbc17dd80a2e176624c5c9c4386d45b480d916f08c1bfd7da1a9250bf38c.png" />
+</div>
+</div>
+<div class="admonition-example-plot-the-location-of-the-units-on-the-probe admonition">
+<p class="admonition-title">Example: Plot the location of the units on the probe</p>
+<p>Color each structure a different color. What do you learn about the vertical position values?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1"># restrict to one probe</span>
+<span class="n">probe_id</span> <span class="o">=</span> <span class="n">good_units</span><span class="o">.</span><span class="n">probe_id</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">probe_units</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="o">.</span><span class="n">probe_id</span><span class="o">==</span><span class="n">probe_id</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">structure</span> <span class="ow">in</span> <span class="n">good_units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+        <span class="n">probe_units</span><span class="p">[</span><span class="n">probe_units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">==</span><span class="n">structure</span><span class="p">]</span><span class="o">.</span><span class="n">probe_vertical_position</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3200</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">structure</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Probe vertical position (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Unit count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/eeb657a39d26a1be3d937081313afe7f7486bcc0fb1b8e974d818c48e64667bb.png" src="../../../_images/eeb657a39d26a1be3d937081313afe7f7486bcc0fb1b8e974d818c48e64667bb.png" />
+</div>
+</div>
+</section>
+<section id="spike-times">
+<h3>Spike Times<a class="headerlink" href="#spike-times" title="Permalink to this heading">#</a></h3>
+<p>The primary data in this dataset is the recorded activity of isolated units.
+The <code class="docutils literal notranslate"><span class="pre">spike</span> <span class="pre">times</span></code> is a dictionary of spike times for each units in the session.</p>
+<div class="admonition-example-spike-times admonition">
+<p class="admonition-title">Example: Spike Times</p>
+<p>Next let’s find the <code class="docutils literal notranslate"><span class="pre">spike_times</span></code> for these units.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spike_times</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spike_times</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>What type of object is this?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">spike_times</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many items does it include?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">spike_times</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>902
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>902
+</pre></div>
+</div>
+</div>
+</div>
+<p>What are the keys for this object?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">spike_times</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[951817566, 951817557, 951818568, 951818561, 951818553]
+</pre></div>
+</div>
+</div>
+</div>
+<p>These keys are unit ids. Use the unit_id for the first unit to get the spike times for that unit. How many spikes does it have in the entire session?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spike_times</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.79596714e+00, 3.81646716e+00, 3.84250052e+00, ...,
+       9.75020103e+03, 9.75023709e+03, 9.75027469e+03])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spike_times</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>153738
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-example-get-the-spike-times-for-the-units-in-v1 admonition">
+<p class="admonition-title">Example: Get the spike times for the units in V1</p>
+<p>Use the units dataframe to identify units in ‘VISp’ and use the spike_times to
+get their spikes. Start just getting the spike times for the first unit
+identified this way. Plot a raster plot of the spikes during the first 5
+minutes (300 seconds) of the experiment.</p>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waveform_PT_ratio</th>
+      <th>waveform_amplitude</th>
+      <th>amplitude_cutoff</th>
+      <th>cluster_id</th>
+      <th>cumulative_drift</th>
+      <th>d_prime</th>
+      <th>firing_rate</th>
+      <th>isi_violations</th>
+      <th>isolation_distance</th>
+      <th>L_ratio</th>
+      <th>...</th>
+      <th>ecephys_structure_id</th>
+      <th>ecephys_structure_acronym</th>
+      <th>anterior_posterior_ccf_coordinate</th>
+      <th>dorsal_ventral_ccf_coordinate</th>
+      <th>left_right_ccf_coordinate</th>
+      <th>probe_description</th>
+      <th>location</th>
+      <th>probe_sampling_rate</th>
+      <th>probe_lfp_sampling_rate</th>
+      <th>probe_has_lfp_data</th>
+    </tr>
+    <tr>
+      <th>unit_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>951814973</th>
+      <td>0.599534</td>
+      <td>26.217945</td>
+      <td>0.014322</td>
+      <td>361</td>
+      <td>345.26</td>
+      <td>2.927932</td>
+      <td>1.503416</td>
+      <td>0.410801</td>
+      <td>61.132264</td>
+      <td>0.001457</td>
+      <td>...</td>
+      <td>385.0</td>
+      <td>VISp</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.996461</td>
+      <td>1249.999853</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951814989</th>
+      <td>0.366990</td>
+      <td>43.292340</td>
+      <td>0.026720</td>
+      <td>363</td>
+      <td>386.49</td>
+      <td>5.082127</td>
+      <td>1.885503</td>
+      <td>0.000000</td>
+      <td>89.588334</td>
+      <td>0.001691</td>
+      <td>...</td>
+      <td>385.0</td>
+      <td>VISp</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.996461</td>
+      <td>1249.999853</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951816812</th>
+      <td>0.394103</td>
+      <td>103.924470</td>
+      <td>0.002891</td>
+      <td>561</td>
+      <td>146.34</td>
+      <td>4.708563</td>
+      <td>2.415644</td>
+      <td>0.046132</td>
+      <td>80.151626</td>
+      <td>0.000185</td>
+      <td>...</td>
+      <td>385.0</td>
+      <td>VISp</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.996461</td>
+      <td>1249.999853</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951815078</th>
+      <td>0.329370</td>
+      <td>111.679035</td>
+      <td>0.051784</td>
+      <td>373</td>
+      <td>165.93</td>
+      <td>3.799649</td>
+      <td>4.062188</td>
+      <td>0.100211</td>
+      <td>55.356604</td>
+      <td>0.010204</td>
+      <td>...</td>
+      <td>385.0</td>
+      <td>VISp</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.996461</td>
+      <td>1249.999853</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>951815150</th>
+      <td>0.526429</td>
+      <td>232.830975</td>
+      <td>0.001259</td>
+      <td>382</td>
+      <td>302.18</td>
+      <td>6.045597</td>
+      <td>0.516495</td>
+      <td>0.000000</td>
+      <td>80.501412</td>
+      <td>0.000006</td>
+      <td>...</td>
+      <td>385.0</td>
+      <td>VISp</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>-1000</td>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.996461</td>
+      <td>1249.999853</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 40 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unit_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">spike_times</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">)),</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Time (s)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/7db2978edaa697345a8c559d674315f5da80ee54e0b96efe45cdb30f439cd749.png" src="../../../_images/7db2978edaa697345a8c559d674315f5da80ee54e0b96efe45cdb30f439cd749.png" />
+</div>
+</div>
+<div class="admonition-example-plot-the-firing-rate-for-this-units-across-the-entire-session admonition">
+<p class="admonition-title">Example: Plot the firing rate for this units across the entire session</p>
+<p>A raster plot won’t work for visualizing the activity across the entire session
+as there are too many spikes! Instead, bin the activity in 1 second bins.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">spikes</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="n">binned_spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">numbins</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numbins</span><span class="p">):</span>
+    <span class="n">binned_spikes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">[(</span><span class="n">spikes</span><span class="o">&gt;</span><span class="n">i</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">spikes</span><span class="o">&lt;</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binned_spikes</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;FR (Hz)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;FR (Hz)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/dc1d4fc1bdd351de7167f9c2c0a0e74100f939f0bd0699bccc7a3cfa71f3b37f.png" src="../../../_images/dc1d4fc1bdd351de7167f9c2c0a0e74100f939f0bd0699bccc7a3cfa71f3b37f.png" />
+</div>
+</div>
+<div class="admonition-example-plot-firing-rates-for-units-in-v1 admonition">
+<p class="admonition-title">Example: Plot firing rates for units in V1</p>
+<p>Now let’s do this for up to 50 units in V1. Make an array of the binned activity of all units in V1 called ‘v1_binned’. We’ll use this again later.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1_units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span>
+<span class="n">numunits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v1_units</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">numunits</span><span class="o">&gt;</span><span class="mi">50</span><span class="p">:</span>
+    <span class="n">numunits</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">v1_binned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">numunits</span><span class="p">,</span> <span class="n">numbins</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numunits</span><span class="p">):</span>
+    <span class="n">unit_id</span> <span class="o">=</span> <span class="n">v1_units</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">spike_times</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numbins</span><span class="p">):</span>
+        <span class="n">v1_binned</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spikes</span><span class="p">[(</span><span class="n">spikes</span><span class="o">&gt;</span><span class="n">j</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">spikes</span><span class="o">&lt;</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the activity of all the units, one above the other</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numunits</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">v1_binned</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">/</span><span class="mf">30.</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/5c248f8fef008ebabb511605ebe78a78278650aa3ff159b0b240e3160aaaf7c2.png" src="../../../_images/5c248f8fef008ebabb511605ebe78a78278650aa3ff159b0b240e3160aaaf7c2.png" />
+</div>
+</div>
+</section>
+<section id="unit-waveforms">
+<h3>Unit waveforms<a class="headerlink" href="#unit-waveforms" title="Permalink to this heading">#</a></h3>
+<p>For each unit, the average action potential waveform has been recorded from each
+channel of the probe. This is contained in the <code class="docutils literal notranslate"><span class="pre">mean_waveforms</span></code> object. This is
+the characteristic pattern that distinguishes each unit in spike sorting, and it
+can also help inform us regarding differences between cell types.</p>
+<p>We will use this in conjunction with the <code class="docutils literal notranslate"><span class="pre">channel_structure_intervals</span></code> function
+which tells us where each channel is located in the brain. This will let us get
+a feel for the spatial extent of the extracellular action potential waveforms in
+relation to specific structures.</p>
+<div class="admonition-example-unit-waveforms admonition">
+<p class="admonition-title">Example: Unit waveforms</p>
+<p>Get the waveform for one unit.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>What type of object is this?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">waveforms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>What are the keys?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">waveforms</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[951817566, 951817557, 951818568, 951818561, 951818553]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get the waveform for one unit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unit</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">400</span><span class="p">]</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="n">unit</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What type of object is this? What is its shape?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">wf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xarray.core.dataarray.DataArray
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">coords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordinates:
+  * channel_id  (channel_id) int64 850176026 850176028 ... 850176790 850176792
+  * time        (time) float64 0.0 3.333e-05 6.667e-05 ... 0.002667 0.0027
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(373, 82)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wf</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time steps&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Channel #&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Channel #&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/657d985ba05351172b9c7ec69be77c244b95d5bb919d2bfc7d60fbeb8e7bb176.png" src="../../../_images/657d985ba05351172b9c7ec69be77c244b95d5bb919d2bfc7d60fbeb8e7bb176.png" />
+</div>
+</div>
+<div class="admonition-example-unit-waveforms admonition">
+<p class="admonition-title">Example: Unit waveforms</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">channel_structure_intervals</span></code> to get information about where each
+channel is located.</p>
+<p>We need to pass this function a list of channel ids, and it will identify
+channels that mark boundaries between identified brain regions.</p>
+<p>We can use this information to add some context to our visualization.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass in the list of channels from the waveforms data</span>
+<span class="n">ecephys_structure_acronyms</span><span class="p">,</span> <span class="n">intervals</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channel_structure_intervals</span><span class="p">(</span><span class="n">wf</span><span class="o">.</span><span class="n">channel_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ecephys_structure_acronyms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;grey&#39; &#39;VISp&#39; nan]
+[  0 204 292 373]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Place tick marks at the interval boundaries, and labels at the interval midpoints.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wf</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time (s)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span>
+<span class="c1"># construct a list of midpoints by averaging adjacent endpoints</span>
+<span class="n">interval_midpoints</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">aa</span> <span class="o">+</span> <span class="n">bb</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">aa</span><span class="p">,</span> <span class="n">bb</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">intervals</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">interval_midpoints</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">ecephys_structure_acronyms</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/3029fbb34c6168ca1ac5110f999e0e4ce3a51826e2a28394744a1ca3b1ecaae3.png" src="../../../_images/3029fbb34c6168ca1ac5110f999e0e4ce3a51826e2a28394744a1ca3b1ecaae3.png" />
+</div>
+</div>
+<p>Let’s see if this matches the structure information saved in the units table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit</span><span class="p">,</span> <span class="s2">&quot;ecephys_structure_acronym&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;grey&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-example-plot-the-mean-waveform-for-the-peak-channel-for-each-unit-in-the-dentate-gyrus-dg admonition">
+<p class="admonition-title">Example: Plot the mean waveform for the peak channel for each unit in the dentate gyrus (DG)</p>
+<p>Start by plotting the mean waveform for the peak channel for the unit we just looked at.
+Then do this for all the units in DG, making a heatmap of these waveforms</p>
+</div>
+<p>Find the peak channel for this unit, and plot the mean waveform for just that channel</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit</span><span class="p">,</span> <span class="s1">&#39;peak_channel_id&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">channel_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>850176126
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wf</span><span class="o">.</span><span class="n">loc</span><span class="p">[{</span><span class="s2">&quot;channel_id&quot;</span><span class="p">:</span> <span class="n">channel_id</span><span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f312d267a60&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/b8741114170ce60b40537f103a121733c97e172b0acdcfd503b388dc339954d3.png" src="../../../_images/b8741114170ce60b40537f103a121733c97e172b0acdcfd503b388dc339954d3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">th_unit_ids</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">==</span><span class="s2">&quot;DG&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">peak_waveforms</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">unit_id</span> <span class="ow">in</span> <span class="n">th_unit_ids</span><span class="p">:</span>
+
+    <span class="n">peak_ch</span> <span class="o">=</span> <span class="n">good_units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">,</span> <span class="s2">&quot;peak_channel_id&quot;</span><span class="p">]</span>
+    <span class="n">unit_mean_waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+
+    <span class="n">peak_waveforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unit_mean_waveforms</span><span class="o">.</span><span class="n">loc</span><span class="p">[{</span><span class="s2">&quot;channel_id&quot;</span><span class="p">:</span> <span class="n">peak_ch</span><span class="p">}])</span>
+
+
+<span class="n">time_domain</span> <span class="o">=</span> <span class="n">unit_mean_waveforms</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span>
+
+<span class="n">peak_waveforms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">peak_waveforms</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">peak_waveforms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f312d96f040&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/456ce35d400074c29105a32e94004c202a8f55dec2cf04db7d61903c7a0b00d2.png" src="../../../_images/456ce35d400074c29105a32e94004c202a8f55dec2cf04db7d61903c7a0b00d2.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcnp-data-access.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing Neuropixels Visual Coding Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcnp-receptive-fields.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Receptive fields</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-units">Accessing the units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-units-table">The <code class="docutils literal notranslate"><span class="pre">units</span></code> table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-units-table">Working with the <code class="docutils literal notranslate"><span class="pre">units</span></code> table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spike-times">Spike Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-waveforms">Unit waveforms</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

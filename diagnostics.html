@@ -1,0 +1,1655 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Diagnostics &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'diagnostics';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/diagnostics.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/diagnostics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fdiagnostics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/diagnostics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Diagnostics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#databook-version-info">Databook Version Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executable-pages">Executable Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version">Python Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diagnostics">
+<h1>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Diagnostics report compiled at: 2024-09-23 17:38:49.985155
+</pre></div>
+</div>
+</div>
+</div>
+<section id="databook-version-info">
+<h2>Databook Version Info<a class="headerlink" href="#databook-version-info" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Remote     : https://github.com/AllenSWDB/allenswdb.github.io.git
+Branch     : main
+Commit Hash: 5f1a4f8eef37bd7160b97badb210d0ae922c834e
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="executable-pages">
+<h2>Executable Pages<a class="headerlink" href="#executable-pages" title="Permalink to this heading">#</a></h2>
+<p>These pages contain executable Python code. Any failures will be listed here with an ❌. Hover over the failure icon to see what kind of error occurred.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Document</p></th>
+<th class="head"><p>Modified</p></th>
+<th class="head"><p>Method</p></th>
+<th class="head"><p>Run Time (s)</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-coordinates.html"><span class="doc">anatomy/microns-em/em-coordinates</span></a></p></td>
+<td><p>2025-08-23 02:32</p></td>
+<td><p>cache</p></td>
+<td><p>8.98</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-meshes.html"><span class="doc">anatomy/microns-em/em-meshes</span></a></p></td>
+<td><p>2025-08-23 02:37</p></td>
+<td><p>cache</p></td>
+<td><p>254.98</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-neuroglancer.html"><span class="doc">anatomy/microns-em/em-neuroglancer</span></a></p></td>
+<td><p>2025-08-23 02:37</p></td>
+<td><p>cache</p></td>
+<td><p>14.92</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-querying-tables.html"><span class="doc">anatomy/microns-em/em-querying-tables</span></a></p></td>
+<td><p>2025-08-23 02:37</p></td>
+<td><p>cache</p></td>
+<td><p>16.4</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-skeletons.html"><span class="doc">anatomy/microns-em/em-skeletons</span></a></p></td>
+<td><p>2025-08-29 00:05</p></td>
+<td><p>cache</p></td>
+<td><p>15.74</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="anatomy/microns-em/em-volume-data.html"><span class="doc">anatomy/microns-em/em-volume-data</span></a></p></td>
+<td><p>2025-08-23 02:37</p></td>
+<td><p>cache</p></td>
+<td><p>8.55</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="anatomy/single-cell-morphology/scm-data.html"><span class="doc">anatomy/single-cell-morphology/scm-data</span></a></p></td>
+<td><p>2024-09-23 17:33</p></td>
+<td><p>cache</p></td>
+<td><p>10.54</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="background/CCF.html"><span class="doc">background/CCF</span></a></p></td>
+<td><p>2024-09-23 17:33</p></td>
+<td><p>cache</p></td>
+<td><p>3.66</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="computational/data-analysis/GLM.html"><span class="doc">computational/data-analysis/GLM</span></a></p></td>
+<td><p>2024-09-23 17:33</p></td>
+<td><p>cache</p></td>
+<td><p>3.01</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="computational/data-analysis/PCA.html"><span class="doc">computational/data-analysis/PCA</span></a></p></td>
+<td><p>2024-09-23 17:35</p></td>
+<td><p>cache</p></td>
+<td><p>124.31</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="computational/data-analysis/classification.html"><span class="doc">computational/data-analysis/classification</span></a></p></td>
+<td><p>2024-09-23 17:38</p></td>
+<td><p>cache</p></td>
+<td><p>153.08</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="computational/data-analysis/regression.html"><span class="doc">computational/data-analysis/regression</span></a></p></td>
+<td><p>2024-09-23 17:38</p></td>
+<td><p>cache</p></td>
+<td><p>17.28</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="#"><span class="doc">diagnostics</span></a></p></td>
+<td><p>2024-09-23 17:38</p></td>
+<td><p>cache</p></td>
+<td><p>2.62</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html"><span class="doc">physiology/ephys/cell-type-lookup-table/ctlut-accessing-data</span></a></p></td>
+<td><p>2024-09-23 17:40</p></td>
+<td><p>cache</p></td>
+<td><p>91.7</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html"><span class="doc">physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units</span></a></p></td>
+<td><p>2024-09-23 17:40</p></td>
+<td><p>cache</p></td>
+<td><p>23.26</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html"><span class="doc">physiology/ephys/cell-type-lookup-table/ctlut-optotagging</span></a></p></td>
+<td><p>2024-09-23 17:40</p></td>
+<td><p>cache</p></td>
+<td><p>0.98</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html"><span class="doc">physiology/ephys/np-ultra/npultra-psychedelics-accessing-data</span></a></p></td>
+<td><p>2025-08-20 18:48</p></td>
+<td><p>cache</p></td>
+<td><p>135.16</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-behavior/VBN-Dataset.html"><span class="doc">physiology/ephys/visual-behavior/VBN-Dataset</span></a></p></td>
+<td><p>2024-09-23 17:41</p></td>
+<td><p>cache</p></td>
+<td><p>11.76</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-behavior/VBN-SessionData.html"><span class="doc">physiology/ephys/visual-behavior/VBN-SessionData</span></a></p></td>
+<td><p>2024-09-23 17:43</p></td>
+<td><p>cache</p></td>
+<td><p>138.4</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html"><span class="doc">physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events</span></a></p></td>
+<td><p>2024-09-23 17:44</p></td>
+<td><p>cache</p></td>
+<td><p>83.8</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html"><span class="doc">physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli</span></a></p></td>
+<td><p>2024-09-23 17:46</p></td>
+<td><p>cache</p></td>
+<td><p>96.3</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html"><span class="doc">physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data</span></a></p></td>
+<td><p>2024-09-23 17:49</p></td>
+<td><p>cache</p></td>
+<td><p>163.89</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp.html"><span class="doc">physiology/ephys/visual-coding/vcnp</span></a></p></td>
+<td><p>2024-09-23 17:33</p></td>
+<td><p>cache</p></td>
+<td><p>0.94</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-data-access.html"><span class="doc">physiology/ephys/visual-coding/vcnp-data-access</span></a></p></td>
+<td><p>2024-09-23 17:52</p></td>
+<td><p>cache</p></td>
+<td><p>211.82</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-lfp.html"><span class="doc">physiology/ephys/visual-coding/vcnp-lfp</span></a></p></td>
+<td><p>2024-09-23 17:56</p></td>
+<td><p>cache</p></td>
+<td><p>200.5</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-links.html"><span class="doc">physiology/ephys/visual-coding/vcnp-links</span></a></p></td>
+<td><p>2024-09-23 17:33</p></td>
+<td><p>cache</p></td>
+<td><p>0.94</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-optotagging.html"><span class="doc">physiology/ephys/visual-coding/vcnp-optotagging</span></a></p></td>
+<td><p>2024-09-23 18:01</p></td>
+<td><p>cache</p></td>
+<td><p>312.81</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-quality-metrics.html"><span class="doc">physiology/ephys/visual-coding/vcnp-quality-metrics</span></a></p></td>
+<td><p>2024-09-23 18:01</p></td>
+<td><p>cache</p></td>
+<td><p>17.29</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-quickstart.html"><span class="doc">physiology/ephys/visual-coding/vcnp-quickstart</span></a></p></td>
+<td><p>2024-09-23 18:03</p></td>
+<td><p>cache</p></td>
+<td><p>142.3</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-receptive-fields.html"><span class="doc">physiology/ephys/visual-coding/vcnp-receptive-fields</span></a></p></td>
+<td><p>2024-09-23 18:06</p></td>
+<td><p>cache</p></td>
+<td><p>136.03</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-session.html"><span class="doc">physiology/ephys/visual-coding/vcnp-session</span></a></p></td>
+<td><p>2024-09-23 18:09</p></td>
+<td><p>cache</p></td>
+<td><p>207.27</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-stimulus.html"><span class="doc">physiology/ephys/visual-coding/vcnp-stimulus</span></a></p></td>
+<td><p>2024-09-23 18:09</p></td>
+<td><p>cache</p></td>
+<td><p>1.02</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ephys/visual-coding/vcnp-units.html"><span class="doc">physiology/ephys/visual-coding/vcnp-units</span></a></p></td>
+<td><p>2024-09-23 18:13</p></td>
+<td><p>cache</p></td>
+<td><p>229.11</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/BCI/BCI-dataset.html"><span class="doc">physiology/ophys/BCI/BCI-dataset</span></a></p></td>
+<td><p>2025-08-20 17:56</p></td>
+<td><p>cache</p></td>
+<td><p>31.23</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/V1DD/V1DD-session-data.html"><span class="doc">physiology/ophys/V1DD/V1DD-session-data</span></a></p></td>
+<td><p>2025-08-29 18:13</p></td>
+<td><p>cache</p></td>
+<td><p>3.29</p></td>
+<td><p><abbr title="CellExecutionError">❌</abbr></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/V1DD/V1DD-stimuli.html"><span class="doc">physiology/ophys/V1DD/V1DD-stimuli</span></a></p></td>
+<td><p>2024-09-23 17:40</p></td>
+<td><p>cache</p></td>
+<td><p>0.98</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-behavior/VB-BehaviorSessionData.html"><span class="doc">physiology/ophys/visual-behavior/VB-BehaviorSessionData</span></a></p></td>
+<td><p>2024-09-23 18:22</p></td>
+<td><p>cache</p></td>
+<td><p>548.44</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-behavior/VBO-Dataset.html"><span class="doc">physiology/ophys/visual-behavior/VBO-Dataset</span></a></p></td>
+<td><p>2024-09-23 18:22</p></td>
+<td><p>cache</p></td>
+<td><p>7.78</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-behavior/VBO-ExperimentData.html"><span class="doc">physiology/ophys/visual-behavior/VBO-ExperimentData</span></a></p></td>
+<td><p>2024-09-23 18:23</p></td>
+<td><p>cache</p></td>
+<td><p>45.82</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html"><span class="doc">physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types</span></a></p></td>
+<td><p>2024-09-23 18:24</p></td>
+<td><p>cache</p></td>
+<td><p>54.37</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html"><span class="doc">physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest</span></a></p></td>
+<td><p>2024-09-23 18:25</p></td>
+<td><p>cache</p></td>
+<td><p>36.38</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-analysis.html"><span class="doc">physiology/ophys/visual-coding/vc2p-analysis</span></a></p></td>
+<td><p>2024-09-23 18:35</p></td>
+<td><p>cache</p></td>
+<td><p>594.77</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-cross-session-data.html"><span class="doc">physiology/ophys/visual-coding/vc2p-cross-session-data</span></a></p></td>
+<td><p>2024-09-23 18:35</p></td>
+<td><p>cache</p></td>
+<td><p>31.33</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-dataset.html"><span class="doc">physiology/ophys/visual-coding/vc2p-dataset</span></a></p></td>
+<td><p>2024-09-23 18:35</p></td>
+<td><p>cache</p></td>
+<td><p>13.57</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-evoked-response.html"><span class="doc">physiology/ophys/visual-coding/vc2p-evoked-response</span></a></p></td>
+<td><p>2024-09-23 18:36</p></td>
+<td><p>cache</p></td>
+<td><p>11.03</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-session-data.html"><span class="doc">physiology/ophys/visual-coding/vc2p-session-data</span></a></p></td>
+<td><p>2024-09-23 18:36</p></td>
+<td><p>cache</p></td>
+<td><p>18.23</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="physiology/ophys/visual-coding/vc2p-stimuli.html"><span class="doc">physiology/ophys/visual-coding/vc2p-stimuli</span></a></p></td>
+<td><p>2024-09-23 18:36</p></td>
+<td><p>cache</p></td>
+<td><p>10.33</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="physiology/stimuli/dynamic-foraging/dynamic-foraging-data.html"><span class="doc">physiology/stimuli/dynamic-foraging/dynamic-foraging-data</span></a></p></td>
+<td><p>2025-08-20 03:17</p></td>
+<td><p>cache</p></td>
+<td><p>17.01</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="practicalities/pyNWB.html"><span class="doc">practicalities/pyNWB</span></a></p></td>
+<td><p>2024-09-23 18:40</p></td>
+<td><p>cache</p></td>
+<td><p>220.74</p></td>
+<td><p>✅</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this heading">#</a></h2>
+<section id="python-version">
+<h3>Python Version<a class="headerlink" href="#python-version" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="environments">
+<h3>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p class="rubric"><code class="docutils literal notranslate"><span class="pre">/opt/envs/allensdk</span></code></p>
+<div class="output text_html"><style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="n">aiohttp</span><span class="o">==</span><span class="mf">3.9</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">aiosignal</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">allensdk</span><span class="o">==</span><span class="mf">2.16</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">argschema</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">asttokens</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">async</span><span class="o">-</span><span class="n">timeout</span><span class="o">==</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">atomicwrites</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">attrs</span><span class="o">==</span><span class="mf">23.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">blosc</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">blosc2</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">boto3</span><span class="o">==</span><span class="mf">1.34</span><span class="o">.</span><span class="mi">149</span>
+<span class="n">botocore</span><span class="o">==</span><span class="mf">1.34</span><span class="o">.</span><span class="mi">149</span>
+<span class="n">Brotli</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">cachetools</span><span class="o">==</span><span class="mf">5.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">caveclient</span><span class="o">==</span><span class="mf">5.22</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2024.7</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">chardet</span><span class="o">==</span><span class="mf">5.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">8.1</span><span class="o">.</span><span class="mi">7</span>
+<span class="n">cloud</span><span class="o">-</span><span class="n">files</span><span class="o">==</span><span class="mf">4.26</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">cloud</span><span class="o">-</span><span class="n">volume</span><span class="o">==</span><span class="mf">10.1</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">comm</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">compressed_segmentation</span><span class="o">==</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">contourpy</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">crc32c</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">cycler</span><span class="o">==</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">dataclasses</span><span class="o">==</span><span class="mf">0.6</span>
+<span class="n">debugpy</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">decorator</span><span class="o">==</span><span class="mf">5.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">deflate</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">dill</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">distro</span><span class="o">==</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">DracoPy</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">exceptiongroup</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">executing</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">fasteners</span><span class="o">==</span><span class="mf">0.19</span>
+<span class="n">fastremap</span><span class="o">==</span><span class="mf">1.15</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">fonttools</span><span class="o">==</span><span class="mf">4.53</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">frozenlist</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">future</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">gevent</span><span class="o">==</span><span class="mf">24.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">Glymur</span><span class="o">==</span><span class="mf">0.13</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">google</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">core</span><span class="o">==</span><span class="mf">2.19</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">google</span><span class="o">-</span><span class="n">apitools</span><span class="o">==</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">32</span>
+<span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">==</span><span class="mf">2.32</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">core</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">google</span><span class="o">-</span><span class="n">cloud</span><span class="o">-</span><span class="n">storage</span><span class="o">==</span><span class="mf">2.18</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">google</span><span class="o">-</span><span class="n">crc32c</span><span class="o">==</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">google</span><span class="o">-</span><span class="n">resumable</span><span class="o">-</span><span class="n">media</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">googleapis</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">protos</span><span class="o">==</span><span class="mf">1.63</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">greenlet</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">h5py</span><span class="o">==</span><span class="mf">3.11</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">hdmf</span><span class="o">==</span><span class="mf">3.14</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">httplib2</span><span class="o">==</span><span class="mf">0.22</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">3.7</span>
+<span class="n">imageio</span><span class="o">==</span><span class="mf">2.34</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">imageryclient</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">inflection</span><span class="o">==</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">iniconfig</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipykernel</span><span class="o">==</span><span class="mf">6.29</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">ipython</span><span class="o">==</span><span class="mf">8.26</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jedi</span><span class="o">==</span><span class="mf">0.19</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">Jinja2</span><span class="o">==</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">jmespath</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">joblib</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">json5</span><span class="o">==</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">25</span>
+<span class="n">jsonschema</span><span class="o">==</span><span class="mf">4.23</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jsonschema</span><span class="o">-</span><span class="n">specifications</span><span class="o">==</span><span class="mf">2023.12</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">jupyter_client</span><span class="o">==</span><span class="mf">8.6</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">jupyter_core</span><span class="o">==</span><span class="mf">5.7</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">kiwisolver</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">lazy_loader</span><span class="o">==</span><span class="mf">0.4</span>
+<span class="n">lxml</span><span class="o">==</span><span class="mf">5.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">Markdown</span><span class="o">==</span><span class="mf">3.6</span>
+<span class="n">MarkupSafe</span><span class="o">==</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">marshmallow</span><span class="o">==</span><span class="mf">3.21</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.9</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">matplotlib</span><span class="o">-</span><span class="n">inline</span><span class="o">==</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">7</span>
+<span class="n">meshparty</span><span class="o">==</span><span class="mf">1.16</span><span class="o">.</span><span class="mi">14</span>
+<span class="n">microviewer</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">msgpack</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">multidict</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">multiprocess</span><span class="o">==</span><span class="mf">0.70</span><span class="o">.</span><span class="mi">16</span>
+<span class="n">multiwrapper</span><span class="o">==</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">ndindex</span><span class="o">==</span><span class="mf">1.8</span>
+<span class="n">ndx</span><span class="o">-</span><span class="n">events</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">nest</span><span class="o">-</span><span class="n">asyncio</span><span class="o">==</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">networkx</span><span class="o">==</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">neuroglancer</span><span class="o">==</span><span class="mf">2.40</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">nglui</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">nptyping</span><span class="o">==</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">numexpr</span><span class="o">==</span><span class="mf">2.10</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.23</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">oauth2client</span><span class="o">==</span><span class="mf">4.1</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">orjson</span><span class="o">==</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">packaging</span><span class="o">==</span><span class="mf">24.1</span>
+<span class="n">pandas</span><span class="o">==</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">parso</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">pathos</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">patsy</span><span class="o">==</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">pexpect</span><span class="o">==</span><span class="mf">4.9</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pillow</span><span class="o">==</span><span class="mf">10.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">platformdirs</span><span class="o">==</span><span class="mf">4.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pluggy</span><span class="o">==</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">plyfile</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">pooch</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">posix</span><span class="o">-</span><span class="n">ipc</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">pox</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">ppft</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mf">6.8</span>
+<span class="n">prompt_toolkit</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">47</span>
+<span class="n">proto</span><span class="o">-</span><span class="n">plus</span><span class="o">==</span><span class="mf">1.24</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">protobuf</span><span class="o">==</span><span class="mf">5.27</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">psutil</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">psycopg2</span><span class="o">-</span><span class="n">binary</span><span class="o">==</span><span class="mf">2.9</span><span class="o">.</span><span class="mi">9</span>
+<span class="n">ptyprocess</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pure_eval</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">py</span><span class="o">-</span><span class="n">cpuinfo</span><span class="o">==</span><span class="mf">9.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pyarrow</span><span class="o">==</span><span class="mf">17.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pyasn1</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pyasn1_modules</span><span class="o">==</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">Pygments</span><span class="o">==</span><span class="mf">2.18</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pymeshfix</span><span class="o">==</span><span class="mf">0.17</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pynrrd</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pynwb</span><span class="o">==</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">pyparsing</span><span class="o">==</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">pysimdjson</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pytest</span><span class="o">==</span><span class="mf">8.3</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">python</span><span class="o">-</span><span class="n">dateutil</span><span class="o">==</span><span class="mf">2.9</span><span class="o">.</span><span class="mf">0.</span><span class="n">post0</span>
+<span class="n">python</span><span class="o">-</span><span class="n">jsonschema</span><span class="o">-</span><span class="n">objects</span><span class="o">==</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">pytz</span><span class="o">==</span><span class="mf">2024.2</span>
+<span class="n">pyvista</span><span class="o">==</span><span class="mf">0.44</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">PyYAML</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pyzmq</span><span class="o">==</span><span class="mf">26.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">referencing</span><span class="o">==</span><span class="mf">0.35</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.32</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">requests</span><span class="o">-</span><span class="n">toolbelt</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">rpds</span><span class="o">-</span><span class="n">py</span><span class="o">==</span><span class="mf">0.20</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">rsa</span><span class="o">==</span><span class="mf">4.9</span>
+<span class="n">Rtree</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ruamel</span><span class="o">.</span><span class="n">yaml</span><span class="o">==</span><span class="mf">0.18</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">ruamel</span><span class="o">.</span><span class="n">yaml</span><span class="o">.</span><span class="n">clib</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">s3transfer</span><span class="o">==</span><span class="mf">0.10</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">build</span><span class="o">==</span><span class="mf">0.18</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">image</span><span class="o">==</span><span class="mf">0.24</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">==</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.10</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">scooby</span><span class="o">==</span><span class="mf">0.10</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">seaborn</span><span class="o">==</span><span class="mf">0.13</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">semver</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">shapely</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">SimpleITK</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">simplejpeg</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">simplejson</span><span class="o">==</span><span class="mf">3.19</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.16</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">skeleton</span><span class="o">-</span><span class="n">plot</span><span class="o">==</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">10</span>
+<span class="n">SQLAlchemy</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">35</span>
+<span class="n">stack</span><span class="o">-</span><span class="n">data</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">standard</span><span class="o">-</span><span class="n">transform</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">statsmodels</span><span class="o">==</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">tables</span><span class="o">==</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">tenacity</span><span class="o">==</span><span class="mf">9.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">threadpoolctl</span><span class="o">==</span><span class="mf">3.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">tifffile</span><span class="o">==</span><span class="mf">2024.9</span><span class="o">.</span><span class="mi">20</span>
+<span class="n">tomli</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">tornado</span><span class="o">==</span><span class="mf">6.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">tqdm</span><span class="o">==</span><span class="mf">4.66</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">traitlets</span><span class="o">==</span><span class="mf">5.14</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">trimesh</span><span class="o">==</span><span class="mf">4.4</span><span class="o">.</span><span class="mi">9</span>
+<span class="n">typing_extensions</span><span class="o">==</span><span class="mf">4.12</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">vtk</span><span class="o">==</span><span class="mf">9.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">wcwidth</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">13</span>
+<span class="n">webcolors</span><span class="o">==</span><span class="mf">24.8</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">xarray</span><span class="o">==</span><span class="mf">2023.1</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">yarl</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">zope</span><span class="o">.</span><span class="n">event</span><span class="o">==</span><span class="mf">5.0</span>
+<span class="n">zope</span><span class="o">.</span><span class="n">interface</span><span class="o">==</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">zstandard</span><span class="o">==</span><span class="mf">0.23</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div><p class="rubric"><code class="docutils literal notranslate"><span class="pre">/opt/envs/ccf</span></code></p>
+<div class="output text_html"><style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="n">asttokens</span><span class="o">==</span><span class="mf">2.4.1</span>
+<span class="n">brainglobe</span><span class="o">-</span><span class="n">atlasapi</span><span class="w"> </span><span class="p">@</span><span class="w"> </span><span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/AllenNeuralDynamics/brainglobe-atlasapi.git@4afe54f3ca261f904fad4d0d34afde9c0242a566</span>
+<span class="n">brainglobe_space</span><span class="o">==</span><span class="mf">1.0.2</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2024.7.4</span>
+<span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">==</span><span class="mf">3.3.2</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">8.1.7</span>
+<span class="n">comm</span><span class="o">==</span><span class="mf">0.2.2</span>
+<span class="n">contourpy</span><span class="o">==</span><span class="mf">1.3.0</span>
+<span class="n">cycler</span><span class="o">==</span><span class="mf">0.12.1</span>
+<span class="n">debugpy</span><span class="o">==</span><span class="mf">1.8.5</span>
+<span class="n">decorator</span><span class="o">==</span><span class="mf">5.1.1</span>
+<span class="n">exceptiongroup</span><span class="o">==</span><span class="mf">1.2.2</span>
+<span class="n">executing</span><span class="o">==</span><span class="mf">2.1.0</span>
+<span class="n">fonttools</span><span class="o">==</span><span class="mf">4.54.0</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">3.7</span>
+<span class="n">ipykernel</span><span class="o">==</span><span class="mf">6.29.5</span>
+<span class="n">ipython</span><span class="o">==</span><span class="mf">8.27.0</span>
+<span class="n">jedi</span><span class="o">==</span><span class="mf">0.19.1</span>
+<span class="n">joblib</span><span class="o">==</span><span class="mf">1.4.2</span>
+<span class="n">jupyter_client</span><span class="o">==</span><span class="mf">8.6.3</span>
+<span class="n">jupyter_core</span><span class="o">==</span><span class="mf">5.7.2</span>
+<span class="n">kiwisolver</span><span class="o">==</span><span class="mf">1.4.7</span>
+<span class="n">markdown</span><span class="o">-</span><span class="n">it</span><span class="o">-</span><span class="n">py</span><span class="o">==</span><span class="mf">3.0.0</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.9.1</span>
+<span class="n">matplotlib</span><span class="o">-</span><span class="kr">inline</span><span class="o">==</span><span class="mf">0.1.7</span>
+<span class="n">mdurl</span><span class="o">==</span><span class="mf">0.1.2</span>
+<span class="n">meshio</span><span class="o">==</span><span class="mf">5.3.5</span>
+<span class="n">nest</span><span class="o">-</span><span class="n">asyncio</span><span class="o">==</span><span class="mf">1.6.0</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">2.0.1</span>
+<span class="n">packaging</span><span class="o">==</span><span class="mf">24.1</span>
+<span class="n">pandas</span><span class="o">==</span><span class="mf">2.2.2</span>
+<span class="n">parso</span><span class="o">==</span><span class="mf">0.8.4</span>
+<span class="n">pexpect</span><span class="o">==</span><span class="mf">4.9.0</span>
+<span class="n">pillow</span><span class="o">==</span><span class="mf">10.4.0</span>
+<span class="n">platformdirs</span><span class="o">==</span><span class="mf">4.3.6</span>
+<span class="n">prompt_toolkit</span><span class="o">==</span><span class="mf">3.0.47</span>
+<span class="n">psutil</span><span class="o">==</span><span class="mf">6.0.0</span>
+<span class="n">ptyprocess</span><span class="o">==</span><span class="mf">0.7.0</span>
+<span class="n">pure_eval</span><span class="o">==</span><span class="mf">0.2.3</span>
+<span class="n">pyarrow</span><span class="o">==</span><span class="mf">17.0.0</span>
+<span class="n">Pygments</span><span class="o">==</span><span class="mf">2.18.0</span>
+<span class="n">pyparsing</span><span class="o">==</span><span class="mf">3.1.4</span>
+<span class="n">python</span><span class="o">-</span><span class="n">dateutil</span><span class="o">==</span><span class="mf">2.9.0</span><span class="p">.</span><span class="n">post0</span>
+<span class="n">pytz</span><span class="o">==</span><span class="mf">2024.1</span>
+<span class="n">pyzmq</span><span class="o">==</span><span class="mf">26.2.0</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.32.3</span>
+<span class="n">rich</span><span class="o">==</span><span class="mf">13.7.1</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">==</span><span class="mf">1.5.1</span>
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.14.0</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.16.0</span>
+<span class="n">stack</span><span class="o">-</span><span class="n">data</span><span class="o">==</span><span class="mf">0.6.3</span>
+<span class="n">threadpoolctl</span><span class="o">==</span><span class="mf">3.5.0</span>
+<span class="n">tifffile</span><span class="o">==</span><span class="mf">2024.7.24</span>
+<span class="n">tornado</span><span class="o">==</span><span class="mf">6.4.1</span>
+<span class="n">traitlets</span><span class="o">==</span><span class="mf">5.14.3</span>
+<span class="n">treelib</span><span class="o">==</span><span class="mf">1.7.0</span>
+<span class="n">typing_extensions</span><span class="o">==</span><span class="mf">4.12.2</span>
+<span class="n">tzdata</span><span class="o">==</span><span class="mf">2024.1</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">2.2.2</span>
+<span class="n">wcwidth</span><span class="o">==</span><span class="mf">0.2.13</span>
+</pre></div>
+</div><p class="rubric"><code class="docutils literal notranslate"><span class="pre">/opt/envs/ctlut</span></code></p>
+<div class="output text_html"><style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="n">aiobotocore</span><span class="o">==</span><span class="mf">2.13</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">aiohappyeyeballs</span><span class="o">==</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">aiohttp</span><span class="o">==</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">aioitertools</span><span class="o">==</span><span class="mf">0.11</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">aiosignal</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">annotated</span><span class="o">-</span><span class="n">types</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">arrow</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">asciitree</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">asttokens</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">async</span><span class="o">-</span><span class="n">timeout</span><span class="o">==</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">attrs</span><span class="o">==</span><span class="mf">23.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">backports</span><span class="o">.</span><span class="n">tarfile</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">bidsschematools</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">blessed</span><span class="o">==</span><span class="mf">1.20</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">botocore</span><span class="o">==</span><span class="mf">1.34</span><span class="o">.</span><span class="mi">131</span>
+<span class="n">bqplot</span><span class="o">==</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">43</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2024.7</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">cffi</span><span class="o">==</span><span class="mf">1.17</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">ci</span><span class="o">-</span><span class="n">info</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">8.1</span><span class="o">.</span><span class="mi">7</span>
+<span class="n">click</span><span class="o">-</span><span class="n">didyoumean</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">comm</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">contourpy</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">cryptography</span><span class="o">==</span><span class="mf">43.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">cycler</span><span class="o">==</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">dandi</span><span class="o">==</span><span class="mf">0.62</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">dandischema</span><span class="o">==</span><span class="mf">0.10</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">debugpy</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">decorator</span><span class="o">==</span><span class="mf">5.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">dnspython</span><span class="o">==</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">email_validator</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">etelemetry</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">exceptiongroup</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">executing</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">fasteners</span><span class="o">==</span><span class="mf">0.19</span>
+<span class="n">fonttools</span><span class="o">==</span><span class="mf">4.53</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">fqdn</span><span class="o">==</span><span class="mf">1.5</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">frozenlist</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">fscacher</span><span class="o">==</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">fsspec</span><span class="o">==</span><span class="mf">2024.6</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">gast</span><span class="o">==</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">h5py</span><span class="o">==</span><span class="mf">3.11</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">hdmf</span><span class="o">==</span><span class="mf">3.14</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">hdmf_zarr</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">humanize</span><span class="o">==</span><span class="mf">4.10</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">3.7</span>
+<span class="n">imageio</span><span class="o">==</span><span class="mf">2.34</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">importlib</span><span class="o">-</span><span class="n">metadata</span><span class="o">==</span><span class="mf">4.13</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">interleave</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">ipydatagrid</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">ipydatawidgets</span><span class="o">==</span><span class="mf">4.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">ipyfilechooser</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipykernel</span><span class="o">==</span><span class="mf">6.29</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">ipympl</span><span class="o">==</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">ipython</span><span class="o">==</span><span class="mf">8.26</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipython</span><span class="o">-</span><span class="n">genutils</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipyvolume</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">ipyvue</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">ipyvuetify</span><span class="o">==</span><span class="mf">1.10</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipywebrtc</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ipywidgets</span><span class="o">==</span><span class="mf">8.1</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">isodate</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">isoduration</span><span class="o">==</span><span class="mf">20.11</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jaraco</span><span class="o">.</span><span class="n">classes</span><span class="o">==</span><span class="mf">3.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jaraco</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="mf">5.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jaraco</span><span class="o">.</span><span class="n">functools</span><span class="o">==</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">jedi</span><span class="o">==</span><span class="mf">0.19</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">jeepney</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jmespath</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">joblib</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">jsonpointer</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jsonschema</span><span class="o">==</span><span class="mf">4.23</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">jsonschema</span><span class="o">-</span><span class="n">specifications</span><span class="o">==</span><span class="mf">2023.12</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">jupyter_client</span><span class="o">==</span><span class="mf">8.6</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">jupyter_core</span><span class="o">==</span><span class="mf">5.7</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">jupyterlab_widgets</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">keyring</span><span class="o">==</span><span class="mf">25.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">keyrings</span><span class="o">.</span><span class="n">alt</span><span class="o">==</span><span class="mf">5.0</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">kiwisolver</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">lazy_loader</span><span class="o">==</span><span class="mf">0.4</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.9</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">matplotlib</span><span class="o">-</span><span class="n">inline</span><span class="o">==</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">7</span>
+<span class="n">more</span><span class="o">-</span><span class="n">itertools</span><span class="o">==</span><span class="mf">10.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">multidict</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">natsort</span><span class="o">==</span><span class="mf">8.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ndx</span><span class="o">-</span><span class="n">grayscalevolume</span><span class="o">==</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">ndx</span><span class="o">-</span><span class="n">icephys</span><span class="o">-</span><span class="n">meta</span><span class="o">==</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ndx</span><span class="o">-</span><span class="n">spectrum</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">nest</span><span class="o">-</span><span class="n">asyncio</span><span class="o">==</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">networkx</span><span class="o">==</span><span class="mf">3.3</span>
+<span class="n">numcodecs</span><span class="o">==</span><span class="mf">0.13</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.26</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">nwbinspector</span><span class="o">==</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">37</span>
+<span class="n">nwbwidgets</span><span class="o">==</span><span class="mf">0.11</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">packaging</span><span class="o">==</span><span class="mf">24.1</span>
+<span class="n">pandas</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">parso</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">patsy</span><span class="o">==</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">pexpect</span><span class="o">==</span><span class="mf">4.9</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pillow</span><span class="o">==</span><span class="mf">10.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">platformdirs</span><span class="o">==</span><span class="mf">4.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">plotly</span><span class="o">==</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">prompt_toolkit</span><span class="o">==</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">47</span>
+<span class="n">psutil</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">ptyprocess</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pure_eval</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">py2vega</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">pycparser</span><span class="o">==</span><span class="mf">2.22</span>
+<span class="n">pycryptodomex</span><span class="o">==</span><span class="mf">3.20</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pydantic</span><span class="o">==</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pydantic_core</span><span class="o">==</span><span class="mf">2.20</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">Pygments</span><span class="o">==</span><span class="mf">2.18</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pynwb</span><span class="o">==</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">pyout</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">pyparsing</span><span class="o">==</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">python</span><span class="o">-</span><span class="n">dateutil</span><span class="o">==</span><span class="mf">2.9</span><span class="o">.</span><span class="mf">0.</span><span class="n">post0</span>
+<span class="n">pythreejs</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pytz</span><span class="o">==</span><span class="mf">2024.1</span>
+<span class="n">PyYAML</span><span class="o">==</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pyzmq</span><span class="o">==</span><span class="mf">26.0</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">referencing</span><span class="o">==</span><span class="mf">0.35</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.32</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">rfc3339</span><span class="o">-</span><span class="n">validator</span><span class="o">==</span><span class="mf">0.1</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">rfc3987</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">rpds</span><span class="o">-</span><span class="n">py</span><span class="o">==</span><span class="mf">0.19</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">ruamel</span><span class="o">.</span><span class="n">yaml</span><span class="o">==</span><span class="mf">0.18</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">ruamel</span><span class="o">.</span><span class="n">yaml</span><span class="o">.</span><span class="n">clib</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">8</span>
+<span class="n">s3fs</span><span class="o">==</span><span class="mf">2024.6</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">image</span><span class="o">==</span><span class="mf">0.24</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.14</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">SecretStorage</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">semantic</span><span class="o">-</span><span class="n">version</span><span class="o">==</span><span class="mf">2.10</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.16</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">stack</span><span class="o">-</span><span class="n">data</span><span class="o">==</span><span class="mf">0.6</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">statsmodels</span><span class="o">==</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">tenacity</span><span class="o">==</span><span class="mf">9.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">threadpoolctl</span><span class="o">==</span><span class="mf">3.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">tifffile</span><span class="o">==</span><span class="mf">2024.7</span><span class="o">.</span><span class="mi">24</span>
+<span class="n">tornado</span><span class="o">==</span><span class="mf">6.4</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">tqdm</span><span class="o">==</span><span class="mf">4.66</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">traitlets</span><span class="o">==</span><span class="mf">5.14</span><span class="o">.</span><span class="mi">3</span>
+<span class="n">traittypes</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">trimesh</span><span class="o">==</span><span class="mf">4.4</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">types</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">dateutil</span><span class="o">==</span><span class="mf">2.9</span><span class="o">.</span><span class="mf">0.20240316</span>
+<span class="n">typing_extensions</span><span class="o">==</span><span class="mf">4.12</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">tzdata</span><span class="o">==</span><span class="mf">2024.1</span>
+<span class="n">uri</span><span class="o">-</span><span class="n">template</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">wcwidth</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">13</span>
+<span class="n">webcolors</span><span class="o">==</span><span class="mf">24.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">widgetsnbextension</span><span class="o">==</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">wrapt</span><span class="o">==</span><span class="mf">1.16</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">yarl</span><span class="o">==</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">zarr</span><span class="o">==</span><span class="mf">2.18</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">zarr</span><span class="o">-</span><span class="n">checksum</span><span class="o">==</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">zipp</span><span class="o">==</span><span class="mf">3.19</span><span class="o">.</span><span class="mi">2</span>
+</pre></div>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#databook-version-info">Databook Version Info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executable-pages">Executable Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version">Python Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

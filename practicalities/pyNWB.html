@@ -1,0 +1,1473 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Using Python to Access Neurodata Without Borders-type Files &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"08b76adb93f54f2188762623fb9f855c": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0c4578c986a44ce7b4d343220ce0e349": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_fb41d4e13c9642ecaa4afc60e7a84d6a", "tabbable": null, "tooltip": null, "value": "ecephys_655565_2023-03-31_14-47-36"}}, "0f7f5bef0be846c2a204991c4b3528ea": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_aea4f687432a446bb37a3d0f1e4f0cd4", "tabbable": null, "tooltip": null, "value": "session_start_time:"}}, "0fb57c4a0c9744a69de50f282410f11e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_665ccfdf4029446290949d2906cc5f06", "tabbable": null, "tooltip": null, "value": "identifier:"}}, "127376823b5d483ab67763df62cf4096": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_4db84e5a2c114f5eac86dd0dd5c10376", "tabbable": null, "tooltip": null, "value": "2023-03-31 14:47:36-07:00"}}, "29274063270a4cde809721be62b5296a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "AccordionModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "AccordionModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "AccordionView", "box_style": "", "children": ["IPY_MODEL_dba0e778f5274992a20e8a1333f984ae", "IPY_MODEL_a5de3f673a3349b1a0e4d600d349f186", "IPY_MODEL_da7122071dd5424596f8cea3bbfb8ca0", "IPY_MODEL_538ab2c96aad4a49ab3074d7ae23ade7", "IPY_MODEL_988680d61cc14689bc7337893c078e18", "IPY_MODEL_f5bed0f84dff459b9095af32b4e9d508", "IPY_MODEL_a0f2edc9ce3844b0852fa6a1ddb81451", "IPY_MODEL_7b67c1a8f8de4daba8222ad9f1737f98", "IPY_MODEL_802f7ea0a03547fcb8656ab1b7574bff", "IPY_MODEL_4b381c31002147d4aeebe11c50648f85"], "layout": "IPY_MODEL_7dd33107338a43b1916d47ca4f350e09", "selected_index": null, "tabbable": null, "titles": ["file_create_date", "stimulus_template", "processing", "electrodes: metadata about extracellular electrodes", "electrode_groups", "devices", "intervals", "subject", "epochs: experimental epochs", "units: Units from Kilosort2.5"], "tooltip": null}}, "37961ab702d143cc902a25405e75842d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "3b8816aa33564a2aacb8213993c5c028": {"model_module": "jupyter-vuetify", "model_module_version": "^1.10.0", "model_name": "ThemeColorsModel", "state": {"_model_module": "jupyter-vuetify", "_model_module_version": "^1.10.0", "_model_name": "ThemeColorsModel", "_theme_name": "light", "_view_count": null, "_view_module": null, "_view_module_version": "^1.10.0", "_view_name": null, "accent": "#82B1FF", "anchor": null, "error": "#FF5252", "info": "#2196F3", "primary": "#1976D2", "secondary": "#424242", "success": "#4CAF50", "warning": "#FB8C00"}}, "3b91fb8ca7b745beb68b928d1d234fe1": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3d20149f263645298890e0d789fd6935": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3d36758408a34c01946f9b2893aed534": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_57c1497778b440878df076f864e86683", "tabbable": null, "tooltip": null, "value": ""}}, "42d9024ba7e4437697c5e7e9fefa6700": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_0f7f5bef0be846c2a204991c4b3528ea", "IPY_MODEL_127376823b5d483ab67763df62cf4096"], "layout": "IPY_MODEL_aa8cf09414574d55bf75ce2f715ebec6", "tabbable": null, "tooltip": null}}, "47c54634844540ca99b1a5f31d42a825": {"model_module": "jupyter-vuetify", "model_module_version": "^1.10.0", "model_name": "ThemeColorsModel", "state": {"_model_module": "jupyter-vuetify", "_model_module_version": "^1.10.0", "_model_name": "ThemeColorsModel", "_theme_name": "dark", "_view_count": null, "_view_module": null, "_view_module_version": "^1.10.0", "_view_name": null, "accent": "#FF4081", "anchor": null, "error": "#FF5252", "info": "#2196F3", "primary": "#2196F3", "secondary": "#424242", "success": "#4CAF50", "warning": "#FB8C00"}}, "4aae74b46dd8451e942bc1649f072bd6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "4b381c31002147d4aeebe11c50648f85": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_7e24127696b14a1c8e25b46372afd568", "placeholder": "\u200b", "style": "IPY_MODEL_77f47213ab184a069ead9deafe55e1c8", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "4d2bb32469b247a7b475620b5da91df5": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4db84e5a2c114f5eac86dd0dd5c10376": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "538ab2c96aad4a49ab3074d7ae23ade7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_aa900c9690434897973c5dec08935aec", "placeholder": "\u200b", "style": "IPY_MODEL_37961ab702d143cc902a25405e75842d", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "53bd9972c58d4374bd08985b7ada366d": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "55913815dc064326a800f30fe70e81c9": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "57c1497778b440878df076f864e86683": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "59aa61cfeec74731b0a69a08222b0c7e": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5b3cd0eee0214d2ab19a8b93224a3967": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "5fcd85c515a84e629463e58f95f379a2": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "630f38ec096c466e97254f67d4c02c1a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "665ccfdf4029446290949d2906cc5f06": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "6689208562c24f398e4deb707380a1aa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "757f8d3eff32431d9692e27a956ed55f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "75f7cd7bc40049b39d945f8bd9232c43": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_b400e943e5de4d09a662d50520a34db7", "IPY_MODEL_7d07cac77288472ebabe015131d35617"], "layout": "IPY_MODEL_3b91fb8ca7b745beb68b928d1d234fe1", "tabbable": null, "tooltip": null}}, "77f47213ab184a069ead9deafe55e1c8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "7858d773bfad46aa9f1596f10be1df50": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "500px"}}, "793646c2ebd94aceb22835032883d37f": {"model_module": "jupyter-vue", "model_module_version": "^1.11.1", "model_name": "ForceLoadModel", "state": {"_dom_classes": [], "_model_module": "jupyter-vue", "_model_module_version": "^1.11.1", "_model_name": "ForceLoadModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "layout": "IPY_MODEL_53bd9972c58d4374bd08985b7ada366d", "tabbable": null, "tooltip": null}}, "79acd6c3fb6e41818a8d71bd50ad4e01": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "7b67c1a8f8de4daba8222ad9f1737f98": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_4d2bb32469b247a7b475620b5da91df5", "placeholder": "\u200b", "style": "IPY_MODEL_bb7c5f2e3cad4af7b51f2c2eddc19ea1", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "7d07cac77288472ebabe015131d35617": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_6689208562c24f398e4deb707380a1aa", "tabbable": null, "tooltip": null, "value": "2023-03-31 14:47:36-07:00"}}, "7dd33107338a43b1916d47ca4f350e09": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7e24127696b14a1c8e25b46372afd568": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "802f7ea0a03547fcb8656ab1b7574bff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_c6e60c5ada154e84b9050b5a11ea9461", "placeholder": "\u200b", "style": "IPY_MODEL_630f38ec096c466e97254f67d4c02c1a", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "882d560bc1894847bb109dc67542d38e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_d965c6429dc2439b9f0e39bbb75a9948", "IPY_MODEL_b8166e36ade64f2389c8564fb16dfbde"], "layout": "IPY_MODEL_3d20149f263645298890e0d789fd6935", "tabbable": null, "tooltip": null}}, "988680d61cc14689bc7337893c078e18": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_59aa61cfeec74731b0a69a08222b0c7e", "placeholder": "\u200b", "style": "IPY_MODEL_79acd6c3fb6e41818a8d71bd50ad4e01", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "a0f2edc9ce3844b0852fa6a1ddb81451": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_fbc6ed4d95c34c9489303e2624cc1720", "placeholder": "\u200b", "style": "IPY_MODEL_d8dfe8d11e48404e85dd26f8faae472f", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "a5de3f673a3349b1a0e4d600d349f186": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_55913815dc064326a800f30fe70e81c9", "placeholder": "\u200b", "style": "IPY_MODEL_4aae74b46dd8451e942bc1649f072bd6", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "aa8cf09414574d55bf75ce2f715ebec6": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "aa900c9690434897973c5dec08935aec": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "aea4f687432a446bb37a3d0f1e4f0cd4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "b1b5e7c76e5f4faa97818c5af28e829c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_0fb57c4a0c9744a69de50f282410f11e", "IPY_MODEL_0c4578c986a44ce7b4d343220ce0e349"], "layout": "IPY_MODEL_e952b2629f7f4704a3b858a451cc3bc6", "tabbable": null, "tooltip": null}}, "b400e943e5de4d09a662d50520a34db7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_ef1b73ba1a9440a891e335f00a794db5", "tabbable": null, "tooltip": null, "value": "timestamps_reference_time:"}}, "b7a219357a9342cc86983ba0e0780cf2": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": "40px", "max_width": "500px", "min_height": "30px", "min_width": "180px", "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b8166e36ade64f2389c8564fb16dfbde": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_5b3cd0eee0214d2ab19a8b93224a3967", "tabbable": null, "tooltip": null, "value": "Neuropixels-OPTO recording of head-fixed mice during optogenetics stimulation for opto-tagging."}}, "bb7c5f2e3cad4af7b51f2c2eddc19ea1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "bbaa835315ba478da46773def923d43f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_d9e8839dfa7f4da69be76c852c4c8161", "IPY_MODEL_3d36758408a34c01946f9b2893aed534"], "layout": "IPY_MODEL_5fcd85c515a84e629463e58f95f379a2", "tabbable": null, "tooltip": null}}, "c6e60c5ada154e84b9050b5a11ea9461": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cd7210c20b6c49849b044d23a1fd793e": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ce145f704e124dc2810edf49eda82f65": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "d751c2a14b034f4a9da3c81f055df915": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": "40px", "max_width": "500px", "min_height": "30px", "min_width": "180px", "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d8dfe8d11e48404e85dd26f8faae472f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "d965c6429dc2439b9f0e39bbb75a9948": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_757f8d3eff32431d9692e27a956ed55f", "tabbable": null, "tooltip": null, "value": "session_description:"}}, "d9e8839dfa7f4da69be76c852c4c8161": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d751c2a14b034f4a9da3c81f055df915", "placeholder": "\u200b", "style": "IPY_MODEL_ce145f704e124dc2810edf49eda82f65", "tabbable": null, "tooltip": null, "value": "experiment_description:"}}, "da7122071dd5424596f8cea3bbfb8ca0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_08b76adb93f54f2188762623fb9f855c", "placeholder": "\u200b", "style": "IPY_MODEL_de88c9c087ae46588ae403431719910d", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "dba0e778f5274992a20e8a1333f984ae": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": ["custom_theme"], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e9e012e3b4e94767843ab5a190275e95", "msg_id": "", "outputs": [{"name": "stdout", "output_type": "stream", "text": "[datetime.datetime(2023, 5, 15, 21, 49, 33, 28522, tzinfo=tzutc())]\n"}], "tabbable": null, "tooltip": null}}, "de88c9c087ae46588ae403431719910d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "e952b2629f7f4704a3b858a451cc3bc6": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e9bbbbd6e0ec4b6c82e74ed4616ce900": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e9e012e3b4e94767843ab5a190275e95": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ea96d8beb37c4eae92a469318a88481f": {"model_module": "jupyter-vuetify", "model_module_version": "^1.10.0", "model_name": "ThemeModel", "state": {"_model_module": "jupyter-vuetify", "_model_module_version": "^1.10.0", "_model_name": "ThemeModel", "_view_count": null, "_view_module": null, "_view_module_version": "^1.10.0", "_view_name": null, "dark": null, "dark_effective": null}}, "edf64c2fda2e4e2d962b9711c6b35f73": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["custom_theme"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_882d560bc1894847bb109dc67542d38e", "IPY_MODEL_b1b5e7c76e5f4faa97818c5af28e829c", "IPY_MODEL_42d9024ba7e4437697c5e7e9fefa6700", "IPY_MODEL_75f7cd7bc40049b39d945f8bd9232c43", "IPY_MODEL_bbaa835315ba478da46773def923d43f", "IPY_MODEL_29274063270a4cde809721be62b5296a"], "layout": "IPY_MODEL_cd7210c20b6c49849b044d23a1fd793e", "tabbable": null, "tooltip": null}}, "ef1b73ba1a9440a891e335f00a794db5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "f5bed0f84dff459b9095af32b4e9d508": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_e9bbbbd6e0ec4b6c82e74ed4616ce900", "placeholder": "\u200b", "style": "IPY_MODEL_fed9dbef029e46efa72c433e527981e1", "tabbable": null, "tooltip": null, "value": "Rendering..."}}, "fb41d4e13c9642ecaa4afc60e7a84d6a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "LabelStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "fbc6ed4d95c34c9489303e2624cc1720": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fed9dbef029e46efa72c433e527981e1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'practicalities/pyNWB';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/practicalities/pyNWB.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Git" href="git.html" />
+    <link rel="prev" title="Allen SDK and pyNWB" href="allensdk-pyNWB.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="practicalities.html">Practicalities</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/practicalities/pyNWB.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fpracticalities/pyNWB.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/practicalities/pyNWB.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using Python to Access Neurodata Without Borders-type Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-an-nwb-file">Accessing an NWB file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-units-data">Accessing Units Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-trials-data">Accessing Trials Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-template-information">Stimulus Template Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="using-python-to-access-neurodata-without-borders-type-files">
+<h1>Using Python to Access Neurodata Without Borders-type Files<a class="headerlink" href="#using-python-to-access-neurodata-without-borders-type-files" title="Permalink to this heading">#</a></h1>
+<p>This tutorial will demonstrate the structure of the data file in a Neurodata Without Borders type (NWB) file and showcase how to access various parts of the data. We will use a specific example using an ecephys file, but the process is general.</p>
+<p>We begin with package imports which we’ll need. <code class="docutils literal notranslate"><span class="pre">hdmf_zarr</span></code> handles the ZArray objects that appear in NWB files, while <code class="docutils literal notranslate"><span class="pre">nwbwidgets</span></code> will provide us with a useful tool down the line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hdmf_zarr</span> <span class="kn">import</span> <span class="n">NWBZarrIO</span>
+<span class="kn">from</span> <span class="nn">nwbwidgets</span> <span class="kn">import</span> <span class="n">nwb2widget</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to do any analysis, of course, we’ll also need the usual libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="accessing-an-nwb-file">
+<h2>Accessing an NWB file<a class="headerlink" href="#accessing-an-nwb-file" title="Permalink to this heading">#</a></h2>
+<p>To manipulate the data in the file, we will first need to find the file we’re interested in and then load it into Python. We assume here that we have already received the datafile somehow and we know what directory we’ve stored the file in, so we will simply path directly to the file (which is of file type .nwb.zarr).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mouse_id</span> <span class="o">=</span> <span class="s1">&#39;655565&#39;</span>
+
+<span class="n">nwb_file</span> <span class="o">=</span> <span class="s1">&#39;/data/SWDB 2024 CTLUT data/ecephys_655565_2023-03-31_14-47-36_nwb/ecephys_655565_2023-03-31_14-47-36_experiment1_recording1.nwb.zarr&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, all we’ve done is find the path and store it as a string in Python. Now that we have the NWB file’s path, we still need to load it into Python, which we can do using <code class="docutils literal notranslate"><span class="pre">NWBZarrIO</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">NWBZarrIO</span><span class="p">(</span><span class="n">nwb_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">io</span><span class="p">:</span>
+    <span class="n">nwbfile_read</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This stores all the information contained in the NWB file into a <code class="docutils literal notranslate"><span class="pre">NWBFile</span></code> object from the <code class="docutils literal notranslate"><span class="pre">pynwb</span></code> package, and now we’re ready to start working with the data. The first thing we might be interested in is just seeing the contents of the NWB file, which we can do by using the <code class="docutils literal notranslate"><span class="pre">nwb2widget</span></code> tool. Below, a screenshot of the output is included to show what information it contains:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwb2widget</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-center">
+<img alt="../_images/output_nwb_read.PNG" src="../_images/output_nwb_read.PNG" />
+</figure>
+<p>The various types of data contained in the file when loaded into Python are simply attributes of the <code class="docutils literal notranslate"><span class="pre">nwbfile_read</span></code> object, which we access in the usual way <code class="docutils literal notranslate"><span class="pre">nwbfile_read.*</span></code>. Depending on the table of interest, they might be stored as different types of objects, however; for example, several are stored as objects specific to the <code class="docutils literal notranslate"><span class="pre">pynwb</span></code> package.</p>
+<p>Now we will access the data directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root pynwb.file.NWBFile at 0x140228460445120
+Fields:
+  devices: {
+    ProbeA &lt;class &#39;pynwb.device.Device&#39;&gt;,
+    ProbeB &lt;class &#39;pynwb.device.Device&#39;&gt;
+  }
+  electrode_groups: {
+    ProbeA &lt;class &#39;pynwb.ecephys.ElectrodeGroup&#39;&gt;,
+    ProbeB &lt;class &#39;pynwb.ecephys.ElectrodeGroup&#39;&gt;
+  }
+  electrodes: electrodes &lt;class &#39;hdmf.common.table.DynamicTable&#39;&gt;
+  epochs: epochs &lt;class &#39;pynwb.epoch.TimeIntervals&#39;&gt;
+  file_create_date: [datetime.datetime(2023, 5, 15, 21, 49, 33, 28522, tzinfo=tzutc())]
+  identifier: ecephys_655565_2023-03-31_14-47-36
+  intervals: {
+    epochs &lt;class &#39;pynwb.epoch.TimeIntervals&#39;&gt;,
+    trials &lt;class &#39;pynwb.epoch.TimeIntervals&#39;&gt;
+  }
+  processing: {
+    behavior &lt;class &#39;pynwb.base.ProcessingModule&#39;&gt;,
+    ecephys &lt;class &#39;pynwb.base.ProcessingModule&#39;&gt;
+  }
+  session_description: Neuropixels-OPTO recording of head-fixed mice during optogenetics stimulation for opto-tagging.
+  session_start_time: 2023-03-31 14:47:36-07:00
+  stimulus_template: {
+    internal_blue-train-0.02mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_blue-train-0.04mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_blue-train-0.06mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_blue-train-0.08mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_blue-train-0.1mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_red-train-0.02mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_red-train-0.04mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_red-train-0.06mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_red-train-0.08mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;,
+    internal_red-train-0.1mW &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;
+  }
+  subject: subject pynwb.file.Subject at 0x140228458827968
+Fields:
+  age: P158D
+  age__reference: birth
+  date_of_birth: 2022-10-24 00:00:00-07:00
+  genotype: Chat-IRES-Cre-neo/Chat-IRES-Cre-neo
+  sex: M
+  species: Mus musculus
+  subject_id: 655565
+
+  timestamps_reference_time: 2023-03-31 14:47:36-07:00
+  trials: trials &lt;class &#39;pynwb.epoch.TimeIntervals&#39;&gt;
+  units: units &lt;class &#39;pynwb.misc.Units&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-units-data">
+<h2>Accessing Units Data<a class="headerlink" href="#accessing-units-data" title="Permalink to this heading">#</a></h2>
+<p>Since this is an ecephys file, let’s first access the <em>units</em>. This is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object that contains information about all of the sorted <a class="reference internal" href="../glossary.html#term-Unit"><span class="xref std std-term">unit</span></a>s in this experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">units</span><span class="p">[:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">units</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s examine what information is stored in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;spike_times&#39; &#39;electrodes&#39; &#39;waveform_mean&#39; &#39;waveform_sd&#39; &#39;unit_name&#39;
+ &#39;drift_ptp&#39; &#39;snr&#39; &#39;isi_violations_ratio&#39; &#39;default_qc&#39; &#39;ks_unit_id&#39;
+ &#39;l_ratio&#39; &#39;half_width&#39; &#39;repolarization_slope&#39; &#39;sliding_rp_violation&#39;
+ &#39;drift_mad&#39; &#39;peak_trough_ratio&#39; &#39;presence_ratio&#39; &#39;rp_contamination&#39;
+ &#39;recovery_slope&#39; &#39;num_spikes&#39; &#39;isolation_distance&#39; &#39;device_name&#39;
+ &#39;rp_violations&#39; &#39;amplitude&#39; &#39;amplitude_cutoff&#39; &#39;peak_to_valley&#39;
+ &#39;firing_rate&#39; &#39;drift_std&#39; &#39;d_prime&#39; &#39;noise_label&#39; &#39;peak_channel&#39;
+ &#39;internal_blue_train_best_site&#39; &#39;internal_blue_train_mean_latency&#39;
+ &#39;internal_blue_train_mean_jitter&#39; &#39;internal_blue_train_mean_reliability&#39;
+ &#39;internal_blue_train_num_sig_pulses_paired&#39;
+ &#39;internal_blue_train_channel_diff&#39; &#39;internal_red_train_best_site&#39;
+ &#39;internal_red_train_mean_latency&#39; &#39;internal_red_train_mean_jitter&#39;
+ &#39;internal_red_train_mean_reliability&#39;
+ &#39;internal_red_train_num_sig_pulses_paired&#39;
+ &#39;internal_red_train_channel_diff&#39; &#39;predicted_cell_type&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we can see the full list of columns stored in our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">spike_times</span></code> - spike times (in seconds) for the entire session</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">electrodes</span></code> - electrode indices used for mean waveform</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waveform_mean</span></code> - mean spike waveform across all electrodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waveform_sd</span></code> - standard deviation of the spike waveform across all electrodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unit_name</span></code> - universally unique identifier for this unit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default_qc</span></code> - <code class="docutils literal notranslate"><span class="pre">True</span></code> if this unit passes default quality control criteria, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code> - fraction of the session for which this unit was present (<strong>default threshold = 0.8</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_spikes</span></code> - total number of spikes detected</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snr</span></code> - signal-to-noise ratio of this unit’s waveform (relative to the peak channel)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isi_violations_ratio</span></code> - metric that quantifies spike contamination (<strong>default threshold = 0.5</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firing_rate</span></code> - average firing rate of the unit throughout the session</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isolation_distance</span></code> - distance to nearest cluster in Mahalanobis space (higher is better)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l_ratio</span></code> - related to isolation distance; quantifies the probability of cluster membership for each spike</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">device_name</span></code> - name of the probe that detected this unit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code> - estimated fraction of missed spikes (<strong>default threshold = 0.1</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peak_trough_ratio</span></code> - ratio of the max (peak) to the min (trough) amplitudes (based on 1D waveform)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repolarization_slope</span></code> - slope of return to baseline after trough (based on 1D waveform)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amplitude</span></code> - peak-to-trough distance (based on 1D waveform)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d_prime</span></code> - classification accuracy based on LDA (higher is better)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recovery_slope</span></code> - slope of return to baseline after peak (based on 1D waveform)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">half_width</span></code> - width of the waveform at half the trough amplitude (based on 1D waveform)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ks_unit_id</span></code> - unit ID assigned by Kilosort</p></li>
+</ul>
+<p>Note that the columns may vary from experiment to experiment, so it’s a good idea to check what columns are stored in any NWB file that you open. For instance, this file contains the above standard columns that appear in most NWB files from the Allen Institute, but also many more columns detailing the unit’s response to laser stimulation. These columns are further explained in the <span class="xref myst">cell type lookup table tutorials.</span></p>
+<p>To access data from a specific unit, we look at the row corresponding to that unit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spike_times                                  [810.0001255327663, 869.9232313798699, 915.734...
+electrodes                                   [768, 769, 770, 771, 772, 773, 774, 775, 776, ...
+waveform_mean                                [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+waveform_sd                                  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+unit_name                                                 f6e38bca-33ba-48cc-af02-75a27f42b7ed
+drift_ptp                                                                                  NaN
+snr                                                                                   6.655138
+isi_violations_ratio                                                                       0.0
+default_qc                                                                               False
+ks_unit_id                                                                                31.0
+l_ratio                                                                               0.149023
+half_width                                                                            0.000243
+repolarization_slope                                                             313290.923614
+sliding_rp_violation                                                                       NaN
+drift_mad                                                                                  NaN
+peak_trough_ratio                                                                    -0.330413
+presence_ratio                                                                        0.644231
+rp_contamination                                                                           0.0
+recovery_slope                                                                   -38637.486587
+num_spikes                                                                               258.0
+isolation_distance                                                                  141.030751
+device_name                                                                             ProbeB
+rp_violations                                                                              0.0
+amplitude                                                                            69.265793
+amplitude_cutoff                                                                           NaN
+peak_to_valley                                                                        0.000607
+firing_rate                                                                           0.041214
+drift_std                                                                                  NaN
+d_prime                                                                               4.067442
+noise_label                                                                               good
+peak_channel                                                                              38.0
+internal_blue_train_best_site                                                              1.0
+internal_blue_train_mean_latency                                                           NaN
+internal_blue_train_mean_jitter                                                            NaN
+internal_blue_train_mean_reliability                                                       0.0
+internal_blue_train_num_sig_pulses_paired                                                  0.0
+internal_blue_train_channel_diff                                                          28.0
+internal_red_train_best_site                                                               1.0
+internal_red_train_mean_latency                                                            NaN
+internal_red_train_mean_jitter                                                             NaN
+internal_red_train_mean_reliability                                                        0.0
+internal_red_train_num_sig_pulses_paired                                                   0.0
+internal_red_train_channel_diff                                                           28.0
+predicted_cell_type                                                                   untagged
+Name: 418, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>To look at the spike times for a specific unit, we look at the corresponding attribute of that unit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;spike_times&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 810.00012553  869.92323138  915.73428283  993.46186793 1083.97800103
+ 1084.37176786 1089.61893294 1092.82656648 1096.59626237 1104.08294017
+ 1122.70730282 1125.34041942 1126.51636438 1129.27679993 1149.56591895
+ 1154.20855116 1166.86327015 1173.91335363 1176.37448709 1180.12824315
+ 1204.58823002 1218.85226241 1235.82063975 1235.83637457 1236.31450614
+ 1242.08294837 1244.65159236 1249.26466788 1249.44521834 1250.3503856
+ 1258.15654467 1258.88936281 1260.35690467 1260.36043833 1260.48044971
+ 1261.91264978 1261.91925041 1261.97372225 1262.13907127 1262.75761444
+ 1263.24219374 1263.75474236 1277.79954127 1282.3000847  1285.1322865
+ 1285.13595351 1292.74120776 1293.51769891 1297.33662557 1297.97231912
+ 1298.25296356 1298.98861539 1300.32024153 1301.9289663  1302.22299133
+ 1302.30006531 1307.71993123 1309.20901687 1309.72016916 1313.03775052
+ 1313.70558054 1320.65798737 1320.83285661 1324.20961025 1327.55279404
+ 1328.05610845 1342.03298021 1359.71812328 1364.14748767 1364.89158035
+ 1365.69926807 1366.36942043 1371.50374046 1375.13657435 1376.17882736
+ 1383.53526109 1389.51088072 1392.3238807  1394.06714595 1398.07691706
+ 1403.59520718 1405.08142334 1423.03552524 1423.7037959  1429.79206571
+ 1430.82366349 1431.01634842 1432.52099105 1433.25349382 1439.23120009
+ 1450.29651494 1451.11632593 1452.02093948 1455.97412463 1458.76341698
+ 1459.3572349  1461.10636737 1461.22491681 1461.800438   1467.17078004
+ 1468.11733638 1475.5309053  1477.01933862 1483.13582225 1484.99670197
+ 1488.51950543 1495.57367055 1505.52824486 1512.58018    1513.52840468
+ 1526.67538277 1527.18216414 1536.1034098  1544.84723864 1546.43738802
+ 1547.5140566  1551.91157495 1570.22131056 1570.83133279 1572.09928858
+ 1574.95555679 1579.42628029 1598.73067968 1600.77873627 1601.49757529
+ 1608.83166576 1612.36129514 1613.34382651 1613.56541417 1618.98289402
+ 1619.33949446 1627.02318305 1627.26987307 1629.81415336 1629.81755368
+ 1632.21151379 1637.66412367 1639.55353586 1650.90761066 1651.40935815
+ 1652.60833832 1654.73333947 1663.87067942 1686.98349232 1687.56674753
+ 1706.13920563 1712.22841537 1712.59144974 1721.0698736  1729.05084114
+ 1746.64462621 1748.49174811 1770.8974024  1776.49069853 1780.78503838
+ 1791.22689348 1794.01994108 1807.25139273 1824.05411554 1860.79957934
+ 1864.15286343 1865.37295748 1870.81732763 1871.24219086 1874.10090512
+ 1877.87989618 1890.09756301 1893.42628795 1937.31827045 1940.88666747
+ 1958.08006057 1966.77187749 1984.55029789 1989.71185282 1994.12430356
+ 2035.57325862 2079.8236104  2152.69883064 2166.64304108 2176.93501333
+ 2179.53132526 2204.94333605 2216.45245735 2246.74960844 2312.93004417
+ 2323.66347676 2332.03116466 2333.87475743 2342.75704456 2469.84298321
+ 2496.84616332 2573.61715125 2575.35928427 2582.88982898 2597.59004854
+ 2627.90130553 2629.5536326  2681.47160829 2690.96032946 2728.1732424
+ 2774.93925716 2800.31415257 2897.06914162 2905.85971618 2993.41622006
+ 3047.91182762 3138.28118603 3245.08149447 3250.41785293 3363.26069072
+ 3387.77985606 3405.24801557 3407.52443017 3441.21304865 3512.37734341
+ 3545.65351588 3602.1433092  3617.53372792 3703.08445952 3760.20331083
+ 3762.32128877 3813.95522977 3894.53797467 3958.05176217 4154.07333751
+ 4173.0556874  4180.58816869 4554.33138094 4572.91709499 4593.90613711
+ 4611.37661788 4681.01370214 4712.23169268 4847.82922662 4864.65831202
+ 5136.32570464 5374.39409871 5411.34026029 5411.58945041 5507.19160087
+ 5637.8718524  5649.97855918 5691.0316201  5722.23669494 5833.59971206
+ 6002.35099841 6015.55426634 6027.48486453 6059.7740764  6132.44734576
+ 6150.05200268 6233.31800264 6237.41204837 6319.09460545 6400.86718164
+ 6529.5848741  6636.06779153 6678.74083936]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also see how many spike times there are for a specific unit, which will tell us the number of spikes and allow us to access the time of a specific spike (in this case, accessing the time of the 189th spike):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;spike_times&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;spike_times&#39;</span><span class="p">][</span><span class="mi">188</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>258
+2342.7570445621095
+</pre></div>
+</div>
+</div>
+</div>
+<p>A useful sanity check here might also to be to ensure that the number of spike times matches the actual number of spikes recorded in the units table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;num_spikes&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;num_spikes&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;spike_times&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>258.0
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we can see that every recorded spike also has its time recorded, as we would expect. As another example, it is also possible to access and plot the waveform for a specific unit. Accessing the waveform is done in the same manner as accessing the spike times; in this case, we are interested in looking at ‘waveform_mean’ (note that here, we access it in two different ways: as an attribute of the units table, and as an element of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>). This is stored as a basic Python array. We can take a look at its dimensions to make sense of what data is stored here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;waveform_mean&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(210, 384)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Equipped with our knowledge of Neuropixels, we can see then that the dimensions are (time, channel). We can plot this to visualize each channel’s recordings over time. Note that due to the way that plt.imshow functions, we will need to take the transpose of the array to plot time on the x-axis. Also note that <code class="docutils literal notranslate"><span class="pre">waveform_mean</span></code> centers the times around the time of the spike.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][</span><span class="s1">&#39;waveform_mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Electrode&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (us)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2314d6b6fa782d4ba874954a1479b0d90198a6bfa9675cdb667f91f2f13bf488.png" src="../_images/2314d6b6fa782d4ba874954a1479b0d90198a6bfa9675cdb667f91f2f13bf488.png" />
+</div>
+</div>
+<p>From above, we can see that most of the channels recorded the same values over time; the channel’s recording at any given time is indicated by the color of the plot at that time. Since most horizontal lines we can draw on this plot are monochromatic, we can conclude that the channel in question did not record any interesting variation in electric potential.</p>
+<p>However, there is something interesting happening on channels 20 to 50!</p>
+<p>We can plot the shape of the potential over time on those channels. Now, instead of a three-dimensional plot, we will have a two-dimensional plot of voltage over time, with each distinct line representing a different channel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">waveform_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">418</span><span class="p">][:,</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;uV&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (us)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/66f0073f2a36d8e119eefe078574ee34424052e162150e2d8e776fff6d9b0cd2.png" src="../_images/66f0073f2a36d8e119eefe078574ee34424052e162150e2d8e776fff6d9b0cd2.png" />
+</div>
+</div>
+<p>This has somthing interesting going on; we can clearly see the classic shape of an action potential, but it appears to be overlaid on some baseline sinusoidal oscillation in the voltage.</p>
+<p>Moving on from the units table, let’s examine more of the data contained in the NWB file.</p>
+</section>
+<section id="accessing-trials-data">
+<h2>Accessing Trials Data<a class="headerlink" href="#accessing-trials-data" title="Permalink to this heading">#</a></h2>
+<p>The trials table includes information on the timing and experimental parameters for each trial conducted in the experiment. It can be accessed in the same way as the units table; again, this is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">trials</span><span class="p">[:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;start_time&#39; &#39;stop_time&#39; &#39;site&#39; &#39;power&#39; &#39;param_group&#39; &#39;emission_location&#39;
+ &#39;duration&#39; &#39;rise_time&#39; &#39;num_pulses&#39; &#39;wavelength&#39; &#39;type&#39;
+ &#39;inter_pulse_interval&#39; &#39;stimulus_template_name&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that this is an example of an optotagging experiment from the Cell Type Look-Up Table (<ref>CTLUT</ref>) dataset, so the columns stored here are specific to that stimulus. Other NWB files for other experiments will have different column names pertaining to the stimulus or behavior used for that experiment. In this experiment, for example, we can see the length of the trials and the details on the lasers used as a stimulus.</p>
+<p>Like with the units table, we can access a particular trial by asking for the row number (remember that these are indexed starting at 0):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1582</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>start_time                             1696.596233
+stop_time                              1696.646233
+site                                            13
+power                                          0.1
+param_group                                  train
+emission_location                           ProbeA
+duration                                      0.01
+rise_time                                    0.001
+num_pulses                                       5
+wavelength                                     638
+type                                  internal_red
+inter_pulse_interval                          0.04
+stimulus_template_name    internal_red-train-0.1mW
+Name: 1582, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stimulus-template-information">
+<h2>Stimulus Template Information<a class="headerlink" href="#stimulus-template-information" title="Permalink to this heading">#</a></h2>
+<p>A stimulus template provides an exemplar for each stimulus condition, which we can access again as an attribute of the NWB file. This is also something that is tailored to the experimental design, so the form can vary. In this example, the template is a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> object. The keys are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimulus_template</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">stimulus_template</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stimulus_template</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;internal_blue-train-0.02mW&#39;, &#39;internal_blue-train-0.04mW&#39;, &#39;internal_blue-train-0.06mW&#39;, &#39;internal_blue-train-0.08mW&#39;, &#39;internal_blue-train-0.1mW&#39;, &#39;internal_red-train-0.02mW&#39;, &#39;internal_red-train-0.04mW&#39;, &#39;internal_red-train-0.06mW&#39;, &#39;internal_red-train-0.08mW&#39;, &#39;internal_red-train-0.1mW&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that these keys match what we find in the stimulus_table under <code class="docutils literal notranslate"><span class="pre">stimulus_template_name</span></code>. For this experiment, the template provides the shape of the optotagging pulses delivered during the experiment.</p>
+<p>Since the trial we pulled above uses the ‘internal_red-train-0.1mW’ stimulus template, let’s just pull up the information for that particular stimulus template. Note that we could print the whole dictionary (this will be a very long output), but the information stored in each stimulus_template is the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stimulus_template</span><span class="p">[</span><span class="s1">&#39;internal_red-train-0.1mW&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>internal_red-train-0.1mW pynwb.base.TimeSeries at 0x140228458827200
+Fields:
+  comments: no comments
+  conversion: 1.0
+  data: &lt;zarr.core.Array &#39;/stimulus/templates/internal_red-train-0.1mW/data&#39; (7800,) float32 read-only&gt;
+  description: Analog signal to drive laser stimulation
+  interval: 1
+  offset: 0.0
+  resolution: -1.0
+  timestamps: &lt;zarr.core.Array &#39;/stimulus/templates/internal_red-train-0.1mW/timestamps&#39; (7800,) float64 read-only&gt;
+  timestamps_unit: seconds
+  unit: V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we can see all the information stored about the stimulus used. In particular, we can see that we have 7800 data points, stored in two different arrays: one in “data”, and one in “timestamps”. We can also see that the units of our dataset are in seconds and Volts (important so we don’t make embarrassing orders of magnitude errors!).</p>
+<p>Now let’s plot the stimulus template.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stimulus_template</span><span class="p">[</span><span class="s1">&#39;internal_red-train-0.1mW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[:],</span> <span class="n">stimulus_template</span><span class="p">[</span><span class="s1">&#39;internal_red-train-0.1mW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/45bf0bff24cb14298ae41b94a9dc12c40a69854ba0d8e80d52b51f31036cbcbb.png" src="../_images/45bf0bff24cb14298ae41b94a9dc12c40a69854ba0d8e80d52b51f31036cbcbb.png" />
+</div>
+</div>
+<p>Here, we can see that our stimulus is a square wave with a frequency of 20 Hz and an amplitude of just under 0.5 Volts.</p>
+</section>
+<section id="processing">
+<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this heading">#</a></h2>
+<p>There are some relevant pieces of data which are not quite as straightforward to access; some are nested under other attributes. For example, the running speed of the mouse over time is very relevant, but it is nested behind the <code class="docutils literal notranslate"><span class="pre">processing</span></code> attribute. To see the data structure, we can just use the <code class="docutils literal notranslate"><span class="pre">nwb2widget</span></code> tool that we showed above in the fifth cell and browse, but here we’ll also show how to read the data manually since the <code class="docutils literal notranslate"><span class="pre">nwb2widget</span></code> tool can sometimes be slow if there’s a large amount of information in a section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">processing</span></code> attribute holds a variety of important pieces of data. <code class="docutils literal notranslate"><span class="pre">processing</span></code> is a <code class="docutils literal notranslate"><span class="pre">LabelledDict</span></code> type object like the stimulus templates were. In order to see what the keys are for this <code class="docutils literal notranslate"><span class="pre">LabelledDict</span></code>, we can just print it and see what attributes we can access:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;behavior&#39;: behavior pynwb.base.ProcessingModule at 0x140228458740272
+Fields:
+  data_interfaces: {
+    BehavioralTimeSeries &lt;class &#39;pynwb.behavior.BehavioralTimeSeries&#39;&gt;
+  }
+  description: Processed behavioral data
+, &#39;ecephys&#39;: ecephys pynwb.base.ProcessingModule at 0x140228460445408
+Fields:
+  data_interfaces: {
+    LFP &lt;class &#39;pynwb.ecephys.LFP&#39;&gt;
+  }
+  description: Intermediate data from extracellular electrophysiology recordings, e.g., LFP.
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see for this example, the keys contained in <code class="docutils literal notranslate"><span class="pre">processing</span></code> for this mouse are ‘behavior’ and ‘ecephys’. As with the previous sections, it is important to remember that the keys we have here are specific to this optotagging experiment! In general, what information is contained in processing will be experiment-dependent.</p>
+<p>Now, let’s access the ‘behavior’ key first to see what it contains:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">[</span><span class="s1">&#39;behavior&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior pynwb.base.ProcessingModule at 0x140228458740272
+Fields:
+  data_interfaces: {
+    BehavioralTimeSeries &lt;class &#39;pynwb.behavior.BehavioralTimeSeries&#39;&gt;
+  }
+  description: Processed behavioral data
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice here that in order to access a specific key, we simply ask for the name of the key.</p>
+<p>Now, when we read this, we can see the ‘behavior’ part of the <code class="docutils literal notranslate"><span class="pre">processing</span></code> module for this particular experiment contains only one object, <code class="docutils literal notranslate"><span class="pre">data_interfaces</span></code>. Let’s keep going and see what that contains:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">[</span><span class="s1">&#39;behavior&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data_interfaces</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;BehavioralTimeSeries&#39;: BehavioralTimeSeries pynwb.behavior.BehavioralTimeSeries at 0x140228458740320
+Fields:
+  time_series: {
+    linear velocity &lt;class &#39;pynwb.base.TimeSeries&#39;&gt;
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that to access the subsection of the dictionary key, we call it as an attribute of the key.</p>
+<p>In this case the <code class="docutils literal notranslate"><span class="pre">behavior</span></code> object has one item: the running speed of the mouse during the experiment. This is called the “linear velocity”. In other experiments, we might find the pupil area and/or position here as well.</p>
+<p>We can that the <code class="docutils literal notranslate"><span class="pre">linear</span> <span class="pre">velocity</span></code> object by reading through the nested sets printed in our last key. The <code class="docutils literal notranslate"><span class="pre">data_interfaces</span></code> object possesses a key named <code class="docutils literal notranslate"><span class="pre">BehavioralTimeSeries</span></code>, which has an attribute <code class="docutils literal notranslate"><span class="pre">time_series</span></code> inside it. In turn, the attribute <code class="docutils literal notranslate"><span class="pre">time_series</span></code> possesses the key named <code class="docutils literal notranslate"><span class="pre">linear</span> <span class="pre">velocity</span></code>.</p>
+<p>So, the running speed is nested in several layers of <code class="docutils literal notranslate"><span class="pre">LabelledDict</span></code> type objects. In order to access it, we’ll need to write down the whole “path” to it. Let’s see what information the ‘linear velocity’ key contains.</p>
+<p>(For the sake of simplicity, we’ll store the linear velocity data in a different Python object, so that we don’t have to type the full path to the linear velocity every time we wish to examine it.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">running_speed</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">[</span><span class="s1">&#39;behavior&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data_interfaces</span><span class="p">[</span><span class="s1">&#39;BehavioralTimeSeries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">time_series</span><span class="p">[</span><span class="s1">&#39;linear velocity&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">running_speed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>linear velocity pynwb.base.TimeSeries at 0x140228458740464
+Fields:
+  comments: no comments
+  conversion: 1.0
+  data: &lt;zarr.core.Array &#39;/processing/behavior/BehavioralTimeSeries/linear velocity/data&#39; (624796,) float64 read-only&gt;
+  description: The speed of the subject measured over time.
+  interval: 1
+  offset: 0.0
+  resolution: -1.0
+  timestamps: &lt;zarr.core.Array &#39;/processing/behavior/BehavioralTimeSeries/linear velocity/timestamps&#39; (624796,) float64 read-only&gt;
+  timestamps_unit: seconds
+  unit: m/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>This tells us that the ‘linear_velocity’ (which here we’ve stored in <code class="docutils literal notranslate"><span class="pre">running_speed</span></code> for ease of access) contains several attributes: <code class="docutils literal notranslate"><span class="pre">comments</span></code>, <code class="docutils literal notranslate"><span class="pre">conversion</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code>, <code class="docutils literal notranslate"><span class="pre">interval</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">resolution</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamps</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamps_unit</span></code>, and <code class="docutils literal notranslate"><span class="pre">unit</span></code>. Of these, most are irrelevant for our purposes; the two that contain all the data are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> contains the actual velocity at each timestamp.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamps</span></code> contains the timestamp for each measurement. These are naturally paired.</p></li>
+</ul>
+<p>We can see that there are 624,796 data points, and that our data is in units of velocity over time. We can access them directly if we want:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">running_speed</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">running_speed</span><span class="o">.</span><span class="n">data</span><span class="p">[:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 454.87926667  454.88925067  454.89926667 ... 6702.80925067 6702.81926667
+ 6702.82925067]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.09047513  0.09920467  0.08142761 ... -0.02705582 -0.03619005
+ -0.05411164]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And to access a specific data point, we would just use the index in place of the <code class="docutils literal notranslate"><span class="pre">:</span></code> that tells Python to read all elements of the array.</p>
+<p>Now let’s plot the data and time to get an idea of the mouse’s velocity over the course of the experiment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">running_speed</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[:],</span> <span class="n">running_speed</span><span class="o">.</span><span class="n">data</span><span class="p">[:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity (m/s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f844fc50a8af84da2798ac225b4664f906728717a6e47a21260a3dfc1d802fec.png" src="../_images/f844fc50a8af84da2798ac225b4664f906728717a6e47a21260a3dfc1d802fec.png" />
+</div>
+</div>
+<p>This isn’t the most legible plot, but it’s clear why it isn’t; we have on the order of <span class="math notranslate nohighlight">\(10^5\)</span> measurements, but our time scale is only <span class="math notranslate nohighlight">\(10^3\)</span> s, which means we’re taking around a hundred measurements per second. We can zoom in on a specific time interval to get a better idea of what’s going on in that time interval. We could also apply standard data processing techniques to clean up the signal to improve legibility, but those techniques are beyond the scope of this particular tutorial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">running_speed</span><span class="o">.</span><span class="n">timestamps</span><span class="p">[</span><span class="mi">3000</span><span class="p">:</span><span class="mi">3500</span><span class="p">],</span> <span class="n">running_speed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">3000</span><span class="p">:</span><span class="mi">3500</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity (m/s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/33adbad3050eab91be25dcdf260622b78f224b5503a4470891c18552005163d3.png" src="../_images/33adbad3050eab91be25dcdf260622b78f224b5503a4470891c18552005163d3.png" />
+</div>
+</div>
+<p>Now let’s back up. There was a second key named <code class="docutils literal notranslate"><span class="pre">ecephys</span></code> which was contained in the <code class="docutils literal notranslate"><span class="pre">processing</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">nwbfile_read</span></code>. Let’s access that and see what data is contained there:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">[</span><span class="s1">&#39;ecephys&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ecephys pynwb.base.ProcessingModule at 0x140228460445408
+Fields:
+  data_interfaces: {
+    LFP &lt;class &#39;pynwb.ecephys.LFP&#39;&gt;
+  }
+  description: Intermediate data from extracellular electrophysiology recordings, e.g., LFP.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ecephys</span></code> object contains one item: the local field potential (<a class="reference internal" href="../glossary.html#term-LFP"><span class="xref std std-term">LFP</span></a>) data. LFPs are the signals in the low frequency range (below 500 Hz) that are generated by synchronized synaptic inputs of neuronal populations. This features are known to be correlated with brain and behavioral states. The LFP is computed for each probe independently, so when there are multiple probes, there should be an LFP object for each probe.</p>
+<p>In this particular experiment, the path to the LFP data goes through the attribute <code class="docutils literal notranslate"><span class="pre">data_interfaces</span></code>. Again, for ease of access, we’ll store it in an object so that we don’t have to type out the path every time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lfp_interface</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">processing</span><span class="p">[</span><span class="s1">&#39;ecephys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data_interfaces</span><span class="p">[</span><span class="s1">&#39;LFP&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lfp_interface</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LFP pynwb.ecephys.LFP at 0x140228458739984
+Fields:
+  electrical_series: {
+    ElectricalSeriesProbeA-LFP &lt;class &#39;pynwb.ecephys.ElectricalSeries&#39;&gt;,
+    ElectricalSeriesProbeB-LFP &lt;class &#39;pynwb.ecephys.ElectricalSeries&#39;&gt;
+  }
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the contents of the LFP data, we have two probes listed. As expected, each one of them contains LFP data. Let’s take a look at one of them to start:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lfp_es</span> <span class="o">=</span> <span class="n">lfp_interface</span><span class="o">.</span><span class="n">electrical_series</span><span class="p">[</span><span class="s1">&#39;ElectricalSeriesProbeA-LFP&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lfp_es</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ElectricalSeriesProbeA-LFP pynwb.ecephys.ElectricalSeries at 0x140228460444496
+Fields:
+  comments: no comments
+  conversion: 4.679999828338622e-06
+  data: &lt;zarr.core.Array &#39;/processing/ecephys/LFP/ElectricalSeriesProbeA-LFP/data&#39; (15650092, 384) int16 read-only&gt;
+  description: LFP voltage traces from ProbeA
+  electrodes: electrodes &lt;class &#39;hdmf.common.table.DynamicTableRegion&#39;&gt;
+  offset: 0.0
+  rate: 2500.0
+  resolution: -1.0
+  starting_time: 447.9456
+  starting_time_unit: seconds
+  unit: volts
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reading off the information about the data recorded by Probe A, we can see that we only have one set of data here. There, we have 15,661,294 data points for each of the 384 channels on the Neuropixels probe. None of this data is directly associated with a time coordinate. Instead, we’re told the sampling rate of 2500 Hz and the starting time. Thus, if we want to plot this, we’ll have to construct the timestamps manually by taking the starting time and then appending times at 1/2500 s intervals until we have 15,661,294 timestamps.</p>
+<p>Fortunately, this is a task computers excel at:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lfp_num_samples</span> <span class="o">=</span> <span class="n">lfp_es</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lfp_timestamps</span> <span class="o">=</span> <span class="n">lfp_es</span><span class="o">.</span><span class="n">starting_time</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">lfp_num_samples</span><span class="p">)</span> <span class="o">/</span> <span class="n">lfp_es</span><span class="o">.</span><span class="n">rate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we can examine what’s contained in the data. Here, we’ll pick a specific interval instead of plotting for the entire experiment to enhance legibility. (As with the previous section, we would still need to do a significant amount of signal processing to analyze this data).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lfp_es</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">50000</span><span class="p">:</span><span class="mi">60000</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">350</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Sample&#39;)
+</pre></div>
+</div>
+<img alt="../_images/135ffd220414b1a5389bc0bbb20ff15a54aad7c8ea64e42e7867abdb277ff8c1.png" src="../_images/135ffd220414b1a5389bc0bbb20ff15a54aad7c8ea64e42e7867abdb277ff8c1.png" />
+</div>
+</div>
+<p>Here, we are not plotting channels above 350, as they were outside of the brain and thus did not have meaningful data. In this time period, we can see some clear oscillatory activity in channels 200-350, which were likely in the cortex.</p>
+<p>Instead of looking at all 384 channels, we can also examine just a single channel, and we can plot it against time to see what the LFP looked like for that channel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">raw_data</span> <span class="o">=</span> <span class="n">lfp_es</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">channel</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lfp_timestamps</span><span class="p">[</span><span class="mi">50000</span><span class="p">:</span><span class="mi">60000</span><span class="p">],</span> <span class="n">raw_data</span><span class="p">[</span><span class="mi">50000</span><span class="p">:</span><span class="mi">60000</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;LFP (uV)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15650092,)
+</pre></div>
+</div>
+<img alt="../_images/fa2c7265dcc64d83120e743355811664e22541fe483b57c122289e99baa447af.png" src="../_images/fa2c7265dcc64d83120e743355811664e22541fe483b57c122289e99baa447af.png" />
+</div>
+</div>
+<p>Finally, we can also examine the information contained in the electrodes attribute of the probe we’re investigating:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lfp_es</span><span class="o">.</span><span class="n">electrodes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(384, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we can see that we have ten entries for every channel.</p>
+<p>The NWB file contains other data as well which can be explored using the methods we’ve detailed in this tutorial; we will not detail every piece of accessible information here, but hopefully it should be clear from these examples how one can navigate and extract data from an NWB file. Once finished, we should then close the NWB file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ctlut"
+        },
+        kernelOptions: {
+            name: "ctlut",
+            path: "./practicalities"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ctlut'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="allensdk-pyNWB.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Allen SDK and pyNWB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="git.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Git</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-an-nwb-file">Accessing an NWB file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-units-data">Accessing Units Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-trials-data">Accessing Trials Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-template-information">Stimulus Template Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

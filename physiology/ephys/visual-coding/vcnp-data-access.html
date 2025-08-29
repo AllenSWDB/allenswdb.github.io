@@ -1,0 +1,2970 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Accessing Neuropixels Visual Coding Data &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-data-access';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-data-access.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Units" href="vcnp-units.html" />
+    <link rel="prev" title="Quick start guide" href="vcnp-quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-data-access.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-data-access.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-data-access.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Accessing Neuropixels Visual Coding Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#session-metadata">Session metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probe-metadata">Probe metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrode-channel-metadata">Electrode channel metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-metadata">Unit metadata</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-specific-unit-metadata">Stimulus-specific unit metadata</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-individual-sessions">Data for individual sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset">Downloading the complete dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-on-aws">Accessing data on AWS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-via-api-brain-map-org">Direct download via api.brain-map.org</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-time-intervals">Invalid Time Intervals</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-neuropixels-visual-coding-data">
+<h1>Accessing Neuropixels Visual Coding Data<a class="headerlink" href="#accessing-neuropixels-visual-coding-data" title="Permalink to this heading">#</a></h1>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook covers the various methods for accessing the Allen
+Institute Neuropixels Visual Coding dataset. We will go over how to request
+data, where it’s stored, and what the various files contain. If you’re having
+trouble downloading the data, or you just want to know more about what’s going
+on under the hood, this is a good place to start.</p>
+<p>Currently, we do not have a web interface for browsing through the available
+cells and experiments, as with the
+<a class="reference external" href="http://observatory.brain-map.org/visualcoding">two-photon imaging Visual Coding dataset</a>.
+Instead, the data must be retrieved through the AllenSDK (Python 3.8+), or via
+requests sent to <a class="reference external" href="http://mouse.brain-map.org/static/api">api.brain-map.org</a>.</p>
+<p>Functions related to data analysis will be covered in other tutorials. For a
+full list of available tutorials, see the
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">SDK documentation</a>.</p>
+<p>This tutorial will cover the following topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-access-options"><span class="std std-ref">Options for data access</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-allensdk"><span class="std std-ref">Using the AllenSDK to retrieve data</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-aws"><span class="std std-ref">Accessing data on AWS</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-api"><span class="std std-ref">Direct download via api.brain-map.org</span></a></p></li>
+</ul>
+</section>
+<section id="options-for-data-access">
+<span id="content-references-access-options"></span><h2>Options for data access<a class="headerlink" href="#options-for-data-access" title="Permalink to this heading">#</a></h2>
+<p>The <strong><code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code></strong> object of the AllenSDK is the easiest way to
+interact with the data. This object abstracts away the details of on-disk file
+storage, and delivers the data to you as ready-to-analyze Python objects. The
+cache will automatically keep track of which files are stored locally, and will
+download additional files on an as-needed basis. Usually you won’t need to worry
+about how these files are structured, but this tutorial will cover those details
+in case you want to analyze them without using the AllenSDK (e.g., in Matlab).
+This tutorial begins with
+<a class="reference internal" href="#content-references-allensdk"><span class="std std-ref">an introduction to this approach</span></a>.</p>
+<p>If you have an <strong>Amazon Web Services (AWS)</strong> account, you can use an
+<code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object to access the data via the Allen Brain Observatory
+Simple Storage Service (S3) bucket. This is an AWS Public Dataset located at
+<code class="docutils literal notranslate"><span class="pre">arn:aws:s3:::allen-brain-observatory</span></code> in region <code class="docutils literal notranslate"><span class="pre">us-west-2</span></code>. Launching a
+Jupyter notebook instance on AWS will allow you to access the complete dataset
+without having to download anything locally. This includes around 80 TB of raw
+data files, which are not accessible via the AllenSDK. The only drawback is that
+you’ll need to pay for the time that your instance is running—but this can still
+be economical in many cases. A brief overview of this approach can be found
+<a class="reference internal" href="#content-references-aws"><span class="std std-ref">below</span></a>.</p>
+<p>A third option is to directly download the data via <strong><a class="reference external" href="http://api.brain-map.org">api.brain-map.org</a></strong>. This
+should be used only as a last resort if the other options are broken or are not
+available to you. Instructions for this can be found
+<a class="reference internal" href="#content-references-api"><span class="std std-ref">at the end of this tutorial</span></a>.</p>
+</section>
+<section id="using-the-allensdk-to-retrieve-data">
+<span id="content-references-allensdk"></span><h2>Using the AllenSDK to retrieve data<a class="headerlink" href="#using-the-allensdk-to-retrieve-data" title="Permalink to this heading">#</a></h2>
+<p>Most users will want to access data via the AllenSDK. This requires nothing more
+than a Python interpreter and some free disk space to store the data locally.</p>
+<p>How much data is there? If you want to download the complete dataset (58
+experiments), you’ll need 855 GB of space, split across the following files:</p>
+<ol class="arabic simple">
+<li><p>CSV files containing information about sessions, probes, channels and units
+(58.1 MB)</p></li>
+<li><p>NWB files containing spike times, behavior data, and stimulus information for
+each session (146.5 GB total, min file size = 1.7 GB, max file size = 3.3 GB)</p></li>
+<li><p>NWB files containing LFP data for each probe (707 GB total, min file size =
+0.9 GB, max file size = 2.7 GB)</p></li>
+</ol>
+<p>Before downloading the data, you must decide where the <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> file
+lives. This file serves as the map that guides the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object
+to the file locations.</p>
+<p>When you initialize a local cache for the first time, it will create the
+manifest file at the path that you specify. This file lives in the same
+directory as the rest of the data, so make sure you put it somewhere that has
+enough space available.</p>
+<p>When you need to access the data in subsequent analysis sessions, you should
+point the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object to an <em>existing</em> <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> file;
+otherwise, it will try to re-download the data in a new location.</p>
+<p>To get started with this approach, first take care of the necessary imports:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll specify the location of the manifest file. If you’re creating a
+cache for the first time, this file won’t exist yet, but it <em>must</em> be placed in
+an existing data directory. Remember to choose a location that has plenty of
+free space available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example cache directory path, it determines where downloaded data will be stored</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/&#39;</span>
+<span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;manifest.json&#39;</span><span class="p">)</span>
+<span class="n">DOWNLOAD_COMPLETE_DATASET</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can create the cache object, specifying both the local storage directory (the <code class="docutils literal notranslate"><span class="pre">manifest_path</span></code>) and the remote storage location (the Allen Institute data warehouse).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will prepare the cache to download four files:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sessions.csv</span></code> (7.8 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probes.csv</span></code> (27.0 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channels.csv</span></code> (6.6 MB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">units.csv</span></code> (51.4 MB)</p></li>
+</ol>
+<p>Each one contains a table of information related to its file name. If you’re
+using the AllenSDK, you won’t have to worry about how these files are formatted.
+Instead, you’ll load the relevant data using specific accessor functions:
+<code class="docutils literal notranslate"><span class="pre">get_session_table()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_probes()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_channels()</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_units()</span></code>.
+These functions return a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html?highlight=dataframe">pandas
+DataFrame</a>
+containing a row for each item and a column for each metric.</p>
+<p>If you are analyzing data without using the AllenSDK, you can load the data
+using your CSV file reader of choice. However, please be aware the columns in
+the original file do not necessarily match what’s returned by the AllenSDK,
+which may combine information from multiple files to produce the final
+DataFrame.</p>
+<section id="session-metadata">
+<h3>Session metadata<a class="headerlink" href="#session-metadata" title="Permalink to this heading">#</a></h3>
+<p>Let’s take a closer look at what’s in the <code class="docutils literal notranslate"><span class="pre">sessions.csv</span></code> file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of sessions: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of sessions: 58
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>published_at</th>
+      <th>specimen_id</th>
+      <th>session_type</th>
+      <th>age_in_days</th>
+      <th>sex</th>
+      <th>full_genotype</th>
+      <th>unit_count</th>
+      <th>channel_count</th>
+      <th>probe_count</th>
+      <th>ecephys_structure_acronyms</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>715093703</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>699733581</td>
+      <td>brain_observatory_1.1</td>
+      <td>118.0</td>
+      <td>M</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>884</td>
+      <td>2219</td>
+      <td>6</td>
+      <td>[CA1, VISrl, nan, PO, LP, LGd, CA3, DG, VISl, ...</td>
+    </tr>
+    <tr>
+      <th>719161530</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>703279284</td>
+      <td>brain_observatory_1.1</td>
+      <td>122.0</td>
+      <td>M</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>755</td>
+      <td>2214</td>
+      <td>6</td>
+      <td>[TH, Eth, APN, POL, LP, DG, CA1, VISpm, nan, N...</td>
+    </tr>
+    <tr>
+      <th>721123822</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>707296982</td>
+      <td>brain_observatory_1.1</td>
+      <td>125.0</td>
+      <td>M</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>444</td>
+      <td>2229</td>
+      <td>6</td>
+      <td>[MB, SCig, PPT, NOT, DG, CA1, VISam, nan, LP, ...</td>
+    </tr>
+    <tr>
+      <th>732592105</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+      <td>824</td>
+      <td>1847</td>
+      <td>5</td>
+      <td>[grey, VISpm, nan, VISp, VISl, VISal, VISrl]</td>
+    </tr>
+    <tr>
+      <th>737581020</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>718643567</td>
+      <td>brain_observatory_1.1</td>
+      <td>108.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+      <td>568</td>
+      <td>2218</td>
+      <td>6</td>
+      <td>[grey, VISmma, nan, VISpm, VISp, VISl, VISrl]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sessions</span></code> DataFrame provides a high-level overview of the Neuropixels
+Visual Coding dataset. The index column is a unique ID, which serves as a key
+for accessing the physiology data for each session. The other columns contain
+information about:</p>
+<ul class="simple">
+<li><p>the session type (i.e., which stimulus set was shown?)</p></li>
+<li><p>the age, sex, and genotype of the mouse (in this dataset, there’s only one
+session per mouse)</p></li>
+<li><p>the number of probes, channels, and units for each session</p></li>
+<li><p>the brain structures recorded (CCFv3 acronyms)</p></li>
+</ul>
+<p>As an illustrative example, if we want to find all of recordings from male
+Sst-Cre mice that viewed the Brain Observatory 1.1 stimulus and contain units
+from area LM, we can use the following query:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[(</span><span class="n">sessions</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="o">&amp;</span> \
+                             <span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Sst&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> \
+                             <span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span> <span class="o">==</span> <span class="s1">&#39;brain_observatory_1.1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> \
+                             <span class="p">([</span><span class="s1">&#39;VISl&#39;</span> <span class="ow">in</span> <span class="n">acronyms</span> <span class="k">for</span> <span class="n">acronyms</span> <span class="ow">in</span>
+                               <span class="n">sessions</span><span class="o">.</span><span class="n">ecephys_structure_acronyms</span><span class="p">])]</span>
+
+<span class="n">filtered_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>published_at</th>
+      <th>specimen_id</th>
+      <th>session_type</th>
+      <th>age_in_days</th>
+      <th>sex</th>
+      <th>full_genotype</th>
+      <th>unit_count</th>
+      <th>channel_count</th>
+      <th>probe_count</th>
+      <th>ecephys_structure_acronyms</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>715093703</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>699733581</td>
+      <td>brain_observatory_1.1</td>
+      <td>118.0</td>
+      <td>M</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>884</td>
+      <td>2219</td>
+      <td>6</td>
+      <td>[CA1, VISrl, nan, PO, LP, LGd, CA3, DG, VISl, ...</td>
+    </tr>
+    <tr>
+      <th>719161530</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>703279284</td>
+      <td>brain_observatory_1.1</td>
+      <td>122.0</td>
+      <td>M</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>755</td>
+      <td>2214</td>
+      <td>6</td>
+      <td>[TH, Eth, APN, POL, LP, DG, CA1, VISpm, nan, N...</td>
+    </tr>
+    <tr>
+      <th>756029989</th>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>734865738</td>
+      <td>brain_observatory_1.1</td>
+      <td>96.0</td>
+      <td>M</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>684</td>
+      <td>2214</td>
+      <td>6</td>
+      <td>[TH, DG, CA3, CA1, VISl, nan, PO, Eth, LP, VIS...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">filtered_sessions</span></code> table contains the three sessions that meet these
+criteria.</p>
+<p>The code above uses standard syntax for filtering pandas DataFrames. If this is
+unfamiliar to you, we strongly recommend reading through the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/">pandas
+documentation</a>. The AllenSDK
+makes heavy use of pandas objects, so we don’t have to come up with our own
+functions for working with tabular data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sessions</span></code> DataFrame contains much of the basic information needed to
+interpret the Visual Coding dataset. Below we demonstrate a few of these.</p>
+<p>Number of units recorded in individual sessions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">{}</span><span class="s1"> sessions&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Descriptive statistics for unit counts from individual sessions:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">unit_count</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">unit_count</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">unit_count</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 58 sessions
+Descriptive statistics for unit counts from individual sessions:
+Mean: 689.8275862068965
+Max: 1005
+Min: 415
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">unit_count</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Unit count&quot;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;# sessions&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2903da38263b932bf1d3299b6560a2ee62a198ab592feb95b9bd801b6bf3d022.png" src="../../../_images/2903da38263b932bf1d3299b6560a2ee62a198ab592feb95b9bd801b6bf3d022.png" />
+</div>
+</div>
+<p>Genotypes of mice used in this dataset, and number of sessions available for
+each genotype:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span><span class="o">.</span><span class="n">full_genotype</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wt/wt                                              30
+Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt      12
+Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt     8
+Vip-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt       8
+Name: full_genotype, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Types of sessions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>brain_observatory_1.1      32
+functional_connectivity    26
+Name: session_type, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="http://atlas.brain-map.org/atlas?atlas=602630314">CCFv3 acronyms of brain structures</a>
+where the data were recorded:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_areas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">ecephys_structure_acronyms</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_areas</span><span class="p">:</span>
+            <span class="n">all_areas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">all_areas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CA1&#39;, &#39;VISrl&#39;, nan, &#39;PO&#39;, &#39;LP&#39;, &#39;LGd&#39;, &#39;CA3&#39;, &#39;DG&#39;, &#39;VISl&#39;, &#39;PoT&#39;, &#39;VISp&#39;, &#39;grey&#39;, &#39;VISpm&#39;, &#39;APN&#39;, &#39;MB&#39;, &#39;VISam&#39;, &#39;TH&#39;, &#39;Eth&#39;, &#39;POL&#39;, &#39;NOT&#39;, &#39;SUB&#39;, &#39;VL&#39;, &#39;CA2&#39;, &#39;VPM&#39;, &#39;VISal&#39;, &#39;SCig&#39;, &#39;PPT&#39;, &#39;VIS&#39;, &#39;ProS&#39;, &#39;LGv&#39;, &#39;HPF&#39;, &#39;VISmma&#39;, &#39;PP&#39;, &#39;PIL&#39;, &#39;MGv&#39;, &#39;VPL&#39;, &#39;IGL&#39;, &#39;SGN&#39;, &#39;IntG&#39;, &#39;LD&#39;, &#39;MGm&#39;, &#39;MGd&#39;, &#39;POST&#39;, &#39;MRN&#39;, &#39;VISli&#39;, &#39;OP&#39;, &#39;ZI&#39;, &#39;VISmmp&#39;, &#39;PF&#39;, &#39;LT&#39;, &#39;RPF&#39;, &#39;PRE&#39;, &#39;SCiw&#39;, &#39;CP&#39;, &#39;RT&#39;, &#39;SCop&#39;, &#39;SCsg&#39;, &#39;SCzo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Number of sessions that have data from a given brain region (<em>e.g.</em> VISp):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;VISp&#39;</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">ecephys_structure_acronyms</span><span class="p">:</span>
+        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>56
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="probe-metadata">
+<h3>Probe metadata<a class="headerlink" href="#probe-metadata" title="Permalink to this heading">#</a></h3>
+<p>Let’s take a look at another DataFrame, extracted from the <code class="docutils literal notranslate"><span class="pre">probes.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probes</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_probes</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of probes: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">probes</span><span class="p">)))</span>
+
+<span class="n">probes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of probes: 332
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ecephys_session_id</th>
+      <th>lfp_sampling_rate</th>
+      <th>name</th>
+      <th>phase</th>
+      <th>sampling_rate</th>
+      <th>has_lfp_data</th>
+      <th>unit_count</th>
+      <th>channel_count</th>
+      <th>ecephys_structure_acronyms</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>729445648</th>
+      <td>719161530</td>
+      <td>1249.998642</td>
+      <td>probeA</td>
+      <td>3a</td>
+      <td>29999.967418</td>
+      <td>True</td>
+      <td>87</td>
+      <td>374</td>
+      <td>[APN, LP, MB, DG, CA1, VISam, nan]</td>
+    </tr>
+    <tr>
+      <th>729445650</th>
+      <td>719161530</td>
+      <td>1249.996620</td>
+      <td>probeB</td>
+      <td>3a</td>
+      <td>29999.918880</td>
+      <td>True</td>
+      <td>202</td>
+      <td>368</td>
+      <td>[TH, Eth, APN, POL, LP, DG, CA1, VISpm, nan]</td>
+    </tr>
+    <tr>
+      <th>729445652</th>
+      <td>719161530</td>
+      <td>1249.999897</td>
+      <td>probeC</td>
+      <td>3a</td>
+      <td>29999.997521</td>
+      <td>True</td>
+      <td>207</td>
+      <td>373</td>
+      <td>[APN, NOT, MB, DG, SUB, VISp, nan]</td>
+    </tr>
+    <tr>
+      <th>729445654</th>
+      <td>719161530</td>
+      <td>1249.996707</td>
+      <td>probeD</td>
+      <td>3a</td>
+      <td>29999.920963</td>
+      <td>True</td>
+      <td>93</td>
+      <td>358</td>
+      <td>[grey, VL, CA3, CA2, CA1, VISl, nan]</td>
+    </tr>
+    <tr>
+      <th>729445656</th>
+      <td>719161530</td>
+      <td>1249.999979</td>
+      <td>probeE</td>
+      <td>3a</td>
+      <td>29999.999500</td>
+      <td>True</td>
+      <td>138</td>
+      <td>370</td>
+      <td>[PO, VPM, TH, LP, LGd, CA3, DG, CA1, VISal, nan]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">probes</span></code> DataFrame contains information about the Neuropixels probes used
+across all recordings. Each row represents one probe from one recording session,
+even though the physical probes may have been used in multiple sessions. Some of
+the important columns are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ecephys_session_id</span></code>: the index column of the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampling_rate</span></code>: the sampling rate (in Hz) for this probe’s spike band; note
+that each probe has a unique sampling rate around 30 kHz. The small variations
+in sampling rate across probes can add up to large offsets over time, so it’s
+critical to take these differences into account. However, all of the data you
+will interact with has been pre-aligned to a common clock, so this value is
+included only for reference purposes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lfp_sampling_rate</span></code>: the sampling rate (in Hz) for this probe’s LFP band NWB
+files, after 2x downsampling from the original rate of 2.5 kHz</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: the probe name is assigned based on the location of the probe on the
+recording rig. This is useful to keep in mind because probes with the same
+name are always targeted to the same cortical region and enter the brain from
+the same angle (<code class="docutils literal notranslate"><span class="pre">probeA</span></code> = AM, <code class="docutils literal notranslate"><span class="pre">probeB</span></code> = PM, <code class="docutils literal notranslate"><span class="pre">probeC</span></code> = V1, <code class="docutils literal notranslate"><span class="pre">probeD</span></code> = LM,
+<code class="docutils literal notranslate"><span class="pre">probeE</span></code> = AL, <code class="docutils literal notranslate"><span class="pre">probeF</span></code> = RL). However, the targeting is not always accurate,
+so the actual recorded region may be different.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase</span></code>: the data may have been generated by one of two “phases” of
+Neuropixels probes. <strong>3a</strong> = prototype version; <strong>PXI</strong> = publicly available
+version (“Neuropixels 1.0”). The two phases should be equivalent from the
+perspective of data analysis, but there may be differences in the noise
+characteristics between the two acquisition systems.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channel_count</span></code>: the number of channels with spikes or LFP data (maximum =
+384)</p></li>
+</ul>
+</section>
+<section id="electrode-channel-metadata">
+<h3>Electrode channel metadata<a class="headerlink" href="#electrode-channel-metadata" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">channels.csv</span></code> file contains information about each of these channels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of channels: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">channels</span><span class="p">)))</span>
+
+<span class="n">channels</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of channels: 123224
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ecephys_probe_id</th>
+      <th>local_index</th>
+      <th>probe_horizontal_position</th>
+      <th>probe_vertical_position</th>
+      <th>anterior_posterior_ccf_coordinate</th>
+      <th>dorsal_ventral_ccf_coordinate</th>
+      <th>left_right_ccf_coordinate</th>
+      <th>ecephys_structure_id</th>
+      <th>ecephys_structure_acronym</th>
+      <th>ecephys_session_id</th>
+      <th>lfp_sampling_rate</th>
+      <th>phase</th>
+      <th>sampling_rate</th>
+      <th>has_lfp_data</th>
+      <th>unit_count</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>849705558</th>
+      <td>792645504</td>
+      <td>1</td>
+      <td>11</td>
+      <td>20</td>
+      <td>8165</td>
+      <td>3314</td>
+      <td>6862</td>
+      <td>215.0</td>
+      <td>APN</td>
+      <td>779839471</td>
+      <td>1250.001479</td>
+      <td>3a</td>
+      <td>30000.035489</td>
+      <td>True</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>849705560</th>
+      <td>792645504</td>
+      <td>2</td>
+      <td>59</td>
+      <td>40</td>
+      <td>8162</td>
+      <td>3307</td>
+      <td>6866</td>
+      <td>215.0</td>
+      <td>APN</td>
+      <td>779839471</td>
+      <td>1250.001479</td>
+      <td>3a</td>
+      <td>30000.035489</td>
+      <td>True</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>849705562</th>
+      <td>792645504</td>
+      <td>3</td>
+      <td>27</td>
+      <td>40</td>
+      <td>8160</td>
+      <td>3301</td>
+      <td>6871</td>
+      <td>215.0</td>
+      <td>APN</td>
+      <td>779839471</td>
+      <td>1250.001479</td>
+      <td>3a</td>
+      <td>30000.035489</td>
+      <td>True</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>849705564</th>
+      <td>792645504</td>
+      <td>4</td>
+      <td>43</td>
+      <td>60</td>
+      <td>8157</td>
+      <td>3295</td>
+      <td>6875</td>
+      <td>215.0</td>
+      <td>APN</td>
+      <td>779839471</td>
+      <td>1250.001479</td>
+      <td>3a</td>
+      <td>30000.035489</td>
+      <td>True</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>849705566</th>
+      <td>792645504</td>
+      <td>5</td>
+      <td>11</td>
+      <td>60</td>
+      <td>8155</td>
+      <td>3288</td>
+      <td>6879</td>
+      <td>215.0</td>
+      <td>APN</td>
+      <td>779839471</td>
+      <td>1250.001479</td>
+      <td>3a</td>
+      <td>30000.035489</td>
+      <td>True</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The most important columns in the <code class="docutils literal notranslate"><span class="pre">channels</span></code> DataFrame concern each channel’s
+location in physical space. Each channel is associated with a location along the
+probe shank (<code class="docutils literal notranslate"><span class="pre">probe_horizontal_position</span></code> and <code class="docutils literal notranslate"><span class="pre">probe_vertical_position</span></code>), and may
+be linked to a coordinate in the Allen Common Coordinate framework (if CCF
+registration is available for that probe).</p>
+<p>The information about channel location will be merged into the <code class="docutils literal notranslate"><span class="pre">units</span></code>
+DataFrame, which is loaded from <code class="docutils literal notranslate"><span class="pre">units.csv</span></code>:</p>
+</section>
+<section id="unit-metadata">
+<h3>Unit metadata<a class="headerlink" href="#unit-metadata" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_units</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of units: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of units: 40010
+</pre></div>
+</div>
+</div>
+</div>
+<p>This DataFrame contains metadata about the available units across all sessions.
+By default, the AllenSDK applies some filters to this table and only returns
+units above a particular quality threshold.</p>
+<p>The default filter values are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">isi_violations</span></code> &lt; 0.5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code> &lt; 0.1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code> &gt; 0.9</p></li>
+</ul>
+<p>For more information about these quality metrics and how to interpret them,
+please refer to <a class="reference internal" href="vcnp-quality-metrics.html"><span class="doc">this tutorial</span></a>.</p>
+<p>If you want to see <em>all</em> of the available units, it’s straightforward to disable
+the quality metrics filters when retrieving this table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">amplitude_cutoff_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                        <span class="n">presence_ratio_minimum</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                        <span class="n">isi_violations_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of units: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of units: 99180
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>waveform_PT_ratio</th>
+      <th>waveform_amplitude</th>
+      <th>amplitude_cutoff</th>
+      <th>cumulative_drift</th>
+      <th>d_prime</th>
+      <th>waveform_duration</th>
+      <th>ecephys_channel_id</th>
+      <th>firing_rate</th>
+      <th>waveform_halfwidth</th>
+      <th>isi_violations</th>
+      <th>...</th>
+      <th>phase</th>
+      <th>sampling_rate</th>
+      <th>has_lfp_data</th>
+      <th>date_of_acquisition</th>
+      <th>published_at</th>
+      <th>specimen_id</th>
+      <th>session_type</th>
+      <th>age_in_days</th>
+      <th>sex</th>
+      <th>genotype</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>915956271</th>
+      <td>0.483286</td>
+      <td>53.203215</td>
+      <td>0.402024</td>
+      <td>271.58</td>
+      <td>3.484403</td>
+      <td>0.521943</td>
+      <td>850229415</td>
+      <td>10.562994</td>
+      <td>0.192295</td>
+      <td>0.122745</td>
+      <td>...</td>
+      <td>3a</td>
+      <td>29999.915391</td>
+      <td>True</td>
+      <td>2019-01-09T00:26:20Z</td>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+    </tr>
+    <tr>
+      <th>915956287</th>
+      <td>0.463136</td>
+      <td>64.782510</td>
+      <td>0.500000</td>
+      <td>241.94</td>
+      <td>3.325401</td>
+      <td>0.618090</td>
+      <td>850229415</td>
+      <td>7.136036</td>
+      <td>0.274707</td>
+      <td>0.117272</td>
+      <td>...</td>
+      <td>3a</td>
+      <td>29999.915391</td>
+      <td>True</td>
+      <td>2019-01-09T00:26:20Z</td>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+    </tr>
+    <tr>
+      <th>915956293</th>
+      <td>0.556859</td>
+      <td>112.967595</td>
+      <td>0.500000</td>
+      <td>308.46</td>
+      <td>2.496143</td>
+      <td>0.604355</td>
+      <td>850229415</td>
+      <td>5.066881</td>
+      <td>0.274707</td>
+      <td>0.279132</td>
+      <td>...</td>
+      <td>3a</td>
+      <td>29999.915391</td>
+      <td>True</td>
+      <td>2019-01-09T00:26:20Z</td>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+    </tr>
+    <tr>
+      <th>915956282</th>
+      <td>0.611816</td>
+      <td>164.878740</td>
+      <td>0.072728</td>
+      <td>309.71</td>
+      <td>3.910873</td>
+      <td>0.535678</td>
+      <td>850229419</td>
+      <td>6.519432</td>
+      <td>0.164824</td>
+      <td>0.104910</td>
+      <td>...</td>
+      <td>3a</td>
+      <td>29999.915391</td>
+      <td>True</td>
+      <td>2019-01-09T00:26:20Z</td>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+    </tr>
+    <tr>
+      <th>915956340</th>
+      <td>0.439372</td>
+      <td>247.254345</td>
+      <td>0.000881</td>
+      <td>160.24</td>
+      <td>5.519024</td>
+      <td>0.563149</td>
+      <td>850229419</td>
+      <td>9.660554</td>
+      <td>0.206030</td>
+      <td>0.006825</td>
+      <td>...</td>
+      <td>3a</td>
+      <td>29999.915391</td>
+      <td>True</td>
+      <td>2019-01-09T00:26:20Z</td>
+      <td>2019-10-03T00:00:00Z</td>
+      <td>717038288</td>
+      <td>brain_observatory_1.1</td>
+      <td>100.0</td>
+      <td>M</td>
+      <td>wt/wt</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 45 columns</p>
+</div></div></div>
+</div>
+<p>As you can see, the number of units has increased substantially, but some
+fraction of these units will be incomplete or highly contaminated. Understanding
+the meaning of these metrics is a critical part of analyzing the Neuropixels
+dataset, so we strongly recommend learning how to interpret them correctly.</p>
+<section id="stimulus-specific-unit-metadata">
+<h4>Stimulus-specific unit metadata<a class="headerlink" href="#stimulus-specific-unit-metadata" title="Permalink to this heading">#</a></h4>
+<p>In addition to the quality metrics, there are a number of stimulus-specific
+metrics that are computed for each unit. These are not downloaded by default,
+but are accessed via a separate SDK function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_metrics1</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_unit_analysis_metrics_by_session_type</span><span class="p">(</span><span class="s1">&#39;brain_observatory_1.1&#39;</span><span class="p">)</span>
+
+<span class="n">analysis_metrics2</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_unit_analysis_metrics_by_session_type</span><span class="p">(</span><span class="s1">&#39;functional_connectivity&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">analysis_metrics1</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; units in table 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">analysis_metrics2</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; units in table 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21842 units in table 1
+18168 units in table 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will download two additional files,
+<code class="docutils literal notranslate"><span class="pre">brain_observatory_1.1_analysis_metrics.csv</span></code> and
+<code class="docutils literal notranslate"><span class="pre">functional_connectivity_analysis_metrics.csv</span></code>, and load them as pandas
+DataFrames. Note that the total length of these DataFrames is around 40k units,
+because the default quality metric thresholds have been applied.</p>
+<p>To load <em>all</em> of the available units, and create one giant table of metrics, you
+can use the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_metrics1</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_unit_analysis_metrics_by_session_type</span><span class="p">(</span>
+    <span class="s1">&#39;brain_observatory_1.1&#39;</span><span class="p">,</span>
+    <span class="n">amplitude_cutoff_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="n">presence_ratio_minimum</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="n">isi_violations_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="p">)</span>
+
+<span class="n">analysis_metrics2</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_unit_analysis_metrics_by_session_type</span><span class="p">(</span>
+    <span class="s1">&#39;functional_connectivity&#39;</span><span class="p">,</span>
+    <span class="n">amplitude_cutoff_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="n">presence_ratio_minimum</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="n">isi_violations_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="p">)</span>
+
+<span class="n">all_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">analysis_metrics1</span><span class="p">,</span> <span class="n">analysis_metrics2</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_metrics</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; units overall&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99180 units overall
+</pre></div>
+</div>
+</div>
+</div>
+<p>The length of this DataFrame should match that of the <code class="docutils literal notranslate"><span class="pre">units</span></code> DataFrame we
+retrieved earlier. A few things to note about this DataFrame:</p>
+<ul class="simple">
+<li><p>The unit analysis metrics DataFrame <em>also</em> includes all quality metrics, so
+it’s a superset of the <code class="docutils literal notranslate"><span class="pre">units</span></code> DataFrame</p></li>
+<li><p>Since some of the stimuli in the <code class="docutils literal notranslate"><span class="pre">brain_observatory_1.1</span></code> session are not
+present in the <code class="docutils literal notranslate"><span class="pre">functional_connectivity</span></code> session, many of the data points in
+the unit analysis metrics DataFrame will be filled with <code class="docutils literal notranslate"><span class="pre">nan</span></code> values</p></li>
+</ul>
+</section>
+</section>
+<section id="data-for-individual-sessions">
+<h3>Data for individual sessions<a class="headerlink" href="#data-for-individual-sessions" title="Permalink to this heading">#</a></h3>
+<p>Assuming you’ve found a session you’re interested in analyzing in more detail,
+it’s now time to download the data. This is as simple as calling
+<code class="docutils literal notranslate"><span class="pre">cache.get_session_data()</span></code>, with the <code class="docutils literal notranslate"><span class="pre">session_id</span></code> as input. This method will
+check the cache for an existing NWB file and, if it’s not present, will
+automatically download it for you.</p>
+<p>Each NWB file can be upwards of 2 GB, so please be patient while it’s
+downloading!</p>
+<p>As an example, let’s look at one of the sessions we selected earlier, disabling
+the default unit quality metrics filters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">filtered_sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                 <span class="n">isi_violations_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                                 <span class="n">amplitude_cutoff_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                                 <span class="n">presence_ratio_minimum</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+                                <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">attr_or_method</span> <span class="k">for</span> <span class="n">attr_or_method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">session</span><span class="p">)</span> <span class="k">if</span> <span class="n">attr_or_method</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;DETAILED_STIMULUS_PARAMETERS&#39;, &#39;LazyProperty&#39;, &#39;age_in_days&#39;, &#39;api&#39;, &#39;channel_structure_intervals&#39;, &#39;channels&#39;, &#39;conditionwise_spike_statistics&#39;, &#39;ecephys_session_id&#39;, &#39;from_nwb_path&#39;, &#39;full_genotype&#39;, &#39;get_current_source_density&#39;, &#39;get_inter_presentation_intervals_for_stimulus&#39;, &#39;get_invalid_times&#39;, &#39;get_lfp&#39;, &#39;get_parameter_values_for_stimulus&#39;, &#39;get_pupil_data&#39;, &#39;get_screen_gaze_data&#39;, &#39;get_stimulus_epochs&#39;, &#39;get_stimulus_parameter_values&#39;, &#39;get_stimulus_table&#39;, &#39;inter_presentation_intervals&#39;, &#39;invalid_times&#39;, &#39;mean_waveforms&#39;, &#39;metadata&#39;, &#39;num_channels&#39;, &#39;num_probes&#39;, &#39;num_stimulus_presentations&#39;, &#39;num_units&#39;, &#39;optogenetic_stimulation_epochs&#39;, &#39;presentationwise_spike_counts&#39;, &#39;presentationwise_spike_times&#39;, &#39;probes&#39;, &#39;rig_equipment_name&#39;, &#39;rig_geometry_data&#39;, &#39;running_speed&#39;, &#39;session_start_time&#39;, &#39;session_type&#39;, &#39;sex&#39;, &#39;specimen_name&#39;, &#39;spike_amplitudes&#39;, &#39;spike_times&#39;, &#39;stimulus_conditions&#39;, &#39;stimulus_names&#39;, &#39;stimulus_presentations&#39;, &#39;structure_acronyms&#39;, &#39;structurewise_unit_counts&#39;, &#39;units&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">session</span></code> object has a lot of attributes and methods that
+can be used to access the underlying data in the NWB file. Most of these will be
+touched on in other tutorials, but for now we will look at the only one that is
+capable of triggering additional data downloads, <code class="docutils literal notranslate"><span class="pre">get_lfp()</span></code>.</p>
+<p>In general, each NWB file is meant to be a self-contained repository of data for
+one recording session. However, for the Neuropixels data, we’ve broken with
+convention a bit in order to store LFP data in separate files. If we hadn’t done
+this, analyzing one session would require an initial 15 GB file download. Now,
+the session is broken up in to ~2 GB chunks..</p>
+<p>Once you have created a <code class="docutils literal notranslate"><span class="pre">session</span></code> object, downloading the LFP data is simple
+(but may be slow):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probe_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">lfp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_lfp</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tips for analyzing LFP data can be found in <a class="reference internal" href="vcnp-lfp.html"><span class="doc">this tutorial</span></a>.</p>
+</section>
+<section id="downloading-the-complete-dataset">
+<h3>Downloading the complete dataset<a class="headerlink" href="#downloading-the-complete-dataset" title="Permalink to this heading">#</a></h3>
+<p>Analyzing one session at a time is nice, but in many case you’ll want to be able
+to query across the whole dataset. To fill your cache with all available data,
+you can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop like the one below. Note that we’ve added some checks
+to ensure that the complete file is present, in case the download has been
+interrupted due to an unreliable connection.</p>
+<p>Before running this code, please make sure that you have enough space available
+in your cache directory. You’ll need around 855 GB for the whole dataset, and
+147 GB if you’re not downloading the LFP data files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">DOWNLOAD_COMPLETE_DATASET</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+        <span class="n">truncated_file</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span> <span class="o">+</span> <span class="s1">&#39;/session_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">session_id</span><span class="p">))</span>
+
+        <span class="k">while</span> <span class="n">truncated_file</span><span class="p">:</span>
+            <span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">specimen_name</span><span class="p">)</span>
+                <span class="n">truncated_file</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Truncated spikes file, re-downloading&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">probe_id</span><span class="p">,</span> <span class="n">probe</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">probe</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+            <span class="n">truncated_lfp</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">while</span> <span class="n">truncated_lfp</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">lfp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_lfp</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span>
+                    <span class="n">truncated_lfp</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                    <span class="n">fname</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/probe_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_lfp.nwb&#39;</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Truncated LFP file, re-downloading&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  LFP file not found.&quot;</span><span class="p">)</span>
+                    <span class="n">truncated_lfp</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="accessing-data-on-aws">
+<span id="content-references-aws"></span><h2>Accessing data on AWS<a class="headerlink" href="#accessing-data-on-aws" title="Permalink to this heading">#</a></h2>
+<p>If you want to analyze the data without downloading anything to your local
+machine, you can use the AllenSDK on AWS.</p>
+<p>Follow
+<a class="reference external" href="https://github.com/AllenInstitute/AllenSDK/wiki/Use-the-Allen-Brain-Observatory-%E2%80%93-Visual-Coding-on-AWS">these instructions</a>
+to launch a Jupyter notebook. Then, simply point to the existing manifest file
+in the Allen Institute’s S3 bucket, and all of the data will be immediately
+available:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once your cache is initialized, you can create the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table, load
+individual <code class="docutils literal notranslate"><span class="pre">session</span></code> objects, and access LFP data using the same commands
+described above.</p>
+<p>Additional tutorials specific to using AWS are coming soon.</p>
+</section>
+<section id="direct-download-via-api-brain-map-org">
+<span id="content-references-api"></span><h2>Direct download via <a class="reference external" href="http://api.brain-map.org">api.brain-map.org</a><a class="headerlink" href="#direct-download-via-api-brain-map-org" title="Permalink to this heading">#</a></h2>
+<p>Some people have reported issues downloading the files via the AllenSDK (the
+connection is extremely slow, or gets interrupted frequently). If this applies
+to you, you can try downloading the files via HTTP requests sent to
+<strong><a class="reference external" href="http://api.brain-map.org">api.brain-map.org</a></strong>. This approach is not recommended, because you will have
+to manually keep track of the file locations. But if you’re doing analysis that
+doesn’t depend on the AllenSDK (e.g., in Matlab), this may not matter to you.</p>
+<p>You can follow the steps below to retrieve the URLs for all of the NWB files in
+this dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_api.utilities</span> <span class="kn">import</span> <span class="n">build_and_execute</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_api.rma_engine</span> <span class="kn">import</span> <span class="n">RmaEngine</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+
+<span class="n">rma_engine</span> <span class="o">=</span> <span class="n">RmaEngine</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;api.brain-map.org&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_table</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">retrieve_link</span><span class="p">(</span><span class="n">session_id</span><span class="p">):</span>
+
+    <span class="n">well_known_files</span> <span class="o">=</span> <span class="n">build_and_execute</span><span class="p">(</span>
+        <span class="p">(</span>
+        <span class="s2">&quot;criteria=model::WellKnownFile&quot;</span>
+        <span class="s2">&quot;,rma::criteria,well_known_file_type[name$eq&#39;EcephysNwb&#39;]&quot;</span>
+        <span class="s2">&quot;[attachable_type$eq&#39;EcephysSession&#39;]&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;[attachable_id$eq{{session_id}}]&quot;</span>
+        <span class="p">),</span>
+        <span class="n">engine</span><span class="o">=</span><span class="n">rma_engine</span><span class="o">.</span><span class="n">get_rma_tabular</span><span class="p">,</span>
+        <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="s1">&#39;http://api.brain-map.org/&#39;</span> <span class="o">+</span> <span class="n">well_known_files</span><span class="p">[</span><span class="s1">&#39;download_link&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">download_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">retrieve_link</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">session_id</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">download_links</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://api.brain-map.org//api/v2/well_known_file_download/1026124469
+http://api.brain-map.org//api/v2/well_known_file_download/1026124034
+http://api.brain-map.org//api/v2/well_known_file_download/1026123696
+http://api.brain-map.org//api/v2/well_known_file_download/1026123599
+http://api.brain-map.org//api/v2/well_known_file_download/1026123989
+http://api.brain-map.org//api/v2/well_known_file_download/1026123897
+http://api.brain-map.org//api/v2/well_known_file_download/1026123964
+http://api.brain-map.org//api/v2/well_known_file_download/1026124068
+http://api.brain-map.org//api/v2/well_known_file_download/1026124429
+http://api.brain-map.org//api/v2/well_known_file_download/1026124262
+http://api.brain-map.org//api/v2/well_known_file_download/1026124724
+http://api.brain-map.org//api/v2/well_known_file_download/1026124242
+http://api.brain-map.org//api/v2/well_known_file_download/1026124863
+http://api.brain-map.org//api/v2/well_known_file_download/1026123537
+http://api.brain-map.org//api/v2/well_known_file_download/1026124326
+http://api.brain-map.org//api/v2/well_known_file_download/1026124684
+http://api.brain-map.org//api/v2/well_known_file_download/1026124216
+http://api.brain-map.org//api/v2/well_known_file_download/1026124603
+http://api.brain-map.org//api/v2/well_known_file_download/1026123685
+http://api.brain-map.org//api/v2/well_known_file_download/1026123877
+http://api.brain-map.org//api/v2/well_known_file_download/1026123377
+http://api.brain-map.org//api/v2/well_known_file_download/1026123651
+http://api.brain-map.org//api/v2/well_known_file_download/1026124702
+http://api.brain-map.org//api/v2/well_known_file_download/1026124793
+http://api.brain-map.org//api/v2/well_known_file_download/1026124884
+http://api.brain-map.org//api/v2/well_known_file_download/1026124569
+http://api.brain-map.org//api/v2/well_known_file_download/1026124500
+http://api.brain-map.org//api/v2/well_known_file_download/1026124293
+http://api.brain-map.org//api/v2/well_known_file_download/1026124194
+http://api.brain-map.org//api/v2/well_known_file_download/1026124517
+http://api.brain-map.org//api/v2/well_known_file_download/1026124918
+http://api.brain-map.org//api/v2/well_known_file_download/1026124152
+http://api.brain-map.org//api/v2/well_known_file_download/1026124109
+http://api.brain-map.org//api/v2/well_known_file_download/1026124348
+http://api.brain-map.org//api/v2/well_known_file_download/1026124625
+http://api.brain-map.org//api/v2/well_known_file_download/1026124179
+http://api.brain-map.org//api/v2/well_known_file_download/1026124007
+http://api.brain-map.org//api/v2/well_known_file_download/1026124309
+http://api.brain-map.org//api/v2/well_known_file_download/1026123803
+http://api.brain-map.org//api/v2/well_known_file_download/1026124405
+http://api.brain-map.org//api/v2/well_known_file_download/1026123847
+http://api.brain-map.org//api/v2/well_known_file_download/1026124645
+http://api.brain-map.org//api/v2/well_known_file_download/1026124545
+http://api.brain-map.org//api/v2/well_known_file_download/1026124759
+http://api.brain-map.org//api/v2/well_known_file_download/1026124804
+http://api.brain-map.org//api/v2/well_known_file_download/1026124743
+http://api.brain-map.org//api/v2/well_known_file_download/1026125021
+http://api.brain-map.org//api/v2/well_known_file_download/1026124840
+http://api.brain-map.org//api/v2/well_known_file_download/1026124085
+http://api.brain-map.org//api/v2/well_known_file_download/1026124368
+http://api.brain-map.org//api/v2/well_known_file_download/1026123824
+http://api.brain-map.org//api/v2/well_known_file_download/1026123625
+http://api.brain-map.org//api/v2/well_known_file_download/1026123787
+http://api.brain-map.org//api/v2/well_known_file_download/1026123519
+http://api.brain-map.org//api/v2/well_known_file_download/1026123725
+http://api.brain-map.org//api/v2/well_known_file_download/1026122596
+http://api.brain-map.org//api/v2/well_known_file_download/1026124422
+http://api.brain-map.org//api/v2/well_known_file_download/1026123943
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">download_links</span></code> is a list of 58 links that can be used to download the NWB
+files for all available sessions. Clicking on the links above should start the
+download automatically.</p>
+<p>Please keep in mind that you’ll have to move these files to the appropriate
+sub-directory once the download is complete. The <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object
+expects the following directory structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cache_dir/
++-- manifest.json
++-- session_&lt;id&gt;/
+¦   +-- session_&lt;id&gt;.nwb
++-- session_&lt;id&gt;/
+¦   +-- session_&lt;id&gt;.nwb
++-- session_&lt;id&gt;/
+¦   +-- session_&lt;id&gt;.nwb
+
+</pre></div>
+</div>
+<p>If you aren’t interested in using the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object to keep track
+of what you’ve downloaded, you can create a <code class="docutils literal notranslate"><span class="pre">session</span></code> object just by passing a
+path to an NWB file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_session</span> <span class="kn">import</span> <span class="n">EcephysSession</span>
+
+<span class="n">nwb_path</span> <span class="o">=</span> <span class="s1">&#39;/mnt/nvme0/ecephys_cache_dir_10_31/session_721123822/session_721123822.nwb&#39;</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">EcephysSession</span><span class="o">.</span><span class="n">from_nwb_path</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">,</span> <span class="n">api_kwargs</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;amplitude_cutoff_maximum&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+        <span class="s2">&quot;presence_ratio_minimum&quot;</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+        <span class="s2">&quot;isi_violations_maximum&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+<p>This will load the data for one session, without applying the default unit
+quality metric filters. Everything will be available except the LFP data,
+because the <code class="docutils literal notranslate"><span class="pre">get_lfp()</span></code> method can only find the associated LFP files if you’re
+using the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object.</p>
+<p>To obtain similar links for the LFP files, you can use the following code:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">retrieve_lfp_link</span><span class="p">(</span><span class="n">probe_id</span><span class="p">):</span>
+
+    <span class="n">well_known_files</span> <span class="o">=</span> <span class="n">build_and_execute</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;criteria=model::WellKnownFile&quot;</span>
+            <span class="s2">&quot;,rma::criteria,well_known_file_type[name$eq&#39;EcephysLfpNwb&#39;]&quot;</span>
+            <span class="s2">&quot;[attachable_type$eq&#39;EcephysProbe&#39;]&quot;</span>
+            <span class="sa">r</span><span class="s2">&quot;[attachable_id$eq{{probe_id}}]&quot;</span>
+        <span class="p">),</span>
+        <span class="n">engine</span><span class="o">=</span><span class="n">rma_engine</span><span class="o">.</span><span class="n">get_rma_tabular</span><span class="p">,</span>
+        <span class="n">probe_id</span><span class="o">=</span><span class="n">probe_id</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">well_known_files</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;file for probe &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; not found&#39;</span>
+
+    <span class="k">return</span> <span class="s1">&#39;http://api.brain-map.org/&#39;</span> <span class="o">+</span> <span class="n">well_known_files</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;download_link&quot;</span><span class="p">]</span>
+
+<span class="n">probes</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_probes</span><span class="p">()</span>
+
+<span class="n">download_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">retrieve_lfp_link</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">probe_id</span> <span class="ow">in</span> <span class="n">probes</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">download_links</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://api.brain-map.org//api/v2/well_known_file_download/1026124040
+http://api.brain-map.org//api/v2/well_known_file_download/1026124036
+http://api.brain-map.org//api/v2/well_known_file_download/1026124038
+http://api.brain-map.org//api/v2/well_known_file_download/1026124042
+http://api.brain-map.org//api/v2/well_known_file_download/1026124044
+http://api.brain-map.org//api/v2/well_known_file_download/1026124046
+http://api.brain-map.org//api/v2/well_known_file_download/1026123601
+http://api.brain-map.org//api/v2/well_known_file_download/1026123603
+http://api.brain-map.org//api/v2/well_known_file_download/1026123605
+http://api.brain-map.org//api/v2/well_known_file_download/1026123607
+http://api.brain-map.org//api/v2/well_known_file_download/1026123609
+http://api.brain-map.org//api/v2/well_known_file_download/1026123539
+http://api.brain-map.org//api/v2/well_known_file_download/1026123543
+http://api.brain-map.org//api/v2/well_known_file_download/1026123550
+http://api.brain-map.org//api/v2/well_known_file_download/1026123546
+http://api.brain-map.org//api/v2/well_known_file_download/1026123541
+http://api.brain-map.org//api/v2/well_known_file_download/1026123548
+http://api.brain-map.org//api/v2/well_known_file_download/1026124433
+http://api.brain-map.org//api/v2/well_known_file_download/1026124436
+http://api.brain-map.org//api/v2/well_known_file_download/1026124439
+http://api.brain-map.org//api/v2/well_known_file_download/1026124442
+http://api.brain-map.org//api/v2/well_known_file_download/1026124446
+http://api.brain-map.org//api/v2/well_known_file_download/1026124448
+http://api.brain-map.org//api/v2/well_known_file_download/1026124728
+http://api.brain-map.org//api/v2/well_known_file_download/1026124726
+http://api.brain-map.org//api/v2/well_known_file_download/1026124730
+http://api.brain-map.org//api/v2/well_known_file_download/1026124732
+http://api.brain-map.org//api/v2/well_known_file_download/1026124737
+http://api.brain-map.org//api/v2/well_known_file_download/1026124735
+http://api.brain-map.org//api/v2/well_known_file_download/1026123901
+http://api.brain-map.org//api/v2/well_known_file_download/1026123909
+http://api.brain-map.org//api/v2/well_known_file_download/1026123907
+http://api.brain-map.org//api/v2/well_known_file_download/1026123905
+http://api.brain-map.org//api/v2/well_known_file_download/1026123903
+http://api.brain-map.org//api/v2/well_known_file_download/1026123899
+http://api.brain-map.org//api/v2/well_known_file_download/1026124867
+http://api.brain-map.org//api/v2/well_known_file_download/1026124871
+http://api.brain-map.org//api/v2/well_known_file_download/1026124873
+http://api.brain-map.org//api/v2/well_known_file_download/1026124875
+http://api.brain-map.org//api/v2/well_known_file_download/1026124869
+http://api.brain-map.org//api/v2/well_known_file_download/1026124865
+http://api.brain-map.org//api/v2/well_known_file_download/1026123993
+http://api.brain-map.org//api/v2/well_known_file_download/1026123997
+http://api.brain-map.org//api/v2/well_known_file_download/1026124001
+http://api.brain-map.org//api/v2/well_known_file_download/1026123999
+http://api.brain-map.org//api/v2/well_known_file_download/1026123995
+http://api.brain-map.org//api/v2/well_known_file_download/1026123991
+http://api.brain-map.org//api/v2/well_known_file_download/1026123702
+http://api.brain-map.org//api/v2/well_known_file_download/1026123704
+http://api.brain-map.org//api/v2/well_known_file_download/1026123700
+http://api.brain-map.org//api/v2/well_known_file_download/1026123706
+http://api.brain-map.org//api/v2/well_known_file_download/1026123710
+http://api.brain-map.org//api/v2/well_known_file_download/1026123708
+http://api.brain-map.org//api/v2/well_known_file_download/1026124330
+http://api.brain-map.org//api/v2/well_known_file_download/1026124334
+http://api.brain-map.org//api/v2/well_known_file_download/1026124337
+http://api.brain-map.org//api/v2/well_known_file_download/1026124332
+http://api.brain-map.org//api/v2/well_known_file_download/1026124328
+http://api.brain-map.org//api/v2/well_known_file_download/1026124229
+http://api.brain-map.org//api/v2/well_known_file_download/1026124227
+http://api.brain-map.org//api/v2/well_known_file_download/1026124225
+http://api.brain-map.org//api/v2/well_known_file_download/1026124221
+http://api.brain-map.org//api/v2/well_known_file_download/1026124223
+http://api.brain-map.org//api/v2/well_known_file_download/1026124219
+http://api.brain-map.org//api/v2/well_known_file_download/1026124697
+http://api.brain-map.org//api/v2/well_known_file_download/1026124695
+http://api.brain-map.org//api/v2/well_known_file_download/1026124688
+http://api.brain-map.org//api/v2/well_known_file_download/1026124686
+http://api.brain-map.org//api/v2/well_known_file_download/1026124690
+http://api.brain-map.org//api/v2/well_known_file_download/1026124693
+http://api.brain-map.org//api/v2/well_known_file_download/1026124268
+http://api.brain-map.org//api/v2/well_known_file_download/1026124266
+http://api.brain-map.org//api/v2/well_known_file_download/1026124264
+http://api.brain-map.org//api/v2/well_known_file_download/1026124270
+http://api.brain-map.org//api/v2/well_known_file_download/1026124272
+http://api.brain-map.org//api/v2/well_known_file_download/1026124274
+http://api.brain-map.org//api/v2/well_known_file_download/1026124888
+http://api.brain-map.org//api/v2/well_known_file_download/1026124890
+http://api.brain-map.org//api/v2/well_known_file_download/1026124886
+http://api.brain-map.org//api/v2/well_known_file_download/1026124892
+http://api.brain-map.org//api/v2/well_known_file_download/1026124894
+http://api.brain-map.org//api/v2/well_known_file_download/1026124803
+http://api.brain-map.org//api/v2/well_known_file_download/1026124799
+http://api.brain-map.org//api/v2/well_known_file_download/1026124795
+http://api.brain-map.org//api/v2/well_known_file_download/1026124801
+http://api.brain-map.org//api/v2/well_known_file_download/1026124797
+http://api.brain-map.org//api/v2/well_known_file_download/1026124806
+http://api.brain-map.org//api/v2/well_known_file_download/1026124571
+http://api.brain-map.org//api/v2/well_known_file_download/1026124575
+http://api.brain-map.org//api/v2/well_known_file_download/1026124579
+http://api.brain-map.org//api/v2/well_known_file_download/1026124577
+http://api.brain-map.org//api/v2/well_known_file_download/1026124582
+http://api.brain-map.org//api/v2/well_known_file_download/1026124573
+http://api.brain-map.org//api/v2/well_known_file_download/1026123975
+http://api.brain-map.org//api/v2/well_known_file_download/1026123978
+http://api.brain-map.org//api/v2/well_known_file_download/1026123973
+http://api.brain-map.org//api/v2/well_known_file_download/1026123966
+http://api.brain-map.org//api/v2/well_known_file_download/1026123971
+http://api.brain-map.org//api/v2/well_known_file_download/1026123969
+http://api.brain-map.org//api/v2/well_known_file_download/1026124614
+http://api.brain-map.org//api/v2/well_known_file_download/1026124612
+http://api.brain-map.org//api/v2/well_known_file_download/1026124616
+http://api.brain-map.org//api/v2/well_known_file_download/1026124610
+http://api.brain-map.org//api/v2/well_known_file_download/1026124607
+http://api.brain-map.org//api/v2/well_known_file_download/1026124605
+http://api.brain-map.org//api/v2/well_known_file_download/1026123385
+http://api.brain-map.org//api/v2/well_known_file_download/1026123383
+http://api.brain-map.org//api/v2/well_known_file_download/1026123379
+http://api.brain-map.org//api/v2/well_known_file_download/1026123381
+http://api.brain-map.org//api/v2/well_known_file_download/1026124248
+http://api.brain-map.org//api/v2/well_known_file_download/1026124246
+http://api.brain-map.org//api/v2/well_known_file_download/1026124252
+http://api.brain-map.org//api/v2/well_known_file_download/1026124250
+http://api.brain-map.org//api/v2/well_known_file_download/1026124254
+http://api.brain-map.org//api/v2/well_known_file_download/1026124244
+http://api.brain-map.org//api/v2/well_known_file_download/1026124709
+http://api.brain-map.org//api/v2/well_known_file_download/1026124707
+http://api.brain-map.org//api/v2/well_known_file_download/1026124704
+http://api.brain-map.org//api/v2/well_known_file_download/1026124711
+http://api.brain-map.org//api/v2/well_known_file_download/1026124713
+http://api.brain-map.org//api/v2/well_known_file_download/1026124715
+http://api.brain-map.org//api/v2/well_known_file_download/1026123691
+http://api.brain-map.org//api/v2/well_known_file_download/1026123695
+http://api.brain-map.org//api/v2/well_known_file_download/1026123693
+http://api.brain-map.org//api/v2/well_known_file_download/1026123689
+http://api.brain-map.org//api/v2/well_known_file_download/1026123687
+http://api.brain-map.org//api/v2/well_known_file_download/1026124073
+http://api.brain-map.org//api/v2/well_known_file_download/1026124075
+http://api.brain-map.org//api/v2/well_known_file_download/1026124071
+http://api.brain-map.org//api/v2/well_known_file_download/1026124082
+http://api.brain-map.org//api/v2/well_known_file_download/1026124079
+http://api.brain-map.org//api/v2/well_known_file_download/1026124077
+http://api.brain-map.org//api/v2/well_known_file_download/1026123879
+http://api.brain-map.org//api/v2/well_known_file_download/1026123881
+http://api.brain-map.org//api/v2/well_known_file_download/1026123883
+http://api.brain-map.org//api/v2/well_known_file_download/1026123885
+http://api.brain-map.org//api/v2/well_known_file_download/1026124205
+http://api.brain-map.org//api/v2/well_known_file_download/1026124208
+http://api.brain-map.org//api/v2/well_known_file_download/1026124199
+http://api.brain-map.org//api/v2/well_known_file_download/1026124197
+http://api.brain-map.org//api/v2/well_known_file_download/1026124201
+http://api.brain-map.org//api/v2/well_known_file_download/1026124203
+http://api.brain-map.org//api/v2/well_known_file_download/1026124507
+http://api.brain-map.org//api/v2/well_known_file_download/1026124504
+http://api.brain-map.org//api/v2/well_known_file_download/1026124502
+http://api.brain-map.org//api/v2/well_known_file_download/1026124509
+file for probe 773463023 not found
+http://api.brain-map.org//api/v2/well_known_file_download/1026124511
+http://api.brain-map.org//api/v2/well_known_file_download/1026124519
+http://api.brain-map.org//api/v2/well_known_file_download/1026124523
+http://api.brain-map.org//api/v2/well_known_file_download/1026124527
+http://api.brain-map.org//api/v2/well_known_file_download/1026124525
+http://api.brain-map.org//api/v2/well_known_file_download/1026124521
+http://api.brain-map.org//api/v2/well_known_file_download/1026124529
+http://api.brain-map.org//api/v2/well_known_file_download/1026124299
+http://api.brain-map.org//api/v2/well_known_file_download/1026124297
+http://api.brain-map.org//api/v2/well_known_file_download/1026124295
+http://api.brain-map.org//api/v2/well_known_file_download/1026124301
+http://api.brain-map.org//api/v2/well_known_file_download/1026124303
+http://api.brain-map.org//api/v2/well_known_file_download/1026124305
+http://api.brain-map.org//api/v2/well_known_file_download/1026124922
+http://api.brain-map.org//api/v2/well_known_file_download/1026124924
+http://api.brain-map.org//api/v2/well_known_file_download/1026124926
+http://api.brain-map.org//api/v2/well_known_file_download/1026124928
+http://api.brain-map.org//api/v2/well_known_file_download/1026124930
+http://api.brain-map.org//api/v2/well_known_file_download/1026124920
+http://api.brain-map.org//api/v2/well_known_file_download/1026124156
+http://api.brain-map.org//api/v2/well_known_file_download/1026124164
+http://api.brain-map.org//api/v2/well_known_file_download/1026124160
+http://api.brain-map.org//api/v2/well_known_file_download/1026124162
+http://api.brain-map.org//api/v2/well_known_file_download/1026124158
+http://api.brain-map.org//api/v2/well_known_file_download/1026124154
+http://api.brain-map.org//api/v2/well_known_file_download/1026124415
+http://api.brain-map.org//api/v2/well_known_file_download/1026124413
+http://api.brain-map.org//api/v2/well_known_file_download/1026124417
+http://api.brain-map.org//api/v2/well_known_file_download/1026124409
+http://api.brain-map.org//api/v2/well_known_file_download/1026124411
+http://api.brain-map.org//api/v2/well_known_file_download/1026124407
+http://api.brain-map.org//api/v2/well_known_file_download/1026124311
+http://api.brain-map.org//api/v2/well_known_file_download/1026124313
+http://api.brain-map.org//api/v2/well_known_file_download/1026124319
+http://api.brain-map.org//api/v2/well_known_file_download/1026124317
+http://api.brain-map.org//api/v2/well_known_file_download/1026124321
+http://api.brain-map.org//api/v2/well_known_file_download/1026124315
+http://api.brain-map.org//api/v2/well_known_file_download/1026124350
+http://api.brain-map.org//api/v2/well_known_file_download/1026124354
+http://api.brain-map.org//api/v2/well_known_file_download/1026124356
+http://api.brain-map.org//api/v2/well_known_file_download/1026124358
+http://api.brain-map.org//api/v2/well_known_file_download/1026124360
+http://api.brain-map.org//api/v2/well_known_file_download/1026124352
+http://api.brain-map.org//api/v2/well_known_file_download/1026124627
+http://api.brain-map.org//api/v2/well_known_file_download/1026124631
+http://api.brain-map.org//api/v2/well_known_file_download/1026124629
+http://api.brain-map.org//api/v2/well_known_file_download/1026124634
+http://api.brain-map.org//api/v2/well_known_file_download/1026124638
+http://api.brain-map.org//api/v2/well_known_file_download/1026124636
+http://api.brain-map.org//api/v2/well_known_file_download/1026123805
+http://api.brain-map.org//api/v2/well_known_file_download/1026123809
+http://api.brain-map.org//api/v2/well_known_file_download/1026123807
+http://api.brain-map.org//api/v2/well_known_file_download/1026123811
+http://api.brain-map.org//api/v2/well_known_file_download/1026123813
+http://api.brain-map.org//api/v2/well_known_file_download/1026123815
+http://api.brain-map.org//api/v2/well_known_file_download/1026124183
+http://api.brain-map.org//api/v2/well_known_file_download/1026124187
+http://api.brain-map.org//api/v2/well_known_file_download/1026124185
+http://api.brain-map.org//api/v2/well_known_file_download/1026124181
+http://api.brain-map.org//api/v2/well_known_file_download/1026124189
+http://api.brain-map.org//api/v2/well_known_file_download/1026124191
+http://api.brain-map.org//api/v2/well_known_file_download/1026124013
+http://api.brain-map.org//api/v2/well_known_file_download/1026124011
+http://api.brain-map.org//api/v2/well_known_file_download/1026124009
+http://api.brain-map.org//api/v2/well_known_file_download/1026124015
+http://api.brain-map.org//api/v2/well_known_file_download/1026124017
+http://api.brain-map.org//api/v2/well_known_file_download/1026124019
+http://api.brain-map.org//api/v2/well_known_file_download/1026124111
+http://api.brain-map.org//api/v2/well_known_file_download/1026124116
+http://api.brain-map.org//api/v2/well_known_file_download/1026124114
+http://api.brain-map.org//api/v2/well_known_file_download/1026124118
+http://api.brain-map.org//api/v2/well_known_file_download/1026124120
+http://api.brain-map.org//api/v2/well_known_file_download/1026124123
+http://api.brain-map.org//api/v2/well_known_file_download/1026124754
+http://api.brain-map.org//api/v2/well_known_file_download/1026124748
+http://api.brain-map.org//api/v2/well_known_file_download/1026124746
+http://api.brain-map.org//api/v2/well_known_file_download/1026124752
+http://api.brain-map.org//api/v2/well_known_file_download/1026124756
+http://api.brain-map.org//api/v2/well_known_file_download/1026124750
+http://api.brain-map.org//api/v2/well_known_file_download/1026123849
+http://api.brain-map.org//api/v2/well_known_file_download/1026123857
+http://api.brain-map.org//api/v2/well_known_file_download/1026123853
+http://api.brain-map.org//api/v2/well_known_file_download/1026123851
+http://api.brain-map.org//api/v2/well_known_file_download/1026123859
+http://api.brain-map.org//api/v2/well_known_file_download/1026123855
+http://api.brain-map.org//api/v2/well_known_file_download/1026124653
+http://api.brain-map.org//api/v2/well_known_file_download/1026124651
+http://api.brain-map.org//api/v2/well_known_file_download/1026124657
+http://api.brain-map.org//api/v2/well_known_file_download/1026124647
+http://api.brain-map.org//api/v2/well_known_file_download/1026124649
+http://api.brain-map.org//api/v2/well_known_file_download/1026124655
+http://api.brain-map.org//api/v2/well_known_file_download/1026124553
+http://api.brain-map.org//api/v2/well_known_file_download/1026124551
+http://api.brain-map.org//api/v2/well_known_file_download/1026124549
+http://api.brain-map.org//api/v2/well_known_file_download/1026124547
+http://api.brain-map.org//api/v2/well_known_file_download/1026124555
+http://api.brain-map.org//api/v2/well_known_file_download/1026124557
+http://api.brain-map.org//api/v2/well_known_file_download/1026125023
+http://api.brain-map.org//api/v2/well_known_file_download/1026125027
+http://api.brain-map.org//api/v2/well_known_file_download/1026125025
+http://api.brain-map.org//api/v2/well_known_file_download/1026125029
+http://api.brain-map.org//api/v2/well_known_file_download/1026125031
+http://api.brain-map.org//api/v2/well_known_file_download/1026125034
+http://api.brain-map.org//api/v2/well_known_file_download/1026124814
+http://api.brain-map.org//api/v2/well_known_file_download/1026124808
+http://api.brain-map.org//api/v2/well_known_file_download/1026124811
+http://api.brain-map.org//api/v2/well_known_file_download/1026124816
+http://api.brain-map.org//api/v2/well_known_file_download/1026124820
+http://api.brain-map.org//api/v2/well_known_file_download/1026124818
+http://api.brain-map.org//api/v2/well_known_file_download/1026123659
+http://api.brain-map.org//api/v2/well_known_file_download/1026123657
+http://api.brain-map.org//api/v2/well_known_file_download/1026123653
+http://api.brain-map.org//api/v2/well_known_file_download/1026123655
+http://api.brain-map.org//api/v2/well_known_file_download/1026123661
+http://api.brain-map.org//api/v2/well_known_file_download/1026124481
+http://api.brain-map.org//api/v2/well_known_file_download/1026124479
+http://api.brain-map.org//api/v2/well_known_file_download/1026124471
+http://api.brain-map.org//api/v2/well_known_file_download/1026124473
+http://api.brain-map.org//api/v2/well_known_file_download/1026124475
+http://api.brain-map.org//api/v2/well_known_file_download/1026124477
+http://api.brain-map.org//api/v2/well_known_file_download/1026124761
+http://api.brain-map.org//api/v2/well_known_file_download/1026124765
+http://api.brain-map.org//api/v2/well_known_file_download/1026124763
+http://api.brain-map.org//api/v2/well_known_file_download/1026124767
+http://api.brain-map.org//api/v2/well_known_file_download/1026124769
+http://api.brain-map.org//api/v2/well_known_file_download/1026124771
+http://api.brain-map.org//api/v2/well_known_file_download/1026124097
+http://api.brain-map.org//api/v2/well_known_file_download/1026124095
+http://api.brain-map.org//api/v2/well_known_file_download/1026124093
+http://api.brain-map.org//api/v2/well_known_file_download/1026124088
+http://api.brain-map.org//api/v2/well_known_file_download/1026124091
+http://api.brain-map.org//api/v2/well_known_file_download/1026123830
+http://api.brain-map.org//api/v2/well_known_file_download/1026123828
+http://api.brain-map.org//api/v2/well_known_file_download/1026123834
+http://api.brain-map.org//api/v2/well_known_file_download/1026123832
+http://api.brain-map.org//api/v2/well_known_file_download/1026123826
+http://api.brain-map.org//api/v2/well_known_file_download/1026123635
+http://api.brain-map.org//api/v2/well_known_file_download/1026123631
+http://api.brain-map.org//api/v2/well_known_file_download/1026123629
+http://api.brain-map.org//api/v2/well_known_file_download/1026123633
+http://api.brain-map.org//api/v2/well_known_file_download/1026123627
+http://api.brain-map.org//api/v2/well_known_file_download/1026123791
+http://api.brain-map.org//api/v2/well_known_file_download/1026123793
+http://api.brain-map.org//api/v2/well_known_file_download/1026123795
+http://api.brain-map.org//api/v2/well_known_file_download/1026123789
+http://api.brain-map.org//api/v2/well_known_file_download/1026123797
+file for probe 832810584 not found
+http://api.brain-map.org//api/v2/well_known_file_download/1026124842
+http://api.brain-map.org//api/v2/well_known_file_download/1026124846
+http://api.brain-map.org//api/v2/well_known_file_download/1026124844
+http://api.brain-map.org//api/v2/well_known_file_download/1026124848
+http://api.brain-map.org//api/v2/well_known_file_download/1026124850
+http://api.brain-map.org//api/v2/well_known_file_download/1026124374
+http://api.brain-map.org//api/v2/well_known_file_download/1026124370
+http://api.brain-map.org//api/v2/well_known_file_download/1026124378
+http://api.brain-map.org//api/v2/well_known_file_download/1026124376
+http://api.brain-map.org//api/v2/well_known_file_download/1026124372
+http://api.brain-map.org//api/v2/well_known_file_download/1026123521
+http://api.brain-map.org//api/v2/well_known_file_download/1026123524
+http://api.brain-map.org//api/v2/well_known_file_download/1026123526
+http://api.brain-map.org//api/v2/well_known_file_download/1026123528
+http://api.brain-map.org//api/v2/well_known_file_download/1026123530
+http://api.brain-map.org//api/v2/well_known_file_download/1026124428
+http://api.brain-map.org//api/v2/well_known_file_download/1026124431
+http://api.brain-map.org//api/v2/well_known_file_download/1026124426
+http://api.brain-map.org//api/v2/well_known_file_download/1026124424
+http://api.brain-map.org//api/v2/well_known_file_download/1026124437
+http://api.brain-map.org//api/v2/well_known_file_download/1026124443
+http://api.brain-map.org//api/v2/well_known_file_download/1026123729
+http://api.brain-map.org//api/v2/well_known_file_download/1026123733
+http://api.brain-map.org//api/v2/well_known_file_download/1026123731
+http://api.brain-map.org//api/v2/well_known_file_download/1026123727
+http://api.brain-map.org//api/v2/well_known_file_download/1026123738
+http://api.brain-map.org//api/v2/well_known_file_download/1026123735
+file for probe 846401828 not found
+file for probe 846401830 not found
+file for probe 846401834 not found
+file for probe 846401838 not found
+file for probe 846401841 not found
+http://api.brain-map.org//api/v2/well_known_file_download/1026123956
+http://api.brain-map.org//api/v2/well_known_file_download/1026123951
+http://api.brain-map.org//api/v2/well_known_file_download/1026123953
+http://api.brain-map.org//api/v2/well_known_file_download/1026123949
+http://api.brain-map.org//api/v2/well_known_file_download/1026123945
+http://api.brain-map.org//api/v2/well_known_file_download/1026123947
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="invalid-time-intervals">
+<h2>Invalid Time Intervals<a class="headerlink" href="#invalid-time-intervals" title="Permalink to this heading">#</a></h2>
+<p>On some occasions there were problems with data acquisition for a brief period of time. These problems didn’t necessitate failing the entire experiment, but they did invalidate the data during those times. Depending on your analysis goals, you might need to work around these invalid times. Because these problems occur rarely, built-in methods do not filter them out. If a probe you are analyzing has such invalid times, one method for addressing this is to filter out trials from the stimulus table with a <code class="docutils literal notranslate"><span class="pre">start_time</span></code> or <code class="docutils literal notranslate"><span class="pre">stop_time</span></code> that overlaps with any of the invalid intervals.</p>
+<p>When we access the <code class="docutils literal notranslate"><span class="pre">spike_times</span></code> of a session with invalid time intervals for the first time, we get a warning about it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example session with invalid times</span>
+<span class="n">session_id</span> <span class="o">=</span> <span class="mi">732592105</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">spike_times</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/allensdk/brain_observatory/ecephys/ecephys_session.py:1371: UserWarning: Session includes invalid time intervals that could be accessed with the attribute &#39;invalid_times&#39;,Spikes within these intervals are invalid and may need to be excluded from the analysis.
+  warnings.warn(&quot;Session includes invalid time intervals that could &quot;
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the warning:</p>
+<blockquote>
+<div><p>UserWarning: Session includes invalid time intervals that could be accessed with the attribute ‘invalid_times’,Spikes within these intervals are invalid and may need to be excluded from the analysis.</p>
+</div></blockquote>
+<p>You can determine which time intervals are invalid using <code class="docutils literal notranslate"><span class="pre">session.get_invalid_times()</span></code> which returns a DataFrame with the start and stop time of intervals of invalid data and the associated probes. You can always use this to check whether a session has invalid times — if it doesn’t, the returned DataFrame will be empty — but  if you don’t see a warning, it is free of invalid intervals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">get_invalid_times</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>tags</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>882.52</td>
+      <td>962.56</td>
+      <td>[EcephysProbe, 733744653, probeE]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4148.40</td>
+      <td>4214.91</td>
+      <td>[EcephysProbe, 733744653, probeE]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6841.77</td>
+      <td>6923.46</td>
+      <td>[EcephysProbe, 733744653, probeE]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8843.23</td>
+      <td>8911.38</td>
+      <td>[EcephysProbe, 733744653, probeE]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The tags give us information about what caused the invalid times. In this case, they were caused by a malfunctioning probe. We can examine the data on that probe and see that during the invalid timespans, the data are <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bad_probe_id</span> <span class="o">=</span> <span class="mi">733744653</span>
+<span class="n">timespan</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mf">882.517</span><span class="p">,</span> <span class="mf">962.562</span><span class="p">)</span>
+
+<span class="c1"># Get the Local Field Potentials from the temporarily malfunctioning probe</span>
+<span class="n">lfp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_lfp</span><span class="p">(</span><span class="n">bad_probe_id</span><span class="p">)</span>
+<span class="n">lfp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">timespan</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>channel</th>
+      <th>850233713</th>
+      <th>850233721</th>
+      <th>850233729</th>
+      <th>850233737</th>
+      <th>850233745</th>
+      <th>850233753</th>
+      <th>850233761</th>
+      <th>850233769</th>
+      <th>850233777</th>
+      <th>850233785</th>
+      <th>...</th>
+      <th>850234345</th>
+      <th>850234353</th>
+      <th>850234361</th>
+      <th>850234369</th>
+      <th>850234377</th>
+      <th>850234385</th>
+      <th>850234393</th>
+      <th>850234401</th>
+      <th>850234409</th>
+      <th>850234417</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>882.517637</th>
+      <td>0.000149</td>
+      <td>0.000309</td>
+      <td>0.000317</td>
+      <td>0.000127</td>
+      <td>0.000171</td>
+      <td>0.000213</td>
+      <td>0.000124</td>
+      <td>0.000222</td>
+      <td>0.000262</td>
+      <td>0.000153</td>
+      <td>...</td>
+      <td>-0.000129</td>
+      <td>0.000004</td>
+      <td>0.000031</td>
+      <td>0.000068</td>
+      <td>0.000013</td>
+      <td>-0.000029</td>
+      <td>0.000211</td>
+      <td>-0.000026</td>
+      <td>-0.000004</td>
+      <td>-0.000033</td>
+    </tr>
+    <tr>
+      <th>882.518437</th>
+      <td>0.000163</td>
+      <td>0.000319</td>
+      <td>0.000331</td>
+      <td>0.000144</td>
+      <td>0.000127</td>
+      <td>0.000190</td>
+      <td>0.000120</td>
+      <td>0.000235</td>
+      <td>0.000290</td>
+      <td>0.000164</td>
+      <td>...</td>
+      <td>-0.000133</td>
+      <td>0.000003</td>
+      <td>0.000036</td>
+      <td>0.000052</td>
+      <td>0.000013</td>
+      <td>-0.000037</td>
+      <td>0.000206</td>
+      <td>-0.000043</td>
+      <td>-0.000003</td>
+      <td>-0.000049</td>
+    </tr>
+    <tr>
+      <th>882.519237</th>
+      <td>0.000194</td>
+      <td>0.000324</td>
+      <td>0.000369</td>
+      <td>0.000183</td>
+      <td>0.000171</td>
+      <td>0.000217</td>
+      <td>0.000150</td>
+      <td>0.000254</td>
+      <td>0.000317</td>
+      <td>0.000200</td>
+      <td>...</td>
+      <td>-0.000127</td>
+      <td>-0.000011</td>
+      <td>0.000032</td>
+      <td>0.000064</td>
+      <td>0.000022</td>
+      <td>-0.000017</td>
+      <td>0.000222</td>
+      <td>-0.000028</td>
+      <td>0.000011</td>
+      <td>-0.000026</td>
+    </tr>
+    <tr>
+      <th>882.520037</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>882.520837</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>962.558155</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>962.558955</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>962.559755</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>962.560555</th>
+      <td>-0.000083</td>
+      <td>-0.000229</td>
+      <td>-0.000300</td>
+      <td>-0.000129</td>
+      <td>-0.000078</td>
+      <td>-0.000158</td>
+      <td>-0.000077</td>
+      <td>-0.000179</td>
+      <td>-0.000233</td>
+      <td>-0.000129</td>
+      <td>...</td>
+      <td>0.000081</td>
+      <td>-0.000055</td>
+      <td>-0.000074</td>
+      <td>-0.000076</td>
+      <td>-0.000015</td>
+      <td>0.000015</td>
+      <td>-0.000188</td>
+      <td>0.000027</td>
+      <td>0.000025</td>
+      <td>0.000038</td>
+    </tr>
+    <tr>
+      <th>962.561355</th>
+      <td>-0.000091</td>
+      <td>-0.000194</td>
+      <td>-0.000278</td>
+      <td>-0.000136</td>
+      <td>-0.000049</td>
+      <td>-0.000148</td>
+      <td>-0.000057</td>
+      <td>-0.000150</td>
+      <td>-0.000214</td>
+      <td>-0.000114</td>
+      <td>...</td>
+      <td>0.000054</td>
+      <td>-0.000079</td>
+      <td>-0.000085</td>
+      <td>-0.000046</td>
+      <td>-0.000011</td>
+      <td>0.000011</td>
+      <td>-0.000188</td>
+      <td>0.000029</td>
+      <td>0.000028</td>
+      <td>0.000046</td>
+    </tr>
+  </tbody>
+</table>
+<p>1253 rows × 89 columns</p>
+</div></div></div>
+</div>
+<p>For more information on why there were issues with data acquisition in these instances, see the “Invalid intervals” section of our <a class="reference external" href="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/80/75/8075a100-ca64-429a-b39a-569121b612b2/neuropixels_visual_coding_-_white_paper_v10.pdf">whitepaper</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcnp-quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick start guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcnp-units.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Units</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#session-metadata">Session metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probe-metadata">Probe metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrode-channel-metadata">Electrode channel metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-metadata">Unit metadata</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-specific-unit-metadata">Stimulus-specific unit metadata</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-individual-sessions">Data for individual sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset">Downloading the complete dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-on-aws">Accessing data on AWS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-via-api-brain-map-org">Direct download via api.brain-map.org</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-time-intervals">Invalid Time Intervals</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

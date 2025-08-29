@@ -1,0 +1,1077 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Coding — Neuropixels &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Quick start guide" href="vcnp-quickstart.html" />
+    <link rel="prev" title="Ephys" href="../ephys-overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Coding — Neuropixels</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimulus-sets">Visual stimulus sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-metrics">Quality metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precomputed-stimulus-metrics">Precomputed stimulus metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drifting-gratings">drifting gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-gratings">static gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-scenes">natural scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-field-flashes">full-field flashes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gabors">gabors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allensdk-2-0-and-backwards-data-compatibility">AllenSDK 2.0 and backwards data compatibility</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-coding-neuropixels">
+<h1>Visual Coding — Neuropixels<a class="headerlink" href="#visual-coding-neuropixels" title="Permalink to this heading">#</a></h1>
+<p>The Visual Coding – Neuropixels project uses high-density extracellular
+electrophysiology (Ecephys) probes to record spikes from a wide variety of
+regions in the mouse brain. Our experiments are designed to study the activity
+of the visual cortex and thalamus in the context of passive visual stimulation
+as is described in <span id="id1">Siegle <em>et al.</em> [<a class="reference internal" href="../../../bibliography.html#id42" title="Joshua H. Siegle, Xiaoxuan Jia, Séverine Durand, Sam Gale, Corbett Bennett, Nile Graddis, Greggory Heller, Tamina K. Ramirez, Hannah Choi, and Jennifer A. Luviano. Survey of spiking in the mouse visual system reveals functional hierarchy. Nature, 592(7852):86–92, 2021.">2021</a>]</span>, but these data can be used to address
+a wide variety of topics.</p>
+<p>Spike-sorted data and metadata are available via the AllenSDK as
+<a class="reference external" href="https://www.nwb.org/">Neurodata Without Borders (NWB)</a> files
+<span id="id2">[<a class="reference internal" href="../../../bibliography.html#id46" title="Jeffery L. Teeters, Keith Godfrey, Rob Young, Chinh Dang, Claudia Friedsam, Barry Wark, Hiroki Asari, Simon Peron, Nuo Li, Adrien Peyrache, Gennady Denisov, Joshua H. Siegle, Shawn R. Olsen, Christopher Martin, Miyoung Chun, Shreejoy Tripathy, Timothy J. Blanche, Kenneth Harris, György Buzsáki, Christof Koch, Markus Meister, Karel Svoboda, and Friedrich T. Sommer. Neurodata Without Borders: Creating a Common Data Format for Neurophysiology. Neuron, 88(4):629–634, November 2015. doi:10.1016/j.neuron.2015.10.025.">Teeters <em>et al.</em>, 2015</a>]</span>. However, if you’re using the AllenSDK to interact with
+the data, no knowledge of the NWB data format is required.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>To jump right in, check out the <a class="reference internal" href="vcnp-quickstart.html"><span class="doc">quick start guide</span></a>,
+which will show you how to download the data, align spikes to a visual stimulus,
+and decode natural images from neural activity patterns. For a quick summary of
+experimental design and data access, see the
+<a class="reference internal" href="vcnp-cheatsheet.html"><span class="doc">Cheat sheet for visual coding Neuropixels</span></a>.</p>
+<p>If you would like more example code, the <a class="reference internal" href="vcnp-session.html"><span class="doc">full example notebook</span></a>
+covers all of the ways to access data for each experiment.</p>
+<p>Additional tutorials are available on the following topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="vcnp-data-access.html"><span class="doc">Accessing Neuropixels Visual Coding Data</span></a></p></li>
+<li><p><a class="reference internal" href="vcnp-quality-metrics.html"><span class="doc">Unit Quality Metrics</span></a></p></li>
+<li><p><a class="reference internal" href="vcnp-lfp.html"><span class="doc">Local field potential (LFP)</span></a></p></li>
+<li><p><a class="reference internal" href="vcnp-receptive-fields.html"><span class="doc">Receptive fields</span></a></p></li>
+<li><p><a class="reference internal" href="vcnp-optotagging.html"><span class="doc">Optotagging Analysis</span></a></p></li>
+</ul>
+<p>For detailed information about the experimental design, data acquisition, and
+informatics methods, please refer to our
+<a class="reference external" href="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/80/75/8075a100-ca64-429a-b39a-569121b612b2/neuropixels_visual_coding_-_white_paper_v10.pdf">technical whitepaper</a>.
+AllenSDK API documentation is
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/allensdk.brain_observatory.ecephys.html">available here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>A note on terminology:</strong> Throughout the SDK, we refer to neurons as <em>units</em>,
+because we cannot guarantee that all the spikes assigned to one unit actually
+originate from a single cell. Unlike in two-photon imaging, where you can
+visualize each neuron throughout the entire experiment, with electrophysiology
+we can only “see” a neuron when it fires a spike. If a neuron moves relative to
+the probe, or if the neuron is far away from the probe, some of its spikes may get mixed
+together with those from other neurons. Because of this inherent ambiguity, we
+provide a variety of quality metrics to allow you to find the right units for
+your analysis. Even highly contaminated units contain potentially valuable
+information about brain states, so they are still included within the
+dataset. However, certain types of analysis require more stringent quality
+thresholds to ensure that all of the included units are well isolated from
+their neighbors.</p>
+</div>
+</section>
+<section id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h2>
+<p>See the section on <a class="reference internal" href="../../../background/neuropixels-description.html#neuropixels-data-processing"><span class="std std-ref">Neuropixels data processing</span></a>.</p>
+</section>
+<section id="visual-stimulus-sets">
+<h2>Visual stimulus sets<a class="headerlink" href="#visual-stimulus-sets" title="Permalink to this heading">#</a></h2>
+<figure class="align-center" id="np-stimulus-sets-ref">
+<a class="reference internal image-reference" href="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png"><img alt="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png" src="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Neuropixels visual stimulus sets</span><a class="headerlink" href="#np-stimulus-sets-ref" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A central aim of the Visual Coding – Neuropixels project is to measure the
+impact of visual stimuli on neurons throughout the <a class="reference internal" href="../../../background/Mouse-visual-system.html#mouse-visual-system"><span class="std std-ref">mouse visual system</span></a>. To that
+end, all mice viewed one of two possible stimulus sets, known as
+<em>Brain Observatory 1.1</em> or <em>Functional Connectivity</em>. Both stimulus sets began
+with a Gabor stimulus flashed at 81 different locations on the screen, used to
+map receptive fields of visually responsive units. Next, the mice were shown
+brief flashes of light or dark, to measure the temporal dynamics of the visual
+response.</p>
+<p>The remainder of the visual stimulus set either consisted of the same stimuli
+shown in the <a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html"><span class="doc std std-doc">two-photon experiments</span></a> (<em>Brain Observatory 1.1</em>), or a subset of
+those stimuli shown with a higher number of repeats. We also added a dot motion
+stimulus, to allow us to measure the speed tuning of units across the mouse
+visual system.</p>
+</section>
+<section id="quality-metrics">
+<h2>Quality metrics<a class="headerlink" href="#quality-metrics" title="Permalink to this heading">#</a></h2>
+<p>Every NWB file includes a table of quality metrics, which can be used to assess
+the completeness, contamination, and stability of units in the recording. By
+default, we won’t show you units below a pre-determined quality threshold; we
+hide any units that are not present for the whole session
+(<code class="docutils literal notranslate"><span class="pre">presence_ratio</span> <span class="pre">&lt;</span> <span class="pre">0.95</span></code>), that include many contaminating spikes
+(<code class="docutils literal notranslate"><span class="pre">isi_violations</span> <span class="pre">&gt;</span> <span class="pre">0.5</span></code>), or are likely missing a large fraction of spikes
+(<code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code>). However, even contaminated or incomplete units contain
+information about brain states, and may be of interest to analyze. Therefore,
+the complete units table can be accessed via special flags in the AllenSDK.</p>
+<p>In general, we do not make a distinction between ‘single-unit’ and ‘multi-unit’
+activity. There is no obvious place to draw a boundary in the overall
+distributions of quality metrics, and setting a strict cutoff (e.g.
+<code class="docutils literal notranslate"><span class="pre">isi_violations</span> <span class="pre">=</span> <span class="pre">0</span></code>) will remove a lot of potentially valuable data. We prefer to
+leave it up to the end user to decide what level of contamination is tolerable.
+But that means you need to be aware that different units will have different
+levels of cleanliness.</p>
+<p>It should also be noted that all of these metrics assume that the spike waveform
+is stable throughout the experiment. Given that the probe drifts, on average,
+about 40 μm over the course of the ~3 hour recordings, this assumption is
+almost never valid. The resulting changes in waveform shape can cause a unit’s
+quality to fluctuate. If you’re unsure about a unit’s quality, it can be helpful
+to plot its spike amplitudes over time. This can make it obvious if it’s
+drifting below threshold, or if it contains spikes from multiple neurons.</p>
+<p>Documentation on the various quality metrics can be found in the
+<a class="reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/quality_metrics">ecephys_spike_sorting</a>
+repository.</p>
+<p>For a detailed discussion of the appropriate way to apply each of these metrics,
+please check out the <a class="reference internal" href="vcnp-quality-metrics.html"><span class="doc">unit quality metric tutorial</span></a>.</p>
+</section>
+<section id="precomputed-stimulus-metrics">
+<span id="content-references-precomputed"></span><h2>Precomputed stimulus metrics<a class="headerlink" href="#precomputed-stimulus-metrics" title="Permalink to this heading">#</a></h2>
+<p>Tables of precomputed metrics are available for download to support population
+analysis and filtering. The table below describes all of the available metrics.
+The <code class="docutils literal notranslate"><span class="pre">get_unit_analysis_metrics()</span></code> method will load this table as a
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas DataFrame</a>.</p>
+<section id="drifting-gratings">
+<h3>drifting gratings<a class="headerlink" href="#drifting-gratings" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>preferred orientation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_ori_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>preferred temporal frequency</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_tf_dg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>global orientation selectivity</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">g_osi_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>global direction selectivity</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">g_dsi_dg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_dg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_dg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>modulation index</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">mod_idx_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>f1/f0</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">f1_f0_dg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_dg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>c50 (contrast tuning stimulus)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">c50_dg</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="static-gratings">
+<h3>static gratings<a class="headerlink" href="#static-gratings" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>preferred orientation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_ori_sg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>preferred spatial frequency</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_sf_sg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>preferred phase</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_phase_sg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>global orientation selectivity</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">g_osi_sg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_sg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_sg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_sg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_sg</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_sg</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="natural-scenes">
+<h3>natural scenes<a class="headerlink" href="#natural-scenes" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>preferred image index</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_image_ns</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>image selectivity</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">image_selectivity_ns</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_ns</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_ns</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_ns</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_factor_ns</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_ns</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dot-motion">
+<h3>dot motion<a class="headerlink" href="#dot-motion" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>preferred speed</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_speed_dm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>preferred direction</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pref_dir_dm</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_dm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_dm</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_dm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_factor_dm</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_dm</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="full-field-flashes">
+<h3>full-field flashes<a class="headerlink" href="#full-field-flashes" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>on/off ratio</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">on_off_ratio_fl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_fl</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_fl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_fl</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_factor_fl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_fl</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="gabors">
+<h3>gabors<a class="headerlink" href="#gabors" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Metric</p></th>
+<th class="head text-left"><p>Field Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>RF area</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">area_rf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>RF elevation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">elevation_rf</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>RF azimuth</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">azimuth_rf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>RF p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_value_rf</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>running modulation</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">run_mod_rf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>running modulation p-value</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">p_run_mod_rf</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>firing rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">firing_rate_rf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>fano factor</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">fano_factor_rf</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>lifetime sparseness</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lifetime_sparseness_rf</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="allensdk-2-0-and-backwards-data-compatibility">
+<h2>AllenSDK 2.0 and backwards data compatibility<a class="headerlink" href="#allensdk-2-0-and-backwards-data-compatibility" title="Permalink to this heading">#</a></h2>
+<p>AllenSDK version 2.0 marks a major update to released Visual Coding Neuropixels
+datasets. Due to newer versions of pynwb/hdmf having issues reading previously
+released Visual Coding Neuropixels NWB files and due to the significant
+reorganization of updated NWB file contents, this release contains breaking
+changes that necessitate a major version revision. NWB files released prior to
+6/11/2020 are not guaranteed to work with the 2.0.0 version of AllenSDK. If you
+cannot or choose not to re-download the updated NWB files, you can continue
+using a prior version of AllenSDK (&lt; 2.0.0) to access them. However, no further
+features or bugfixes for AllenSDK (&lt; 2.0.0) are planned. Data released for other
+projects (Cell Types, Mouse Connectivity, etc.) are <em>NOT</em> affected and will <em>NOT</em>
+need to be re-downloaded.</p>
+<p>When using the Visual Coding <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> from this updated AllenSDK
+version, if a <code class="docutils literal notranslate"><span class="pre">ManifestError</span></code> is encountered, this indicates that previously
+downloaded cached data files need to be removed and re-downloaded. The location
+these files as well as manifest are user defined and are set when instantiating
+an <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../ephys-overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ephys</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcnp-quickstart.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick start guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimulus-sets">Visual stimulus sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-metrics">Quality metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precomputed-stimulus-metrics">Precomputed stimulus metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drifting-gratings">drifting gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-gratings">static gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-scenes">natural scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-field-flashes">full-field flashes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gabors">gabors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allensdk-2-0-and-backwards-data-compatibility">AllenSDK 2.0 and backwards data compatibility</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

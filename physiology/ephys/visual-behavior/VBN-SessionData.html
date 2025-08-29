@@ -1,0 +1,1623 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Behavior Neuropixels Session &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-behavior/VBN-SessionData';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-behavior/VBN-SessionData.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Visual Behavior Neuropixels Quickstart" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html" />
+    <link rel="prev" title="Visual Behavior Neuropixels Dataset" href="VBN-Dataset.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VB-Neuropixels.html">Visual Behavior Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-behavior/VBN-SessionData.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-behavior/VBN-SessionData.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-behavior/VBN-SessionData.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Behavior Neuropixels Session</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephys-data">Ephys Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-data">Behavior Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-trials-table">Behavior Trials Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-presentations-table">Stimulus Presentations Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optotagging-table">Optotagging Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-templates">Stimulus Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-timestamps">Stimulus Timestamps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-behavior-neuropixels-session">
+<h1>Visual Behavior Neuropixels Session<a class="headerlink" href="#visual-behavior-neuropixels-session" title="Permalink to this heading">#</a></h1>
+<p>Once you’ve selected a session of interest, the corresponding nwb file can be conveniently accessed through the AllenSDK. <code>VisualBehaviorNeuropixelsProjectCache</code> class.</p>
+<p>Below, we will walk through what’s contained in each of these session nwb files. For more examples demonstrating how to analyze these data, please refer to the tutorials <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_neuropixels.html">here</a></p>
+<p>We begin by importing the <code>VisualBehaviorNeuropixelsProjectCache</code>  class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache.</span>\
+    <span class="n">behavior_neuropixels_project_cache</span> \
+    <span class="kn">import</span> <span class="nn">VisualBehaviorNeuropixelsProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can specify our cache directory and set up the cache.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this path should point to the location of the dataset on your platform</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/&#39;</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorNeuropixelsProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span>
+            <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code>VisualBehaviorNeuropixelsProjectCache</code> to grab the data for one example session:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session_id</span> <span class="o">=</span> <span class="mi">1053941483</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ecephys_session</span><span class="p">(</span>
+            <span class="n">ecephys_session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can list the attributes and methods associated with this session object as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;behavior_data_class&#39;,
+ &#39;behavior_session_id&#39;,
+ &#39;eye_tracking&#39;,
+ &#39;eye_tracking_rig_geometry&#39;,
+ &#39;get_channels&#39;,
+ &#39;get_current_source_density&#39;,
+ &#39;get_lfp&#39;,
+ &#39;get_performance_metrics&#39;,
+ &#39;get_probes_obj&#39;,
+ &#39;get_reward_rate&#39;,
+ &#39;get_rolling_performance_df&#39;,
+ &#39;get_units&#39;,
+ &#39;licks&#39;,
+ &#39;mean_waveforms&#39;,
+ &#39;metadata&#39;,
+ &#39;optotagging_table&#39;,
+ &#39;probes&#39;,
+ &#39;raw_running_speed&#39;,
+ &#39;rewards&#39;,
+ &#39;running_speed&#39;,
+ &#39;spike_amplitudes&#39;,
+ &#39;spike_times&#39;,
+ &#39;stimulus_presentations&#39;,
+ &#39;stimulus_templates&#39;,
+ &#39;stimulus_timestamps&#39;,
+ &#39;task_parameters&#39;,
+ &#39;trials&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s see how theses are defined. First we’ll group them into a few classes:
+<b>metadata</b>: attributes that contain useful info about each session
+<b>data</b>:     attributes and methods for accessing primary data for this session, including spike data, lfp, licks, running and eye tracking
+<b>tables</b>:   attributes and methods for accessing the tables storing stimulus info, behavior trial info</p>
+<section id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h2>
+<p>The following attributes contain metadata about each session. Most of the necessary metadata can be found in the <code class="docutils literal notranslate"><span class="pre">session.metadata</span></code> attribute, including the rig on which this experiment was run, the genotype, age and sex of the mouse and the name of the behavioral script:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;equipment_name&#39;: &#39;NP.1&#39;,
+ &#39;sex&#39;: &#39;M&#39;,
+ &#39;age_in_days&#39;: 180,
+ &#39;stimulus_frame_rate&#39;: 60.0,
+ &#39;session_type&#39;: &#39;EPHYS_1_images_H_3uL_reward&#39;,
+ &#39;date_of_acquisition&#39;: datetime.datetime(2020, 10, 2, 0, 3, 58, tzinfo=tzutc()),
+ &#39;reporter_line&#39;: &#39;Ai32(RCL-ChR2(H134R)_EYFP)&#39;,
+ &#39;cre_line&#39;: &#39;Sst-IRES-Cre&#39;,
+ &#39;behavior_session_uuid&#39;: UUID(&#39;330937b4-ec9e-4bc4-8567-f74666f52596&#39;),
+ &#39;driver_line&#39;: [&#39;Sst-IRES-Cre&#39;],
+ &#39;mouse_id&#39;: &#39;527749&#39;,
+ &#39;project_code&#39;: &#39;Not Available&#39;,
+ &#39;full_genotype&#39;: &#39;Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt&#39;,
+ &#39;behavior_session_id&#39;: 1053960987,
+ &#39;ecephys_session_id&#39;: 1053941483}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following attributes also contain useful info:</p>
+<p><code class="docutils literal notranslate"><span class="pre">behavior_session_id</span></code>:  Unique ID for the behavior session associated with this experiment.
+<code class="docutils literal notranslate"><span class="pre">task_parameters</span></code>:      Dictionary of parameters for this behavioral session as follows:</p>
+<dl class="simple myst">
+<dt>auto_reward_volume</dt><dd><p>Volume of autorewards delivered at beginning of session in ml.</p>
+</dd>
+<dt>blank_duration_sec</dt><dd><p>Seconds of gray screen at beginning and end of behavior session</p>
+</dd>
+<dt>n_stimulus_frames</dt><dd><p>Number of stimulus frames rendered during this experiment</p>
+</dd>
+<dt>omitted_flash_fraction</dt><dd><p>Probability that eligible flashes were omitted</p>
+</dd>
+<dt>response_window_sec</dt><dd><p>The period following an image change, in seconds, during which a mouse response influences trial outcome. The first value represents response window start. The second value represents response window end. The values represent time before display lag is accounted for and applied.</p>
+</dd>
+<dt>reward_volume</dt><dd><p>volume of individual water reward in ml.</p>
+</dd>
+<dt>session_type</dt><dd><p>visual stimulus type displayed during behavior session</p>
+</dd>
+<dt>stimulus</dt><dd><p>stimulus class shown for each image flash</p>
+</dd>
+<dt>stimulus_distribution</dt><dd><p>Probability distribution used for drawing change times. Either ‘exponential’ or ‘geometric’</p>
+</dd>
+<dt>stimulus_duration_sec</dt><dd><p>duration in seconds of each stimulus image presentation (or ‘flash’)</p>
+</dd>
+<dt>task</dt><dd><p>type of visual stimulus task; ‘change detection’ for this dataset</p>
+</dd>
+</dl>
+</section>
+<section id="ephys-data">
+<h2>Ephys Data<a class="headerlink" href="#ephys-data" title="Permalink to this heading">#</a></h2>
+<p>The primary ephys data can be accessed through the following attributes and methods. To see examples for how to align neural activity to task and stimulus events, check out the tutorials <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_neuropixels.html">here</a>.</p>
+<p>Let’s start by choosing an example unit and extracting its spike times and mean waveform. We can use the <code class="docutils literal notranslate"><span class="pre">get_units</span></code> method to identify a unit of interest. To filter units by their brain structure, it is useful to first merge the units table with the channels table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_units</span><span class="p">()</span> <span class="c1">#get units table</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span> <span class="c1">#get channels table</span>
+<span class="n">units_channels</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;peak_channel_id&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#merge the two tables</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can pull out a few of the units recorded in VISp:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units_channels</span><span class="p">[</span><span class="n">units_channels</span><span class="p">[</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PT_ratio</th>
+      <th>amplitude</th>
+      <th>amplitude_cutoff</th>
+      <th>cluster_id</th>
+      <th>cumulative_drift</th>
+      <th>d_prime</th>
+      <th>firing_rate</th>
+      <th>isi_violations</th>
+      <th>isolation_distance</th>
+      <th>l_ratio</th>
+      <th>...</th>
+      <th>waveform_duration</th>
+      <th>anterior_posterior_ccf_coordinate</th>
+      <th>dorsal_ventral_ccf_coordinate</th>
+      <th>filtering</th>
+      <th>left_right_ccf_coordinate</th>
+      <th>probe_channel_number</th>
+      <th>probe_horizontal_position</th>
+      <th>probe_id</th>
+      <th>probe_vertical_position</th>
+      <th>structure_acronym</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1061854534</th>
+      <td>0.470148</td>
+      <td>65.674733</td>
+      <td>0.500000</td>
+      <td>160</td>
+      <td>867.82</td>
+      <td>3.053247</td>
+      <td>1.357539</td>
+      <td>2.116915</td>
+      <td>35.981374</td>
+      <td>0.108331</td>
+      <td>...</td>
+      <td>0.645561</td>
+      <td>9314.0</td>
+      <td>822.0</td>
+      <td>AP band: 500 Hz high-pass; LFP band: 1000 Hz l...</td>
+      <td>8040.0</td>
+      <td>347</td>
+      <td>27</td>
+      <td>1054059291</td>
+      <td>3480</td>
+      <td>VISp</td>
+    </tr>
+    <tr>
+      <th>1061854526</th>
+      <td>0.561617</td>
+      <td>123.468930</td>
+      <td>0.055819</td>
+      <td>152</td>
+      <td>348.61</td>
+      <td>2.366868</td>
+      <td>1.460364</td>
+      <td>1.053236</td>
+      <td>37.197319</td>
+      <td>0.062857</td>
+      <td>...</td>
+      <td>0.576884</td>
+      <td>9272.0</td>
+      <td>963.0</td>
+      <td>AP band: 500 Hz high-pass; LFP band: 1000 Hz l...</td>
+      <td>8043.0</td>
+      <td>336</td>
+      <td>43</td>
+      <td>1054059291</td>
+      <td>3380</td>
+      <td>VISp</td>
+    </tr>
+    <tr>
+      <th>1061854501</th>
+      <td>0.446287</td>
+      <td>200.764200</td>
+      <td>0.000576</td>
+      <td>129</td>
+      <td>105.13</td>
+      <td>6.019849</td>
+      <td>7.009432</td>
+      <td>0.014437</td>
+      <td>84.204193</td>
+      <td>0.001509</td>
+      <td>...</td>
+      <td>0.206030</td>
+      <td>9209.0</td>
+      <td>1183.0</td>
+      <td>AP band: 500 Hz high-pass; LFP band: 1000 Hz l...</td>
+      <td>8064.0</td>
+      <td>319</td>
+      <td>27</td>
+      <td>1054059291</td>
+      <td>3200</td>
+      <td>VISp</td>
+    </tr>
+    <tr>
+      <th>1061854500</th>
+      <td>0.398903</td>
+      <td>111.897825</td>
+      <td>0.500000</td>
+      <td>128</td>
+      <td>251.62</td>
+      <td>2.403955</td>
+      <td>2.980341</td>
+      <td>0.598928</td>
+      <td>44.284914</td>
+      <td>0.026939</td>
+      <td>...</td>
+      <td>0.274707</td>
+      <td>9209.0</td>
+      <td>1183.0</td>
+      <td>AP band: 500 Hz high-pass; LFP band: 1000 Hz l...</td>
+      <td>8064.0</td>
+      <td>319</td>
+      <td>27</td>
+      <td>1054059291</td>
+      <td>3200</td>
+      <td>VISp</td>
+    </tr>
+    <tr>
+      <th>1061854475</th>
+      <td>0.490084</td>
+      <td>140.340037</td>
+      <td>0.237569</td>
+      <td>103</td>
+      <td>283.65</td>
+      <td>2.884945</td>
+      <td>10.078509</td>
+      <td>0.363133</td>
+      <td>54.521865</td>
+      <td>0.026504</td>
+      <td>...</td>
+      <td>0.549414</td>
+      <td>9143.0</td>
+      <td>1418.0</td>
+      <td>AP band: 500 Hz high-pass; LFP band: 1000 Hz l...</td>
+      <td>8103.0</td>
+      <td>302</td>
+      <td>59</td>
+      <td>1054059291</td>
+      <td>3040</td>
+      <td>VISp</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 34 columns</p>
+</div></div></div>
+</div>
+<p>Let’s take the first unit as our example: 1061854534. Three dictionaries will allow us to access data for this unit:</p>
+<p><code class="docutils literal notranslate"><span class="pre">spike_times</span></code>: dictionary storing spike times for each unit
+<code class="docutils literal notranslate"><span class="pre">spike_amplitudes</span></code>: dictionary storing the spike amplitudes for each units in volts
+<code class="docutils literal notranslate"><span class="pre">mean_waveforms</span></code>: dictionary storing the mean waveform for each unit as a (channel: 384, sample_number: 82) array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unit_spiketimes</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spike_times</span><span class="p">[</span><span class="mi">1061854534</span><span class="p">]</span>
+<span class="n">unit_spike_amplitudes</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spike_amplitudes</span><span class="p">[</span><span class="mi">1061854534</span><span class="p">]</span>
+<span class="n">unit_waveform</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="mi">1061854534</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>LFP data can be accessed through the following methods. Keep in mind that LFP data is stored in separate NWB files. Calling these methods will download additional data. For more info about how to access and analyze the LFP data, check out <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_neuropixels_LFP_analysis.html">this tutorial</a>.</p>
+<p>The LFP data is stored as an <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray.DataArray</a> object, with coordinates of time and channel. The xarray library simplifies the process of working with N-dimensional data arrays, by keeping track of the meaning of each axis. If this is your first time encountering xarrays, we strongly recommend reading through the documentation before going further. Getting used to xarrays can be frustrating, especially when they don’t behave like numpy arrays. But they are designed to prevent common mistakes when analyzing multidimensional arrays, so they are well worth learning more about. Plus, the syntax is modeled on that of the pandas library, so if you’re familiar with that you already have a head start.</p>
+<p>The LFP for each probe insertion is stored in a separate NWB file. To see what probes were inserted for this experiment, we can look at the <code class="docutils literal notranslate"><span class="pre">session.probes</span></code> table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">probes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>location</th>
+      <th>sampling_rate</th>
+      <th>lfp_sampling_rate</th>
+      <th>has_lfp_data</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1054059289</th>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.989984</td>
+      <td>2499.999165</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1054059290</th>
+      <td>probeB</td>
+      <td>See electrode locations</td>
+      <td>30000.192207</td>
+      <td>2500.016017</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1054059291</th>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>30000.062933</td>
+      <td>2500.005244</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1054059292</th>
+      <td>probeD</td>
+      <td>See electrode locations</td>
+      <td>29999.931329</td>
+      <td>2499.994277</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1054059293</th>
+      <td>probeE</td>
+      <td>See electrode locations</td>
+      <td>30000.089296</td>
+      <td>2500.007441</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1054059294</th>
+      <td>probeF</td>
+      <td>See electrode locations</td>
+      <td>29999.971244</td>
+      <td>2499.997604</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we can grab the LFP data for one of these probes (let’s take 1054059291). The following line of code will download a lfp NWB file if it’s not already part of your cache:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probe_lfp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_lfp</span><span class="p">(</span><span class="mi">1054059291</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since this LFP has been spatially downsampled, a high resolution CSD has been pre-computed and stored as an xarray.DataArray. You can access this CSD as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probe_csd</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_current_source_density</span><span class="p">(</span><span class="mi">1054059291</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="behavior-data">
+<h2>Behavior Data<a class="headerlink" href="#behavior-data" title="Permalink to this heading">#</a></h2>
+<p>Each session NWB also contains running, licking and eye tracking data. These data are all stored as pandas dataframes in the session object. For more details about how to align behavioral data to task events, check out <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/aligning_behavioral_data_to_task_events_with_the_stimulus_and_trials_tables.html">this tutorial</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">session.eye_tracking</span></code>: A dataframe containing ellipse fit parameters for the eye, pupil and corneal reflection (cr). Fits are derived from tracking points from a DeepLabCut model applied to video (collected at 60hz) frames of a subject’s right eye. The corneal reflection (cr) fit can be used to estimate the axis of the camera. Taking the difference between the corneal reflection position and the pupil position can therefore disambiguate translations of the entire eye (in which case both the cr and pupil will shift together) from rotations of the eye (in which case the pupil position will move relative to the cr).</p>
+<p><img alt="eye_dlc_labels" src="../../../_images/dlc_eye_label_example.png" /></p>
+<dl class="simple myst">
+<dt>frame (index)</dt><dd><p><em>int</em> frame of eye tracking video.</p>
+</dd>
+<dt>timestamps</dt><dd><p><em>float</em> experiment timestamp for frame in seconds</p>
+</dd>
+<dt>likely_blink</dt><dd><p><em>bool</em> True if frame has outlier ellipse fits, which is often caused by blinking / squinting of the eye.</p>
+</dd>
+<dt>eye_area</dt><dd><p><em>float</em> area of eye ellipse in pixels squared</p>
+</dd>
+<dt>eye_area_raw</dt><dd><p><em>float</em> pupil area with no outliers/likely blinks removed.</p>
+</dd>
+<dt>eye_center_x</dt><dd><p><em>float</em> center of eye ellipse on x axis in pixels</p>
+</dd>
+<dt>eye_center_y</dt><dd><p><em>float</em> center of eye ellipse on y axis in pixels</p>
+</dd>
+<dt>eye_height</dt><dd><p><em>float</em> eye height (minor axis of the eye ellipse) in pixels</p>
+</dd>
+<dt>eye_width</dt><dd><p><em>float</em> eye width (major axis of the eye ellipse) in pixels</p>
+</dd>
+<dt>eye_phi</dt><dd><p><em>float</em> eye rotation angle in radians</p>
+</dd>
+<dt>pupil_area</dt><dd><p><em>float</em> area of pupil ellipse in pixels squared</p>
+</dd>
+<dt>pupil_area_raw</dt><dd><p><em>float</em> pupil area with no outliers/likely blinks removed.</p>
+</dd>
+<dt>pupil_center_x</dt><dd><p><em>float</em> center of pupil ellipse on x axis in pixels</p>
+</dd>
+<dt>pupil_center_y</dt><dd><p><em>float</em> center of pupil ellipse on y axis in pixels</p>
+</dd>
+<dt>pupil_height</dt><dd><p><em>float</em> pupil height (minor axis of the pupil ellipse) in pixels</p>
+</dd>
+<dt>pupil_width</dt><dd><p><em>float</em> pupil width (major axis of the pupil ellipse) in pixels</p>
+</dd>
+<dt>pupil_phi</dt><dd><p><em>float</em> pupil rotation angle in radians</p>
+</dd>
+<dt>cr_area</dt><dd><p><em>float</em> area of corneal reflection ellipse in pixels squared</p>
+</dd>
+<dt>cr_area_raw</dt><dd><p><em>float</em> corneal reflection area with no outliers/likely blinks removed.</p>
+</dd>
+<dt>cr_center_x</dt><dd><p><em>float</em> center of corneal reflection on x axis in pixels</p>
+</dd>
+<dt>cr_center_y</dt><dd><p><em>float</em> center of corneal reflection on y axis in pixels</p>
+</dd>
+<dt>cr_height</dt><dd><p><em>float</em> corneal reflection height (minor axis of the CR ellipse) in pixels</p>
+</dd>
+<dt>cr_width</dt><dd><p><em>float</em> corneal reflection width (major axis of the CR ellipse) in pixels</p>
+</dd>
+<dt>cr_phi</dt><dd><p><em>float</em> corneal reflection rotation angle in radians</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">session.licks</span></code>: A dataframe containing lick timestamps and frames, sampled at 60Hz.</p>
+<dl class="simple myst">
+<dt>timestamps</dt><dd><p><em>float</em> time of a lick, in seconds</p>
+</dd>
+<dt>frame</dt><dd><p><em>int</em> frame of lick</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">session.running_speed</span></code>: Running speed and timestamps sampled at 60hz. A 10Hz low pass filter has been applied to the data. To get the running speed without the filter, use <code class="docutils literal notranslate"><span class="pre">raw_running_speed</span></code>.</p>
+<dl class="simple myst">
+<dt>speed</dt><dd><p><em>float</em> speed in cm/sec</p>
+</dd>
+<dt>timestamps</dt><dd><p><em>float</em> time in seconds</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">session.rewards</span></code>: A dataframe containing timestamps of delivered rewards in absolute sync time. Timestamps are sampled at 60 Hz.</p>
+<dl class="simple myst">
+<dt>timestamps</dt><dd><p><em>float</em> time in seconds</p>
+</dd>
+<dt>volume</dt><dd><p><em>float</em> volume of individual water reward in ml.</p>
+</dd>
+<dt>auto_rewarded</dt><dd><p><em>bool</em> True if free reward was delivered for that trial. Occurs during the first 5 trials of a session.</p>
+</dd>
+</dl>
+</section>
+<section id="behavior-trials-table">
+<h2>Behavior Trials Table<a class="headerlink" href="#behavior-trials-table" title="Permalink to this heading">#</a></h2>
+<p>Now let’s explore the behavior trials table. This table contains lots of useful information about every trial in the change detection task. For more info about how to use this table to align behavioral/neural events, you might find <a class="reference external" href="https://github.com/AllenInstitute/swdb_2022/blob/main/DynamicBrain/solutions/Visual_Behavior_Neuropixels_SWDB_2022_Tutorial_Solutions.ipynb">this tutorial</a> useful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">trials</span>
+<span class="n">trials</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>initial_image_name</th>
+      <th>change_image_name</th>
+      <th>is_change</th>
+      <th>change_time_no_display_delay</th>
+      <th>go</th>
+      <th>catch</th>
+      <th>lick_times</th>
+      <th>response_time</th>
+      <th>reward_time</th>
+      <th>reward_volume</th>
+      <th>hit</th>
+      <th>false_alarm</th>
+      <th>miss</th>
+      <th>correct_reject</th>
+      <th>aborted</th>
+      <th>auto_rewarded</th>
+      <th>change_frame</th>
+      <th>trial_length</th>
+    </tr>
+    <tr>
+      <th>trials_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.20983</td>
+      <td>26.19343</td>
+      <td>im104_r</td>
+      <td>im104_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[25.72637, 25.87602]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>0.98360</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>26.71046</td>
+      <td>28.34528</td>
+      <td>im104_r</td>
+      <td>im104_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[28.02817]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>1.63482</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>28.96234</td>
+      <td>32.73245</td>
+      <td>im104_r</td>
+      <td>im104_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[32.39844]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>3.77011</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.46618</td>
+      <td>35.85175</td>
+      <td>im104_r</td>
+      <td>im104_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[35.53463]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>2.38557</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>36.46863</td>
+      <td>39.62138</td>
+      <td>im104_r</td>
+      <td>im104_r</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>[39.15441, 39.28716]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>-99</td>
+      <td>3.15275</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here, every row is one behavioral trial. The following columns contain all the information you need to interpret each trial:</p>
+<dl class="simple myst">
+<dt>start_time</dt><dd><p><em>float</em> Experiment time when this trial began in seconds.</p>
+</dd>
+<dt>end_time</dt><dd><p><em>float</em> Experiment time when this trial ended.</p>
+</dd>
+<dt>initial_image_name</dt><dd><p><em>float</em> Indicates which image was shown before the change (or sham change) for this trial</p>
+</dd>
+<dt>change_image_name</dt><dd><p><em>string</em> Indicates which image was scheduled to be the change image for this trial. Note that if the trial is aborted, a new trial will begin before this change occurs.</p>
+</dd>
+<dt>stimulus_change</dt><dd><p><em>bool</em> Indicates whether an image change occurred for this trial.</p>
+</dd>
+<dt>change_time_no_display_delay</dt><dd><p><em>float</em> Experiment time when the task-control computer commanded an image change. This change time is used to determine the response window during which a lick will trigger a reward. Note that due to display lag, this is not the time when the change image actually appears on the screen. To get this time, you need the stimulus_presentations table (more about this below).</p>
+</dd>
+<dt>go</dt><dd><p><em>bool</em> Indicates whether this trial was a ‘go’ trial. To qualify as a go trial, an image change must occur and the trial cannot be autorewarded.</p>
+</dd>
+<dt>catch</dt><dd><p><em>bool</em> Indicates whether this trial was a ‘catch’ trial. To qualify as a catch trial, a ‘sham’ change must occur during which the image identity does not change. These sham changes are drawn to match the timing distribution of real changes and can be used to calculate the false alarm rate.</p>
+</dd>
+<dt>lick_times</dt><dd><p><em>float array</em> A list indicating when the behavioral control software recognized a lick. Note that this is not identical to the lick times from the licks dataframe, which record when the licks were registered by the lick sensor. The licks dataframe should generally be used for analysis of the licking behavior rather than these times.</p>
+</dd>
+<dt>response_time</dt><dd><p><em>float</em> Indicates the time when the first lick was registered by the task control software for trials that were not aborted (go or catch). NaN for aborted trials. For a more accurate measure of response time, the licks dataframe should be used.</p>
+</dd>
+<dt>reward_time</dt><dd><p><em>float</em> Indicates when the reward command was triggered for hit trials. NaN for other trial types.</p>
+</dd>
+<dt>reward_volume</dt><dd><p><em>float</em> Indicates the volume of water dispensed as reward for this trial.</p>
+</dd>
+<dt>hit</dt><dd><p><em>bool</em> Indicates whether this trial was a ‘hit’ trial. To qualify as a hit, the trial must be a go trial during which the stimulus changed and the mouse licked within the reward window (150-750 ms after the change time).</p>
+</dd>
+<dt>false_alarm</dt><dd><p><em>bool</em> Indicates whether this trial was a ‘false alarm’ trial. To qualify as a false alarm, the trial must be a catch trial during which a sham change occurred and the mouse licked during the reward window.</p>
+</dd>
+<dt>miss</dt><dd><p><em>bool</em> To qualify as a miss trial, the trial must be a go trial during which the stimulus changed but the mouse did not lick within the response window.</p>
+</dd>
+<dt>correct_reject</dt><dd><p><em>bool</em> To qualify as a correct reject trial, the trial must be a catch trial during which a sham change occurred and the mouse withheld licking.</p>
+</dd>
+<dt>aborted</dt><dd><p><em>bool</em> A trial is aborted when the mouse licks before the scheduled change or sham change.</p>
+</dd>
+<dt>auto_rewarded</dt><dd><p><em>bool</em> During autorewarded trials, the reward is automatically triggered after the change regardless of whether the mouse licked within the response window. These always come at the beginning of the session to help engage the mouse in behavior.</p>
+</dd>
+<dt>change_frame</dt><dd><p><em>int</em> Indicates the stimulus frame index when the change (on go trials) or sham change (on catch trials) occurred. This column can be used to link the trials table with the stimulus presentations table, as shown below.</p>
+</dd>
+<dt>trial_length</dt><dd><p><em>float</em> Duration of the trial in seconds.</p>
+</dd>
+</dl>
+</section>
+<section id="stimulus-presentations-table">
+<h2>Stimulus Presentations Table<a class="headerlink" href="#stimulus-presentations-table" title="Permalink to this heading">#</a></h2>
+<p>This shows us the structure of this experiment (and every experiment in this dataset). There are 5 stimuli as follows:</p>
+<p><strong>block 0</strong>: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task <a class="reference external" href="http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels?edit&amp;language=en">here</a>. Also see <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnbeh.2020.00104/full">here</a> for info about our general training strategy.</p>
+<p><strong>block 1</strong>: Brief gray screen</p>
+<p><strong>block 2</strong>: Receptive field mapping. Gabor stimuli used for receptive field mapping. For more details on this stimulus consult <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html">this notebook</a>.</p>
+<p><strong>block 3</strong>: Longer gray screen</p>
+<p><strong>block 4</strong>: Full-field flashes, shown at 80% contrast. Flashes can be black (color = -1) or white (color = 1).</p>
+<p><strong>block 5</strong>: Passive replay. Frame-for-frame replay of the stimulus shown during the change detection task (block 0), but now with the lick spout retracted so the animal can no longer engage in the task.</p>
+<p>Here’s a quick explanation for each of the columns in this table:</p>
+<p><b>General</b></p>
+<dl class="simple myst">
+<dt>active</dt><dd><p><em>bool</em> indicating when the change detection task (with the lick spout available to the mouse) was run. This should only be TRUE for block 0.</p>
+</dd>
+<dt>stimulus_block</dt><dd><p><em>int</em> Index of stimulus as described in cells above.</p>
+</dd>
+<dt>stimulus_name</dt><dd><p><em>str</em> Indicates the stimulus category for this stimulus presentation.</p>
+</dd>
+<dt>contrast</dt><dd><p><em>float</em> Stimulus contrast as defined <a class="reference external" href="https://www.psychopy.org/api/visual/gratingstim.html#psychopy.visual.GratingStim.contrast">here</a></p>
+</dd>
+<dt>duration</dt><dd><p><em>float</em> Duration of stimulus in seconds</p>
+</dd>
+<dt>start_time</dt><dd><p><em>float</em> Experiment time when stimulus started. This value is corrected for display lag and therefore indicates when the stimulus actually appeared on the screen.</p>
+</dd>
+<dt>end_time</dt><dd><p><em>float</em> Experiment time when stimulus ended, also corrected for display lag.</p>
+</dd>
+<dt>start_frame</dt><dd><p><em>int</em> Stimulus frame index when this stimulus started. This can be used to sync this table to the behavior trials table, for which behavioral data is collected every frame.</p>
+</dd>
+<dt>end_frame</dt><dd><p><em>int</em> Stimulus frame index when this stimulus ended.</p>
+</dd>
+</dl>
+<p><b>Change</b> detection task and Passive replay (blocks 0 and 5)</p>
+<dl class="simple myst">
+<dt>flashes_since_change</dt><dd><p><em>float</em> Indicates how many flashes of the same image have occurred since the last stimulus change. NaN for blocks 1-4.</p>
+</dd>
+<dt>image_name</dt><dd><p><em>str</em> Indicates which natural image was flashed for this stimulus presentation. To see how to visualize this image, check out <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/visual_behavior_neuropixels_data_access.html">this tutorial</a>.</p>
+</dd>
+<dt>is_change</dt><dd><p><em>bool</em> Indicates whether the image identity changed for this stimulus presentation. When both this value and ‘active’ are TRUE, the mouse was rewarded for licking within the response window.</p>
+</dd>
+<dt>omitted</dt><dd><p><em>bool</em> Indicates whether the image presentation was omitted for this flash. Most image flashes had a 5% probability of being omitted (producing a gray screen). Flashes immediately preceding a change or immediately following an omission could not be omitted.</p>
+</dd>
+<dt>rewarded</dt><dd><p><em>bool</em> Indicates whether a reward was given after this image presentation. During the passive replay block (5), this value indicates that a reward was issued for the corresponding image presentation during the active behavior block (0). No rewards were given during passive replay.</p>
+</dd>
+<dt>is_image_novel</dt><dd><p><em>bool</em> True if natural image was not encountered by mouse during previous training/habituation sessions. False otherwise.</p>
+</dd>
+<dt>trials_id</dt><dd><p><em>int</em> Index of trial in behavior trials table during which this image was presented. Keep in mind that a single behavior trial typically spans several image presentations. This column can be used to join the stimulus_presentations and trials tables.</p>
+</dd>
+</dl>
+<p><b>Receptive field mapping gabor stimulus (block 2)</b></p>
+<dl class="simple myst">
+<dt>orientation</dt><dd><p><em>float</em> Orientation of gabor.</p>
+</dd>
+<dt>position_x</dt><dd><p><em>float</em> Position of the gabor along azimuth. The units are in degrees relative to the center of the screen (negative values are nasal).</p>
+</dd>
+<dt>position_y</dt><dd><p><em>float</em> Position of the gabor along elevation. Negative values are lower elevation.</p>
+</dd>
+<dt>spatial_frequency</dt><dd><p><em>float</em> Spatial frequency of gabor in cycles per degree.</p>
+</dd>
+<dt>temporal_frequency</dt><dd><p><em>float</em> Temporal frequency of gabor in Hz.</p>
+</dd>
+</dl>
+<p><b>Full field flashes (block 4)</b></p>
+<dl class="simple myst">
+<dt>color</dt><dd><p><em>float</em> Color of the full-field flash stimuli. “1” is white and “-1” is black.</p>
+</dd>
+</dl>
+</section>
+<section id="optotagging-table">
+<h2>Optotagging Table<a class="headerlink" href="#optotagging-table" title="Permalink to this heading">#</a></h2>
+<dl class="simple myst">
+<dt>id <b>index</b></dt><dd><p><em>int</em> Trial index</p>
+</dd>
+<dt>condition</dt><dd><p><em>string</em> Description of laser waveform used for this trial</p>
+</dd>
+<dt>duration</dt><dd><p><em>float</em> Duration of laser stimulation for this trial</p>
+</dd>
+<dt>level</dt><dd><p><em>float</em> Laser command voltage for this trial (higher values indicate higher power laser stimulation)</p>
+</dd>
+<dt>start_time</dt><dd><p><em>float</em> Start time of laser stimulation for this trial</p>
+</dd>
+<dt>stimulus_name</dt><dd><p><em>string</em> Name of laser waveform used for this trial</p>
+</dd>
+<dt>stop_time</dt><dd><p><em>float</em> Time when laser stimulation stops for this trial</p>
+</dd>
+</dl>
+</section>
+<section id="stimulus-templates">
+<h2>Stimulus Templates<a class="headerlink" href="#stimulus-templates" title="Permalink to this heading">#</a></h2>
+<p>Each natural image displayed during a given session is saved to an array and stored in the <code class="docutils literal notranslate"><span class="pre">session.stimulus_templates</span></code> dataframe.</p>
+<dl class="simple myst">
+<dt>image_name <strong>index</strong></dt><dd><p><em>string</em> Unique name of image</p>
+</dd>
+<dt>unwarped</dt><dd><p><em>array</em> numpy array storing gray scale values for this image before applying spherical warping step</p>
+</dd>
+<dt>warped</dt><dd><p><em>array</em> numpy array storing gray scale values for this image after applying spherical warping step. This is the image that is rendered on the monitor during the experiment.</p>
+</dd>
+</dl>
+</section>
+<section id="stimulus-timestamps">
+<h2>Stimulus Timestamps<a class="headerlink" href="#stimulus-timestamps" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">session.stimulus_timestamps</span></code> is a numpy array storing the experiment timestamps of every rendered stimulus frame in seconds.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VBN-Dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Behavior Neuropixels Dataset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visual Behavior Neuropixels Quickstart</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephys-data">Ephys Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-data">Behavior Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior-trials-table">Behavior Trials Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-presentations-table">Stimulus Presentations Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optotagging-table">Optotagging Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-templates">Stimulus Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stimulus-timestamps">Stimulus Timestamps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

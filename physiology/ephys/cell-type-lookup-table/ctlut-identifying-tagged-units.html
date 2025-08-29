@@ -1,0 +1,1337 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Identifying tagged neurons &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Neuropixels Ultra &amp; Psychedelics" href="../np-ultra/npultra-psychedelics.html" />
+    <link rel="prev" title="Accessing cell type lookup table data" href="ctlut-accessing-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="ctlut-background.html">Cell Type Look-up Table</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Identifying tagged neurons</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-tagged-cells">Identifying tagged cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-cell-responses">Visualizing cell responses</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="identifying-tagged-neurons">
+<h1>Identifying tagged neurons<a class="headerlink" href="#identifying-tagged-neurons" title="Permalink to this heading">#</a></h1>
+<p>As described in the optotagging section, identifying cells in an electrophysiological recording relies on looking for responses that are precisely synced with the laser stimuli. This notebook will go over how to align responses of recorded units to the laser presentations, calculate some metrics to determine how responsive the unit is, and then perform the same over all units collected during a session in order to assign cell type labels.</p>
+<section id="import-required-packages">
+<h2>Import required packages<a class="headerlink" href="#import-required-packages" title="Permalink to this heading">#</a></h2>
+<p>Since the data is packaged as nwb files, you’ll need to import hdmf_zarr to interact with the data. The metadata for each experiment is stored as .json files, so you’ll want to import json as well.</p>
+<p>…and os is just nice for formatting file paths!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hdmf_zarr</span> <span class="kn">import</span> <span class="n">NWBZarrIO</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="identifying-tagged-cells">
+<h2>Identifying tagged cells<a class="headerlink" href="#identifying-tagged-cells" title="Permalink to this heading">#</a></h2>
+<p>Every experimental session may have a different set of neurons expressing light-sensitive opsins and thus able to be identified by their laser responses. In this data set, the identities of tagged neurons were pre-computed and added to the units table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an &#39;arbitrarily&#39; selected session</span>
+<span class="n">session</span> <span class="o">=</span> <span class="s1">&#39;661398_2023-04-03_15-47-29&#39;</span>
+<span class="n">session_directory</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;/data/SWDB 2024 CTLUT data/ecephys_</span><span class="si">{</span><span class="n">session</span><span class="si">}</span><span class="s1">_nwb&#39;</span>
+
+<span class="n">nwb_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">session_directory</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;ecephys_</span><span class="si">{</span><span class="n">session</span><span class="si">}</span><span class="s1">_experiment1_recording1.nwb.zarr&#39;</span><span class="p">)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">NWBZarrIO</span><span class="p">(</span><span class="n">nwb_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">nwbfile_read</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">units</span><span class="p">[:]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">predicted_cell_type</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;D1&#39;, &#39;D2&#39;, &#39;untagged&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that this session had tagged D1 and D2 cells, and every unit has a label attached marking it as one of these two types or as “untagged.” But how did we arrive at these labels?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;spike_times&#39;, &#39;electrodes&#39;, &#39;waveform_mean&#39;, &#39;waveform_sd&#39;,
+       &#39;unit_name&#39;, &#39;isolation_distance&#39;, &#39;amplitude_cutoff&#39;, &#39;half_width&#39;,
+       &#39;peak_to_valley&#39;, &#39;rp_violations&#39;, &#39;l_ratio&#39;, &#39;device_name&#39;,
+       &#39;drift_std&#39;, &#39;rp_contamination&#39;, &#39;snr&#39;, &#39;ks_unit_id&#39;, &#39;d_prime&#39;,
+       &#39;drift_mad&#39;, &#39;drift_ptp&#39;, &#39;default_qc&#39;, &#39;isi_violations_ratio&#39;,
+       &#39;peak_trough_ratio&#39;, &#39;firing_rate&#39;, &#39;recovery_slope&#39;,
+       &#39;repolarization_slope&#39;, &#39;amplitude&#39;, &#39;sliding_rp_violation&#39;,
+       &#39;presence_ratio&#39;, &#39;num_spikes&#39;, &#39;noise_label&#39;, &#39;peak_channel&#39;,
+       &#39;internal_blue_train_best_site&#39;, &#39;internal_blue_train_mean_latency&#39;,
+       &#39;internal_blue_train_mean_jitter&#39;,
+       &#39;internal_blue_train_mean_reliability&#39;,
+       &#39;internal_blue_train_num_sig_pulses_paired&#39;,
+       &#39;internal_blue_train_channel_diff&#39;, &#39;internal_red_train_best_site&#39;,
+       &#39;internal_red_train_mean_latency&#39;, &#39;internal_red_train_mean_jitter&#39;,
+       &#39;internal_red_train_mean_reliability&#39;,
+       &#39;internal_red_train_num_sig_pulses_paired&#39;,
+       &#39;internal_red_train_channel_diff&#39;, &#39;predicted_cell_type&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Many of the columns in the units table are various metrics describing the laser responsiveness of the units to the two different colors of laser (red and blue). These metrics are:</p>
+<ul class="simple">
+<li><p>best_site: the NPopto emission site that elicited the largest response in the unit.</p></li>
+<li><p>mean_latency: the mean time from laser onset to the unit’s response. The unit’s response is computed as the time at which the unit’s firing rate becomes two standard deviations higher than its baseline.</p></li>
+<li><p>mean_jitter: the standard deviation of the unit’s mean response latency.</p></li>
+<li><p>mean_reliability: the proportion of trials during which the unit has spikes during the laser presentation period.</p></li>
+<li><p>num_sig_pulses_paired: the number of laser pulses (out of 5) that elicited a significant increase in spike rate, as computed using a paired test (Wilcoxon signed-rank test).</p></li>
+<li><p>channel_diff: the distance (in number of electrodes) between the best emission site and the peak electrode channel.</p></li>
+</ul>
+<p>For this data set, units were considered to be tagged D1 or D2 units if they 1) had a significant response to all five laser pulses of the appropriate color*, and 2) had a channel_diff of less than 25. Tagged neurons are expected to have very reliable, low-latency responses to laser pulses. In addition, we would expect the emission site that evokes the highest response to be close to the electrode closest to the neurons: if it isn’t this makes us suspect the unit is a light artifact or contaminated!</p>
+<p>For tagged cholinergic cells, an additional criterion of mean_latency less than 7 ms (0.007 s) was added. This is to avoid considering cells tagged if they were indirectly activated by other laser-activated neurons. Because D1 and D2 cells are GABAergic, this is less of a concern for them.</p>
+<p><em>*Note</em>: the laser pulses criterion is actually a little more complicated. For units tagged with a blue-responsive opsin (e.g. CoChR), we look for all five blue pulses eliciting significant responses and <em>no more</em> than one red pulse eliciting a significant response. For units tagged with a red-responsive opsin (e.g. Chrmine), we look for at least four red pulses eliciting significant responses. This is because red opsins often have strong activation even to short wavelengths, but blue opsins do not have responses to long wavelengths. Thus, we find true blue responses by specifying they can not also have a red response. Additionally, opsins like Chrmine have slower response dynamics, and often don’t respond to the first pulse, but have reliable responses to the rest, so we relax that criterion.</p>
+<p>How do we know which cell type is tagged with which opsin? By looking at the metadata! The identity of any laser-responsive units can be inferred from the mouse’s genotype and viruses injected, both of which can be found in the metadata. A list of the mouse lines used in this data set and what they tag can be found in the optotagging section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subject.json contains info about the mouse, procedures.json contains info about surgeries and such that were performed</span>
+<span class="n">subject_json</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">session_directory</span><span class="p">,</span> <span class="s1">&#39;subject.json&#39;</span><span class="p">)</span>
+<span class="n">procedures_json</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">session_directory</span><span class="p">,</span> <span class="s1">&#39;procedures.json&#39;</span><span class="p">)</span>
+
+<span class="c1"># load both json files</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">subject_json</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">procedures_json</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">procedures</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">subject</span><span class="p">[</span><span class="s1">&#39;genotype&#39;</span><span class="p">])</span>
+
+<span class="n">virus_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">material</span> <span class="ow">in</span> <span class="n">procedures</span><span class="p">[</span><span class="s1">&#39;injections&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;injection_materials&#39;</span><span class="p">]:</span>
+        <span class="n">virus_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">material</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="k">except</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">material</span> <span class="ow">in</span> <span class="n">procedures</span><span class="p">[</span><span class="s1">&#39;subject_procedures&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;injection_materials&#39;</span><span class="p">]:</span> <span class="c1"># the procedures scraped from NSB are formatted differently</span>
+        <span class="n">virus_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">material</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">virus_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adora2a-Cre/wt
+[&#39;D1 enhancer CoChR&#39;, &#39;DIO-ChRmine-mScarlet&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was injected with two viruses: an enhancer delivering CoChR to D1 cells, and a Cre-dependent virus delivering ChRmine. From this, we can conclude that this mouse should express CoChR in D1 cells and ChRmine in D2 cells. Therefore, any cells responding to (only) blue laser pulses are D1 cells, and cells responding to red laser pulses are D2 cells!</p>
+<p>With this information, you can take a look at the other laser response metrics and try other criteria for assigning cell identities, if you don’t trust the ones in the units table!</p>
+</section>
+<section id="visualizing-cell-responses">
+<h2>Visualizing cell responses<a class="headerlink" href="#visualizing-cell-responses" title="Permalink to this heading">#</a></h2>
+<p>If you really, <em>really</em> don’t trust the cell identities in the units table, you can directly analyze their responses to laser presentation!</p>
+<p>How do we tell if a cell is laser-responsive? We should take a look at the spiking activity during laser presentations. To do this, let’s align the spike timestamps to the laser trial timestamps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">units</span><span class="p">[:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load spike timestamp data for an &#39;arbitrarily&#39; selected unit</span>
+<span class="n">unit_id</span> <span class="o">=</span> <span class="mi">259</span>
+<span class="n">spike_timestamps</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">spike_times</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the stimulus table</span>
+<span class="n">stimulus_table</span> <span class="o">=</span> <span class="n">nwbfile_read</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">stimulus_table</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;start_time&#39;, &#39;stop_time&#39;, &#39;site&#39;, &#39;power&#39;, &#39;param_group&#39;,
+       &#39;emission_location&#39;, &#39;duration&#39;, &#39;rise_time&#39;, &#39;num_pulses&#39;,
+       &#39;wavelength&#39;, &#39;type&#39;, &#39;inter_pulse_interval&#39;, &#39;stimulus_template_name&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select the highest power trials where the light emission was on the same probe the unit is on</span>
+<span class="n">unit_device</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">device_name</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+<span class="n">max_laser_power</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">stimulus_table</span><span class="p">[</span><span class="s1">&#39;power&#39;</span><span class="p">])</span> <span class="c1"># be careful with this in the future, different color lasers are sometimes presented at different powers!</span>
+
+<span class="n">filtered_stimulus_table</span> <span class="o">=</span> <span class="n">stimulus_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;emission_location == @unit_device and power == @max_laser_power&#39;</span><span class="p">)</span>
+<span class="n">filtered_stimulus_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>site</th>
+      <th>power</th>
+      <th>param_group</th>
+      <th>emission_location</th>
+      <th>duration</th>
+      <th>rise_time</th>
+      <th>num_pulses</th>
+      <th>wavelength</th>
+      <th>type</th>
+      <th>inter_pulse_interval</th>
+      <th>stimulus_template_name</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>8993.010352</td>
+      <td>8993.050352</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>638</td>
+      <td>internal_red</td>
+      <td>0.04</td>
+      <td>internal_red-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>9009.575600</td>
+      <td>9009.605600</td>
+      <td>7</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>638</td>
+      <td>internal_red</td>
+      <td>0.04</td>
+      <td>internal_red-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>9011.553267</td>
+      <td>9011.603267</td>
+      <td>6</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>9014.826554</td>
+      <td>9014.876554</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>638</td>
+      <td>internal_red</td>
+      <td>0.04</td>
+      <td>internal_red-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>9020.874354</td>
+      <td>9020.914354</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>13942</th>
+      <td>14608.399733</td>
+      <td>14608.429733</td>
+      <td>5</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>13946</th>
+      <td>14609.996933</td>
+      <td>14610.036933</td>
+      <td>6</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>13964</th>
+      <td>14617.274400</td>
+      <td>14617.324400</td>
+      <td>8</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>638</td>
+      <td>internal_red</td>
+      <td>0.04</td>
+      <td>internal_red-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>13986</th>
+      <td>14626.153300</td>
+      <td>14626.213300</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+    <tr>
+      <th>13989</th>
+      <td>14627.368767</td>
+      <td>14627.398767</td>
+      <td>12</td>
+      <td>0.1</td>
+      <td>train</td>
+      <td>ProbeA</td>
+      <td>0.01</td>
+      <td>0.001</td>
+      <td>5</td>
+      <td>450</td>
+      <td>internal_blue</td>
+      <td>0.04</td>
+      <td>internal_blue-train-0.1mW</td>
+    </tr>
+  </tbody>
+</table>
+<p>1400 rows × 13 columns</p>
+</div></div></div>
+</div>
+<p>There’s both red and blue laser pulses in this stimulus table. Let’s try plotting the unit responses to both to see if either evokes a response. To do this, we’ll create a “raster plot”: a plot showing the spike times for each trial aligned to an event, in this case the laser onset. As such, we will need to convert the absolute spike times over the course of the whole experiment to relative spike times (relative to laser onset). We can do this with numpy’s searchsorted function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span> <span class="c1"># time range (in seconds) to plot around each laser onset event</span>
+
+<span class="n">blue_laser_stim_table</span> <span class="o">=</span> <span class="n">filtered_stimulus_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;type == &quot;internal_blue&quot;&#39;</span><span class="p">)</span>
+<span class="n">red_laser_stim_table</span> <span class="o">=</span> <span class="n">filtered_stimulus_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;type == &quot;internal_red&quot;&#39;</span><span class="p">)</span>
+<span class="n">blue_laser_onset_timestamps</span> <span class="o">=</span> <span class="n">blue_laser_stim_table</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">red_laser_onset_timestamps</span> <span class="o">=</span> <span class="n">red_laser_stim_table</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s make a function that can convert absolute timestamps to relative timestamps, as this will come in handy a lot!</span>
+
+<span class="k">def</span> <span class="nf">event_locked_timestamps</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">,</span> <span class="n">event_timestamps</span><span class="p">,</span> <span class="n">time_range</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts spike timestamps over course of entire session to time stamps relative to an event.</span>
+
+<span class="sd">    :param spike_timestamps: 1d array of floats, times a spike occurred over course of session</span>
+<span class="sd">    :param event_timestamps: 1d array of floats, times an event occurred over course of session</span>
+<span class="sd">    :param time_range: time range relative to event onset over which to collect spike times for each trial</span>
+<span class="sd">    :return: event_locked_spike_times: list of arrays (1 per trial), array contains spike times relative to event onset</span>
+<span class="sd">    for that trial</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Ntrials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">event_timestamps</span><span class="p">)</span>
+
+    <span class="n">event_locked_spike_times</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ind_trial</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Ntrials</span><span class="p">):</span>
+        <span class="n">time_range_this_trial</span> <span class="o">=</span> <span class="n">event_timestamps</span><span class="p">[</span><span class="n">ind_trial</span><span class="p">]</span> <span class="o">+</span> <span class="n">time_range</span>
+        <span class="n">spike_inds_this_trial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">,</span> <span class="n">time_range_this_trial</span><span class="p">)</span>
+        <span class="n">spike_times_this_trial</span> <span class="o">=</span> <span class="n">spike_timestamps</span><span class="p">[</span><span class="n">spike_inds_this_trial</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">spike_inds_this_trial</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">event_locked_spike_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spike_times_this_trial</span> <span class="o">-</span> <span class="n">event_timestamps</span><span class="p">[</span><span class="n">ind_trial</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">event_locked_spike_times</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+
+<span class="c1"># another useful function to convert timestamps to counts per bin</span>
+<span class="k">def</span> <span class="nf">timestamps_to_spike_counts</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts timestamps at which spikes occurred to spike counts per time bin.</span>
+<span class="sd">    :param spike_timestamps: should be a list of lists (one list per trial)</span>
+<span class="sd">    :param bins: time ranges over which to calculate number of spikes</span>
+<span class="sd">    :return: spike_counts: numpy array, dimensions num trials x len(bins)-1, number of spikes that happened in each time</span>
+<span class="sd">    bin for each trial</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Ntrials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">)</span>
+    <span class="n">spike_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Ntrials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ntrials</span><span class="p">):</span>
+        <span class="n">this_spike_counts</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">spike_counts</span><span class="p">[</span><span class="n">trial</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">this_spike_counts</span>
+
+    <span class="k">return</span> <span class="n">spike_counts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blue_laser_locked_spike_timestamps</span> <span class="o">=</span> <span class="n">event_locked_timestamps</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">,</span> <span class="n">blue_laser_onset_timestamps</span><span class="p">,</span> <span class="n">time_range</span><span class="p">)</span>
+<span class="n">red_laser_locked_spike_timestamps</span> <span class="o">=</span> <span class="n">event_locked_timestamps</span><span class="p">(</span><span class="n">spike_timestamps</span><span class="p">,</span> <span class="n">red_laser_onset_timestamps</span><span class="p">,</span> <span class="n">time_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a raster plot of all trials!</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Ntrials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ntrials</span><span class="p">):</span>
+    <span class="n">this_raster</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="p">(</span><span class="n">trial</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">])),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Trial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time from laser onset (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">time_range</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Blue stim&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Ntrials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">red_laser_locked_spike_timestamps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ntrials</span><span class="p">):</span>
+    <span class="n">this_raster</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">red_laser_locked_spike_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="p">(</span><span class="n">trial</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">red_laser_locked_spike_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">])),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time from laser onset (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">time_range</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Red stim&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f57f1a77e80&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/fa21b12371552d618c75ed980d04bfd2287c861f7832f6503eac98934e03976c.png" src="../../../_images/fa21b12371552d618c75ed980d04bfd2287c861f7832f6503eac98934e03976c.png" />
+</div>
+</div>
+<p>Looks like there might be a weak response to blue laser… but wait! The NPopto has 14 emission sites, and the trials from all of these are interleaved! Let’s try grouping trials by emission site and see if we see anything.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emission_sites_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">blue_laser_stim_table</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">emission_sites_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">red_laser_stim_table</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emission_sites</span> <span class="o">=</span> <span class="p">[</span><span class="n">emission_sites_blue</span><span class="p">,</span> <span class="n">emission_sites_red</span><span class="p">]</span>
+<span class="n">locked_timestamps</span> <span class="o">=</span> <span class="p">[</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">,</span> <span class="n">red_laser_locked_spike_timestamps</span><span class="p">]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Blue stim&#39;</span><span class="p">,</span> <span class="s1">&#39;Red stim&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">emission_site</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">emission_sites</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">emission_site</span><span class="p">):</span>
+        <span class="n">trials_this_site</span> <span class="o">=</span> <span class="n">emission_site</span> <span class="o">==</span> <span class="n">site</span>
+        <span class="n">this_laser_locked_timestamps</span> <span class="o">=</span> <span class="n">locked_timestamps</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="n">trials_this_site</span><span class="p">]</span>
+        <span class="n">Ntrials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">this_laser_locked_timestamps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ntrials</span><span class="p">):</span>
+            <span class="n">this_raster</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">this_laser_locked_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">],</span> <span class="n">site</span> <span class="o">*</span> <span class="p">(</span><span class="n">trial</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">this_laser_locked_timestamps</span><span class="p">[</span><span class="n">trial</span><span class="p">])),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    
+    <span class="c1"># set the y labels to be the different emission sites</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">y_ticks</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">emission_site</span><span class="p">)</span><span class="o">-</span><span class="mi">25</span> <span class="c1">#so each tick is in the middle of the 50 trial range</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">emission_site</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ind</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Emission site&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time from laser onset (s)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">time_range</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.75&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/71ca96d805556ace38d588e668e375a77875b274657720ff2c15e17f88c57a7a.png" src="../../../_images/71ca96d805556ace38d588e668e375a77875b274657720ff2c15e17f88c57a7a.png" />
+</div>
+</div>
+<p>Definitely a strong response when blue laser is presented at emission site 1! But how do we quantify it? An obvious answer is to see if the increase in firing rate is statistically significant. Since the laser presentation has five pulses, we can also check how consistent the response is by testing if every pulse has a significant response.</p>
+<p>There are 14 emission sites. How do we know which one to select for testing? We could test all 14, then correct for multiple comparisons. Alternatively, we could determine which one elicits the largest increase in firing rate, or the lowest latency response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># applying the strategy of testing every emission site</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">multipletests</span>
+
+<span class="n">pulse_duration</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">blue_laser_stim_table</span><span class="o">.</span><span class="n">duration</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">first_pulse_time_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">pulse_duration</span><span class="p">]</span>
+<span class="n">baseline_time_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">pulse_duration</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">first_pulse_counts</span> <span class="o">=</span> <span class="n">timestamps_to_spike_counts</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">,</span> <span class="n">first_pulse_time_range</span><span class="p">)</span>
+<span class="n">baseline_counts</span> <span class="o">=</span> <span class="n">timestamps_to_spike_counts</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">,</span> <span class="n">baseline_time_range</span><span class="p">)</span>
+
+<span class="n">all_site_pvals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">emission_site</span><span class="p">):</span>
+    <span class="n">trials_this_site</span> <span class="o">=</span> <span class="n">emission_sites_blue</span> <span class="o">==</span> <span class="n">site</span>
+    <span class="n">this_site_pulse_counts</span> <span class="o">=</span> <span class="n">first_pulse_counts</span><span class="p">[</span><span class="n">trials_this_site</span><span class="p">]</span>
+    <span class="n">this_site_baseline_counts</span> <span class="o">=</span> <span class="n">baseline_counts</span><span class="p">[</span><span class="n">trials_this_site</span><span class="p">]</span>
+
+    <span class="c1"># paired test</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">statistic</span><span class="p">,</span> <span class="n">pVal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">this_site_pulse_counts</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                                <span class="n">this_site_baseline_counts</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                                <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>  <span class="c1"># wilcoxon test doesn&#39;t like it when there&#39;s no difference between passed values</span>
+        <span class="n">statistic</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">pVal</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">all_site_pvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pVal</span><span class="p">)</span>
+
+<span class="c1"># corrected pvals</span>
+<span class="p">(</span><span class="n">responsive_sites</span><span class="p">,</span> <span class="n">corrected_pVals</span><span class="p">,</span> <span class="n">alphaSidak</span><span class="p">,</span> <span class="n">alphaBonf</span><span class="p">)</span> <span class="o">=</span> <span class="n">multipletests</span><span class="p">(</span><span class="n">all_site_pvals</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;holm&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">responsive_sites</span><span class="p">)</span>
+
+<span class="c1">#print(first_pulse_counts)</span>
+<span class="c1">#print(baseline_counts)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ True False False False False False False False False False False False
+ False False]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like site 1 has a significant response, even after correcting for the 14 comparisons done!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see how many pulses the unit responds to</span>
+<span class="n">num_pulses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">blue_laser_stim_table</span><span class="o">.</span><span class="n">num_pulses</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">inter_pulse_interval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">blue_laser_stim_table</span><span class="o">.</span><span class="n">inter_pulse_interval</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pulse_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">pulse_duration</span> <span class="o">+</span> <span class="n">inter_pulse_interval</span><span class="p">)</span>
+
+<span class="n">trials_best_site</span> <span class="o">=</span> <span class="n">emission_sites_blue</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">baseline_counts_best_site</span> <span class="o">=</span> <span class="n">baseline_counts</span><span class="p">[</span><span class="n">trials_best_site</span><span class="p">]</span>
+
+<span class="n">other_pulse_pvals</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">ind_pulse</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">num_pulses</span><span class="p">):</span>
+    <span class="n">this_pulse_time_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">first_pulse_time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">ind_pulse</span><span class="o">*</span><span class="n">pulse_offset</span><span class="p">,</span> <span class="n">first_pulse_time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">ind_pulse</span><span class="o">*</span><span class="n">pulse_offset</span><span class="p">]</span>
+    <span class="n">this_pulse_counts</span> <span class="o">=</span> <span class="n">timestamps_to_spike_counts</span><span class="p">(</span><span class="n">blue_laser_locked_spike_timestamps</span><span class="p">,</span> <span class="n">this_pulse_time_range</span><span class="p">)</span>
+    <span class="n">this_pulse_best_site_counts</span> <span class="o">=</span> <span class="n">this_pulse_counts</span><span class="p">[</span><span class="n">trials_best_site</span><span class="p">]</span>
+
+    <span class="c1"># paired test</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">statistic</span><span class="p">,</span> <span class="n">pVal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">this_pulse_best_site_counts</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                                <span class="n">baseline_counts_best_site</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                                <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>  <span class="c1"># wilcoxon test doesn&#39;t like it when there&#39;s no difference between passed values</span>
+        <span class="n">statistic</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">pVal</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">other_pulse_pvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pVal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">responsive_pulses</span><span class="p">,</span> <span class="n">corrected_pVals</span><span class="p">,</span> <span class="n">alphaSidak</span><span class="p">,</span> <span class="n">alphaBonf</span><span class="p">)</span> <span class="o">=</span> <span class="n">multipletests</span><span class="p">(</span><span class="n">other_pulse_pvals</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;holm&#39;</span><span class="p">)</span>
+<span class="n">responsive_pulses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This unit has a significant response to all five blue laser pulses! That means this unit is likely a tagged D1 cell. (Though it would be good to check the responses to red laser as well: this mouse has D2 cells tagged with ChRmine, which has a broad activation spectrum and often responds to both blue and red laser, while CoChR responds to only blue. While we looked at the raster of the red response, you should double check for significant responses!).</p>
+<p>There are often other tests applied to determine if a unit is tagged or not, most notably to check the latency of the response to make sure you’re not getting indirect inactivation via synaptic transmission, but this is less of a concern here since medium spiny neurons in striatum are GABAergic.</p>
+<p>You can now apply these tests to every unit in this session to determine which units are tagged and learn their identities!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ctlut"
+        },
+        kernelOptions: {
+            name: "ctlut",
+            path: "./physiology/ephys/cell-type-lookup-table"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ctlut'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ctlut-accessing-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing cell type lookup table data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../np-ultra/npultra-psychedelics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Neuropixels Ultra &amp; Psychedelics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-tagged-cells">Identifying tagged cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-cell-responses">Visualizing cell responses</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

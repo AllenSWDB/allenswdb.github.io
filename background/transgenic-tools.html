@@ -1,0 +1,1072 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Transgenic tools &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'background/transgenic-tools';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/background/transgenic-tools.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Behavioral apparatus" href="experimental-setup.html" />
+    <link rel="prev" title="Mouse visual system" href="Mouse-visual-system.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="background.html">Background</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/background/transgenic-tools.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fbackground/transgenic-tools.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/background/transgenic-tools.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Transgenic tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cre-lox-recombination-approaches">Cre/lox recombination approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-lines-used-here">Driver lines used here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporter-lines-used-here">Reporter lines used here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viruses-used-here">Viruses used here</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-aavs">Traditional AAVs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancer-aavs">Enhancer AAVs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-transgenic-tools-impact-physiology-or-behavior">Do transgenic tools impact physiology or behavior?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="transgenic-tools">
+<span id="background-transgenic-tools"></span><h1>Transgenic tools<a class="headerlink" href="#transgenic-tools" title="Permalink to this heading">#</a></h1>
+<p>There are a large number of transgenic tools available that enable scientists to
+visualize, record, and manipulate cells in the mouse. We will briefly describe
+the general transgenic approaches that we use here, but this is not an
+exhaustive explanation of this full space.</p>
+<section id="cre-lox-recombination-approaches">
+<h2>Cre/lox recombination approaches<a class="headerlink" href="#cre-lox-recombination-approaches" title="Permalink to this heading">#</a></h2>
+<p>The Cre/lox recombination system is a conditional approach that allows genes to
+be removed or expressed within specific tissues or cell types. Cre is a
+site-specific recombinase that drives the recombination of DNA specifically at
+lox-P sites. Engineering loxP on either side of a gene of interest in a cell
+that expresses Cre will result in that gene being removed from that cell. This
+technique can be used to induce the expression of a gene of interest by having a
+loxP-STOP-loxP sequence in front of the gene of interest. Without Cre, this gene
+will not be expressed due to the STOP sequence. But when Cre is present, the
+STOP sequence is removed, and the gene will be expressed. This is how we have
+used <a class="reference internal" href="../glossary.html#term-Cre-line"><span class="xref std std-term">Cre line</span></a>s in these experiments to drive the expression of chosen reporters.</p>
+<figure class="align-center" id="cre-lox-ref">
+<a class="reference internal image-reference" href="../_images/cre-lox-fig-4.png"><img alt="../_images/cre-lox-fig-4.png" src="../_images/cre-lox-fig-4.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Excising a STOP sequence with Cre induces expression of the gene of interest.
+Image taken from
+<a class="reference external" href="https://www.jax.org/news-and-insights/jax-blog/2011/September/cre-lox-breeding">The Jackson Laboratory</a>. :::</span><a class="headerlink" href="#cre-lox-ref" title="Permalink to this image">#</a></p>
+<div class="legend">
+<p>Genes of interest can be inserted into the mouse with the use of viruses, or the
+creation of transgenic mouse lines that have the gene inserted into their
+genome. A common technique for using transgenic mice is to create separate
+<em><a class="reference internal" href="../glossary.html#term-Driver-line"><span class="xref std std-term">driver line</span></a>s</em> and <em><a class="reference internal" href="../glossary.html#term-Reporter-line"><span class="xref std std-term">reporter line</span></a>s</em>, then crossing them together in order to get
+the desired gene into the desired brain region/cell type/etc. This is much more
+efficient than making making a separate line for every possible gene to be
+directly expressed in every possible cell type: driver and reporter lines allow
+us to “mix and match” and create the exact combination we need for a given
+experiment.</p>
+<figure class="align-center" id="cre-lox-ref2">
+<a class="reference internal image-reference" href="../_images/cre-lox-fig-5.png"><img alt="../_images/cre-lox-fig-5.png" src="../_images/cre-lox-fig-5.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Crossing a driver line with a reporter line results in offspring expressing the
+reporter in a subset of cells defined by the driver line. Image taken from
+<a class="reference external" href="https://www.jax.org/news-and-insights/jax-blog/2011/September/cre-lox-breeding">The Jackson Laboratory</a>.</span><a class="headerlink" href="#cre-lox-ref2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="driver-lines-used-here">
+<h2>Driver lines used here<a class="headerlink" href="#driver-lines-used-here" title="Permalink to this heading">#</a></h2>
+<p>A driver line is a transgenic mouse line in which mice have had the gene for Cre
+or another recombinase (such as tTA) inserted into their genome, commonly under the control of
+a specific promoter. Promoters are often expressed pretty broadly across the
+brain, but can also be extremely specific. Here are the driver lines and their
+expression patterns for lines used in our data sets. Note that in the absence of
+a reporter, Cre on its own does not greatly affect the mouse’s physiology.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>MGI ID</p></th>
+<th class="head"><p>Datasets</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Adora2a-Cre</p></td>
+<td><p>In striatum, drives expression in medium spiny neurons (MSNs) expressing the D2 dopamine receptor. These are MSNs part of the indirect pathway.</p></td>
+<td><p>MGI:3852493</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-odd"><td><p>Camk2a-tTA</p></td>
+<td><p>A broadly expressed promoter that uses the tetracycline-controlled transactivator protein (tTA) to drive the expression of reporters under the TRE or tetO element. In many of our applications, we combine both Cre and tTA to drive the expression of our reporters.</p></td>
+<td><p></p></td>
+<td><p>BCI, Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive</p></td>
+</tr>
+<tr class="row-even"><td><p>Cart-IRES2-Cre</p></td>
+<td><p>Targets Cocaine- and amphetamine-regulated transcript gene expressing neurons. This gene encodes a preproprotein that is proteolytically processed to generate multiple biologically active peptides. These peptides play a role in appetite, energy balance, maintenance of body weight, reward and addiction, and the stress response. This line was chosen to label neurons in the medial habenula and the paraventricular nucleus of the thalamus.</p></td>
+<td><p>MGI:5704439</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chat-IRES-Cre-neo</p></td>
+<td><p>Drives expression in cholinergic neurons.</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Cux2-CreERT2</p></td>
+<td><p>In cortex, drives expression in excitatory neurons in layer 2/3 and 4.</p></td>
+<td><p>MGI:5014172</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dbh-Cre-KI</p></td>
+<td><p>Labels a small population of ~1200 neurons in the Pons (per hemisphere) that release norepinephrine to targets brainwide (except striatum).</p></td>
+<td><p>MGI:6305870</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-even"><td><p>Drd1a-Cre</p></td>
+<td><p>In striatum, drives expression in medium spiny neurons (MSNs) expressing the D1 dopamine receptor. These are MSNs part of the direct pathway.</p></td>
+<td><p></p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-odd"><td><p>Emx1-IRES-Cre</p></td>
+<td><p>In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Emx1-IRES-Cre;Camk2a-tTA;Ai93 and Emx1-IRES-Cre;Camk2a-tTA;Ai94 mice were found to exhibit inter-ictal events suggesting that the dense expression of GCaMP6 throughout development could be disrupting normal physiological activity. <span id="id1">[<a class="reference internal" href="../bibliography.html#id11" title="Nicholas A. Steinmetz, Christina Buetfering, Jerome Lecoq, Christian R. Lee, Andrew J. Peters, Elina A. K. Jacobs, Philip Coen, Douglas R. Ollerenshaw, Matthew T. Valley, Saskia E. J. de Vries, Marina Garrett, Jun Zhuang, Peter A. Groblewski, Sahar Manavi, Jesse Miles, Casey White, Eric Lee, Fiona Griffin, Joshua D. Larkin, Kate Roll, Sissy Cross, Thuyanh V. Nguyen, Rachael Larsen, Julie Pendergraft, Tanya Daigle, Bosiljka Tasic, Carol L. Thompson, Jack Waters, Shawn Olsen, David J. Margolis, Hongkui Zeng, Michael Hausser, Matteo Carandini, and Kenneth D. Harris. Aberrant cortical activity in multiple GCaMP6-expressing transgenic mouse lines. eNeuro, 4:464–73, 2017. doi:10.1523/ENEURO.0207-17.2017.">Steinmetz <em>et al.</em>, 2017</a>]</span></p></td>
+<td><p>MGI:2684610</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-even"><td><p>Fezf2-CreER</p></td>
+<td><p>In cortex, drives expression in corticofugal excitatory neurons in layer 5.</p></td>
+<td><p>MGI:6720836</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gal-Cre_KI187</p></td>
+<td><p>Targets neurons that express the neuropeptide Galanin, chosen to label neurons in midline and interlaminar nuclei in the thalamus. Also targets cells in the hypothalamus, pons and medulla.</p></td>
+<td><p>MGI:4367008</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-even"><td><p>Nr5a1-Cre</p></td>
+<td><p>In cortex, drives expression in excitatory neurons in layer 6.</p></td>
+<td><p></p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ntsr1-Cre_GN220</p></td>
+<td><p>In cortex, drives expression in a sub-population of excitatory neurons in layer 4.</p></td>
+<td><p>MGI:3836636</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-even"><td><p>Pvalb-IRES-Cre</p></td>
+<td><p>Drives expression in Parvalbumin inhibitory interneurons.</p></td>
+<td><p>MGI:3590684</p></td>
+<td><p>Visual Coding 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rbp4-Cre_KL100</p></td>
+<td><p>In cortex, drives expression in excitatory neurons in layer 5.</p></td>
+<td><p>MGI:4367067</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-even"><td><p>Rorb-IRES2-Cre</p></td>
+<td><p>In cortex, drives expression in a sub-population of excitatory neurons in layer 4.</p></td>
+<td><p>MGI:5507855</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scnn1a-Tg3-Cre</p></td>
+<td><p>In cortex, drives expression in a sub-population of excitatory neurons in layer 4. Only found in primary sensory areas (e.g. VISp).</p></td>
+<td><p>MGI:3850187</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-even"><td><p>Sim1-Cre-KJ18</p></td>
+<td><p>In cortex, drives expression in cortico-subcortical projecting excitatory neurons in layer 5.</p></td>
+<td><p></p></td>
+<td><p>NP Ultra &amp; Psychedelics</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slc17a6-IRES-Cre</p></td>
+<td><p>Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex.</p></td>
+<td><p>MGI:6758055</p></td>
+<td><p>BCI</p></td>
+</tr>
+<tr class="row-even"><td><p>Slc17a7-IRES2-Cre</p></td>
+<td><p>In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5.</p></td>
+<td><p>MGI:5507862</p></td>
+<td><p>Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sst-IRES-Cre</p></td>
+<td><p>Drives expression in Somatostatin inhibitory interneurons.</p></td>
+<td><p></p></td>
+<td><p>Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels</p></td>
+</tr>
+<tr class="row-even"><td><p>Tlx3-Cre_PL56</p></td>
+<td><p>In cortex, drives expression in cortico-cortical projecting excitatory neurons in layer 5.</p></td>
+<td><p>MGI:5311700</p></td>
+<td><p>Visual Coding 2P, NP Ultra and Psychedelics</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vip-IRES-Cre</p></td>
+<td><p>Drives expression in Vasoactive Intestinal Peptide inhibitory interneurons.</p></td>
+<td><p></p></td>
+<td><p>Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="reporter-lines-used-here">
+<h2>Reporter lines used here<a class="headerlink" href="#reporter-lines-used-here" title="Permalink to this heading">#</a></h2>
+<p>A reporter line is a transgenic mouse line in which mice have had the gene for a
+<em>reporter</em> inserted into their genome, with a lox-STOP-lox preceding it so that
+expression does not occur in the absence of Cre. Common reporters are
+fluorescent proteins (like GFP), opsins (like ChR2), or calcium indicators (like
+GCaMP). Here are the reporter lines used in our datasets:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Shorthand</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>MGI ID</p></th>
+<th class="head"><p>Datasets</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ai93</p></td>
+<td><p>TITL-GCaMP6f-D</p></td>
+<td><p>Cre/Tet dependent fluorescent GCaMP6f indicator expressing GCaMP6 <i>fast</i>. This is often used alongside Camk2a-tTA to enhance the expression in excitatory neurons.</p></td>
+<td><p>MGI:5558086</p></td>
+<td><p>Visual Coding 2P, Visual Behavior 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ai94</p></td>
+<td><p>TITL-GCaMP6s;Rosa26-ZtTA</p></td>
+<td><p>Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is often used alongside Camk2a-tTA to enhance the expression in excitatory neurons.</p></td>
+<td><p>MGI:5607576</p></td>
+<td><p>Visual Coding 2P, V1 Deep Dive</p></td>
+</tr>
+<tr class="row-even"><td><p>Ai148</p></td>
+<td><p>TIT2L-GC6f-ICL-tTA2_D</p></td>
+<td><p>Cre/Tet dependent fluorescent GCaMP6f indicator expressing GCaMP6 <i>fast</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drive higher expression.</p></td>
+<td><p>MGI:5904003</p></td>
+<td><p>Visual Coding 2P, Visual Behavior 2P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ai162</p></td>
+<td><p>TIT2L-GC6s-ICL-tTA2_D</p></td>
+<td><p>Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drives higher expression.</p></td>
+<td><p>MGI:6151062</p></td>
+<td><p>Visual Coding 2P</p></td>
+</tr>
+<tr class="row-even"><td><p>Ai166</p></td>
+<td><p>TIT2L-MORF-ICL-tTA2</p></td>
+<td><p>A Cre dependent reporter that drives sparse labeling with GFP. The MORF introduces a stochastic translational switch, only labeling 1-5% of Cre+ neurons.</p></td>
+<td><p>MGI:6441963</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ai32</p></td>
+<td><p>Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE</p></td>
+<td><p>Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm).</p></td>
+<td><p>MGI:5013789</p></td>
+<td><p>Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra &amp; Psychedelics</p></td>
+</tr>
+<tr class="row-even"><td><p>TetO-GCaMP6s</p></td>
+<td><p>TetO-GCaMP6s</p></td>
+<td><p>MGI:5553332</p></td>
+<td><p>V1 Deep Dive</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ai167</p></td>
+<td><p>TIT2L-ChrimsonR-tdTomato-ICL-tTA2-WPRE</p></td>
+<td><p>Cre dependent expression of ChrimsonR fused to enhanced red fluorescent protein (tdTomato) for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (620-750 nm).</p></td>
+<td><p>MGI:7712128</p></td>
+<td><p>NP Ultra &amp; Psychedelics</p></td>
+</tr>
+<tr class="row-even"><td><p>Ai230</p></td>
+<td><p>TIT2L-XCaMPG-WPRE-ICL-ChRmine-oScarlet-IRES2-tTA2-WPRE</p></td>
+<td><p>Cre dependent expression of ChRmine fused to red fluorescent protein (oScarlet) with the capacity for dual ChRmine-oScarlet/XCaMP-G reporting in the presence of Cre and tTA</p></td>
+<td><p>MGI:7482009</p></td>
+<td><p>BCI</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="viruses-used-here">
+<h2>Viruses used here<a class="headerlink" href="#viruses-used-here" title="Permalink to this heading">#</a></h2>
+<p>Another technique for delivering transgenes to a mouse is to use viruses,
+typically adeno-associated viruses (AAVs). The gene of interest is inserted into
+the AAV genome. When a mouse is injected with the virus, the inserted gene is
+delivered to infected cells. Viruses are commonly used together with driver or
+reporter lines, though the recently developed enhancer viruses allow delivery of
+transgenes to specific cell populations even in wild-type mice. Here are the
+viruses used in our data sets:</p>
+<section id="traditional-aavs">
+<h3>Traditional AAVs<a class="headerlink" href="#traditional-aavs" title="Permalink to this heading">#</a></h3>
+<p>These AAVs can be paired with driver or reporter lines to drive expression of
+the gene of interest. In our specific data sets, we injected viruses containing
+<em>floxed</em> (flanked by loxp) genes into mouse driver lines, ensuring that
+expression only takes place if the gene infects a cell that is already
+expressing Cre.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Datasets</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AAV2-Syn-Flex-ChrimsonR-tdTomato</p></td>
+<td><p>Cre dependent expression of ChrimsonR, fused with tdTomato for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (590 nm peak).</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-odd"><td><p>pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE</p></td>
+<td><p>Cre dependent expression of ChRmine, fused with mScarlet for visualization. Cells expressing ChRmine are depolarized by illumination with yellow light (520 nm peak).</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-even"><td><p>AAV5-hSyn-DIO-somBiPOLES-mCerulean</p></td>
+<td><p>Cre dependent expression of BiPOLES, fused with mCerulean for visualization. BiPOLES is a fusion of ChrminsonR and GtACR, meaning cells expressing it are depolarized by red light and hyperpolarized by blue light.</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-odd"><td><p>AAV-PHP-eB_Syn-Flex-2xTRE-tTA</p></td>
+<td><p>Cre dependent tTA promoter. Often this is used to regulate the gain of expression of Cre/Tet dependent reporters - e.g. to get sparse but strong labeling.</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-even"><td><p>AAV-PHP-eB-7xTRE-3x-GFP</p></td>
+<td><p>A Cre/Tet dependent reporter that expresses <a class="reference internal" href="../glossary.html#term-GFP"><span class="xref std std-term">GFP</span></a>.</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-odd"><td><p>AAV-PHP-eB-7xTRE-TdTomato</p></td>
+<td><p>A Cre/Tet dependent reporter that expresses TdTomato, a red fluorescent protein.</p></td>
+<td><p>Single Cell Morphology</p></td>
+</tr>
+<tr class="row-even"><td><p>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</p></td>
+<td><p>A reporter that drives expression of GCaMP8s calcium indicator in soma</p></td>
+<td><p>BCI</p></td>
+</tr>
+<tr class="row-odd"><td><p>pAAV-CaMK11a-ChRmine-oScarlet-Kv2.1-WPRE</p></td>
+<td><p>CaMK11a driven expression of channelrhodopsin ChRmine fused with oScarlet for visualization</p></td>
+<td><p>BCI</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="enhancer-aavs">
+<h3>Enhancer AAVs<a class="headerlink" href="#enhancer-aavs" title="Permalink to this heading">#</a></h3>
+<p>These AAVs deliver genes together with an <em>enhancer</em> sequence. These enhancers
+have been selected based on their abundance in specific cell types: as such, the
+gene will only expressed if the virus infects a cell that makes use of this
+specific enhancer. This allows us to deliver genes directly to a specific cell
+type without needing to use a driver line.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>description</p></th>
+<th class="head"><p>datasets</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rAAV-3xcore2_eHGT_779m-minBG-CoChR-EGFP-WPRE3-BGHpA</p></td>
+<td><p>D1 enhancer - CoChR. Drives expression of CoChR in direct pathway MSNs, fused with GFP for visualization.</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-odd"><td><p>rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA</p></td>
+<td><p>D2 enhancer - CoChR. Drives expression of CoChR in indirect pathway MSNs, fused with GFP for visualization.</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+</tr>
+<tr class="row-even"><td><p>rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA</p></td>
+<td><p>D2 enhancer - CoChR</p></td>
+<td><p>Drives expression of</p></td>
+</tr>
+<tr class="row-odd"><td><p>CoChR in indirect pathway MSNs, fused with GFP for visualization.</p></td>
+<td><p>Cell Type Lookup Table</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="do-transgenic-tools-impact-physiology-or-behavior">
+<h2>Do transgenic tools impact physiology or behavior?<a class="headerlink" href="#do-transgenic-tools-impact-physiology-or-behavior" title="Permalink to this heading">#</a></h2>
+<p>Using transgenic tools to record or manipulate activity rests on an assumption that the expression of these tools does not greatly impact the underlying physiology or behavior that is being studied. Is this a fair assumption? Largely yes, but not 100%.</p>
+<p>The exogenous expression of proteins have been shown to have neurotoxic effects. One notable example is the occurrence of aberrant electrical events in (primarily) Emx1-IRES-Cre;Camk2a-tTA;Ai93 mice that resemble interictal events. These are large, concerted electrical events that spread across most of cortex. As putative interictal events, these might be associated with epileptiform seizures, though they themselves are not seizures. Indeed, no other aberrant behavior or activity was reported in these mice. And while the mechanism of why these mice exhibit these events is unclear, it is likely related to very broad exogenous expression of tTA and GCaMP6f starting very early in development. <span id="id2">[<a class="reference internal" href="../bibliography.html#id11" title="Nicholas A. Steinmetz, Christina Buetfering, Jerome Lecoq, Christian R. Lee, Andrew J. Peters, Elina A. K. Jacobs, Philip Coen, Douglas R. Ollerenshaw, Matthew T. Valley, Saskia E. J. de Vries, Marina Garrett, Jun Zhuang, Peter A. Groblewski, Sahar Manavi, Jesse Miles, Casey White, Eric Lee, Fiona Griffin, Joshua D. Larkin, Kate Roll, Sissy Cross, Thuyanh V. Nguyen, Rachael Larsen, Julie Pendergraft, Tanya Daigle, Bosiljka Tasic, Carol L. Thompson, Jack Waters, Shawn Olsen, David J. Margolis, Hongkui Zeng, Michael Hausser, Matteo Carandini, and Kenneth D. Harris. Aberrant cortical activity in multiple GCaMP6-expressing transgenic mouse lines. eNeuro, 4:464–73, 2017. doi:10.1523/ENEURO.0207-17.2017.">Steinmetz <em>et al.</em>, 2017</a>]</span></p>
+<p>We further examined whether transgenic expression of GCaMP6 effect physiology this was by performing Neuropixels recordings from mice expressing GCaMP6f under the control of several of the driver lines used in the Visual Coding 2P dataset. The question here is whether the exogenous expression of these proteins (Cre, tTA, and GCaMP6f) in particular neurons would alter the underlying physiology of the population.  We compared recordings from Vip-IRES-Cre;Ai148, Sst-IRES-Cre;Ai148, Cux2-CreERT2;Camk2a-tTA;Ai93, and Slc17a7-IRES2-Cre;Camk2a-tTA;Ai93 with those from wild-type mice. Comparing unit yield, firing rate, burst fractions, responsiveness, and lifetime sparseness, we did not find significant differences between these populations. <span id="id3">[<a class="reference internal" href="../bibliography.html#id41" title="Joshua H Siegle, Peter Ledochowitsch, Xiaoxuan Jia, Daniel J Millman, Gabriel K Ocker, Shiella Caldejon, Linzy Casal, Andy Cho, Daniel J Denman, Séverine Durand, Peter A Groblewski, Gregg Heller, India Kato, Sara Kivikas, Jérôme Lecoq, Chelsea Nayan, Kiet Ngo, Philip R Nicovich, Kat North, Tamina K Ramirez, Jackie Swapp, Xana Waughman, Ali Williford, Shawn R Olsen, Christof Koch, Michael A Buice, and Saskia EJ de Vries. Reconciling functional differences in populations of neurons recorded with two-photon imaging and electrophysiology. eLife, 10:e69068, July 2021. doi:10.7554/eLife.69068.">Siegle <em>et al.</em>, 2021</a>]</span></p>
+<figure class="align-center" id="gcamp-neuropixels">
+<a class="reference internal image-reference" href="../_images/gcamp_neuropixels.png"><img alt="../_images/gcamp_neuropixels.png" src="../_images/gcamp_neuropixels.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparing responses across GCaMP-expressing mouse lines. (A) GCaMP expression patterns for the four lines used for ephys experiments. (B) Unit yield (following QC filtering) for five
+areas and five genotypes. Error bars represent standard deviation across experiments; each dot represents a data point from one experiment. (C) Distribution of firing rates for neurons from each mouse line, aggregated across experiments. (D) Distribution of burst fraction (fraction of all spikes that participate in bursts) for neurons from each mouse line, aggregated across experiments. Dots represent the median of each distribution, shown in relation to a reference value of 0.3. (E) Fraction of neurons deemed responsive to drifting gratings, grouped by genotype. (F) Distribution of lifetime sparseness in response to a drifting grating stimulus, grouped by genotype. In panels (C–F), colored numbers indicate the Jensen–Shannon distance
+between the wild-type distribution and the distributions of the four GCaMP-expressing mouse lines. <span id="id4">[<a class="reference internal" href="../bibliography.html#id41" title="Joshua H Siegle, Peter Ledochowitsch, Xiaoxuan Jia, Daniel J Millman, Gabriel K Ocker, Shiella Caldejon, Linzy Casal, Andy Cho, Daniel J Denman, Séverine Durand, Peter A Groblewski, Gregg Heller, India Kato, Sara Kivikas, Jérôme Lecoq, Chelsea Nayan, Kiet Ngo, Philip R Nicovich, Kat North, Tamina K Ramirez, Jackie Swapp, Xana Waughman, Ali Williford, Shawn R Olsen, Christof Koch, Michael A Buice, and Saskia EJ de Vries. Reconciling functional differences in populations of neurons recorded with two-photon imaging and electrophysiology. eLife, 10:e69068, July 2021. doi:10.7554/eLife.69068.">Siegle <em>et al.</em>, 2021</a>]</span></span><a class="headerlink" href="#gcamp-neuropixels" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>However, we do observe some differences in behavior across the different transgenic lines. Most notably, we find that the locomotor behavior and eye movements of mice vary across different transgenic lines. <span id="id5">[<a class="reference internal" href="../bibliography.html#id9" title="Saskia E. J. de Vries, Jerome A. Lecoq, Michael A. Buice, Peter A. Groblewski, Gabriel K. Ocker, Michael Oliver, David Feng, Nicholas Cain, Peter Ledochowitsch, Daniel Millman, Kate Roll, Marina Garrett, Tom Keenan, Leonard Kuan, Stefan Mihalas, Shawn Olsen, Carol Thompson, Wayne Wakeman, Jack Waters, Derric Williams, Chris Barber, Nathan Berbesque, Brandon Blanchard, Nicholas Bowles, Shiella D. Caldejon, Linzy Casal, Andrew Cho, Sissy Cross, Chinh Dang, Tim Dolbeare, Melise Edwards, John Galbraith, Nathalie Gaudreault, Terri L. Gilbert, Fiona Griffin, Perry Hargrave, Robert Howard, Lawrence Huang, Sean Jewell, Nika Keller, Ulf Knoblich, Josh D. Larkin, Rachael Larsen, Chris Lau, Eric Lee, Felix Lee, Arielle Leon, Lu Li, Fuhui Long, Jennifer Luviano, Kyla Mace, Thuyanh Nguyen, Jed Perkins, Miranda Robertson, Sam Seid, Eric Shea-Brown, Jianghong Shi, Nathan Sjoquist, Cliff Slaughterbeck, David Sullivan, Ryan Valenza, Casey White, Ali Williford, Daniela M. Witten, Jun Zhuang, Hongkui Zeng, Colin Farrell, Lydia Ng, Amy Bernard, John W. Phillips, R. Clay Reid, and Christof Koch. A large-scale standardized physiological survey reveals functional organization of the mouse visual cortex. Nature Neuroscience, 23(1):138–151, January 2020. doi:10.1038/s41593-019-0550-9.">de Vries <em>et al.</em>, 2020</a>]</span> Comparing the mean running speed across mice from different transgenic lines, we find significant differences. This largely reflects differences in the amount to time the mice spend running - rather than the mice all running the same amount but at different speeds. Likewise, we see differences in the number of saccades made by mice across transgenic lines. The latter appear to potentially be related to the reporter line more than the driver lines, though this has not been confirmed.</p>
+<figure class="align-center" id="run-saccade-cre">
+<a class="reference internal image-reference" href="../_images/run_saccade_cre.png"><img alt="../_images/run_saccade_cre.png" src="../_images/run_saccade_cre.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">(Top) Distribution of mean running speeds per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session. (Bottom) Distribution of number of saccades made per imaging session for the Visual Coding 2P dataset, per transgenic line. Each dot is a single session.</span><a class="headerlink" href="#run-saccade-cre" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./background"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Mouse-visual-system.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mouse visual system</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="experimental-setup.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Behavioral apparatus</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cre-lox-recombination-approaches">Cre/lox recombination approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-lines-used-here">Driver lines used here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporter-lines-used-here">Reporter lines used here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viruses-used-here">Viruses used here</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-aavs">Traditional AAVs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancer-aavs">Enhancer AAVs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-transgenic-tools-impact-physiology-or-behavior">Do transgenic tools impact physiology or behavior?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

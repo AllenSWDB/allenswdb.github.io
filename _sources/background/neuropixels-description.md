@@ -1,0 +1,77 @@
+# Neuropixels Probes
+
+## TO DO: NEEDS FIGURES
+
+Neuropixels are silicon probes which continuously detect voltage fluctuations in the surrounding neural tissue on 374 or 384 channels (depending on the model). Each channel is split into two separate data streams, or *bands*, on the probes. The *spike band* is digitized at 30 kHz with a 500 Hz high-pass filter, and contains information about {term}`action potential`s fired by neurons directly adjacent to the probe. The *{term}`LFP` band* is digitized at 2.5 kHz, and records the low-frequency (<1000 Hz) fluctuations that result from synchronized neural activity over a wider area. The shanks are generally 10 mm long with a 70 µm width.
+
+Neuropixels 1.0 features 960 recording sites and 384 channels which can be configured for recording. In NP 1.0, the recording sites are squares with an edge length of 12 µm, arranged in four columns aligned in a staggered "checkerboard" pattern. They are positioned with approximately 20 µm center-to-center vertical spacings across a vertical span of approximately 3.8 mm. The geometry allows NP 1.0 data to cover a relatively large patch of the brain with high temporal resolution.
+
+Neuropixels 2.0, by contrast, contains 1,280 recording sites per shank, 384 of which may be active at any given time. The recording sites are also squares with an edge length of 12 µm. The geometry of the recording sites is denser as compared to that of NP 1.0, with a center-to-center vertical spacing of approximately 15 µm between sites. The recording sites are positioned in two vertically aligned columns which are 32 µm apart. The geometry improves the spatial resolution of the device as compared with NP 1.0.
+
+## Neuropixels Opto
+
+The Neuropixels Opto probe is based on the Neuropixels 1.0 probe, but includes added optical stimulation capabilities, making it an excellent tool for optogenetic experiments. Like the NP 1.0, the NP Opto has 384 recording channels and 960 electrodes, and allow simultaneous dual-band recording in the spike band and LFP band. Unlike the NP 1.0, the NP opto also contains integrated photonic waveguides, allowing for light stimulation at 28 *emission sites* down the bottom 1400 um of the shank (14 red sites and 14 blue sites, spaced 100 um apart).
+
+:::{figure} ../resources/NP-opto-configuration.png
+:name: np-opto
+:align: center
+:width: 800
+
+Schematic of the NP Opto channel and site arrangement, courtesy of IMEC.
+:::
+
+The NP Opto is hugely advantageous over more traditional laser stimulation methods, especially for techniques like optotagging. Making sure the electrode locations align with the area illuminated by the laser is a common problem when stimulating with implanted fibers or surface laser stimulation, but the NP Opto solves this issue, as the light emission sites are situated directly on the probe.
+
+## Neuropixels Ultra
+
+The Neuropixels Ultra probe builds upon the Neuropixels 1.0 platform, introducing major improvements in spatial resolution and signal fidelity. Unlike NP 1.0 and 2.0, which feature recording site spacings of ~20 $\mu$m, NP Ultra dramatically increases spatial resolution by using smaller, closely spaced electrodes: 5 $\mu$m × 5 $\mu$m sites arranged with 1 $\mu$m gaps for a total of 6 $\mu$m center-to-center spacing. This ultra-dense configuration enables the capture of neural signals from extremely fine spatial scales, improving the ability to resolve individual units and detect signals with very brief lifetimes.
+
+:::{figure} ../resources/NPUltra/NPUltra_schematic.png
+:name: Neuropixels Ultra site layout and comparison to other NP probes
+:align: center
+:width: 800
+
+Neuropixels Ultra site configuration and comparison to other NP probes. __A__, Schematic of the NP Probe. __B__, Comparison of NP Ultra site layout to NP 1.0 and 2.0 probes. __C__, At-scale reconstruction of a L5 pyramidal neuron compared to an NP Ultra probe in the default 48 x 8 site configuration. __D__, Progammable site configurations for the "switchable" NP Ultra probes. __E__ example average unit waveform collected with the default NP Ultra site configuration. *Top left*, at-scale spatial waveform plot displaying the spatial extent and magnitude of the waveform over the surface of the probe. *Top right*, the spatio-temporal representation of the waveform taken from the column of channels containing the maximum-amplitude channel. *Bottom*, the temporal represenation of the waveform with the maximum amplitude channel in red. 
+:::
+
+Because the number of simultaneously recordable channels is unchanged, this gain in spatial resolution comes with a tradeoff: NP Ultra covers a shorter span of brain tissue compared to NP 1.0 or NP 2.0. As a result, NP Ultra recordings target smaller brain volumes, but with substantially greater detail. This makes the probe particularly well-suited for investigating fine-grained cell type specificity, spike waveform diversity, and high-precision tracking of neuronal drift. Moreover, recent versions of NP Ultra, referred to as “switchable” probes, offer flexible site selection. These allow experimenters to dynamically configure which subset of the high-density electrode array to activate, tailoring spatial coverage and resolution to experimental needs. For example, all units in the NP Ultra Psychedelics dataset where recorded in the 192 x 2 channel configuration, allowing high-density electrodes to span the depth of the cortex (~1152 $\mu$m).
+
+(neuropixels-data-processing)=
+## Processing of Neuropixels extracellular electrophysiology
+
+:::{figure} https://allensdk.readthedocs.io/en/latest/_static/neuropixels_data_processing.png
+:name: np-data-processing-schematic-ref
+:align: center
+:width: 800
+
+Neuropixels data processing
+:::
+
+To go from the raw spike-band data to NWB files, we perform the following processing steps:
+
+1. Median-subtraction to remove common-mode noise from the continuous traces
+2. High-pass filtering (>150 Hz) and whitening across blocks of 32 channels
+3. Spike sorting with [Kilosort2](https://github.com/MouseLand/Kilosort), to
+   detect spikes and assign them to individual units
+4. Computing the mean waveform for each unit
+5. Removing units with artifactual waveforms
+6. Computing quality metrics for every unit
+7. Computing stimulus-specific tuning metrics
+
+For the LFP band, we:
+
+1. Downsample the signals in space and time (every 4th channel and every 2nd sample)
+2. High-pass filter at 0.1 Hz to remove the DC offset from each channel
+3. Re-reference to channels outside of the brain to remove common-mode noise
+
+The packaged NWB files contain:
+
+* Spike times, spike amplitudes, mean waveforms, and quality metrics for every unit
+* Information about the visual stimulus
+* Time series of the mouse’s running speed, pupil diameter, and pupil position
+* LFP traces for channels in the brain
+* Experiment metadata
+
+All code for data processing and packaging is available in the
+[ecephys_spike_sorting](https://github.com/alleninstitute/ecephys_spike_sorting)
+and the ecephys section of the AllenSDK.

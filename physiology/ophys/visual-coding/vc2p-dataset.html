@@ -1,0 +1,1436 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dataset &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/visual-coding/vc2p-dataset';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/visual-coding/vc2p-dataset.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Getting data from a session" href="vc2p-session-data.html" />
+    <link rel="prev" title="Visual Coding — 2-photon" href="vc2p-background.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vc2p-background.html">Visual Coding — 2-photon</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/visual-coding/vc2p-dataset.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/visual-coding/vc2p-dataset.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/visual-coding/vc2p-dataset.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-structures">Targeted structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cre-lines-and-reporters">Cre lines and reporters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imaging-depths">Imaging depths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimuli">Visual stimuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-containers-sessions">Experiment containers &amp; sessions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-how-many-experiment-containers-were-collected-in-each-cortical-visual-area-for-each-cre-line">Exercise: How many experiment containers were collected in each cortical visual area for each Cre line?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-specimen-ids">Cell specimen ids</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="dataset">
+<h1>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h1>
+<p>We will start exploring the parameters of the dataset to learn what data is available.</p>
+<p>First we need to access the dataset. We will use the AllenSDK and the BrainObservatoryCache to do so. First we need to set this up - the key step is to provide a <b>manifest file</b>. The SDK uses this file to know what data is available and organize the files it downloads. If you instantiate the BrainObservatoryCache without providing a manifest file, it will create one in your working directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.core.brain_observatory_cache</span> <span class="kn">import</span> <span class="n">BrainObservatoryCache</span>
+<span class="n">manifest_file</span> <span class="o">=</span> <span class="s1">&#39;../../../data/allen-brain-observatory/visual-coding-2p/manifest.json&#39;</span>
+<span class="n">boc</span> <span class="o">=</span> <span class="n">BrainObservatoryCache</span><span class="p">(</span><span class="n">manifest_file</span><span class="o">=</span><span class="n">manifest_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the BrainObservatoryCache to explore the parameters of the dataset.</p>
+<section id="targeted-structures">
+<h2>Targeted structures<a class="headerlink" href="#targeted-structures" title="Permalink to this heading">#</a></h2>
+<p>What brain regions were recorded across the dataset? To determine this we use a function called <code class="docutils literal notranslate"><span class="pre">get_all_targeted_structures()</span></code> to create a list of the regions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boc</span><span class="o">.</span><span class="n">get_all_targeted_structures</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;VISal&#39;, &#39;VISam&#39;, &#39;VISl&#39;, &#39;VISp&#39;, &#39;VISpm&#39;, &#39;VISrl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that data was collected in six different visual areas. <a class="reference internal" href="../../../glossary.html#term-VISp"><span class="xref std std-term">VISp</span></a> is the
+primary visual cortex, also known as V1. The others are higher visual areas (<a class="reference internal" href="../../../glossary.html#term-HVA"><span class="xref std std-term">HVA</span></a>s) that
+surround VISp. You can learn more about these areas and how we map them
+<a class="reference internal" href="../../../background/Mouse-visual-system.html#mouse-visual-system"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="cre-lines-and-reporters">
+<h2>Cre lines and reporters<a class="headerlink" href="#cre-lines-and-reporters" title="Permalink to this heading">#</a></h2>
+<p>We used <a class="reference internal" href="../../../glossary.html#term-Cre-line"><span class="xref std std-term">Cre line</span></a>s to drive the expression of GCaMP6 in specific populations of neurons. We can find a list of all the cre lines used in this dataset with a similar function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boc</span><span class="o">.</span><span class="n">get_all_cre_lines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Cux2-CreERT2&#39;,
+ &#39;Emx1-IRES-Cre&#39;,
+ &#39;Fezf2-CreER&#39;,
+ &#39;Nr5a1-Cre&#39;,
+ &#39;Ntsr1-Cre_GN220&#39;,
+ &#39;Pvalb-IRES-Cre&#39;,
+ &#39;Rbp4-Cre_KL100&#39;,
+ &#39;Rorb-IRES2-Cre&#39;,
+ &#39;Scnn1a-Tg3-Cre&#39;,
+ &#39;Slc17a7-IRES2-Cre&#39;,
+ &#39;Sst-IRES-Cre&#39;,
+ &#39;Tlx3-Cre_PL56&#39;,
+ &#39;Vip-IRES-Cre&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cre is a driver that drives the expression of a reporter. We used four different <a class="reference internal" href="../../../glossary.html#term-Reporter-line"><span class="xref std std-term">reporter line</span></a>s in this dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boc</span><span class="o">.</span><span class="n">get_all_reporter_lines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ai148(TIT2L-GC6f-ICL-tTA2)&#39;,
+ &#39;Ai162(TIT2L-GC6s-ICL-tTA2)&#39;,
+ &#39;Ai93(TITL-GCaMP6f)&#39;,
+ &#39;Ai93(TITL-GCaMP6f)-hyg&#39;,
+ &#39;Ai94(TITL-GCaMP6s)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reporter lines: All the experiments in this dataset use <a class="reference internal" href="../../../glossary.html#term-GCaMP"><span class="xref std std-term">GCaMP</span></a>6. The large majority use GCaMP6f and only a few use GCaMP6s. However, you see four different reporters listed here. Why is this? Ai93 is the GCaMP6f reporter we used with the excitatory Cre lines. However, this reporter does not work well for inhibitory Cre lines. We used Ai148, another GCaMP6f reporter, with Vip-IRES-Cre and Sst-IRES-Cre. However, this didn’t work with the Pvalb-IRES-Cre. We use Ai162, a GCaMP6s reporter with Pvalb. Additionally, to have a GCaMP6f vs GCaMP6s comparison, we collected a small number of experiments using Ai94 with the Slc17a7-IRES2-Cre. This is a GCaMP6s reporter that complements Ai93. Slc17a7-IRES2-Cre is the only Cre line that was recorded using multiple reporter types.</p>
+</div>
+<p>See <a class="reference internal" href="../../../background/transgenic-tools.html#background-transgenic-tools"><span class="std std-ref">Transgenic tools</span></a> to learn more about these Cre lines and reporters.</p>
+</section>
+<section id="imaging-depths">
+<span id="id1"></span><h2>Imaging depths<a class="headerlink" href="#imaging-depths" title="Permalink to this heading">#</a></h2>
+<p>Each experiment was collected at a single imaging depth.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boc</span><span class="o">.</span><span class="n">get_all_imaging_depths</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[175,
+ 185,
+ 195,
+ 200,
+ 205,
+ 225,
+ 250,
+ 265,
+ 275,
+ 276,
+ 285,
+ 300,
+ 320,
+ 325,
+ 335,
+ 350,
+ 365,
+ 375,
+ 390,
+ 400,
+ 550,
+ 570,
+ 625]
+</pre></div>
+</div>
+</div>
+</div>
+<p>These values are in µm below the surface of the cortex. This is a long list and some of the values don’t differ by very much. How meaningful is it? We roughly consider depths less than 250 to be layer 2/3, 250-350 to be layer 4, 350-500 to be layer 5, and over 500 to be layer 6. Keep in mind, much of the imaging here was done with layer specific Cre lines, so for most purposes the best way to get layer specificity is to select appropriate Cre lines.</p>
+</section>
+<section id="visual-stimuli">
+<h2>Visual stimuli<a class="headerlink" href="#visual-stimuli" title="Permalink to this heading">#</a></h2>
+<p>What were the visual stimuli that we showed to the mice?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boc</span><span class="o">.</span><span class="n">get_all_stimuli</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;drifting_gratings&#39;,
+ &#39;locally_sparse_noise&#39;,
+ &#39;locally_sparse_noise_4deg&#39;,
+ &#39;locally_sparse_noise_8deg&#39;,
+ &#39;natural_movie_one&#39;,
+ &#39;natural_movie_three&#39;,
+ &#39;natural_movie_two&#39;,
+ &#39;natural_scenes&#39;,
+ &#39;spontaneous&#39;,
+ &#39;static_gratings&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are described more extensively in <a class="reference internal" href="vc2p-stimuli.html"><span class="doc std std-doc">Visual stimuli</span></a>.</p>
+</section>
+<section id="experiment-containers-sessions">
+<span id="id2"></span><h2>Experiment containers &amp; sessions<a class="headerlink" href="#experiment-containers-sessions" title="Permalink to this heading">#</a></h2>
+<p>The <b>experiment container</b> describes a set of 3 imaging <b>sessions</b> performed for the same field of view (ie. same targeted structure and imaging depth in the same mouse that targets the same set of neurons). Each experiment container has a unique ID number.</p>
+<p>We will identify all the experiment containers for a given structure and Cre line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visual_area</span> <span class="o">=</span> <span class="s1">&#39;VISp&#39;</span>
+<span class="n">cre_line</span> <span class="o">=</span><span class="s1">&#39;Cux2-CreERT2&#39;</span>
+
+<span class="n">exps</span> <span class="o">=</span> <span class="n">boc</span><span class="o">.</span><span class="n">get_experiment_containers</span><span class="p">(</span><span class="n">targeted_structures</span><span class="o">=</span><span class="p">[</span><span class="n">visual_area</span><span class="p">],</span> <span class="n">cre_lines</span><span class="o">=</span><span class="p">[</span><span class="n">cre_line</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">get_experiment_containers</span></code> returns all experiment containers that meet the conditions we have specified. The parameters that we could pass this function include targeted_structures, imaging_depths, cre_lines, reporter_lines, stimuli, session_types, and cell_specimen_ids. If we don’t pass any parameters, it returns all experiment containers.</p>
+</div>
+<p>We can make a dataframe of the list of experiment containers to see what information we get about them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">exps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>imaging_depth</th>
+      <th>targeted_structure</th>
+      <th>cre_line</th>
+      <th>reporter_line</th>
+      <th>donor_name</th>
+      <th>specimen_name</th>
+      <th>tags</th>
+      <th>failed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>511510736</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>222426</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222426</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>511510855</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>229106</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-229106</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>511509529</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>222420</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222420</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>511507650</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>222424</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222424</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>702934962</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>382421</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-382421</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>645413757</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>348262</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-348262</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>659767480</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>360565</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-360565</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>511510650</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>222425</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222425</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>712178509</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>390323</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-390323</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>511510667</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>222420</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222420</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>524691282</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>243293</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-243293</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>701412138</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>382421</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-382421</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>511510718</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>231584</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-231584</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>511510699</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>225037</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-225037</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>511510779</td>
+      <td>275</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>225036</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-225036</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>511510670</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>225037</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-225037</td>
+      <td>[]</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<dl class="simple myst">
+<dt>id</dt><dd><p>The <b>experiment container id</b></p>
+</dd>
+<dt>imaging_depth</dt><dd><p>The <a class="reference internal" href="#imaging-depths"><span class="std std-ref">imaging depth</span></a> that data was acquired at, in um from the surface of cortex.</p>
+</dd>
+<dt>targeted_structure</dt><dd><p>The brain structure that was imaged in this session.</p>
+</dd>
+<dt>cre_line</dt><dd><p>The <a class="reference internal" href="../../../glossary.html#term-Cre-line"><span class="xref std std-term">Cre line</span></a> that the mouse has.</p>
+</dd>
+<dt>reporter_line</dt><dd><p>The <a class="reference internal" href="../../../glossary.html#term-Reporter-line"><span class="xref std std-term">reporter line</span></a> that the mouse has.</p>
+</dd>
+<dt>donor_name</dt><dd><p>The id of the mouse that was imaged.</p>
+</dd>
+<dt>specimen_name</dt><dd><p>The full name of the mouse including its genotype and donor name.</p>
+</dd>
+<dt>tags</dt><dd><p>A list of tags</p>
+</dd>
+<dt>failed</dt><dd><p>Boolean indicating whether the experiment container failed QC. By default, only container that pass QC are returned. Users must specify to include failed experiment containers if looking for these.</p>
+</dd>
+</dl>
+<p>You see there are 16 experiments for this Cre line in VISp. They all have different <b>experiment container ids</b> (called “id” here) and they mostly have different <b>donor names</b> which identify the mouse that was imaged. This Cre line was imaged at two different imaging depths, sampling both layer 2/3 and layer 4. But they all have the same Cre line, targeted structure and reporter line.</p>
+</section>
+<section id="exercise-how-many-experiment-containers-were-collected-in-each-cortical-visual-area-for-each-cre-line">
+<h2>Exercise: How many experiment containers were collected in each cortical visual area for each Cre line?<a class="headerlink" href="#exercise-how-many-experiment-containers-were-collected-in-each-cortical-visual-area-for-each-cre-line" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cre_lines</span> <span class="o">=</span> <span class="n">boc</span><span class="o">.</span><span class="n">get_all_cre_lines</span><span class="p">()</span>
+<span class="n">areas</span> <span class="o">=</span> <span class="n">boc</span><span class="o">.</span><span class="n">get_all_targeted_structures</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">areas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">cre_lines</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cre</span> <span class="ow">in</span> <span class="n">cre_lines</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">areas</span><span class="p">:</span>
+    <span class="n">exps</span> <span class="o">=</span> <span class="n">boc</span><span class="o">.</span><span class="n">get_experiment_containers</span><span class="p">(</span><span class="n">targeted_structures</span><span class="o">=</span><span class="p">[</span><span class="n">area</span><span class="p">],</span> <span class="n">cre_lines</span><span class="o">=</span><span class="p">[</span><span class="n">cre</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">area</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cre</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">exps</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VISal</th>
+      <th>VISam</th>
+      <th>VISl</th>
+      <th>VISp</th>
+      <th>VISpm</th>
+      <th>VISrl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cux2-CreERT2</th>
+      <td>13</td>
+      <td>11</td>
+      <td>11</td>
+      <td>16</td>
+      <td>13</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>Emx1-IRES-Cre</th>
+      <td>7</td>
+      <td>3</td>
+      <td>8</td>
+      <td>10</td>
+      <td>4</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Fezf2-CreER</th>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Nr5a1-Cre</th>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Ntsr1-Cre_GN220</th>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>6</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Pvalb-IRES-Cre</th>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Rbp4-Cre_KL100</th>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+      <td>7</td>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Rorb-IRES2-Cre</th>
+      <td>6</td>
+      <td>8</td>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Scnn1a-Tg3-Cre</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Slc17a7-IRES2-Cre</th>
+      <td>2</td>
+      <td>2</td>
+      <td>19</td>
+      <td>60</td>
+      <td>15</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Sst-IRES-Cre</th>
+      <td>1</td>
+      <td>0</td>
+      <td>17</td>
+      <td>30</td>
+      <td>14</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Tlx3-Cre_PL56</th>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Vip-IRES-Cre</th>
+      <td>0</td>
+      <td>0</td>
+      <td>24</td>
+      <td>36</td>
+      <td>16</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You see that not all Cre lines were imaged in all areas.</p>
+</section>
+<section id="session-types">
+<h2>Session types<a class="headerlink" href="#session-types" title="Permalink to this heading">#</a></h2>
+<p>The responses to this full set of visual stimuli were recorded across three imaging sessions. We returned to the same targeted structure and same imaging depth in the same mouse to recorded the same group of neurons across three different days.</p>
+<p>Let’s look at all of the sessions in a single experiment container.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiment_container_id</span> <span class="o">=</span> <span class="mi">511510736</span>
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">boc</span><span class="o">.</span><span class="n">get_ophys_experiments</span><span class="p">(</span><span class="n">experiment_container_ids</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_container_id</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Much like get_experiment_containers, <code class="docutils literal notranslate"><span class="pre">get_ophys_experiments</span></code> returns all experiment sessions that meet the conditions we have specified. The parameters that we could pass this function include targeted_structures, imaging_depths, cre_lines, reporter_lines, stimuli, session_types, experiment-container_id, and cell_specimen_ids. If we don’t pass any parameters, it returns all experiment sessions.</p>
+</div>
+<p>Let’s look at a DataFrame of the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>imaging_depth</th>
+      <th>targeted_structure</th>
+      <th>cre_line</th>
+      <th>reporter_line</th>
+      <th>acquisition_age_days</th>
+      <th>experiment_container_id</th>
+      <th>session_type</th>
+      <th>donor_name</th>
+      <th>specimen_name</th>
+      <th>fail_eye_tracking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>501559087</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>103</td>
+      <td>511510736</td>
+      <td>three_session_B</td>
+      <td>222426</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222426</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>501704220</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>104</td>
+      <td>511510736</td>
+      <td>three_session_A</td>
+      <td>222426</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222426</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>501474098</td>
+      <td>175</td>
+      <td>VISp</td>
+      <td>Cux2-CreERT2</td>
+      <td>Ai93(TITL-GCaMP6f)</td>
+      <td>102</td>
+      <td>511510736</td>
+      <td>three_session_C</td>
+      <td>222426</td>
+      <td>Cux2-CreERT2;Camk2a-tTA;Ai93-222426</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<dl class="simple myst">
+<dt>id</dt><dd><p>The <b>session id</b> for the session. This is the id that is used to access data for that session.</p>
+</dd>
+<dt>imaging_depth</dt><dd><p>The <a class="reference internal" href="#imaging-depths"><span class="std std-ref">imaging depth</span></a> that data was acquired at, in um from the surface of cortex.</p>
+</dd>
+<dt>targeted_structure</dt><dd><p>The brain structure that was imaged in this session.</p>
+</dd>
+<dt>cre_line</dt><dd><p>The <a class="reference internal" href="../../../glossary.html#term-Cre-line"><span class="xref std std-term">Cre line</span></a> that the mouse has.</p>
+</dd>
+<dt>reporter_line</dt><dd><p>The <a class="reference internal" href="../../../glossary.html#term-Reporter-line"><span class="xref std std-term">reporter line</span></a> that the mouse has.</p>
+</dd>
+<dt>acquisition_age_days</dt><dd><p>The age of the mouse when this session was recorded, in days.</p>
+</dd>
+<dt>experiment_container_id</dt><dd><p>The id of the experiment container that this session belongs to.</p>
+</dd>
+<dt>session_type</dt><dd><p>The name of the session, this describes the set of stimuli that are presented during the experiment.</p>
+</dd>
+<dt>donor_name</dt><dd><p>The id of the mouse that was imaged.</p>
+</dd>
+<dt>specimen_name</dt><dd><p>The full name of the mouse including its genotype and donor name.</p>
+</dd>
+<dt>fail_eye_tracking</dt><dd><p>Boolean marking which sessions had successful eye tracking. This might be obsolete.</p>
+</dd>
+</dl>
+<p>When looking at all of the sessions in a single experiment container, as we have done above, you will notice that the experiment container id, cre line, reporter line, donor name, specimen name, imaging depth, targeted structure are all the same while the id, acquisition age, and session type must be different.</p>
+<p>As you see, each experiment container has three different session types. For the data published in June 2016 and October 2016, the last session is <b>three_session_C&lt;/b&lt;&gt; while the data published after this were collected using <b>three_session_C2</b>. The key difference between these sessions is a change in the <a class="reference internal" href="vc2p-stimuli.html#locally-sparse-noise"><span class="std std-ref">locally sparse noise</span></a> stimulus. This is described more <a class="reference internal" href="vc2p-stimuli.html#locally-sparse-noise"><span class="std std-ref">here</span></a>.</p>
+<p><img alt="containers" src="../../../_images/VC2p-sessions.png" /></p>
+</section>
+<section id="cell-specimen-ids">
+<h2>Cell specimen ids<a class="headerlink" href="#cell-specimen-ids" title="Permalink to this heading">#</a></h2>
+<p>During data processing, we matched identified <a class="reference internal" href="../../../glossary.html#term-ROI"><span class="xref std std-term">ROI</span></a>s across each of the sessions within experiment containers. Approximately one third of the neurons in the dataset were matched across all three sessions, one third were matched in two of the three session, and one third were only found in one session. Neurons have unique ids, called <b>cell_specimen_ids</b>, that are shared across the sessions they are found in.</p>
+<div class="tip admonition">
+<p class="admonition-title">How come we don’t always match ROIs across all three session for all neurons?</p>
+<p>There are a few factors that could explain why we don’t always match ROIs across all sessions that include biological, experimental, and analytical reasons. Biologically, a neuron must be active within a session to be identifiable during segmentation. For various reasons, a neuron might not be active during some sessions while it is active during others. Experimentally, there are challenges to returning to the precise same field of view. Being at a slightly different depth, or having just a bit of tilt in the imaging plane, might result in some neurons that were in view during one session not being in view during another. Analytically, the method for identifying <a class="reference internal" href="../../../glossary.html#term-ROI"><span class="xref std std-term">ROI</span></a>s as well as for matching ROIs from multiple sessions can make mistakes.</p>
+</div>
+<p>We explore how to look at neurons across session in <a class="reference internal" href="vc2p-cross-session-data.html"><span class="doc std std-doc">Cross session data</span></a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ophys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vc2p-background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Coding — 2-photon</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vc2p-session-data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting data from a session</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-structures">Targeted structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cre-lines-and-reporters">Cre lines and reporters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imaging-depths">Imaging depths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-stimuli">Visual stimuli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-containers-sessions">Experiment containers &amp; sessions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-how-many-experiment-containers-were-collected-in-each-cortical-visual-area-for-each-cre-line">Exercise: How many experiment containers were collected in each cortical visual area for each Cre line?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types">Session types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-specimen-ids">Cell specimen ids</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

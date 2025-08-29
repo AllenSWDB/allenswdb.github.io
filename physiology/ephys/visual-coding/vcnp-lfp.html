@@ -1,0 +1,3270 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Local field potential (LFP) &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-lfp';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-lfp.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Optotagging Analysis" href="vcnp-optotagging.html" />
+    <link rel="prev" title="Receptive fields" href="vcnp-receptive-fields.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-lfp.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-lfp.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-lfp.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Local field potential (LFP)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-probes-to-analyze">Selecting probes to analyze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-lfp-data">Loading LFP data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggestions-for-further-analysis">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-lfp-data-to-a-stimulus">Aligning LFP data to a stimulus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-lfp-data-in-space-to-units">Aligning LFP data in space to units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-and-spectral-estimation-of-lfp">Filtering and spectral estimation of LFP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-pre-computed-current-source-density-plots">Exploring pre-computed current source density plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Suggestions for further analysis</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="local-field-potential-lfp">
+<h1>Local field potential (LFP)<a class="headerlink" href="#local-field-potential-lfp" title="Permalink to this heading">#</a></h1>
+<p>The final aspect of a Neuropixels probe recording we will investigate is the
+local field potential (LFP). An LFP signal is a direct recordings of
+extracellular voltage from which individual spike contributions have been
+removed by low-pass filtering. The remaining signal reflects the population
+activity of a large number of cells in the vicinity of the probe, primarily
+through the electrical field effects of synaptic currents (along with other
+trans-membrane currents).</p>
+<p>LFP can be especially informative for understanding rhythmic activity or
+oscillations in neural circuits, which can be identified by some simple
+time-series analysis of the LFP signals.</p>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook will demonstrate how to access and analyze LFP data from
+the Neuropixels Visual Coding dataset. LFP, which stands for “local field
+potential,” contains information about low-frequency (0.1-500 Hz) voltage
+fluctuations around each recording site. It’s complementary to the spiking
+activity, and can be analyzed on its own or in conjunction with spikes.</p>
+<p>This tutorial will cover the following topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-probe-selection"><span class="std std-ref">Selecting probes to analyze</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-loading-lfp"><span class="std std-ref">Loading LFP data</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-stim-alignment"><span class="std std-ref">Aligning LFP data to a stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-unit-alignment"><span class="std std-ref">Aligning LFP data in space to units</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-filtering"><span class="std std-ref">Filtering and spectral estimation of LFP</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references-csd"><span class="std std-ref">Exploring pre-computed current source density plots</span></a></p></li>
+</ul>
+<p>This tutorial assumes you’ve already created a data cache, or are working with
+the files on AWS. If you haven’t reached that step yet, we recommend going
+through the <a class="reference internal" href="vcnp-data-access.html"><span class="doc">data access tutorial</span></a> first.</p>
+<p>Functions related to analyzing spike data will be covered in other tutorials.
+For a full list of available tutorials, see the <a class="reference internal" href="vcnp.html"><span class="doc">Visual Coding — Neuropixels</span></a> page.</p>
+<p>Let’s start by creating an <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object, and pointing it to a new or existing manifest file:</p>
+<div class="admonition-example-accessing-lfp-data admonition">
+<p class="admonition-title">Example: Accessing LFP data</p>
+<p>We’ll start by loading the LFP data from one of the probes in our session, using the <code class="docutils literal notranslate"><span class="pre">get_lfp</span></code> function.</p>
+<p>We need to provide this function with a probe id, which we can pull out of the <code class="docutils literal notranslate"><span class="pre">session.probes</span></code> table.</p>
+<p>(Note that the “id” column is the index of the dataframe, and thus must be accessed differently than other columns.)</p>
+</div>
+<p>First we access the data for an example session.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’re not sure what a manifest file is or where to put it, please check out the
+<a class="reference internal" href="vcnp-data-access.html"><span class="doc">data access tutorial</span></a> before going further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example cache directory path, it determines where downloaded data will be stored</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/&#39;</span>
+<span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+<span class="n">session_id</span> <span class="o">=</span> <span class="mi">715093703</span> <span class="c1"># An example session id</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-probes-to-analyze">
+<span id="content-references-probe-selection"></span><h2>Selecting probes to analyze<a class="headerlink" href="#selecting-probes-to-analyze" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">session</span></code> object contains all of the spike data for one recording session,
+as well as information about the stimulus, mouse behavior, and probes. To
+prevent the underlying NWB file from becoming too large, the LFP data is stored
+separately, on a probe-by-probe basis. Before loading the LFP, let’s take a look
+at the probes that are available for this session.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">probes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>description</th>
+      <th>location</th>
+      <th>sampling_rate</th>
+      <th>lfp_sampling_rate</th>
+      <th>has_lfp_data</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>810755797</th>
+      <td>probeA</td>
+      <td>See electrode locations</td>
+      <td>29999.954846</td>
+      <td>1249.998119</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>810755799</th>
+      <td>probeB</td>
+      <td>See electrode locations</td>
+      <td>29999.906318</td>
+      <td>1249.996097</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>810755801</th>
+      <td>probeC</td>
+      <td>See electrode locations</td>
+      <td>29999.985470</td>
+      <td>1249.999395</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>810755803</th>
+      <td>probeD</td>
+      <td>See electrode locations</td>
+      <td>29999.908100</td>
+      <td>1249.996171</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>810755805</th>
+      <td>probeE</td>
+      <td>See electrode locations</td>
+      <td>29999.985679</td>
+      <td>1249.999403</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>810755807</th>
+      <td>probeF</td>
+      <td>See electrode locations</td>
+      <td>30000.028033</td>
+      <td>1250.001168</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are six probes available, and all of them have LFP data. Note that there
+is a small subset of probes across the entire dataset that only have spike data,
+due to high levels of electrical noise contaminating the LFP band. To see which
+sessions are missing LFP data, you can check the <code class="docutils literal notranslate"><span class="pre">probes</span></code> table from the
+<code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probes</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_probes</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fraction of probes with LFP: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">probes</span><span class="o">.</span><span class="n">has_lfp_data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">probes</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sessions with missing LFP files: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">probes</span><span class="p">[</span><span class="n">probes</span><span class="o">.</span><span class="n">has_lfp_data</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">ecephys_session_id</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of probes with LFP: 0.979
+ 
+Sessions with missing LFP files: [763673393, 831882777, 839557629]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Returning to the current session, let’s get some information about which brain
+regions each probe is recording from before we select LFP data to look at in
+more detail.</p>
+<p>Each probe has a unique ID, but the “description” of each probe is assigned
+based on its location on the recording rig. The Allen Institute Neuropixels rigs
+have six slot for probes, which are named A, B, C, D, E, and F. The probes are
+arranged in a ring centered on visual cortex. Probe A is in the anterior/medial
+position, and the letters go clockwise around the ring.</p>
+<p>To visualize what this looks like, we can access the spatial information in this
+session’s <code class="docutils literal notranslate"><span class="pre">channels</span></code> table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;filtering&#39;, &#39;probe_channel_number&#39;, &#39;probe_horizontal_position&#39;,
+       &#39;probe_id&#39;, &#39;probe_vertical_position&#39;, &#39;structure_acronym&#39;,
+       &#39;ecephys_structure_id&#39;, &#39;ecephys_structure_acronym&#39;,
+       &#39;anterior_posterior_ccf_coordinate&#39;, &#39;dorsal_ventral_ccf_coordinate&#39;,
+       &#39;left_right_ccf_coordinate&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">channels</span></code> table mainly contains columns related to the
+physical locations, either relative to the probe shank
+(<code class="docutils literal notranslate"><span class="pre">probe_vertical_position</span></code> and <code class="docutils literal notranslate"><span class="pre">probe_horizontal_position</span></code>), or relative to the
+Allen Common Coordinate Framework (<code class="docutils literal notranslate"><span class="pre">anterior_posterior_ccf_coordinate</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dorsal_ventral_ccf_coordinate</span></code>, and <code class="docutils literal notranslate"><span class="pre">left_right_ccf_coordinate</span></code>). Let’s use a
+combination of these to visualize the locations of the probes in this recording.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+
+<span class="n">x_coords</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">left_right_ccf_coordinate</span>
+<span class="n">y_coords</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">anterior_posterior_ccf_coordinate</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_vertical_position</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">-</span><span class="n">x_coords</span><span class="p">[</span><span class="n">x_coords</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">y_coords</span><span class="p">[</span><span class="n">x_coords</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">x_coords</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&lt;&lt;  ventral    ---    dorsal  &gt;&gt;&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&lt;&lt;  lateral    ---    medial  &gt;&gt;&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&lt;&lt;  posterior    ---    anterior  &gt;&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/c752408dc2d66f571c9b76ca65da4929b7445b4cfcdf30451ecb631117453459.png" src="../../../_images/c752408dc2d66f571c9b76ca65da4929b7445b4cfcdf30451ecb631117453459.png" />
+</div>
+</div>
+<p>This is a top-down view of the locations of each channel, with the color
+corresponding to distance along the probe axis (darker = deeper in the brain). A
+few things to note about this plot:</p>
+<ul class="simple">
+<li><p>There are only 5 probes visible, even though there were 6 probes in the
+recording. This is because one of the probes was not visible in the optical
+projection tomography volume we use to identify the recording location. If
+this occurs, the probe will be assigned a 3D CCF coordinate of <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">-1,</span> <span class="pre">-1]</span></code>,
+and only cortical units will be given an <code class="docutils literal notranslate"><span class="pre">ecephys_structure_acronym</span></code>.</p></li>
+<li><p>The probe trajectories are curved, as a result of warping to the CCF template
+brain. The trajectories are straight in the original brain volume.</p></li>
+<li><p>Some of the probes appear longer than others. This may be due to the viewing
+angle (in this plot, the more lateral probes are viewed more perpendicular to
+the insertion axis), or the fact that probes may be inserted to different
+depths.</p></li>
+</ul>
+<p>To figure out which probe is missing, we can check the <code class="docutils literal notranslate"><span class="pre">probes</span></code> table for this session:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_id</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">x_coords</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])]</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;probeA&#39;, &#39;probeC&#39;, &#39;probeD&#39;, &#39;probeE&#39;, &#39;probeF&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like <code class="docutils literal notranslate"><span class="pre">probeB</span></code> was not registered to the CCF. That means that <code class="docutils literal notranslate"><span class="pre">probeA</span></code>
+is in the upper right, <code class="docutils literal notranslate"><span class="pre">probeC</span></code> is in the lower right, and <code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code>, and <code class="docutils literal notranslate"><span class="pre">F</span></code> go
+clockwise from there. It’s helpful to keep these descriptions in mind, because
+probes with the same descriptions enter the brain at roughly the same angle
+across experiments. Although the precise target point for each probe depends on
+the retinotopic map for each mouse, the overall rig geometry remains the same
+across sessions.</p>
+<p>Let’s look at the structures each of these probes passes through:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">probe_id</span><span class="p">]</span><span class="o">.</span><span class="n">description</span> <span class="p">:</span>
+     <span class="nb">list</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_id</span> <span class="o">==</span> <span class="n">probe_id</span><span class="p">]</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+     <span class="k">for</span> <span class="n">probe_id</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;probeA&#39;: [&#39;VISam&#39;, nan, &#39;APN&#39;, &#39;MB&#39;, &#39;DG&#39;, &#39;CA1&#39;],
+ &#39;probeB&#39;: [&#39;grey&#39;, nan, &#39;VISpm&#39;],
+ &#39;probeC&#39;: [&#39;PO&#39;, &#39;PoT&#39;, &#39;LP&#39;, &#39;DG&#39;, &#39;CA1&#39;, &#39;VISp&#39;, nan],
+ &#39;probeD&#39;: [&#39;LGd&#39;, &#39;CA3&#39;, &#39;DG&#39;, &#39;CA1&#39;, &#39;VISl&#39;, nan],
+ &#39;probeE&#39;: [&#39;PO&#39;, &#39;LP&#39;, &#39;LGd&#39;, &#39;CA3&#39;, &#39;DG&#39;, &#39;CA1&#39;, &#39;VISrl&#39;, nan],
+ &#39;probeF&#39;: [&#39;CA1&#39;, &#39;VISrl&#39;, nan]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general, probes tend to be inserted through cortex (<code class="docutils literal notranslate"><span class="pre">VIS</span></code> structures), into
+to hippocampus (<code class="docutils literal notranslate"><span class="pre">CA1</span></code>, <code class="docutils literal notranslate"><span class="pre">CA3</span></code>, <code class="docutils literal notranslate"><span class="pre">DG</span></code>), and down into the thalamus or midbrain. If
+there’s no CCF registration available (e.g., for <code class="docutils literal notranslate"><span class="pre">probeB</span></code> in this example),
+subcortical structures are marked as <code class="docutils literal notranslate"><span class="pre">grey</span></code>.</p>
+</section>
+<section id="loading-lfp-data">
+<span id="content-references-loading-lfp"></span><h2>Loading LFP data<a class="headerlink" href="#loading-lfp-data" title="Permalink to this heading">#</a></h2>
+<p>Now that we’ve seen a general overview of how the probes are oriented and what structures they pass through, let’s choose one and load its associated LFP data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probe_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">description</span> <span class="o">==</span> <span class="s1">&#39;probeE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">lfp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_lfp</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you haven’t tried to access this data previously, you’ll have to wait while
+the LFP NWB file downloads. Even if you already have the data stored locally, it
+may still take a minute to load, since the LFP data is quite large.</p>
+<p>Once the data is loaded, we can take a closer look at the <code class="docutils literal notranslate"><span class="pre">lfp</span></code> object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lfp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;LFP&#x27; (time: 12028993, channel: 95)&gt;
+array([[-2.43750e-05, -3.08100e-05, -3.19800e-05, ..., -1.95000e-07,
+        -1.34550e-05, -1.15050e-05],
+       [-4.44600e-05, -3.31500e-05, -1.42350e-05, ...,  1.95000e-06,
+        -2.49600e-05, -1.34550e-05],
+       [-4.58250e-05,  1.17000e-06, -1.42350e-05, ...,  1.36500e-06,
+        -1.03350e-05, -1.71600e-05],
+       ...,
+       [-9.59400e-05, -1.54245e-04, -1.06275e-04, ...,  4.89450e-05,
+         0.00000e+00,  4.09500e-06],
+       [-1.93050e-05, -7.17600e-05, -4.25100e-05, ...,  6.10350e-05,
+        -9.75000e-07,  1.15050e-05],
+       [-2.73000e-05, -7.21500e-05, -6.24000e-05, ...,  3.04200e-05,
+        -1.95000e-06, -1.95000e-07]], dtype=float32)
+Coordinates:
+  * time     (time) float64 13.58 13.58 13.58 ... 9.637e+03 9.637e+03 9.637e+03
+  * channel  (channel) int64 850258492 850258500 ... 850259236 850259244</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'LFP'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 12028993</li><li><span class='xr-has-index'>channel</span>: 95</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ee30397a-e925-4df3-978f-74c77fdd75d3' class='xr-array-in' type='checkbox' checked><label for='section-ee30397a-e925-4df3-978f-74c77fdd75d3' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-2.438e-05 -3.081e-05 -3.198e-05 ... 3.042e-05 -1.95e-06 -1.95e-07</span></div><div class='xr-array-data'><pre>array([[-2.43750e-05, -3.08100e-05, -3.19800e-05, ..., -1.95000e-07,
+        -1.34550e-05, -1.15050e-05],
+       [-4.44600e-05, -3.31500e-05, -1.42350e-05, ...,  1.95000e-06,
+        -2.49600e-05, -1.34550e-05],
+       [-4.58250e-05,  1.17000e-06, -1.42350e-05, ...,  1.36500e-06,
+        -1.03350e-05, -1.71600e-05],
+       ...,
+       [-9.59400e-05, -1.54245e-04, -1.06275e-04, ...,  4.89450e-05,
+         0.00000e+00,  4.09500e-06],
+       [-1.93050e-05, -7.17600e-05, -4.25100e-05, ...,  6.10350e-05,
+        -9.75000e-07,  1.15050e-05],
+       [-2.73000e-05, -7.21500e-05, -6.24000e-05, ...,  3.04200e-05,
+        -1.95000e-06, -1.95000e-07]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-eb83f17c-0090-4fce-9d4b-8c169bbf4a7d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-eb83f17c-0090-4fce-9d4b-8c169bbf4a7d' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>13.58 13.58 ... 9.637e+03 9.637e+03</div><input id='attrs-613bc386-afc4-4d88-ba8a-9c6f64688404' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-613bc386-afc4-4d88-ba8a-9c6f64688404' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-21950eae-79f0-43ea-877c-5a70b58aab4e' class='xr-var-data-in' type='checkbox'><label for='data-21950eae-79f0-43ea-877c-5a70b58aab4e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  13.581063,   13.581863,   13.582663, ..., 9636.777657, 9636.778457,
+       9636.779257])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>channel</span></div><div class='xr-var-dims'>(channel)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>850258492 850258500 ... 850259244</div><input id='attrs-45321ac0-7166-493b-9909-94f4bd4fc35f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-45321ac0-7166-493b-9909-94f4bd4fc35f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e95b996-5cb9-4b03-988f-7ce2c3f316ce' class='xr-var-data-in' type='checkbox'><label for='data-9e95b996-5cb9-4b03-988f-7ce2c3f316ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([850258492, 850258500, 850258508, 850258516, 850258524, 850258532,
+       850258540, 850258548, 850258556, 850258564, 850258572, 850258580,
+       850258588, 850258596, 850258604, 850258612, 850258620, 850258628,
+       850258636, 850258644, 850258652, 850258660, 850258668, 850258676,
+       850258684, 850258692, 850258700, 850258708, 850258716, 850258724,
+       850258732, 850258740, 850258748, 850258756, 850258764, 850258772,
+       850258780, 850258788, 850258796, 850258804, 850258812, 850258820,
+       850258828, 850258836, 850258844, 850258852, 850258860, 850258868,
+       850258876, 850258884, 850258892, 850258900, 850258908, 850258916,
+       850258924, 850258932, 850258940, 850258948, 850258956, 850258964,
+       850258972, 850258980, 850258988, 850258996, 850259004, 850259012,
+       850259020, 850259028, 850259036, 850259044, 850259052, 850259060,
+       850259068, 850259076, 850259084, 850259092, 850259100, 850259108,
+       850259116, 850259124, 850259132, 850259140, 850259148, 850259156,
+       850259164, 850259172, 850259180, 850259188, 850259196, 850259204,
+       850259212, 850259220, 850259228, 850259236, 850259244])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-99a2dbf2-f368-4a9a-9ecc-2cc81a4bde2d' class='xr-section-summary-in' type='checkbox'  ><label for='section-99a2dbf2-f368-4a9a-9ecc-2cc81a4bde2d' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-17bf3e56-6ed2-4d78-af0f-bebe822169fb' class='xr-index-data-in' type='checkbox'/><label for='index-17bf3e56-6ed2-4d78-af0f-bebe822169fb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([13.581062887668317, 13.581862888050203, 13.582662888432088,
+              13.583462888813974,  13.58426288919586, 13.585062889577745,
+              13.585862889959632, 13.586662890341518, 13.587462890723403,
+               13.58826289110529,
+              ...
+                9636.77205658621,  9636.772856586591,  9636.773656586973,
+               9636.774456587355,  9636.775256587736,  9636.776056588118,
+                 9636.7768565885,  9636.777656588882,  9636.778456589263,
+               9636.779256589645],
+             dtype=&#x27;float64&#x27;, name=&#x27;time&#x27;, length=12028993))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>channel</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5489d2f7-58b0-40d6-90a4-8d82ffdf7d3e' class='xr-index-data-in' type='checkbox'/><label for='index-5489d2f7-58b0-40d6-90a4-8d82ffdf7d3e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Int64Index([850258492, 850258500, 850258508, 850258516, 850258524, 850258532,
+            850258540, 850258548, 850258556, 850258564, 850258572, 850258580,
+            850258588, 850258596, 850258604, 850258612, 850258620, 850258628,
+            850258636, 850258644, 850258652, 850258660, 850258668, 850258676,
+            850258684, 850258692, 850258700, 850258708, 850258716, 850258724,
+            850258732, 850258740, 850258748, 850258756, 850258764, 850258772,
+            850258780, 850258788, 850258796, 850258804, 850258812, 850258820,
+            850258828, 850258836, 850258844, 850258852, 850258860, 850258868,
+            850258876, 850258884, 850258892, 850258900, 850258908, 850258916,
+            850258924, 850258932, 850258940, 850258948, 850258956, 850258964,
+            850258972, 850258980, 850258988, 850258996, 850259004, 850259012,
+            850259020, 850259028, 850259036, 850259044, 850259052, 850259060,
+            850259068, 850259076, 850259084, 850259092, 850259100, 850259108,
+            850259116, 850259124, 850259132, 850259140, 850259148, 850259156,
+            850259164, 850259172, 850259180, 850259188, 850259196, 850259204,
+            850259212, 850259220, 850259228, 850259236, 850259244],
+           dtype=&#x27;int64&#x27;, name=&#x27;channel&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0e2dffab-c302-432d-8211-5c70e4343023' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0e2dffab-c302-432d-8211-5c70e4343023' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>The LFP data is stored as an
+<a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray.DataArray</a> object, with coordinates
+of <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">channel</span></code>. The xarray library simplifies the process of working
+with N-dimensional data arrays, by keeping track of the meaning of each axis. If
+this is your first time encountering xarrays, we strongly recommend reading
+through the
+<a class="reference external" href="http://xarray.pydata.org/en/stable/quick-overview.html">documentation</a> before
+going further. Getting used to xarrays can be frustrating, especially when they
+don’t behave like numpy arrays. But they are designed to prevent common mistakes
+when analyzing multidimensional arrays, so they are well worth learning more
+about. Plus, the syntax is modeled on that of the
+<a class="reference external" href="https://pandas.pydata.org/">pandas</a> library, so if you’re familiar with that
+you already have a head start.</p>
+<p>The print-out above already tells us a lot about what the <code class="docutils literal notranslate"><span class="pre">lfp</span></code> object contains.
+It stores an array with around 12 million points along the <code class="docutils literal notranslate"><span class="pre">time</span></code> axis and 95
+points along the <code class="docutils literal notranslate"><span class="pre">channel</span></code> axis. The <code class="docutils literal notranslate"><span class="pre">time</span></code> axis ranges from 13.5 to around 9600
+seconds, while the <code class="docutils literal notranslate"><span class="pre">channel</span></code> axis ranges from 850258492 to 850259244 (these are
+the unique IDs for each channel).</p>
+<p>Let’s use the <code class="docutils literal notranslate"><span class="pre">DataArray.sel()</span></code> method to select a slice through this array
+between 100 and 101 seconds:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lfp_slice</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span>
+
+<span class="n">lfp_slice</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;LFP&#x27; (time: 1250, channel: 95)&gt;
+array([[ 1.50149994e-04,  1.49954998e-04,  1.65749996e-04, ...,
+         4.68000007e-06,  2.30099995e-05, -1.13099995e-05],
+       [ 1.64190002e-04,  1.41569995e-04,  1.50734995e-04, ...,
+         6.62999992e-06,  1.18950002e-05, -1.30649996e-05],
+       [ 1.43519996e-04,  1.47030005e-04,  1.80959993e-04, ...,
+         4.48499986e-06,  1.96950004e-05,  8.18999979e-06],
+       ...,
+       [-2.35949992e-05, -1.63799996e-05, -3.45150002e-05, ...,
+         1.55999999e-06, -1.48199997e-05, -1.11150002e-05],
+       [-1.87200003e-05, -5.75249978e-05, -4.93349980e-05, ...,
+         8.38500000e-06, -2.00849991e-05, -5.26499980e-06],
+       [-3.17849990e-05, -5.53799982e-05, -4.17299998e-05, ...,
+         2.14500005e-06, -1.67700000e-05, -2.73000001e-06]], dtype=float32)
+Coordinates:
+  * time     (time) float64 100.0 100.0 100.0 100.0 ... 101.0 101.0 101.0 101.0
+  * channel  (channel) int64 850258492 850258500 ... 850259236 850259244</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'LFP'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1250</li><li><span class='xr-has-index'>channel</span>: 95</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-024bea26-8ecb-4ab7-bec7-3286b9af30ce' class='xr-array-in' type='checkbox' checked><label for='section-024bea26-8ecb-4ab7-bec7-3286b9af30ce' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0001501 0.00015 0.0001657 ... 2.145e-06 -1.677e-05 -2.73e-06</span></div><div class='xr-array-data'><pre>array([[ 1.50149994e-04,  1.49954998e-04,  1.65749996e-04, ...,
+         4.68000007e-06,  2.30099995e-05, -1.13099995e-05],
+       [ 1.64190002e-04,  1.41569995e-04,  1.50734995e-04, ...,
+         6.62999992e-06,  1.18950002e-05, -1.30649996e-05],
+       [ 1.43519996e-04,  1.47030005e-04,  1.80959993e-04, ...,
+         4.48499986e-06,  1.96950004e-05,  8.18999979e-06],
+       ...,
+       [-2.35949992e-05, -1.63799996e-05, -3.45150002e-05, ...,
+         1.55999999e-06, -1.48199997e-05, -1.11150002e-05],
+       [-1.87200003e-05, -5.75249978e-05, -4.93349980e-05, ...,
+         8.38500000e-06, -2.00849991e-05, -5.26499980e-06],
+       [-3.17849990e-05, -5.53799982e-05, -4.17299998e-05, ...,
+         2.14500005e-06, -1.67700000e-05, -2.73000001e-06]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-52259c41-6f7f-4076-8f72-180a8b0aa9f3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-52259c41-6f7f-4076-8f72-180a8b0aa9f3' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>100.0 100.0 100.0 ... 101.0 101.0</div><input id='attrs-e7eac4b7-da0d-4b46-a5ef-f482bc0639fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e7eac4b7-da0d-4b46-a5ef-f482bc0639fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fda78163-9250-4917-bf56-aa358e677698' class='xr-var-data-in' type='checkbox'><label for='data-fda78163-9250-4917-bf56-aa358e677698' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([100.000304, 100.001104, 100.001904, ..., 100.997905, 100.998705,
+       100.999505])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>channel</span></div><div class='xr-var-dims'>(channel)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>850258492 850258500 ... 850259244</div><input id='attrs-2bbfb245-f5a1-4475-b5ae-3d416b697b72' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2bbfb245-f5a1-4475-b5ae-3d416b697b72' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3d33733b-4b12-4418-9796-bee2964adb28' class='xr-var-data-in' type='checkbox'><label for='data-3d33733b-4b12-4418-9796-bee2964adb28' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([850258492, 850258500, 850258508, 850258516, 850258524, 850258532,
+       850258540, 850258548, 850258556, 850258564, 850258572, 850258580,
+       850258588, 850258596, 850258604, 850258612, 850258620, 850258628,
+       850258636, 850258644, 850258652, 850258660, 850258668, 850258676,
+       850258684, 850258692, 850258700, 850258708, 850258716, 850258724,
+       850258732, 850258740, 850258748, 850258756, 850258764, 850258772,
+       850258780, 850258788, 850258796, 850258804, 850258812, 850258820,
+       850258828, 850258836, 850258844, 850258852, 850258860, 850258868,
+       850258876, 850258884, 850258892, 850258900, 850258908, 850258916,
+       850258924, 850258932, 850258940, 850258948, 850258956, 850258964,
+       850258972, 850258980, 850258988, 850258996, 850259004, 850259012,
+       850259020, 850259028, 850259036, 850259044, 850259052, 850259060,
+       850259068, 850259076, 850259084, 850259092, 850259100, 850259108,
+       850259116, 850259124, 850259132, 850259140, 850259148, 850259156,
+       850259164, 850259172, 850259180, 850259188, 850259196, 850259204,
+       850259212, 850259220, 850259228, 850259236, 850259244])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-26350952-fad0-4251-894b-afbc3cad15ef' class='xr-section-summary-in' type='checkbox'  ><label for='section-26350952-fad0-4251-894b-afbc3cad15ef' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-677ae7dd-090f-4729-abfe-7749ac7e5c45' class='xr-index-data-in' type='checkbox'/><label for='index-677ae7dd-090f-4729-abfe-7749ac7e5c45' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([100.00030414050667, 100.00110414088854, 100.00190414127044,
+              100.00270414165232, 100.00350414203422, 100.00430414241609,
+              100.00510414279796, 100.00590414317986, 100.00670414356173,
+              100.00750414394363,
+              ...
+              100.99230461404514, 100.99310461442701, 100.99390461480891,
+              100.99470461519078, 100.99550461557268, 100.99630461595456,
+              100.99710461633643, 100.99790461671833,  100.9987046171002,
+               100.9995046174821],
+             dtype=&#x27;float64&#x27;, name=&#x27;time&#x27;, length=1250))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>channel</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-41a34805-e8a4-4d5e-9bd2-b108301171d3' class='xr-index-data-in' type='checkbox'/><label for='index-41a34805-e8a4-4d5e-9bd2-b108301171d3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Int64Index([850258492, 850258500, 850258508, 850258516, 850258524, 850258532,
+            850258540, 850258548, 850258556, 850258564, 850258572, 850258580,
+            850258588, 850258596, 850258604, 850258612, 850258620, 850258628,
+            850258636, 850258644, 850258652, 850258660, 850258668, 850258676,
+            850258684, 850258692, 850258700, 850258708, 850258716, 850258724,
+            850258732, 850258740, 850258748, 850258756, 850258764, 850258772,
+            850258780, 850258788, 850258796, 850258804, 850258812, 850258820,
+            850258828, 850258836, 850258844, 850258852, 850258860, 850258868,
+            850258876, 850258884, 850258892, 850258900, 850258908, 850258916,
+            850258924, 850258932, 850258940, 850258948, 850258956, 850258964,
+            850258972, 850258980, 850258988, 850258996, 850259004, 850259012,
+            850259020, 850259028, 850259036, 850259044, 850259052, 850259060,
+            850259068, 850259076, 850259084, 850259092, 850259100, 850259108,
+            850259116, 850259124, 850259132, 850259140, 850259148, 850259156,
+            850259164, 850259172, 850259180, 850259188, 850259196, 850259204,
+            850259212, 850259220, 850259228, 850259236, 850259244],
+           dtype=&#x27;int64&#x27;, name=&#x27;channel&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-45adac22-0232-403a-8ef1-584b602e4705' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-45adac22-0232-403a-8ef1-584b602e4705' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>We see that this new DataArray is smaller than before; it contains the same
+number of channels, but only 1250 samples, due to the LFP sample rate of ~1250
+Hz.</p>
+<p>Let’s plot the data for one of the channels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lfp_slice</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">lfp_slice</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="n">lfp_slice</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">50</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;LFP (V)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;LFP (V)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/cc919e4ea2d98069acb1978a83bf29961a8c61a08845068e13aa515e7901cc95.png" src="../../../_images/cc919e4ea2d98069acb1978a83bf29961a8c61a08845068e13aa515e7901cc95.png" />
+</div>
+</div>
+<p>Alternatively, we can visualize this slice  of data using matplotlib’s <code class="docutils literal notranslate"><span class="pre">imshow</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lfp_slice</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.036</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;LFP (V)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sample number&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Channel index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/cab2fcdbadfcfc4db575ff82a8cfc77133a0deaafffee50f48b0ef1e46a787cc.png" src="../../../_images/cab2fcdbadfcfc4db575ff82a8cfc77133a0deaafffee50f48b0ef1e46a787cc.png" />
+</div>
+</div>
+<p>Note that we’ve transposed the original array to place the time dimension along
+the x-axis. We’ve also configured the plot so that the origin of the array is in
+the lower-left, so that that channels closer to the probe tip are lower in the
+image.</p>
+<p>A few things to note about this plot:</p>
+<ul class="simple">
+<li><p>The units of the LFP are volts, so the color scale ranges from -1 to</p></li>
+<li><p>Even though there are 384 channels on the Neuropixels probe, there are only 95
+channels in this plot. That’s because only every 4th channel is included in
+the NWB file (resulting in 40 micron vertical spacing). In addition, the
+reference channels and channels far outside the brain have been removed.</p></li>
+<li><p>The top of the plot is relatively flat. This corresponds to channels that are
+outside the brain. The LFP channels are originally referenced to a ground wire
+embedded in the ACSF/agarose mixture about cortex. Before NWB packaging, the
+LFP data is digitally referenced to the channels outside the brain, to remove
+noise that’s shared across the whole probe.</p></li>
+<li><p>There’s a large increase in LFP power toward the middle of the probe, which
+corresponds to channels in hippocampus.</p></li>
+</ul>
+<p>Let’s do some additional data selection to look at just the hippocampal channels
+from this recording.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel_ids</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_id</span> <span class="o">==</span> <span class="n">probe_id</span><span class="p">)</span> <span class="o">&amp;</span> \
+                 <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;CA1&#39;</span><span class="p">,</span><span class="s1">&#39;CA3&#39;</span><span class="p">,</span><span class="s1">&#39;DG&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">lfp_slice2</span> <span class="o">=</span> <span class="n">lfp_slice</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">channel_ids</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">channel_ids</span><span class="p">)))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lfp_slice2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.036</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample number&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Channel index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/10ea5c9e35fd88f0b71255f9f980c7e707ab2916ea3e8c1c8e90b4378855d30a.png" src="../../../_images/10ea5c9e35fd88f0b71255f9f980c7e707ab2916ea3e8c1c8e90b4378855d30a.png" />
+</div>
+</div>
+<section id="suggestions-for-further-analysis">
+<h3>Suggestions for further analysis<a class="headerlink" href="#suggestions-for-further-analysis" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Can you use supervised learning to train a model to accurately identify brain
+regions based on LFP signals alone? What happens when you use this model to
+classify brain regions in recordings without CCF registration?</p></li>
+</ul>
+</section>
+</section>
+<section id="aligning-lfp-data-to-a-stimulus">
+<span id="content-references-stim-alignment"></span><h2>Aligning LFP data to a stimulus<a class="headerlink" href="#aligning-lfp-data-to-a-stimulus" title="Permalink to this heading">#</a></h2>
+<p>In the above example, we selected LFP data based on an arbitrary time span (100
+to 101 seconds). For many analyses, however, you’ll want to align the data to
+the onset of a particular type of stimulus.</p>
+<p>The AllenSDK provides a number of convenience functions for aligning spikes to
+visual stimuli. We are planning to implement similar functions for LFP data in
+the near future. Until then, the steps below will show you how to perform this
+alignment.</p>
+<p>First, we need to select some stimulus presentations to use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">presentation_table</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">stimulus_name</span> <span class="o">==</span> <span class="s1">&#39;flashes&#39;</span><span class="p">]</span>
+
+<span class="n">presentation_times</span> <span class="o">=</span> <span class="n">presentation_table</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">values</span>
+<span class="n">presentation_ids</span> <span class="o">=</span> <span class="n">presentation_table</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;hdmf-common&#39; version 1.1.3 because version 1.8.0 is already loaded.
+  return func(args[0], **pargs)
+/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.2.2 because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can align the LFP to these presentation times using some xarray “magic”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trial_window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">time_selection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">trial_window</span> <span class="o">+</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">presentation_times</span><span class="p">])</span>
+
+<span class="n">inds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">((</span><span class="n">presentation_ids</span><span class="p">,</span> <span class="n">trial_window</span><span class="p">),</span>
+                                  <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;presentation_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time_from_presentation_onset&#39;</span><span class="p">))</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">time_selection</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;aligned_lfp&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">inds</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="n">aligned_lfp</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;aligned_lfp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">aligned_lfp</span></code> is a DataArray with dimensions of channels x trials x time. It’s
+been downsampled (however <em>without</em> proper decimation!) to 500 Hz by changing
+the time step in the <code class="docutils literal notranslate"><span class="pre">trial_window</span></code> variable.</p>
+<p>Because we’re using xarrays, the alignment operation is fast, and doesn’t
+require any <code class="docutils literal notranslate"><span class="pre">for</span></code> loops! There’s a lot going on here, so we recommend referring
+to the pandas and xarray documentation if anything is confusing.</p>
+<p>Now we can visualize the average LFP, aligned to the trial onset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">aligned_lfp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;presentation_id&#39;</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.036</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample number&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Channel index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/8c02cf574f9aa9cf8f00fbdd26b390fe522952472867835f270a9f5864d4a378.png" src="../../../_images/8c02cf574f9aa9cf8f00fbdd26b390fe522952472867835f270a9f5864d4a378.png" />
+</div>
+</div>
+<p>Here we see the effect of a 250 ms flash stimulus on the LFP. There are two
+large responses in cortex (channel index 60-80), one corresponding to the
+stimulus onset (around sample 280), and one corresponding to the stimulus offset
+(around sample 400).</p>
+<p>Note that the voltage range is an order of magnitude less than it was for the
+single-trial LFP, around -100 to</p>
+<p>You can use the code sample above to align the LFP to any type of event (e.g.
+spike times, running onset, optogenetic stimuli) just by changing the
+<code class="docutils literal notranslate"><span class="pre">trial_window</span></code> and <code class="docutils literal notranslate"><span class="pre">time_selection</span></code> variables.</p>
+<section id="id1">
+<h3>Suggestions for further analysis<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How do the time delays of stimulus-evoked LFP deflections vary across areas and depths? Are these delays different for different stimulus conditions?</p></li>
+<li><p>Are there consistent patterns in the LFP when aligning to the start of running, or the onset of an eye movement?</p></li>
+</ul>
+</section>
+</section>
+<section id="aligning-lfp-data-in-space-to-units">
+<span id="content-references-unit-alignment"></span><h2>Aligning LFP data in space to units<a class="headerlink" href="#aligning-lfp-data-in-space-to-units" title="Permalink to this heading">#</a></h2>
+<p>The previous section demonstrated how to align the LFP in time. What if we want
+to extract the LFP at a particular location in space, corresponding to the
+location of a unit we’re analyzing?</p>
+<p>Let’s start by finding a well-isolated, high-firing rate unit in visual cortex
+from the probe we’re currently working with. For more information about using
+quality metrics to assess unit isolation quality, check out
+<a class="reference internal" href="vcnp-quality-metrics.html"><span class="doc">this tutorial</span></a>.</p>
+<p>Once we’ve selected a unit of interest, the xarray library makes it easy to find
+the associated LFP channel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units_of_interest</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">probe_id</span> <span class="o">==</span> <span class="n">probe_id</span><span class="p">)</span> <span class="o">&amp;</span>
+                                  <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;VIS&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
+                                  <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">firing_rate</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span>
+                                  <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">nn_hit_rate</span> <span class="o">&gt;</span> <span class="mf">0.95</span><span class="p">)]</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">units_of_interest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are four units that meet our criteria. Let’s choose one and find its associated channel index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unit_id</span> <span class="o">=</span> <span class="n">units_of_interest</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">channel_index</span> <span class="o">=</span> <span class="n">units_of_interest</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span><span class="o">.</span><span class="n">probe_channel_number</span>
+
+<span class="n">channel_index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>260
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this is the channel index relative to the original probe (out of 384
+possible channels), rather than the index of the LFP DataArray.</p>
+<p>We can now use the channel index to find the unique channel ID for this unit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_channel_number</span> <span class="o">==</span> <span class="n">channel_index</span><span class="p">)</span> <span class="o">&amp;</span>
+                              <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_id</span> <span class="o">==</span> <span class="n">probe_id</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">channel_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>850259008
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">unit_id</span></code> and <code class="docutils literal notranslate"><span class="pre">channel_id</span></code>, we can select the spikes and LFP within an
+arbitrary time interval. Note that we need to use <code class="docutils literal notranslate"><span class="pre">method='nearest'</span></code> when
+selecting the LFP data channel, since not every electrode is included in the LFP
+DataArray.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="mi">510</span>
+
+<span class="n">spike_times</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spike_times</span><span class="p">[</span><span class="n">unit_id</span><span class="p">]</span>
+
+<span class="n">times_in_range</span> <span class="o">=</span> <span class="n">spike_times</span><span class="p">[(</span><span class="n">spike_times</span> <span class="o">&gt;</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">spike_times</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">)]</span>
+
+<span class="n">lfp_data</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">))</span>
+<span class="n">lfp_data</span> <span class="o">=</span> <span class="n">lfp_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span> <span class="o">=</span> <span class="n">channel_id</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can plot the spike times along with the LFP for this interval:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lfp_data</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">lfp_data</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times_in_range</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">times_in_range</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">*</span><span class="mf">3e-4</span><span class="p">,</span> <span class="s1">&#39;.r&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;LFP (V)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/14e7f1bc87a665269095a4fd26ab7025da2e83f05d71d6ab2acb6b1c8bce3daf.png" src="../../../_images/14e7f1bc87a665269095a4fd26ab7025da2e83f05d71d6ab2acb6b1c8bce3daf.png" />
+</div>
+</div>
+<section id="id2">
+<h3>Suggestions for further analysis<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What does the spike-triggered LFP look like for different units? Is it possible to classify units based on the properties of the spike-triggered LFP?</p></li>
+<li><p>How well can you predict spike rates from the nearby LFP signals? Does this vary across different brain regions?</p></li>
+</ul>
+</section>
+</section>
+<section id="filtering-and-spectral-estimation-of-lfp">
+<span id="content-references-filtering"></span><h2>Filtering and spectral estimation of LFP<a class="headerlink" href="#filtering-and-spectral-estimation-of-lfp" title="Permalink to this heading">#</a></h2>
+<p>We’ll start by plotting the timeseries of a single channel, as we did above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">lfp_subset</span> <span class="o">=</span> <span class="n">lfp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">lfp_subset</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/d2c38756450fd1c51d2ff5591e94b8319c9468e5ddfa6e5537ef1563ee45c8ad.png" src="../../../_images/d2c38756450fd1c51d2ff5591e94b8319c9468e5ddfa6e5537ef1563ee45c8ad.png" />
+</div>
+</div>
+<p>This signal contains components of multiple frequencies. We can isolate a
+frequency band of interest by filtering. To do this we’ll want to convert our
+data into standard numpy arrays for easier processing using the DataArray
+object’s <code class="docutils literal notranslate"><span class="pre">values</span></code> property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">lfp_subset</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">lfp_subset</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
+<span class="n">freq_window</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">filt_order</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">filt_order</span><span class="p">,</span> <span class="n">freq_window</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="n">v_alpha</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v_alpha</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;LFP (V)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;LFP (V)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/1ff06b8f010565378627a9f66c131d397cbba7df7d60ee711ccd0508ba7e6b51.png" src="../../../_images/1ff06b8f010565378627a9f66c131d397cbba7df7d60ee711ccd0508ba7e6b51.png" />
+</div>
+</div>
+<div class="admonition-example-lfp-power-spectral-density-psd admonition">
+<p class="admonition-title">Example: LFP Power spectral density (PSD)</p>
+<p>Next we’re going to analyze some spectral properties of this signal using the
+<code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> library. “Spectral” refers to decomposing a signal into a sum of
+simpler components identified by their frequencies. The set of frequencies of
+the components forms a <em>spectrum</em> that tells us about the complete signal. You
+can see a full list of spectral analysis functions in scipy here:
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html#spectral-analysis">https://docs.scipy.org/doc/scipy/reference/signal.html#spectral-analysis</a></p>
+</div>
+<p>We first import the package, and inspect the <code class="docutils literal notranslate"><span class="pre">periodogram</span></code> function, which
+estimates the size of the different frequency components of the signal.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
+<span class="n">help</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function periodogram in module scipy.signal._spectral_py:
+
+periodogram(x, fs=1.0, window=&#39;boxcar&#39;, nfft=None, detrend=&#39;constant&#39;, return_onesided=True, scaling=&#39;density&#39;, axis=-1)
+    Estimate power spectral density using a periodogram.
+    
+    Parameters
+    ----------
+    x : array_like
+        Time series of measurement values
+    fs : float, optional
+        Sampling frequency of the `x` time series. Defaults to 1.0.
+    window : str or tuple or array_like, optional
+        Desired window to use. If `window` is a string or tuple, it is
+        passed to `get_window` to generate the window values, which are
+        DFT-even by default. See `get_window` for a list of windows and
+        required parameters. If `window` is array_like it will be used
+        directly as the window and its length must be equal to the length
+        of the axis over which the periodogram is computed. Defaults
+        to &#39;boxcar&#39;.
+    nfft : int, optional
+        Length of the FFT used. If `None` the length of `x` will be
+        used.
+    detrend : str or function or `False`, optional
+        Specifies how to detrend each segment. If `detrend` is a
+        string, it is passed as the `type` argument to the `detrend`
+        function. If it is a function, it takes a segment and returns a
+        detrended segment. If `detrend` is `False`, no detrending is
+        done. Defaults to &#39;constant&#39;.
+    return_onesided : bool, optional
+        If `True`, return a one-sided spectrum for real data. If
+        `False` return a two-sided spectrum. Defaults to `True`, but for
+        complex data, a two-sided spectrum is always returned.
+    scaling : { &#39;density&#39;, &#39;spectrum&#39; }, optional
+        Selects between computing the power spectral density (&#39;density&#39;)
+        where `Pxx` has units of V**2/Hz and computing the power
+        spectrum (&#39;spectrum&#39;) where `Pxx` has units of V**2, if `x`
+        is measured in V and `fs` is measured in Hz. Defaults to
+        &#39;density&#39;
+    axis : int, optional
+        Axis along which the periodogram is computed; the default is
+        over the last axis (i.e. ``axis=-1``).
+    
+    Returns
+    -------
+    f : ndarray
+        Array of sample frequencies.
+    Pxx : ndarray
+        Power spectral density or power spectrum of `x`.
+    
+    See Also
+    --------
+    welch: Estimate power spectral density using Welch&#39;s method
+    lombscargle: Lomb-Scargle periodogram for unevenly sampled data
+    
+    Notes
+    -----
+    .. versionadded:: 0.12.0
+    
+    Examples
+    --------
+    &gt;&gt;&gt; import numpy as np
+    &gt;&gt;&gt; from scipy import signal
+    &gt;&gt;&gt; import matplotlib.pyplot as plt
+    &gt;&gt;&gt; rng = np.random.default_rng()
+    
+    Generate a test signal, a 2 Vrms sine wave at 1234 Hz, corrupted by
+    0.001 V**2/Hz of white noise sampled at 10 kHz.
+    
+    &gt;&gt;&gt; fs = 10e3
+    &gt;&gt;&gt; N = 1e5
+    &gt;&gt;&gt; amp = 2*np.sqrt(2)
+    &gt;&gt;&gt; freq = 1234.0
+    &gt;&gt;&gt; noise_power = 0.001 * fs / 2
+    &gt;&gt;&gt; time = np.arange(N) / fs
+    &gt;&gt;&gt; x = amp*np.sin(2*np.pi*freq*time)
+    &gt;&gt;&gt; x += rng.normal(scale=np.sqrt(noise_power), size=time.shape)
+    
+    Compute and plot the power spectral density.
+    
+    &gt;&gt;&gt; f, Pxx_den = signal.periodogram(x, fs)
+    &gt;&gt;&gt; plt.semilogy(f, Pxx_den)
+    &gt;&gt;&gt; plt.ylim([1e-7, 1e2])
+    &gt;&gt;&gt; plt.xlabel(&#39;frequency [Hz]&#39;)
+    &gt;&gt;&gt; plt.ylabel(&#39;PSD [V**2/Hz]&#39;)
+    &gt;&gt;&gt; plt.show()
+    
+    If we average the last half of the spectral density, to exclude the
+    peak, we can recover the noise power on the signal.
+    
+    &gt;&gt;&gt; np.mean(Pxx_den[25000:])
+    0.000985320699252543
+    
+    Now compute and plot the power spectrum.
+    
+    &gt;&gt;&gt; f, Pxx_spec = signal.periodogram(x, fs, &#39;flattop&#39;, scaling=&#39;spectrum&#39;)
+    &gt;&gt;&gt; plt.figure()
+    &gt;&gt;&gt; plt.semilogy(f, np.sqrt(Pxx_spec))
+    &gt;&gt;&gt; plt.ylim([1e-4, 1e1])
+    &gt;&gt;&gt; plt.xlabel(&#39;frequency [Hz]&#39;)
+    &gt;&gt;&gt; plt.ylabel(&#39;Linear spectrum [V RMS]&#39;)
+    &gt;&gt;&gt; plt.show()
+    
+    The peak height in the power spectrum is an estimate of the RMS
+    amplitude.
+    
+    &gt;&gt;&gt; np.sqrt(Pxx_spec.max())
+    2.0077340678640727
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>There are a number of options that we won’t go into here for refining the
+analysis. The one piece of information we do need is <code class="docutils literal notranslate"><span class="pre">fs</span></code>, the sampling
+frequency. If we used the default value <code class="docutils literal notranslate"><span class="pre">fs=1.0</span></code> our results would not match the
+true frequencies of the signal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">psd</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll plot the power spectrum on a semilog plot, since power can vary over many
+orders of magnitude across frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">psd</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power ($V^</span><span class="si">{2}</span><span class="s1">/Hz$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/8a974c3b1aeff43bea6b9b13c5248a9f7245abf310b427a9b7eafc9b4b065636.png" src="../../../_images/8a974c3b1aeff43bea6b9b13c5248a9f7245abf310b427a9b7eafc9b4b065636.png" />
+</div>
+</div>
+<p>We see that this representation of the power spectrum is extremely noisy.
+Luckily, many people have come up with solutions to this problem. Scipy includes
+a function for Welch’s method, which averages out noise by computing many
+estimates of the power spectrum from overlapping windows of the data. You can
+find some more references for this approach in the
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.welch.html#scipy.signal.welch.">Scipy documentation</a>. For more powerful spectral estimation techniques, try multitaper.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">psd</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">psd</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power ($V^</span><span class="si">{2}</span><span class="s1">/Hz$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/e528afe240188982b2e1354d7be2c17175569f78bc961f1279896c1c35008fbe.png" src="../../../_images/e528afe240188982b2e1354d7be2c17175569f78bc961f1279896c1c35008fbe.png" />
+</div>
+</div>
+<div class="admonition-example-calculate-and-plot-the-time-frequency-profile-spectrogram admonition">
+<p class="admonition-title">Example: Calculate and plot the time-frequency profile (“spectrogram”)</p>
+<p>We might also be interested in how the frequency content of the signal varies
+over time. In a neural context, power in different frequency bands is often
+linked to specific types of processing, so we might explore whether changes in
+the spectrum coincide with specific behaviors or stimuli.</p>
+<p>The <em>spectrogram</em> is an estimate of the power spectrum computed in a sliding
+time window, producing a 2D representation of the signal power across frequency
+and time.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1249.9994033027313
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function spectrogram in module scipy.signal._spectral_py:
+
+spectrogram(x, fs=1.0, window=(&#39;tukey&#39;, 0.25), nperseg=None, noverlap=None, nfft=None, detrend=&#39;constant&#39;, return_onesided=True, scaling=&#39;density&#39;, axis=-1, mode=&#39;psd&#39;)
+    Compute a spectrogram with consecutive Fourier transforms.
+    
+    Spectrograms can be used as a way of visualizing the change of a
+    nonstationary signal&#39;s frequency content over time.
+    
+    Parameters
+    ----------
+    x : array_like
+        Time series of measurement values
+    fs : float, optional
+        Sampling frequency of the `x` time series. Defaults to 1.0.
+    window : str or tuple or array_like, optional
+        Desired window to use. If `window` is a string or tuple, it is
+        passed to `get_window` to generate the window values, which are
+        DFT-even by default. See `get_window` for a list of windows and
+        required parameters. If `window` is array_like it will be used
+        directly as the window and its length must be nperseg.
+        Defaults to a Tukey window with shape parameter of 0.25.
+    nperseg : int, optional
+        Length of each segment. Defaults to None, but if window is str or
+        tuple, is set to 256, and if window is array_like, is set to the
+        length of the window.
+    noverlap : int, optional
+        Number of points to overlap between segments. If `None`,
+        ``noverlap = nperseg // 8``. Defaults to `None`.
+    nfft : int, optional
+        Length of the FFT used, if a zero padded FFT is desired. If
+        `None`, the FFT length is `nperseg`. Defaults to `None`.
+    detrend : str or function or `False`, optional
+        Specifies how to detrend each segment. If `detrend` is a
+        string, it is passed as the `type` argument to the `detrend`
+        function. If it is a function, it takes a segment and returns a
+        detrended segment. If `detrend` is `False`, no detrending is
+        done. Defaults to &#39;constant&#39;.
+    return_onesided : bool, optional
+        If `True`, return a one-sided spectrum for real data. If
+        `False` return a two-sided spectrum. Defaults to `True`, but for
+        complex data, a two-sided spectrum is always returned.
+    scaling : { &#39;density&#39;, &#39;spectrum&#39; }, optional
+        Selects between computing the power spectral density (&#39;density&#39;)
+        where `Sxx` has units of V**2/Hz and computing the power
+        spectrum (&#39;spectrum&#39;) where `Sxx` has units of V**2, if `x`
+        is measured in V and `fs` is measured in Hz. Defaults to
+        &#39;density&#39;.
+    axis : int, optional
+        Axis along which the spectrogram is computed; the default is over
+        the last axis (i.e. ``axis=-1``).
+    mode : str, optional
+        Defines what kind of return values are expected. Options are
+        [&#39;psd&#39;, &#39;complex&#39;, &#39;magnitude&#39;, &#39;angle&#39;, &#39;phase&#39;]. &#39;complex&#39; is
+        equivalent to the output of `stft` with no padding or boundary
+        extension. &#39;magnitude&#39; returns the absolute magnitude of the
+        STFT. &#39;angle&#39; and &#39;phase&#39; return the complex angle of the STFT,
+        with and without unwrapping, respectively.
+    
+    Returns
+    -------
+    f : ndarray
+        Array of sample frequencies.
+    t : ndarray
+        Array of segment times.
+    Sxx : ndarray
+        Spectrogram of x. By default, the last axis of Sxx corresponds
+        to the segment times.
+    
+    See Also
+    --------
+    periodogram: Simple, optionally modified periodogram
+    lombscargle: Lomb-Scargle periodogram for unevenly sampled data
+    welch: Power spectral density by Welch&#39;s method.
+    csd: Cross spectral density by Welch&#39;s method.
+    
+    Notes
+    -----
+    An appropriate amount of overlap will depend on the choice of window
+    and on your requirements. In contrast to welch&#39;s method, where the
+    entire data stream is averaged over, one may wish to use a smaller
+    overlap (or perhaps none at all) when computing a spectrogram, to
+    maintain some statistical independence between individual segments.
+    It is for this reason that the default window is a Tukey window with
+    1/8th of a window&#39;s length overlap at each end.
+    
+    .. versionadded:: 0.16.0
+    
+    References
+    ----------
+    .. [1] Oppenheim, Alan V., Ronald W. Schafer, John R. Buck
+           &quot;Discrete-Time Signal Processing&quot;, Prentice Hall, 1999.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; import numpy as np
+    &gt;&gt;&gt; from scipy import signal
+    &gt;&gt;&gt; from scipy.fft import fftshift
+    &gt;&gt;&gt; import matplotlib.pyplot as plt
+    &gt;&gt;&gt; rng = np.random.default_rng()
+    
+    Generate a test signal, a 2 Vrms sine wave whose frequency is slowly
+    modulated around 3kHz, corrupted by white noise of exponentially
+    decreasing magnitude sampled at 10 kHz.
+    
+    &gt;&gt;&gt; fs = 10e3
+    &gt;&gt;&gt; N = 1e5
+    &gt;&gt;&gt; amp = 2 * np.sqrt(2)
+    &gt;&gt;&gt; noise_power = 0.01 * fs / 2
+    &gt;&gt;&gt; time = np.arange(N) / float(fs)
+    &gt;&gt;&gt; mod = 500*np.cos(2*np.pi*0.25*time)
+    &gt;&gt;&gt; carrier = amp * np.sin(2*np.pi*3e3*time + mod)
+    &gt;&gt;&gt; noise = rng.normal(scale=np.sqrt(noise_power), size=time.shape)
+    &gt;&gt;&gt; noise *= np.exp(-time/5)
+    &gt;&gt;&gt; x = carrier + noise
+    
+    Compute and plot the spectrogram.
+    
+    &gt;&gt;&gt; f, t, Sxx = signal.spectrogram(x, fs)
+    &gt;&gt;&gt; plt.pcolormesh(t, f, Sxx, shading=&#39;gouraud&#39;)
+    &gt;&gt;&gt; plt.ylabel(&#39;Frequency [Hz]&#39;)
+    &gt;&gt;&gt; plt.xlabel(&#39;Time [sec]&#39;)
+    &gt;&gt;&gt; plt.show()
+    
+    Note, if using output that is not one sided, then use the following:
+    
+    &gt;&gt;&gt; f, t, Sxx = signal.spectrogram(x, fs, return_onesided=False)
+    &gt;&gt;&gt; plt.pcolormesh(t, fftshift(f), fftshift(Sxx, axes=0), shading=&#39;gouraud&#39;)
+    &gt;&gt;&gt; plt.ylabel(&#39;Frequency [Hz]&#39;)
+    &gt;&gt;&gt; plt.xlabel(&#39;Time [sec]&#39;)
+    &gt;&gt;&gt; plt.show()
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">t_spec</span><span class="p">,</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span>
+                            <span class="n">nperseg</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">1000</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;psd&#39;</span><span class="p">)</span>
+<span class="c1"># Scipy assumes our signal starts at time=0, so we need to provide the offset</span>
+<span class="n">t_spec</span> <span class="o">=</span> <span class="n">t_spec</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use the matplotlib <code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code> function to visualize this data as an
+image. We can pass this function x and y coordinates to get the axis labeling
+right. We also log-transform the power spectrum and restrict to frequencies less
+than 100 Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fmax</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">t_spec</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="n">f</span><span class="o">&lt;</span><span class="n">fmax</span><span class="p">]</span>
+<span class="n">plot_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">spec</span><span class="p">[</span><span class="n">f</span><span class="o">&lt;</span><span class="n">fmax</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll plot the spectrum together with the raw signal in subplots. Note that we
+explicitly link the x-axis limits to align the plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># X axes are linked</span>
+<span class="n">time_window</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">plot_data</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">time_window</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Voltage (V)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/440929b6aa62683c58a2476a7bcea1054a503eedc14493a7c72f2d19a64c7007.png" src="../../../_images/440929b6aa62683c58a2476a7bcea1054a503eedc14493a7c72f2d19a64c7007.png" />
+</div>
+</div>
+</section>
+<section id="exploring-pre-computed-current-source-density-plots">
+<span id="content-references-csd"></span><h2>Exploring pre-computed current source density plots<a class="headerlink" href="#exploring-pre-computed-current-source-density-plots" title="Permalink to this heading">#</a></h2>
+<p>LFP data is commonly used to generate current source density (CSD) plots, which
+show the location of current sources and sinks along the probe axis. CSD
+analysis benefits from high spatial resolution, since it involves taking the
+second spatial derivative of the data. Because of Neuropixels dense site
+spacing, these probes are optimal for computing the CSD. However, the LFP data
+available through the AllenSDK has been spatially downsampled prior to NWB
+packaging.</p>
+<p>To provide access to a high-resolution CSD plot, we’ve pre-computed the CSD in
+response to a flash stimulus for all probes with LFP.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csd</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_current_source_density</span><span class="p">(</span><span class="n">probe_id</span><span class="p">)</span>
+<span class="n">csd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;CSD&#x27; (virtual_channel_index: 384, time: 875)&gt;
+array([[  58327.03371574,   20117.6298887 ,  -14617.79294315, ...,
+        -179410.38257756, -140541.81597896,  -99855.52022176],
+       [ -65434.3204571 ,  -32932.62888488,   -3367.24904473, ...,
+         161433.08930627,  136244.74051173,  109671.1407354 ],
+       [  28505.59773412,   31288.43801342,   33892.68350592, ...,
+          39946.37351702,   24588.34919833,    8571.48977541],
+       ...,
+       [  -3201.28149464,   -1289.03683893,     502.04419085, ...,
+           -943.9933153 ,   -2669.37931577,   -4375.39738216],
+       [ -32827.35201643,  -16409.56190898,   -1052.05581321, ...,
+        -106129.85783238,  -94380.54770586,  -82251.01882374],
+       [  34153.87655675,   16950.77633742,     815.89811501, ...,
+          94579.10700446,   89217.81476538,   83741.3728981 ]])
+Coordinates:
+  * virtual_channel_index  (virtual_channel_index) int64 0 1 2 3 ... 381 382 383
+  * time                   (time) float64 -0.1 -0.0996 -0.0992 ... 0.2492 0.2496
+    vertical_position      (virtual_channel_index) float64 0.0 10.0 ... 3.83e+03
+    horizontal_position    (virtual_channel_index) float64 24.0 24.0 ... 24.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'CSD'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>virtual_channel_index</span>: 384</li><li><span class='xr-has-index'>time</span>: 875</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-28fb029d-8968-490d-9395-22c1aed10e3c' class='xr-array-in' type='checkbox' checked><label for='section-28fb029d-8968-490d-9395-22c1aed10e3c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>5.833e+04 2.012e+04 -1.462e+04 ... 9.458e+04 8.922e+04 8.374e+04</span></div><div class='xr-array-data'><pre>array([[  58327.03371574,   20117.6298887 ,  -14617.79294315, ...,
+        -179410.38257756, -140541.81597896,  -99855.52022176],
+       [ -65434.3204571 ,  -32932.62888488,   -3367.24904473, ...,
+         161433.08930627,  136244.74051173,  109671.1407354 ],
+       [  28505.59773412,   31288.43801342,   33892.68350592, ...,
+          39946.37351702,   24588.34919833,    8571.48977541],
+       ...,
+       [  -3201.28149464,   -1289.03683893,     502.04419085, ...,
+           -943.9933153 ,   -2669.37931577,   -4375.39738216],
+       [ -32827.35201643,  -16409.56190898,   -1052.05581321, ...,
+        -106129.85783238,  -94380.54770586,  -82251.01882374],
+       [  34153.87655675,   16950.77633742,     815.89811501, ...,
+          94579.10700446,   89217.81476538,   83741.3728981 ]])</pre></div></div></li><li class='xr-section-item'><input id='section-a88ec5ad-299d-4a05-819c-0181015848f3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a88ec5ad-299d-4a05-819c-0181015848f3' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>virtual_channel_index</span></div><div class='xr-var-dims'>(virtual_channel_index)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 ... 379 380 381 382 383</div><input id='attrs-87414d67-500b-4e45-afbb-546ecd4d2890' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-87414d67-500b-4e45-afbb-546ecd4d2890' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8656b8d2-e8a2-499c-9fd3-1c0ed9be901b' class='xr-var-data-in' type='checkbox'><label for='data-8656b8d2-e8a2-499c-9fd3-1c0ed9be901b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  0,   1,   2, ..., 381, 382, 383])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.1 -0.0996 ... 0.2492 0.2496</div><input id='attrs-3a045b93-3c44-4667-8217-741280f6df05' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3a045b93-3c44-4667-8217-741280f6df05' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3483f01e-9d2f-48f6-9bbc-678171617d33' class='xr-var-data-in' type='checkbox'><label for='data-3483f01e-9d2f-48f6-9bbc-678171617d33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-0.1   , -0.0996, -0.0992, ...,  0.2488,  0.2492,  0.2496])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vertical_position</span></div><div class='xr-var-dims'>(virtual_channel_index)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 10.0 20.0 ... 3.82e+03 3.83e+03</div><input id='attrs-a03c25b1-5c3c-4309-927a-47d7641c0f03' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a03c25b1-5c3c-4309-927a-47d7641c0f03' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9d218c2f-e359-4738-8fbd-9654b76ea73b' class='xr-var-data-in' type='checkbox'><label for='data-9d218c2f-e359-4738-8fbd-9654b76ea73b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([   0.,   10.,   20.,   30.,   40.,   50.,   60.,   70.,   80.,
+         90.,  100.,  110.,  120.,  130.,  140.,  150.,  160.,  170.,
+        180.,  190.,  200.,  210.,  220.,  230.,  240.,  250.,  260.,
+        270.,  280.,  290.,  300.,  310.,  320.,  330.,  340.,  350.,
+        360.,  370.,  380.,  390.,  400.,  410.,  420.,  430.,  440.,
+        450.,  460.,  470.,  480.,  490.,  500.,  510.,  520.,  530.,
+        540.,  550.,  560.,  570.,  580.,  590.,  600.,  610.,  620.,
+        630.,  640.,  650.,  660.,  670.,  680.,  690.,  700.,  710.,
+        720.,  730.,  740.,  750.,  760.,  770.,  780.,  790.,  800.,
+        810.,  820.,  830.,  840.,  850.,  860.,  870.,  880.,  890.,
+        900.,  910.,  920.,  930.,  940.,  950.,  960.,  970.,  980.,
+        990., 1000., 1010., 1020., 1030., 1040., 1050., 1060., 1070.,
+       1080., 1090., 1100., 1110., 1120., 1130., 1140., 1150., 1160.,
+       1170., 1180., 1190., 1200., 1210., 1220., 1230., 1240., 1250.,
+       1260., 1270., 1280., 1290., 1300., 1310., 1320., 1330., 1340.,
+       1350., 1360., 1370., 1380., 1390., 1400., 1410., 1420., 1430.,
+       1440., 1450., 1460., 1470., 1480., 1490., 1500., 1510., 1520.,
+       1530., 1540., 1550., 1560., 1570., 1580., 1590., 1600., 1610.,
+       1620., 1630., 1640., 1650., 1660., 1670., 1680., 1690., 1700.,
+       1710., 1720., 1730., 1740., 1750., 1760., 1770., 1780., 1790.,
+...
+       2070., 2080., 2090., 2100., 2110., 2120., 2130., 2140., 2150.,
+       2160., 2170., 2180., 2190., 2200., 2210., 2220., 2230., 2240.,
+       2250., 2260., 2270., 2280., 2290., 2300., 2310., 2320., 2330.,
+       2340., 2350., 2360., 2370., 2380., 2390., 2400., 2410., 2420.,
+       2430., 2440., 2450., 2460., 2470., 2480., 2490., 2500., 2510.,
+       2520., 2530., 2540., 2550., 2560., 2570., 2580., 2590., 2600.,
+       2610., 2620., 2630., 2640., 2650., 2660., 2670., 2680., 2690.,
+       2700., 2710., 2720., 2730., 2740., 2750., 2760., 2770., 2780.,
+       2790., 2800., 2810., 2820., 2830., 2840., 2850., 2860., 2870.,
+       2880., 2890., 2900., 2910., 2920., 2930., 2940., 2950., 2960.,
+       2970., 2980., 2990., 3000., 3010., 3020., 3030., 3040., 3050.,
+       3060., 3070., 3080., 3090., 3100., 3110., 3120., 3130., 3140.,
+       3150., 3160., 3170., 3180., 3190., 3200., 3210., 3220., 3230.,
+       3240., 3250., 3260., 3270., 3280., 3290., 3300., 3310., 3320.,
+       3330., 3340., 3350., 3360., 3370., 3380., 3390., 3400., 3410.,
+       3420., 3430., 3440., 3450., 3460., 3470., 3480., 3490., 3500.,
+       3510., 3520., 3530., 3540., 3550., 3560., 3570., 3580., 3590.,
+       3600., 3610., 3620., 3630., 3640., 3650., 3660., 3670., 3680.,
+       3690., 3700., 3710., 3720., 3730., 3740., 3750., 3760., 3770.,
+       3780., 3790., 3800., 3810., 3820., 3830.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>horizontal_position</span></div><div class='xr-var-dims'>(virtual_channel_index)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>24.0 24.0 24.0 ... 24.0 24.0 24.0</div><input id='attrs-aa6bc256-5a4c-4829-b8f5-35c791d24478' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-aa6bc256-5a4c-4829-b8f5-35c791d24478' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8006deb6-f5c9-4754-95fc-d769daf5b8e2' class='xr-var-data-in' type='checkbox'><label for='data-8006deb6-f5c9-4754-95fc-d769daf5b8e2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24., 24.,
+       24., 24., 24., 24., 24., 24., 24.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c21809ec-f692-4e4d-8ec4-b19aeb19d872' class='xr-section-summary-in' type='checkbox'  ><label for='section-c21809ec-f692-4e4d-8ec4-b19aeb19d872' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>virtual_channel_index</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-89ddc88b-6875-4b44-aa6c-8b1c5d7cb39a' class='xr-index-data-in' type='checkbox'/><label for='index-89ddc88b-6875-4b44-aa6c-8b1c5d7cb39a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+            ...
+            374, 375, 376, 377, 378, 379, 380, 381, 382, 383],
+           dtype=&#x27;int64&#x27;, name=&#x27;virtual_channel_index&#x27;, length=384))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-14a82a2e-4712-400b-a9b1-345de1ac7b7a' class='xr-index-data-in' type='checkbox'/><label for='index-14a82a2e-4712-400b-a9b1-345de1ac7b7a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([                -0.1, -0.09959999980905708, -0.09919999961811415,
+              -0.09879999942717123,  -0.0983999992362283, -0.09799999904528538,
+              -0.09759999885434245, -0.09719999866339953,  -0.0967999984724566,
+              -0.09639999828151367,
+              ...
+               0.24600016516563075,   0.2464001653565737,  0.24680016554751658,
+               0.24720016573845952,  0.24760016592940245,  0.24800016612034534,
+               0.24840016631128828,  0.24880016650223122,  0.24920016669317416,
+                0.2496001668841171],
+             dtype=&#x27;float64&#x27;, name=&#x27;time&#x27;, length=875))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-13d418ef-6ac0-40e3-945a-5b03a04dc79d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-13d418ef-6ac0-40e3-945a-5b03a04dc79d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">CSD</span></code> object is a DataArray with dimensions of channels x time. Note that
+the channels are actually “virtual channels,” based on interpolated signals
+along the central axis of the probe, with 10 micron inter-site spacing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+
+<span class="n">filtered_csd</span> <span class="o">=</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">csd</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">csd</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">csd</span><span class="p">[</span><span class="s2">&quot;vertical_position&quot;</span><span class="p">],</span> <span class="n">filtered_csd</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">3e4</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">3e4</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time relative to stimulus onset (s)&quot;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;vertical position (um)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8159/685657192.py:1: DeprecationWarning: Please use `gaussian_filter` from the `scipy.ndimage` namespace, the `scipy.ndimage.filters` namespace is deprecated.
+  from scipy.ndimage.filters import gaussian_filter
+</pre></div>
+</div>
+<img alt="../../../_images/9bbbfcc8d7be56d8ea9f13d2fbe83fa56ff49b78f1e1a108f9a41e021201d0cb.png" src="../../../_images/9bbbfcc8d7be56d8ea9f13d2fbe83fa56ff49b78f1e1a108f9a41e021201d0cb.png" />
+</div>
+</div>
+<p>This CSD shows a clear stimulus-evoked response in cortex (2600-3500 microns),
+with an even earlier response in a subcortical region (700-1200 microns).</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">channels</span></code> table to figure out where this signal is coming from:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_id</span> <span class="o">==</span> <span class="n">probe_id</span><span class="p">)</span> <span class="o">&amp;</span>
+                 <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_vertical_position</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">)</span> <span class="o">&amp;</span>
+                 <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">probe_vertical_position</span> <span class="o">&lt;</span> <span class="mi">1200</span><span class="p">)]</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;LP&#39;, &#39;LGd&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like this region of the probe is on the border between LGd and LP nuclei in the thalamus.</p>
+<section id="id3">
+<h3>Suggestions for further analysis<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How does the cortical CSD vary across visual areas? Are there consistent patterns across all areas?</p></li>
+<li><p>Are the locations of sources and sinks correlated with other features of the LFP, such as power in different frequency bands?</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcnp-receptive-fields.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Receptive fields</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcnp-optotagging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optotagging Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-probes-to-analyze">Selecting probes to analyze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-lfp-data">Loading LFP data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggestions-for-further-analysis">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-lfp-data-to-a-stimulus">Aligning LFP data to a stimulus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-lfp-data-in-space-to-units">Aligning LFP data in space to units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Suggestions for further analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-and-spectral-estimation-of-lfp">Filtering and spectral estimation of LFP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-pre-computed-current-source-density-plots">Exploring pre-computed current source density plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Suggestions for further analysis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

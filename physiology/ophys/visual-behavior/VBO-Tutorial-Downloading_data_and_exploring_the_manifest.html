@@ -1,0 +1,2253 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Accessing Visual Behavior Ophys Data &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="V1 Deep Dive" href="../V1DD/V1DD-overview.html" />
+    <link rel="prev" title="Compare Trial Types" href="VBO-Tutorial-Compare_trial_types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VB-Ophys.html">Visual Behavior Ophys</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Accessing Visual Behavior Ophys Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-allensdk-into-your-local-environment">Instal AllenSDK into your local environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-allensdk-into-your-notebook-environment">Install AllenSDK into your notebook environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-versions-of-the-dataset">Managing versions of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-manifests">Discovering manifests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-manifests-dataset-versions">Loading manifests/dataset versions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata">Using the AllenSDK to access Visual Behavior Ophys metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset-with-allensdk">Downloading the complete dataset with AllenSDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-of-data-from-s3">Direct download of data from S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-previous-versions-of-released-data-from-s3">Downloading previous versions of released data from S3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release">Listing and downloading a specific manifest version for the data release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-versioned-manifest-to-download-a-specific-data-version">Using a versioned manifest to download a specific data version</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-visual-behavior-ophys-data">
+<h1>Accessing Visual Behavior Ophys Data<a class="headerlink" href="#accessing-visual-behavior-ophys-data" title="Permalink to this heading">#</a></h1>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook covers the various methods for accessing the Allen Institute Visual Behavior Ophys dataset. We will go over how to request data, where it’s stored, and what the various files contain. If you’re having trouble downloading the data, or you just want to know more about what’s going on under the hood, this is a good place to start.</p>
+<p>This data release will not have a web interface for browsing through the released data, as with the <a class="reference external" href="http://observatory.brain-map.org/visualcoding">two-photon imaging Visual Coding dataset</a>. Instead, the data must be retrieved through the AllenSDK (Python 3.6+) or via requests sent to the <strong>Amazon Web Services (AWS)</strong> <strong>Simple Storage Service (S3)</strong> bucket (name: <a class="reference external" href="https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data">visual-behavior-ophys-data</a>) for this project.</p>
+<p>Functions related to data analysis as well as descriptions of metadata table columns will be covered in other tutorials. For a full list of available tutorials for this project, see the <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">SDK documentation</a>.</p>
+</section>
+<section id="options-for-data-access">
+<h2>Options for data access<a class="headerlink" href="#options-for-data-access" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object in the AllenSDK is the easiest way to interact with the released data. This object abstracts away the details of on-disk file storage, and delivers the data to you as ready-to-analyze Python objects. The cache will automatically keep track of which files are stored locally, and will download additional files on an as-needed basis. Usually you won’t need to worry about the organization of these files, but this tutorial will cover those details in case you want to analyze them without using the AllenSDK (e.g., in Matlab). This tutorial begins with an introduction to this approach.</p>
+<p>Another option is to directly download the data using an S3 URL. This should be used if the other options are broken or are not available to you. Instructions for this can be found <a href='#Direct-download-of-data-from-S3'>at the end of this tutorial</a>.</p>
+</section>
+<section id="using-the-allensdk-to-retrieve-data">
+<h2>Using the AllenSDK to retrieve data<a class="headerlink" href="#using-the-allensdk-to-retrieve-data" title="Permalink to this heading">#</a></h2>
+<p>Most users will want to access data via the AllenSDK. This requires nothing more than a Python interpreter and some free disk space to store the data locally.</p>
+<p>How much data is there? If you want to download the complete dataset (3021 Behavior Sessions, 551 Behavior Ophys Sessions containing 1165 Behavior Ophys Experiments), you’ll need 1000.8 GB of space, split across the following files:</p>
+<ol class="arabic simple">
+<li><p>CSV files containing information about behavior sessions, behavior ophys sessions, and behavior ophys experiments (1.3 MB)</p></li>
+<li><p>NWB files containing data for behavior sessions (437.6 GB total, min file size = 0.049 GB, max file size = 0.194 GB)</p></li>
+<li><p>NWB files containing data for behavior ophys experiments (563.2 GB total, min file size = 0.231 GB, max file size = 2.96 GB)</p></li>
+</ol>
+<p>Before downloading the data, you must decide on a cache directory where you would like downloaded data to be stored. This directory is where the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object will look first when you request a metadata table or a data file.</p>
+<p>When you initialize a local cache for the first time, it will create the manifest file at the path that you specify. This file lives one directory up from the rest of the data, so make sure you put it somewhere that has enough space available.</p>
+<p>When you need to access the data in subsequent analysis sessions, you should point the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object to an existing cache directory; otherwise, it will try to re-download the data in a new location.</p>
+<p>To get started with this approach, first take care of the necessary imports:</p>
+<p>We will first install allensdk into your environment by running the appropriate commands below.</p>
+</section>
+<section id="instal-allensdk-into-your-local-environment">
+<h2>Instal AllenSDK into your local environment<a class="headerlink" href="#instal-allensdk-into-your-local-environment" title="Permalink to this heading">#</a></h2>
+<p>You can install AllenSDK with:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>allensdk
+</pre></div>
+</div>
+</section>
+<section id="install-allensdk-into-your-notebook-environment">
+<h2>Install AllenSDK into your notebook environment<a class="headerlink" href="#install-allensdk-into-your-notebook-environment" title="Permalink to this heading">#</a></h2>
+<p>You can install AllenSDK into your notebook environment by executing the cell below.</p>
+<p>If using Google Colab, click on the RESTART RUNTIME button that appears at the end of the output when this cell is complete,. Note that running this cell will produce a long list of outputs and some error messages. Clicking RESTART RUNTIME at the end will resolve these issues.
+You can minimize the cell after you are done to hide the output.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>allensdk
+</pre></div>
+</div>
+</section>
+<section id="import-required-packages">
+<h2>Import required packages<a class="headerlink" href="#import-required-packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">allensdk</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache</span> <span class="kn">import</span> <span class="n">VisualBehaviorOphysProjectCache</span>
+
+<span class="c1"># Confirming your allensdk version</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your allensdk version is: </span><span class="si">{</span><span class="n">allensdk</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your allensdk version is: 2.16.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update this to a valid directory in your filesystem</span>
+<span class="c1"># Remember to choose a location that has plenty of free space available.</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/&#39;</span>
+
+<span class="n">DOWNLOAD_COMPLETE_DATASET</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+
+<span class="c1"># To instantiate a cache and download data from AWS</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_s3_cache</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">)</span>
+
+<span class="c1"># If you are using a local version of the cache</span>
+<span class="c1"># cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=output_dir, use_static_cache=True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/allensdk/api/cloud_cache/cloud_cache.py:439: MissingLocalManifestWarning: This cache directory appears to contain data files, but it has no record of what those files are. You might want to consider running
+
+VisualBehaviorOphysProjectCache.construct_local_manifest()
+
+to avoid needlessly downloading duplicates of data files that did not change between data releases. NOTE: running this method will require hashing every data file you have currently downloaded and could be very time consuming.
+
+To avoid this warning in the future, make sure that
+
+/root/capsule/data/_downloaded_data.json
+
+is not deleted between instantiations of this cache
+  warnings.warn(msg, MissingLocalManifestWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_session_table.csv:   0%|                                                                                                                                                      | 0.00/247k [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_session_table.csv: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 247k/247k [00:00&lt;00:00, 5.41MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_table.csv:   0%|                                                                                                                                                  | 0.00/1.59M [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_table.csv: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.59M/1.59M [00:00&lt;00:00, 15.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_experiment_table.csv:   0%|                                                                                                                                                   | 0.00/657k [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_experiment_table.csv: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 657k/657k [00:00&lt;00:00, 7.42MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_cells_table.csv:   0%|                                                                                                                                                       | 0.00/4.28M [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ophys_cells_table.csv: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4.28M/4.28M [00:00&lt;00:00, 47.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/behavior_project_cache.py:135: UpdatedStimulusPresentationTableWarning: 
+	As of AllenSDK version 2.16.0, the latest Visual Behavior Ophys data has been significantly updated from previous releases. Specifically the user will need to update all processing of the stimulus_presentations tables. These tables now include multiple stimulus types delineated by the columns `stimulus_block` and `stimulus_block_name`.
+
+The data that was available in previous releases are stored in the block name containing &#39;change_detection&#39; and can be accessed in the pandas table by using: 
+	`stimulus_presentations[stimulus_presentations.stimulus_block_name.str.contains(&#39;change_detection&#39;)]`
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instantiating the cache will have it to download 3 project metadata files:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">behavior_session_table.csv</span></code> (879 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_session_table.csv</span></code> (165.1 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code> (335.6 kB)</p></li>
+</ol>
+<p>Each one contains a table of information related to its file name. If you’re using the AllenSDK, you won’t have to worry about how these files are formatted. Instead, you’ll load the relevant data using specific accessor method: <code class="docutils literal notranslate"><span class="pre">get_behavior_session_table()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_ophys_session_table()</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_ophys_experiment_table()</span></code>. These functions return a pandas DataFrame containing a row for each item and a column for each metric.</p>
+<p>If you are analyzing data without using the AllenSDK, you can load the data using your CSV file reader of choice. However, please be aware the columns in the original file do not necessarily match what’s returned by the AllenSDK, which may combine information from multiple files to produce the final DataFrame.</p>
+<section id="managing-versions-of-the-dataset">
+<h3>Managing versions of the dataset<a class="headerlink" href="#managing-versions-of-the-dataset" title="Permalink to this heading">#</a></h3>
+<p>Over time, updates may be made to the released dataset. These updates will result in new versions of the dataset being available in the S3 bucket. The versions of the dataset are managed through distinct data manifests stored on S3.</p>
+<section id="discovering-manifests">
+<h4>Discovering manifests<a class="headerlink" href="#discovering-manifests" title="Permalink to this heading">#</a></h4>
+<p>To see all of the manifest files available for this dataset online, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">list_manifest_file_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;,
+ &#39;visual-behavior-ophys_project_manifest_v0.2.0.json&#39;,
+ &#39;visual-behavior-ophys_project_manifest_v0.3.0.json&#39;,
+ &#39;visual-behavior-ophys_project_manifest_v1.0.0.json&#39;,
+ &#39;visual-behavior-ophys_project_manifest_v1.0.1.json&#39;,
+ &#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the most up-to-date available manifest, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can list all of the manifest files currently downloaded to your system with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">list_all_downloaded_manifests</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-manifests-dataset-versions">
+<h4>Loading manifests/dataset versions<a class="headerlink" href="#loading-manifests-dataset-versions" title="Permalink to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> determines which version of the dataset to use by loading one of these manifests. By default, the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorProjectCache</span></code> loads either</p>
+<ul class="simple">
+<li><p>the most up-to-date available data manifest, if you are instantiating it on an empty <code class="docutils literal notranslate"><span class="pre">cache_dir</span></code></p></li>
+<li><p>the data manifest you were last using, if you are instantiating it on a pre-existing <code class="docutils literal notranslate"><span class="pre">cache_dir</span></code> (in this case, the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> will emit a warning if a more up-to-data data manifest exists online letting you know that you can, if you choose, move to the more up-to-date data manifest)</p></li>
+</ul>
+<p>To see the manifest that you currently have loaded, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">current_manifest</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To load a particular data manifest by hand, run (note: because we are intentionally loading an out-of-date manifest, this will emit an error alerting us to the existence of the most up-to-date manifest). We then reload the latest manifest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache.utils</span> <span class="kn">import</span> \
+    <span class="n">BehaviorCloudCacheVersionException</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">BehaviorCloudCacheVersionException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/allensdk/api/cloud_cache/cloud_cache.py:492: OutdatedManifestWarning: 
+
+The manifest file you are loading is not the most up to date manifest file available for this dataset. The most up to data manifest file available for this dataset is 
+
+visual-behavior-ophys_project_manifest_v1.1.0.json
+
+To see the differences between these manifests,run
+
+VisualBehaviorOphysProjectCache.compare_manifests(&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;, &#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;)
+
+To see all of the manifest files currently downloaded onto your local system, run
+
+self.list_all_downloaded_manifests()
+
+If you just want to load the latest manifest, run
+
+self.load_latest_manifest()
+
+
+  warnings.warn(msg, OutdatedManifestWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the manifest has manifest_version 0.1.0 but this version of AllenSDK is compatible only with manifest versions 1.0.0 &lt;= X &lt; 2.0.0. 
+Consider using a version of AllenSDK closer to the version used to release the data: 2.10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">current_manifest</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;visual-behavior-ophys_project_manifest_v1.1.0.json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the earlier warning informed us, we can see the difference between an two versions of the dataset by running</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">compare_manifests</span><span class="p">(</span><span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.2.0.json&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Changes going from
+visual-behavior-ophys_project_manifest_v0.1.0.json
+to
+visual-behavior-ophys_project_manifest_v0.2.0.json
+
+project_metadata/behavior_session_table.csv changed
+project_metadata/ophys_experiment_table.csv changed
+project_metadata/ophys_session_table.csv changed
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case we just examined, only the metadata files have changed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> is smart enough to know that, if a file has not changed between version <code class="docutils literal notranslate"><span class="pre">A</span></code> and version <code class="docutils literal notranslate"><span class="pre">B</span></code> of the dataset, and you have already downloaded the file while version <code class="docutils literal notranslate"><span class="pre">A</span></code> of the manifest was loaded, when you move to version <code class="docutils literal notranslate"><span class="pre">B</span></code>, it does not need to download the data again. It will simply construct a symlink where version <code class="docutils literal notranslate"><span class="pre">B</span></code> of the data should exist on your system, pointing to version <code class="docutils literal notranslate"><span class="pre">A</span></code> of the file.</p>
+<p>Because only metadata files changed between <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code> and <code class="docutils literal notranslate"><span class="pre">v0.2.0</span></code> of the dataset, we could move freely between the two versions without having to worry about downloading a bunch of new data files. This may not be the case for future dataset updates, so you should keep that in mind before moving from an older to a newer version out of hand.</p>
+</section>
+</section>
+<section id="using-the-allensdk-to-access-visual-behavior-ophys-metadata">
+<h3>Using the AllenSDK to access Visual Behavior Ophys metadata<a class="headerlink" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata" title="Permalink to this heading">#</a></h3>
+<p>Let’s take a closer look at what’s in the <code class="docutils literal notranslate"><span class="pre">behavior_session_table.csv</span></code> file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of behavior sessions: 4782
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ophys_session_id</th>
+      <th>ophys_container_id</th>
+      <th>mouse_id</th>
+      <th>indicator</th>
+      <th>full_genotype</th>
+      <th>driver_line</th>
+      <th>cre_line</th>
+      <th>reporter_line</th>
+      <th>sex</th>
+      <th>age_in_days</th>
+      <th>...</th>
+      <th>num_targeted_structures</th>
+      <th>engaged_trial_count</th>
+      <th>correct_reject_trial_count</th>
+      <th>catch_trial_count</th>
+      <th>trial_count</th>
+      <th>false_alarm_trial_count</th>
+      <th>hit_trial_count</th>
+      <th>file_id</th>
+      <th>go_trial_count</th>
+      <th>miss_trial_count</th>
+    </tr>
+    <tr>
+      <th>behavior_session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>870987812</th>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>80</td>
+      <td>...</td>
+      <td>&lt;NA&gt;</td>
+      <td>70</td>
+      <td>0</td>
+      <td>0</td>
+      <td>121</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1941</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>872953842</th>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>84</td>
+      <td>...</td>
+      <td>&lt;NA&gt;</td>
+      <td>27</td>
+      <td>45</td>
+      <td>49</td>
+      <td>564</td>
+      <td>4</td>
+      <td>18</td>
+      <td>1942</td>
+      <td>293</td>
+      <td>275</td>
+    </tr>
+    <tr>
+      <th>873774125</th>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>85</td>
+      <td>...</td>
+      <td>&lt;NA&gt;</td>
+      <td>0</td>
+      <td>38</td>
+      <td>41</td>
+      <td>548</td>
+      <td>3</td>
+      <td>14</td>
+      <td>1943</td>
+      <td>314</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>874790261</th>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>86</td>
+      <td>...</td>
+      <td>&lt;NA&gt;</td>
+      <td>0</td>
+      <td>42</td>
+      <td>42</td>
+      <td>492</td>
+      <td>0</td>
+      <td>14</td>
+      <td>1944</td>
+      <td>326</td>
+      <td>312</td>
+    </tr>
+    <tr>
+      <th>875207834</th>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>87</td>
+      <td>...</td>
+      <td>&lt;NA&gt;</td>
+      <td>5</td>
+      <td>41</td>
+      <td>44</td>
+      <td>504</td>
+      <td>3</td>
+      <td>22</td>
+      <td>1945</td>
+      <td>322</td>
+      <td>300</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 34 columns</p>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> DataFrame provides a high-level overview for behavior sessions in the Visual Behavior dataset. The index column (behavior_session_id) is a unique ID, which serves as a key for access behavior data for each session. To get additional information about this data table (and other tables) please visit {doc}`this example notebook&lt;./VBO-Dataset&gt;.</p>
+<p>Sharp eyed readers may be wondering why the number of behavior session (3572) in this table does not match up with the number of NWB files with behavior session data (3021). This is because the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> includes entries for behavior sessions that also had optical physiology recordings.</p>
+<p>Let’s take a look at only the sessions that also included optical physiology data (i.e. the <code class="docutils literal notranslate"><span class="pre">ophys_session_table.csv</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_ophys_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior + ophys sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_ophys_sessions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_ophys_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of behavior + ophys sessions: 703
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>behavior_session_id</th>
+      <th>ophys_container_id</th>
+      <th>mouse_id</th>
+      <th>indicator</th>
+      <th>full_genotype</th>
+      <th>driver_line</th>
+      <th>cre_line</th>
+      <th>reporter_line</th>
+      <th>sex</th>
+      <th>age_in_days</th>
+      <th>...</th>
+      <th>behavior_type</th>
+      <th>experience_level</th>
+      <th>prior_exposures_to_session_type</th>
+      <th>prior_exposures_to_image_set</th>
+      <th>prior_exposures_to_omissions</th>
+      <th>date_of_acquisition</th>
+      <th>equipment_name</th>
+      <th>num_depths_per_area</th>
+      <th>ophys_experiment_id</th>
+      <th>num_targeted_structures</th>
+    </tr>
+    <tr>
+      <th>ophys_session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>951410079</th>
+      <td>951520319</td>
+      <td>[1018028339, 1018028342, 1018028345, 101802835...</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>206</td>
+      <td>...</td>
+      <td>active_behavior</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>4</td>
+      <td>[951980471, 951980473, 951980475, 951980479, 9...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>952430817</th>
+      <td>952554548</td>
+      <td>[1018028339, 1018028345, 1018028354, 1018028357]</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>209</td>
+      <td>...</td>
+      <td>passive_viewing</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>66</td>
+      <td>1</td>
+      <td>2019-09-23 08:45:38.490000+00:00</td>
+      <td>MESO.1</td>
+      <td>4</td>
+      <td>[953659743, 953659745, 953659749, 953659752]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>954954402</th>
+      <td>953982960</td>
+      <td>[1018028339, 1018028342, 1018028345, 101802835...</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>210</td>
+      <td>...</td>
+      <td>active_behavior</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>67</td>
+      <td>2</td>
+      <td>2019-09-24 09:01:31.582000+00:00</td>
+      <td>MESO.1</td>
+      <td>4</td>
+      <td>[958527464, 958527471, 958527474, 958527479, 9...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>955775716</th>
+      <td>956010809</td>
+      <td>[1018028339, 1018028342, 1018028345]</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>212</td>
+      <td>...</td>
+      <td>active_behavior</td>
+      <td>Familiar</td>
+      <td>1</td>
+      <td>68</td>
+      <td>3</td>
+      <td>2019-09-26 09:22:21.772000+00:00</td>
+      <td>MESO.1</td>
+      <td>4</td>
+      <td>[956941841, 956941844, 956941846]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>957020350</th>
+      <td>957032492</td>
+      <td>[1018028339, 1018028342, 1018028345, 101802835...</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>213</td>
+      <td>...</td>
+      <td>active_behavior</td>
+      <td>Novel 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2019-09-27 08:58:37.005000+00:00</td>
+      <td>MESO.1</td>
+      <td>4</td>
+      <td>[957759562, 957759564, 957759566, 957759570, 9...</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
+</div>
+<p>Here we can see that 3572 - 551 is indeed 3021. The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> contains information about behavior sessions with optical physiology recordings. Depending on the microscope (<code class="docutils literal notranslate"><span class="pre">equipment_name</span></code>) used, one or multiple ophys_experiments (i.e. imaging planes) may be collected during a behavior ophys session.</p>
+<p>In order to keep individual data file sizes reasonable, we are releasing data files organized around ophys_experiments (i.e. imaging planes) instead of at the ophys_session level. The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> is thus useful for determining which <code class="docutils literal notranslate"><span class="pre">ophys_experiments</span></code> were collected together.</p>
+<p>Let’s finally take a look at the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_ophys_experiments</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_experiment_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior ophys experiments: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_ophys_experiments</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_ophys_experiments</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of behavior ophys experiments: 1936
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>behavior_session_id</th>
+      <th>ophys_session_id</th>
+      <th>ophys_container_id</th>
+      <th>mouse_id</th>
+      <th>indicator</th>
+      <th>full_genotype</th>
+      <th>driver_line</th>
+      <th>cre_line</th>
+      <th>reporter_line</th>
+      <th>sex</th>
+      <th>...</th>
+      <th>passive</th>
+      <th>experience_level</th>
+      <th>prior_exposures_to_session_type</th>
+      <th>prior_exposures_to_image_set</th>
+      <th>prior_exposures_to_omissions</th>
+      <th>date_of_acquisition</th>
+      <th>equipment_name</th>
+      <th>published_at</th>
+      <th>isi_experiment_id</th>
+      <th>file_id</th>
+    </tr>
+    <tr>
+      <th>ophys_experiment_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>951980471</th>
+      <td>951520319</td>
+      <td>951410079</td>
+      <td>1018028342</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>2021-03-25</td>
+      <td>848974280</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>951980473</th>
+      <td>951520319</td>
+      <td>951410079</td>
+      <td>1018028345</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>2021-03-25</td>
+      <td>848974280</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>951980475</th>
+      <td>951520319</td>
+      <td>951410079</td>
+      <td>1018028339</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>2021-03-25</td>
+      <td>848974280</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>951980479</th>
+      <td>951520319</td>
+      <td>951410079</td>
+      <td>1018028354</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>2021-03-25</td>
+      <td>848974280</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>951980481</th>
+      <td>951520319</td>
+      <td>951410079</td>
+      <td>1018028357</td>
+      <td>457841</td>
+      <td>GCaMP6f</td>
+      <td>Sst-IRES-Cre/wt;Ai148(TIT2L-GC6f-ICL-tTA2)/wt</td>
+      <td>[Sst-IRES-Cre]</td>
+      <td>Sst-IRES-Cre</td>
+      <td>Ai148(TIT2L-GC6f-ICL-tTA2)</td>
+      <td>F</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Familiar</td>
+      <td>0</td>
+      <td>65</td>
+      <td>0</td>
+      <td>2019-09-20 09:59:38.837000+00:00</td>
+      <td>MESO.1</td>
+      <td>2021-03-25</td>
+      <td>848974280</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 30 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">
+<h3>Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data<a class="headerlink" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data" title="Permalink to this heading">#</a></h3>
+<p>After looking through the metadata for the data release, let’s say you want to access information about a specific behavior session (behaviors_session_id=870987812)</p>
+<p>To get data for a specific behavior session in the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="o">=</span><span class="mi">870987812</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:   0%|                                                                                                                                              | 0.00/51.7M [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:   0%|                                                                                                                                   | 1.02k/51.7M [00:00&lt;2:19:42, 6.16kMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  13%|█████████████████                                                                                                                    | 6.61M/51.7M [00:00&lt;00:02, 21.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  17%|██████████████████████                                                                                                               | 8.56M/51.7M [00:00&lt;00:02, 16.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  29%|██████████████████████████████████████▌                                                                                              | 15.0M/51.7M [00:00&lt;00:01, 25.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  34%|█████████████████████████████████████████████▍                                                                                       | 17.6M/51.7M [00:00&lt;00:01, 17.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  45%|████████████████████████████████████████████████████████████▏                                                                        | 23.4M/51.7M [00:01&lt;00:01, 20.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  49%|█████████████████████████████████████████████████████████████████▋                                                                   | 25.5M/51.7M [00:01&lt;00:01, 17.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  61%|█████████████████████████████████████████████████████████████████████████████████▊                                                   | 31.8M/51.7M [00:01&lt;00:00, 22.3MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  66%|███████████████████████████████████████████████████████████████████████████████████████▋                                             | 34.1M/51.7M [00:01&lt;00:01, 16.2MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  78%|███████████████████████████████████████████████████████████████████████████████████████████████████████▍                             | 40.2M/51.7M [00:02&lt;00:00, 21.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  83%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                       | 42.7M/51.7M [00:02&lt;00:00, 21.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb:  97%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌   | 50.3M/51.7M [00:02&lt;00:00, 26.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_session_870987812.nwb: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 51.7M/51.7M [00:02&lt;00:00, 20.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List methods of the session that can be used to get data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">behavior_session</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;behavior_session_id&#39;, &#39;eye_tracking&#39;, &#39;eye_tracking_rig_geometry&#39;, &#39;get_performance_metrics&#39;, &#39;get_reward_rate&#39;, &#39;get_rolling_performance_df&#39;, &#39;licks&#39;, &#39;metadata&#39;, &#39;raw_running_speed&#39;, &#39;rewards&#39;, &#39;running_speed&#39;, &#39;stimulus_presentations&#39;, &#39;stimulus_templates&#39;, &#39;stimulus_timestamps&#39;, &#39;task_parameters&#39;, &#39;trials&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try viewing one of the visual stimuli presented to the mouse during the behavior session we downloaded:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listing the different stimuli templates</span>
+<span class="n">behavior_session</span><span class="o">.</span><span class="n">stimulus_templates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unwarped</th>
+      <th>warped</th>
+    </tr>
+    <tr>
+      <th>image_name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gratings_0.0</th>
+      <td>[[127.0, 127.0, 127.0, 127.0, 127.0, 127.0, 12...</td>
+      <td>[[255, 255, 255, 255, 255, 255, 255, 255, 255,...</td>
+    </tr>
+    <tr>
+      <th>gratings_90.0</th>
+      <td>[[127.0, 127.0, 127.0, 127.0, 127.0, 127.0, 12...</td>
+      <td>[[255, 255, 255, 255, 255, 255, 255, 255, 255,...</td>
+    </tr>
+    <tr>
+      <th>gratings_180.0</th>
+      <td>[[127.0, 127.0, 127.0, 127.0, 127.0, 127.0, 12...</td>
+      <td>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...</td>
+    </tr>
+    <tr>
+      <th>gratings_270.0</th>
+      <td>[[127.0, 127.0, 127.0, 127.0, 127.0, 127.0, 12...</td>
+      <td>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing a particular stimulus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">behavior_session</span><span class="o">.</span><span class="n">stimulus_templates</span><span class="p">[</span><span class="s1">&#39;warped&#39;</span><span class="p">][</span><span class="s1">&#39;gratings_90.0&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f2a17fe0550&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/e002579067656acd00e151f1dd1c4fd148a554cfbb82158656ce1aa3a918a392.png" src="../../../_images/e002579067656acd00e151f1dd1c4fd148a554cfbb82158656ce1aa3a918a392.png" />
+</div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">behavior_session</span></code> object has a lot of attributes and methods that can be used to access underlying data in the NWB file. Most of these will be touched on in other tutorials for <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">this data release</a>.</p>
+<p>Now let’s see how to get data for a particular ophys experiment (i.e. imaging plane):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="o">=</span><span class="mi">951980471</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   0%|                                                                                                                                      | 0.00/248M [00:00&lt;?, ?MB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   0%|                                                                                                                          | 1.02k/248M [00:00&lt;14:24:58, 4.78kMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   3%|███▌                                                                                                                         | 7.18M/248M [00:00&lt;00:08, 28.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   5%|█████▋                                                                                                                       | 11.4M/248M [00:00&lt;00:07, 29.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   6%|███████▊                                                                                                                     | 15.5M/248M [00:00&lt;00:09, 23.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   7%|█████████▎                                                                                                                   | 18.5M/248M [00:00&lt;00:10, 22.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:   9%|███████████▊                                                                                                                 | 23.4M/248M [00:01&lt;00:10, 21.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  10%|█████████████                                                                                                                | 25.8M/248M [00:01&lt;00:10, 20.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  13%|████████████████                                                                                                             | 31.8M/248M [00:01&lt;00:09, 23.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  14%|█████████████████▏                                                                                                           | 34.2M/248M [00:01&lt;00:09, 21.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  16%|████████████████████▏                                                                                                        | 40.2M/248M [00:01&lt;00:07, 27.2MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  17%|█████████████████████▋                                                                                                       | 43.0M/248M [00:01&lt;00:08, 23.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  20%|████████████████████████▍                                                                                                    | 48.5M/248M [00:02&lt;00:08, 23.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  21%|█████████████████████████▋                                                                                                   | 51.0M/248M [00:02&lt;00:09, 19.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  23%|████████████████████████████▋                                                                                                | 56.9M/248M [00:02&lt;00:12, 15.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  24%|█████████████████████████████▌                                                                                               | 58.7M/248M [00:03&lt;00:13, 13.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  26%|████████████████████████████████▉                                                                                            | 65.3M/248M [00:03&lt;00:10, 16.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  27%|█████████████████████████████████▊                                                                                           | 67.1M/248M [00:03&lt;00:12, 14.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  30%|█████████████████████████████████████▏                                                                                       | 73.7M/248M [00:03&lt;00:10, 16.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  30%|██████████████████████████████████████                                                                                       | 75.5M/248M [00:04&lt;00:11, 15.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  33%|█████████████████████████████████████████▎                                                                                   | 82.1M/248M [00:04&lt;00:07, 21.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  34%|██████████████████████████████████████████▌                                                                                  | 84.6M/248M [00:04&lt;00:08, 20.2MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  36%|█████████████████████████████████████████████▌                                                                               | 90.5M/248M [00:04&lt;00:06, 22.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  37%|██████████████████████████████████████████████▊                                                                              | 92.9M/248M [00:04&lt;00:07, 20.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  40%|█████████████████████████████████████████████████▊                                                                           | 98.9M/248M [00:04&lt;00:06, 22.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  41%|███████████████████████████████████████████████████▍                                                                          | 101M/248M [00:05&lt;00:06, 21.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  43%|██████████████████████████████████████████████████████▍                                                                       | 107M/248M [00:05&lt;00:06, 21.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  44%|███████████████████████████████████████████████████████▌                                                                      | 109M/248M [00:05&lt;00:06, 20.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  47%|██████████████████████████████████████████████████████████▋                                                                   | 116M/248M [00:05&lt;00:06, 22.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  47%|███████████████████████████████████████████████████████████▊                                                                  | 118M/248M [00:05&lt;00:06, 20.2MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  50%|██████████████████████████████████████████████████████████████▍                                                               | 123M/248M [00:06&lt;00:05, 23.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  51%|███████████████████████████████████████████████████████████████▉                                                              | 126M/248M [00:06&lt;00:06, 18.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  53%|███████████████████████████████████████████████████████████████████▏                                                          | 132M/248M [00:06&lt;00:04, 27.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  55%|████████████████████████████████████████████████████████████████████▉                                                         | 136M/248M [00:06&lt;00:04, 26.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  57%|███████████████████████████████████████████████████████████████████████▌                                                      | 141M/248M [00:06&lt;00:03, 28.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  58%|█████████████████████████████████████████████████████████████████████████▏                                                    | 144M/248M [00:06&lt;00:03, 26.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  60%|███████████████████████████████████████████████████████████████████████████▊                                                  | 149M/248M [00:07&lt;00:04, 23.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  61%|█████████████████████████████████████████████████████████████████████████████                                                 | 152M/248M [00:07&lt;00:04, 23.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  64%|████████████████████████████████████████████████████████████████████████████████                                              | 158M/248M [00:07&lt;00:03, 25.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  65%|█████████████████████████████████████████████████████████████████████████████████▎                                            | 160M/248M [00:07&lt;00:03, 23.3MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  67%|████████████████████████████████████████████████████████████████████████████████████▎                                         | 166M/248M [00:07&lt;00:03, 21.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  68%|█████████████████████████████████████████████████████████████████████████████████████▍                                        | 168M/248M [00:08&lt;00:04, 19.7MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  70%|████████████████████████████████████████████████████████████████████████████████████████▌                                     | 174M/248M [00:08&lt;00:03, 22.3MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  71%|█████████████████████████████████████████████████████████████████████████████████████████▋                                    | 177M/248M [00:08&lt;00:04, 17.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  74%|████████████████████████████████████████████████████████████████████████████████████████████▊                                 | 183M/248M [00:08&lt;00:03, 20.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  74%|█████████████████████████████████████████████████████████████████████████████████████████████▊                                | 185M/248M [00:08&lt;00:03, 18.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  77%|█████████████████████████████████████████████████████████████████████████████████████████████████                             | 191M/248M [00:09&lt;00:02, 19.8MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  78%|██████████████████████████████████████████████████████████████████████████████████████████████████                            | 193M/248M [00:09&lt;00:02, 18.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  80%|█████████████████████████████████████████████████████████████████████████████████████████████████████▎                        | 200M/248M [00:09&lt;00:02, 23.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  81%|██████████████████████████████████████████████████████████████████████████████████████████████████████▍                       | 202M/248M [00:09&lt;00:02, 20.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  84%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▌                    | 208M/248M [00:09&lt;00:01, 20.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  85%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▌                   | 210M/248M [00:10&lt;00:02, 17.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  87%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 216M/248M [00:10&lt;00:01, 22.5MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  88%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████               | 219M/248M [00:10&lt;00:01, 19.1MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████            | 225M/248M [00:10&lt;00:01, 22.3MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  91%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 227M/248M [00:10&lt;00:01, 20.2MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎       | 233M/248M [00:11&lt;00:00, 23.6MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌      | 235M/248M [00:11&lt;00:00, 20.4MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  97%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌   | 241M/248M [00:11&lt;00:00, 20.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb:  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋  | 243M/248M [00:11&lt;00:00, 18.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋| 248M/248M [00:11&lt;00:00, 18.9MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>behavior_ophys_experiment_951980471.nwb: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 248M/248M [00:12&lt;00:00, 20.0MMB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/hdmf/utils.py:668: UserWarning: Ignoring cached namespace &#39;core&#39; version 2.6.0-alpha because version 2.7.0 is already loaded.
+  return func(args[0], **pargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List methods of the ophys_experiment object that can be used to get data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;average_projection&#39;, &#39;behavior_session_id&#39;, &#39;cell_specimen_table&#39;, &#39;corrected_fluorescence_traces&#39;, &#39;demixed_traces&#39;, &#39;dff_traces&#39;, &#39;events&#39;, &#39;eye_tracking&#39;, &#39;eye_tracking_rig_geometry&#39;, &#39;get_cell_specimen_ids&#39;, &#39;get_cell_specimen_indices&#39;, &#39;get_dff_traces&#39;, &#39;get_performance_metrics&#39;, &#39;get_reward_rate&#39;, &#39;get_rolling_performance_df&#39;, &#39;get_segmentation_mask_image&#39;, &#39;licks&#39;, &#39;max_projection&#39;, &#39;metadata&#39;, &#39;motion_correction&#39;, &#39;neuropil_traces&#39;, &#39;ophys_experiment_id&#39;, &#39;ophys_session_id&#39;, &#39;ophys_timestamps&#39;, &#39;raw_running_speed&#39;, &#39;rewards&#39;, &#39;roi_masks&#39;, &#39;running_speed&#39;, &#39;segmentation_mask_image&#39;, &#39;stimulus_presentations&#39;, &#39;stimulus_templates&#39;, &#39;stimulus_timestamps&#39;, &#39;task_parameters&#39;, &#39;trials&#39;, &#39;update_targeted_imaging_depth&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a quick look at the max projection image for the optical physiology experiment (i.e. imaging plane) we just obtained:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">max_projection</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f2a12d600d0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/3edb666c09ea28569faff9127578ccdf8f1e6c4bb98a4b11e5a12d733f55ac38.png" src="../../../_images/3edb666c09ea28569faff9127578ccdf8f1e6c4bb98a4b11e5a12d733f55ac38.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment</span></code> object has even more attributes and methods used to access NWB data! As with the <code class="docutils literal notranslate"><span class="pre">behavior_session</span></code> these methods will be touched on in other tutorials for <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">this data release</a>.</p>
+</section>
+</section>
+<section id="downloading-the-complete-dataset-with-allensdk">
+<h2>Downloading the complete dataset with AllenSDK<a class="headerlink" href="#downloading-the-complete-dataset-with-allensdk" title="Permalink to this heading">#</a></h2>
+<p>Analyzing one session or experiment at a time is nice, but in some cases you’ll want to be able to perform an analysis across the whole dataset. To fill your cache with all available data, you can use a for loop like the one below.</p>
+<p>Comment out the below code. Before running this code, please make sure that you have enough space available in your cache directory. You’ll need around 437.6 GB for the behavior session NWB files, and another 563.2  GB if you’re also downloading all ophys experiment NWB files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove rows from the behavior sessions table which don&#39;t correspond to a behavior session NWB file</span>
+<span class="n">filtered_behavior_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;file_id&quot;</span><span class="p">])</span>
+
+<span class="n">DOWNLOAD_COMPLETE_DATASET</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">DOWNLOAD_COMPLETE_DATASET</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">behavior_session_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">filtered_behavior_sessions</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="o">=</span><span class="n">behavior_session_id</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ophys_experiment_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">behavior_ophys_experiments</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="o">=</span><span class="n">ophys_experiment_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="direct-download-of-data-from-s3">
+<h2>Direct download of data from S3<a class="headerlink" href="#direct-download-of-data-from-s3" title="Permalink to this heading">#</a></h2>
+<p>If you do not wish to obtain data via the AllenSDK <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> class, this section describes how to directly determine an S3 download link for your file or files of interest.</p>
+<p>The S3 bucket that stores all the data for this project’s release is:
+<a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/</a></p>
+<p>The structure of the S3 bucket looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>visual-behavior-ophys/
+│
+├── release_notes.txt
+│
+├── manifests/
+│   ├── visual-behavior-ophys_project_manifest_v{a.b.c}.json
+│   ├── visual-behavior-ophys_project_manifest_v{x.y.z}.json
+│   ...
+│
+├── project_metadata/
+│   ├── behavior_session_table.csv
+│   ├── ophys_experiment_table.csv
+│   └── ophys_session_table.csv
+│
+├── behavior_sessions/
+│   ├── behavior_session_{abc}.nwb
+│   ├── behavior_session_{xyz}.nwb
+│   ...
+│
+└── behavior_ophys_experiments/
+    ├── behavior_ophys_experiment_{abc}.nwb
+    ├── behavior_ophys_experiment_{xyz}.nwb
+    ...
+</pre></div>
+</div>
+<p>So if for example, you wanted to download a specific <code class="docutils literal notranslate"><span class="pre">behavior_ophys_experiment</span></code> you could first download the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code> with:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/project_metadata/ophys_experiment_table.csv'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/project_metadata/ophys_experiment_table.csv</a> (try clicking me!)</p>
+<p>Then using the table, determine the <code class="docutils literal notranslate"><span class="pre">ophy_experiment_id</span></code> you are interested in. Let’s say we want <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span> <span class="pre">=</span> <span class="pre">951980471</span></code>, then the appropriate download link would be:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_951980471.nwb'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_951980471.nwb</a></p>
+<p>Below are some simple sample functions that will help you efficiently determine download URL links:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+
+<span class="k">def</span> <span class="nf">get_manifest_url</span><span class="p">(</span><span class="n">manifest_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v</span><span class="si">{</span><span class="n">manifest_version</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_manifest_url</span><span class="p">(</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v0.1.0.json
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_metadata_url</span><span class="p">(</span><span class="n">metadata_table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/project_metadata/</span><span class="si">{</span><span class="n">metadata_table_name</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_metadata_url</span><span class="p">(</span><span class="s2">&quot;behavior_session_table&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/project_metadata/behavior_session_table.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_behavior_session_url</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/behavior_sessions/behavior_session_</span><span class="si">{</span><span class="n">behavior_session_id</span><span class="si">}</span><span class="s2">.nwb&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_behavior_session_url</span><span class="p">(</span><span class="mi">870987812</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_sessions/behavior_session_870987812.nwb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_behavior_ophys_experiment_url</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_</span><span class="si">{</span><span class="n">ophys_experiment_id</span><span class="si">}</span><span class="s2">.nwb&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_behavior_ophys_experiment_url</span><span class="p">(</span><span class="mi">951980471</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_951980471.nwb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="downloading-previous-versions-of-released-data-from-s3">
+<h2>Downloading previous versions of released data from S3<a class="headerlink" href="#downloading-previous-versions-of-released-data-from-s3" title="Permalink to this heading">#</a></h2>
+<p>AllenSDK makes uses of versioned manifest (JSON) files that live in the S3 bucket to keep track of EVERY version of a file for this data release. If a bug/error in the released data is discovered or new data is added to existing NWB files and the updated NWB file is uploaded in the future, a new manifest will be created pointing to the newest version of the file. The existing manifest will continue pointing at the original version allowing reproducibility of analysis results. You can think of each manifest as a snapshot of the state of the S3 bucket when the manifest was created.</p>
+<p>This section describes how to download specific versions of a file in the S3 bucket.</p>
+<section id="listing-and-downloading-a-specific-manifest-version-for-the-data-release">
+<h3>Listing and downloading a specific manifest version for the data release<a class="headerlink" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release" title="Permalink to this heading">#</a></h3>
+<p>If you have an AWS account (even a free tier account works) you can log in and access the bucket directly:</p>
+<p><a href='https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data?prefix=visual-behavior-ophys/manifests/'>https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data?prefix=visual-behavior-ophys/manifests/</a></p>
+<p>If you don’t have or don’t want to use an AWS account you can click the following list to get an XML document:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/?list-type=2&prefix=visual-behavior-ophys/manifests/'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/?list-type=2&amp;prefix=visual-behavior-ophys/manifests/</a></p>
+<p>Which will look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ListBucketResult</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Name</span><span class="o">&gt;</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">-</span><span class="n">data</span><span class="o">&lt;/</span><span class="n">Name</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Prefix</span><span class="o">&gt;</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">/</span><span class="n">manifests</span><span class="o">/&lt;/</span><span class="n">Prefix</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">KeyCount</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">KeyCount</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">MaxKeys</span><span class="o">&gt;</span><span class="mi">1000</span><span class="o">&lt;/</span><span class="n">MaxKeys</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">IsTruncated</span><span class="o">&gt;</span><span class="n">false</span><span class="o">&lt;/</span><span class="n">IsTruncated</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Contents</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span>
+    <span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">/</span><span class="n">manifests</span><span class="o">/</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys_project_manifest_v0</span><span class="mf">.1.0</span><span class="o">.</span><span class="n">json</span>
+    <span class="o">&lt;/</span><span class="n">Key</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">LastModified</span><span class="o">&gt;</span><span class="mi">2021</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span><span class="n">T14</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mf">31.000</span><span class="n">Z</span><span class="o">&lt;/</span><span class="n">LastModified</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">ETag</span><span class="o">&gt;</span><span class="s2">&quot;8d10d6dd87234d4e0a1d400908c5013d&quot;</span><span class="o">&lt;/</span><span class="n">ETag</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Size</span><span class="o">&gt;</span><span class="mi">1730897</span><span class="o">&lt;/</span><span class="n">Size</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">StorageClass</span><span class="o">&gt;</span><span class="n">STANDARD</span><span class="o">&lt;/</span><span class="n">StorageClass</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">Contents</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">ListBucketResult</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The XML document is the result of a query which lists all manifests that currently exist for the data release (denoted with <code class="docutils literal notranslate"><span class="pre">&lt;Key&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;/Key&gt;</span></code>). To obtain a specific manifest of interest you just take the <code class="docutils literal notranslate"><span class="pre">Key</span></code> for the manifest you’re interested in and append it to the name of the S3 bucket. For example:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v0.1.0.json'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v0.1.0.json</a></p>
+</section>
+<section id="using-a-versioned-manifest-to-download-a-specific-data-version">
+<h3>Using a versioned manifest to download a specific data version<a class="headerlink" href="#using-a-versioned-manifest-to-download-a-specific-data-version" title="Permalink to this heading">#</a></h3>
+<p>Once you’ve downloaded a manifest, you can use it to obtain download links for the specific version of data files that the manifest tracks. The example function below loads a downloaded manifest and generates download links for <em>all</em> the metadata and data files for the specified manifest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># The location will differ based on where you downloaded the manifest.json!</span>
+<span class="n">my_manifest_location</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">generate_all_download_urls_from_manifest</span><span class="p">(</span><span class="n">manifest_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="n">manifest_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+
+    <span class="n">download_links</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Get download links for specific version of metadata files</span>
+    <span class="k">for</span> <span class="n">metadata_file_entry</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;metadata_files&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">base_download_url</span> <span class="o">=</span> <span class="n">metadata_file_entry</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+        <span class="n">version_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;?versionId=</span><span class="si">{</span><span class="n">metadata_file_entry</span><span class="p">[</span><span class="s1">&#39;version_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">full_download_url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">base_download_url</span><span class="p">,</span> <span class="n">version_query</span><span class="p">)</span>
+        <span class="n">download_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_download_url</span><span class="p">)</span>
+
+    <span class="c1"># Get download links for specific version of data files</span>
+    <span class="k">for</span> <span class="n">data_file_entry</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;data_files&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">base_download_url</span> <span class="o">=</span> <span class="n">data_file_entry</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+        <span class="n">version_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;?versionId=</span><span class="si">{</span><span class="n">data_file_entry</span><span class="p">[</span><span class="s1">&#39;version_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">full_download_url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">base_download_url</span><span class="p">,</span> <span class="n">version_query</span><span class="p">)</span>
+        <span class="n">download_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_download_url</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">download_links</span>
+
+<span class="c1"># Example:</span>
+<span class="c1"># print(&#39;\n&#39;.join(generate_all_download_urls_from_manifest(my_manifest_location)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ophys/visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VBO-Tutorial-Compare_trial_types.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Compare Trial Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../V1DD/V1DD-overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">V1 Deep Dive</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-allensdk-into-your-local-environment">Instal AllenSDK into your local environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-allensdk-into-your-notebook-environment">Install AllenSDK into your notebook environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-versions-of-the-dataset">Managing versions of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-manifests">Discovering manifests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-manifests-dataset-versions">Loading manifests/dataset versions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata">Using the AllenSDK to access Visual Behavior Ophys metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset-with-allensdk">Downloading the complete dataset with AllenSDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-of-data-from-s3">Direct download of data from S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-previous-versions-of-released-data-from-s3">Downloading previous versions of released data from S3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release">Listing and downloading a specific manifest version for the data release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-versioned-manifest-to-download-a-specific-data-version">Using a versioned manifest to download a specific data version</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

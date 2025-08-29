@@ -1,0 +1,1737 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit Quality Metrics &#8212; SWDB 2024 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-quality-metrics';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-quality-metrics.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Optotagging" href="../../../background/Optotagging.html" />
+    <link rel="prev" title="Neuropixels Probes" href="../../../background/neuropixels-description.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-light" alt="SWDB 2024 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/cropped-SummerWorkshop_Header.png" class="logo__image only-dark" alt="SWDB 2024 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-vs-code.html">Using VS Code in Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/allensdk-pyNWB.html">Allen SDK and pyNWB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-quality-metrics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-quality-metrics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-quality-metrics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit Quality Metrics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-quality-metrics">Why do we need quality metrics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-metrics-were-calculated">How these metrics were calculated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-metrics">Accessing the metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#firing-rate">Firing rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presence-ratio">Presence ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude-cutoff">Amplitude cutoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isi-violations">ISI violations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation-distance">Isolation distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-prime">d-prime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbors-hit-rate">Nearest-neighbors hit rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-filtering-units-by-quality-metrics">Examples of filtering units by quality metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-metrics">Waveform metrics</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-quality-metrics">
+<h1>Unit Quality Metrics<a class="headerlink" href="#unit-quality-metrics" title="Permalink to this heading">#</a></h1>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook will provide a detailed explanation of the unit quality
+metrics included in the Allen Institute Neuropixels Visual Coding dataset as
+well as the Visual Behavior dataset. It’s important to pay attention to quality
+metrics, because failing to apply them correctly could lead to invalid
+scientific conclusions, or could end up hiding potentially useful data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have changed the default behavior of the SDK from the Visual Behavior
+Neuropixels dataset. We now return <em>all</em> units by default <strong>only for this
+dataset</strong>, without filtering based on waveform <code class="docutils literal notranslate"><span class="pre">quality</span></code> or other metrics. We leave this filtering to the user.
+However, as we explore below, the Visual Coding dataset still has default quality
+metrics filters applied. Applying these metrics is
+an important part of any analysis pipeline and we encourage users to use this
+notebook and the linked resources to get a thorough understanding of what
+quality metric filters their analyses require.</p>
+</div>
+<p>To help you avoid these pitfalls, this tutorial will explore how these metrics
+are calculated, how they can be biased, and how they should be applied to
+specific use cases. It’s important to keep in mind that none of these metrics
+are perfect, and that the use of unit quality metrics for filtering ephys data
+is still an evolving area of research. More work is required in order to
+establish general-purpose best practices and standards in this domain.</p>
+<p>This tutorial assumes you’ve already created a data cache, or are working with
+the files on AWS. If you haven’t reached that step yet, we recommend going
+through the <a class="reference internal" href="vcnp-data-access.html"><span class="doc">data access tutorial</span></a> first.</p>
+<p>Functions related to data analysis will be covered in other tutorials. For a
+full list of available tutorials, see the
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">SDK documentation</a>.</p>
+</section>
+<section id="why-do-we-need-quality-metrics">
+<h2>Why do we need quality metrics?<a class="headerlink" href="#why-do-we-need-quality-metrics" title="Permalink to this heading">#</a></h2>
+<p>For a long time, converting continuous voltage traces to sorted spike times was
+one of the “dark arts” of neuroscience. Spikes were typically sorted by
+hand-drawing boundaries around clouds of dots, using heuristics learned from
+other lab members. The quality of the resulting clusters could be validated by
+looking at metrics such as ISI violations or isolation distance, but there were
+no standards governing how these metrics informed which units to include for
+further analysis.</p>
+<p>Recent in advances in neural recording devices, such as Neuropixels, have made
+it practically impossible to sort spikes by hand. Fortunately, we now have
+access to powerful algorithms that use GPUs to sort spikes in approximately the
+same amount of time it took to record the data. All of the Allen Institute
+Neuropixels data has been sorted with
+<a class="reference external" href="https://github.com/MouseLand/Kilosort2">Kilosort2</a>, a template-matching
+algorithm developed by Marius Pachitariu at HHMI Janelia Research Campus.</p>
+<p>For Neuropixels recordings with minimal electrode drift, Kilosort2 performs well
+enough that further manual curation is not necessary. Unlike the original
+version of Kilosort, which required a manual merging step, Kilosort2 attempts to
+merge units automatically. Sometimes it over-merges, leading to units that
+clearly combine spikes from multiple cells. But in the majority of cases,
+Kilosort2 makes merging decisions as well as a human would, and does so in a way
+that is highly reproducible.</p>
+<p>Because there is no “ground truth” information available in these datasets, any
+sorting algorithm is bound to make mistakes. Quality metrics allow us to
+understand the types of mistakes that are occurring, and obtain an estimate of
+their severity. Some common errors that can be identified by quality metrics
+include:</p>
+<ul class="simple">
+<li><p>Assigning spikes from multiple neurons to the same cluster</p></li>
+<li><p>Missing spikes from neurons with waveform amplitude near the spike detection
+threshold</p></li>
+<li><p>Failing to track neurons with waveforms that change as a result of electrode
+drift</p></li>
+</ul>
+<p>These mistakes can occur even in units that appear to be extremely well
+isolated. It’s misleading to conceive of units as existing in two distinct
+categories, one with perfectly clean “single units” and one with impure
+“multiunits.” Instead, there’s a gradient of qualities, with mostly complete,
+uncontaminated units at one end, and incomplete, highly contaminated units at
+the other.</p>
+<p>Despite the fact that there’s not a clear division between single-unit and
+multi-unit activity, we still have to make a binary decision in every analysis
+we carry out: should this unit be included or not? Ideally this decision should
+be based on objective metrics that will not bias the end results. By default,
+the AllenSDK uses three quality metrics, <code class="docutils literal notranslate"><span class="pre">isi_violations</span></code>, <code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code>, to filter out units that are likely to be highly
+contaminated or missing lots of spikes. However, the default values of these
+filters may not be appropriate for your analysis, or you may want to disable
+them entirely. Reading through this tutorial will give you a better
+understanding of how these (and other) metrics should be applied, so you can
+apply them effectively throughout your own explorations of this dataset.</p>
+<p>Metrics covered in this tutorial:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-firing-rate"><span class="std std-ref">Firing rate</span></a> (<code class="docutils literal notranslate"><span class="pre">firing_rate</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-presence-ratio"><span class="std std-ref">Presence ratio</span></a> (<code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-amplitude-cutoff"><span class="std std-ref">Amplitude cutoff</span></a> (<code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-isi-violations"><span class="std std-ref">ISI violations</span></a> (<code class="docutils literal notranslate"><span class="pre">isi_violations</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-snr"><span class="std std-ref">SNR</span></a> (<code class="docutils literal notranslate"><span class="pre">snr</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-isolation-distance"><span class="std std-ref">Isolation distance</span></a> (<code class="docutils literal notranslate"><span class="pre">isolation_distance</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-d-prime"><span class="std std-ref">d-prime</span></a> (<code class="docutils literal notranslate"><span class="pre">d_prime</span></code>)</p></li>
+<li><p><a class="reference internal" href="#content-references-nn-hit-rate"><span class="std std-ref">Nearest-neighbors hit rate</span></a> (<code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code>)</p></li>
+</ul>
+</section>
+<section id="how-these-metrics-were-calculated">
+<h2>How these metrics were calculated<a class="headerlink" href="#how-these-metrics-were-calculated" title="Permalink to this heading">#</a></h2>
+<p>The Python code used to calculate these metrics from the outputs of Kilosort2 is
+available in the
+<a class="reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/quality_metrics">ecephys_spike_sorting</a>
+repository. A number of the metrics are based on the waveform principal
+components, which are not included in the data release. To recompute these
+metrics on your own, you’ll need access to the raw data, which is available in
+the
+<a class="reference external" href="https://registry.opendata.aws/allen-brain-observatory/">Allen Brain Observatory S3 Bucket on AWS</a>.</p>
+<p>This code was recently incorporated into the
+<a class="reference external" href="https://github.com/SpikeInterface/spikemetrics">SpikeMetrics</a> repository by the
+SpikeInterface team. It’s now available as a PyPi package (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">spikemetrics</span></code>) if you’d like to try them out on your own data.</p>
+<p>If you have any questions about the specific implementation of these metrics, or
+recommendations for new ones to include, we encourage you to submit an issue in
+either GitHub repository.</p>
+</section>
+<section id="accessing-the-metrics">
+<h2>Accessing the metrics<a class="headerlink" href="#accessing-the-metrics" title="Permalink to this heading">#</a></h2>
+<p>Because these metrics are so important to interpreting your results, they are
+included in every DataFrame that stores information about individual units.</p>
+<p>To take a look at the metrics for all units in the dataset, simply call
+<code class="docutils literal notranslate"><span class="pre">get_units()</span></code> on the <code class="docutils literal notranslate"><span class="pre">EcephysProjectCache</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.ecephys.ecephys_project_cache</span> <span class="kn">import</span> <span class="n">EcephysProjectCache</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache</span> <span class="kn">import</span> <span class="n">VisualBehaviorNeuropixelsProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example cache directory path, it determines where downloaded data will be stored</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/&#39;</span>
+<span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span>
+<span class="n">cache_dir_visual_behavior</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">EcephysProjectCache</span><span class="o">.</span><span class="n">from_warehouse</span><span class="p">(</span><span class="n">manifest</span><span class="o">=</span><span class="n">manifest_path</span><span class="p">)</span>
+<span class="n">cache_vb</span> <span class="o">=</span> <span class="n">VisualBehaviorNeuropixelsProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span>
+            <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir_visual_behavior</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">units_vb</span> <span class="o">=</span> <span class="n">cache_vb</span><span class="o">.</span><span class="n">get_unit_table</span><span class="p">()</span>
+<span class="n">units</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_units</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nunits_vb</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">units_vb</span><span class="p">)</span>
+<span class="n">nunits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Visual Behavior units : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nunits_vb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Visual Coding units : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nunits</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Visual Behavior units : 319013
+Visual Coding units : 40010
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, the AllenSDK applies filters for the Visual Coding dataset so only
+units above a set of thresholds are returned.</p>
+<p>The default filter values are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">isi_violations</span></code> &lt; 0.5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code> &lt; 0.1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code> &gt; 0.9</p></li>
+</ul>
+<p>Let’s disable these filters so we can see all of the available units for the
+Visual Coding dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_units</span><span class="p">(</span><span class="n">amplitude_cutoff_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                        <span class="n">presence_ratio_minimum</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                        <span class="n">isi_violations_maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99180
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a DataFrame that contains all of the units detected by Kilosort2
+across 58 experiments. Importantly, this does not include units with invalid
+waveforms. Kilosort2 often detects “spikes” that are very clearly not associated
+with action potentials; these can result from electrical artifacts or
+lower-frequency voltage fluctuations that cross the spike detection threshold.
+The majority of these “noise” units are automatically filtered out via <a class="reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/noise_templates">this
+module</a>,
+followed by a manual inspection step to identify any remaining artifactual
+waveforms.</p>
+<p>Let’s look in more detail at the distribution of some quality metrics across
+99,180 units in the Visual Coding dataset. We’ll start by creating a function
+for plotting each metric in an aesthetically pleasing way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="kn">import</span> <span class="n">gaussian_filter1d</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+
+<span class="k">def</span> <span class="nf">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">x_axis_label</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">h</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">gaussian_filter1d</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_axis_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">max_value</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">:</span>
+        <span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">max_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_9043/773522037.py:1: DeprecationWarning: Please use `gaussian_filter1d` from the `scipy.ndimage` namespace, the `scipy.ndimage.filters` namespace is deprecated.
+  from scipy.ndimage.filters import gaussian_filter1d
+</pre></div>
+</div>
+</div>
+</div>
+<p>Doing the same with the 319,013 units in the Visual Behavior dataset is left as
+an exercise for the reader.</p>
+</section>
+<section id="firing-rate">
+<span id="content-references-firing-rate"></span><h2>Firing rate<a class="headerlink" href="#firing-rate" title="Permalink to this heading">#</a></h2>
+<p>First, let’s take a look at firing rate, which is the most straightforward
+metric to compute. Firing rate is equal to the total number of spikes divided by
+the number of seconds in the recording. We’ll create a density plot of firing
+rate across all units in the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">]</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;Firing rate (Hz)&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/0a4d6d976efef53da3dbbd7fe66b74375833b334fb6e88341c876a559cc8346e.png" src="../../../_images/0a4d6d976efef53da3dbbd7fe66b74375833b334fb6e88341c876a559cc8346e.png" />
+</div>
+</div>
+<p>Since there are many units with low firing rates, let’s use a log scale instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">])</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;log$_</span><span class="si">{10}</span><span class="s1">$ firing rate (Hz)&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/769488811cceecad34c14a92fc2ba4cbd90feaf193e29afa648e49a9b4397c09.png" src="../../../_images/769488811cceecad34c14a92fc2ba4cbd90feaf193e29afa648e49a9b4397c09.png" />
+</div>
+</div>
+<p>Based on this plot, you can clearly see the approximately lognormal distribution
+of firing rates, which has been described previously <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id4" title="György Buzsáki and Kenji Mizuseki. The log-dynamic brain: how skewed distributions affect network operations. Nature Reviews Neuroscience, 15(4):264–278, April 2014. doi:10.1038/nrn3687.">Buzsáki and Mizuseki, 2014</a>]</span>.
+However, there’s more weight on the lower tail of the distribution, which is
+likely due to some units missing spikes as a result of thresholding or drift. If
+we filter out contaminated units using another metric, <code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code> (more on
+what this means later), the distribution becomes almost perfectly lognormal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">nn_hit_rate</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">][</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">])</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;log$_</span><span class="si">{10}</span><span class="s1">$ firing rate (Hz)&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/fc99bbe17d3af563ac8fe76393c86886f38e0266a095ef85cd54e37cbd142d60.png" src="../../../_images/fc99bbe17d3af563ac8fe76393c86886f38e0266a095ef85cd54e37cbd142d60.png" />
+</div>
+</div>
+<p>Before we move on to the next metric, let’s add one more feature to these plots.
+Displaying the metrics separately for different brain regions can be helpful for
+understanding the variation that results from the physiological features of the
+area we’re recording from. The four main regions that are part of the
+Neuropixels Visual Coding dataset are cortex, thalamus, hippocampus, and
+midbrain. We’ll use the Allen CCF structure acronyms to find the units that
+belong to each region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">region_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cortex&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;VISp&#39;</span><span class="p">,</span> <span class="s1">&#39;VISl&#39;</span><span class="p">,</span> <span class="s1">&#39;VISrl&#39;</span><span class="p">,</span> <span class="s1">&#39;VISam&#39;</span><span class="p">,</span> <span class="s1">&#39;VISpm&#39;</span><span class="p">,</span> <span class="s1">&#39;VIS&#39;</span><span class="p">,</span> <span class="s1">&#39;VISal&#39;</span><span class="p">,</span><span class="s1">&#39;VISmma&#39;</span><span class="p">,</span><span class="s1">&#39;VISmmp&#39;</span><span class="p">,</span><span class="s1">&#39;VISli&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;thalamus&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;LGd&#39;</span><span class="p">,</span><span class="s1">&#39;LD&#39;</span><span class="p">,</span> <span class="s1">&#39;LP&#39;</span><span class="p">,</span> <span class="s1">&#39;VPM&#39;</span><span class="p">,</span> <span class="s1">&#39;TH&#39;</span><span class="p">,</span> <span class="s1">&#39;MGm&#39;</span><span class="p">,</span><span class="s1">&#39;MGv&#39;</span><span class="p">,</span><span class="s1">&#39;MGd&#39;</span><span class="p">,</span><span class="s1">&#39;PO&#39;</span><span class="p">,</span><span class="s1">&#39;LGv&#39;</span><span class="p">,</span><span class="s1">&#39;VL&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;VPL&#39;</span><span class="p">,</span><span class="s1">&#39;POL&#39;</span><span class="p">,</span><span class="s1">&#39;Eth&#39;</span><span class="p">,</span><span class="s1">&#39;PoT&#39;</span><span class="p">,</span><span class="s1">&#39;PP&#39;</span><span class="p">,</span><span class="s1">&#39;PIL&#39;</span><span class="p">,</span><span class="s1">&#39;IntG&#39;</span><span class="p">,</span><span class="s1">&#39;IGL&#39;</span><span class="p">,</span><span class="s1">&#39;SGN&#39;</span><span class="p">,</span><span class="s1">&#39;VPL&#39;</span><span class="p">,</span><span class="s1">&#39;PF&#39;</span><span class="p">,</span><span class="s1">&#39;RT&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;hippocampus&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;CA1&#39;</span><span class="p">,</span> <span class="s1">&#39;CA2&#39;</span><span class="p">,</span><span class="s1">&#39;CA3&#39;</span><span class="p">,</span> <span class="s1">&#39;DG&#39;</span><span class="p">,</span> <span class="s1">&#39;SUB&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="s1">&#39;PRE&#39;</span><span class="p">,</span><span class="s1">&#39;ProS&#39;</span><span class="p">,</span><span class="s1">&#39;HPF&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;midbrain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MB&#39;</span><span class="p">,</span><span class="s1">&#39;SCig&#39;</span><span class="p">,</span><span class="s1">&#39;SCiw&#39;</span><span class="p">,</span><span class="s1">&#39;SCsg&#39;</span><span class="p">,</span><span class="s1">&#39;SCzo&#39;</span><span class="p">,</span><span class="s1">&#39;PPT&#39;</span><span class="p">,</span><span class="s1">&#39;APN&#39;</span><span class="p">,</span><span class="s1">&#39;NOT&#39;</span><span class="p">,</span><span class="s1">&#39;MRN&#39;</span><span class="p">,</span><span class="s1">&#39;OP&#39;</span><span class="p">,</span><span class="s1">&#39;LT&#39;</span><span class="p">,</span><span class="s1">&#39;RPF&#39;</span><span class="p">,</span><span class="s1">&#39;CP&#39;</span><span class="p">]}</span>
+
+<span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cortex&#39;</span> <span class="p">:</span> <span class="s1">&#39;#08858C&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;thalamus&#39;</span> <span class="p">:</span> <span class="s1">&#39;#FC6B6F&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;hippocampus&#39;</span> <span class="p">:</span> <span class="s1">&#39;#7ED04B&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;midbrain&#39;</span> <span class="p">:</span> <span class="s1">&#39;#FC9DFE&#39;</span><span class="p">}</span>
+
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">])</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;log$_</span><span class="si">{10}</span><span class="s1">$ firing rate (Hz)&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/ca624b087cc5a29f25d5989d36c91ef6e3a48ce4156a9496536429efe188cde4.png" src="../../../_images/ca624b087cc5a29f25d5989d36c91ef6e3a48ce4156a9496536429efe188cde4.png" />
+</div>
+</div>
+<p>We can see a clear separation in the distributions across areas; the thalamus
+has a lot of units that fire in the 8 Hz range (remember the log scale), while
+the midbrain has the most units with very high rates (&gt;20 Hz).</p>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">firing_rate</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>If a unit is poorly isolated, the firing rate will be over-estimated, because
+contaminating spikes will be included in the calculation</p></li>
+<li><p>If a unit’s amplitude is close to threshold, the firing rate will be
+under-estimated, because some spikes will be missing</p></li>
+<li><p>If a unit drifts out of the recording, the firing rate will be
+under-estimated, because spikes will not be detected for a portion of the
+recording</p></li>
+<li><p>If data acquisition is interrupted (true for a small subset of experiments),
+the firing rate will be under-estimated, because spikes will be missing from
+gaps in the recording</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>Firing rate can be used to filter out units that have too few spikes to result
+in meaningful analysis. In this case, it may be better to use the firing rate
+for the specific interval you’re analyzing, because some units may drift out
+of the recording at other times.</p></li>
+<li><p>High firing rate units tend to be easier to isolate, since there are more
+spikes available for fitting the template in Kilosort2. However, there are
+other metrics that measure isolation more directly and would likely to be
+better to use instead.</p></li>
+</ul>
+</section>
+<section id="presence-ratio">
+<span id="content-references-presence-ratio"></span><h2>Presence ratio<a class="headerlink" href="#presence-ratio" title="Permalink to this heading">#</a></h2>
+<p>Presence ratio is not a standard metric in the field, but it’s straightforward
+to calculate and is an easy way to identify incomplete units. It measures the
+fraction of time during a session in which a unit is spiking, and ranges from 0
+to 0.99 (an off-by-one error in the calculation ensures that it will never reach
+1.0).</p>
+<p>Let’s look at the distribution of presence ratio across areas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;presence_ratio&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;Presence ratio&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">max_value</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2c1cbac850&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/5dc424bec66aed29cede8d0c8b1dbf3007ec3a6baf2edb7086a1751443d165f2.png" src="../../../_images/5dc424bec66aed29cede8d0c8b1dbf3007ec3a6baf2edb7086a1751443d165f2.png" />
+</div>
+</div>
+<p>It’s clear that most units have a presence ratio of 0.9 or higher, which means
+they are present for at least 90% of the recording. Units with lower presence
+ratio are likely to have drifted out of the recording, or had waveforms that
+changed so dramatically they were assigned to separate clusters.</p>
+<p>Calculating the exact fraction of units with presence ratio above 0.9 is easy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">presence_ratio</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.83
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">presence_ratio</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>Just because a unit has a high presence ratio doesn’t mean it’s immune to
+drift. If a unit’s amplitude drifts closer to the spike detection threshold,
+it can result in dramatic changes in apparent firing rate, even if the
+underlying physiology remains the same.</p></li>
+<li><p>Sometimes a low presence ratio can result from highly selective spiking
+patterns (e.g., firing only during running epochs)</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>If you are analyzing changes in firing rate over the entire recording session,
+or are comparing responses to stimuli presented at the beginning and end of
+the experiment, presence ratio is a simple way to exclude units that would
+bias your results. However, you should also look at other quality metrics,
+such as <a href='#Amplitude-cutoff'>amplitude cutoff</a>, to check for more
+subtle effects of electrode drift.</p></li>
+<li><p>If you are only analyzing a short segment of the experiment, it may be helpful
+to disable the default presence ratio filter, in order to maximize the number
+of units available to you.</p></li>
+<li><p>If you’re unsure whether a unit has a low presence ratio due to electrode
+drift or selective firing, plotting its spike amplitudes over time can be
+informative.</p></li>
+</ul>
+</section>
+<section id="amplitude-cutoff">
+<span id="content-references-amplitude-cutoff"></span><h2>Amplitude cutoff<a class="headerlink" href="#amplitude-cutoff" title="Permalink to this heading">#</a></h2>
+<p>Amplitude cutoff provides another way to check for units that are missing spikes. Unlike <a href='#Presence-ratio'>presence ratio</a>, which detects units that drift out of the recording, amplitude cutoff provides an estimate of the false negative rate—e.g., the fraction of spikes below the spike detection threshold. Thus, amplitude cutoff is a measure of unit “completeness” that is complementary to presence ratio.</p>
+<p>Let’s take a look at the distribution of values for amplitude cutoff across the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;amplitude_cutoff&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;Amplitude cutoff&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">max_value</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2c1cbf2950&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/3ccc230bea2caba890fd4feea300c38d1dd0ac279935ddfb4c4d2e43854a89ec.png" src="../../../_images/3ccc230bea2caba890fd4feea300c38d1dd0ac279935ddfb4c4d2e43854a89ec.png" />
+</div>
+</div>
+<p>Amplitude cutoff is calculated from the distribution of spike amplitudes for
+each unit. This metric measures the degree to which this distribution is
+truncated, or “cut off,” as a proxy for the fraction of missing spikes. So an
+amplitude cutoff of, say, 0.1 would indicate that approximately 10% of spikes
+are missing from this unit.</p>
+<p>If the peak of the amplitude distribution occurs at its lowest value, it’s
+impossible to estimate the fraction of missing spikes. In this case, the
+amplitude cutoff is set to 0.5. That explains why there are large peaks at both
+ends of the distribution, one around 0 and one at 0.5.</p>
+<p>We can check the fraction of units with the maximum amplitude cutoff using the
+following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">amplitude_cutoff</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">amplitude_cutoff</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>The calculation assumes that the amplitude histogram is symmetrical (i.e., it
+uses the upper tail of the distribution to estimate the fraction of spikes
+missing from the lower tail). If a unit’s waveform amplitude changes as a
+result of electrode drift, this assumption is usually invalid.</p></li>
+<li><p>Amplitude cutoff is only weakly correlated with other measures of unit
+quality, meaning it’s possible to have well-isolated units with high amplitude
+cutoff.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>If you are performing analyses that depends on precise measurements of spike
+timing, setting a low amplitude cutoff threshold (0.01 or lower) is
+recommended. This will remove a large fraction of units, but will ensure that
+the unit of interest contain most of the relevant spikes.</p></li>
+</ul>
+</section>
+<section id="isi-violations">
+<span id="content-references-isi-violations"></span><h2>ISI violations<a class="headerlink" href="#isi-violations" title="Permalink to this heading">#</a></h2>
+<p>Inter-spike-interval (ISI) violations are a classic measure of unit
+contamination. Because all neurons have a biophysical refractory period, we can
+assume that any spikes occurring in rapid succession (&lt;1.5 ms intervals) come
+from two different neurons. Therefore, the more a unit is contaminated by spikes
+from multiple neurons, the higher its <code class="docutils literal notranslate"><span class="pre">isi_violations</span></code> value will be.</p>
+<p>The calculation for ISI violations comes from <span id="id2">Hill <em>et al.</em> [<a class="reference internal" href="../../../bibliography.html#id15" title="Daniel N. Hill, Samar B. Mehta, and David Kleinfeld. Quality Metrics to Accompany Spike Sorting of Extracellular Signals. Journal of Neuroscience, 31(24):8699–8705, June 2011. doi:10.1523/JNEUROSCI.0971-11.2011.">2011</a>]</span>. Rather than
+reporting the fraction of spikes with ISI violations, their metric reports the
+relative firing rate of the hypothetical neurons that are generating these
+violations. You can interpret an ISI violations value of 0.5 as meaning that
+contaminating spikes are occurring at roughly half the rate of “true” spikes for
+that unit. In cases of highly contaminated units, the ISI violations value can
+sometimes be even greater than 1.</p>
+<p>Let’s look at the distribution of ISI violations across the different regions in
+this dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;isi_violations&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;ISI violations&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">max_value</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2c1cc5fe20&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/b9f6aeb87f0786cc60f06ac4d35e068c7190cb6639fe9cadb30f48bc18654fb7.png" src="../../../_images/b9f6aeb87f0786cc60f06ac4d35e068c7190cb6639fe9cadb30f48bc18654fb7.png" />
+</div>
+</div>
+<p>This one looks like a good candidate for plotting on a log scale:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;isi_violations&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">)</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;$log_</span><span class="si">{10}</span><span class="s1">$ ISI violations&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">max_value</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2c1caf5600&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/a9ec9acffb1fc6301ee00aa4beb71d0bbc1937893769d44cca3ea166313d8131.png" src="../../../_images/a9ec9acffb1fc6301ee00aa4beb71d0bbc1937893769d44cca3ea166313d8131.png" />
+</div>
+</div>
+<p>A few things to note about this plot:</p>
+<ul class="simple">
+<li><p>We’ve added 0.00001 to the ISI violations values, because the log of 0 is
+undefined. This creates a peak at -5 for all the units with no ISI violations</p></li>
+<li><p>The hippocampus has the most units with high ISI violations, likely due to the
+density of cells in this structure.</p></li>
+<li><p>The default threshold of 0.5 is still quite permissive</p></li>
+</ul>
+<p>If we wanted to only include units with no ISI violations, what percentage would
+be available for analysis?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">isi_violations</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">isi_violations</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>As with all metrics, ISI violations may not be stable throughout the
+experiment. It may be helpful to re-calculate it for the specific epochs
+you’re analyzing.</p></li>
+<li><p>Two neurons with similar waveforms, but firing in largely non-overlapping
+epochs, could end up being merged into the same cluster. In this case, the ISI
+violations may be low, even though the resulting unit is a highly
+contaminated. This situation would tricky to catch, but fortunately shouldn’t
+happen very often.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>Setting your ISI violations threshold to 0 (or close to it), will help ensure
+that contaminated units don’t make it into your analysis, but will greatly
+reduce the number of units available. You should think carefully about what
+degree of contamination your analysis can tolerate without biasing your
+conclusions. For example, if you are comparing firing rates of individual
+units across areas, you’ll want to set a low ISI violations threshold to
+prevent contaminating spikes from affecting your estimates. On the other hand,
+if you’re comparing overall firing rates between areas, counting spikes from
+contaminated clusters may be valid.</p></li>
+</ul>
+</section>
+<section id="snr">
+<span id="content-references-snr"></span><h2>SNR<a class="headerlink" href="#snr" title="Permalink to this heading">#</a></h2>
+<p>Signal-to-noise ratio, or SNR, is another classic metric of unit quality. It
+measures the ratio of the maximum amplitude of the mean spike waveform to the
+standard deviation of the background noise on one channel. Even though it’s
+widely used in the literature, we don’t recommend using it on Neuropixels data
+for two reasons:</p>
+<ol class="arabic simple">
+<li><p>It only takes into account the unit’s peak channel, despite the fact that
+waveforms are often spread across a dozen channels or more.</p></li>
+<li><p>If the waveform changes due to drift, peak channel SNR can change
+dramatically, even though overall isolation quality remains consistent.</p></li>
+</ol>
+<p>Nevertheless, it can still be helpful to look at the distribution of SNRs across
+areas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;SNR&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bc22be3efaec7bf29d8c532b9e7e4258df749c4d6ef812cf385623c4fdcb6b74.png" src="../../../_images/bc22be3efaec7bf29d8c532b9e7e4258df749c4d6ef812cf385623c4fdcb6b74.png" />
+</div>
+</div>
+<p>We can clearly see an increase in overall SNR from hippocampus to cortex to
+thalamus and midbrain. These changes likely result from differences in the size,
+density, and orientation of cell bodies in these regions. A more explicit
+comparison between extracellular ephys signal quality and histological features
+would be an interesting research topic.</p>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">snr</span></code> in your analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>SNR only considers information contained in a single channel, and therefore
+cannot capture isolation quality accurately</p></li>
+<li><p>If the peak channel moves across the probe due to electrode drift, SNR will
+drop.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>SNR can be helpful as a point of comparison to the previous literature</p></li>
+<li><p>It should not be used to filter data in isolation</p></li>
+</ul>
+<p>That said, a modified version of the SNR metric that is tolerant to electrode
+drift could be highly informative. Future Allen Institute data releases may
+include such a metric.</p>
+</section>
+<section id="isolation-distance">
+<span id="content-references-isolation-distance"></span><h2>Isolation distance<a class="headerlink" href="#isolation-distance" title="Permalink to this heading">#</a></h2>
+<p>Isolation distance is a metric based on the principal components (PCs) of a
+unit’s waveforms. After the spike sorting step is complete, the waveforms for
+every spike are projected into a lower-dimensional principal component space. By
+default, Kilosort2 saves the top 3 PCs for 32 channels around each unit’s peak
+channel—this is a huge amount of data, but it’s greatly compressed compared to
+the original 60 samples x 350+ channels for each waveform. PC-based metrics are
+a useful way of validating cluster quality because, at least for Kilosort2, the
+original sorting process doesn’t rely on the waveform’s principal components.</p>
+<p>You can imagine each unit’s PCs a clusters in a 32 x 3 = 96-dimensional space.
+Isolation distance calculates the size of the 96-dimensional sphere that
+includes as many “other” spikes as are contained in the original unit’s cluster,
+after normalizing the clusters by their standard deviation in each dimension
+(Mahalanobis distance). The higher the isolation distance, the more a unit is
+separated from its neighbors in PC space, and therefore the lower the likelihood
+that it’s contaminated by spikes from multiple units.</p>
+<p>Let’s look at the range of isolation distances across different brain regions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;isolation_distance&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;Isolation distance&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/40143c09542f0ac8568efe803d30c5337648dec858868380e3679c90f759c64e.png" src="../../../_images/40143c09542f0ac8568efe803d30c5337648dec858868380e3679c90f759c64e.png" />
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">isolation_distance</span></code> in
+your analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>Isolation distance is not immune to drift; if a unit’s waveform changes as a
+result of electrode motion, it could reduce isolation distance without
+necessarily causing the unit to become more contaminated.</p></li>
+<li><p>The exact value of isolation distance will depend on the number of PCs used in
+the calculation; therefore, it’s difficult to compare this metric to previous
+reports in the literature.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>Isolation distance is correlated with overall cluster quality, but it’s not a
+direct measure of contamination rate. For this reason, it should be used in
+conjunction with other metrics, such as <code class="docutils literal notranslate"><span class="pre">isi_violations</span></code>, that more directly
+measure the likelihood of contaminating spikes.</p></li>
+</ul>
+</section>
+<section id="d-prime">
+<span id="content-references-d-prime"></span><h2>d-prime<a class="headerlink" href="#d-prime" title="Permalink to this heading">#</a></h2>
+<p>Like isolation distance, d-prime is another metric calculated for the waveform
+PCs. It uses linear discriminant analysis to calculate the separability of one
+unit’s PC cluster and all of the others. A higher d-prime value indicates that
+the unit is better isolated from its neighbors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;d_prime&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;d-prime&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/f1aa8b8ca3d82aea3d40e9d039eab6d928daedc9834bade7d4f646738e65c1af.png" src="../../../_images/f1aa8b8ca3d82aea3d40e9d039eab6d928daedc9834bade7d4f646738e65c1af.png" />
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">d_prime</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>Like isolation distance, d-prime is not tolerant to drift. Since a single
+value of d-prime is computed for the entire session, the d-prime value is
+actually a lower bound on the true value of this metric computed at any one
+timepoint.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p>d-prime, in principal, gives you an estimate of the false positive rate for
+each unit. However, more work is required to validate this.</p></li>
+</ul>
+</section>
+<section id="nearest-neighbors-hit-rate">
+<span id="content-references-nn-hit-rate"></span><h2>Nearest-neighbors hit rate<a class="headerlink" href="#nearest-neighbors-hit-rate" title="Permalink to this heading">#</a></h2>
+<p>Nearest-neighbors hit rate is another PC-based quality metric. It’s derived from
+the ‘isolation’ metric originally reported in <span id="id3">Chung <em>et al.</em> [<a class="reference internal" href="../../../bibliography.html#id6" title="Jason E. Chung, Jeremy F. Magland, Alex H. Barnett, Vanessa M. Tolosa, Angela C. Tooker, Kye Y. Lee, Kedar G. Shah, Sarah H. Felix, Loren M. Frank, and Leslie F. Greengard. A Fully Automated Approach to Spike Sorting. Neuron, 95(6):1381-1394.e6, September 2017. doi:10.1016/j.neuron.2017.08.030.">2017</a>]</span>. This metric
+looks at the PCs for one unit and calculates the fraction of their nearest
+neighbors that fall within the same cluster. If a unit is highly contaminated,
+then many of the closest spikes will come from other units. Nearest-neighbors
+hit rate is nice because it always falls between 0 and 1, making it
+straightforward to compare across different datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">ecephys_structure_acronym</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">region_dict</span><span class="p">[</span><span class="n">region</span><span class="p">])][</span><span class="s1">&#39;nn_hit_rate&#39;</span><span class="p">]</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">plot_metric</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="s1">&#39;Nearest-neighbors hit rate&#39;</span><span class="p">,</span> <span class="n">color_dict</span><span class="p">[</span><span class="n">region</span><span class="p">],</span> <span class="n">max_value</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">region_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/912323640e45c220a995674ca80f25a1c3f0338a1c2b1cda845576a38ed78c9a.png" src="../../../_images/912323640e45c220a995674ca80f25a1c3f0338a1c2b1cda845576a38ed78c9a.png" />
+</div>
+</div>
+<p>Here’s a summary of things to keep in mind when using <code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code> in your
+analysis:</p>
+<p><strong>How it can be biased</strong></p>
+<ul class="simple">
+<li><p>Like the other PC-based metrics, <code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code> can be negatively impacted by
+electrode drift.</p></li>
+</ul>
+<p><strong>How it should be used</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nn_hit_rate</span></code> is a nice proxy for overall cluster quality, but should be used
+in conjunction with other metrics that measure missing spikes or contamination
+rate more directly.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>To summarize, let’s take a look at the range of values that each of these
+metrics takes across the whole Visual Coding dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;presence_ratio&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;amplitude_cutoff&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;isi_violations&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;snr&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;isolation_distance&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;d_prime&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;nn_hit_rate&#39;</span><span class="p">]</span>
+
+<span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.995</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">125</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">metric</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metrics</span><span class="p">):</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">showcaps</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">ranges</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/45fd61f9ff7813bbca46fe3028e968790c1c24819eb9cf22cf368347548575bb.png" src="../../../_images/45fd61f9ff7813bbca46fe3028e968790c1c24819eb9cf22cf368347548575bb.png" />
+</div>
+</div>
+</section>
+<section id="examples-of-filtering-units-by-quality-metrics">
+<h2>Examples of filtering units by quality metrics<a class="headerlink" href="#examples-of-filtering-units-by-quality-metrics" title="Permalink to this heading">#</a></h2>
+<p>We can filter the Visual Behavior Dataset using these same criteria used by the
+Visual Coding dataset and find that 120,139 units pass this criteria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units_filt1</span> <span class="o">=</span> <span class="n">units_vb</span><span class="p">[(</span><span class="n">units_vb</span><span class="o">.</span><span class="n">isi_violations</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)</span>
+                    <span class="o">&amp;</span> <span class="p">(</span><span class="n">units_vb</span><span class="o">.</span><span class="n">amplitude_cutoff</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span>
+                    <span class="o">&amp;</span> <span class="p">(</span><span class="n">units_vb</span><span class="o">.</span><span class="n">presence_ratio</span><span class="o">&gt;</span><span class="mf">0.9</span><span class="p">)]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">units_filt1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120139
+</pre></div>
+</div>
+</div>
+</div>
+<p>As another example, we can filter by other quality metrics such as snr,
+in addition to other properties such as firing rate:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snr</span></code> &gt; 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firing</span> <span class="pre">rate</span></code> &gt; 0.1</p></li>
+</ul>
+<p>Applying these filters returns 258,764 units.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units_filt2</span> <span class="o">=</span> <span class="n">units_vb</span><span class="p">[(</span><span class="n">units_vb</span><span class="o">.</span><span class="n">snr</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">units_vb</span><span class="o">.</span><span class="n">firing_rate</span><span class="o">&gt;</span><span class="mf">0.2</span><span class="p">)]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">units_filt2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>258764
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using these metrics to filter units will require careful consideration of the
+sort of errors your analysis can tolerate.</p>
+</section>
+<section id="waveform-metrics">
+<h2>Waveform metrics<a class="headerlink" href="#waveform-metrics" title="Permalink to this heading">#</a></h2>
+<p>The shape of the extracellularly recorded spike for a given neuron depends on a
+number of biophysical and morphological properties. We have included several
+pre-computed metrics summarizing the shape of the mean waveform for each unit,
+which may provide useful clues about cell-class identity (for example, see
+<span id="id4">Jia <em>et al.</em> [<a class="reference internal" href="../../../bibliography.html#id21" title="Xiaoxuan Jia, Joshua H. Siegle, Corbett Bennett, Samuel D. Gale, Daniel J. Denman, Christof Koch, and Shawn R. Olsen. High-density extracellular probes reveal dendritic backpropagation and facilitate neuron classification. Journal of Neurophysiology, 121(5):1831–1847, May 2019. doi:10.1152/jn.00680.2018.">2019</a>]</span>).</p>
+<p>Look
+<a class="reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms">here</a>
+for more detail on these metrics and the code that computes them. For the below
+descriptions, the ‘1D waveform’ is defined as the waveform on the peak channel.
+The ‘2D waveform’ is the waveform across channels centered on the peak channel.</p>
+<dl class="simple myst">
+<dt>amplitude</dt><dd><p>Peak to trough amplitude for mean 1D waveform in microvolts</p>
+</dd>
+<dt>waveform_duration</dt><dd><p>Time from trough to peak for 1D waveform in milliseconds</p>
+</dd>
+<dt>waveform_halfwidth</dt><dd><p>Width of 1D waveform at half-amplitude in milliseconds</p>
+</dd>
+<dt>PT_ratio</dt><dd><p>Ratio of the max (peak) to the min (trough) amplitudes for 1D waveform</p>
+</dd>
+<dt>recovery_slope</dt><dd><p>Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)</p>
+</dd>
+<dt>repolarization_slope</dt><dd><p>Slope of repolarization of 1D waveform to baseline after trough</p>
+</dd>
+<dt>spread</dt><dd><p>Range of channels for which the spike amplitude was above 12% of the peak channel amplitude</p>
+</dd>
+<dt>velocity_above</dt><dd><p>Slope of spike propagation velocity traveling in dorsal direction from soma
+(note to avoid infinite values, this is actually the inverse of velocity:
+ms/mm)</p>
+</dd>
+<dt>velocity_below</dt><dd><p>Slope of spike propagation velocity traveling in ventral direction from soma
+(note to avoid infinite values, this is actually the inverse of velocity:
+ms/mm)</p>
+</dd>
+<dt>snr</dt><dd><p>signal-to-noise ratio for 1D waveform</p>
+</dd>
+<dt>quality</dt><dd><p>Label assigned based on waveform shape as described
+<a class="reference external" href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates">here</a>.
+Either ‘good’ for physiological waveforms or ‘noise’ for artifactual
+waveforms.</p>
+</dd>
+</dl>
+<p>Now let’s grab a session and plot the 2D waveform for a couple of units with
+disparate waveform features.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to a bug in the AllenSDK, the following code using the Visual Behavior cache
+cannot be run in the same python process that used a Visual Coding cache. However,
+the code is correct, and we encourage you to try it out for yourself.</p>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">cache_vb</span><span class="o">.</span><span class="n">get_ecephys_session</span><span class="p">(</span>
+           <span class="n">ecephys_session_id</span><span class="o">=</span><span class="mi">1065437523</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units_session</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_units</span><span class="p">()</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="n">units_session</span><span class="o">.</span><span class="n">get_channels</span><span class="p">()</span>
+
+<span class="c1">#merge the units and channels tables to get full CCF/channel info for each unit</span>
+<span class="n">units_merged</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;peak_channel_id&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s take a look at how a few of these metrics vary across areas:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_waveform_stats</span> <span class="o">=</span> <span class="n">units_merged</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">,</span>
+                  <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;velocity_above&#39;</span><span class="p">,</span> <span class="s1">&#39;velocity_below&#39;</span><span class="p">,</span> <span class="s1">&#39;waveform_duration&#39;</span><span class="p">],</span>
+                  <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean waveform features across areas&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">area_waveform_stats</span><span class="p">[</span><span class="n">area_waveform_stats</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">][</span><span class="s1">&#39;waveform_duration&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">50</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Here we can already see some interesting differences across areas. Notice for
+example that neurons in midbrain structures (like APN and MRN) have short
+duration spikes on average compared to neurons in the hippocampus or cortex.
+Also notice that the direction in which spikes propagate flips from cortical to
+hippocampal structures. This can be seen from the velocity_below metric, which
+quantifies how spikes propagate ventrally (into the brain; units are ms/mm). In
+hippocampus, this metric is negative indicating that spikes are propagating down
+into the brain from the soma. This agrees with the morphology of hippocampal
+pyramidal neurons, whose apical dendrites project ventrally. The opposite is
+true in visual cortex, where apical dendrites extend dorsally from the soma.</p>
+<p>Let’s pick a couple of units with disparate waveform features and plot their 2D
+waveforms:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unit1</span> <span class="o">=</span> <span class="n">units_merged</span><span class="p">[(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;velocity_below&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;waveform_duration&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.4</span><span class="p">)</span> <span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CA1&#39;</span><span class="p">)</span><span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">unit2</span> <span class="o">=</span> <span class="n">units_merged</span><span class="p">[(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;velocity_below&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;waveform_duration&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.3</span><span class="p">)</span><span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;MRN&#39;</span><span class="p">)</span><span class="o">&amp;</span>
+              <span class="p">(</span><span class="n">units_merged</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ylabels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;probe channel&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">iu</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">unit1</span><span class="p">,</span> <span class="n">unit2</span><span class="p">]):</span>
+    <span class="n">waveform</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">mean_waveforms</span><span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">peak_chan</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="s1">&#39;probe_channel_number&#39;</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">peak_chan</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="n">peak_chan</span><span class="o">+</span><span class="mi">30</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabels</span><span class="p">[</span><span class="n">iu</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (ms)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">iu</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">structure_acronym</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../background/neuropixels-description.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Neuropixels Probes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../background/Optotagging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optotagging</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-quality-metrics">Why do we need quality metrics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-metrics-were-calculated">How these metrics were calculated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-metrics">Accessing the metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#firing-rate">Firing rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presence-ratio">Presence ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude-cutoff">Amplitude cutoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isi-violations">ISI violations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation-distance">Isolation distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-prime">d-prime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbors-hit-rate">Nearest-neighbors hit rate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-filtering-units-by-quality-metrics">Examples of filtering units by quality metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-metrics">Waveform metrics</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
