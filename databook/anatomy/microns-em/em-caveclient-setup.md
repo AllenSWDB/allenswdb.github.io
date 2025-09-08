@@ -139,3 +139,134 @@ client.auth.token
 The notebook will print the token your computer is sending to the server.
 
 If this token is not the one you find from running the code in Scenario 2, double check that it is pointing to the datastack you want (MICrONS or V1DD) and force regenerate a token for the appropriate datastack as above. 
+
+## CodeOcean Token setup
+
+If you want to use CAVEclient in Code Ocean, you can add your CAVE authentication token to your environment so you do not have to enter it every time you spin up a capsule.
+
+This becomes slightly more complicated if you want TWO tokens (say, for V1DD and MICrONS). Here are step-by-step instructions for adding two tokens 
+
+
+### Create your CAVE token secret(s)
+
+1. In Code Ocean, access your Account settings from the bottom left panel
+
+:::{figure} img/cave_code_ocean_0.png
+---
+align: center
+---
+Access Account settings
+:::
+
+2. Under your Account, open your 'User Secrets'
+
+:::{figure} img/cave_code_ocean_1.png
+---
+align: center
+---
+name: Access 'User Secrets'
+:::
+
+3. Add a new secret, from the menu on the upper right. Select 'API Credentials'
+
+:::{figure} img/cave_code_ocean_2.png
+---
+align: center
+---
+Access 'User Secrets'
+:::
+
+4. Create a CAVE Token for MICrONS
+
+* Name it something distinctive.
+* The API Key does not matter
+* Enter your token as the secret. See your MICrONS tokens here  https://global.daf-apis.com/sticky_auth/settings/tokens
+* Save Secret
+
+:::{figure} img/cave_code_ocean_3.png
+---
+align: center
+---
+Save MICrONS secret
+:::
+
+
+5. Create a CAVE Token for V1DD
+
+* Name it something distinctive. 
+* The API Key does not matter
+* Enter your token as the secret. See your V1DD tokens here https://global.em.brain.allentech.org/sticky_auth/settings/tokens
+* Save Secret
+
+:::{figure} img/cave_code_ocean_4.png
+---
+align: center
+---
+Save V1DD secret
+:::
+
+### Add the secret(s) to your capsule
+
+6. Open the environment tab of your Capsule
+
+:::{figure} img/cave_code_ocean_5.png
+---
+align: center
+---
+Environment tab of capsule
+:::
+
+7. Scroll to the bottom, where you can 'Add secret to capsule'
+
+* Add both the CAVE and V1DD credentials
+
+:::{figure} img/cave_code_ocean_6.png
+---
+align: center
+---
+Add secret to capsule
+:::
+
+8. Rename the default 'Environment Variable Name': click on the three-dot menu to the right
+
+:::{figure} img/cave_code_ocean_8.png
+---
+align: center
+---
+Select 3-dot menu to set the Environment variable names
+:::
+
+9. Rename the secret variable to something distinctive. Here: 'API_SECRET_microns' (key does not matter)
+
+:::{figure} img/cave_code_ocean_9.png
+---
+align: center
+---
+Rename the API secret variable for easy look up in your code
+:::
+
+10. Repeat for the other token. For example: `API_SECRET_v1dd' (key does not matter)
+
+### Initialize CAVE with dataset-specific token
+
+11. In a notebook or python file within your Capsule, import CAVEclient and OS
+
+```python
+import os
+`from caveclient import CAVEclient
+```
+
+12. Initialize MICrONS datastack (same pattern every time)
+
+```python
+client = CAVEclient("minnie65_public", auth_token=os.environ["API_SECRET_microns"])
+```
+
+13. Initialize V1DD datastack
+
+
+```
+client = CAVEclient("v1dd_public", server_address="https://global.em.brain.allentech.org", auth_token=os.environ["API_SECRET_v1dd"])
+```
+
+* Note: the addition of a `server_adddress` argument. This is only necessary the first time you spin up V1DD in your capsule session. But is necessary every time you restart the capsule
