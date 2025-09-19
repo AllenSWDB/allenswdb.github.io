@@ -130,7 +130,10 @@ photostim = nwbfile.stimulus["PhotostimTrials"].to_dataframe()
 
 #### BCI Behavior Table 
     
-During the "BCI" epochs, the mouse engaged in an optical brain-computer-interface task in which the activity of a single neuron in the imaging plane was used to control the movement of a reward lickport towards its face. 
+During the "BCI" epochs, the mouse engaged in an optical brain-computer-interface task in which the activity of a single neuron in the imaging plane is conditioned to control the movement of a reward lickport towards its face (zaber_steps_times). Once the lickport crosses a spatial threshold (threshold_crossing_times), a reward is delivered. The mouse has 10s to complete the trial before the lickport returns to its start position. After the reward is delivered, the mouse can consume the reward at any timepoint (reward_time). 
+The 
+
+*Important note - zaber_steps_times that occurred after the threshold_crossing_time in the data were misreported due to a technical bug. After reaching the threshold, the lickport still tried to move but did not actually move. 
 
 Information about each BCI behavior trial can be found in the intervals > trials table. 
 
@@ -138,18 +141,18 @@ Information about each BCI behavior trial can be found in the intervals > trials
 | -------- | ------- |
 | start_time  | trial start (sec)  |
 | stop_time | trial end (sec)   |
-| go_cue |  time of go cue relative to start time (sec)   |
+| go_cue |  time of auditory go cue relative to start time (sec)   |
 | hit   |  boolean of whether trial was hit   |
 | lick_l  | lick times (sec)   |
 | reward_time   | reward delivery time (sec)   |
 | threshold_crossing_times    | time when reward port crossed position threshold (sec)   |
-| zaber_steps_times   | position of reward port  |
+| zaber_steps_times   | times when lickport moved  |
 | tiff_file    | data source file  |
 | start_frame    | trial start (frame)  |
 | stop_frame    | trial end (frame)  |
 | conditioned_neuron_x    | coordinate for conditioned neuron (pixels)  |
 | conditioned_neuron_y    | coordinate for conditioned neuron (pixels)  |
-| closest_roi    | index in dff that corresponds to the photostimulated neuron  |
+| closest_roi    | index in dff that corresponds to the conditioned neuron  |
 
 
 
