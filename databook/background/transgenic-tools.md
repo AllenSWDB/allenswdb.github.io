@@ -97,7 +97,7 @@ GCaMP). Here are the reporter lines used in our datasets:
 | Ai162 | TIT2L-GC6s-ICL-tTA2_D | Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drives higher expression. | MGI:6151062 | Visual Coding 2P |
 | Ai166 | TIT2L-MORF-ICL-tTA2 | A Cre dependent reporter that drives sparse labeling with GFP. The MORF introduces a stochastic translational switch, only labeling 1-5% of Cre+ neurons. | MGI:6441963 | Single Cell Morphology |
 | Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra & Psychedelics |
-| TetO-GCaMP6s | TetO-GCaMP6s | MGI:5553332 | V1 Deep Dive |
+| TetO-GCaMP6s | TetO-GCaMP6s |Tet dependent fluorscent GCaMP6s indicator expressing GCaMP6 <i>slow</i>.|MGI:5553332 | V1 Deep Dive |
 | Ai167 | TIT2L-ChrimsonR-tdTomato-ICL-tTA2-WPRE | Cre dependent expression of ChrimsonR fused to enhanced red fluorescent protein (tdTomato) for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (620-750 nm). | MGI:7712128 | NP Ultra & Psychedelics |
 | Ai230 | TIT2L-XCaMPG-WPRE-ICL-ChRmine-oScarlet-IRES2-tTA2-WPRE | Cre dependent expression of ChRmine fused to red fluorescent protein (oScarlet) with the capacity for dual ChRmine-oScarlet/XCaMP-G reporting in the presence of Cre and tTA | MGI:7482009 |BCI |
 
@@ -142,8 +142,7 @@ type without needing to use a driver line.
 |------|-------------|----------|
 | rAAV-3xcore2_eHGT_779m-minBG-CoChR-EGFP-WPRE3-BGHpA | D1 enhancer - CoChR. Drives expression of CoChR in direct pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
 | rAAV-3xcore2_eHGT_445h-minBG-CoChR-EGFP-WPRE3-BGHpA | D2 enhancer - CoChR. Drives expression of CoChR in indirect pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
-| rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA | D2 enhancer - CoChR | Drives expression of
-  CoChR in indirect pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
+| rAAV-3xcore2_eHGT_452h-minBG-CoChR-EGFP-WPRE3-BGHpA | D2 enhancer - CoChR Drives expression of CoChR in indirect pathway MSNs, fused with GFP for visualization. | Cell Type Lookup Table |
 
 ## Do transgenic tools impact physiology or behavior?
 
