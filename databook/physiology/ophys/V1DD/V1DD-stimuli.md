@@ -27,8 +27,8 @@ The [windowed drifting gratings](difting-gratings-windowed) stimulus has the sam
 ## Locally sparse noise
 The [locally sparse noise](locally-sparse-noise) stimulus consists of white and black spots on a mean luminance gray background. Each spot was 9.3° per side, and had an exclusion zone of 5 pixels surrounding it. Each frame was presented at 3 Hz.
 
-## Natural scenes
-There were two [natural scenes](natural-scenes) stimuli used in these experiments. One consisted of the full 118 images from the Visual Coding stimulus, presented 8 times total, in a randomized order with two different fixed seeds. (e.g. the random order was the same for four presentations, and then a different random order for the other four presentations). The other stimulus consisted of only 12 images from that image set, presented in a frozen sequence, and repeated 40 times. For both stimuli the images were presented at 3 Hz.
+## Natural images
+There were two [natural image](natural-scenes) stimuli used in these experiments. One, "natural_images", consisted of the full 118 images from the Visual Coding stimulus, presented 8 times total, in a randomized order with two different fixed seeds. (e.g. the random order was the same for four presentations, and then a different random order for the other four presentations). The other stimulus, "natural_images_12", consisted of only 12 images from that image set, presented in a frozen sequence, and repeated 40 times. For both stimuli the images were presented at 3 Hz.
 
 ## Natural movies
 
