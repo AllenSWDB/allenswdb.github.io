@@ -63,16 +63,86 @@ During processing, a segmentation algorithm was applied to the raw fluorescence 
 
 ```{code-cell} ipthon3
 # e.g. for plane-0
-image_segmentation = nwbfile_zarr.processing['plane-0'].data_interfaces['image_segmentation'].plane_segmentations['roi_table'].to_dataframe()
+image_segmentation = nwbfile.processing['plane-0'].data_interfaces['image_segmentation'].plane_segmentations['roi_table'].to_dataframe()
 image_segmentation.head()
 ```
 
 ## Cell Activity Traces
 
+Each plane contains several arrays for the neural activity including "raw", "neuropil_fluorescence", "neuropil_corrected", "demixed", "dff", and "events". These represent sequential steps of data processing. The dff is recommended for most analyses. 
+
+```{code-cell} ipython3
+dff = nwbfile.processing['plane-0'].data_interfaces['dff'].data[:]
+timestamps = nwbfile.processing['plane-0'].data_interfaces['dff'].timestamps[:]
+```
+
+The dff array has shape # timestamps, # cells.
+
+```{code-cell} ipython3
+plt.plot(ts, dff[:,0])
+plt.xlabel("Time (s)")
+plt.ylabel("DFF (%)")
+```
+
+You can confirm the imaging rate of each plane:
+
+```{code-cell} ipython3
+frame_rate = nwbfile.imaging_planes["plane-0"].imaging_rate
+print("Frame rate: ", frame_rate)
+```
+
 ## Running Speed
+
+The running speed is in the "behavior" folder within the `processing` container. This is a timeseries object.
+
+```{code-cell} ipython3
+run = nwbfile.processing['behavior'].data_interfaces['running_speed'].data[:]
+ts = nwbfile_zarr.processing['behavior'].data_interfaces['running_speed'].timestamps[:]
+
+plt.plot(ts, run)
+plt.xlabel("Time (s))
+plt.ylabel("Speed (cm/s)")
+```
 
 ## Eye Tracking
 
+Eye tracking data is similarly found in the "behavior" folder. While this is also time-based data, it is stored in a dataframe. Eye tracking uses information of the eye, the pupil, and a corneal reflection (cr) of an IR led to compute the area and of the pupil and its position.
+
+```{code-cell} ipython3
+eye = nwbfile.processing['behavior'].data_interfaces['eye_tracking'].to_dataframe()
+eye.head()
+```
+
+| Column    | Description |
+| -------- | ------- |
+| timestamps | timestamps for all other series |
+| cr_area | area of the corneal reflection |
+| eye_area | area of the eye |
+| pupil_area | area of the pupil |
+| likely blink | boolean indicating with it is likely to be a blink |
+| cr_center_x | center of the corneal reflection x position |
+| cr_center_y | center of the corneal reflection y position |
+| cr_width | width of the corneal reflection |
+| cr_height | height of the corneal reflection |
+| cr_phi |  |
+| eye_center_x | center of the eye x position |
+| eye_center_y | center of the eye y position | 
+| eye_width | width of the eye |
+| eye_height | width of the eye |
+| eye_phi |  |
+| pupil_center_x | center of the pupil x position |
+| pupil_center_y | center of the pupil y position |
+| pupil_width | width of the pupil |
+| pupil_height | height of the pupil |
+| pupil_phi |  | 
+
+
+```{code-cell} ipython
+plt.plot(eye.timestamps, eye.pupil_area)
+plt.xlim(400,800)
+plt.xlabel("Time (s)")
+plt.ylabel("Pupil area (pixel^2)")
+```
 
 ## Stimulus Epoch Table
 
@@ -88,7 +158,7 @@ The epoch table contains the start and stop times/frames for each stimulus epoch
 
 ```{code-cell} ipython3
 epoch_table = nwbfile.intervals['epochs'].to_dataframe()
-epoch_table
+epoch_table.head()
 ```
 
 You can get a list of the unique stimuli in this session. You can learn more about these [here](V1DD-stimuli.md).
@@ -103,11 +173,11 @@ There is a single stimulus table for all of the stimuli in the sesison for this 
 
 ```{code-cell} ipython3
 stim_table = nwbfile.intervals['stimulus_table'].to_dataframe()
-stim_table
+stim_table.head()
 ```
 
 | Column    | Description | Stimulus |
-| -------- | ------- |
+| -------- | ------- | -------- |
 | stim_name | stimulus name | all |
 | start_time | trial start time (sec) | all |
 | stop_time | trial stop time (sec) | all |
