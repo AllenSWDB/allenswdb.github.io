@@ -51,6 +51,11 @@ plt.imshow(max_projection, cmap='Grays_r')
 
 During processing, a segmentation algorithm was applied to the raw fluorescence data to extract ROIs for detected neurons. The extracted ROIs are accessible in the form of image masks, a sparse array with non-zero values where the ROI is masked out in the imaging plane. The detected ROIs are run through a soma/dendrite classifier to confirm if the ROI masks fit certain features of a soma or dendrite. The data in these NWB files have been filtered to only the ROIs that are thought to be soma. This information is stored in the `image_segmentation` table for each plane in the `processing` container.
 
+```{code-cell} ipthon3
+image_segmentation = nwbfile.processing['plane-0'].data_interfaces['image_segmentation'].plane_segmentations['roi_table'].to_dataframe()
+image_segmentation.head()
+```
+
 | Column    | Description |
 | -------- | ------- |
 | column | the column this session is in |
@@ -62,9 +67,8 @@ During processing, a segmentation algorithm was applied to the raw fluorescence 
 | is_soma | boolean identifying rois that are soma. |
 | pixel_mask | Sparse representation of the mask for this roi. A list of tuples with (x,y,value) for all pixels where value=1 |
 
-```{code-cell} ipthon3
-image_segmentation = nwbfile.processing['plane-0'].data_interfaces['image_segmentation'].plane_segmentations['roi_table'].to_dataframe()
-image_segmentation.head()
+```{note} 
+The column, volume, plane, roi are used together to link activity traces with EM data.
 ```
 
 ## Cell Activity Traces
@@ -148,6 +152,11 @@ plt.ylabel("Pupil area (pixel^2)")
 
 The epoch table contains the start and stop times/frames for each stimulus epoch. This is in the `intervals` container of the NWB file. You can use the epoch table with the dff array to pull and compare neural activity across different stimulus epochs. 
 
+```{code-cell} ipython3
+epoch_table = nwbfile.intervals['epochs'].to_dataframe()
+epoch_table.head()
+```
+
 | Column    | Description |
 | -------- | ------- |
 | stim_name  | stimulus name for the epoch  |
@@ -155,11 +164,6 @@ The epoch table contains the start and stop times/frames for each stimulus epoch
 | stop_time   | epoch end (sec)  |
 | duration  | epoch duration (sec)  |
 
-
-```{code-cell} ipython3
-epoch_table = nwbfile.intervals['epochs'].to_dataframe()
-epoch_table.head()
-```
 
 You can get a list of the unique stimuli in this session. You can learn more about these [here](V1DD-stimuli.md).
 
@@ -196,14 +200,12 @@ stim_table.head()
 
 The stimulus images that were presented are stored in the `stimulus` container. These are for the natural images, natural movies, and locally sparse noise. The drifting gratings stimuli were generated programmatically and have no template. Each image or movie frame is stored in its respective "images" folder using its index or frame (from the stimulus table) as a string.
 
-
 ```{code-cell} ipython3 
 index = 20
 image = nwbfile_zarr.stimulus['natural_images'].images[str(index)]
 plt.imshow(image, cmap='Grays_r')
 
 ```
-
 
 ```{code-cell} ipython3 
 frame = 1004
