@@ -42,6 +42,7 @@ The physiology and behavior data is found in the `processing` container of the N
 The max projection is in the `images` folder for each plane.
 
 ```{code-cell} ipython3
+# e.g. for plane-0
 max_projection = nwbfile_zarr.processing['plane-0'].data_interfaces['images'].images['max_projection_denoised_plane-0']
 plt.imshow(max_projection, cmap='Grays_r')
 ```
@@ -62,7 +63,6 @@ During processing, a segmentation algorithm was applied to the raw fluorescence 
 | pixel_mask | Sparse representation of the mask for this roi. A list of tuples with (x,y,value) for all pixels where value=1 |
 
 ```{code-cell} ipthon3
-# e.g. for plane-0
 image_segmentation = nwbfile.processing['plane-0'].data_interfaces['image_segmentation'].plane_segmentations['roi_table'].to_dataframe()
 image_segmentation.head()
 ```
@@ -194,11 +194,19 @@ stim_table.head()
 
 ## Stimulus Templates
 
+The stimulus images that were presented are stored in the `stimulus` container. These are for the natural images, natural movies, and locally sparse noise. The drifting gratings stimuli were generated programmatically and have no template. Each image or movie frame is stored in its respective "images" folder using its index or frame (from the stimulus table) as a string.
+
 
 ```{code-cell} ipython3 
+index = 20
+image = nwbfile_zarr.stimulus['natural_images'].images[str(index)]
+plt.imshow(image, cmap='Grays_r')
 
 ```
 
-```{code-cell} ipython3 
 
+```{code-cell} ipython3 
+frame = 1004
+image = nwbfile_zarr.stimulus['natural_movie'].images['1004']
+plt.imshow(image, cmap='Grays_r')
 ```
