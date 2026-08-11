@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3 
-nwbfile_path = PATH HERE
+nwb_path_zarr = r'/data/409828_V1DD_Filtered/409828_2018-11-27_12-29-05_filtered_2026-04-09_05-50-36/409828_2018-11-27_12-29-05.nwb.zarr'
 
 io = NWBZarrIO(nwbfile_path_zarr, "r")
 nwbfile = io.read()
@@ -43,7 +43,7 @@ The max projection is in the `images` folder for each plane.
 
 ```{code-cell} ipython3
 # e.g. for plane-0
-max_projection = nwbfile_zarr.processing['plane-0'].data_interfaces['images'].images['max_projection_denoised_plane-0']
+max_projection = nwbfile.processing['plane-0'].data_interfaces['images'].images['max_projection_denoised_plane-0']
 plt.imshow(max_projection, cmap='Grays_r')
 ```
 
@@ -101,7 +101,7 @@ The running speed is in the "behavior" folder within the `processing` container.
 
 ```{code-cell} ipython3
 run = nwbfile.processing['behavior'].data_interfaces['running_speed'].data[:]
-ts = nwbfile_zarr.processing['behavior'].data_interfaces['running_speed'].timestamps[:]
+ts = nwbfile.processing['behavior'].data_interfaces['running_speed'].timestamps[:]
 
 plt.plot(ts, run)
 plt.xlabel("Time (s))
@@ -202,13 +202,13 @@ The stimulus images that were presented are stored in the `stimulus` container. 
 
 ```{code-cell} ipython3 
 index = 20
-image = nwbfile_zarr.stimulus['natural_images'].images[str(index)]
+image = nwbfile.stimulus['natural_images'].images[str(index)]
 plt.imshow(image, cmap='Grays_r')
 
 ```
 
 ```{code-cell} ipython3 
 frame = 1004
-image = nwbfile_zarr.stimulus['natural_movie'].images['1004']
+image = nwbfile.stimulus['natural_movie'].images['1004']
 plt.imshow(image, cmap='Grays_r')
 ```
