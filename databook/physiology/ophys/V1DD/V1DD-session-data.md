@@ -17,17 +17,16 @@ kernelspec:
 We use PyNWB to access these data, similar to many of our other datasets. Let's explore the elements that are available here
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
+import pynwb
 import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
 
 ```{code-cell} ipython3 
-nwb_path_zarr = r'/data/409828_V1DD_Filtered/409828_2018-11-27_12-29-05_filtered_2026-04-09_05-50-36/409828_2018-11-27_12-29-05.nwb.zarr'
+nwb_path = r'/data/409828_V1DD_Filtered/409828_2018-11-27_12-29-05_filtered_2026-04-09_05-50-36/409828_2018-11-27_12-29-05.nwb.zarr'
 
-io = NWBZarrIO(nwbfile_path_zarr, "r")
-nwbfile = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
 As always, exploring the content of the nwb file directly will help you find the key pieces of the asset.
