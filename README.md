@@ -1,5 +1,5 @@
-# SWDB 2024 Data Book
-![SWDB 2024](/databook/resources/cropped-SummerWorkshop_Header.png)
+# SWDB 2026 Data Book
+![SWDB 2026](/databook/resources/swdb_logo_new.jpg)
 
 ## The built documentation is [here](https://allenswdb.github.io/intro.html).
 
@@ -9,4 +9,4 @@ For diagnostics from the most recent build on the databook, see [here](https://a
 
 For instructions on building the databook, see [here](https://allenswdb.github.io/build-instructions.html). The instructions are also in this repository in /databook/build-instructions.md.
 
-Copyright 2024 Allen Institute
+Copyright 2026 Allen Institute
