@@ -24,7 +24,8 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3 
-nwb_path = r'/data/409828_V1DD_Filtered/409828_2018-11-27_12-29-05_filtered_2026-04-09_05-50-36/409828_2018-11-27_12-29-05.nwb.zarr'
+nwb_path = r'/data/409828_2018-11-27_12-29-05_filtered_2026-04-09_05-50-36/409828_2018-11-27_12-29-05.nwb.zarr'
+
 
 nwbfile = pynwb.read_nwb(nwb_path)
 ```

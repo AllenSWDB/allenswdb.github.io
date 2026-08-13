@@ -37,11 +37,8 @@ import os
 Let's try loading one session's worth of data to see how to work with it.
 
 ```{code-cell} ipython3
-# an 'arbitrarily' selected session
-session = '661398_2023-04-03_15-47-29'
-session_directory = f'/data/SWDB 2024 CTLUT data/ecephys_{session}_nwb'
+nwb_file = '/data/ecephys_655571_2023-05-15_13-39-49_nwb/ecephys_655571_2023-05-15_13-39-49_experiment1_recording1.nwb'
 
-nwb_file = os.path.join(session_directory, f'ecephys_{session}_experiment1_recording1.nwb.zarr')
 io = NWBZarrIO(nwb_file, "r")
 nwbfile_read = io.read()
 ```
