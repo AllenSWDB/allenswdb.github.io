@@ -48,7 +48,7 @@ Explore the nwb file:
 nwbfile
 ```
 
-# Image Segmentation Table 
+## Image Segmentation Table 
     
 During processing, a segmentation algorithm (e.g. Suite2p or Cellpose) is applied to the raw fluorescence data to extract ROIs for detected neurons. The extracted ROIs are accessible in the form of image masks, a HxW sparse array with non-zero values where the ROI is masked out in the imaging plane. The detected ROIs are run through a soma/dendrite classifier to confirm if the ROI masks fit certain features of a soma or dendrite. The image masks and outputs of the soma/dendrite classifier are stored in the `image_segmentation` table in the `processing` container.
     
