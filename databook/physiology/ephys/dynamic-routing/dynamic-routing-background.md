@@ -31,12 +31,12 @@ Mice perform a **visual–auditory context-switching task** in which the rewarde
 
 ### Stimuli and reward contingencies
 
-Each trial presents one of four stimuli: a visual target (VIS+), a visual non-target (VIS−), an auditory target (AUD+), or an auditory non-target (AUD−). Trials are organized into alternating **auditory-rewarded (A)** and **visual-rewarded (V)** blocks. Within each block, only one target stimulus is rewarded:
+Each trial presents one of four stimuli: a visual target (VIS1), a visual non-target (VIS2), an auditory target (AUD1), or an auditory non-target (AUD2). Trials are organized into alternating **auditory-rewarded (A)** and **visual-rewarded (V)** blocks. Within each block, only one target stimulus is rewarded:
 
-- **Auditory context (A):** licking to AUD+ earns a water reward; licking to VIS+ is a false alarm.
-- **Visual context (V):** licking to VIS+ earns a water reward; licking to AUD+ is a false alarm.
+- **Auditory context (A):** licking to AUD1 earns a water reward; licking to VIS1 is a false alarm.
+- **Visual context (V):** licking to VIS1 earns a water reward; licking to AUD1 is a false alarm.
 
-Responses to either non-target stimulus (AUD−, VIS−) are never rewarded regardless of context.
+Responses to either non-target stimulus (AUD2, VIS2) are never rewarded regardless of context.
 
 ### Session and block structure
 
@@ -53,3 +53,19 @@ Each trial begins with a **quiescent period** (~1.5 s) during which licking rese
 
 __a__, Reward contingencies for the auditory (A) and visual (V) contexts. Only the target of the currently rewarded modality yields reward. __b__, Nested timeline of a session (six alternating 10-minute blocks), a block (five rewarded target cue trials followed by pseudo-randomly interleaved stimuli), and a trial (quiescent period, stimulus, response window, ITI).
 :::
+
+### Questions to explore 
+
+- Which brain regions have the most visual responsive neurons?
+
+- Which regions are more auditory responsive?
+
+- Do frontal cortical areas have sensory responses?​
+
+- How does spiking activity differ between Miss and Correct Reject trials (compute separately for visual and auditory stimuli)? 
+
+- Do regular spiking neurons (putative excitatory) versus fast spiking neurons (putative inhibitory) have different activity during the task? ​
+
+- Do baseline spiking rates change between the spontaneous versus task epochs of the recording session? Does this vary across areas?​
+
+- How do ear and nose movements correlate with neural activity?​
