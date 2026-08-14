@@ -47,7 +47,7 @@ max_projection = nwbfile.processing['plane-0'].data_interfaces['images'].images[
 plt.imshow(max_projection, cmap='Grays_r')
 ```
 
-## Image Segementation Table
+## Image Segmentation Table
 
 During processing, a segmentation algorithm was applied to the raw fluorescence data to extract ROIs for detected neurons. The extracted ROIs are accessible in the form of image masks, a sparse array with non-zero values where the ROI is masked out in the imaging plane. The detected ROIs are run through a soma/dendrite classifier to confirm if the ROI masks fit certain features of a soma or dendrite. The data in these NWB files have been filtered to only the ROIs that are thought to be soma. This information is stored in the `image_segmentation` table for each plane in the `processing` container.
 
