@@ -15,13 +15,11 @@ kernelspec:
 
 This tutorial will demonstrate the structure of the data file in a Neurodata Without Borders type (NWB) file and showcase how to access various parts of the data. We will use a specific example using an ecephys file, but the process is general.
 
-We begin with package imports which we'll need. `hdmf_zarr` handles the ZArray objects that appear in NWB files, while `nwbwidgets` will provide us with a useful tool down the line.
+We begin with package imports which we'll need. `pynwb` is the tool we'll use to load our data.
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
-from nwbwidgets import nwb2widget
+import pynwb
 
-%matplotlib inline
 ```
 
 In order to do any analysis, of course, we'll also need the usual libraries:
@@ -30,6 +28,7 @@ In order to do any analysis, of course, we'll also need the usual libraries:
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+%matplotlib inline
 ```
 
 ## Accessing an NWB file
@@ -37,44 +36,30 @@ import matplotlib.pyplot as plt
 To manipulate the data in the file, we will first need to find the file we're interested in and then load it into Python. We assume here that we have already received the datafile somehow and we know what directory we've stored the file in, so we will simply path directly to the file (which is of file type .nwb.zarr).
 
 ```{code-cell} ipython3
-mouse_id = '655565'
+nwb_path = '/data/ecephys_655571_2023-05-15_13-39-49_nwb/ecephys_655571_2023-05-15_13-39-49_experiment1_recording1.nwb'
 
-nwb_file = '/data/SWDB 2024 CTLUT data/ecephys_655565_2023-03-31_14-47-36_nwb/ecephys_655565_2023-03-31_14-47-36_experiment1_recording1.nwb.zarr'
 ```
 
-So far, all we've done is find the path and store it as a string in Python. Now that we have the NWB file's path, we still need to load it into Python, which we can do using ```NWBZarrIO```.
+So far, all we've done is find the path and store it as a string in Python. Now that we have the NWB file's path, we will load it using `pynwb`.
 
 ```{code-cell} ipython3
-with NWBZarrIO(nwb_file, "r") as io:
-    nwbfile_read = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
-This stores all the information contained in the NWB file into a ```NWBFile``` object from the ```pynwb``` package, and now we're ready to start working with the data. The first thing we might be interested in is just seeing the contents of the NWB file, which we can do by using the ```nwb2widget``` tool. Below, a screenshot of the output is included to show what information it contains:
+This stores all the information contained in the NWB file into a ```NWBFile``` object , and now we're ready to start working with the data. The first thing we might be interested in is just seeing the contents of the NWB file.
 
 ```{code-cell} ipython3
-nwb2widget(nwbfile_read);
+nwbfile
 ```
 
-:::{figure} /resources/output_nwb_read.PNG
----
-align: center
----
-:::
-
-The various types of data contained in the file when loaded into Python are simply attributes of the ```nwbfile_read``` object, which we access in the usual way ```nwbfile_read.*```. Depending on the table of interest, they might be stored as different types of objects, however; for example, several are stored as objects specific to the ```pynwb``` package.
-
-Now we will access the data directly.
-
-```{code-cell} ipython3
-print(nwbfile_read)
-```
+The various types of data contained in the file when loaded into Python are simply attributes of the ```nwbfile``` object, which we access in the usual way ```nwbfile.*```. Depending on the table of interest, they might be stored as different types of objects, however; for example, several are stored as objects specific to the ```pynwb``` package.
 
 ## Accessing Units Data
 
 Since this is an ecephys file, let's first access the *units*. This is a ```DataFrame``` object that contains information about all of the sorted {term}`unit`s in this experiment.
 
 ```{code-cell} ipython3
-units = nwbfile_read.units[:]
+units = nwbfile.units[:]
 print(type(units))
 ```
 
@@ -85,29 +70,6 @@ print(units.columns.values)
 ```
 
 Here, we can see the full list of columns stored in our ```DataFrame```:
-
-- `spike_times` - spike times (in seconds) for the entire session
-- `electrodes` - electrode indices used for mean waveform
-- `waveform_mean` - mean spike waveform across all electrodes
-- `waveform_sd` - standard deviation of the spike waveform across all electrodes
-- `unit_name` - universally unique identifier for this unit
-- `default_qc` - `True` if this unit passes default quality control criteria, `False` otherwise
-- `presence_ratio` - fraction of the session for which this unit was present (**default threshold = 0.8**)
-- `num_spikes` - total number of spikes detected
-- `snr` - signal-to-noise ratio of this unit's waveform (relative to the peak channel)
-- `isi_violations_ratio` - metric that quantifies spike contamination (**default threshold = 0.5**)
-- `firing_rate` - average firing rate of the unit throughout the session
-- `isolation_distance` - distance to nearest cluster in Mahalanobis space (higher is better)
-- `l_ratio` - related to isolation distance; quantifies the probability of cluster membership for each spike
-- `device_name` - name of the probe that detected this unit
-- `amplitude_cutoff` - estimated fraction of missed spikes (**default threshold = 0.1**)
-- `peak_trough_ratio` - ratio of the max (peak) to the min (trough) amplitudes (based on 1D waveform)
-- `repolarization_slope` - slope of return to baseline after trough (based on 1D waveform)
-- `amplitude` - peak-to-trough distance (based on 1D waveform)
-- `d_prime` - classification accuracy based on LDA (higher is better)
-- `recovery_slope` - slope of return to baseline after peak (based on 1D waveform)
-- `half_width` - width of the waveform at half the trough amplitude (based on 1D waveform)
-- `ks_unit_id` - unit ID assigned by Kilosort
 
 Note that the columns may vary from experiment to experiment, so it's a good idea to check what columns are stored in any NWB file that you open. For instance, this file contains the above standard columns that appear in most NWB files from the Allen Institute, but also many more columns detailing the unit's response to laser stimulation. These columns are further explained in the [cell type lookup table tutorials.](physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.md)
 
@@ -123,52 +85,6 @@ To look at the spike times for a specific unit, we look at the corresponding att
 print(units.loc[418]['spike_times'])
 ```
 
-We can also see how many spike times there are for a specific unit, which will tell us the number of spikes and allow us to access the time of a specific spike (in this case, accessing the time of the 189th spike):
-
-```{code-cell} ipython3
-print(len(units.loc[418]['spike_times']))
-print(units.loc[418]['spike_times'][188])
-```
-
-A useful sanity check here might also to be to ensure that the number of spike times matches the actual number of spikes recorded in the units table:
-
-```{code-cell} ipython3
-print(units.loc[418]['num_spikes'])
-print(units.loc[418]['num_spikes'] == len(units.loc[418]['spike_times']))
-```
-
-So we can see that every recorded spike also has its time recorded, as we would expect. As another example, it is also possible to access and plot the waveform for a specific unit. Accessing the waveform is done in the same manner as accessing the spike times; in this case, we are interested in looking at 'waveform_mean' (note that here, we access it in two different ways: as an attribute of the units table, and as an element of the `DataFrame`). This is stored as a basic Python array. We can take a look at its dimensions to make sense of what data is stored here:
-
-```{code-cell} ipython3
-print(np.array(units.loc[418]['waveform_mean']).shape)
-```
-
-Equipped with our knowledge of Neuropixels, we can see then that the dimensions are (time, channel). We can plot this to visualize each channel's recordings over time. Note that due to the way that plt.imshow functions, we will need to take the transpose of the array to plot time on the x-axis. Also note that `waveform_mean` centers the times around the time of the spike.
-
-```{code-cell} ipython3
-plt.imshow(units.loc[418]['waveform_mean'].T, origin='lower')
-plt.ylabel("Electrode")
-plt.xlabel("Time (us)")
-plt.show()
-```
-
-From above, we can see that most of the channels recorded the same values over time; the channel's recording at any given time is indicated by the color of the plot at that time. Since most horizontal lines we can draw on this plot are monochromatic, we can conclude that the channel in question did not record any interesting variation in electric potential.
-
-However, there is something interesting happening on channels 20 to 50!
-
-We can plot the shape of the potential over time on those channels. Now, instead of a three-dimensional plot, we will have a two-dimensional plot of voltage over time, with each distinct line representing a different channel:
-
-```{code-cell} ipython3
-plt.plot(units.waveform_mean.loc[418][:,20:50])
-plt.ylabel("uV")
-plt.xlabel("Time (us)")
-plt.show()
-```
-
-This has somthing interesting going on; we can clearly see the classic shape of an action potential, but it appears to be overlaid on some baseline sinusoidal oscillation in the voltage.
-
-Moving on from the units table, let's examine more of the data contained in the NWB file.
-
 +++
 
 ## Accessing Trials Data
@@ -176,7 +92,7 @@ Moving on from the units table, let's examine more of the data contained in the 
 The trials table includes information on the timing and experimental parameters for each trial conducted in the experiment. It can be accessed in the same way as the units table; again, this is a `DataFrame` object.
 
 ```{code-cell} ipython3
-trials = nwbfile_read.trials[:]
+trials = nwbfile.trials[:]
 print(trials.columns.values)
 ```
 
@@ -193,7 +109,7 @@ print(trials.loc[1582])
 A stimulus template provides an exemplar for each stimulus condition, which we can access again as an attribute of the NWB file. This is also something that is tailored to the experimental design, so the form can vary. In this example, the template is a `Dictionary` object. The keys are:
 
 ```{code-cell} ipython3
-stimulus_template = nwbfile_read.stimulus_template
+stimulus_template = nwbfile.stimulus_template
 print(stimulus_template.keys())
 ```
 
@@ -222,12 +138,12 @@ Here, we can see that our stimulus is a square wave with a frequency of 20 Hz an
 
 ## Processing
 
-There are some relevant pieces of data which are not quite as straightforward to access; some are nested under other attributes. For example, the running speed of the mouse over time is very relevant, but it is nested behind the `processing` attribute. To see the data structure, we can just use the `nwb2widget` tool that we showed above in the fifth cell and browse, but here we'll also show how to read the data manually since the `nwb2widget` tool can sometimes be slow if there's a large amount of information in a section. 
+There are some relevant pieces of data which are not quite as straightforward to access; some are nested under other attributes. For example, the running speed of the mouse over time is very relevant, but it is nested behind the `processing` attribute. 
 
 The `processing` attribute holds a variety of important pieces of data. `processing` is a `LabelledDict` type object like the stimulus templates were. In order to see what the keys are for this `LabelledDict`, we can just print it and see what attributes we can access:
 
 ```{code-cell} ipython3
-print(nwbfile_read.processing)
+print(nwbfile.processing)
 ```
 
 As we can see for this example, the keys contained in `processing` for this mouse are 'behavior' and 'ecephys'. As with the previous sections, it is important to remember that the keys we have here are specific to this optotagging experiment! In general, what information is contained in processing will be experiment-dependent.
@@ -235,7 +151,7 @@ As we can see for this example, the keys contained in `processing` for this mous
 Now, let's access the 'behavior' key first to see what it contains:
 
 ```{code-cell} ipython3
-print(nwbfile_read.processing['behavior'])
+print(nwbfile.processing['behavior'])
 ```
 
 Notice here that in order to access a specific key, we simply ask for the name of the key.
@@ -243,7 +159,7 @@ Notice here that in order to access a specific key, we simply ask for the name o
 Now, when we read this, we can see the 'behavior' part of the `processing` module for this particular experiment contains only one object, `data_interfaces`. Let's keep going and see what that contains:
 
 ```{code-cell} ipython3
-print(nwbfile_read.processing['behavior'].data_interfaces)
+print(nwbfile.processing['behavior'].data_interfaces)
 ```
 
 Notice that to access the subsection of the dictionary key, we call it as an attribute of the key.
@@ -257,7 +173,7 @@ So, the running speed is nested in several layers of `LabelledDict` type objects
 (For the sake of simplicity, we'll store the linear velocity data in a different Python object, so that we don't have to type the full path to the linear velocity every time we wish to examine it.)
 
 ```{code-cell} ipython3
-running_speed = nwbfile_read.processing['behavior'].data_interfaces['BehavioralTimeSeries'].time_series['linear velocity']
+running_speed = nwbfile.processing['behavior'].data_interfaces['BehavioralTimeSeries'].time_series['linear velocity']
 print(running_speed)
 ```
 
@@ -266,14 +182,7 @@ This tells us that the 'linear_velocity' (which here we've stored in `running_sp
 - `data` contains the actual velocity at each timestamp.
 - `timestamps` contains the timestamp for each measurement. These are naturally paired.
 
-We can see that there are 624,796 data points, and that our data is in units of velocity over time. We can access them directly if we want:
-
-```{code-cell} ipython3
-print(running_speed.timestamps[:])
-print(running_speed.data[:])
-```
-
-And to access a specific data point, we would just use the index in place of the `:` that tells Python to read all elements of the array.
+We can see that there are 624,796 data points, and that our data is in units of velocity over time. 
 
 Now let's plot the data and time to get an idea of the mouse's velocity over the course of the experiment:
 
@@ -293,10 +202,10 @@ plt.ylabel("Velocity (m/s)", fontsize=16)
 plt.show()
 ```
 
-Now let's back up. There was a second key named `ecephys` which was contained in the `processing` attribute of `nwbfile_read`. Let's access that and see what data is contained there:
+Now let's back up. There was a second key named `ecephys` which was contained in the `processing` attribute of `nwbfile`. Let's access that and see what data is contained there:
 
 ```{code-cell} ipython3
-print(nwbfile_read.processing['ecephys'])
+print(nwbfile.processing['ecephys'])
 ```
 
 The `ecephys` object contains one item: the local field potential ({term}`LFP`) data. LFPs are the signals in the low frequency range (below 500 Hz) that are generated by synchronized synaptic inputs of neuronal populations. This features are known to be correlated with brain and behavioral states. The LFP is computed for each probe independently, so when there are multiple probes, there should be an LFP object for each probe. 
@@ -304,7 +213,7 @@ The `ecephys` object contains one item: the local field potential ({term}`LFP`) 
 In this particular experiment, the path to the LFP data goes through the attribute `data_interfaces`. Again, for ease of access, we'll store it in an object so that we don't have to type out the path every time:
 
 ```{code-cell} ipython3
-lfp_interface = nwbfile_read.processing['ecephys'].data_interfaces['LFP']
+lfp_interface = nwbfile.processing['ecephys'].data_interfaces['LFP']
 print(lfp_interface)
 ```
 
@@ -360,12 +269,4 @@ Here, we can see that we have ten entries for every channel.
 
 +++
 
-The NWB file contains other data as well which can be explored using the methods we've detailed in this tutorial; we will not detail every piece of accessible information here, but hopefully it should be clear from these examples how one can navigate and extract data from an NWB file. Once finished, we should then close the NWB file.
-
-```{code-cell} ipython3
-io.close()
-```
-
-```{code-cell} ipython3
-
-```
+The NWB file contains other data as well which can be explored using the methods we've detailed in this tutorial; we will not detail every piece of accessible information here, but hopefully it should be clear from these examples how one can navigate and extract data from an NWB file. 
