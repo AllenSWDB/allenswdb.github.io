@@ -143,6 +143,7 @@ dmypy.json
 code/.vscode
 
 # CodeOcean
+.codeocean
 environment
 metadata
 code
