@@ -24,7 +24,7 @@ import pynwb
 Load an example session:
 
 ```{code-cell} ipython3 
-nwb_path_ = '/data/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
+nwb_path = '/data/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
 
 nwbfile = pynwb.read_nwb(nwb_path)
 ```
