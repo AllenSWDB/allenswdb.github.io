@@ -1,9 +1,0 @@
-{
-	"version": 1,
-	"base_image": "codeocean/code-server-python-extensions-pack:code-server4.129.0python3.12.4codeocean-mcp-serveruvpyreflyetc",
-	"options": {
-		"registry_host_arg": true,
-		"git_ask_pass": true,
-		"mount_secrets": true
-	}
-}
