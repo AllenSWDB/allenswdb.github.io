@@ -74,6 +74,7 @@ records = docdb_api_client.aggregate_docdb_records(
     pipeline = aggregate,
 )
 ```
+We can turn these records into a dataframe and reorganize some things:
 
 ```{code-cell} ipython3
 df = pd.DataFrame(records)

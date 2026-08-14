@@ -44,41 +44,10 @@ nwbfile = pynwb.read_nwb(nwb_path)
 
 Explore the contents on this file
 
-```{hint}
+```{code-cell} ipython3
 nwbfile
 ```
 
-+++
-
-Before further working with this data, let's take a look at the metadata so we know what to expect.
-
-```{code-cell} ipython3
-# subject.json contains info about the mouse, procedures.json contains info about surgeries and such that were performed
-subject_json = os.path.join(session_directory, 'subject.json')
-procedures_json = os.path.join(session_directory, 'procedures.json')
-
-# load both json files
-with open(subject_json, 'r', ) as f:
-    subject = json.load(f)
-with open(procedures_json, 'r', ) as f:
-    procedures = json.load(f)
-
-print(subject['genotype'])
-
-virus_names = []
-try:
-    for material in procedures['injections'][0]['injection_materials']:
-        virus_names.append(material['name'])
-except(KeyError):
-    for material in procedures['subject_procedures'][2]['injection_materials']: # the procedures scraped from NSB are formatted differently
-        virus_names.append(material['name'])
-
-print(virus_names)
-```
-
-So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was injected with two viruses: an enhancer delivering CoChR to D1 cells, and a Cre-dependent virus delivering ChRmine. From this, we can conclude that this mouse should express CoChR in D1 cells and ChRmine in D2 cells. Therefore, any cells responding to blue laser pulses are D1 calls, and cells responding to red laser pulses are D2 cells!
-
-+++
 
 ## Loading unit data
 The "units" from an electrophysiological recording are the outputs of a clustering algorithm (in our case, kilosort 2.5), which aims to assign each spike detected in the voltage traces to a unique neuron. We can load the data from all units detected in this session.

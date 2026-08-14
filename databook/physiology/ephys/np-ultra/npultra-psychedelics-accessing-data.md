@@ -18,7 +18,7 @@ kernelspec:
 The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can be accessed via NWBZarrIO. 
 
 ```{code-cell} ipython3
-import pywnb
+import pynwb
 ```
 
 Load an example session:
