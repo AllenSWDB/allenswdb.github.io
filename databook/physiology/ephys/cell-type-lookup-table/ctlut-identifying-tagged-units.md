@@ -21,7 +21,7 @@ Since the data is packaged as nwb files, you'll need to import hdmf_zarr to inte
 ...and os is just nice for formatting file paths!
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
+import pynwb
 import json
 import os
 import numpy as np
@@ -32,17 +32,13 @@ import numpy as np
 Every experimental session may have a different set of neurons expressing light-sensitive opsins and thus able to be identified by their laser responses. In this data set, the identities of tagged neurons were pre-computed and added to the units table.
 
 ```{code-cell} ipython3
-# an 'arbitrarily' selected session
-session = '661398_2023-04-03_15-47-29'
-session_directory = f'/data/SWDB 2024 CTLUT data/ecephys_{session}_nwb'
+nwb_path = '/data/ecephys_655571_2023-05-15_13-39-49_nwb/ecephys_655571_2023-05-15_13-39-49_experiment1_recording1.nwb'
 
-nwb_file = os.path.join(session_directory, f'ecephys_{session}_experiment1_recording1.nwb.zarr')
-io = NWBZarrIO(nwb_file, "r")
-nwbfile_read = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
 ```{code-cell} ipython3
-units = nwbfile_read.units[:]
+units = nwbfile.units[:]
 np.unique(units.predicted_cell_type)
 ```
 
@@ -109,7 +105,7 @@ If you really, *really* don't trust the cell identities in the units table, you 
 How do we tell if a cell is laser-responsive? We should take a look at the spiking activity during laser presentations. To do this, let's align the spike timestamps to the laser trial timestamps.
 
 ```{code-cell} ipython3
-units = nwbfile_read.units[:]
+units = nwbfile.units[:]
 ```
 
 ```{code-cell} ipython3
@@ -120,7 +116,7 @@ spike_timestamps = units.spike_times.loc[unit_id]
 
 ```{code-cell} ipython3
 # load the stimulus table
-stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
+stimulus_table = nwbfile.intervals['trials'].to_dataframe()
 stimulus_table.columns
 ```
 

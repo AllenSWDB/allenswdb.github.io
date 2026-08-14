@@ -27,7 +27,7 @@ Since the data is packaged as nwb files, you'll need to import hdmf_zarr to inte
 ...and os is just nice for formatting file paths!
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
+import pynwb
 import json
 import os
 ```
@@ -37,17 +37,15 @@ import os
 Let's try loading one session's worth of data to see how to work with it.
 
 ```{code-cell} ipython3
-nwb_file = '/data/ecephys_655571_2023-05-15_13-39-49_nwb/ecephys_655571_2023-05-15_13-39-49_experiment1_recording1.nwb'
+nwb_path = '/data/ecephys_655571_2023-05-15_13-39-49_nwb/ecephys_655571_2023-05-15_13-39-49_experiment1_recording1.nwb'
 
-io = NWBZarrIO(nwb_file, "r")
-nwbfile_read = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
-If you'd like to explore the contents of the nwb file in a widget with a graphical user interface, you can install nwb2widget in your environment, then run:
+Explore the contents on this file
 
 ```{hint}
-from nwbwidgets import nwb2widget
-nwb2widget(nwbfile_read)
+nwbfile
 ```
 
 +++
@@ -86,7 +84,7 @@ So this animal was Adora2a-Cre (meaning it expresses Cre in D2 cells) and it was
 The "units" from an electrophysiological recording are the outputs of a clustering algorithm (in our case, kilosort 2.5), which aims to assign each spike detected in the voltage traces to a unique neuron. We can load the data from all units detected in this session.
 
 ```{code-cell} ipython3
-units = nwbfile_read.units[:]
+units = nwbfile.units[:]
 ```
 
 There is a large amount of data stored about each unit, but here are some relevant ones:
@@ -115,7 +113,7 @@ You may wish to know the time points at which different parts of the experimenta
 
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
-epochs = nwbfile_read.intervals['epochs'].to_dataframe()
+epochs = nwbfile.intervals['epochs'].to_dataframe()
 ```
 
 ## Stimulus data
@@ -124,13 +122,13 @@ If you wanted to verify the laser responses of tagged units, you may wish to loa
 
 ```{code-cell} ipython3
 # load the stimulus table
-stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
+stimulus_table = nwbfile.intervals['trials'].to_dataframe()
 ```
 
 You can also load the stimulus templates: the voltage traces sent to the laser during stimulation, giving you a read of the laser's power over time. The names of the template match the ones in the trials table.
 
 ```{code-cell} ipython3
-stimulus_template = nwbfile_read.stimulus_template
+stimulus_template = nwbfile.stimulus_template
 ```
 
 ## LFP data
@@ -139,7 +137,7 @@ You can load the LFP (local field potential) data collected for each experiment.
 
 ```{code-cell} ipython3
 # load LFP data (for probe A, change the string for probe B)
-lfp_data = nwbfile_read.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP']
+lfp_data = nwbfile.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP']
 lfp = lfp_data.data
 start_time = lfp_data.starting_time
 acquisition_rate = lfp_data.rate
@@ -150,7 +148,7 @@ acquisition_rate = lfp_data.rate
 Finally, you can also find the animal's running speed throughout the session.
 
 ```{code-cell} ipython3
-running = nwbfile_read.processing['behavior']['BehavioralTimeSeries']['linear velocity']
+running = nwbfile.processing['behavior']['BehavioralTimeSeries']['linear velocity']
 running_speed = running.data
 running_timestamps = running.timestamps
 ```

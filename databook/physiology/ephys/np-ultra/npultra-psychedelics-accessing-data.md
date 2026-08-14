@@ -18,23 +18,20 @@ kernelspec:
 The Neuropixels Ultra & Psychedelics dataset is packaged in nwb format and can be accessed via NWBZarrIO. 
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
+import pywnb
 ```
 
 Load an example session:
 
 ```{code-cell} ipython3 
-nwbfile_path_zarr = '/data/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
+nwb_path_ = '/data/ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22/ecephys_714527_2024-05-15_13-00-23_experiment1_recording1.nwb'
 
-io = NWBZarrIO(nwbfile_path_zarr, "r")
-nwbfile_read = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 To quickly walk through the data, use:
 
 ```{code-cell} ipython3
-from nwbwidgets import nwb2widget 
-
-nwb2widget(nwbfile_read)
+nwbfile
 ```
 
 ### Loading unit data
@@ -42,14 +39,14 @@ nwb2widget(nwbfile_read)
 Data for all Kilosort-processed units can be loaded via:
 
 ```{code-cell} ipython3
-units_table = nwbfile_read.units[:]
+units_table = nwbfile.units[:]
 units_table.head()
 ```
 
 Units in this dataset have undergone additional postprocessing QC from Kilosort 2.5 and automated curation. Unlike other datasets, curated data can be accessed via the analysis attribute of the nwb file.
 
 ```{code-cell} ipython3
-analysis_table = nwbfile_read.analysis['analysis_table'].to_dataframe()
+analysis_table = nwbfile.analysis['analysis_table'].to_dataframe()
 analysis_table.head()
 ```
 
@@ -105,7 +102,7 @@ You may wish to know the time points at which different parts of the experimenta
 
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
-epochs = nwbfile_read.stimulus['epochs'].to_dataframe()
+epochs = nwbfile.stimulus['epochs'].to_dataframe()
 epochs
 ```
 
@@ -114,7 +111,7 @@ The visual stimulus used during these experiments were Gabor patches presented a
 
 ```{code-cell} ipython3
 # load the stimulus table
-stimulus_table = nwbfile_read.stimulus['visualstim'].to_dataframe()
+stimulus_table = nwbfile.stimulus['visualstim'].to_dataframe()
 stimulus_table.head()
 ```
 
@@ -122,6 +119,6 @@ Optotagging laser stimuli parameters, timing, and additional data can be accesse
 
 ```{code-cell} ipython3
 # load the photostim table
-photostim_table = nwbfile_read.stimulus['photostim'].to_dataframe()
+photostim_table = nwbfile.stimulus['photostim'].to_dataframe()
 photostim_table.head()
 ```

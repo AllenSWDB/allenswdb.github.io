@@ -22,8 +22,7 @@ The BCI data is packaged in NWB format with a Zarr backend. To access the data, 
 
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
-from nwbwidgets import nwb2widget
+import pynwb
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,16 +39,13 @@ Let's load the data for one recording session using `NWBZarrIO`.
 nwb_path = '/data/single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09/single-plane-ophys_731015_2025-01-10_18-06-31_behavior_nwb' 
 
 # Assign file to an NWBZarrIO object 
-io = NWBZarrIO(nwb_path, 'r')
-# Read the file 
-nwbfile = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
-`nwb2widget` is useful for exploring the NWB file structure and contents. The widget can also generate basic plots, like the neural activity timeseries traces.  
-
+Explore the nwb file:
 
 ```{code-cell} ipython3
-nwb2widget(nwbfile) 
+nwbfile
 ```
 
 ## Image Segmentation Table 
