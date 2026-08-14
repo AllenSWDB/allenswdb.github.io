@@ -107,6 +107,10 @@ parts:
           sections:
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
           - file: physiology/ephys/np-ultra/npultra-psychedelics-accessing-data
+        - file: physiology/ephys/dynamic-routing/dynamic-routing-background
+          sections: 
+          - file: physiology/ephys/dynamic-routing/dynamic-routing-accessing-data
+          - file: physiology/ephys/dynamic-routing/dynamic-routing-metadata
       # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
