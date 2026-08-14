@@ -20,3 +20,6 @@ The [cell type look-up table](cell-type-lookup-table/ctlut-background) dataset i
 ## Neuropixels Ultra & Psychedelics
 
 The [Neuropixels Ultra & Psychedlics](np-ultra/npultra-psychedelics.md) dataset uses ultra-high-density neuropixels electrophysiology to probe the effects of modulating serotonergic signaling on population-scale neural activity in the cortex using the psychedelic compount psilocybin. 
+
+## Dynamic Routing
+

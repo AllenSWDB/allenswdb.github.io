@@ -22,8 +22,7 @@ The BCI data is packaged in NWB format with a Zarr backend. To access the data, 
 
 
 ```{code-cell} ipython3
-from hdmf_zarr import NWBZarrIO
-from nwbwidgets import nwb2widget
+import pynwb
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,16 +39,14 @@ Let's load the data for one recording session using `NWBZarrIO`.
 nwb_path = '/data/single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09/single-plane-ophys_731015_2025-01-10_18-06-31_behavior_nwb' 
 
 # Assign file to an NWBZarrIO object 
-io = NWBZarrIO(nwb_path, 'r')
-# Read the file 
-nwbfile = io.read()
+nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
 `nwb2widget` is useful for exploring the NWB file structure and contents. The widget can also generate basic plots, like the neural activity timeseries traces.  
 
 
 ```{code-cell} ipython3
-nwb2widget(nwbfile) 
+nwbfile
 ```
 
 ## Image Segmentation Table 
@@ -58,11 +55,15 @@ During processing, a segmentation algorithm (e.g. Suite2p or Cellpose) is applie
     
 | Column    | Description |
 | -------- | ------- |
-| is_soma  | ==1 if ROI classified as soma, ==0 if not  |
-| soma_probability | if >0.5 classified as soma  |
-| is_dendrite |  ==1 if ROI classified as dendrite, ==0 if not   |
-| dendrite_probability   |  if >0.5 classified as dendrite  |
-| image_mask  | HxW sparse array defining image masks|
+| column | the column this session is in |
+| volume | the volume this session is in |
+| plane | the plane index for this plane |
+| roi | the roi ID of the ROI. This is not a universal ID but unique to this column, volume and plane. This is the key for matching functional and structural data. |
+| pika_roi_id | an ID generated during processing. Ignore this. |
+| pika_roi_confidence | a segmentation confidence metrics generated during processing. Ignore this. |
+| is_soma | boolean identifying rois that are soma. |
+| pixel_mask | Sparse representation of the mask for this roi. A list of tuples with (x,y,value) for all pixels where value=1 |
+
 
 If you want to work with neural activity from somas, use only ROIs that pass the is_soma classification. 
 
