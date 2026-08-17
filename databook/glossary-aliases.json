@@ -1,0 +1,52 @@
+{
+  "//": [
+    "Extra names under which a glossary term can be cross-referenced.",
+    "",
+    "The databook writes {term}`basket cell`; the glossary calls that entry",
+    "'Basket cell (BC)'. Sphinx matches glossary terms by their exact text, so",
+    "without a mapping the reference resolves to nothing, renders as plain text,",
+    "and warns under `jb build -n`. Each key below is added as an additional term",
+    "line on the entry it names, so both spellings reach the same definition.",
+    "",
+    "Keys are what the databook writes. Values are glossary term ids, taken from",
+    "the `id` field in the glossary repo's data/terms.js. Ids are used rather",
+    "than display names so that rewording a term upstream does not silently",
+    "break the mapping — build-glossary-page.mjs fails loudly if an id here no",
+    "longer exists, or if an alias collides with a real term name.",
+    "",
+    "Delete an entry once the glossary defines that spelling itself.",
+    "",
+    "Matching is case-insensitive, so one casing per name is enough — but the",
+    "casing chosen here is what the anchor is named after. Pages already built",
+    "and deployed link to the anchors the previous glossary produced, so these",
+    "keys follow that capitalisation (Spike, not spike) to keep those links",
+    "working until the whole book is rebuilt."
+  ],
+
+  "aliases": {
+    "Basket cell": "basket-cell",
+    "Bipolar cell": "bipolar-cell",
+    "CCF": "ccf",
+    "GECI": "geci",
+    "HVA": "higher-visual-area",
+    "ISI": "intrinsic-signal-imaging",
+    "LFP": "local-field-potential",
+    "Local field potential": "local-field-potential",
+    "Martinotti cell": "martinotti-cell",
+    "Minnie column": "column-microns",
+    "Parvalbumin-positive interneuron": "pv-neuron",
+    "Primary visual cortex": "visp-visal-visrl",
+    "retinotopic map": "retinotopy",
+    "ROI": "roi-mask",
+    "Somatostatin cell": "somatostatin-sst-cell",
+    "Spike": "action-potential",
+    "V1": "visp-visal-visrl",
+    "VISp": "visp-visal-visrl"
+  },
+
+  "unmapped": {
+    "//": "Referenced by the databook, absent from the glossary. Left unresolved on purpose rather than pointed at an approximate entry — the fix is to define them upstream, then delete them from here.",
+    "CSV": "A generic file format, not a glossary concept. Already unresolved before this page was generated.",
+    "GFP": "The nearest entry is [fluorophore], which defines the class of molecule rather than this particular one."
+  }
+}
