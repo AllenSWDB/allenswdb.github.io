@@ -44,7 +44,7 @@ The max projection is in the `images` folder for each plane.
 ```{code-cell} ipython3
 # e.g. for plane-0
 max_projection = nwbfile.processing['plane-0'].data_interfaces['images'].images['max_projection_denoised_plane-0']
-plt.imshow(max_projection, cmap='Grays_r')
+plt.imshow(max_projection, cmap='gray_r')
 ```
 
 ## Image Segmentation Table
