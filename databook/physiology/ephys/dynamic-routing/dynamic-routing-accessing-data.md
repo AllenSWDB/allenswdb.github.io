@@ -112,7 +112,7 @@ performance.columns
 
 ## Behavior data
 
-Along with the task-level tables, each session includes continuous behavioral measurements collected while the mouse performs the task. These live in the behavior module of the  `nwbfile.processing.behavior` container.
+Along with the task-level tables, each session includes continuous behavioral measurements of running speed, eye tracking, and behavior keypoint tracking collected while the mouse performs the task. These live in the behavior module of the  `nwbfile.processing.behavior` container.
 
 ```{code-cell} ipython3
 nwbfile.processing['behavior']
