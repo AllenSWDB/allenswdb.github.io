@@ -22,6 +22,9 @@ BCI
 Brain Computer Interface
   A method of controlling a computer signal through the activity of a neuron. This can be extended to other types of devices (e.g. joysticks or robotic arms). This is also often referred to as "Brain Machine Interface"
 
+Capsule
+  A containerized computational unit on Code Ocean that bundles code, data, and software environments.
+
 CCF
 Common Coordinate Framework
   The [CCF](background/CCF.md) is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
@@ -47,6 +50,10 @@ Cre line
 Dataset
   *There is no consistent use of this term*
 
+DFF
+Delta F over F
+  The change in fluorescence normalized by the baseline fluorescence. This is how optical physiology data is often represented following image processing. This accounts for inherent differences in fluorescent indicator expression and optical paths on different instruments (though not necessarily completely). Further processing can extract {term}`event`s from the DFF trace.
+
 Driver line
   A general term for transgenic mouse lines that are engineered to label a
   specific cell type or cell population by expressing a specific gene under
@@ -59,6 +66,12 @@ Driver line
 
 Ephys
   Shorthand for electrophysiology.
+
+Epoch
+  A period of time, usually on a longer time scale. Used here in reference to periods of a behavior or stimulus codition that span many trials and minutes. Sometimes akin to a "block" but not always.
+
+Event
+  Two use cases: One is in reference to events extracted from {term}`DFF` traces that are proportional to firing rate but not confidently single spikes. More generally, events are discrete occurrences, and can be used to refer to discrete occurrences in experiments (e.g. licks, rewards, etc).
 
 Experiment
   *There is no consistent use of this term*
@@ -227,6 +240,10 @@ RS
   used to associate these units with specific cell types, such as excitatory
   pyramidal neurons among others.
 
+Repo
+Repository
+  A digital "project folder" on GitHub to store code and documentation. Importantly, the repo tracks every edit, addition, or deletion made over time to create version control.
+
 Reporter
  An exogenous coding region joined to a promoter sequence or element in an
  expression vector that is introduced into cells to provide the means for
@@ -277,6 +294,9 @@ Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
   When used in reference to drifting gratings, spatial frequency means the distance between the
   bars of the grating. Typically measured as cycles per degree.
+
+Spontaneous activity
+  A period of an experiment where there is no external stimulus. In visual experiments this usually has the stimulus monitor fixed at mean luminance (e.g. so the light level doesn't change from that during the visual stimulation periods). In other experiments, that is not true.
 
 Targeted structure
   The brain region where data was collected from.
