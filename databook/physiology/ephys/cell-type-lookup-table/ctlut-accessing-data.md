@@ -22,7 +22,7 @@ This notebook will go over how to load the cell type lookup table data and acces
 +++
 
 ## Import required packages
-Since the data is packaged as nwb files, you'll need to import hdmf_zarr to interact with the data. The metadata for each experiment is stored as .json files, so you'll want to import json as well.
+Since the data is packaged as nwb files, you'll need to import pynwb to interact with the data. 
 
 ...and os is just nice for formatting file paths!
 

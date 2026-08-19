@@ -37,18 +37,6 @@ For most opsins, activation drops off quickly for wavelengths larger than the pe
 
 We want to be able to drive the expression of the above opsins only in specific cell types so that we can identify them by their responses to laser. To do this, we leverage a technique called Cre-lox recombination. This technique is covered in greater depth in the section on {doc}`/background/transgenic-tools`. Briefly, the gene for Cre recombinase is inserted into the mouse genome in such a way that it is only expressed in a specific cell type. Such mice are referred to as belonging to a specific driver line (e.g. expression of Cre is only driven in a given cell type). A Cre-dependent virus is then injected into the brain, delivering the DNA encoding the opsin we want to express. The DNA delivered by this virus is not in a usable configuration unless acted upon by Cre recombinase; as such, only cells expressing Cre will end up expressing the opsin.
 
-To determine the genotype of the animal for each session (and thus which driver line it's part of, and which cells are expressing Cre), use the following command:
-
-```{hint}
-import json
-
-subject_json = 'path-to-subject-json'
-with open(subject_json, 'r', ) as f:
-    subject_data = json.load(f)
-    
-subject_data['genotype']
-```
-
 The genotype for these experiments can be one of several:
 * Drd1a-Cre: This driver line drives expression of Cre in striatal direct pathway neurons (D1)
 * Adora2a-Cre: This driver line drives expression of Cre in striatal indirect pathway neurons (D2)
@@ -57,20 +45,6 @@ The genotype for these experiments can be one of several:
 # Enhancer viruses
 
 Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presence of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types.
-
-To determine which viruses were injected into a given animal, use the following commands:
-
-```{hint}
-import json
-
-procedures_json = 'path-to-procedures-json'
-with open(procedures_json, 'r', ) as f:
-    procedures_data = json.load(f)
-    
-virus_names = []
-    for material in procedures['injections'][0]['injection_materials']:
-        virus_names.append(material['name'])
-```
 
 You will produce a list of all the shortened virus names that were injected into this mouse. There are generally multiple viruses, as we want to tag different cell types with different opsins!
 
@@ -83,9 +57,8 @@ Each experimental session contains an epoch during which laser is presented. We 
 The trial table contains information about each laser presentation that took place, and can be loaded with the following code:
 
 ```{hint}
-io = NWBZarrIO('path-to-nwb-file', "r")
-nwbfile_read = io.read()
-stimulus_table = nwbfile_read.intervals['trials'].to_dataframe()
+nwbfile = pynwb.read_nwb(nwb_path)
+stimulus_table = nwbfile.intervals['trials'].to_dataframe()
 ```
 
 # Identifying tagged neurons
