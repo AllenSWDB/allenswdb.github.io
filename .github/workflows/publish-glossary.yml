@@ -1,0 +1,161 @@
+name: Publish glossary page
+
+# Publishes just databook/glossary.md to the live site, without Code Ocean.
+#
+# The rest of the databook is built in the Code Ocean capsule, because its pages
+# execute notebooks against attached data assets. The glossary page executes
+# nothing, so it can be built by Actions alone and dropped onto gh-pages as a
+# single file. The other ~120 pages keep whatever the last capsule run deployed.
+#
+# That means the glossary can be published ahead of a full rebuild and may sit
+# slightly out of step with the rest of the site — which is the accepted
+# trade-off for not needing a capsule run to ship a definition fix.
+#
+# Why a full `jb build` and not something cheaper: the page has to carry the
+# theme's chrome (header, sidebar nav, breadcrumbs) to look like part of the
+# book, and only Sphinx can produce that. Execution is switched off, so the
+# build is quick and the notebook cache is never touched. glossary.html comes
+# out byte-identical to what the capsule would produce, provided the toolchain
+# matches — see the asset check below, which is what enforces that.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - databook/glossary.md
+      - databook/_toc.yml
+      - databook/_config.yml
+      - scripts/build-glossary-page.mjs
+      - .github/workflows/publish-glossary.yml
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-glossary
+  cancel-in-progress: false   # never interrupt a push to gh-pages
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Must match the version the Code Ocean capsule builds the rest of the
+      # book with — it is pinned there too, in the capsule's environment file in
+      # the databook-build repository. This page links to the _static bundle
+      # already on gh-pages rather than shipping its own, so a mismatch still
+      # builds but renders against the wrong stylesheet: the theme's header
+      # dropdowns collapse into bare bullet lists.
+      #
+      # If the capsule is ever upgraded, change it there first, let a full
+      # capsule build deploy, then change it here. To check the two agree, the
+      # theme digests must be equal:
+      #
+      #   curl -s https://allenswdb.github.io/background/background.html \
+      #     | grep -o 'pydata-sphinx-theme.css?digest=[a-f0-9]*'
+      #
+      # 0.15.1 gives dfe6caa3a7d634c4db9b, matching the deployed site, and needs
+      # no assets the live site lacks.
+      - name: Install Jupyter Book
+        run: pip install "jupyter-book==0.15.1"
+
+      - name: Build the book with execution off
+        working-directory: src
+        run: |
+          python - <<'PY'
+          import re
+          p = "databook/_config.yml"
+          s = open(p).read()
+          # the capsule's cache path does not exist here, and nothing on the
+          # glossary page needs a kernel
+          s = re.sub(r"execute:\n(?:  .*\n)+", "execute:\n  execute_notebooks: 'off'\n", s)
+          open(p, "w").write(s)
+          PY
+          jb build -n --keep-going databook
+
+      # gh-pages is force-pushed wholesale by the capsule's `ghp-import -f`, so
+      # it can move under us at any moment. Everything below is therefore done
+      # against a freshly fetched gh-pages and retried on rejection, rather than
+      # against the checkout taken at the start of the job.
+      #
+      # Losing a race is harmless: the capsule builds from main, and main's
+      # glossary.md is kept current by sync-glossary.yml, so a capsule deploy
+      # that lands on top of us carries the same page anyway.
+      - name: Publish onto gh-pages
+        working-directory: site
+        run: |
+          build=../src/databook/_build/html
+          test -f "$build/glossary.html" || { echo "::error::glossary.html was not built"; exit 1; }
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # every _static path the page links to, digests stripped
+          grep -oE '_static/[^"?'"'"' ]+' "$build/glossary.html" | sed 's/?.*//' | sort -u > /tmp/need.txt
+
+          for attempt in 1 2 3; do
+            git fetch origin gh-pages
+            git reset --hard origin/gh-pages
+
+            missing=0
+            : > /tmp/add.txt
+            while read -r f; do
+              [ -f "$f" ] && continue
+              # a filename the live site has never seen: safe to add, because
+              # nothing already deployed links to it
+              if [ -f "$build/$f" ]; then
+                echo "$f" >> /tmp/add.txt
+              else
+                echo "::error::page needs $f but the build did not produce it"
+                missing=1
+              fi
+            done < /tmp/need.txt
+            [ "$missing" = "1" ] && exit 1
+
+            if [ -s /tmp/add.txt ]; then
+              echo "::warning::Toolchain here differs from the one that built the live site;"
+              echo "::warning::adding $(wc -l < /tmp/add.txt) new asset(s). Shared assets are left alone, so this"
+              echo "::warning::page may drift visually until the capsule and this workflow are pinned alike."
+              cat /tmp/add.txt
+            fi
+
+            cp "$build/glossary.html" glossary.html
+            mkdir -p _sources
+            cp "$build/_sources/glossary.md.txt" _sources/ 2>/dev/null || true
+            # additive only: never overwrite an asset the other pages depend on
+            while read -r f; do
+              mkdir -p "$(dirname "$f")"
+              cp "$build/$f" "$f"
+            done < /tmp/add.txt
+
+            if [ -z "$(git status --porcelain)" ]; then
+              echo "Nothing changed; the published page is already current."
+              exit 0
+            fi
+
+            git add -A
+            git commit -m "Publish glossary page from ${GITHUB_SHA::7}"
+            if git push origin gh-pages; then
+              echo "Published on attempt $attempt."
+              exit 0
+            fi
+            echo "::notice::gh-pages moved under us; refetching and retrying."
+          done
+
+          echo "::error::could not publish after 3 attempts"
+          exit 1

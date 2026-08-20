@@ -1,0 +1,6 @@
+# databook/glossary.md is rendered from the Allen Glossary by
+# scripts/build-glossary-page.mjs and committed because the databook is built
+# from Markdown by a capsule that has no Node. Marking it generated collapses it
+# in pull request diffs, so a reviewer reads the generator rather than several
+# thousand lines of its output.
+databook/glossary.md linguist-generated=true
