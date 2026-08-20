@@ -55,9 +55,9 @@ aggregate = [
     "$project": {
       "name": 1, 
       "subject_id": "$data_description.subject_id",
-      "genotype": "$subject.genotype", 
-      "date_of_birth": "$subject.date_of_birth", 
-      "sex": "$subject.sex",  
+      "genotype": "$subject.subject_details.genotype", 
+      "date_of_birth": "$subject.subject_details.date_of_birth", 
+      "sex": "$subject.subject_details.sex",  
       "session_start_time": "$acquisition.acquisition_start_time",
       "session_end_time": "$acquisition.acquisition_end_time", 
       "stimulus_epochs": "$acquisition.stimulus_epochs",
