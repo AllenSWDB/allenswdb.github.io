@@ -22,9 +22,6 @@ This notebook will go over how to load the cell type lookup table data and acces
 +++
 
 ## Import required packages
-Since the data is packaged as nwb files, you'll need to import pynwb to interact with the data. 
-
-...and os is just nice for formatting file paths!
 
 ```{code-cell} ipython3
 import pynwb
