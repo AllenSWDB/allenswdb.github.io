@@ -16,3 +16,7 @@ The approach that we've found works best for collaborating is via a shared GitHu
 - Code intended to be shared with others should be put into fuctions in python modules that can be imported and used in each others' notebooks.
 - [Commit changes and sync to github](sync-github) to your own branch
 - In GitHub, make a Pull Request from your branch to the main branch. Ask (at least) one of your collaborators to review your changes to make sure there are no unintended changes. Resolve any merge conflicts in GitHub.
+
+## More Code Ocean advise
+
+For more tips on best practices using Code Ocean for more advanced uses, start [here](https://docs.allenneuraldynamics.org/en/latest/explore_analyze/co_best_practices.html)
