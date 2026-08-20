@@ -97,6 +97,22 @@ df = df[order]
 df.head()
 ```
 
+The total number of sessions:
 ```{code-cell} ipython3
 print(len(df))
+```
+
+What are the unique genotypes:
+```{code-cell} ipython3
+print(df.genotype.unique())
+```
+
+Which subject is the golden mouse?
+```{code-cell} ipython3
+print(df[df.golden_mouse].subject_id.unique())
+```
+
+For the golden mouse, for each column, how many unique volumes are there:
+```{code-cell} ipython3
+df[df.subject_id=='409828'].groupby('column')["volume"].agg(volume="count")
 ```
