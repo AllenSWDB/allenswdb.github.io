@@ -69,7 +69,7 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Fezf2-CreER | In cortex, drives expression in corticofugal excitatory neurons in layer 5. | MGI:6720836 | Visual Coding 2P |
 | Gal-Cre_KI187 | Targets neurons that express the neuropeptide Galanin, chosen to label neurons in midline and interlaminar nuclei in the thalamus. Also targets cells in the hypothalamus, pons and medulla. | MGI:4367008 | Single Cell Morphology |
 | Nr5a1-Cre | In cortex, drives expression in excitatory neurons in layer 6. | | Visual Coding 2P |
-| Ntsr1-Cre_GN220 | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:3836636 | Visual Coding 2P |
+| Ntsr1-Cre_GN220 | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:3836636 | Visual Coding 2P, Dynamic Routing |
 | Pvalb-IRES-Cre | Drives expression in Parvalbumin inhibitory interneurons. | MGI:3590684 | Visual Coding 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
 | Rbp4-Cre_KL100 | In cortex, drives expression in excitatory neurons in layer 5. | MGI:4367067 | Visual Coding 2P |
 | Rorb-IRES2-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:5507855 | Visual Coding 2P |
@@ -77,9 +77,9 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Sim1-Cre-KJ18 | In cortex, drives expression in cortico-subcortical projecting excitatory neurons in layer 5. | | NP Ultra & Psychedelics |
 | Slc17a6-IRES-Cre | Labels excitatory neurons with broad expression across most thalamic nuclei, hypothalamus, midbrain, and brainstem, but with weak expression in cortex. | MGI:6758055 | BCI|
 | Slc17a7-IRES2-Cre | In cortex, a pan-excitatory driver - drives expression in excitatory neurons across all layers. Imaged here in layer 2/3, 4, and 5. | MGI:5507862 | Visual Coding 2P, Visual Behavior 2P, V1 Deep Dive |
-| Sst-IRES-Cre | Drives expression in Somatostatin inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
+| Sst-IRES-Cre | Drives expression in Somatostatin inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels, Dynamic Routing|
 | Tlx3-Cre_PL56 | In cortex, drives expression in cortico-cortical projecting excitatory neurons in layer 5. | MGI:5311700 | Visual Coding 2P, NP Ultra and Psychedelics |
-| Vip-IRES-Cre | Drives expression in Vasoactive Intestinal Peptide inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
+| Vip-IRES-Cre | Drives expression in Vasoactive Intestinal Peptide inhibitory interneurons. | | Visual Coding 2P, Visual Behavior 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels, Dynamic Routing |
 
 ## Reporter lines used here
 
@@ -96,10 +96,12 @@ GCaMP). Here are the reporter lines used in our datasets:
 | Ai148 | TIT2L-GC6f-ICL-tTA2_D | Cre/Tet dependent fluorescent GCaMP6f indicator expressing GCaMP6 <i>fast</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drive higher expression. | MGI:5904003 | Visual Coding 2P, Visual Behavior 2P |
 | Ai162 | TIT2L-GC6s-ICL-tTA2_D | Cre/Tet dependent fluorescent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. This is a second generation reporter that uses the TIGRE2 construct that contains more tTA to drives higher expression. | MGI:6151062 | Visual Coding 2P |
 | Ai166 | TIT2L-MORF-ICL-tTA2 | A Cre dependent reporter that drives sparse labeling with GFP. The MORF introduces a stochastic translational switch, only labeling 1-5% of Cre+ neurons. | MGI:6441963 | Single Cell Morphology |
-| Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra & Psychedelics |
+| Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra & Psychedelics, Dynamic Routing |
 | TetO-GCaMP6s | TetO-GCaMP6s |tet dependent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. Simpler two-transgene system that does not require Cre. For example, when crossed with Camk2a-tTA, GCaMP6s is expressed broadly in excitatory neurons. |MGI:5553332 | V1 Deep Dive |
 | Ai167 | TIT2L-ChrimsonR-tdTomato-ICL-tTA2-WPRE | Cre dependent expression of ChrimsonR fused to enhanced red fluorescent protein (tdTomato) for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (620-750 nm). | MGI:7712128 | NP Ultra & Psychedelics |
-| Ai230 | TIT2L-XCaMPG-WPRE-ICL-ChRmine-oScarlet-IRES2-tTA2-WPRE | Cre dependent expression of ChRmine fused to red fluorescent protein (oScarlet) with the capacity for dual ChRmine-oScarlet/XCaMP-G reporting in the presence of Cre and tTA | MGI:7482009 |BCI |
+| VGAT-ChR2-EYFP | B6.Cg-Tg(Slc32a1-COP4*H134R/EYFP)8Gfng/J | Direct (non-Cre-dependent) BAC transgenic expressing ChR2(H134R) fused to EYFP in GABAergic neurons under the VGAT (Slc32a1) promoter. Cells are depolarized by blue light (~470 nm peak). | MGI:4950553 | Dynamic Routing |
+
+
 
 ## Viruses used here
 
