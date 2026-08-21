@@ -1,0 +1,1390 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Cell Type Lookup Table Metadata &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/cell-type-lookup-table/ctlut-metadata';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/cell-type-lookup-table/ctlut-metadata.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-coding/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/metadata.html">Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Visual Behavior Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding — 2-photon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-cross-session-data.html">Cross session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-analysis.html">Analysis files and cell specimens table</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VB-BehaviorSessionData.html">Behavior Session Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-ExperimentData.html">Visual Behavior Ophys Experiment Data</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-units.html">Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-session.html">Full example of accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-cheatsheet.html">Cheat sheet for visual coding Neuropixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-links.html">Other resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-behavior/VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/pyNWB.html">Using Python to Access Neurodata Without Borders-type Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/cell-type-lookup-table/ctlut-metadata.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/cell-type-lookup-table/ctlut-metadata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/cell-type-lookup-table/ctlut-metadata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cell Type Lookup Table Metadata</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cell-type-lookup-table-metadata">
+<h1>Cell Type Lookup Table Metadata<a class="headerlink" href="#cell-type-lookup-table-metadata" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aind_data_access_api.document_db</span> <span class="kn">import</span> <span class="n">MetadataDbClient</span>
+
+<span class="n">API_GATEWAY_HOST</span> <span class="o">=</span> <span class="s2">&quot;api.allenneuraldynamics.org&quot;</span>
+<span class="n">DATABASE</span> <span class="o">=</span> <span class="s1">&#39;metadata_index&#39;</span>
+<span class="n">COLLECTION</span> <span class="o">=</span> <span class="s1">&#39;data_assets&#39;</span>
+
+<span class="n">docdb_api_client</span> <span class="o">=</span> <span class="n">MetadataDbClient</span><span class="p">(</span>
+   <span class="n">host</span><span class="o">=</span><span class="n">API_GATEWAY_HOST</span><span class="p">,</span>
+   <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">,</span>
+   <span class="n">collection</span><span class="o">=</span><span class="n">COLLECTION</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docdb_api_client</span><span class="o">.</span><span class="n">_base_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.allenneuraldynamics.org/v1/metadata_index/data_assets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggregate</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;data_description.project_name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$in&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Cell Type Lookup Table&quot;</span><span class="p">,</span> <span class="s2">&quot;Cell Type LUT&quot;</span><span class="p">]},</span> 
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$regex&quot;</span><span class="p">:</span> <span class="s2">&quot;nwb&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$regex&quot;</span><span class="p">:</span> <span class="s2">&quot;aind-open-data&quot;</span><span class="p">},</span> 
+      <span class="s2">&quot;data_description&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$ne&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;$project&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;subject_id&quot;</span><span class="p">:</span> <span class="s2">&quot;$data_description.subject_id&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;genotype&quot;</span><span class="p">:</span> <span class="s2">&quot;$subject.subject_details.genotype&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;date_of_birth&quot;</span><span class="p">:</span> <span class="s2">&quot;$subject.subject_details.date_of_birth&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="s2">&quot;$subject.subject_details.sex&quot;</span><span class="p">,</span>  
+      <span class="s2">&quot;session_start_time&quot;</span><span class="p">:</span> <span class="s2">&quot;$acquisition.acquisition_start_time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;session_end_time&quot;</span><span class="p">:</span> <span class="s2">&quot;$acquisition.acquisition_end_time&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;stimulus_epochs&quot;</span><span class="p">:</span> <span class="s2">&quot;$acquisition.stimulus_epochs.stimulus_name&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;$data_description.project_name&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;modality&quot;</span><span class="p">:</span> <span class="s2">&quot;$data_description.modalities.name&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;virus_names&quot;</span><span class="p">:</span> <span class="s2">&quot;$procedures.subject_procedures.procedures.injection_materials.name&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">]</span>
+    
+<span class="n">records</span> <span class="o">=</span> <span class="n">docdb_api_client</span><span class="o">.</span><span class="n">aggregate_docdb_records</span><span class="p">(</span>
+    <span class="n">pipeline</span><span class="o">=</span><span class="n">aggregate</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Return these records into a dataframe and do some cleanup (exclude a particular session)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ecephys_655565_2023-03-31_14-47-36_nwb_2025-07-16_16-52-27&#39;</span><span class="p">]</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> 
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">to_exclude</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="c1"># flatten virus names </span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">virus_names</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">virus_names</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">filtered_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>name</th>
+      <th>subject_id</th>
+      <th>genotype</th>
+      <th>date_of_birth</th>
+      <th>sex</th>
+      <th>session_start_time</th>
+      <th>session_end_time</th>
+      <th>stimulus_epochs</th>
+      <th>project_name</th>
+      <th>modality</th>
+      <th>virus_names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>38</th>
+      <td>63df2bac-e58a-42e8-8edf-799851dee447</td>
+      <td>ecephys_655565_2023-04-03_13-34-16_nwb_2025-07...</td>
+      <td>655565</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Male</td>
+      <td>2023-04-03T20:30:00Z</td>
+      <td>2023-04-03T22:30:00Z</td>
+      <td>[]</td>
+      <td>Cell Type Lookup Table</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>be7e6c7f-c5a2-420e-8b0d-f709353df6f1</td>
+      <td>ecephys_655565_2023-04-05_16-17-25_nwb_2025-06...</td>
+      <td>655565</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Male</td>
+      <td>2023-04-05T16:17:25-07:00</td>
+      <td>2023-04-05T17:05:43-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>f8e4c6d5-7176-4f21-9b88-d04238fda04c</td>
+      <td>ecephys_655568_2023-05-01_15-26-47_nwb_2025-06...</td>
+      <td>655568</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-01T15:26:47-07:00</td>
+      <td>2023-05-01T16:13:33-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5826720c-6582-4ea7-94e0-4c9aa4afa7a9</td>
+      <td>ecephys_655568_2023-05-03_15-21-12_nwb_2025-06...</td>
+      <td>655568</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-03T15:21:12-07:00</td>
+      <td>2023-05-03T16:07:54-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>cbde19ea-5cde-4a1a-af95-231903f1c6e2</td>
+      <td>ecephys_655571_2023-05-09_13-53-48_nwb_2025-06...</td>
+      <td>655571</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-09T13:53:48-07:00</td>
+      <td>2023-05-09T14:41:36-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>01ecc549-edaf-4594-885d-a12f97e87599</td>
+      <td>ecephys_655571_2023-05-15_13-39-49_nwb_2025-06...</td>
+      <td>655571</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-15T13:39:49-07:00</td>
+      <td>2023-05-15T14:26:36-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>714a99ce-6734-415c-8fa5-287d33a2fd27</td>
+      <td>ecephys_655572_2023-05-09_15-03-29_nwb_2025-06...</td>
+      <td>655572</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-09T15:03:29-07:00</td>
+      <td>2023-05-09T15:51:02-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>4db46f40-57a6-4d37-bff6-eda1f8e09023</td>
+      <td>ecephys_655572_2023-05-15_15-06-36_nwb_2025-06...</td>
+      <td>655572</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2022-10-24</td>
+      <td>Female</td>
+      <td>2023-05-15T15:06:36-07:00</td>
+      <td>2023-05-15T15:53:44-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>9e4044f0-bc26-47cb-9f5d-e605a0076cf4</td>
+      <td>ecephys_660104_2023-07-24_18-18-13_nwb_2025-07...</td>
+      <td>660104</td>
+      <td>Sst-IRES-Cre/wt</td>
+      <td>2022-11-30</td>
+      <td>Female</td>
+      <td>2023-07-24T18:18:13-07:00</td>
+      <td>2023-07-24T19:04:58-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>166a3fda-dee1-47a3-938c-1ee549bc3448</td>
+      <td>ecephys_661398_2023-03-31_17-01-09_nwb_2025-07...</td>
+      <td>661398</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2022-12-10</td>
+      <td>Male</td>
+      <td>2023-04-01T00:00:00Z</td>
+      <td>2023-04-01T02:00:00Z</td>
+      <td>[]</td>
+      <td>Cell Type Lookup Table</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>6cd80d0a-0c5b-493c-8783-5b4ec6ca0bd6</td>
+      <td>ecephys_661398_2023-04-03_15-47-29_nwb_2025-07...</td>
+      <td>661398</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2022-12-10</td>
+      <td>Male</td>
+      <td>2023-04-03T20:30:00Z</td>
+      <td>2023-04-03T22:30:00Z</td>
+      <td>[]</td>
+      <td>Cell Type Lookup Table</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>96bc69e4-5456-4591-b7c8-cc514ccdcf5b</td>
+      <td>ecephys_661398_2023-04-06_16-02-15_nwb_2025-06...</td>
+      <td>661398</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2022-12-10</td>
+      <td>Male</td>
+      <td>2023-04-06T16:02:15-07:00</td>
+      <td>2023-04-06T16:50:38-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>c02a863b-e63e-4f35-9be8-1fd7277cfd96</td>
+      <td>ecephys_662913_2023-07-20_16-15-45_nwb_2025-06...</td>
+      <td>662913</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2022-12-25</td>
+      <td>Male</td>
+      <td>2023-07-20T16:15:45-07:00</td>
+      <td>2023-07-20T17:02:09-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>0cb30136-5e40-480b-8a8d-d26cea462730</td>
+      <td>ecephys_666721_2023-05-09_11-01-03_nwb_2025-06...</td>
+      <td>666721</td>
+      <td>Drd1a-Cre/wt</td>
+      <td>2023-01-24</td>
+      <td>Male</td>
+      <td>2023-05-09T11:01:03-07:00</td>
+      <td>2023-05-09T11:47:46-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>00b6e0cc-632e-4b71-805a-91c0b312f12d</td>
+      <td>ecephys_666721_2023-05-12_16-15-36_nwb_2025-06...</td>
+      <td>666721</td>
+      <td>Drd1a-Cre/wt</td>
+      <td>2023-01-24</td>
+      <td>Male</td>
+      <td>2023-05-12T16:15:36-07:00</td>
+      <td>2023-05-12T17:03:19-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>a1a64a17-fa3d-456e-be13-ab4427f14ded</td>
+      <td>ecephys_666859_2023-06-13_14-19-34_nwb_2025-06...</td>
+      <td>666859</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-01-25</td>
+      <td>Female</td>
+      <td>2023-06-13T14:19:34-07:00</td>
+      <td>2023-06-13T14:47:34-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>64a5b115-a9a5-4cb9-892d-8af5f875eb81</td>
+      <td>ecephys_666861_2023-05-23_10-04-20_nwb_2025-06...</td>
+      <td>666861</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-01-25</td>
+      <td>Female</td>
+      <td>2023-05-23T10:04:20-07:00</td>
+      <td>2023-05-23T10:49:58-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9910cc8e-8bf0-4235-bbc8-89536f3d6071</td>
+      <td>ecephys_666861_2023-05-24_14-30-05_nwb_2025-06...</td>
+      <td>666861</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-01-25</td>
+      <td>Female</td>
+      <td>2023-05-24T14:30:05-07:00</td>
+      <td>2023-05-24T15:16:29-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>45cdaffe-3f25-4574-8117-a735e7bdabab</td>
+      <td>ecephys_671646_2023-07-31_15-21-40_nwb_2025-07...</td>
+      <td>671646</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2023-02-25</td>
+      <td>Female</td>
+      <td>2023-07-31T15:21:40-07:00</td>
+      <td>2023-07-31T16:13:00-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>a647216f-e791-48b9-bb7a-8ac500c7eeeb</td>
+      <td>ecephys_674005_2023-08-08_15-39-38_nwb_2025-06...</td>
+      <td>674005</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2023-03-14</td>
+      <td>Male</td>
+      <td>2023-08-08T15:39:38-07:00</td>
+      <td>2023-08-08T16:21:53-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>dca6ae43-e43c-4043-9512-38bf07c0f820</td>
+      <td>ecephys_674005_2023-08-10_13-15-14_nwb_2025-06...</td>
+      <td>674005</td>
+      <td>Chat-IRES-Cre-neo/Chat-IRES-Cre-neo</td>
+      <td>2023-03-14</td>
+      <td>Male</td>
+      <td>2023-08-10T13:15:14-07:00</td>
+      <td>2023-08-10T14:18:18-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>41df8893-c20b-427a-94c3-3b1182c916b7</td>
+      <td>ecephys_678449_2023-08-28_17-53-41_nwb_2025-07...</td>
+      <td>678449</td>
+      <td>Gad2-IRES-Cre/Gad2-IRES-Cre</td>
+      <td>2023-04-10</td>
+      <td>Female</td>
+      <td>2023-08-28T17:53:41-07:00</td>
+      <td>2023-08-28T18:28:17-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE]]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>c398b858-bf4f-4ad9-8204-1079006b5279</td>
+      <td>ecephys_678577_2023-11-06_15-58-49_nwb_2025-06...</td>
+      <td>678577</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-04-11</td>
+      <td>Male</td>
+      <td>2023-11-06T15:58:49-08:00</td>
+      <td>2023-11-06T16:40:11-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0094c6ad-50c3-49fd-b5a0-3180d643573a</td>
+      <td>ecephys_682033_2023-10-26_14-21-51_nwb_2025-07...</td>
+      <td>682033</td>
+      <td>Gad2-IRES-Cre/Gad2-IRES-Cre</td>
+      <td>2023-05-02</td>
+      <td>Female</td>
+      <td>2023-10-26T14:21:51-07:00</td>
+      <td>2023-10-26T14:56:21-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE]]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2f60b59b-fe68-43ee-a8de-c79002bd8bcf</td>
+      <td>ecephys_682085_2023-10-03_16-42-49_nwb_2025-07...</td>
+      <td>682085</td>
+      <td>Slc17a6-IRES-Cre/wt</td>
+      <td>2023-05-03</td>
+      <td>Male</td>
+      <td>2023-10-03T16:42:49-07:00</td>
+      <td>2023-10-03T17:31:24-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-Ef1a-DIO-ChRmine-mScarlet-WPRE]]</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>4e2b3d26-4b67-4819-806d-3f55da5929ba</td>
+      <td>ecephys_684156_2023-10-11_17-45-08_nwb_2025-07...</td>
+      <td>684156</td>
+      <td>Drd1a-Cre/wt</td>
+      <td>2023-05-14</td>
+      <td>Female</td>
+      <td>2023-10-11T17:45:08-07:00</td>
+      <td>2023-10-11T18:49:28-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0743m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>fe201555-1613-41d6-90ca-adec417feffe</td>
+      <td>ecephys_684156_2023-10-13_16-56-59_nwb_2025-07...</td>
+      <td>684156</td>
+      <td>Drd1a-Cre/wt</td>
+      <td>2023-05-14</td>
+      <td>Female</td>
+      <td>2023-10-12T16:56:59-07:00</td>
+      <td>2023-10-12T18:01:04-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0743m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>76119c86-e2bc-4dcb-8654-8405e5ba4fa3</td>
+      <td>ecephys_692497_2023-12-11_16-20-55_nwb_2025-07...</td>
+      <td>692497</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-07-06</td>
+      <td>Female</td>
+      <td>2023-12-11T16:20:55-08:00</td>
+      <td>2023-12-11T17:02:52-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[hSyn-DIO-somBiPOLES-mCerulean]]</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>ca77c9d1-1b23-45c6-b40f-d53e651a59a3</td>
+      <td>ecephys_692497_2023-12-15_16-29-04_nwb_2025-07...</td>
+      <td>692497</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-07-06</td>
+      <td>Female</td>
+      <td>2023-12-15T16:29:04-08:00</td>
+      <td>2023-12-15T17:10:29-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[hSyn-DIO-somBiPOLES-mCerulean]]</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>2a2f70d3-6b11-4d6b-81e5-ce4c2943a867</td>
+      <td>ecephys_694471_2023-12-11_14-51-57_nwb_2025-06...</td>
+      <td>694471</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-07-19</td>
+      <td>Male</td>
+      <td>2023-12-11T14:51:57-08:00</td>
+      <td>2023-12-11T15:33:49-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>7d0cfa81-9dde-4f78-a8cd-b35e91b44cc9</td>
+      <td>ecephys_694471_2023-12-15_15-26-01_nwb_2025-06...</td>
+      <td>694471</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-07-19</td>
+      <td>Male</td>
+      <td>2023-12-15T15:26:01-08:00</td>
+      <td>2023-12-15T16:07:28-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>0ec2e8ae-316d-49e7-91ed-c024dd0ad79c</td>
+      <td>ecephys_694473_2023-11-28_15-23-23_nwb_2025-07...</td>
+      <td>694473</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-07-19</td>
+      <td>Female</td>
+      <td>2023-11-28T15:23:23-08:00</td>
+      <td>2023-11-28T16:05:02-08:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0779m_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>a0cdab6a-0905-4907-b4d5-2d85bf860b61</td>
+      <td>ecephys_697577_2024-02-13_16-24-10_nwb_2025-07...</td>
+      <td>697577</td>
+      <td>Adora2a-Cre/wt</td>
+      <td>2023-08-07</td>
+      <td>Male</td>
+      <td>2024-02-13T16:24:10-07:00</td>
+      <td>2024-02-13T17:05:24-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology]</td>
+      <td>[[pAAV-Syn-FLEX-rc(ChrimsonR-tdTomato)]]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>143a7ece-9bbf-42bc-856e-cf6f6c780d57</td>
+      <td>ecephys_704242_2024-04-30_17-13-29_nwb_2025-07...</td>
+      <td>704242</td>
+      <td>Gad2-IRES-Cre/Gad2-IRES-Cre</td>
+      <td>2023-09-21</td>
+      <td>Male</td>
+      <td>2024-04-30T17:13:29-07:00</td>
+      <td>2024-04-30T17:40:53-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-Ef1a-DIO ChRmine-eYFP-WPRE]]</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>4eac050d-ab62-47f1-b4f5-c486057f22f2</td>
+      <td>ecephys_704242_2024-05-02_16-51-50_nwb_2025-07...</td>
+      <td>704242</td>
+      <td>Gad2-IRES-Cre/Gad2-IRES-Cre</td>
+      <td>2023-09-21</td>
+      <td>Male</td>
+      <td>2024-05-02T16:51:50-07:00</td>
+      <td>2024-05-02T17:20:47-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-Ef1a-DIO ChRmine-eYFP-WPRE]]</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>bf0fba2f-94f9-4ae0-8dc1-82776316166d</td>
+      <td>ecephys_715287_2024-04-24_15-24-43_nwb_2025-07...</td>
+      <td>715287</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-12-04</td>
+      <td>Female</td>
+      <td>2024-04-24T15:24:43-07:00</td>
+      <td>2024-04-24T15:54:45-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>c8585e3d-bcf7-4191-ae7e-fa5b0b830fa0</td>
+      <td>ecephys_715290_2024-05-09_15-39-23_nwb_2025-07...</td>
+      <td>715290</td>
+      <td>Ntrk1-IRES-Cre/wt</td>
+      <td>2023-12-04</td>
+      <td>Female</td>
+      <td>2024-05-09T15:39:23-07:00</td>
+      <td>2024-05-09T16:12:34-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>5192c6f9-c327-40fb-a026-d3ef3ec4cc02</td>
+      <td>ecephys_715339_2024-05-08_16-09-35_nwb_2025-07...</td>
+      <td>715339</td>
+      <td>Drd1a-Cre/wt</td>
+      <td>2023-12-04</td>
+      <td>Female</td>
+      <td>2024-05-08T16:09:35-07:00</td>
+      <td>2024-05-08T16:37:43-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>4b3e05be-bdfa-471a-acb6-94316f4d2f9d</td>
+      <td>ecephys_719093_2024-05-13_16-42-41_nwb_2025-07...</td>
+      <td>719093</td>
+      <td>Chat-IRES-Cre/Chat-IRES-Cre</td>
+      <td>2024-01-02</td>
+      <td>Male</td>
+      <td>2024-05-13T16:42:41-07:00</td>
+      <td>2024-05-13T17:10:56-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>27a5f834-6975-4a6f-b5f7-796074135e77</td>
+      <td>ecephys_719093_2024-05-15_15-01-10_nwb_2025-07...</td>
+      <td>719093</td>
+      <td>Chat-IRES-Cre/Chat-IRES-Cre</td>
+      <td>2024-01-02</td>
+      <td>Male</td>
+      <td>2024-05-15T15:01:10-07:00</td>
+      <td>2024-05-15T15:29:15-07:00</td>
+      <td>[Laser pulses]</td>
+      <td>Cell Type LUT</td>
+      <td>[Extracellular electrophysiology, Behavior vid...</td>
+      <td>[[pAAV-AiE0452h_3xC2-minBG-CoChR-EGFP-WPRE3-BG...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">genotype</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Chat-IRES-Cre-neo/Chat-IRES-Cre-neo&#39;, &#39;Sst-IRES-Cre/wt&#39;, &#39;Adora2a-Cre/wt&#39;, &#39;Drd1a-Cre/wt&#39;, &#39;Gad2-IRES-Cre/Gad2-IRES-Cre&#39;, &#39;Ntrk1-IRES-Cre/wt&#39;, &#39;Slc17a6-IRES-Cre/wt&#39;, &#39;Chat-IRES-Cre/Chat-IRES-Cre&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "query"
+        },
+        kernelOptions: {
+            name: "query",
+            path: "./physiology/ephys/cell-type-lookup-table"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'query'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
