@@ -69,16 +69,22 @@ records = docdb_api_client.aggregate_docdb_records(
 
 ``` 
 
-Return these records into a dataframe and reorganize some things: 
+Return these records into a dataframe and do some cleanup (exclude a particular session)
 
 ```{code-cell} ipython3
 to_exclude = ['ecephys_655565_2023-03-31_14-47-36_nwb_2025-07-16_16-52-27'] 
 df = pd.DataFrame(records) 
 filtered_df = df[~df.name.isin(to_exclude)].sort_values(by='name')
+# flatten virus names 
+filtered_df.virus_names = filtered_df.virus_names.apply(lambda x: [item for sublist in x for item in sublist] if isinstance(x, list) else x)
 filtered_df
 ```
 
 ```{code-cell} ipython3
 print(len(filtered_df))
+```
+
+```{code-cell} ipython3
+print(filtered_df.genotype.unique().tolist())
 ```
 
