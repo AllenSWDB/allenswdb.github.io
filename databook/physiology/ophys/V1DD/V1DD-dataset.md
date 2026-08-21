@@ -97,7 +97,7 @@ df['golden_mouse'] = False
 df.loc[df.subject_id=='409828', 'golden_mouse'] = True
 
 order = ['project_name','_id','name','subject_id','golden_mouse','genotype','date_of_birth','sex','modality',
-         'session_date','age','session_time','column','volume']
+         'session_date','age','session_time','column','volume','depth','targeted_structure']
 df = df[order]
 
 df.head()
