@@ -99,7 +99,7 @@ GCaMP). Here are the reporter lines used in our datasets:
 | Ai32 | Rosa-CAG-LSL-ChR2(H134R)-EYFP-WPRE | Cre dependent expression of channelrhodopsin-2 (with a gain of function H134R substitution) fused to enhanced yellow fluorescent protein (EYFP) for visualization. Cells expressing ChR2(H134R) are rapidly depolarized by illumination with blue light (450-490 nm). | MGI:5013789 | Visual Coding Neuropixels, Visual Behavior Neuropixels, NP Ultra & Psychedelics, Dynamic Routing |
 | TetO-GCaMP6s | TetO-GCaMP6s |tet dependent GCaMP6s indicator expressing GCaMP6 <i>slow</i>. Simpler two-transgene system that does not require Cre. For example, when crossed with Camk2a-tTA, GCaMP6s is expressed broadly in excitatory neurons. |MGI:5553332 | V1 Deep Dive |
 | Ai167 | TIT2L-ChrimsonR-tdTomato-ICL-tTA2-WPRE | Cre dependent expression of ChrimsonR fused to enhanced red fluorescent protein (tdTomato) for visualization. Cells expressing ChrimsonR are rapidly depolarized by illumination with red light (620-750 nm). | MGI:7712128 | NP Ultra & Psychedelics |
-| VGAT-ChR2-EYFP | B6.Cg-Tg(Slc32a1-COP4*H134R/EYFP)8Gfng/J | Direct (non-Cre-dependent) BAC transgenic expressing ChR2(H134R) fused to EYFP in GABAergic neurons under the VGAT (Slc32a1) promoter. Cells are depolarized by blue light (~470 nm peak). | MGI:4950553 | Dynamic Routing |
+| VGAT-ChR2-EYFP | B6.Cg-Tg(Slc32a1-COP4*H134R/EYFP)8Gfng/J | Direct (non-Cre-dependent) BAC transgenic expressing channelrhodopsin-2 fused to EYFP in GABAergic neurons under the VGAT (Slc32a1) promoter. Cells are depolarized by blue light (~470 nm peak). | MGI:4950553 | Dynamic Routing |
 
 
 
