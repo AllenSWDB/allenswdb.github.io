@@ -65,7 +65,10 @@ aggregate = [
       "project_name": "$data_description.project_name", 
       "modality": "$data_description.modalities.name",
       "column": { "$arrayElemAt": ["$data_description.tags", 0] },
-      "volume": { "$arrayElemAt": ["$data_description.tags", 1] }
+      "volume": { "$arrayElemAt": ["$data_description.tags", 1] },
+      "depth": "$acquisition.data_streams.configurations.images.planes.depth",
+      "targeted_structure": "$acquisition.data_streams.configurations.images.planes.targeted_structure.acronym",
+
     }
   },
 ]
@@ -86,12 +89,15 @@ df['age'] = df.apply(lambda x: (x['session_date'] - x['date_of_birth']).days, ax
 
 df['column'] = df.apply(lambda x: int(x['column'].split(' ')[-1]), axis=1)
 df['volume'] = df.apply(lambda x: int(x['volume'].split(' ')[-1]), axis=1)
+df['depth'] = df.apply(lambda x: list(np.array(x['depth']).flatten()), axis=1)
+df['targeted_structure'] = df.apply(lambda x: np.unique(list(np.array(records[0]['targeted_structure']).flatten()))[0], axis=1)
+
 
 df['golden_mouse'] = False
 df.loc[df.subject_id=='409828', 'golden_mouse'] = True
 
 order = ['project_name','_id','name','subject_id','golden_mouse','genotype','date_of_birth','sex','modality',
-         'session_date','age','session_time','column','volume']
+         'session_date','age','session_time','column','volume','depth','targeted_structure']
 df = df[order]
 
 df.head()
