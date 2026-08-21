@@ -69,8 +69,8 @@ a reporter, Cre on its own does not greatly affect the mouse's physiology.
 | Fezf2-CreER | In cortex, drives expression in corticofugal excitatory neurons in layer 5. | MGI:6720836 | Visual Coding 2P |
 | Gal-Cre_KI187 | Targets neurons that express the neuropeptide Galanin, chosen to label neurons in midline and interlaminar nuclei in the thalamus. Also targets cells in the hypothalamus, pons and medulla. | MGI:4367008 | Single Cell Morphology |
 | Nr5a1-Cre | In cortex, drives expression in excitatory neurons in layer 6. | | Visual Coding 2P |
-| Ntsr1-Cre_GN220 | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:3836636 | Visual Coding 2P, Dynamic Routing |
-| Pvalb-IRES-Cre | Drives expression in Parvalbumin inhibitory interneurons. | MGI:3590684 | Visual Coding 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels |
+| Ntsr1-Cre_GN220 | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:3836636 | Visual Coding 2P |
+| Pvalb-IRES-Cre | Drives expression in Parvalbumin inhibitory interneurons. | MGI:3590684 | Visual Coding 2P, Visual Coding Neuropixels, Visual Behavior Neuropixels, Dynamic Routing|
 | Rbp4-Cre_KL100 | In cortex, drives expression in excitatory neurons in layer 5. | MGI:4367067 | Visual Coding 2P |
 | Rorb-IRES2-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. | MGI:5507855 | Visual Coding 2P |
 | Scnn1a-Tg3-Cre | In cortex, drives expression in a sub-population of excitatory neurons in layer 4. Only found in primary sensory areas (e.g. VISp). | MGI:3850187 | Visual Coding 2P |
