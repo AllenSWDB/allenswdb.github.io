@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: query
 ---
-
+(metadata) = 
 # Metadata
 
 Neuroscience has become data-centric, where data itself is a valuable commodity that can be used and re-used in different contexts to test different questions. Our goal is to make it possible for data to be understood and used by different scientists, who may have been uninvolved in the collection of the data. To achieve this, data must be annotated with rich metadata that contextualizes and communicates the conditions in which the data was acquired and processed, and enables other scientists to understand and use the data for their own questions. Such metadata ensures that experiments are transparent, rigorous, and FAIR - and as such maximizes the potential knowledge derived from the data. Metadata is also crucial for making data discoverable and re-usable, allowing scientists to aggregate multi-modal datasets across independent experiments to compare results and enable new kinds of discoveries.

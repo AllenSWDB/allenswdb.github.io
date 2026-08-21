@@ -10,7 +10,7 @@ kernelspec:
   language: python
   name: ctlut
 ---
-
+(pynwb)=
 # Using Python to Access Neurodata Without Borders-type Files
 
 This tutorial will demonstrate the structure of the data file in a Neurodata Without Borders type (NWB) file and showcase how to access various parts of the data. We will use a specific example using an ecephys file, but the process is general.
