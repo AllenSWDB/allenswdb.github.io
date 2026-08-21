@@ -13,13 +13,13 @@ kernelspec:
 
 # Optotagging
 
-The purpose of this dataset is to create a ground-truth dataset of responses from known striatal cell types so that we can look for differences in their physiological properties. But how do we know if the units we pick up during ephys belong to a specific cell type? We use a technique known as "optotagging."
+This dataset provides ground-truth responses from known striatal cell types, enabling us to compare their physiological properties. To match recorded units to specific cell types, we use a technique called "optotagging." 
 
-For a deeper overview of the technique, check out the section on {doc}`/background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels only in a specific cell type. These cells can then be identified in recordings by their responses to laser light. The following sections will give more information on how this was achieved in our experiments.
+For a deeper overview of the technique, check out the section on {doc}`/background/Optotagging`. Briefly, the technique leverages genetic tools to express light-gated ion channels (opsins) only in a target cell type. When laser light is locally delivered to brain during recording, cells expressing the opsin respond with spiking activity, confirming their identity. 
 
 # Opsins
 
-In order to drive spiking activity using laser light, we have to make neurons produce light-gated ion channels, hereafter referred to as "opsins." These opsins will change their conformation when exposed to specific wavelengths of light, opening a channel that allows ions to cross the cell membrane, most commonly sodium for light-triggered excitation or chloride for light-triggered inhibition.
+Opsins are light-gated ion channels that open upon exposure to specific wavelengths of light, allowing ions to cross the membrane. Depolarizing opsins (sodium channels) drive spiking while hyperpolarizing opsins (chloride channels) suppress spiking. 
 
 The opsins used in this data set were:
 * CoChR: a blue-light activated sodium channel
@@ -27,32 +27,30 @@ The opsins used in this data set were:
 * ChRmine: a red-light activated sodium channel
 * BiPOLES: a red-light activated sodium channel paired with a blue-light activated chloride channel
 
-In this data set, we transfected each mouse with genes for two different opsins (one blue-activated and one red-activated), targeting two different cell types. Thus, we are able to tag two cell types in one animal and differentiate them by their responses to different color laser pulses.
+Each mouse was transfected with two opsins: one blue-activated and one red-activated to target two different cell types. This allows us to tag two populations in a single animal distinguishable by laser color. 
 
 ```{note}
-For most opsins, activation drops off quickly for wavelengths larger than the peak, but slowly for wavelengths smaller. This means that while blue-activated opsins generally do not respond to red laser, many red-activated opsins do have strong responses to blue laser. This is especially true for ChRmine, so be mindful of this when differentiating blue and red responses in animals expressing this opsin!
+Opsin activation falls off sharply for longer wavelengths but gradually for shorter ones. Blue-activated opsins generally do not respond to red laser, but many red-activated opsins (ChRmine) respond strongly to blue laser. Keep this in mind when interpreting responses in animals expressing red-activated opsins. 
 ```
 
 # Cre lines and Cre-dependent viruses
 
-We want to be able to drive the expression of the above opsins only in specific cell types so that we can identify them by their responses to laser. To do this, we leverage a technique called Cre-lox recombination. This technique is covered in greater depth in the section on {doc}`/background/transgenic-tools`. Briefly, the gene for Cre recombinase is inserted into the mouse genome in such a way that it is only expressed in a specific cell type. Such mice are referred to as belonging to a specific driver line (e.g. expression of Cre is only driven in a given cell type). A Cre-dependent virus is then injected into the brain, delivering the DNA encoding the opsin we want to express. The DNA delivered by this virus is not in a usable configuration unless acted upon by Cre recombinase; as such, only cells expressing Cre will end up expressing the opsin.
+To restrict opsin expression to a specific cell type, we use Cre-lox recombination (see {doc}`/background/transgenic-tools`). Briefly, the gene for Cre recombinase is inserted into the mouse genome in such a way that it is only expressed in a specific cell type. Such mice are referred to as belonging to a specific driver line (e.g. expression of Cre is only driven in a given cell type). A Cre-dependent virus is then injected into the brain, delivering the DNA encoding the opsin we want to express. The DNA delivered by this virus is not in a usable configuration unless acted upon by Cre recombinase; as such, only cells expressing Cre will end up expressing the opsin.
 
 The genotype for these experiments can be one of several:
-* Drd1a-Cre: This driver line drives expression of Cre in striatal direct pathway neurons (D1)
-* Adora2a-Cre: This driver line drives expression of Cre in striatal indirect pathway neurons (D2)
-* Chat-IRES-Cre-neo: This driver line drives expression of Cre in cholinergic neurons
+* Drd1a-Cre: direct pathway striatal neurons (D1)
+* Adora2a-Cre: indirect pathway striatal neurons (D2)
+* Chat-IRES-Cre-neo: cholinergic neurons
 
 # Enhancer viruses
 
-Another method of getting opsins into cells is to use enhancer viruses. These viruses do not rely on the presence of Cre, but rather can directly target specific cell types on their own by targeting enhancer regions in the DNA that are enriched in specific cell types.
-
-You will produce a list of all the shortened virus names that were injected into this mouse. There are generally multiple viruses, as we want to tag different cell types with different opsins!
+Enhancer viruses target specific cell types directly, without requiring Cre but instead exploiting enhancer regions in the genome that are enriched in those cell types. 
 
 If the virus name begins with Flex or DIO, it is a Cre-dependent virus. Consult the mouse's driver line to determine which cells were labeled with this opsin. Enhancer viruses will deliver their opsin directly to the cell type they target.
 
 # Stimulus
 
-Each experimental session contains an epoch during which laser is presented. We often try to tag two different cell types per mouse: one with a blue opsin, and one with a red opsin. Thus, we present both blue and red laser during the stimulus epoch.
+Each session contains a laser stimulus epoch. We often try to tag two different cell types per mouse: one with a blue opsin, and one with a red opsin. Thus, we present both blue and red laser during the stimulus epoch.
 
 The trial table contains information about each laser presentation that took place, and can be loaded with the following code:
 
@@ -63,10 +61,9 @@ stimulus_table = nwbfile.intervals['trials'].to_dataframe()
 
 # Identifying tagged neurons
 
-As stated previously, if you know which cell types should be expressing which opsin, you can label units collected during electrophysiology by cell type based on their responses to laser pulses. However, this is not necessarily as straightforward as it might appear: neurons are interconnected and constantly communicating with each other, so changing the activity of one cell will undoubtedly have effects on its neighbors as well. As such, one needs to be very careful in analyzing laser responses to make sure you are only considering cells that are directly activated by the laser.
+Because neurons are interconnected, a laser pulse activating one cell type might also affect neighboring cells through synaptic connections. To identify cells that are *directly* activated by the laser, we apply several criteria: 
 
-Common metrics for identifying tagged cells include:
 * significant increase in firing rate during laser presentation
-* low latency of response (as a fast response to the laser rules out synaptic transmission)
-* consistency of responses (high percentage of trials with extra spikes)
+* short response latency (ruling out synaptic transmission)
+* high trial-to-trial consistency
 * low response jitter (one would expect a directly activated cell to have very little variability in when it gets activated)
