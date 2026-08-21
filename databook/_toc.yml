@@ -152,7 +152,7 @@ parts:
       sections:
       - file: practicalities/github-code-ocean
       - file: practicalities/code-ocean-collab
-      - file: practicalities/code-ocean-vs-code
+      # - file: practicalities/code-ocean-vs-code
       # - file: practicalities/allensdk-pyNWB
       - file: practicalities/pyNWB
       - file: practicalities/git
