@@ -188,7 +188,7 @@ Each stimulus that is shown has a <b>stimulus table</b> that details what each t
 
 (cell_ids_indices)=
 ## Cell ids and indices
-Each neuron in the dataset has a unique id. These IDs are stored in the PlaneSegmentation table we looked at before. As neurons are often matched across sessions, that neuron will have the same cell id in all said sessions. This is explored in [Cross session data](vc2p-cross-session-data.md).
+Each neuron in the dataset has a unique id. These IDs are stored in the PlaneSegmentation table we looked at before. 
 
 ```{code-cell} ipython3
 # Cell IDs are stored in the PlaneSegmentation table
@@ -203,5 +203,12 @@ Within each individual session, a cell id is associated with an index. This inde
 target_cell_id = cell_ids[0]  # Use first cell as example
 cell_index = np.where(cell_ids == target_cell_id)[0]
 print(f"Cell ID {target_cell_id} is at index {cell_index}")
+```
+
+During data processing, we matched identified ROIs across each of the sessions within experiment containers. Approximately one third of the neurons in the dataset were matched across all three sessions, one third were matched in two of the three session, and one third were only found in one session. When neurons are matched across sessions, that neuron will have the same cell id in all said sessions. This is explored in [Cross session data](vc2p-cross-session-data.md).
+
+```{admonition} How come we don't always match ROIs across all three session for all neurons?
+:class: tip
+There are a few factors that could explain why we don't always match ROIs across all sessions that include biological, experimental, and analytical reasons. Biologically, a neuron must be active within a session to be identifiable during segmentation. For various reasons, a neuron might not be active during some sessions while it is active during others. Experimentally, there are challenges to returning to the precise same field of view. Being at a slightly different depth, or having just a bit of tilt in the imaging plane, might result in some neurons that were in view during one session not being in view during another. Analytically, the method for identifying {term}`ROI`s as well as for matching ROIs from multiple sessions can make mistakes.
 ```
 
