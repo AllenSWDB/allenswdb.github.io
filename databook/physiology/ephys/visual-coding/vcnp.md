@@ -20,7 +20,7 @@ of the visual cortex and thalamus in the context of passive visual stimulation
 as is described in {cite:t}`siegle2021a`, but these data can be used to address
 a wide variety of topics.
 
-Spike-sorted data and metadata are available via the AllenSDK as
+Spike-sorted data and metadata are available z as
 [Neurodata Without Borders (NWB)](https://www.nwb.org/) files
 {cite:p}`teeters2015`. However, if you’re using the AllenSDK to interact with
 the data, no knowledge of the NWB data format is required.
