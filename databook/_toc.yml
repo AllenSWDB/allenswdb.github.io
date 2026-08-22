@@ -76,16 +76,8 @@ parts:
         sections:
         - file: physiology/ephys/visual-coding/vcnp
           sections:
-          - file: physiology/ephys/visual-coding/vcnp-quickstart
-          - file: physiology/ephys/visual-coding/vcnp-data-access
-          - file: physiology/ephys/visual-coding/vcnp-units
-          - file: physiology/ephys/visual-coding/vcnp-receptive-fields
-          - file: physiology/ephys/visual-coding/vcnp-lfp
-          - file: physiology/ephys/visual-coding/vcnp-optotagging
-          - file: physiology/ephys/visual-coding/vcnp-session
+          - file: physiology/ephys/visual-coding/vcnp-session-data
           - file: physiology/ephys/visual-coding/vcnp-stimulus
-          - file: physiology/ephys/visual-coding/vcnp-cheatsheet
-          - file: physiology/ephys/visual-coding/vcnp-links
         - file: physiology/ephys/visual-behavior/VB-Neuropixels
           title: Visual Behavior Neuropixels
           sections:
