@@ -22,6 +22,7 @@ Visual Coding Neuropixels sessions are stored as NWB files, so the main dependen
 import pynwb
 import pandas as pd
 import numpy as np
+import matplotlib as plt
 ```
 
 ## Loading a session
@@ -310,8 +311,9 @@ nwbfile.processing["running"]
 running_speed = nwbfile.processing["running"]["running_speed"].data[:]
 running_timestamps = nwbfile.processing["running"]["running_speed"].timestamps[:]
 
-print(running_speed.shape)
-print(running_timestamps.shape)
+plt.plot(running_timestamps, running_speed)
+plt.ylabel('Speed (cm/s)')
+plt.xlabel('Time (s)')
 ```
 
 ## Optotagging
