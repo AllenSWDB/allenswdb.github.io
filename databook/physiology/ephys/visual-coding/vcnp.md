@@ -8,8 +8,7 @@ as is described in {cite:t}`siegle2021a`, but these data can be used to address
 a wide variety of topics.
 
 Spike-sorted data and metadata are available as
-[Neurodata Without Borders (NWB)](https://www.nwb.org/) files
-{cite:p}`teeters2015`.
+[Neurodata Without Borders (NWB)](https://allenswdb.github.io/glossary.html#term-NWB) files. 
 
 For detailed information about the experimental design, data acquisition, and
 informatics methods, please refer to our
