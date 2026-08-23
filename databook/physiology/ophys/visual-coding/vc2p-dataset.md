@@ -72,7 +72,7 @@ records = docdb_api_client.aggregate_docdb_records(
 )
 ```
 
-``` {code-cell} ipython3
+```{code-cell} ipython3
 df = pd.DataFrame(records)
 
 df['session_date'] = df.apply(lambda x: datetime.fromisoformat(x['session_time']).date(), axis=1)
