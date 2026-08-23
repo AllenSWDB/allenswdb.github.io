@@ -30,7 +30,7 @@ import matplotlib as plt
 Each session is stored as a single NWB file. Pointing `pynwb.read_nwb` at the file returns an `NWBFile` object which we can use to explore the file contents.
 
 ```{code-cell} ipython3
-nwb_path = "/data/visual_coding_neuropixels/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"
+nwb_path = "/data/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"
 nwbfile = pynwb.read_nwb(nwb_path)
 nwbfile
 ```
