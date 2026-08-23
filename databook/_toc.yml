@@ -92,10 +92,10 @@ parts:
         - file: physiology/ephys/cell-type-lookup-table/ctlut-background
           sections:
            - file: physiology/ephys/cell-type-lookup-table/ctlut-metadata
-          - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
-          - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
-          - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
-          - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
+           - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
+           - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
+           - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
+           - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
         - file: physiology/ephys/np-ultra/npultra-psychedelics
           sections:
           - file: physiology/ephys/np-ultra/npultra-psychedelics-stimuli
