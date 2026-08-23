@@ -1,6 +1,6 @@
-# Visual Coding — 2-photon
+# Visual Coding Ophys
 
-The Visual Coding 2-photon dataset is a survey of in vivo physiological activity
+The Visual Coding Ophys dataset is a survey of in vivo physiological activity
 in the awake mouse cortex. Neural activity was recorded using {term}`Two-photon
 calcium imaging`. We used transgenic tools to target the expression of a
 fluorescent calcium indicator, {term}`GCaMP`6, to a specific population of
