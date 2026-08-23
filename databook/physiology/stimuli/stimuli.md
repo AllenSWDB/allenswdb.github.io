@@ -17,3 +17,7 @@ The Dynamic Foraging behavior is used in the [Dynamic Foraging Behavior](/dynami
 ## Brain Computer Interface
 
 In the [Brain Computer Interface](/physiology/ophys/BCI/BCI-overview) task, mice control the position of a motorized lickport using the activity of a single neuron (the conditioned neuron). At the start of each trial, the lickport began in the “far” position, 7 mm from the mouse. Increases in conditioned neuron's fluorescence moves the lickport toward the mouse at a speed proportional to neuron's activity. Mice had 10 seconds to bring the lickport into the “close” position to obtain a water reward. Failure to reach the close position within the time limit resulted in the lickport retracting to the far position. 
+
+## Dynamic Routing Behavior
+
+The Dynamic Routing project aims to uncover the neural mechanisms of flexible decision making. We train mice to perform a visual–auditory switching task in which the rewarded sensory modality alternates within a session, requiring mice to dynamically route sensory information to appropriate motor outputs depending on behavioral context. Mice receive intermingled auditory and visual stimuli. For each modality there is a rewarded stimulus condition and an unrewarded condition. The stimuli are the same across the entire session, but the auditory and visual stimuli are rewarded in different blocks. 
