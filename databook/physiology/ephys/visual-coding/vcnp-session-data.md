@@ -22,7 +22,8 @@ Visual Coding Neuropixels sessions are stored as NWB files, so the main dependen
 import pynwb
 import pandas as pd
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
+%matplotlib inline
 ```
 
 ## Loading a session
