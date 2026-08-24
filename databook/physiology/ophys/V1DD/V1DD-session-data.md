@@ -203,12 +203,12 @@ The stimulus images that were presented are stored in the `stimulus` container. 
 ```{code-cell} ipython3 
 index = 20
 image = nwbfile.stimulus['natural_images'].images[str(index)]
-plt.imshow(image, cmap='Grays_r')
+plt.imshow(image, cmap='Greys_r')
 
 ```
 
 ```{code-cell} ipython3 
 frame = 1004
 image = nwbfile.stimulus['natural_movie'].images['1004']
-plt.imshow(image, cmap='Grays_r')
+plt.imshow(image, cmap='Greys_r')
 ```
