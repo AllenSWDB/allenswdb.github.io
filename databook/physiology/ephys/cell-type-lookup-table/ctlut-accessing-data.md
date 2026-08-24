@@ -50,6 +50,7 @@ The "units" from an electrophysiological recording are the outputs of a clusteri
 
 ```{code-cell} ipython3
 units = nwbfile.units[:]
+units
 ```
 
 There is a large amount of data stored about each unit, but here are some relevant ones:
@@ -79,6 +80,7 @@ You may wish to know the time points at which different parts of the experimenta
 ```{code-cell} ipython3
 # get the different epochs and their beginning and end times
 epochs = nwbfile.intervals['epochs'].to_dataframe()
+epochs
 ```
 
 ## Stimulus data
@@ -88,12 +90,14 @@ If you wanted to verify the laser responses of tagged units, you may wish to loa
 ```{code-cell} ipython3
 # load the stimulus table
 stimulus_table = nwbfile.intervals['trials'].to_dataframe()
+stimulus_table
 ```
 
 You can also load the stimulus templates: the voltage traces sent to the laser during stimulation, giving you a read of the laser's power over time. The names of the template match the ones in the trials table.
 
 ```{code-cell} ipython3
 stimulus_template = nwbfile.stimulus_template
+stimulus_template
 ```
 
 ## LFP data
@@ -102,7 +106,7 @@ You can load the LFP (local field potential) data collected for each experiment.
 
 ```{code-cell} ipython3
 # load LFP data (for probe A, change the string for probe B)
-lfp_data = nwbfile.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP']
+lfp_data = nwbfile.processing['ecephys']['LFP']['electrical_series']['ElectricalSeriesProbeA-LFP']
 lfp = lfp_data.data
 start_time = lfp_data.starting_time
 acquisition_rate = lfp_data.rate
