@@ -8,7 +8,7 @@ Passive visual stimuli are used in the [Visual Coding 2P](/physiology/ophys/visu
 
 ## Change detection Behavior
 
-The visual change detection task is used in the [Visual Behavior Ophys](/physiology/ophys/visual-behavior/VB-Ophys) and [Visual Behavior Neuropixels](/physiology/ephys/visual-behavior/VB-Neuropixels) datasets. In this go/no-go task, mice are shown a continuous series of briefly presented visual images and they earn water rewards by correctly reporting when the identity of the image changes.
+The visual change detection task is used in the [Visual Behavior Ophys](/physiology/ophys/visual-behavior/VB-Ophys),  [Visual Behavior Neuropixels](/physiology/ephys/visual-behavior/VB-Neuropixels) and Visual Learning datasets. In this go/no-go task, mice are shown a continuous series of briefly presented visual images and they earn water rewards by correctly reporting when the identity of the image changes.
 
 ## Dynamic Foraging Behavior
 
@@ -20,4 +20,4 @@ In the [Brain Computer Interface](/physiology/ophys/BCI/BCI-overview) task, mice
 
 ## Dynamic Routing Behavior
 
-The Dynamic Routing project aims to uncover the neural mechanisms of flexible decision making. We train mice to perform a visual–auditory switching task in which the rewarded sensory modality alternates within a session, requiring mice to dynamically route sensory information to appropriate motor outputs depending on behavioral context. Mice receive intermingled auditory and visual stimuli. For each modality there is a rewarded stimulus condition and an unrewarded condition. The stimuli are the same across the entire session, but the auditory and visual stimuli are rewarded in different blocks. 
+The [Dynamic Routing](/physiology/ephys/dynamic-routing/dynamic-routing-background) project aims to uncover the neural mechanisms of flexible decision making. We train mice to perform a visual–auditory switching task in which the rewarded sensory modality alternates within a session, requiring mice to dynamically route sensory information to appropriate motor outputs depending on behavioral context. Mice receive intermingled auditory and visual stimuli. For each modality there is a rewarded stimulus condition and an unrewarded condition. The stimuli are the same across the entire session, but the auditory and visual stimuli are rewarded in different blocks. 
