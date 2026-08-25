@@ -1,7 +1,7 @@
 # Brain Computer Interface
 
 This dataset contains <i>in vivo</i> 2P calcium imaging recordings from layer 2/3 neurons in mouse 
-primary motor cortex (M1) during an optical brain–computer interface (BCI) learning task.  In this paradigm, mice control the position of a motorized reward port with the activity of a single  “conditioned neuron” (CN) in layer 2/3 of M1. Specifically, at the start of the trial, the reward port  is far away from the mouse and out of reach. The activity of CN controls the speed of the reward port  toward the mouse. If the mouse can move the reward port within reach in 10 seconds from the trial start, a drop of water is earned as a reward (hit). If the mouse fails to bring the reward port close within  10 seconds, the reward port returns to the starting position (miss), and a new trial starts. Increasing the activity of the CN results in shorter and more rewarded trials. Mice typically learn to increase the activity of the CN within ~30 trials (~5 minutes), leading to higher reward rates. Activity changes following learning are remarkably sparse, with only a small fraction of neurons changing their activity as much as the CN. 
+primary motor cortex (M1) during an optical brain–computer interface (BCI) learning task.  In this paradigm, mice control the position of a motorized reward port with the activity of a single  “conditioned neuron” (CN) in layer 2/3 of M1. Specifically, at the start of the trial, the reward port  is far away from the mouse and out of reach. The activity of the CN controls the speed of the reward port toward the mouse. If the mouse can move the reward port within reach in 10 seconds from the trial start, a drop of water is earned as a reward (hit). If the mouse fails to bring the reward port close within 10 seconds, the reward port returns to the starting position (miss), and a new trial starts. Increasing the activity of the CN results in shorter and more rewarded trials. Mice typically learn to increase the activity of the CN within ~30 trials (~5 minutes), leading to higher reward rates. Activity changes following learning are remarkably sparse, with only a small fraction of neurons changing their activity as much as the CN. 
 
 In addition to neural and behavioral measurements, targeted 2P single-cell photostimulation was
 performed before and after the task to assess functional connectivity and its changes with learning. 
@@ -23,15 +23,12 @@ To address this challenge we developed two complimentary optical approaches in m
 cortex (M1). First, we use optical connection-mapping techniques that combine cellular-resolution 
 2P optogenetics with calcium imaging to measure the causal connectivity between each neuron in a 
 recorded population, allowing us to track changes in connectivity over time. Second, we use 
-optical brain–computer interface (BCI) learning tasks that explicitly define the relationship 
-between the activity of imaged MC motor cortical neurons and behavioral outcomes, enabling precise 
-control over which activity patterns are rewarded. Together, these approaches allow us to study 
-the learning rules that govern plasticity in motor cortex during learning.  
+the optical BCI learning task that explicitly define the relationship between the activity of imaged motor cortical neurons and behavioral outcomes, enabling precise control over which activity patterns are rewarded. Together, these approaches allow us to study the learning rules that govern plasticity in motor cortex during learning.  
 
 ## Technique
 
 We used resonant-scanning 2P calcium imaging to record, and 2P photostimulation to perturb, 
-the activity of populations of neurons in layer 2/3 of primary motor cortex (M1). 
+the activity of populations of neurons in layer 2/3 of primary motor cortex (MOp). 
 These experiments rely on neurons that co-express the calcium indicator GCaMP and the 
 light-activated ion channel ChRmine. We used a variety of expression strategies in this dataset, 
 including Cre-driver transgenic mouse lines and viral gene transfer, to target excitatory or 
