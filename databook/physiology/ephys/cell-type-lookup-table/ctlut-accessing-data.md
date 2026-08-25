@@ -106,10 +106,7 @@ You can load the LFP (local field potential) data collected for each experiment.
 
 ```{code-cell} ipython3
 # load LFP data (for probe A, change the string for probe B)
-lfp_data = nwbfile.processing['ecephys']['LFP']['electrical_series']['ElectricalSeriesProbeA-LFP']
-lfp = lfp_data.data
-start_time = lfp_data.starting_time
-acquisition_rate = lfp_data.rate
+lfp = nwbfile.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP'].data[:]
 ```
 
 ## Running data
@@ -117,9 +114,12 @@ acquisition_rate = lfp_data.rate
 Finally, you can also find the animal's running speed throughout the session.
 
 ```{code-cell} ipython3
-running = nwbfile.processing['behavior']['BehavioralTimeSeries']['linear velocity']
-running_speed = running.data
-running_timestamps = running.timestamps
+running_speed = nwbfile.processing['behavior']['running_speed'].data[:]
+running_timestamps = nwbfile.processing['behavior']['running_speed'].timestamps[:]
+
+plt.plot(running_timestamps, running_speed)
+plt.ylabel('Speed (cm/s)')
+plt.xlabel('Time (s)')
 ```
 
 ```{code-cell} ipython3
