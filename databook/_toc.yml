@@ -29,9 +29,9 @@ parts:
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
-          title: Visual Behavior Task
+          title: Visual Behavior
         - file: physiology/stimuli/visual-learning/VL-Behavior
-          title: Visual Learning Task
+          title: Visual Learning
         - file: physiology/stimuli/dynamic-routing
         - file: physiology/stimuli/dynamic-foraging/Dynamic-Foraging
           title: Dynamic foraging
