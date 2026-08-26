@@ -34,7 +34,7 @@ their neighbors.
 
 See the section on [Neuropixels data processing](neuropixels-data-processing).
 
-## Visual stimulus sets
+## Session types
 
 :::{figure} https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png
 :name: np-stimulus-sets-ref
@@ -45,19 +45,18 @@ Neuropixels visual stimulus sets
 :::
 
 A central aim of the Visual Coding – Neuropixels project is to measure the
-impact of visual stimuli on neurons throughout the [mouse visual system](mouse-visual-system). To that
-end, all mice viewed one of two possible stimulus sets, known as
-*Brain Observatory 1.1* or *Functional Connectivity*. Both stimulus sets began
-with a Gabor stimulus flashed at 81 different locations on the screen, used to
-map receptive fields of visually responsive units. Next, the mice were shown
-brief flashes of light or dark, to measure the temporal dynamics of the visual
+impact of visual stimuli on neurons throughout the [mouse visual system](mouse-visual-system). To that end, all mice viewed one of two possible session types, known as
+*Brain Observatory 1.1* or *Functional Connectivity*. Both session types began
+with a [Gabor](gabor-patches) stimulus flashed at 81 different locations on the screen, used to
+map {term}`receptive field`s of visually responsive units. Next, the mice were shown
+brief [flashes](flashes) of light or dark, to measure the temporal dynamics of the visual
 response.
 
-The remainder of the visual stimulus set either consisted of the same stimuli
-shown in the [two-photon experiments](../../ophys/visual-coding/vc2p-stimuli) (*Brain Observatory 1.1*), or a subset of
-those stimuli shown with a higher number of repeats. We also added a dot motion
-stimulus, to allow us to measure the speed tuning of units across the mouse
-visual system.
+The remainder of the visual stimulus set either consisted some of the stimuli
+shown in the [ophys experiments](../../ophys/visual-coding/vc2p-stimuli) (*Brain Observatory 1.1*), or a set of variants of those stimuli shown with different sets of parameters in addition to a [dot motion](dot-motion) stimulus, to measure the speed tuning of units across the mouse
+visual system (*Functional Connectivity*).
+
+Both session types end with an opotagging epoch.
 
 ## Quality metrics
 
