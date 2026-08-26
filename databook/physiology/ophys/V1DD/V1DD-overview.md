@@ -29,9 +29,13 @@ width: 400
 ---
 :::
 
-Calcium imaging of this ~1 cubic mm was performed on four mice. One mouse (id=409828) was then chosen for electron microscopy and reconstruction.
+Because of the overlap of column one with the other columns, the neurons in that central column might be sampled twice (assuming they were active and identified during cell segmentation). To date, the ROIs have not yet been matched across columns. 
+
+Calcium imaging of this ~1 cubic mm was performed on four mice. One mouse (id=409828) was then chosen for electron microscopy and reconstruction. We call this the "Golden Mouse".
 
 ## Questions to explore
-These data are poised to focus on questions of visual encoding and population coding. Of particular focus is questions regarding surround suppression, where having a stimulus that extends beyond a neurons classical receptive field can suppress its response. Comparing the responses to the windowed and full field gratings can reveal such surround suppression - which can potentially be related to differences in connectivity patterns. Surround suppression has also been found to be stronger in superficial layers (e.g. layer 2/3) compared to deeper layers (e.g. layer 5), which can be explored in this dataset.
+These data are poised to focus on questions of visual encoding and population coding. Of particular focus is questions regarding <b>surround suppression</b>, where having a stimulus that extends beyond a neuron's classical {term}`receptive field` can suppress its response. Comparing the responses to the windowed and full field gratings can reveal such surround suppression. Surround suppression has also been found to be stronger in superficial layers (e.g. layer 2/3) compared to deeper layers (e.g. layer 5), which can be explored in this dataset. There are a few theories about how surround suppression is mediated? Is it a difference in the local E-I balance? Is it driven by inhibition from the surround area? Are there connectivity differences between neurons with strong surround suppression and those with weak surround suppresion?
 
-Other visual stimuli are also valuable for exploring the arrangement of spatial receptive fields or the correlations of neurons within a volume in response to natural movies or spontaneous activity. The behavior variables, including running speed/duration, and pupil area/position, are also of interest.
+Another question that can be explored in this dataset is the structure of spatial receptive fields and their arrangement in the cortical column. Do neighboring neurons share "on" and "off" subregions? This can be explored using the locally sparse noise stimulus.
+
+Other visual stimuli are also valuable for exploring the correlations of neurons within a volume in response to natural movies or spontaneous activity. The behavior variables, including running speed/duration, and pupil area/position, are also of interest. Do neural correlations with running (e.g.) vary with depth? 

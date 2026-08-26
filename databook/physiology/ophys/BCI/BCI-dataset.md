@@ -18,9 +18,6 @@ This tutorial will go over how to load the BCI data and access its contents.
 
 ## Import required packages 
 
-The BCI data is packaged in NWB format with a Zarr backend. To access the data, use `NWBZarrIO` from `hdmf-zarr`. `nwb2widget` creates an interactive GUI with the NWB file, which is useful for exploring the file contents and looking at basic plots.
-
-
 ```{code-cell} ipython3
 import pynwb
 import pandas as pd
@@ -31,14 +28,14 @@ import matplotlib.pyplot as plt
 
 ## Load the data
 
-Let's load the data for one recording session using `NWBZarrIO`. 
+Let's load the data for one recording session using `pynwb`. 
 
 
 ```{code-cell} ipython3
 # Set filename 
 nwb_path = '/data/single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09/single-plane-ophys_731015_2025-01-10_18-06-31_behavior_nwb' 
 
-# Assign file to an NWBZarrIO object 
+# Assign file to an NWB object 
 nwbfile = pynwb.read_nwb(nwb_path)
 ```
 
@@ -50,7 +47,7 @@ nwbfile
 
 ## Image Segmentation Table 
     
-During processing, a segmentation algorithm (e.g. Suite2p or Cellpose) is applied to the raw fluorescence data to extract ROIs for detected neurons. The extracted ROIs are accessible in the form of image masks, a HxW sparse array with non-zero values where the ROI is masked out in the imaging plane. The detected ROIs are run through a soma/dendrite classifier to confirm if the ROI masks fit certain features of a soma or dendrite. The image masks and outputs of the soma/dendrite classifier are stored in the `image_segmentation` table in the `processing` container.
+During processing, a segmentation algorithm (e.g. Suite2p or Cellpose) is applied to the raw fluorescence data to extract ROIs for detected neurons. The extracted ROIs are accessible in the form of image masks, a HxW dense array with non-zero values where the ROI is masked out in the imaging plane. The detected ROIs are run through a soma/dendrite classifier to confirm if the ROI masks fit certain features of a soma or dendrite. The image masks and outputs of the soma/dendrite classifier are stored in the `image_segmentation` table in the `processing` container.
     
 | Column    | Description |
 | -------- | ------- |
