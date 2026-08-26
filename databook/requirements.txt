@@ -3,3 +3,6 @@ matplotlib
 numpy
 pandas
 caveclient
+scipy
+anndata
+parquet

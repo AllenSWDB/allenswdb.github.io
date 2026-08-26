@@ -30,6 +30,8 @@ parts:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
           title: Visual Behavior Task
+        - file: physiology/stimuli/visual-learning/VL-Behavior
+          title: Visual Learning Task
         - file: physiology/stimuli/dynamic-routing
         - file: physiology/stimuli/dynamic-foraging/Dynamic-Foraging
           title: Dynamic foraging
@@ -61,6 +63,15 @@ parts:
             title: Tutorial Comparing Trial Types
           - file: physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
             title: Tutorial Downloading Data
+        - file: physiology/ophys/visual-learning/VL-Ophys
+          title: Visual Learning Ophys
+          sections:
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB
+            title: Tutorial Ophys and Behavior NWB Files
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology
+            title: Tutorial Cell Types and Physiology
+          - file: physiology/ophys/visual-learning/visual_learning_metadata
+            title: Tutorial Session Metadata
         - file: physiology/ophys/V1DD/V1DD-overview
           sections:
           - file: physiology/ophys/V1DD/V1DD-dataset
@@ -131,6 +142,11 @@ parts:
         sections:
         -  file: anatomy/single-cell-morphology/scm-imageprocessing.md
         -  file: anatomy/single-cell-morphology/scm-data.md
+      - file: anatomy/spatial-transcriptomics/VL-mFISH
+        title: Visual Learning Transcriptomics
+        sections:
+        - file: anatomy/spatial-transcriptomics/VL-Integration
+          title: Linking Ophys and Transcriptomics
   - caption: Computational Tools
     chapters:
     - file: computational/data-analysis/data-analysis.md
