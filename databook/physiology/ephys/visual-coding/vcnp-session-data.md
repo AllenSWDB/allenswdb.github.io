@@ -16,8 +16,6 @@ kernelspec:
 
 This tutorial walks through the basic contents of a Visual Coding Neuropixels session NWB file: the units table, stimulus presentation intervals, running speed, optotagging protocol, and LFP data. 
 
-Visual Coding Neuropixels sessions are stored as NWB files, so the main dependency is PyNWB. Pandas and NumPy are useful for working with the tables and arrays stored in the file.
-
 ```{code-cell} ipython3
 import pynwb
 import pandas as pd
@@ -38,7 +36,7 @@ nwbfile
 
 ## Units
 
-The "units" from an electrophysiological recording are the outputs of a clustering algorithm (in this case, Kilosort), which assigns each spike detected in the voltage traces to a unique neuron. The units table has one row per unit and contains spike times, waveforms, quality-control metrics, anatomical location, and a large set of precomputed visual-response metrics (one per stimulus family) for every sorted unit in the session.
+The {term}`unit`s from an electrophysiological recording are the outputs of a clustering algorithm (in this case, Kilosort), which assigns each spike detected in the voltage traces to a unique neuron. The units table has one row per unit and contains spike times, waveforms, quality-control metrics, anatomical location, and a large set of precomputed visual-response metrics (one per stimulus family) for every sorted unit in the session.
 
 
 | Column | Description |
@@ -170,7 +168,7 @@ In place of a single stimulus trials table, Visual Coding Neuropixels sessions o
 list(nwbfile.intervals)
 ```
 
-For detailed information about the stimuli and corresponding intervals tables, see the [stimulus page](https://allenswdb.github.io/physiology/ophys/visual-coding/vc2p-stimuli.html). 
+For detailed information about the stimuli and corresponding intervals tables, see the [stimulus page](vcnp-stimulus.md). 
 
 ## Running speed
 
@@ -191,7 +189,7 @@ plt.xlabel('Time (s)')
 
 ## Optotagging
 
-In addition to the visual protocol, each session ends with an optotagging block: brief pulses of blue light are delivered to a Cre-dependent, ChR2-expressing population, and units are considered "tagged" if they respond at short latency. The `optotagging` processing module stores both the laser-pulse intervals and a timeseries description of the protocol.
+In addition to the visual protocol, each session ends with an [optotagging](Background-optotagging) block: brief pulses of blue light are delivered to a Cre-dependent, ChR2-expressing population, and units are considered "tagged" if they respond at short latency. The `optotagging` processing module stores both the laser-pulse intervals and a timeseries description of the protocol.
 
 ### `optogenetic_stimulation` intervals
 
