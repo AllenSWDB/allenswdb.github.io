@@ -26,6 +26,7 @@ name: head-bar-clamp
 The parent Metadata object and the eight core files are shown, with their fields and types. In the [interactive documentation](https://aind-data-schema.readthedocs.io/en/latest/) the fields storing objects can be further expanded to explore.
 :::
  
+## Metadata classes
 The schema consists of seven major classes:
 
 ### Data description
@@ -62,6 +63,10 @@ The metadata can also be explored using a LLM or using the [MCP](https://github.
 
 ## Queries
 You can use MongoDB to query the database via the `aind_data_access_api`.
+
+```{note}
+For each dataset in this databook we provide a query that uplevels key features and re-form it into a dataframe. Here we provide one exampel for illustration.
+```
 
 ```{code-cell} ipython3
 import pandas as pd 
