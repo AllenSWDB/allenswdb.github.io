@@ -1,28 +1,38 @@
 # BCI Stimuli
 
-Each experimental session consisted of five distinct epochs: pre-spontaneous, pre-photostimulation, BCI, post-spontaneous, and post-photostimulation. All epochs involved fluorescence recordings from the same set of neurons in head-fixed mice. 
+Each experimental session consisted of 3 epoch types: spontaneous, photostimulation, and BCI. The spontaneous and photostimulation epochs were repeated 2 times - once before and once after the BCI task to allow for comparison of neural activity and functional connectivity before and after learning. 
 
 ## Spontaneous Activity
 
-In the spontaneous epochs, mice were recorded without any instructed behavior. 
-During the pre-spontaneous epoch, we identified a single “conditioned neuron” (CN) 
-that would later control the BCI task. The spontaneous activity of the CN was used to calibrate 
-the mapping between CN activity and lickport speed in the BCI. (Unlike the spontaneous activity used in Visual Coding, Visual Behavior or V1 Deep Dive datasets, there was no mean luminance presented during this epoch)
+In the spontaneous epochs (spont and spont_post), mice were recorded without any instructed behavior. No visual stimuli or mean luminance screen was presented (unlike other datasets such as the Visual Coding, Visual Behavior, or V1 Deep Dive datasets). 
+
+The pre-BCI spontaneous epoch served two purposes during the experiment: 
+1. **Conditioned neuron (CN) selection** - one neuron was identified based on high activity modulation and weak pre-trial tuning
+2.  **BCI calibration** - the spontaneous fluorescence of the CN sets the lower (F_L = median) and upper (F_U = maximum) thresholds used to control the lickport during the BCI task.
+
+The post-BCI spontaneous epoch provides a matched baseline to measure changes in neural activity following learning. 
 
 ## Photostimulation
 
-In the photostimulation epochs, a single neuron was targeted per at 600 ms time intervals.  
-Target order was randomized, cycling through 50–100 neurons in the field of view, with each neuron 
-stimulated for approximately 20 times (trials). The pre-photostimulation epoch provided a
-baseline connectivity map before learning, while the post-photostimulation epoch was used to assess changes in connectivity following the BCI task. 
+Holographic two-photon photostimulation was used to optogenetically activate individual neurons in each trial. In this variant of the task, 1 neuron was stimulated per trial, 50-100 neurons were stimulated in total in the FOV, each neuron was stimulated ~20 trials in randomized order. The same stimulation order from the pre-BCI photostimulation epoch was repeated for the post-BCI photostimulation epoch for direct comparison. 
+
+**Note** The laser stimulation creates a light artifact that activates GCaMP. Neural activity responses during the stimulation period should be excluded from analysis. 
 
 ## BCI Task
 
-In the BCI task, mice controlled the position of a motorized lickport using the activity of the CN. At the start of each trial, the lickport began in the “far” position, 7 mm from the mouse. 
-Increases in CN fluorescence moved the lickport toward the mouse at a speed proportional to CN activity. Mice had 10 seconds to bring the lickport into the “close” position to obtain a water reward. 
-Failure to reach the close position within the time limit resulted in the lickport retracting 
-to the far position. 
+In the BCI task, mice controlled the movement of a motorized lickport using the real-time fluorescence of the conditioned neuron (CN). The raw fluorescence of the CN is converted to a voltage (0-3.3V) that drives the step frequency of the lickport motor. The mapping is linear between two thresholds calibrated from the spontaneous epoch: 
+
+**F_L** (lower threshold): median CN fluorescence during spontaneous activity 
+**F_U** (upper threshold): maximum CN fluorescence during spontaneous activity 
+
+Activity below F_L produces no movement. Activity above F_U drives the lickport at maximum speed. 
+
+**Trial structure:** 
+1. Lickport starts 7mm away from the mouse's mouth
+2. An auditory cue signals trial start
+3. The mouse has 10s to move the lickport to the reward position (6mm of travel) by increasing CN activity
+4. If successful (hit), water reward is delivered
+5. Next trial starts after CN activity drops below F_L for ≥ 200 ms followed by a 2s delay
+6. On failure (miss): lickport retracts and a new trial begins 
 
 ![BCI_schematic](/resources/BCI_schematic.png)
-
-Following the BCI task, additional spontaneous and photostimulation epochs were performed to measure changes in both network activity and functional connectivity after learning. 
