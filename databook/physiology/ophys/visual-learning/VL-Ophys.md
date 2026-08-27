@@ -37,7 +37,7 @@ along with the training progression and the session types, is described in
 [Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior). The
 gene expression measurements are described in
 [Visual Learning Transcriptomics](/cell-types/spatial-transcriptomics/VL-mFISH), and the procedure that links the two is described in
-[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
+[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).
 
 ## 2-Photon Calcium Imaging
 
@@ -216,11 +216,16 @@ across inhibitory subclasses.
 
 The registration procedure, the identifiers used to link the two datasets, and
 the numbers of neurons available at each stage are described in
-[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
+[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).
 
 ## Tutorials
 
-Three notebooks work through the dataset in the order you are likely to need it.
+The pages below work through the dataset in the order you are likely to need it.
+
+[Session metadata](/physiology/ophys/visual-learning/visual_learning_metadata) comes first, because every analysis begins by choosing
+sessions. It queries the AIND document database for the full metadata on each
+mouse and each acquisition, builds the one-row-per-session table the other
+notebooks read, and shows how to read the per-plane z-drift QC.
 
 [The ophys and behavior NWB files](/physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB) is a reference for a single session file.
 It opens one {term}`NWB` file and walks through every container in turn — the five
@@ -230,15 +235,14 @@ per-plane clocks relate to one another, and how to put everything on a single
 timeline. Its final section compares what each session type looks like in the
 data.
 
-[Inhibitory cell types and physiology](/physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology) starts from those files and attaches
-transcriptomic cell types to the recorded neurons. It covers the three ID
-systems that link the two datasets, the join between the coregistration tables
-and the HCR expression data, and comparisons of activity across inhibitory
-subclasses in familiar, novel, and cross-session analyses.
+[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration) describes how a neuron recorded in vivo
+is matched to the cell whose gene expression was measured after the experiment:
+the registration steps involved, the identifiers that carry the match from one
+dataset to the other, and how many neurons survive each stage. It is worth
+reading before the next notebook, which depends on that linkage throughout.
 
-[Session metadata](/physiology/ophys/visual-learning/visual_learning_metadata) goes
-underneath both of them, to the AIND document database that the session metadata
-table is built from. It shows how to query docDB for the full metadata on each
-mouse and each data acquisition, how to keep only the current processing
-generation of a session, and how to read the per-plane z-drift QC. Use it when
-you need a field that the session metadata table does not carry.
+[Inhibitory cell types and physiology](/physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology) puts the linkage to work. It attaches
+transcriptomic cell types to the recorded neurons, covering the three ID systems
+involved, the join between the coregistration tables and the HCR expression
+data, and comparisons of activity across inhibitory subclasses in familiar,
+novel, and cross-session analyses.

@@ -50,6 +50,11 @@ parts:
           # - file: physiology/ophys/visual-coding/vc2p-evoked-response
           # - file: physiology/ophys/visual-coding/vc2p-cross-session-data
           # - file: physiology/ophys/visual-coding/vc2p-analysis
+        - file: physiology/ophys/V1DD/V1DD-overview
+          sections:
+          - file: physiology/ophys/V1DD/V1DD-dataset
+          - file: physiology/ophys/V1DD/V1DD-session-data
+          - file: physiology/ophys/V1DD/V1DD-stimuli
         - file: physiology/ophys/visual-behavior/VB-Ophys
           title: Visual Behavior Ophys
           sections:
@@ -66,17 +71,14 @@ parts:
         - file: physiology/ophys/visual-learning/VL-Ophys
           title: Visual Learning Ophys
           sections:
-          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB
-            title: Tutorial Ophys and Behavior NWB Files
-          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology
-            title: Tutorial Cell Types and Physiology
           - file: physiology/ophys/visual-learning/visual_learning_metadata
             title: Tutorial Session Metadata
-        - file: physiology/ophys/V1DD/V1DD-overview
-          sections:
-          - file: physiology/ophys/V1DD/V1DD-dataset
-          - file: physiology/ophys/V1DD/V1DD-session-data
-          - file: physiology/ophys/V1DD/V1DD-stimuli
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB
+            title: Tutorial Ophys and Behavior NWB Files
+          - file: physiology/ophys/visual-learning/VL-Integration
+            title: Linking Ophys and Transcriptomics
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology
+            title: Tutorial Cell Types and Physiology
         - file: physiology/ophys/BCI/BCI-overview
           sections:
           - file: physiology/ophys/BCI/BCI-dataset
@@ -148,9 +150,6 @@ parts:
       sections:
       - file: cell-types/spatial-transcriptomics/VL-mFISH
         title: Visual Learning Transcriptomics
-        sections:
-        - file: cell-types/spatial-transcriptomics/VL-Integration
-          title: Linking Ophys and Transcriptomics
   - caption: Computational Tools
     chapters:
     - file: computational/data-analysis/data-analysis.md
