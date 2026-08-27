@@ -47,7 +47,7 @@ between flash starts. There were 75 trials for each condition (light and dark fl
 
 The video below shows brief snippets of each of the stimuli described above. Note that a spherical warping was applied to all stimuli to ensure that the apparent size, speed, and spatial frequency were constant across the monitor as seen from the mouse’s perspective. The images shown below have not been warped, and thus appear windowed at the corners.
 
-<video controls src="../_static/videos/sample_session_video.mp4"></video>
+<video controls width="100%" src="/_static/videos/sample_session_video.mp4"></video>
 
 To allow analysis of stimulus novelty on neural responses, two different images sets were used in the recording sessions: G and H (diagrammed below). Both image sets comprised 8 natural images. Two images were shared across the two image sets (purple in diagram), enabling within session analysis of novelty effects. Mice took one of the following three trajectories through training and the two days of recording: 
 

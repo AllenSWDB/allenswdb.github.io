@@ -33,6 +33,25 @@ ChR2
 Channelrhodopsin
   A light-gated ion channel used in the field of optogenetics to control neuronal activity with light. 
 
+Cell type taxonomy
+  A hierarchical grouping of cell types defined by gene expression. The Allen
+  Institute whole mouse brain taxonomy nests four levels — {term}`class`,
+  {term}`subclass`, {term}`supertype`, and {term}`cluster` — comprising 34
+  classes, 338 subclasses, 1,201 supertypes and 5,322 clusters. Datasets that
+  measure a small panel of genes rather than the whole transcriptome often reuse
+  these level names for groupings computed from their own data; those groupings
+  are not necessarily the same categories as in the reference taxonomy.
+
+Class
+  The broadest level of a {term}`cell type taxonomy`. In cortical data the term
+  is often used more loosely for the excitatory/inhibitory division.
+
+Cluster
+  The finest level of a {term}`cell type taxonomy`, below {term}`supertype`.
+  The word is also used generically for any grouping produced by a clustering
+  algorithm, which may have nothing to do with a taxonomy level — it is worth
+  checking which sense is meant.
+
 Container
   *There is no consistent use of this term*
   Most often this refers to the set of recording sessions for a single ophys imaging plane, but can also refer to the set of sessions for an animal.
@@ -196,7 +215,7 @@ Ophys
 Optogenetics
   A method for controlling the activity of neurons by expressing light activated
   ion channels (using a {term}`reporter line` ) in a specific subpopulation of
-  cells (using a {term}`Driver line`) to enable temporally precise control of
+  cells (using a {term}`driver line`) to enable temporally precise control of
   neural spiking. Spiking can be suppressed or enhanced using different types of
   reporters. See {cite:t}`peron2011` for a review on optogenetics as a method.
 
@@ -295,8 +314,27 @@ Spatial frequency
   When used in reference to drifting gratings, spatial frequency means the distance between the
   bars of the grating. Typically measured as cycles per degree.
 
+Spatial transcriptomics
+  A family of methods that measure gene expression while preserving the position
+  of each cell within the tissue. Rather than dissociating the tissue, individual
+  mRNA molecules are labeled in situ and imaged, so expression can be attributed
+  to a particular cell at a particular location. This makes it possible to
+  determine the molecular identity of cells that were also measured by another
+  modality, such as {term}`Two-photon calcium imaging`, in the same tissue.
+
 Spontaneous activity
   A period of an experiment where there is no external stimulus. In visual experiments this usually has the stimulus monitor fixed at mean luminance (e.g. so the light level doesn't change from that during the visual stimulation periods). In other experiments, that is not true.
+
+Subclass
+  A level of a {term}`cell type taxonomy`, below {term}`class` and above
+  {term}`supertype`. The canonical cortical inhibitory subclasses are Pvalb,
+  Sst, Vip and Lamp5, each named for a marker gene. See
+  {term}`parvalbumin-positive interneuron`, {term}`somatostatin cell` and
+  {term}`VIP cell`.
+
+Supertype
+  A level of a {term}`cell type taxonomy`, between {term}`subclass` and
+  {term}`cluster`.
 
 Targeted structure
   The brain region where data was collected from.
@@ -315,7 +353,7 @@ Two-photon calcium imaging
   A term for techniques which measure neural activity of neurons by measuring a
   fluorescent calcium indicator. These indicators are usually a protein
   expressed in a cell, such as {term}`GCaMP`, often using a specific combination
-  of {term}`Driver line` and {term}`reporter line`s to express GCaMP in a
+  of {term}`driver line` and {term}`reporter line`s to express GCaMP in a
   specific subset of neurons. Fluorescent dyes can also be used to perform
   calcium imaging. At rest a neuron has low levels of calcium, and when the
   neuron spikes calcium flows into the neuron and raises the level of calcium,
@@ -339,7 +377,7 @@ Unit
   included units are well isolated from their neighbors.
 
 VIP cell
-  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`Somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
 
 Waveform
 Spike

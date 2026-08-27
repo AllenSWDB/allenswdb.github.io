@@ -10,7 +10,7 @@ The Visual Behavior Optical Physiology and Visual Behavior Neuropixels projects 
 
 ![doctask](/resources/change_detection_task_diagram.webp)
 
-<video controls src="../_static/videos/task_video.mp4"></video>
+<video controls width="100%" src="/_static/videos/task_video.mp4"></video>
 
 
 ## 2-Photon Imaging
