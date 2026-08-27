@@ -1,7 +1,7 @@
 # Visual Learning Transcriptomics
 
 The Visual Learning dataset measures the activity of inhibitory neurons in
-primary visual cortex while mice learn a go/no-go visual change detection
+{term}`primary visual cortex` while mice learn a go/no-go visual change detection
 task, and then measures the gene expression of those same neurons in the same
 tissue after the in vivo experiment is complete. This page describes the gene
 expression measurements: how the tissue was processed, which genes were
@@ -17,10 +17,10 @@ Linking neuron function to gene expression
 ## Why measure gene expression in the imaged tissue
 
 Inhibitory neurons are not a single population. They comprise several
-molecularly distinct subclasses with different connectivity, different
+molecularly distinct {term}`subclass`es with different connectivity, different
 intrinsic properties, and different roles in cortical computation. The
 conventional way to study one of them is to choose it in advance, label it
-genetically with a Cre driver line, and record it in isolation — which gives
+genetically with a Cre {term}`driver line`, and record it in isolation — which gives
 one subclass at a time, in separate animals.
 
 This experiment inverts that approach. All inhibitory neurons are labeled at
@@ -32,7 +32,7 @@ recorded simultaneously in the same animal, which is what makes questions
 about interactions between subclasses accessible.
 
 Recovering that identity requires measuring gene expression in the same
-neurons that were imaged. That is what the spatial transcriptomics data
+neurons that were imaged. That is what the {term}`spatial transcriptomics` data
 described here provides.
 
 ## Tissue processing
@@ -113,13 +113,14 @@ All six mice share a 22-gene core: `GFP`, `Gad2`, `Slc17a7`, `Pvalb`, `Sst`,
 `Reln`, `Pdyn`, `Penk`, `Pthlh`, `Hpse`, `Mme`, and `Chat`. The three six-round
 animals add `Sncg`, `Cnr1`, `Adra1a`, `Adra1b`, and `Htr3a`.
 
-The panel has three kinds of gene in it. `GFP` reports the GCaMP transgene,
+The panel has three kinds of gene in it. `GFP` reports the {term}`GCaMP` transgene,
 which marks the cells that carried the calcium indicator in vivo. `Gad2` and
 `Slc17a7` are the canonical inhibitory and excitatory markers, and identify
 which broad class a cell belongs to. Everything else is either a subclass
 marker — `Pvalb`, `Sst`, `Vip`, `Lamp5` — or a gene that distinguishes
-subtypes within a subclass: `Ndnf` for neurogliaform cells, `Cck` for basket
-cells, `Calb2` for Sst Martinotti and Vip bipolar cells, and so on.
+subtypes within a subclass: `Ndnf` for {term}`neurogliaform cell`s, `Cck` for
+{term}`basket cell`s, `Calb2` for Sst {term}`martinotti cell`s and Vip
+{term}`bipolar cell`s, and so on.
 
 :::{figure} /resources/vl-met-morphologies.png
 ---
@@ -150,8 +151,10 @@ includes excitatory and non-neuronal cells alongside the inhibitory ones. Only
 a small fraction of these cells were also imaged in vivo.
 
 The table is distributed as an AnnData object, one per mouse. It carries the
-expression data twice. The raw integer transcript counts are held in `X`. A
-normalized version is held in `layers['normalized']`, produced in two stages:
+expression data twice - once as raw trascript counts and once in a normalized
+form that puts data on a similar scale to facilitate cross-animal comparisons. 
+The raw integer transcript counts are held in `X`. The
+normalized version is held in `layers['normalized']` and was produced in two stages:
 each cell is first divided by its own mean gene count, which puts a brightly
 detected cell and a dimly detected one on the same footing, and each gene is
 then divided by its 95th percentile across cells and clipped to 1, which makes
@@ -184,38 +187,46 @@ Cells by genes for a six-round mouse, 27 genes
 
 Cells carry three levels of label, computed three different ways.
 
+The names come from the Allen Institute {term}`cell type taxonomy`, which nests
+{term}`class`, {term}`subclass`, {term}`supertype` and {term}`cluster`. The
+first two are used here in the same sense they carry there: `inhibitory` is a
+class, and `Pvalb`, `Sst`, `Vip` and `Lamp5` are the canonical inhibitory
+subclasses. The third level - clusters - is directly derived from the cell 
+type taxonomy in this case. Clusters here are k-means groupings computed
+within each mouse from the panel of 22 or 27 genes; they are not the exact
+cluster labels from the reference taxonomy and do not correspond to a supertype or
+cluster in it. Read them as within-mouse structure finer than subclass. 
+You can also perform your own clustering or map to the taxonomy if you wish.
+
+The three levels are described below from broadest to finest. 
+
 **Class** — `excitatory`, `inhibitory`, or `unassigned` — comes from a
 threshold on raw marker counts. A cell needs at least 100 transcripts of a
 class marker to be called. Any of `Gad2`, `Pvalb`, `Vip`, `Sst`, or `Npy`
 clearing that bar makes a cell inhibitory; `Gad2` on its own under-calls,
-because it is only moderately expressed in some interneuron types. `Slc17a7`
+because it is only moderately expressed in some {term}`interneuron` types. `Slc17a7`
 clearing the bar with no inhibitory marker makes a cell excitatory. Cells that
-clear both `Gad2` and `Slc17a7` are left `unassigned` rather than forced into
-one class, as are cells that clear nothing at all.
+clear the threshold for both `Gad2` and `Slc17a7` are left `unassigned` rather than forced into
+one class, as are cells that meet none of the categories described above.
 
 `Lamp5` is a subclass marker but deliberately not one of the genes that can
-admit a cell to the inhibitory class. It is detected in roughly 45% of all
-cells in this tissue, so gating on it would admit most of the excitatory
-population.
+admit a cell to the inhibitory class because it is also expressed in excitatory cells. 
+Instead `Npy` is used, which is expressed in most Lamp5 cells but not excitatory cells. 
 
-**Cluster** comes from k-means run on the normalized matrix, separately within
-each class — 20 clusters among the inhibitory cells and 12 among the
-excitatory. Each cluster is named for the genes most enriched in it relative
+**Subclass** — `Pvalb`, `Sst`, `Vip`, or `Lamp5` (see the glossary definitions
+for {term}`parvalbumin-positive interneuron`, {term}`somatostatin cell` and
+{term}`VIP cell`) — comes from the expression of the four canonical subclass
+marker genes themselves. The assigned subclass is made based on which of the 
+four markers has the highest mean normalized expression for each cell. 
+Subclass labels are only given to cells that are assigned to the `inhibitory` class. 
+
+**Cluster** labels in this dataset come from k-means run on the normalized expression matrix, separately within each class, with k=20 clusters among the inhibitory cells and k=12 among the
+excitatory cells. Each cluster is named for the genes most enriched in it relative
 to the other clusters, giving names like `Pvalb-2 (Mme/Calb1/Cck)`. Clustering
 is computed fresh for each mouse from that mouse's own data, so cluster
 identity is not comparable across animals: `Sst-3` in one mouse is not `Sst-3`
-in another.
-
-**Subclass** — `Pvalb`, `Sst`, `Vip`, or `Lamp5` — is assigned per cluster
-rather than per cell. Each inhibitory cluster takes whichever of the four
-canonical subclass markers has the highest mean normalized expression within
-it, so the label always agrees with what the heatmap shows. A cluster in which
-no marker stands out receives no subclass rather than a guess. Every cell in a
-cluster inherits its cluster's subclass.
-
-The check that these labels mean what they should is that each subclass is
-brightest in its own marker gene, `Gad2` is high across all four, and
-`Slc17a7` is near zero throughout.
+in another. Clustering on the across mouse normalized expression data could be used 
+to identify shared clusters across mice. 
 
 Subclass is the level of resolution intended for most analyses. The cluster
 labels are present in the data for anyone who wants finer structure, with the
@@ -237,22 +248,18 @@ count applied to raw data, and detection depth varies over two orders of
 magnitude between cells, a dimly detected cell can fall below it regardless of
 what it actually is.
 
-Many of these cells are usable. A less conservative classification is planned
-for a future release of this dataset. In the meantime the classification can be
-redone from the table itself: the raw counts, the normalized matrix, and the
-per-cell marker counts that the threshold was applied to are all present, so
-the gate is both auditable and replaceable. A tutorial notebook for the gene
-expression data will demonstrate this.
+A less conservative classification could be used to include more neurons, 
+and we will provide additional options for filtering in a future data release. 
 
 ## The neurons that were also imaged
 
-Most of the cells described on this page were never imaged in vivo. The gene
-expression measurement covers a whole tangential section; the imaging covers
+Most of the cells recorded in the HCR transcriptomics data were never imaged in vivo; 
+only a small portion of the tissue contains the 2-photon imaged volume (a 400x400um cube). 
+The gene expression measurement covers the whole tangential section; the imaging covers
 eight planes within it, and a neuron must survive several registration steps
 to be matched between the two. The subset carrying both a gene expression
-profile and a record of activity during behavior is correspondingly smaller,
-and is not a random sample of either dataset.
+profile and a record of activity during behavior is correspondingly smaller.
 
 The procedure that links the two measurements, the identifiers involved, and
 the number of neurons available at each stage are described in
-[Linking Ophys and Transcriptomics](/anatomy/spatial-transcriptomics/VL-Integration).
+[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).

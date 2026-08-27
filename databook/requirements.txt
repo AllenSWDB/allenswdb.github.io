@@ -5,4 +5,5 @@ pandas
 caveclient
 scipy
 anndata
-parquet
+pynwb
+aind-data-access-api

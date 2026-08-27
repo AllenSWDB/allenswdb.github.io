@@ -1,22 +1,32 @@
 ---
 jupytext:
+  formats: md:myst
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
     jupytext_version: 1.19.5
 kernelspec:
-  display_name: base
+  display_name: Python 3 (ipykernel)
   language: python
-  name: python3
+  name: query
 ---
 
 # Visual Learning session metadata
 
-Builds `visual_learning_session_metadata.csv` — one row per session for the six
-Visual Learning mice.
+The metadata for every Visual Learning session lives in the AIND document
+database (docDB). This page queries docDB and assembles a dataframe with one row
+per session, carrying the mouse, the session type, the acquisition date, the
+imaging planes and their depths, and the z-drift QC result.
 
-```{code-cell}
+That dataframe is the thing to take away. It is what the Visual Learning
+tutorials use to choose sessions, and the same query can be adapted to pull
+whatever other fields an analysis needs. Writing it to a CSV, at the end of this
+page, is a convenience rather than the goal.
+
+## Setup
+
+```{code-cell} ipython3
 import re
 import time
 from datetime import datetime
@@ -28,7 +38,7 @@ pd.set_option('display.width', 220)
 pd.set_option('display.max_columns', 40)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from aind_data_access_api.document_db import MetadataDbClient
 
 API_GATEWAY_HOST = "api.allenneuraldynamics.org"
@@ -45,10 +55,14 @@ docdb_api_client = MetadataDbClient(
 print(docdb_api_client._base_url)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # The cohort is defined by subject: five different project_name values are
 # interleaved across the same six mice.
 VISUAL_LEARNING_MICE = ['782149', '790322', '788406', '800792', '800995', '804363']
+
+# Assets are selected by modality rather than by a pattern on the asset name.
+# 'pophys' is planar optical physiology, the modality for multiplane ophys.
+MODALITY = 'pophys'
 
 # Processed asset names end in _processed_<date>_<time>. Anchoring at end-of-string
 # drops further-derived assets (behavior-nwb, cortical-zstack, coreg, ROICat) that
@@ -63,12 +77,12 @@ BATCH = 40
 
 ## Query
 
-```{code-cell}
+```{code-cell} ipython3
 aggregate = [
   {
     "$match": {
       "data_description.subject_id": {"$in": VISUAL_LEARNING_MICE},
-      "name": {"$regex": "^multiplane-ophys_"},
+      "data_description.modalities.abbreviation": MODALITY,
       # exclude the post-training passive block
       "acquisition.acquisition_type": {"$exists": True,
                                        "$ne": "CENTER_MOUSEMOTION"},
@@ -79,6 +93,7 @@ aggregate = [
       "name": 1,
       "subject_id": "$data_description.subject_id",
       "project_name": "$data_description.project_name",
+      "modality": "$data_description.modalities.abbreviation",
       "acquisition_type": "$acquisition.acquisition_type",
       "session_start_time": "$acquisition.acquisition_start_time",
       "session_end_time": "$acquisition.acquisition_end_time",
@@ -102,7 +117,8 @@ aggregate = [
   },
   {
     "$project": {
-      "name": 1, "subject_id": 1, "project_name": 1, "acquisition_type": 1,
+      "name": 1, "subject_id": 1, "project_name": 1, "modality": 1,
+      "acquisition_type": 1,
       "session_start_time": 1, "session_end_time": 1, "rig": 1,
       "genotype": 1, "sex": 1, "date_of_birth": 1,
       "n_planes": {"$size": "$planes"},
@@ -122,17 +138,22 @@ records = docdb_api_client.aggregate_docdb_records(
 print(f'{len(records)} assets')
 
 if len(records) == 0:
-    raise RuntimeError('No assets matched -- check the client version and pipeline.')
+    raise RuntimeError(
+        f'No assets matched. If the cohort and client are right, check that '
+        f'MODALITY={MODALITY!r} is the abbreviation docDB uses for these assets.')
+
+# Confirm the modality filter selected what we expect, and nothing else.
+print('modalities returned:', {m for r in records for m in (r.get('modality') or [])})
 ```
 
-## Session table
+## Building the session table
 
 One row per session, keeping only the newest `_processed_` generation: a session is
 reprocessed whenever the pipeline changes, so it appears several times (3-8 deep) under
 different stamps. The stamp format sorts lexicographically in chronological order, so
 `sort_values` + `keep='last'` picks the newest.
 
-```{code-cell}
+```{code-cell} ipython3
 sessions = pd.DataFrame(records)
 sessions = sessions[sessions.name.str.match(PROCESSED_PATTERN)].copy()
 
@@ -148,7 +169,7 @@ print(f'{len(sessions)} unique sessions across {sessions.subject_id.nunique()} m
 print(sessions.subject_id.value_counts().sort_index().to_string())
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # acquisition_date comes off the asset name; session_date/time off the timestamp.
 # They agree on every row today -- kept separate because the name is what the mount
 # and every derived asset are keyed by.
@@ -182,7 +203,7 @@ sessions['targeted_structures'] = [
     sorted(set(r.targeted_structures)) for r in sessions.itertuples()]
 ```
 
-## Z-drift QC
+### Z-drift QC
 
 QC lives in `quality_control.metrics` — a flat array of per-plane metrics, each with a
 `status_history` whose last entry is current. Metric names carry the plane either
@@ -193,7 +214,7 @@ Sessions whose processing generation predates the z-drift evaluation have no met
 read; those stay `NA` rather than `0`, so a session with no QC is not mistaken for a
 session that passed.
 
-```{code-cell}
+```{code-cell} ipython3
 zdrift = []
 targets = sessions.name.tolist()
 
@@ -227,7 +248,7 @@ zdrift = zdrift.drop_duplicates(['name', 'plane_name'])
 print(zdrift.status.value_counts().to_string())
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Failing plane names per session, plus the count. Sessions with no z-drift QC
 # stay NA -- distinct from an empty list, which means QC ran and nothing failed.
 failed = zdrift[zdrift.status == 'Fail'].copy()
@@ -251,11 +272,15 @@ print(f'{int(have_qc.sum())} sessions with z-drift QC, '
 print(sessions.n_planes_failing_zdrift.value_counts(dropna=False).sort_index().to_string())
 ```
 
-```{code-cell}
+### The session table
+
+Ordered and reset, this is the finished table.
+
+```{code-cell} ipython3
 order = ['subject_id', 'session_id', 'name', 'session_type', 'acquisition_type',
          'stage', 'image_set', 'session_number', 'acquisition_date', 'session_date',
          'session_time', 'age_days', 'genotype', 'sex', 'date_of_birth', 'rig',
-         'project_name', 'n_planes', 'plane_names', 'imaging_depths',
+         'project_name', 'modality', 'n_planes', 'plane_names', 'imaging_depths',
          'targeted_structures', 'planes_failing_zdrift',
          'n_planes_failing_zdrift', 'processed_stamp', '_id']
 
@@ -263,43 +288,12 @@ sessions = sessions[order].reset_index(drop=True)
 sessions
 ```
 
-## Sanity checks
+## Views of the table
 
-docDB drops rows silently — it returns no error when an asset simply is not indexed.
-Read these counts against what you expect from the processing batch; if a mouse is
-short, re-run rather than assuming the data is missing.
+With the table built, these views show what the dataset actually offers before
+picking sessions for an analysis.
 
-```{code-cell}
-print('sessions per mouse')
-print(sessions.subject_id.value_counts().sort_index().to_string())
-
-print('\nplanes per session (8 for all -- enforced in the query)')
-print(sessions.n_planes.value_counts().sort_index().to_string())
-
-print('\nsession types')
-print(sessions.session_type.value_counts().to_string())
-
-missing = set(VISUAL_LEARNING_MICE) - set(sessions.subject_id)
-if missing:
-    print(f'\nno sessions returned for: {sorted(missing)}')
-```
-
-## Write the CSV
-
-```{code-cell}
-session_csv = f'{OUTPUT_DIR}/visual_learning_session_metadata.csv'
-sessions.to_csv(session_csv, index=False)
-print(f'{session_csv}  ({len(sessions)} rows, {sessions.shape[1]} columns)')
-```
-
----
-
-## What's in this table?
-
-Use this to see what the dataset actually offers before picking sessions for a
-problem set.
-
-```{code-cell}
+```{code-cell} ipython3
 # Column inventory: type, fill rate, and how much each column varies
 rows = []
 for col in sessions.columns:
@@ -315,7 +309,7 @@ for col in sessions.columns:
 pd.DataFrame(rows)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Which columns are constant across the cohort (no use as a selector)?
 varying, constant = [], []
 for col in sessions.columns:
@@ -328,7 +322,7 @@ for c in constant:
 print(f'\nvarying ({len(varying)}): {varying}')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Categorical columns worth filtering on
 for col in ['session_type', 'image_set', 'rig', 'project_name', 'sex']:
     counts = sessions[col].value_counts(dropna=False)
@@ -336,13 +330,13 @@ for col in ['session_type', 'image_set', 'rig', 'project_name', 'sex']:
     print(counts.to_string(), '\n')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Sessions per mouse per session_type -- where the usable data actually is
 pd.crosstab(sessions.subject_id, sessions.session_type,
             margins=True, margins_name='TOTAL')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Imaging geometry: are the 8 planes at consistent depths across sessions?
 depths = sessions.explode('imaging_depths')
 print('distinct imaging depths:', sorted(depths.imaging_depths.dropna().unique()))
@@ -354,7 +348,7 @@ print('\ntargeted structures:',
       sorted({s for lst in sessions.targeted_structures for s in lst}))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Numeric spread, and how age and session count relate per mouse
 print(sessions[['age_days', 'n_planes', 'session_number',
                 'n_planes_failing_zdrift']].describe().to_string())
@@ -369,7 +363,7 @@ print(sessions.groupby('subject_id').agg(
 ).to_string())
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Z-drift QC coverage -- and the caveat that NA is not a pass
 qc_cov = sessions.n_planes_failing_zdrift.notna()
 print(f'sessions with z-drift QC: {int(qc_cov.sum())} / {len(sessions)}')
@@ -382,7 +376,7 @@ print(sessions.assign(has_qc=qc_cov).groupby('session_type').has_qc.agg(
     n='size', with_qc='sum').to_string())
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Candidate sessions for a problem set: QC present and nothing failing
 usable = sessions[sessions.n_planes_failing_zdrift == 0]
 print(f'{len(usable)} sessions with zero z-drift failures')
@@ -392,4 +386,36 @@ print(usable.groupby(['subject_id', 'session_type']).size().to_string())
 exploded = sessions.planes_failing_zdrift.dropna().explode().dropna()
 print('\nz-drift failures by plane')
 print(exploded.value_counts().sort_index().to_string())
+```
+
+### Sanity checks
+
+docDB drops rows silently — it returns no error when an asset simply is not indexed.
+Read these counts against what you expect from the processing batch; if a mouse is
+short, re-run rather than assuming the data is missing.
+
+```{code-cell} ipython3
+print('sessions per mouse')
+print(sessions.subject_id.value_counts().sort_index().to_string())
+
+print('\nplanes per session (8 for all -- enforced in the query)')
+print(sessions.n_planes.value_counts().sort_index().to_string())
+
+print('\nsession types')
+print(sessions.session_type.value_counts().to_string())
+
+missing = set(VISUAL_LEARNING_MICE) - set(sessions.subject_id)
+if missing:
+    print(f'\nno sessions returned for: {sorted(missing)}')
+```
+
+## Saving the table
+
+The tutorials read this table from a CSV in the mounted data asset, so it is
+written out here for that purpose. Nothing above depends on it.
+
+```{code-cell} ipython3
+session_csv = f'{OUTPUT_DIR}/visual_learning_session_metadata.csv'
+sessions.to_csv(session_csv, index=False)
+print(f'{session_csv}  ({len(sessions)} rows, {sessions.shape[1]} columns)')
 ```

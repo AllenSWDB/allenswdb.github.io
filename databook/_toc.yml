@@ -143,10 +143,13 @@ parts:
         sections:
         -  file: anatomy/single-cell-morphology/scm-imageprocessing.md
         -  file: anatomy/single-cell-morphology/scm-data.md
-      - file: anatomy/spatial-transcriptomics/VL-mFISH
+    - file: cell-types/cell-types
+      title: Cell Types
+      sections:
+      - file: cell-types/spatial-transcriptomics/VL-mFISH
         title: Visual Learning Transcriptomics
         sections:
-        - file: anatomy/spatial-transcriptomics/VL-Integration
+        - file: cell-types/spatial-transcriptomics/VL-Integration
           title: Linking Ophys and Transcriptomics
   - caption: Computational Tools
     chapters:

@@ -1,20 +1,21 @@
 # Visual Learning Ophys Dataset Overview
 
-The Visual Learning dataset was generated using in vivo 2-photon calcium
-imaging (also called optical physiology, or "ophys") to measure the activity of
-inhibitory neurons in the primary visual cortex of mice while they learned a
-go/no-go visual change detection task. The same population of neurons was
+The Visual Learning dataset was generated using in vivo
+{term}`Two-photon calcium imaging` to measure the activity of
+inhibitory neurons in the {term}`primary visual cortex` of mice while they learned a
+go/no-go [visual change detection task](change_detection_task). The same population of neurons was
 recorded every day across the entire training procedure, from the animal's
 first exposure to the task through expert performance, novel stimulus
 exposure, and extinction of the learned stimulus-reward association. After the
 in vivo experiment was complete, the transcriptomic identity of the same
-neurons was measured using post-hoc spatial transcriptomics on the same tissue.
+neurons was measured using post-hoc {term}`spatial transcriptomics` on the same
+tissue.
 
 ![Linking neuron function to gene expression](/resources/vl-overview-schematic.png)
 
 The purpose of this dataset is to link what a neuron does to who a neuron is.
 Inhibitory neurons are not a single population — they comprise several
-molecularly distinct subclasses with different connectivity, different
+molecularly distinct {term}`subclass`es with different connectivity, different
 intrinsic properties, and different roles in cortical computation. Measuring
 the activity of these subclasses during learning has historically required
 choosing one subclass in advance, labeling it genetically, and recording it in
@@ -29,39 +30,24 @@ imaging planes per session in primary visual cortex, along with the full
 behavioral record for every session. Gene expression data for 22 or 27 genes,
 depending on the mouse, is provided for coregistered neurons.
 
-This page describes the imaging. The task, the training progression, and the
-stimuli are described in
+This page describes the imaging. The task is the change detection task shared
+across the Visual Behavior datasets and is described on the
+[Visual Behavior Task](vb-behavior) page; how Visual Learning differs from it,
+along with the training progression and the session types, is described in
 [Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior). The
 gene expression measurements are described in
-[Visual Learning Transcriptomics](/anatomy/spatial-transcriptomics/VL-mFISH), and the procedure that links
-the two is described in
-[Linking Ophys and Transcriptomics](/anatomy/spatial-transcriptomics/VL-Integration).
-
-## Change Detection Task
-
-Mice perform a go/no-go visual change detection task. They view a continuous
-stream of briefly presented visual stimuli and earn a water reward by licking
-a spout when the identity of the stimulus changes. Each stimulus is presented
-for 250 ms followed by 500 ms of gray screen, producing a regular 750 ms cycle,
-and change times are drawn from a geometric distribution so the mouse cannot
-predict when a change will occur.
-
-![Visual change detection task](/resources/vl-task-schematic.png)
-
-Once mice reach performance criterion, 5% of non-change stimulus presentations
-are omitted, extending the gray period from 500 ms to 1250 ms and violating an
-established temporal expectation without introducing any new visual input.
-
-The task parameters, trial structure, and stimuli are described in full on the
-[Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior) page.
+[Visual Learning Transcriptomics](/cell-types/spatial-transcriptomics/VL-mFISH), and the procedure that links the two is described in
+[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
 
 ## 2-Photon Calcium Imaging
 
 Neural activity was measured as calcium fluorescence in mice expressing the
 genetically encoded calcium indicator jGCaMP8s in inhibitory neurons, using the
-transgenic line `Slc32a1-IRES-Cre;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)`.
+{term}`transgenic line` `Slc32a1-IRES-Cre;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)`.
 `Slc32a1` (VGAT) is expressed by all GABAergic neurons, so the label is
-pan-inhibitory: Pvalb, Sst, Vip, and Lamp5 neurons all express the indicator,
+pan-inhibitory: Pvalb, Sst, Vip, and Lamp5 neurons (see the glossary
+definitions for {term}`parvalbumin-positive interneuron`,
+{term}`somatostatin cell` and {term}`VIP cell`) all express the indicator,
 and all are recorded simultaneously in the same field of view. Excitatory
 neurons are not labeled and are not present in this dataset.
 
@@ -73,7 +59,7 @@ established after the in vivo experiment by measuring gene expression in the
 same tissue. The consequence is that subclasses can be compared within a single
 field of view, in the same session, under identical behavioral conditions —
 but also that not every recorded neuron ends up with a subclass label, since a
-neuron must be successfully matched to the transcriptomics data to be typed.
+neuron must be successfully matched to the transcriptomics data to receive one.
 
 Sessions were acquired on a modified 2-photon Mesoscope, which records 8
 imaging planes in a single session. All 8 planes are located in primary visual
@@ -84,8 +70,8 @@ at approximately 10 Hz.
 ![Eight imaging planes in VISp](/resources/vl-imaging-planes.png)
 
 Sampling this depth range in VISp means layer 1 is included, which matters for
-inhibitory populations specifically: Lamp5 neurons, including neurogliaform
-cells, are concentrated in layer 1 and are largely absent from datasets that
+inhibitory populations specifically: Lamp5 neurons, including
+{term}`neurogliaform cell`s, are concentrated in layer 1 and are largely absent from datasets that
 begin imaging deeper in the cortex.
 
 In addition to fluorescence timeseries, running speed, lick times, and reward
@@ -96,7 +82,7 @@ related to locomotion, task engagement, choices, and errors.
 
 Each imaging plane is targeted repeatedly across days, so the same neurons can
 be followed across the training procedure. Cells are matched across sessions
-using ROICaT, an open-source tool for cross-session ROI matching, and matched
+using ROICaT, an open-source tool for cross-session {term}`ROI` matching, and matched
 cells receive an identifier that is stable across every session in which the
 cell was detected.
 
@@ -216,8 +202,8 @@ grouping neurons by the subclass marker genes.
 ![Coregistered inhibitory neurons across imaging planes](/resources/vl-coregistered-planes.png)
 
 The number of neurons carrying a subclass label is smaller than the number
-segmented, since a neuron must be matched through several registration steps to
-be typed. Subclass representation is also uneven: Pvalb and Vip neurons are
+segmented, since a neuron must be matched through several registration steps
+before it can be labeled. Subclass representation is also uneven: Pvalb and Vip neurons are
 recovered in larger numbers than Sst neurons, which is worth
 considering when planning comparisons between subclasses.
 
@@ -230,14 +216,14 @@ across inhibitory subclasses.
 
 The registration procedure, the identifiers used to link the two datasets, and
 the numbers of neurons available at each stage are described in
-[Linking Ophys and Transcriptomics](/anatomy/spatial-transcriptomics/VL-Integration).
+[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
 
 ## Tutorials
 
 Three notebooks work through the dataset in the order you are likely to need it.
 
 [The ophys and behavior NWB files](/physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB) is a reference for a single session file.
-It opens one NWB file and walks through every container in turn — the five
+It opens one {term}`NWB` file and walks through every container in turn — the five
 representations of neural activity, the running and lick data, the stimulus and
 trial tables, and the session metadata — explaining what each holds, how the
 per-plane clocks relate to one another, and how to put everything on a single

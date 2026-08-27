@@ -1,51 +1,49 @@
 # Visual Learning Task Overview
 
-The Visual Learning dataset uses the same go/no-go visual change detection task
-as the [Visual Behavior](/physiology/stimuli/visual-behavior/VB-Behavior)
-datasets, but applies it to a different question. In Visual Behavior, mice were
+The Visual Learning dataset uses the same go/no-go
+[visual change detection task](change_detection_task) as the
+[Visual Behavior](vb-behavior) datasets, but applies it to a different
+question. In Visual Behavior, mice were
 trained to expert performance first and imaged afterward. In Visual Learning,
 mice are head-fixed under the 2-photon microscope for every session of the
-training procedure, so the behavioral record runs continuously from the
+training procedure, so behavior and physiology are recorded simultaneously from the
 animal's first exposure to the task, through expert performance and novel
 stimulus exposure, to extinction of the learned stimulus-reward association.
 
-Two consequences of this design shape the rest of this page. First, the early
-training stages are part of the dataset rather than a precursor to it, so the
+Two consequences of this design shape the types of analysis that can be done with this dataset. 
+First, the early training stages are a core part of the dataset rather than a precursor to it, so the
 stage-by-stage progression is itself an experimental variable. Second,
-performance varies widely across the dataset by construction: the earliest
-sessions come from a naive animal and the last come from an animal whose
-learned association has been deliberately broken. Low performance in those
-sessions is the phenomenon of interest rather than a data quality problem.
+performance varies across the dataset by construction: the earliest
+sessions come from a naive animal, the later stages come from the same animal
+once well trained, and the last two sessions break the learned association by witholding reward to extinguish the behavior.
 
-This page describes the task, the training progression, the stimuli, and the
-session types. The imaging configuration, the tracking of the same neurons
-across sessions, and the structure of the dataset are described in
+This page describes the the training progression and the key
+session types. The structure of the task itself is described in [Visual Behavior](vb-behavior).
+The imaging configuration, the tracking of the same neurons
+across sessions, and the structure of the physiology dataset are described in
 [Visual Learning Ophys](/physiology/ophys/visual-learning/VL-Ophys).
 
 ## Change Detection Task
 
-Mice are trained to perform a go/no-go visual change detection task. They
-view a continuous stream of briefly presented visual stimuli and earn a water
-reward by licking a spout when the identity of the stimulus changes.
+Mice perform a go/no-go visual change detection task. They view a continuous
+stream of briefly flashed visual stimuli and learn to lick a spout when the
+identity of the stimulus changes, earning a water reward for correctly reported
+changes. This is the same task used in the
+[Visual Behavior](vb-behavior) datasets. The full task structure and parameters
+— how change times are drawn, how trial outcomes are defined, and what happens
+when a mouse licks before a change — are described on the
+[Visual Behavior Task](change_detection_task) page.
 
 ![Visual change detection task](/resources/vl-task-schematic.png)
 
-Each stimulus is presented for 250 ms, followed by 500 ms of gray screen,
-producing a regular 750 ms cycle. On go trials the stimulus identity changes,
-and the mouse must lick within a 750 ms response window to receive a water
-reward. On catch trials no change occurs, and licking is scored as a false
-alarm. Change times are drawn from a geometric distribution spanning roughly 4
-to 12 flashes since the last change or the last lick, so the mouse cannot
-predict when a change will occur. Licking before the scheduled change time
-aborts the trial and restarts the interval, which discourages indiscriminate
-licking.
-
-In sessions where mice have reached performance criterion (`session_type`
-beginning with `OPHYS`), 5% of non-change stimulus presentations are omitted. On
-an omitted flash the image simply does not appear, extending the gray period
-from 500 ms to 1250 ms. Because the stimulus stream is otherwise perfectly
-regular, omissions create a violation of an established temporal expectation
-without introducing any new visual input.
+One detail differs in a way that matters for analysis. In Visual Behavior,
+stimulus omissions are introduced during recording sessions but not during
+training, so the presence of omissions tracks whether neural activity is being
+measured. Here every session is a recording session, so omissions instead track
+task performance: they begin once a mouse reaches criterion on the natural-image
+version of the task and are present in every task session from that point on.
+Session types beginning with `TRAINING_` contain no omissions; those beginning
+with `OPHYS_` do.
 
 ![Image changes and omissions](/resources/vl-change-omission.png)
 
@@ -71,9 +69,8 @@ reward. During `TRAINING_1`, mice must lick following stimulus changes to earn
 water rewards.
 
 Once mice perform the task at criterion level, they transition to `TRAINING_2`
-where a gray screen inter-stimulus interval is added to the task. Stimuli
-appear for 250 ms followed by a 500 ms gray screen, then another 250 ms
-stimulus, and so on. This gray screen period makes the task more difficult by
+where a 500ms gray screen inter-stimulus interval is added to the task. 
+This gray screen period makes the task more difficult by
 adding a working memory component — the task of the mouse is to determine "is
 what I am seeing now the same or different as what I saw 500 ms ago?".
 
@@ -121,7 +118,7 @@ Image set B, novel at the first `OPHYS_4` session:
 ![image_set_B](/resources/image_set_B.png)
 
 These are the same two image sets used in the
-[Visual Behavior](/physiology/stimuli/visual-behavior/VB-Behavior) datasets.
+[Visual Behavior](vb-behavior) datasets.
 
 **`OPHYS_6` — extinction.** Described in the next section.
 
@@ -148,7 +145,7 @@ which is robust in every rewarded session type, falls to near zero.
 
 Low performance in these sessions is the phenomenon of interest rather than a
 data quality problem. The mouse is motivated and the apparatus is unchanged;
-responding stops because the contingency has been removed.
+mice stop responding because the reward association has been removed.
 
 A note for those familiar with the Visual Behavior Ophys dataset: that dataset
 also contains a session type called `OPHYS_6`, but it means something else
@@ -182,8 +179,8 @@ by how it responds to parametrically varying visual stimuli.
 
 Note that mice have seen oriented gratings before reaching `STAGE_1`, since
 `TRAINING_0` and `TRAINING_1` use full-field static gratings. Orientation is
-therefore not novel at this point, though drift, temporal frequency, and spatial
-frequency may be. The interval between the passive sessions and the preceding
+therefore not novel at this point, though drift, {term}`temporal frequency`, and
+{term}`spatial frequency` may be. The interval between the passive sessions and the preceding
 task sessions varies across mice, from days to several weeks.
 
 ## Session Structure

@@ -2,7 +2,7 @@
 
 The Visual Learning dataset consists of two independent measurements of the
 same tissue. In vivo two-photon imaging records the activity of inhibitory
-neurons across eight planes in primary visual cortex, every day, through the
+neurons across eight planes in {term}`primary visual cortex`, every day, through the
 entire training procedure. After the in vivo experiment is complete, spatial
 transcriptomics measures the expression of 22 or 27 genes in a tangential
 section of the same brain. Neither measurement is useful for the purpose of
@@ -26,13 +26,13 @@ Matching a neuron across that gap cannot be done in one step. The registration
 proceeds through an intermediate volume: a high-resolution structural z-stack
 of the same cortical volume, acquired in vivo at the end of the experiment,
 which shares its imaging modality with the functional planes on one side and
-its fluorophore with the lightsheet volume on the other.
+its {term}`fluorophore` with the lightsheet volume on the other.
 
 ## The registration chain
 
 **Within a plane, across sessions.** Each session is segmented independently,
 so the same neuron produces a different set of pixels with a different index in
-every session it appears in. ROICaT matches ROI masks across sessions within
+every session it appears in. ROICaT matches {term}`ROI` masks across sessions within
 each imaging plane, on the basis of mask shape and position, and assigns each
 resulting neuron a single identifier that is stable across every session of
 that mouse. The result is one unified set of masks per plane rather than one
@@ -54,7 +54,7 @@ directly to each other.
 
 **Into the lightsheet volume.** The structural volume is then aligned to the
 lightsheet volume acquired from the tangential section of the same brain. This
-step works at cellular resolution because it is a **GCaMP-to-GCaMP**
+step works at cellular resolution because it is a **{term}`GCaMP`-to-GCaMP**
 registration: the same cells are labeled by the same fluorophore in both
 volumes, so the alignment is driven by matching individual cell bodies rather
 than by matching tissue landmarks. `GFP` is in the gene panel for exactly this
@@ -135,7 +135,8 @@ coregister.
 A single session shows the same funnel at a smaller scale. In one
 `TRAINING_1` session from mouse 800995, of 532 segmented ROIs across the eight
 planes, 393 were in the coregistration table, 301 matched a stack cell, 247
-matched a transcriptomic cell, and 131 carried an inhibitory subclass label.
+matched a transcriptomic cell, and 131 carried an inhibitory {term}`subclass`
+label.
 
 ![Coregistered inhibitory neurons across imaging planes](/resources/vl-coregistered-planes.png)
 
@@ -181,13 +182,13 @@ matter when planning a comparison.
 
 **The subclasses sit at different depths.** Lamp5 and Vip neurons are
 superficial, Sst and Pvalb neurons are deeper. Median imaging depth of the
-typed neurons across the dataset:
+neurons carrying a subclass label, across the dataset:
 
 | Lamp5 | Vip | Sst | Pvalb |
 |---|---|---|---|
 | 110 µm | 124 µm | 228 µm | 239 µm |
 
-The effect on composition is substantial: above 90 µm the typed population is
+The effect on composition is substantial: above 90 µm the labeled population is
 roughly 86% Lamp5 and Vip, while below 210 µm it is 60–70% Pvalb. A comparison
 between Vip and Pvalb neurons is therefore also, to a large extent, a
 comparison between superficial and deep cortex. Note that these are imaging
@@ -196,7 +197,7 @@ layer label, and depth alone does not provide one, since layer boundaries vary
 between animals and a plane's depth is a nominal setting.
 
 **Sst neurons are scarce in the linked population but not in the tissue.**
-Among typed coregistered neurons across all six mice:
+Among coregistered neurons carrying a subclass label, across all six mice:
 
 | Mouse | Pvalb | Sst | Vip | Lamp5 | Total |
 |---|---|---|---|---|---|
@@ -214,7 +215,7 @@ common. Coregistration depends on the cell expressing GCaMP in vivo and being
 active during the z-stack acquisition, and either could cause the loss of Sst
 cells in the coregistered set. Evidence indicates that expression bias is at
 play, as many Sst positive cells in the full HCR lightsheet volume have very
-low or no GFP transcripts.
+low or no {term}`GFP` transcripts.
 
 The consequence for planning is that the transcriptomic data gives a very
 different picture of subclass abundance than the coregistered subset does, and
@@ -240,6 +241,6 @@ instead of or in addition to grouping by subclass.
 
 The gene expression measurements themselves, the gene panel, and how the
 subclass labels are derived are described in
-[Visual Learning Transcriptomics](/anatomy/spatial-transcriptomics/VL-mFISH). The physiology and the
+[Visual Learning Transcriptomics](/cell-types/spatial-transcriptomics/VL-mFISH). The physiology and the
 experimental design are described in
 [Visual Learning Ophys](/physiology/ophys/visual-learning/VL-Ophys).
