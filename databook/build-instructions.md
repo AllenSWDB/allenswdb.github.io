@@ -21,7 +21,7 @@ The other main advantage of building in the terminal is that error messages are 
 
 Any data used in the databook should be attached to the /root/capsule/data/ directory through the usual methods. Whenever data being accessed is changed or added in the Wiki articles, the build capsule needs to have its data updated as well.
 
-If cloning the capsule from the build repository directly rather than using the premade capsule, all data needs to be manually added. Currently (as of August 26, 2026), the data assets used are the following:
+If cloning the capsule from the build repository directly rather than using the premade capsule, all data needs to be manually added. Currently (as of 13 September 24), the data assets used are the following:
 
 ```
 Allen Brain Observatory - Visual Coding
@@ -34,9 +34,6 @@ brainglobe_atlasassets_2024-08-01
 ecephys_714527_2024-05-15_13-00-23_nwb_2025-08-03_21-11-22 #NP Ultra example
 single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09 #BCI example
 behavior_761433_2025-03-27_08-51-54_processed_2025-03-28_05-00-28 #Dynamic Foraging example
-Visual-Learning-SWDB
-Visual-Learning-Cell-Gene-Tables
-Visual-Learning-Coreg-Tables
 ```
 
 ## Adding New Jupyter Notebooks
