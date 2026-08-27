@@ -68,6 +68,7 @@ parts:
           - file: physiology/ophys/V1DD/V1DD-stimuli
         - file: physiology/ophys/BCI/BCI-overview
           sections:
+          - file: physiology/ophys/BCI/BCI-metadata
           - file: physiology/ophys/BCI/BCI-dataset
           - file: physiology/ophys/BCI/BCI-stimuli
     #    - file: physiology/ophys/learning/learning                  
