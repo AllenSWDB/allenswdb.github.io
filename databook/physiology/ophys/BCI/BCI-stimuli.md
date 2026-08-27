@@ -33,6 +33,8 @@ Activity below F_L produces no movement. Activity above F_U drives the lickport 
 3. The mouse has 10s to move the lickport to the reward position (6mm of travel) by increasing CN activity
 4. If successful (hit), water reward is delivered
 5. Next trial starts after CN activity drops below F_L for ≥ 200 ms followed by a 2s delay
-6. On failure (miss): lickport retracts and a new trial begins 
+6. On failure (miss): lickport retracts and a new trial begins
+
+**Important note** The BCI thresholds (F_L and F_U) are determined by the experimenter during the session based on raw fluorescence activity, which is not stored in the NWB files (only dF/F is available). Additionally, thresholds are dynamically adjusted during the experiment to make the task progressively more difficult. Because the raw signal used for the BCI task is not recoverable from the NWB data, quantitative comparisons of behavioral performance within a session or with respect to task difficulty are not recommended.
 
 ![BCI_schematic](/resources/BCI_schematic.png)
