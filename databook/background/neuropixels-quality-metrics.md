@@ -14,7 +14,7 @@ kernelspec:
 
 # Unit Quality Metrics
 
-## Tutorial overview
+## Overview
 
 This Jupyter notebook will provide a detailed explanation of the unit quality
 metrics included the various Neuropixels datasets. These quality metrics enable you to identify units that are well separated, single unit data. It's important to pay attention to quality
@@ -115,75 +115,68 @@ either GitHub repository.
 Because these metrics are so important to interpreting your results, they are
 included in every DataFrame that stores information about individual units.
 
-To take a look at the metrics for all units in the dataset, simply call
-`get_units()` on the `EcephysProjectCache` object.
+We will load the data from a Visual Coding Neuropixels session and look at the units table
 
 ```{code-cell} ipython3
-import os
-
-import numpy as np
-import pandas as pd
+import pynwb
+import pandas as pd 
+import numpy as np 
 import matplotlib.pyplot as plt
-
-from allensdk.brain_observatory.ecephys.ecephys_project_cache import EcephysProjectCache
-from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBehaviorNeuropixelsProjectCache
 ```
 
 ```{code-cell} ipython3
-# Example cache directory path, it determines where downloaded data will be stored
-output_dir = '/root/capsule/data/allen-brain-observatory/visual-coding-neuropixels/ecephys-cache/'
-manifest_path = os.path.join(output_dir, "manifest.json")
-cache_dir_visual_behavior = '/root/capsule/data/'
+#load a nwb file for an ephys experiment
+nwb_path = "/data/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"
+nwbfile = pynwb.read_nwb(nwb_path)
+nwbfile
 ```
 
 ```{code-cell} ipython3
-cache = EcephysProjectCache.from_warehouse(manifest=manifest_path)
-cache_vb = VisualBehaviorNeuropixelsProjectCache.from_local_cache(
-            cache_dir=cache_dir_visual_behavior, use_static_cache=True)
-
-units_vb = cache_vb.get_unit_table()
-units = cache.get_units()
+units = nwb.units[:]
+units.head()
 ```
 
-```{code-cell} ipython3
-nunits_vb = len(units_vb)
-nunits = len(units)
-print('Visual Behavior units : {}'.format(nunits_vb))
-print('Visual Coding units : {}'.format(nunits))
+The full units table is unpacked more in dataset pages, but you can see that there are many columns, including several that pertain to quality control.
+
+```{note}
+The exact set of metrics in the units table will vary slightly between different datasets so look closely at the documentation for your dataset. At the same time, most of these quality metrics are used across our Neuropixels projects. 
 ```
 
-By default, the AllenSDK applies filters for the Visual Coding dataset so only
-units above a set of thresholds are returned.
+| Metric name | Description |
+| ----------- | ----------- |
+| default_qc | `True` if the unit passes the default QC thresholds (see below) |
+| isi_violations_ratio | rate of refractory-period violations, normalized (contamination measure; **default threshold ≤ 0.5**) |
+| isi_violations_count | raw count of refractory-period violations |
+| rp_violations | number of violations within a fixed refractory period |
+| rp_contamination | estimated contamination from refractory-period violations (0–1) |
+| sliding_rp_violation | minimum contamination estimated over a sliding refractory period, at ≥90% confidence (IBL method; 0–1) |
+| snr | waveform signal-to-noise ratio on the peak channel |
+| nn_hit_rate | nearest-neighbor hit rate; higher means better separated |
+| sync_spike_2, sync_spike_4, sync_spike_8 | fraction of spikes synchronous with 2 / 4 / 8 other units, flagging spikes shared across units |
+| presence_ratio | fraction of the session with detected spikes (**default threshold ≥ 0.8**) |
+| amplitude_cutoff | estimated fraction of spikes missed, from the amplitude distribution (**default threshold ≤ 0.1**) |
+| nn_miss_rate | nearest-neighbor miss rate; estimates missing spikes |
+| isolation_distance | distance to the nearest cluster in feature space (higher is better) |
+| l_ratio | cluster-membership contamination measure (lower is better) |
+| d_prime | linear-discriminability of this unit from its neighbors (higher is better) |
+| silhouette | silhouette score of the unit's cluster (higher is better) |
+| amplitude_median | median spike amplitude (µV) |
+| amplitude | spike amplitude (peak-to-trough) |
+| amplitude_cv_median | median of the amplitude coefficient of variation over time |
+| amplitude_cv_range | range of the amplitude coefficient of variation over time |
+| drift_std | standard deviation of spike-position drift |
+| drift_mad | median absolute deviation of drift |
+| drift_ptp | peak-to-peak (maximum) drift |
 
-The default filter values are as follows:
+Three metrics contribute to the **default_qc** evaluation. These are `isi_violation_ratio`, `presence_ratio`, and `amplitude_cutoff`. The default filter values are as follows:
 
 - `isi_violations` < 0.5
 - `amplitude_cutoff` < 0.1
 - `presence_ratio` > 0.9
 
-Let's disable these filters so we can see all of the available units for the
-Visual Coding dataset:
-
-```{code-cell} ipython3
-units = cache.get_units(amplitude_cutoff_maximum = np.inf,
-                        presence_ratio_minimum = -np.inf,
-                        isi_violations_maximum = np.inf)
-
-len(units)
-```
-
-Now we have a DataFrame that contains all of the units detected by Kilosort2
-across 58 experiments. Importantly, this does not include units with invalid
-waveforms. Kilosort2 often detects "spikes" that are very clearly not associated
-with action potentials; these can result from electrical artifacts or
-lower-frequency voltage fluctuations that cross the spike detection threshold.
-The majority of these "noise" units are automatically filtered out via [this
-module](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/noise_templates),
-followed by a manual inspection step to identify any remaining artifactual
-waveforms.
 
 Let's look in more detail at the distribution of some quality metrics across
-99,180 units in the Visual Coding dataset. We'll start by creating a function
+the units in this Visual Coding Neuropixels asset. We'll start by creating a function
 for plotting each metric in an aesthetically pleasing way:
 
 ```{code-cell} ipython3
@@ -207,9 +200,6 @@ def plot_metric(data, bins, x_axis_label, color, max_value=-1):
 
     return max_value
 ```
-
-Doing the same with the 319,013 units in the Visual Behavior dataset is left as
-an exercise for the reader.
 
 (content:references:firing-rate)=
 ## Firing rate
@@ -249,42 +239,6 @@ bins = np.linspace(-3,2,100)
 max_value = plot_metric(data, bins, 'log$_{10}$ firing rate (Hz)', 'red')
 ```
 
-Before we move on to the next metric, let's add one more feature to these plots.
-Displaying the metrics separately for different brain regions can be helpful for
-understanding the variation that results from the physiological features of the
-area we're recording from. The four main regions that are part of the
-Neuropixels Visual Coding dataset are cortex, thalamus, hippocampus, and
-midbrain. We'll use the Allen CCF structure acronyms to find the units that
-belong to each region.
-
-```{code-cell} ipython3
-region_dict = {'cortex' : ['VISp', 'VISl', 'VISrl', 'VISam', 'VISpm', 'VIS', 'VISal','VISmma','VISmmp','VISli'],
-             'thalamus' : ['LGd','LD', 'LP', 'VPM', 'TH', 'MGm','MGv','MGd','PO','LGv','VL',
-              'VPL','POL','Eth','PoT','PP','PIL','IntG','IGL','SGN','VPL','PF','RT'],
-             'hippocampus' : ['CA1', 'CA2','CA3', 'DG', 'SUB', 'POST','PRE','ProS','HPF'],
-             'midbrain': ['MB','SCig','SCiw','SCsg','SCzo','PPT','APN','NOT','MRN','OP','LT','RPF','CP']}
-
-color_dict = {'cortex' : '#08858C',
-              'thalamus' : '#FC6B6F',
-              'hippocampus' : '#7ED04B',
-              'midbrain' : '#FC9DFE'}
-
-bins = np.linspace(-3,2,100)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = np.log10(units[units.ecephys_structure_acronym.isin(region_dict[region])]['firing_rate'])
-
-    max_value = plot_metric(data, bins, 'log$_{10}$ firing rate (Hz)', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
-```
-
-We can see a clear separation in the distributions across areas; the thalamus
-has a lot of units that fire in the 8 Hz range (remember the log scale), while
-the midbrain has the most units with very high rates (>20 Hz).
-
 Here's a summary of things to keep in mind when using `firing_rate` in your
 analysis:
 
@@ -320,35 +274,22 @@ fraction of time during a session in which a unit is spiking, and ranges from 0
 to 0.99 (an off-by-one error in the calculation ensures that it will never reach
 1.0).
 
-Let's look at the distribution of presence ratio across areas:
+Let's look at the distribution of presence ratio in this asset:
 
 ```{code-cell} ipython3
+
 bins = np.linspace(0,1,100)
-max_value = -np.inf
+max_value = plot_metric(data, bins, 'Presence ratio', 'red')
 
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['presence_ratio']
-
-    max_value = plot_metric(data, bins, 'Presence ratio', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
-
-plt.plot([0.9, 0.9],[0,max_value], ':')
 ```
 
-It's clear that most units have a presence ratio of 0.9 or higher, which means
-they are present for at least 90% of the recording. Units with lower presence
+It's clear that most units have a presence ratio of 0.8 or higher, which means
+they are present for at least 80% of the recording. Units with lower presence
 ratio are likely to have drifted out of the recording, or had waveforms that
 changed so dramatically they were assigned to separate clusters.
 
-Calculating the exact fraction of units with presence ratio above 0.9 is easy:
 
-```{code-cell} ipython3
-np.around(np.sum(units.presence_ratio > 0.9) / len(units), 2)
-```
-
-Here's a summary of things to keep in mind when using `presence_ratio` in your
+ Here's a summary of things to keep in mind when using `presence_ratio` in your
 analysis:
 
 **How it can be biased**
@@ -371,30 +312,19 @@ analysis:
   of units available to you.
 * If you're unsure whether a unit has a low presence ratio due to electrode
   drift or selective firing, plotting its spike amplitudes over time can be
-  informative.
+  informative. 
 
 (content:references:amplitude_cutoff)=
 ## Amplitude cutoff
 
-
-
 Amplitude cutoff provides another way to check for units that are missing spikes. Unlike <a href='#Presence-ratio'>presence ratio</a>, which detects units that drift out of the recording, amplitude cutoff provides an estimate of the false negative rate—e.g., the fraction of spikes below the spike detection threshold. Thus, amplitude cutoff is a measure of unit "completeness" that is complementary to presence ratio.
 
-Let's take a look at the distribution of values for amplitude cutoff across the dataset:
+Let's take a look at the distribution of values for amplitude cutoff in this asset:
 
 ```{code-cell} ipython3
+data = units['amplitude_cutoff']
 bins = np.linspace(0,0.5,200)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['amplitude_cutoff']
-
-    max_value = plot_metric(data, bins, 'Amplitude cutoff', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
-
-plt.plot([0.1, 0.1],[0,max_value], ':')
+max_value = plot_metric(data, bins, 'Amplitude cutoff', 'red')
 ```
 
 Amplitude cutoff is calculated from the distribution of spike amplitudes for
@@ -440,7 +370,7 @@ Inter-spike-interval (ISI) violations are a classic measure of unit
 contamination. Because all neurons have a biophysical refractory period, we can
 assume that any spikes occurring in rapid succession (<1.5 ms intervals) come
 from two different neurons. Therefore, the more a unit is contaminated by spikes
-from multiple neurons, the higher its `isi_violations` value will be.
+from multiple neurons, the higher its `isi_violations_ratio` value will be.
 
 The calculation for ISI violations comes from {cite:t}`hill2011`. Rather than
 reporting the fraction of spikes with ISI violations, their metric reports the
@@ -450,54 +380,12 @@ contaminating spikes are occurring at roughly half the rate of "true" spikes for
 that unit. In cases of highly contaminated units, the ISI violations value can
 sometimes be even greater than 1.
 
-Let's look at the distribution of ISI violations across the different regions in
-this dataset:
+Let's look at the distribution of ISI violations in this asset:
 
 ```{code-cell} ipython3
-bins = np.linspace(0,10,200)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['isi_violations']
-
-    max_value = plot_metric(data, bins, 'ISI violations', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
-
-plt.plot([0.5, 0.5],[0,max_value], ':')
-```
-
-This one looks like a good candidate for plotting on a log scale:
-
-```{code-cell} ipython3
-bins = np.linspace(-6,2.5,100)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = np.log10(units[units.ecephys_structure_acronym.isin(region_dict[region])]['isi_violations'] + 1e-5)
-
-    max_value = plot_metric(data, bins, '$log_{10}$ ISI violations', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
-
-plt.plot([np.log10(0.5), np.log10(0.5)],[0,max_value], ':')
-```
-
-A few things to note about this plot:
-
-* We've added 0.00001 to the ISI violations values, because the log of 0 is
-  undefined. This creates a peak at -5 for all the units with no ISI violations
-* The hippocampus has the most units with high ISI violations, likely due to the
-  density of cells in this structure.
-* The default threshold of 0.5 is still quite permissive
-
-If we wanted to only include units with no ISI violations, what percentage would
-be available for analysis?
-
-```{code-cell} ipython3
-np.around(np.sum(units.isi_violations == 0.0) / len(units), 2)
+data = units['isi_violations_ratio']
+bins = np.linspace(0,0.5,200)
+max_value = plot_metric(data, bins, 'ISI violations', 'red')
 ```
 
 Here's a summary of things to keep in mind when using `isi_violations` in your
@@ -538,28 +426,13 @@ for two reasons:
 2. If the waveform changes due to drift, peak channel SNR can change
    dramatically, even though overall isolation quality remains consistent.
 
-Nevertheless, it can still be helpful to look at the distribution of SNRs across
-areas:
+Nevertheless, it can still be helpful to look at the distribution of SNRs:
 
 ```{code-cell} ipython3
+data = units['snr']
 bins = np.linspace(0,10,100)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['snr']
-
-    max_value = plot_metric(data, bins, 'SNR', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
+max_value = plot_metric(data, bins, 'SNR', 'red')
 ```
-
-We can clearly see an increase in overall SNR from hippocampus to cortex to
-thalamus and midbrain. These changes likely result from differences in the size,
-density, and orientation of cell bodies in these regions. A more explicit
-comparison between extracellular ephys signal quality and histological features
-would be an interesting research topic.
-
 
 
 Here's a summary of things to keep in mind when using `snr` in your analysis:
@@ -598,19 +471,12 @@ after normalizing the clusters by their standard deviation in each dimension
 separated from its neighbors in PC space, and therefore the lower the likelihood
 that it's contaminated by spikes from multiple units.
 
-Let's look at the range of isolation distances across different brain regions:
+Let's look at the range of isolation distances in this asset:
 
 ```{code-cell} ipython3
 bins = np.linspace(0,170,50)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['isolation_distance']
-
-    max_value = plot_metric(data, bins, 'Isolation distance', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
+data = units['isolation_distance']
+max_value = plot_metric(data, bins, 'Isolation distance', 'red')
 ```
 
 Here's a summary of things to keep in mind when using `isolation_distance` in
@@ -640,13 +506,8 @@ the unit is better isolated from its neighbors.
 
 ```{code-cell} ipython3
 bins = np.linspace(0,15,50)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['d_prime']
-
-    max_value = plot_metric(data, bins, 'd-prime', color_dict[region], max_value)
+data = units['d_prime']
+max_value = plot_metric(data, bins, 'd-prime', 'red'')
 
 _ = plt.legend(region_dict.keys())
 ```
@@ -677,15 +538,8 @@ straightforward to compare across different datasets.
 
 ```{code-cell} ipython3
 bins = np.linspace(0,1,100)
-max_value = -np.inf
-
-for idx, region in enumerate(region_dict.keys()):
-
-    data = units[units.ecephys_structure_acronym.isin(region_dict[region])]['nn_hit_rate']
-
-    max_value = plot_metric(data, bins, 'Nearest-neighbors hit rate', color_dict[region], max_value)
-
-_ = plt.legend(region_dict.keys())
+data = units['nn_hit_rate']
+max_value = plot_metric(data, bins, 'Nearest-neighbors hit rate', 'red')
 ```
 
 Here's a summary of things to keep in mind when using `nn_hit_rate` in your
@@ -709,7 +563,7 @@ metrics takes across the whole Visual Coding dataset:
 metrics = ['firing_rate',
            'presence_ratio',
            'amplitude_cutoff',
-           'isi_violations',
+           'isi_violations_ratio',
            'snr',
            'isolation_distance',
            'd_prime',
@@ -740,160 +594,4 @@ for idx, metric in enumerate(metrics):
     plt.title(metric)
 
 plt.tight_layout()
-```
-
-## Examples of filtering units by quality metrics
-
-We can filter the Visual Behavior Dataset using these same criteria used by the
-Visual Coding dataset and find that 120,139 units pass this criteria.
-
-```{code-cell} ipython3
-units_filt1 = units_vb[(units_vb.isi_violations<0.5)
-                    & (units_vb.amplitude_cutoff<0.1)
-                    & (units_vb.presence_ratio>0.9)]
-len(units_filt1)
-```
-
-As another example, we can filter by other quality metrics such as snr,
-in addition to other properties such as firing rate:
-
-- `snr` > 1
-- `firing rate` > 0.1
-
-Applying these filters returns 258,764 units.
-
-```{code-cell} ipython3
-units_filt2 = units_vb[(units_vb.snr>1) & (units_vb.firing_rate>0.2)]
-len(units_filt2)
-```
-
-Using these metrics to filter units will require careful consideration of the
-sort of errors your analysis can tolerate.
-
-## Waveform metrics
-
-The shape of the extracellularly recorded spike for a given neuron depends on a
-number of biophysical and morphological properties. We have included several
-pre-computed metrics summarizing the shape of the mean waveform for each unit,
-which may provide useful clues about cell-class identity (for example, see
-{cite:t}`jia2019`).
-
-Look
-[here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms)
-for more detail on these metrics and the code that computes them. For the below
-descriptions, the '1D waveform' is defined as the waveform on the peak channel.
-The '2D waveform' is the waveform across channels centered on the peak channel.
-
-amplitude
-: Peak to trough amplitude for mean 1D waveform in microvolts
-
-waveform_duration
-: Time from trough to peak for 1D waveform in milliseconds
-
-waveform_halfwidth
-: Width of 1D waveform at half-amplitude in milliseconds
-
-PT_ratio
-: Ratio of the max (peak) to the min (trough) amplitudes for 1D waveform
-
-recovery_slope
-: Slope of recovery of 1D waveform to baseline after repolarization (coming down from peak)
-
-repolarization_slope
-: Slope of repolarization of 1D waveform to baseline after trough
-
-spread
-: Range of channels for which the spike amplitude was above 12% of the peak channel amplitude
-
-velocity_above
-: Slope of spike propagation velocity traveling in dorsal direction from soma
-  (note to avoid infinite values, this is actually the inverse of velocity:
-  ms/mm)
-
-velocity_below
-: Slope of spike propagation velocity traveling in ventral direction from soma
-  (note to avoid infinite values, this is actually the inverse of velocity:
-  ms/mm)
-
-snr
-: signal-to-noise ratio for 1D waveform
-
-quality
-: Label assigned based on waveform shape as described
-  [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates).
-  Either 'good' for physiological waveforms or 'noise' for artifactual
-  waveforms.
-
-Now let's grab a session and plot the 2D waveform for a couple of units with
-disparate waveform features.
-
-:::{note}
-Due to a bug in the AllenSDK, the following code using the Visual Behavior cache
-cannot be run in the same python process that used a Visual Coding cache. However,
-the code is correct, and we encourage you to try it out for yourself.
-:::
-
-```ipython3
-session = cache_vb.get_ecephys_session(
-           ecephys_session_id=1065437523)
-```
-
-```ipython3
-units_session = session.get_units()
-channels = units_session.get_channels()
-
-#merge the units and channels tables to get full CCF/channel info for each unit
-units_merged = units.merge(channels, left_on='peak_channel_id', right_index=True)
-```
-
-Let's take a look at how a few of these metrics vary across areas:
-
-```ipython3
-area_waveform_stats = units_merged.pivot_table(index='structure_acronym',
-                  values=['velocity_above', 'velocity_below', 'waveform_duration'],
-                  aggfunc=['mean', 'count'])
-
-print('Mean waveform features across areas')
-display(area_waveform_stats[area_waveform_stats['count']['waveform_duration']>50]['mean'])
-```
-
-Here we can already see some interesting differences across areas. Notice for
-example that neurons in midbrain structures (like APN and MRN) have short
-duration spikes on average compared to neurons in the hippocampus or cortex.
-Also notice that the direction in which spikes propagate flips from cortical to
-hippocampal structures. This can be seen from the velocity_below metric, which
-quantifies how spikes propagate ventrally (into the brain; units are ms/mm). In
-hippocampus, this metric is negative indicating that spikes are propagating down
-into the brain from the soma. This agrees with the morphology of hippocampal
-pyramidal neurons, whose apical dendrites project ventrally. The opposite is
-true in visual cortex, where apical dendrites extend dorsally from the soma.
-
-Let's pick a couple of units with disparate waveform features and plot their 2D
-waveforms:
-
-```ipython3
-unit1 = units_merged[(units_merged['velocity_below']<0) &
-              (units_merged['waveform_duration']>0.4) &
-              (units_merged['structure_acronym']=='CA1')&
-              (units_merged['quality']=='good')].iloc[1]
-
-unit2 = units_merged[(units_merged['velocity_below']>0) &
-              (units_merged['waveform_duration']<0.3)&
-              (units_merged['structure_acronym']=='MRN')&
-              (units_merged['quality']=='good')].iloc[0]
-```
-
-```ipython3
-fig, ax = plt.subplots(1,2)
-ylabels = ['probe channel', '']
-for iu, u in enumerate([unit1, unit2]):
-    waveform = session.mean_waveforms[u.name]
-    peak_chan = u['probe_channel_number']
-    ax[iu].imshow(waveform)
-    ax[iu].set_ylim([peak_chan-30, peak_chan+30])
-    ax[iu].set_xticks([0, 30, 60])
-    ax[iu].set_xticklabels([0, 1, 2])
-    ax[iu].set_ylabel(ylabels[iu])
-    ax[iu].set_xlabel('time (ms)')
-    ax[iu].set_title(u.structure_acronym)
 ```
