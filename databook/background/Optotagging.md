@@ -1,3 +1,4 @@
+(Background-optotagging)=
 # Optotagging
 
 Modern neuroscientific research is showing more and more that neural circuits are composed of many subpopulations of neurons that differ in terms of morphology, connectivity, and gene expression, and thus play distinct functional roles. However, probing the responses of these distinct cell types is difficult during electrophysiological recordings as there is no easy way to separate spikes into distinct neural subpopulations. As a result, our current best method for studying these unique cell types using electrophysiology is a technique known as *optotagging*.
