@@ -13,10 +13,13 @@ tissue.
 
 ![Linking neuron function to gene expression](/resources/vl-overview-schematic.png)
 
-The purpose of this dataset is to link what a neuron does to who a neuron is.
+The purpose of this dataset is to link what a neuron does to who a neuron is. 
+We address this challenge specifically for the case of cortical inhibitory neurons.  
 Inhibitory neurons are not a single population — they comprise several
 molecularly distinct {term}`subclass`es with different connectivity, different
-intrinsic properties, and different roles in cortical computation. Measuring
+intrinsic properties, and different roles in cortical computation: 
+{term}`Pvalb inhibitory neurons`s, {term}`Sst inhibitory neurons`s,
+{term}`Vip inhibitory neurons`s, {term}`Lamp5 inhibitory neurons`s. Measuring
 the activity of these subclasses during learning has historically required
 choosing one subclass in advance, labeling it genetically, and recording it in
 isolation. Here, all inhibitory neurons are labeled at once, recorded together
@@ -25,13 +28,13 @@ of the genes they express. This makes it possible to ask how molecularly
 defined inhibitory subclasses differ in what they encode, how they interact
 with one another, and how those relationships change as an animal learns.
 
-The dataset includes 147 imaging sessions from 6 mice, recorded across 8
-imaging planes per session in primary visual cortex, along with the full
-behavioral record for every session. Gene expression data for 22 or 27 genes,
-depending on the mouse, is provided for coregistered neurons.
+The dataset currently includes 147 imaging sessions from 6 mice, recorded across 8
+imaging planes per session in primary visual cortex, along with measurements of behavior 
+and task performance in every session. Gene expression data for 22 or 27 genes,
+depending on the mouse, is provided for neurons that were co-registered to post-hoc spatial transcriptomics.
 
-This page describes the imaging. The task is the change detection task shared
-across the Visual Behavior datasets and is described on the
+This page describes the methods for longitudinal imaging during learning. 
+The task is the change detection task shared across the Visual Behavior datasets and is described on the
 [Visual Behavior Task](vb-behavior) page; how Visual Learning differs from it,
 along with the training progression and the session types, is described in
 [Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior). The
@@ -42,14 +45,11 @@ gene expression measurements are described in
 ## 2-Photon Calcium Imaging
 
 Neural activity was measured as calcium fluorescence in mice expressing the
-genetically encoded calcium indicator jGCaMP8s in inhibitory neurons, using the
+genetically encoded calcium indicator j{term}`GCaMP`8s in inhibitory neurons, using the
 {term}`transgenic line` `Slc32a1-IRES-Cre;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)`.
-`Slc32a1` (VGAT) is expressed by all GABAergic neurons, so the label is
-pan-inhibitory: Pvalb, Sst, Vip, and Lamp5 neurons (see the glossary
-definitions for {term}`parvalbumin-positive interneuron`,
-{term}`somatostatin cell` and {term}`VIP cell`) all express the indicator,
-and all are recorded simultaneously in the same field of view. Excitatory
-neurons are not labeled and are not present in this dataset.
+`Slc32a1` (VGAT) is expressed by all GABAergic neurons so all the main inhibitory 
+subclasses are labeled and recorded simultaneously: Pvalb, Sst, Vip, and Lamp5 neurons. 
+Excitatory neurons are not labeled and are not present in this dataset.
 
 This is a different strategy from datasets that use a subclass-specific Cre
 line such as `Vip-IRES-Cre` or `Sst-IRES-Cre`. In those datasets the mouse line
@@ -101,46 +101,147 @@ different sessions, that were assigned to the same cell. The number in the
 corner is the session index, so stepping through it shows both the cells that
 are recovered day after day and the ones that drop out and return.
 
-Registration across days is aided by the fingerprint movie presented at the end
-of every task session from `TRAINING_5` onward. It is identical in every
-session that contains it and drives strong activity across the population,
-which supports segmentation and registration and provides a fixed reference
-stimulus for comparing responses in the same neurons over the course of
-learning.
-
 ## Experimental Design
 
-The defining feature of this dataset is that imaging begins on the first day
+The task is a no/no-go visual change detection task. The full task structure and parameters — how change times are drawn, how trial outcomes are defined, and what happens when a mouse licks before a change — are described in detail on the [Visual Behavior Task](change_detection_task) page.
+
+![change detection task](/resources/vl-task-schematic.png)
+
+The defining feature of the Visual Learning dataset is that imaging begins on the first day
 of training and continues every day thereafter. Mice are head-fixed under the
 microscope for every session of the training procedure, so the dataset contains
 a continuous neural record of the animal going from naive to expert, and then
 of the learned association being broken.
 
+Given the importance of the training procedure and session sequence to this dataset, the session types and their features and relevance for analysis are described here, in addition to the information that canbe found on the [Visual Behavior Task](vb-behavior) page.
+
 ![Session sequence and stimulus categories](/resources/vl-session-sequence.png)
 
-Mice first learn the task with static gratings (`TRAINING_0` through
-`TRAINING_2`), then with natural images (`TRAINING_3` through `TRAINING_5`),
-advancing between stages on a performance criterion. The number of sessions
-spent at each stage therefore varies between mice, and the number of imaging
-sessions per mouse varies with it.
+The task is learned over a series of training stages that differ in the stimulus used and the temporal properties of the stimulus. This curriculum was designed to first introduce the basic task rule - detect changes to earn rewards - then introduce additional features including a working memory component, generalization across stimulus categories, generalization to novel stimuli, and extinction of learned associations. With a few exceptions, the training stages are identical to the Visual Behavior dataset, with the primary difference being that in vivo imaging occurs throughout the learning process in the Visual Learning dataset. In Visual Behavior, only well trained mice were imaged.
 
-Once performance is stable, mice proceed through three additional session
-types, each acquired on two consecutive days so that first and second exposure
-to a condition can be distinguished: `OPHYS_1` with the familiar image set A,
-`OPHYS_4` with the novel image set B, and `OPHYS_6` in which rewards are no
-longer delivered and the learned association is extinguished. Task sessions
-are followed by passive stimulus sessions with no reward or behavioral
-requirement — `STAGE_0` presenting natural movies and `STAGE_1` presenting
-drifting gratings — which characterize how each tracked neuron responds to
-classical visual stimuli independent of task demands.
+![Training progression for each mouse](/resources/vl-training-progression.png)
 
-Because the same neurons are followed across this entire sequence, activity in
-any of these conditions can be compared within a cell rather than across
-separately recorded populations. The full description of each stage, the
-performance criteria, and the behavioral consequences of extinction are on the
-[Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior) page.
+### Behavioral training
 
-## Session Types
+Training proceeds through a series of stages of increasing difficulty, and
+mice advance when they meet a performance criterion of d-prime greater than 1
+on 2 of 3 consecutive days.
+
+Mice initially learn the task with full-field static gratings that change
+orientation. The first session, `TRAINING_0`, lasts 15 minutes and delivers
+water automatically after each change, with no requirement that the mouse
+respond; this establishes the association between the stimulus change and
+reward. During `TRAINING_1`, mice must lick following stimulus changes to earn
+water rewards.
+
+Once mice perform the task at criterion level, they transition to `TRAINING_2`
+where a 500ms gray screen inter-stimulus interval is added to the task. 
+This gray screen period makes the task more difficult by
+adding a working memory component — the task of the mouse is to determine "is
+what I am seeing now the same or different as what I saw 500 ms ago?".
+
+Natural images replace gratings at `TRAINING_3`, using an 8-image set referred
+to as image set A. This again increases the task difficulty and asks the mice
+to distinguish images with naturalistic features rather than simplistic grating
+stimuli. Reward volume is reduced from 10 µL to 7 µL at `TRAINING_4`, and the
+task parameters reach their final form at `TRAINING_5`, where mice remain until
+performance is stable.
+
+The number of sessions spent at each stage varies between mice, since
+advancement depends on individual performance.
+
+### Familiar and novel images
+
+Once mice are performing the task well with image set A, they proceed through
+three additional session types. Each is acquired on two consecutive days, so
+that the first and second exposure to a given condition can be distinguished.
+
+These session types begin with `OPHYS`, however recall that all sessions in
+this dataset have ophys data — this session labeling scheme is a holdover from
+the Visual Behavior dataset from which the Visual Learning dataset is derived.
+In Visual Behavior, only well trained mice were imaged. In Visual Learning,
+imaging happens throughout training, but the session type names were retained.
+
+**`OPHYS_1` — familiar images.** The mouse performs the task with image set A,
+which it has seen throughout training and which is now highly familiar. Image
+omissions are introduced at this point, and are present in all subsequent `OPHYS` 
+sessions.
+
+**`OPHYS_4` — novel images.** Image set A is replaced with image set B, a
+second set of 8 natural images that the mouse has never encountered. The task
+contingency is unchanged and rewards are still delivered; only the images are
+new. The first `OPHYS_4` session is the mouse's first exposure to image set B;
+by the second session the images have already been seen for an hour.
+
+Note that the Visual Behavior dataset has a cohort of mice where familiar and novel images were inteleaved in the same session; this is not the case for Visual Learning. In each well-trained imaging session, the 8 natural image stimuli are either all familiar (i.e. observed during training), or all novel (only observed once mice are well trained).
+
+### Image omissions
+
+During the initial `TRAINING` stages with flashed stimuli, the stimulus cadence is highly regular - stimuli are presented for 250ms with a 500ms inter stimulus interval. During the `OPHYS` sessions in well-trained mice, image omissions are introduced, interrupting the expected temporal structure. In these sessions, 5% of non-change stimuli are randomly omitted, producing an extended gray screen period (1250ms instead of the typical 500ms). 
+
+![Change-omission](/resources/vl-change-omission.png)
+
+### Extinction
+
+In `OPHYS_6`, rewards are no longer delivered. The mouse is water-restricted
+as on any other day, the lick spout remains in its usual position, and the
+images continue to change on the same schedule — but licking no longer produces
+water. Nothing signals the change in advance; the mouse discovers it only by
+responding and receiving nothing.
+
+This makes `OPHYS_6` a learning experiment run in reverse. Over weeks of
+training the animal acquired an association between a visual event and a
+reward, and in these sessions that association is violated on every trial and
+the learning is extinguished. Because the same neurons have been tracked
+throughout acquisition, their activity can be followed as the association is
+undone.
+
+The behavioral signature is a collapse in responding. In a representative
+extinction session, 305 of 330 go trials are misses. Licking to image changes,
+which is robust in every rewarded session type, falls to near zero.
+
+![Change-aligned lick rate by session type](/resources/vl-lick-rate.png)
+
+Low performance in these sessions is the phenomenon of interest; the mouse is 
+motivated and the apparatus is unchanged; mice stop responding because the reward 
+association has been removed.
+
+A note for those familiar with the Visual Behavior Ophys dataset: that dataset
+also contains a session type called `OPHYS_6`, but it means something else
+there. Visual Behavior also has interleaved passive sessions, in which the mouse
+is given its daily water beforehand and the lick spout is retracted, so the
+manipulation is motivational and the learned contingency is left intact. The
+Visual Learning dataset contains no passive sessions of that kind.
+
+### Passive stimulus sessions
+
+After the task sessions are complete, mice view visual stimuli passively, with
+no reward and no behavioral requirement. These sessions characterize how each
+neuron responds to classical visual stimuli, independent of task demands. The stimuli used
+ are shared with other Allen Institute datasets and are defined in the
+[visual stimulus list](/physiology/stimuli/passive-visual-stimuli/visual-stimuli-list);
+see [Stimuli and Behavioral Tasks](/physiology/stimuli/stimuli) for how they are
+used elsewhere in the databook.
+
+**`STAGE_0` — natural movies.** One session presenting
+[natural movie](natural-movies) clips, repeated many times. These stimuli are feature rich and contain both temporal and spatial structure. Because of the large number of repeats of some of the movie clips, stability and repeatability of neural activity structure can be explored.  
+
+**`STAGE_1` — drifting gratings.** Three sessions presenting
+[drifting gratings](drifting-gratings) that vary in direction, temporal
+frequency, and contrast. These paramaterized stimuli allow analyses of neural selectivity and tuning properties. Adaptation and state modulation can also be explored within and across the 3 repeated sessions. 
+
+Because these sessions follow the task sessions in the same tracked neurons,
+each neuron can be characterized both by what it encodes during behavior and
+by how it responds to parametrically varying visual stimuli.
+
+Note that mice have seen oriented gratings before reaching `STAGE_1`, since
+`TRAINING_0` and `TRAINING_1` use full-field static gratings. Orientation is
+therefore not novel at this point, though drift, {term}`temporal frequency`, and
+{term}`spatial frequency` may be. The interval between the passive sessions and the preceding
+task sessions varies across mice, from days to several weeks.
+
+
+## Session Types Summary
 
 The `session_type` field identifies the training or imaging stage of each
 session. Behavioral training sessions begin with `TRAINING_`, sessions in well trained mice
@@ -168,12 +269,9 @@ data — every session type listed above does. The naming scheme is a holdover
 from the Visual Behavior dataset, in which only well trained mice were imaged.
 
 The imaging configuration is the same across session types: 8 planes in VISp
-sampled at approximately 10 Hz. What varies between sessions is which planes
-and depths were successfully acquired. The session metadata table is the
-primary source of what is available for analysis. It has one row per session
-and includes the mouse, session type, acquisition order, image set, and the
-imaging planes and depths used in that session. Loading it and filtering it down
-to a set of sessions is the starting point of both tutorials below.
+sampled at approximately 10 Hz. Each session and imaging plane is subject to stringent 
+quality control (QC) criteria; accordingly, not all data is valid for analysis. The outcome of QC can be accessed in the metadata, which is described in [Tutorial Session Metadata](/physiology/ophys/visual-learning/visual_learning_metadata.md).
+
 
 ## Relationship to the transcriptomics data
 
