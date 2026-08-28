@@ -128,11 +128,10 @@ import matplotlib.pyplot as plt
 #load a nwb file for an ephys experiment
 nwb_path = "/data/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"
 nwbfile = pynwb.read_nwb(nwb_path)
-nwbfile
 ```
 
 ```{code-cell} ipython3
-units = nwb.units[:]
+units = nwbfile.units[:]
 units.head()
 ```
 
