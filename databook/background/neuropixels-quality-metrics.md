@@ -272,10 +272,9 @@ to 0.99 (an off-by-one error in the calculation ensures that it will never reach
 Let's look at the distribution of presence ratio in this asset:
 
 ```{code-cell} ipython3
-
+data = units['presence_ratio']
 bins = np.linspace(0,1,100)
 max_value = plot_metric(data, bins, 'Presence ratio', 'red')
-
 ```
 
 It's clear that most units have a presence ratio of 0.8 or higher, which means
