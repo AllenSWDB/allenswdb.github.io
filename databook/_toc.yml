@@ -71,8 +71,14 @@ parts:
         - file: physiology/ophys/visual-learning/VL-Ophys
           title: Visual Learning Ophys
           sections:
+          - file: physiology/ophys/visual-learning/visual_learning_metadata
+            title: Tutorial Session Metadata
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB
+            title: Tutorial Ophys and Behavior NWB Files
           - file: physiology/ophys/visual-learning/VL-Integration
             title: Linking Ophys and Transcriptomics
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology
+            title: Tutorial Cell Types and Physiology
         - file: physiology/ophys/BCI/BCI-overview
           sections:
           - file: physiology/ophys/BCI/BCI-metadata

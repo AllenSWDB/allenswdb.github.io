@@ -3,3 +3,7 @@ matplotlib
 numpy
 pandas
 caveclient
+scipy
+anndata
+pynwb
+aind-data-access-api

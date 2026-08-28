@@ -208,3 +208,32 @@ across inhibitory subclasses.
 The registration procedure, the identifiers used to link the two datasets, and
 the numbers of neurons available at each stage are described in
 [Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).
+
+## Tutorials
+
+The pages below work through the dataset in the order you are likely to need it.
+
+[Session metadata](/physiology/ophys/visual-learning/visual_learning_metadata) comes first, because every analysis begins by choosing
+sessions. It queries the AIND document database for the full metadata on each
+mouse and each acquisition, builds the one-row-per-session table the other
+notebooks read, and shows how to read the per-plane z-drift QC.
+
+[The ophys and behavior NWB files](/physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB) is a reference for a single session file.
+It opens one {term}`NWB` file and walks through every container in turn — the five
+representations of neural activity, the running and lick data, the stimulus and
+trial tables, and the session metadata — explaining what each holds, how the
+per-plane clocks relate to one another, and how to put everything on a single
+timeline. Its final section compares what each session type looks like in the
+data.
+
+[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration) describes how a neuron recorded in vivo
+is matched to the cell whose gene expression was measured after the experiment:
+the registration steps involved, the identifiers that carry the match from one
+dataset to the other, and how many neurons survive each stage. It is worth
+reading before the next notebook, which depends on that linkage throughout.
+
+[Inhibitory cell types and physiology](/physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology) puts the linkage to work. It attaches
+transcriptomic cell types to the recorded neurons, covering the three ID systems
+involved, the join between the coregistration tables and the HCR expression
+data, and comparisons of activity across inhibitory subclasses in familiar,
+novel, and cross-session analyses.

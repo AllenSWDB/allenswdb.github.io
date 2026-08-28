@@ -229,3 +229,9 @@ Every session type listed above has accompanying 2-photon imaging data. The
 imaging configuration used for each, and the session metadata table that
 records the planes and depths acquired in a given session, are described in
 [Visual Learning Ophys](/physiology/ophys/visual-learning/VL-Ophys).
+
+For what these session types look like in the data itself — how the stimulus and
+trial tables differ between the gratings stages, the natural-image stages, the
+post-criterion sessions, and the passive sessions — see the final part of
+[the ophys and behavior NWB tutorial](/physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB), which steps through each family in
+turn.
