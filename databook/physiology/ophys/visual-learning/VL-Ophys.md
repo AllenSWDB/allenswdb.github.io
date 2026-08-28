@@ -116,15 +116,6 @@ microscope for every session of the training procedure, so the dataset contains
 a continuous neural record of the animal going from naive to expert, and then
 of the learned association being broken.
 
-![Timeline of the experiment](/resources/vl-experimental-timeline.png)
-
-A mouse moves through the experiment on roughly a 20 week timeline. The first
-weeks are surgery, recovery, retinotopic mapping, water restriction, and
-habituation. The six weeks of longitudinal imaging that follow are the sessions
-in this dataset, and they are immediately followed by in vivo structural stacks
-that anchor the imaged volume. Everything after that — perfusion, sectioning,
-photobleaching, and five rounds of HCR — produces the transcriptomics data.
-
 ![Session sequence and stimulus categories](/resources/vl-session-sequence.png)
 
 Mice first learn the task with static gratings (`TRAINING_0` through
@@ -152,8 +143,8 @@ performance criteria, and the behavioral consequences of extinction are on the
 ## Session Types
 
 The `session_type` field identifies the training or imaging stage of each
-session. Behavioral training sessions begin with `TRAINING_`, task sessions
-under the microscope begin with `OPHYS_`, and passive stimulus sessions begin
+session. Behavioral training sessions begin with `TRAINING_`, sessions in well trained mice
+ begin with `OPHYS_`, and passive stimulus sessions begin
 with `STAGE_`. The image set in use is included in the name where applicable.
 
 | `session_type` | Stimulus | Reward | Omissions |
