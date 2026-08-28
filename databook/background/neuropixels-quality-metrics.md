@@ -27,10 +27,6 @@ are perfect, and that the use of unit quality metrics for filtering ephys data
 is still an evolving area of research. More work is required in order to
 establish general-purpose best practices and standards in this domain.
 
-```{note}
-Functions related to data access and analysis will be covered in other tutorials. 
-```
-
 ## Why do we need quality metrics?
 
 For a long time, converting continuous voltage traces to sorted spike times was
@@ -125,7 +121,7 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-#load a nwb file for an ephys experiment
+#load a nwb file for an example ephys experiment
 nwb_path = "/data/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"
 nwbfile = pynwb.read_nwb(nwb_path)
 nwbfile
