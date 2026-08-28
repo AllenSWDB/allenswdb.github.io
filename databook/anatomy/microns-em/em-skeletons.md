@@ -98,7 +98,7 @@ example_cell_id = 864691135572530981
 ```
 
 ```{code-cell} ipython3
-# Download as 'SWC' fromat
+# Download as 'SWC' format
 
 sk_df = client.skeleton.get_skeleton(example_cell_id, output_format='swc')
 
