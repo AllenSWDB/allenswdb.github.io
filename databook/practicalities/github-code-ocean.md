@@ -5,7 +5,7 @@
 
 - Find the templates here: https://github.com/AllenSWDB/ 
     This template is set up for using pynwb and aind-data-access to work with data: https://github.com/AllenSWDB/swdb-capsule-template
-    If you are working with caveclient to work with connectomics data, you will need a different environment. Ask for help
+    If you are working with caveclient to work with connectomics data, use https://github.com/AllenSWDB/swdb-connectomics-capsule-template. (You will need to add a CAVE token to your capsule at the end of the setup. Ask for help with this)
 
 - Use a template to make a new repository. Click the `Use this template` button in the top right corner:
 
