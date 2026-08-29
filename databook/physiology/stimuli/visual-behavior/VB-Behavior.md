@@ -95,6 +95,7 @@ The <b>Visual Behavior Neuropixels</b> dataset used the same stimulus configurat
  
 These experimental design choices result in the dataset containing two types of stimulus novelty – 1) novelty based on local context (i.e. image changes), and 2) novelty in an absolute sense (i.e. images that were never seen before the current session). One could also consider image omissions as a third type of novelty.  
 
+
 ## Session Types
 
 The stages of behavioral training and different types of neurophysiology sessions are described by their `session_type`. The `session_type` indicates whether the session occured during training or during neural activity measurements, as well as what stimulus was used and whether the session was active behavior or passive viewing session in the case of <b>Visual Behavior Ophys</b> sessions (<b>Visual Behavior Neuropixels</b> sessions have active and passive blocks in the same session).

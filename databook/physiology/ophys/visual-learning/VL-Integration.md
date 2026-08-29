@@ -28,9 +28,11 @@ of the same cortical volume, acquired in vivo at the end of the experiment,
 which shares its imaging modality with the functional planes on one side and
 its {term}`fluorophore` with the lightsheet volume on the other.
 
-## The registration chain
+## Registration steps
 
-**Within a plane, across sessions.** Each session is segmented independently,
+### Across session matching for each plane
+
+Each session is segmented independently,
 so the same neuron produces a different set of pixels with a different index in
 every session it appears in. ROICaT matches {term}`ROI` masks across sessions within
 each imaging plane, on the basis of mask shape and position, and assigns each
@@ -40,7 +42,9 @@ set per session per plane.
 
 ![The same field of view tracked across sessions](/resources/FOV_clusters.gif)
 
-**Into the structural volume.** At the end of the experiment a high-resolution
+### Imaging planes into the structural volume
+
+At the end of the experiment a high-resolution
 structural z-stack is acquired in vivo over roughly 400 µm of cortex,
 containing all eight functional imaging planes within it. The unified masks
 from each plane are matched into this volume by spatial overlap. The z-stack
@@ -48,11 +52,12 @@ is the common reference frame: it is the entity that a functional ROI and a
 transcriptomic cell can both be matched to, even though they cannot be matched
 directly to each other.
 
-<video controls width="100%" src="/_static/videos/vl-2p-structural-stack.mp4"></video>
+Side view of 2P z-stack:
+<video controls width="70%" src="/_static/videos/vl-2p-structural-stack.mp4"></video>
 
-![The in vivo two-photon structural volume](/resources/vl-2p-structural-stack.png)
+### Structural volume to the lightsheet volume
 
-**Into the lightsheet volume.** The structural volume is then aligned to the
+The structural volume is then aligned to the
 lightsheet volume acquired from the tangential section of the same brain. This
 step works at cellular resolution because it is a **{term}`GCaMP`-to-GCaMP**
 registration: the same cells are labeled by the same fluorophore in both
@@ -60,17 +65,23 @@ volumes, so the alignment is driven by matching individual cell bodies rather
 than by matching tissue landmarks. `GFP` is in the gene panel for exactly this
 reason.
 
+Side view of lightsheet volume:
 ![The lightsheet volume of the tangential section](/resources/vl-lightsheet-volume.png)
 
-The figure below sweeps through cortical depth with the two volumes overlaid —
+
+### Validating Ophys-mFISH co-registration 
+
+The figure below sweeps through cortical depth, from the top down, with the two volumes overlaid —
 the two-photon structural stack in green, the lightsheet volume in magenta.
 Cells that appear white are present in both.
 
+Top down view of 2P z-stack (green) aligned to lightsheet volume (purple):
 ![Sweeping through depth with both volumes overlaid](/resources/vl-coreg-sweep.gif)
 
-The procedure is semi-automated and ends in a manual quality control step.
+The procedure is semi-automated and ends in a manual quality control step to verify the matches.
 
-## The identifiers
+
+## The coregistration identifiers
 
 Four identifiers appear in the linked data, and they have different scopes.
 
@@ -237,7 +248,7 @@ rather than compared across animals.
 Cell identity does not have to enter an analysis as a discrete label. Every
 coregistered neuron carries a full expression profile across the measured
 genes, so activity can be related to graded expression directly, either
-instead of or in addition to grouping by subclass.
+instead of or in addition to grouping by subclass. 
 
 The gene expression measurements themselves, the gene panel, and how the
 subclass labels are derived are described in

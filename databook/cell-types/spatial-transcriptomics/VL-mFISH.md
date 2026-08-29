@@ -122,12 +122,6 @@ subtypes within a subclass: `Ndnf` for {term}`neurogliaform cell`s, `Cck` for
 {term}`basket cell`s, `Calb2` for Sst {term}`martinotti cell`s and Vip
 {term}`bipolar cell`s, and so on.
 
-:::{figure} /resources/vl-met-morphologies.png
----
-align: center
----
-Representative inhibitory morphologies in cortical depth space
-:::
 
 Which round and channel a gene was imaged in is recorded alongside the
 expression data, and the column names carry it directly: `R5-561-Cck` is `Cck`,
@@ -262,4 +256,4 @@ profile and a record of activity during behavior is correspondingly smaller.
 
 The procedure that links the two measurements, the identifiers involved, and
 the number of neurons available at each stage are described in
-[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).
+[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
