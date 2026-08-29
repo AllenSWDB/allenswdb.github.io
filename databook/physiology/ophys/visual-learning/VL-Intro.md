@@ -62,7 +62,7 @@ per-plane clocks relate to one another, and how to put everything on a single
 timeline. Its final section compares what each session type looks like in the
 data.
 
-[Inhibitory cell types and physiology](/physiology/ophys/visual-learning/Tutorial-VisualLearning-CellTypes-and-Physiology) demonstrates the linkage between 
+[Inhibitory cell types and physiology](/physiology/ophys/visual-learning/Tutorial-VisualLearning-Physiology-and-CellTypes) demonstrates the linkage between 
 ophys and mFISH. It attaches the gene expression data and inhibitory subclass labels
 to the recorded neurons, covering the three ID systems
 involved, the join between the coregistration tables and the expression
