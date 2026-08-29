@@ -35,11 +35,11 @@ depending on the mouse, is provided for neurons that were co-registered to post-
 
 ## Data descriptions
 
-The [Visual Behavior Ophys](VL-ophys) page describes the methods for longitudinal imaging during learning.
+The [Visual Learning Ophys](VL-Ophys) page describes the methods for longitudinal imaging during learning.
 
 The task is the change detection task shared across the Visual Behavior datasets and is described on the
 [Visual Behavior Task](vb-behavior) page. The Visual Learning dataset utilizes the same training procedure, with a few key differences - the learning paradigm and session types are described in
-[Visual Learning Task](/physiology/stimuli/visual-learning/VL-Sessions). 
+[Visual Learning Task](/physiology/stimuli/visual-learning/VL-Behavior). 
 
 The gene expression measurements are described in
 [Visual Learning Transcriptomics](/cell-types/spatial-transcriptomics/VL-mFISH), and the procedure that links the across modalities is described in

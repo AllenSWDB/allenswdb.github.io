@@ -60,7 +60,7 @@ followed across the full sequence is therefore smaller than the population
 segmented in any single session.
 
 Each recording is subject to stringent quality control (QC); accordingly, some imaging planes are valid for analysis. 
-The outcome of QC can be accessed in the metadata, which is described in [Tutorial Session Metadata](/physiology/ophys/visual-learning/visual_learning_metadata.md).
+The outcome of QC can be accessed in the metadata, which is described in [Tutorial Session Metadata](/physiology/ophys/visual-learning/visual_learning_metadata).
 
 ## Relationship to the transcriptomics data
 

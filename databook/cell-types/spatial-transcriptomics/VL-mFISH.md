@@ -256,4 +256,4 @@ profile and a record of activity during behavior is correspondingly smaller.
 
 The procedure that links the two measurements, the identifiers involved, and
 the number of neurons available at each stage are described in
-[Linking Ophys and Transcriptomics](/cell-types/spatial-transcriptomics/VL-Integration).
+[Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).

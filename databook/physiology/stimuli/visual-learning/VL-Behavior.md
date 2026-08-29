@@ -178,5 +178,5 @@ from the Visual Behavior dataset, in which only well trained mice were imaged.
 The imaging configuration is the same across session types: 8 planes in VISp
 sampled at approximately 10 Hz. Each session and imaging plane is subject to stringent 
 quality control (QC) criteria; accordingly, not all data is valid for analysis. 
-The outcome of QC can be accessed in the metadata, which is described in [Tutorial Session Metadata](/physiology/ophys/visual-learning/visual_learning_metadata.md).
+The outcome of QC can be accessed in the metadata, which is described in [Tutorial Session Metadata](/physiology/ophys/visual-learning/visual_learning_metadata).
 
