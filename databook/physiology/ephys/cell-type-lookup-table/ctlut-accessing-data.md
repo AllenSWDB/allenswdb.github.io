@@ -26,6 +26,7 @@ This notebook will go over how to load the cell type lookup table data and acces
 ```{code-cell} ipython3
 import pynwb
 import pandas as pd 
+import matplotlib.pyplot as plt
 ```
 
 ## Loading the data
