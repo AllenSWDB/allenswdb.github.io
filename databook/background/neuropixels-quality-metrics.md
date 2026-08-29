@@ -502,8 +502,6 @@ the unit is better isolated from its neighbors.
 bins = np.linspace(0,15,50)
 data = units['d_prime']
 max_value = plot_metric(data, bins, 'd-prime', 'red')
-
-_ = plt.legend(region_dict.keys())
 ```
 
 Here's a summary of things to keep in mind when using `d_prime` in your
