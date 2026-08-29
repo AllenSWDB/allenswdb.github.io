@@ -501,7 +501,7 @@ the unit is better isolated from its neighbors.
 ```{code-cell} ipython3
 bins = np.linspace(0,15,50)
 data = units['d_prime']
-max_value = plot_metric(data, bins, 'd-prime', 'red'')
+max_value = plot_metric(data, bins, 'd-prime', 'red')
 
 _ = plt.legend(region_dict.keys())
 ```
