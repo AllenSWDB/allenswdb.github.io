@@ -14,7 +14,7 @@ parts:
       - file: background/Neuropixels-electrophysiology
         sections:
         - file: background/neuropixels-description
-        - file: physiology/ephys/visual-coding/vcnp-quality-metrics
+        - file: background/neuropixels-quality-metrics
         - file: background/Optotagging.md
       - file: background/Two-photon-calcium-imaging
       - file: background/Ophys-ephys-comparison
