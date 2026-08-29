@@ -140,7 +140,7 @@ The exact set of metrics in the units table will vary slightly between different
 | Metric name | Description |
 | ----------- | ----------- |
 | default_qc | `True` if the unit passes the default QC thresholds (see below) |
-| isi_violations_ratio | rate of refractory-period violations, normalized (contamination measure; **default threshold ≤ 0.5**) |
+| isi_violations | rate of refractory-period violations, normalized (contamination measure; **default threshold ≤ 0.5**) |
 | isi_violations_count | raw count of refractory-period violations |
 | rp_violations | number of violations within a fixed refractory period |
 | rp_contamination | estimated contamination from refractory-period violations (0–1) |
@@ -364,7 +364,7 @@ Inter-spike-interval (ISI) violations are a classic measure of unit
 contamination. Because all neurons have a biophysical refractory period, we can
 assume that any spikes occurring in rapid succession (<1.5 ms intervals) come
 from two different neurons. Therefore, the more a unit is contaminated by spikes
-from multiple neurons, the higher its `isi_violations_ratio` value will be.
+from multiple neurons, the higher its `isi_violations` value will be.
 
 The calculation for ISI violations comes from {cite:t}`hill2011`. Rather than
 reporting the fraction of spikes with ISI violations, their metric reports the
@@ -377,7 +377,7 @@ sometimes be even greater than 1.
 Let's look at the distribution of ISI violations in this asset:
 
 ```{code-cell} ipython3
-data = units['isi_violations_ratio']
+data = units['isi_violations']
 bins = np.linspace(0,0.5,200)
 max_value = plot_metric(data, bins, 'ISI violations', 'red')
 ```
@@ -557,7 +557,7 @@ metrics takes across the whole Visual Coding dataset:
 metrics = ['firing_rate',
            'presence_ratio',
            'amplitude_cutoff',
-           'isi_violations_ratio',
+           'isi_violations',
            'snr',
            'isolation_distance',
            'd_prime',
