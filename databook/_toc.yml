@@ -14,13 +14,18 @@ parts:
       - file: background/Neuropixels-electrophysiology
         sections:
         - file: background/neuropixels-description
-        - file: physiology/ephys/visual-coding/vcnp-quality-metrics
+        - file: background/neuropixels-quality-metrics
         - file: background/Optotagging.md
       - file: background/Two-photon-calcium-imaging
       - file: background/Ophys-ephys-comparison
       - file: background/em-connectomics
       - file: background/CCF.md
-      - file: background/metadata.md
+    - file: formats/format
+      title: Data formats
+      sections:
+      - file: formats/metadata
+      - file: formats/pyNWB
+      # - file: formats/anndata
     - file: physiology/physiology
       title: Physiology & Behavior
       sections:
@@ -90,8 +95,6 @@ parts:
           - file: physiology/ophys/BCI/BCI-metadata
           - file: physiology/ophys/BCI/BCI-dataset
           - file: physiology/ophys/BCI/BCI-stimuli
-    #    - file: physiology/ophys/learning/learning                  
-    #    - file: physiology/ophys/inhibitory-balance/inhibitory-balance                    # Also a placeholder that needs actual content
       - file: physiology/ephys/ephys-overview
         title: Electrophysiology
         sections:
@@ -114,7 +117,7 @@ parts:
         - file: physiology/ephys/cell-type-lookup-table/ctlut-background
           sections:
            - file: physiology/ephys/cell-type-lookup-table/ctlut-metadata
-           - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
+          #  - file: physiology/ephys/cell-type-lookup-table/ctlut-session-data
            - file: physiology/ephys/cell-type-lookup-table/ctlut-optotagging
            - file: physiology/ephys/cell-type-lookup-table/ctlut-accessing-data
            - file: physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units
@@ -126,7 +129,6 @@ parts:
           sections: 
           - file: physiology/ephys/dynamic-routing/dynamic-routing-metadata
           - file: physiology/ephys/dynamic-routing/dynamic-routing-accessing-data
-      # - file: physiology/metadata
     - file: anatomy/anatomy                    # Also a placeholder that needs actual content
       sections:
       - file: anatomy/microns-em/em-background
@@ -173,8 +175,6 @@ parts:
       - file: practicalities/github-code-ocean
       - file: practicalities/code-ocean-collab
       # - file: practicalities/code-ocean-vs-code
-      # - file: practicalities/allensdk-pyNWB
-      - file: practicalities/pyNWB
       - file: practicalities/git
     - file: bibliography
     - file: contributors

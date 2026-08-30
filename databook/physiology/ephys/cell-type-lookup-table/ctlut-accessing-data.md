@@ -26,6 +26,7 @@ This notebook will go over how to load the cell type lookup table data and acces
 ```{code-cell} ipython3
 import pynwb
 import pandas as pd 
+import matplotlib.pyplot as plt
 ```
 
 ## Loading the data
@@ -93,21 +94,47 @@ stimulus_table = nwbfile.intervals['trials'].to_dataframe()
 stimulus_table
 ```
 
-You can also load the stimulus templates: the voltage traces sent to the laser during stimulation, giving you a read of the laser's power over time. The names of the template match the ones in the trials table.
+| name | description |
+| ---- | ---- |
+| start_time | trial start time (s) |
+| stop _time | trial stop time (s) |
+| site | emission site of laster stimuluation |
+| power | laser power |
+| emission_location | which probe the emission was from |
+| duration | duration of laser stimulation (s) | 
+| rise_time | rise time of stimulation |
+| num_pulses | number of pulses in trial |
+| wavelength | wavelength of light (nm) |
+| stim_id | stimulus template used for trial |
+| inter-pulse-interval | time between pulses (s) |
+| stimulation_type | internal/eternal, red/blue |
+| inter_trial_interval | time between trials (s) |
+
+ 
+You can also load the stimulus templates: the voltage traces sent to the laser during stimulation, giving you a read of the laser's power over time. The names of the template match the ones in the `stim_id` column of the trials table.
 
 ```{code-cell} ipython3
-stimulus_template = nwbfile.stimulus_template
-stimulus_template
+# for this experiment there were only `train` trials
+stimulus_template = nwbfile.stimulus_template['train'].data[:]
+stimulus_template_ts = nwbfile.stimulus_template['train'].timestamps[:]
+
+plt.plot(stimulus_template_ts, stimulus_template)
+plt.xlabel("Time (s)")
 ```
 
 ## LFP data
 
-You can load the LFP (local field potential) data collected for each experiment. There are 384 channels of this data, for every electrode on the Neuropixels probe, as it was collected concurrently with the spiking data.
+You can load the {term}`local field potential` (LFP) data collected for each probe in each experiment. There are 384 channels of this data, for every electrode on the Neuropixels probe, as it was collected concurrently with the spiking data.
+
+```{note}
+Look in your own data file to find the name of the probe. This varies widely between assets.
+```
 
 ```{code-cell} ipython3
-# load LFP data (for probe A, change the string for probe B)
-lfp = nwbfile.processing['ecephys']['LFP']['ElectricalSeriesProbeA-LFP'].data[:]
+lfp = nwbfile.processing['ecephys'].data_interface['LFP']['ElectricalSeriesNeuopixels Opto-1-LFP'].data[:]
+lfp.shape
 ```
+
 
 ## Running data
 
@@ -120,8 +147,4 @@ running_timestamps = nwbfile.processing['behavior']['running_speed'].timestamps[
 plt.plot(running_timestamps, running_speed)
 plt.ylabel('Speed (cm/s)')
 plt.xlabel('Time (s)')
-```
-
-```{code-cell} ipython3
-
 ```
