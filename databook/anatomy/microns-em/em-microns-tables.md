@@ -222,10 +222,10 @@ The key column
   - {term}`basket cell`
 * - `BPC`
   - Inhibitory
-  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
+  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP neuron`s, not only those with a bipolar dendrite.
 * - `MC`
   - Inhibitory
-  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`Somatostatin cell`, not only those with a {term}`Martinotti cell` morphology.
+  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`SST neuron`s, not only those with a {term}`Martinotti cell` morphology.
 * - `Unsure` 
   - Inhibitory
   - Unsure. *In practice, this label also is used for all likely-inhibitory neurons that did not match other types*
@@ -315,10 +315,10 @@ The key columns are:
   - {term}`basket cell`
 * - `BPC`
   - Inhibitory
-  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP cell`, not only those with a bipolar dendrite.
+  - {term}`Bipolar cell`. In practice, this was used for all cells thought to be {term}`VIP neuron`s, not only those with a bipolar dendrite.
 * - `MC`
   - Inhibitory
-  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`Somatostatin cell`, not only those with a {term}`Martinotti cell` morphology.
+  - Martinotti cells. In practice, this label was used for all inhibitory neurons that appeared to be {term}`SST neuron`s, not only those with a {term}`Martinotti cell` morphology.
 * - `NGC` 
   - Inhibitory 
   - Neurogliaform cell. *In practice, this label also is used for all inhibitory neurons in layer 1, many of which may not be neurogliaform cells although they might be in the same molecular family*
@@ -473,7 +473,7 @@ The key columns are:
   - Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many neurogliaform cells and layer 1 interneurons fall into this category.  
 * - `ITC`
   - Inhibitory
-  - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP cell`s would be ITCs.
+  - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP neuron`s would be ITCs.
    
 ```
 

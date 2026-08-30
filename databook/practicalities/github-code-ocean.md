@@ -4,8 +4,8 @@
 ## GitHub: Create a new repository using one of the templates
 
 - Find the templates here: https://github.com/AllenSWDB/ 
-    SDK template: https://github.com/AllenSWDB/swdb2025_allensdk_environment
-    PyNWB template: https://github.com/AllenSWDB/swdb2025_pynwb_environment
+    This template is set up for using pynwb and aind-data-access to work with data: https://github.com/AllenSWDB/swdb-capsule-template
+    If you are working with caveclient to work with connectomics data, use https://github.com/AllenSWDB/swdb-connectomics-capsule-template. (You will need to add a CAVE token to your capsule at the end of the setup. Ask for help with this)
 
 - Use a template to make a new repository. Click the `Use this template` button in the top right corner:
 
@@ -189,3 +189,4 @@ width: 200
 - This sync button will also pull changes that have previously been merged into the GitHub repository.
 
 - This method of syncing with GitHub does not handle merge conflicts well, which is where using the Terminal will likely be preferred. 
+

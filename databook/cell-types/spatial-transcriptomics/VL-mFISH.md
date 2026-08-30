@@ -119,7 +119,7 @@ which marks the cells that carried the calcium indicator in vivo. `Gad2` and
 which broad class a cell belongs to. Everything else is either a subclass
 marker — `Pvalb`, `Sst`, `Vip`, `Lamp5` — or a gene that distinguishes
 subtypes within a subclass: `Ndnf` for {term}`neurogliaform cell`s, `Cck` for
-{term}`basket cell`s, `Calb2` for Sst {term}`martinotti cell`s and Vip
+{term}`basket cell`s, `Calb2` for SST {term}`martinotti cell`s and VIP
 {term}`bipolar cell`s, and so on.
 
 
@@ -205,11 +205,11 @@ one class, as are cells that meet none of the categories described above.
 
 `Lamp5` is a subclass marker but deliberately not one of the genes that can
 admit a cell to the inhibitory class because it is also expressed in excitatory cells. 
-Instead `Npy` is used, which is expressed in most Lamp5 cells but not excitatory cells. 
+Instead `Npy` is used, which is expressed in most LAMP5 cells but not excitatory cells. 
 
 **Subclass** — `Pvalb`, `Sst`, `Vip`, or `Lamp5` (see the glossary definitions
-for {term}`parvalbumin-positive interneuron`, {term}`somatostatin cell` and
-{term}`VIP cell`) — comes from the expression of the four canonical subclass
+for {term}`PV neuron`, {term}`SST neuron` and
+{term}`VIP neuron`) — comes from the expression of the four canonical subclass
 marker genes themselves. The assigned subclass is made based on which of the 
 four markers has the highest mean normalized expression for each cell. 
 Subclass labels are only given to cells that are assigned to the `inhibitory` class. 

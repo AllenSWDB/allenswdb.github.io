@@ -16,7 +16,7 @@ Basket cell
   activity.
 
 Bipolar cell
-  A subset of VIP cell with a bipolar dendritic arbor. See {term}`VIP cell`.
+  A subset of {term}`VIP neuron`s with a bipolar dendritic arbor.
 
 BCI
 Brain Computer Interface
@@ -29,6 +29,15 @@ CCF
 Common Coordinate Framework
   The [CCF](background/CCF.md) is a a standard 3D reference space for the mouse brain that enables spatial integration of data across modalities.
 
+Chandelier cell
+Axo-axonic cell
+  A parvalbumin-expressing interneuron whose axon terminals form vertical
+  "cartridges" along the axon initial segment of excitatory neurons, giving them direct control over
+  action potential output. Chandelier cell bodies are concentrated near the layer 1/2
+  border and in layer 5. In the Allen whole mouse brain taxonomy chandelier
+  cells are a {term}`subclass` of their own, separate from other
+  {term}`PV neuron`s.
+
 ChR2
 Channelrhodopsin
   A light-gated ion channel used in the field of optogenetics to control neuronal activity with light. 
@@ -37,14 +46,10 @@ Cell type taxonomy
   A hierarchical grouping of cell types defined by gene expression. The Allen
   Institute whole mouse brain taxonomy nests four levels — {term}`class`,
   {term}`subclass`, {term}`supertype`, and {term}`cluster` — comprising 34
-  classes, 338 subclasses, 1,201 supertypes and 5,322 clusters. Datasets that
-  measure a small panel of genes rather than the whole transcriptome often reuse
-  these level names for groupings computed from their own data; those groupings
-  are not necessarily the same categories as in the reference taxonomy.
+  classes, 338 subclasses, 1,201 supertypes and 5,322 clusters. Cell type taxonomies are continuously evolving as new datasets are generated and depend strongly on the clustering methods used. 
 
 Class
-  The broadest level of a {term}`cell type taxonomy`. In cortical data the term
-  is often used more loosely for the excitatory/inhibitory division.
+  The broadest level of a {term}`cell type taxonomy`. Among cortical neurons, the primary classes are excitatory and inhibitory neurons.
 
 Cluster
   The finest level of a {term}`cell type taxonomy`, below {term}`supertype`.
@@ -107,7 +112,7 @@ FSI
     unlabeled extracellular recordings, units with narrow action potentials are
     also referred to as fast spiking neurons. This feature is sometimes used
     to putatively label neurons with narrow spikes as particular cell types,
-    such as {term}`PV+ neuron`s, among others.
+    such as {term}`PV neuron`s, among others.
 
 Fluorophore
   A type of molecule which absorb light and re-emit it at a longer wavelength 
@@ -150,7 +155,7 @@ Hyperparameter
   the first place.
 
 Interneuron
-  Also known as a local interneuron: a neuron that has short axons and synapse
+  Also known as a local interneuron; neurons with local axons that synapse
   exclusively with nearby neurons. In the cortex the term is often used to refer to inhibitory neurons.
 
 Interspike interval
@@ -174,14 +179,20 @@ ISI
   For additional papers using ISI to map the organization of the mouse visual
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
 
+LAMP5 neuron
+  Inhibitory interneurons expressing the marker gene Lysosome-Associated Membrane Protein 5, typically residing in layer 1 of the cortex. The LAMP5 subclass contains multiple subtypes including {term}`Neurogliaform cell`s which communciate through volume transmission.  
+
 Local field potential
 LFP
   Transient electrical potential generated in nervous tissue by the summed
   activity of cells in that tissue. This is typically measured in a lower
   temporal-frequency band of less than 250 Hz.
 
+Marker gene 
+  A gene that is expressed selectively in a specific population of cells, typically used to gain genetic access to cell types of interest for expression of genetically encoded indicators or other reporters, or to label cell types post-hoc through histology or transcriptomics. While the function of a marker gene can be relevant, the selectivity of expression is typically the primary reason for its use in systems neuroscience experiments. 
+
 Martinotti cell
-  A Martinotti cell is a particular subtype of SST cell that targets the apical
+  A Martinotti cell is a particular subtype of {term}`SST neuron` that targets the apical
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
   2/3 and layer 5.
 
@@ -223,18 +234,13 @@ Optotagging
   A technique that uses {term}`optogenetics` in order to identify neurons that belong to
   a specific subpopulation. See: [Optotagging](background/Optotagging).
 
+PV neuron
 Parvalbumin-positive interneuron
-PV+ neuron
-    Fast spiking neurons, also known as fast spiking interneurons, is a
-    short-hand for parvalbumin positive GABA-ergic inhibitory interneurons found
-    in many brain regions that have strong inhibitory effects on neighboring
-    cells. In experimental preparations where the genetic identity of neurons
-    can be paired with electrophysiological recordings, PV+ neurons have short
-    action potentials, occasionally less than 400 µS.
+    Inhibitory interneurons expressing the calcium binding protein parvalbumin (PV). PV neurons are typically {term}`Fast spiking neuron`s and have strong inhibitory effects on neighboring cells, specifically targeting the somatic compartment of excitatory neurons. The PV subclass also includes {term}`Chandelier cell`s, which target the axon initial segment of excitatory neurons.
 
-Primary visual cortex
 V1
 VISp
+Primary visual cortex
   The largest visual area in cortex that receives inputs from the Lateral
   geniculate nucleus of thalamus. Often referred to as <b>V1</b> or <b>VISp</b>.
 
@@ -246,8 +252,8 @@ Pyramidal cell
 Receptive field
   In a sensory context, the receptive field of a neuron is the region of the stimulus domain in which sensory stimulus needs to lie in order to evoke a response.  For visual cortical cells, for example, the receptive field is the region of visual space in which stimuli can evoke neural responses.  In a computational context, this notion is often generalized multiple dimensions (e.g. space, time, frequency, etc.) and thus equates to the necessary stimulus features that drive neural response (e.g. a localized grating of a specific orientation and frequency).  
 
+RS neuron
 Regular Spiking neuron
-RS
   Neurons that, when injected with a long step of current in the context of
   intracellular recordings, show spike frequency adaptation where the rate of
   spiking decreases over time. These neurons also have longer (or wider) action
@@ -282,7 +288,7 @@ Reporter line
   reporter gene.
 
 Retinotopy
-retinotopic map
+Retinotopic map
   <b>retinotopy</b> refers to the mapping of visual space on to neural space.
   Most visual areas of the brain contain an orderly map of visual space such that
   neighboring regions in space are represented by neighboring regions in the brain.
@@ -303,11 +309,20 @@ Session
 Skeleton
   A linear tree-like structure that defines the shape of a neuron. 
 
+SNCG neuron
+  A {term}`subclass` of inhibitory interneuron expressing gamma-synuclein
+  (SNCG), found across layers 2-6. Most SNCG cells are CCK-expressing
+  {term}`basket cell`s that also express the cannabinoid receptor CB1, which
+  makes their output sensitive to endocannabinoid signaling. Earlier taxonomies
+  placed these cells with VIP and LAMP5 cells in a single Htr3a group.
+
+SST neuron
+Somatostatin-positive interneuron
 Somatostatin cell
   A type of inhibitory interneuron expressing the molecular marker somatostatin (SST, or
-  sometimes SOM). SST cells tend to target the distal dendrites of excitatory
+  sometimes SOM). SST neurons typically target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
-  neurons.
+  neurons. SST neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neuron`s. 
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
@@ -327,10 +342,10 @@ Spontaneous activity
 
 Subclass
   A level of a {term}`cell type taxonomy`, below {term}`class` and above
-  {term}`supertype`. The canonical cortical inhibitory subclasses are Pvalb,
-  Sst, Vip and Lamp5, each named for a marker gene. See
-  {term}`parvalbumin-positive interneuron`, {term}`somatostatin cell` and
-  {term}`VIP cell`.
+  {term}`supertype`. The canonical cortical inhibitory subclasses are PV,
+  SST, VIP and LAMP5, each named for a marker gene. See
+  {term}`PV neuron`, {term}`SST neuron` and
+  {term}`VIP neuron`, and {term}`LAMP5 neuron`.
 
 Supertype
   A level of a {term}`cell type taxonomy`, between {term}`subclass` and
@@ -376,8 +391,9 @@ Unit
   analysis require more stringent quality thresholds to ensure that all of the
   included units are well isolated from their neighbors.
 
-VIP cell
-  A type of inhibitory interneuron expressing the molecular marker Vasoactive Intestinal Protein. VIP cells tend to target {term}`somatostatin cell`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells".
+VIP neuron
+Vasoactive-intestinal peptide-expressing interneuron
+  A type of inhibitory interneuron expressing the molecular marker vasoactive-intestinal protein. VIP neurons typically target {term}`SST neuron`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP neurons have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called {term}`bipolar cell`s. 
 
 Waveform
 Spike

@@ -9,9 +9,12 @@
 Neural activity was measured as calcium fluorescence in mice expressing the
 genetically encoded calcium indicator j{term}`GCaMP`8s in inhibitory neurons, using the
 {term}`transgenic line` `Slc32a1-IRES-Cre;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)`.
-`Slc32a1` (VGAT) is expressed by all GABAergic neurons so all the main inhibitory 
-subclasses are labeled and recorded simultaneously: Pvalb, Sst, Vip, and Lamp5 neurons. 
-Excitatory neurons are not labeled and are not present in this dataset.
+`Slc32a1` (VGAT) is expressed by all GABAergic neurons, so the label is
+pan-inhibitory: PV, SST, VIP, and LAMP5 neurons (see the glossary
+definitions for {term}`PV neuron`,
+{term}`SST neuron` and {term}`VIP neuron`) all express the indicator,
+and all are recorded simultaneously in the same field of view. Excitatory
+neurons are not labeled and are not present in this dataset.
 
 This is a different strategy from datasets that use a subclass-specific Cre
 line such as `Vip-IRES-Cre` or `Sst-IRES-Cre`. In those datasets the mouse line
@@ -34,8 +37,9 @@ corresponding roughly to layer 1 through upper layer 5. Each plane is sampled
 at approximately 10 Hz.
 
 Sampling this depth range in VISp means layer 1 is included, which matters for
-inhibitory populations specifically: Lamp5 neurons, including
-{term}`neurogliaform cell`s, are concentrated in layer 1 and are largely absent from datasets that begin imaging deeper in the cortex.
+inhibitory populations specifically: LAMP5 neurons, including
+{term}`neurogliaform cell`s, are concentrated in layer 1 and are largely absent from datasets that
+begin imaging deeper in the cortex.
 
 In addition to fluorescence timeseries, running speed, lick times, and reward
 times were recorded throughout every session, allowing neural activity to be
@@ -74,16 +78,18 @@ The registration procedure, the identifiers used to link the two datasets, and
 the numbers of neurons available at each stage are described in
 [Linking Ophys and Transcriptomics](/physiology/ophys/visual-learning/VL-Integration).
 
-Neurons that are successfully matched receive a subclass label — Pvalb, Sst,
-Vip, or Lamp5 — which can then be applied to their activity in any session in
-which they were recorded. 
+Neurons that are successfully matched receive a subclass label — PV, SST,
+VIP, or LAMP5 — which can then be applied to their activity in any session in
+which they were recorded. Neural activity can also be related to the continuous
+gene expression patterns across all measured genes, rather than or in addition to
+grouping neurons by the subclass marker genes.
 
 ![Coregistered inhibitory neurons across imaging planes](/resources/vl-coregistered-planes.png)
 
 The number of neurons carrying a subclass label is smaller than the number
 segmented, since a neuron must be matched through several registration steps
-before it can be labeled. Subclass representation is also uneven: Pvalb and Vip neurons are
-recovered in larger numbers than Sst neurons, which is worth
+before it can be labeled. Subclass representation is also uneven: PV and VIP neurons are
+recovered in larger numbers than SST neurons, which is worth
 considering when planning comparisons between subclasses.
 
 With subclass labels attached, activity during any session type can be compared
