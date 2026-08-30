@@ -321,7 +321,7 @@ Somatostatin-positive interneuron
   A type of inhibitory interneuron expressing the molecular marker somatostatin (SST, or
   sometimes SOM). SST neurons typically target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
-  neurons. Sst neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neurons`. 
+  neurons. SST neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neurons`. 
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
