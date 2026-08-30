@@ -17,7 +17,7 @@ To learn about the task structure and behavioral training procedure, see the [Vi
 
 ## 2-Photon Calcium Imaging
 
-Neural activity was measured as calcium fluorescence in cells expressing the genetically encoded calcium indicator GCaMP6 in populations of excitatory, Vip inhibitory, and Sst inhibitory neurons using the transgenic mouse lines listed below. Imaging took place between 75-400um below the cortical surface.
+Neural activity was measured as calcium fluorescence in cells expressing the genetically encoded calcium indicator GCaMP6 in populations of excitatory, VIP inhibitory, and SST inhibitory neurons using the transgenic mouse lines listed below. Imaging took place between 75-400um below the cortical surface.
 
 ![transgenic_lines](/resources/vbo_transgenic_lines.png)
 

@@ -45,9 +45,9 @@ Neural activity was measured as calcium fluorescence in mice expressing the
 genetically encoded calcium indicator jGCaMP8s in inhibitory neurons, using the
 {term}`transgenic line` `Slc32a1-IRES-Cre;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)`.
 `Slc32a1` (VGAT) is expressed by all GABAergic neurons, so the label is
-pan-inhibitory: Pvalb, Sst, Vip, and Lamp5 neurons (see the glossary
-definitions for {term}`parvalbumin-positive interneuron`,
-{term}`somatostatin cell` and {term}`VIP cell`) all express the indicator,
+pan-inhibitory: PV, SST, VIP, and LAMP5 neurons (see the glossary
+definitions for {term}`PV neuron`,
+{term}`SST neuron` and {term}`VIP neuron`) all express the indicator,
 and all are recorded simultaneously in the same field of view. Excitatory
 neurons are not labeled and are not present in this dataset.
 
@@ -70,7 +70,7 @@ at approximately 10 Hz.
 ![Eight imaging planes in VISp](/resources/vl-imaging-planes.png)
 
 Sampling this depth range in VISp means layer 1 is included, which matters for
-inhibitory populations specifically: Lamp5 neurons, including
+inhibitory populations specifically: LAMP5 neurons, including
 {term}`neurogliaform cell`s, are concentrated in layer 1 and are largely absent from datasets that
 begin imaging deeper in the cortex.
 
@@ -193,8 +193,8 @@ neurons recorded in vivo.
 
 ![Gene expression measured in the imaged tissue](/resources/vl-hcr-puncta.png)
 
-Neurons that are successfully matched receive a subclass label — Pvalb, Sst,
-Vip, or Lamp5 — which can then be applied to their activity in any session in
+Neurons that are successfully matched receive a subclass label — PV, SST,
+VIP, or LAMP5 — which can then be applied to their activity in any session in
 which they were recorded. Neural activity can also be related to the continuous
 gene expression patterns across all measured genes, rather than or in addition to
 grouping neurons by the subclass marker genes.
@@ -203,8 +203,8 @@ grouping neurons by the subclass marker genes.
 
 The number of neurons carrying a subclass label is smaller than the number
 segmented, since a neuron must be matched through several registration steps
-before it can be labeled. Subclass representation is also uneven: Pvalb and Vip neurons are
-recovered in larger numbers than Sst neurons, which is worth
+before it can be labeled. Subclass representation is also uneven: PV and VIP neurons are
+recovered in larger numbers than SST neurons, which is worth
 considering when planning comparisons between subclasses.
 
 ![Activity of coregistered neurons sorted by subclass](/resources/vl-subclass-raster.png)

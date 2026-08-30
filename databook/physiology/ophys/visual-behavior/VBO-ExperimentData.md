@@ -961,9 +961,9 @@ ax[1].legend(['running speed', 'pupil','licks', 'rewards'])
 From looking at the activity of this neuron, we can see that it was very active during our experiment but its activity does not appear to be reliably locked to image presentations. It does seem to vaguely follow animal's running speed, thus it might be modulated by running.
 
 
-## Create the same plot for a Vip cell from a different experiment
+## Create the same plot for a VIP cell from a different experiment
 
-We can get a different, Vip experiment from `session_type` = `OPHYS_1` (equivalent to `session_number` = 1) and plot it to compare response traces. This gives us a similar plot from a different inhibitory neuron to compare their neural dynamics.
+We can get a different, VIP experiment from `session_type` = `OPHYS_1` (equivalent to `session_number` = 1) and plot it to compare response traces. This gives us a similar plot from a different inhibitory neuron to compare their neural dynamics.
 
 ```{code-cell} ipython3
 # Select a Vip experiment with familiar images (session_number = 1, 2, or 3)
@@ -1011,4 +1011,4 @@ plot_stimuli(ax[1], initial_time, final_time)
 ax[1].set_yticks([])
 ax[1].legend(['running speed', 'pupil','licks', 'rewards'])
 ```
-We can see that the dynamics of a Vip neuron are also not driven by the visual stimuli. Aligning neural activity to different behavioral or experimental events might reveal what this neuron is driven by.
+We can see that the dynamics of a VIP neuron are also not driven by the visual stimuli. Aligning neural activity to different behavioral or experimental events might reveal what this neuron is driven by.

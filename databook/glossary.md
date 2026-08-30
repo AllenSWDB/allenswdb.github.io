@@ -9,8 +9,8 @@ Action potential
 Basket cell
   A type of inhibitory neuron whose synaptic output targets the cell body and
   proximal dendrites of excitatory neurons. Many basket cells express the
-  molecular marker parvalbumin (Pvalb), but not all basket cells are Pvalb+: some
-  express molecules such as cholecystokinin (CCK). Pvalb basket cells are typically
+  molecular marker parvalbumin (PV), but not all basket cells are PV+: some
+  express molecules such as cholecystokinin (CCK). PV basket cells are typically
   fast spiking compared to other neurons and are thought to be important for
   gain control of network activity and setting the temporal precision of network
   activity.
@@ -36,7 +36,7 @@ Axo-axonic cell
   action potential output. Chandelier cell bodies are concentrated near the layer 1/2
   border and in layer 5. In the Allen whole mouse brain taxonomy chandelier
   cells are a {term}`subclass` of their own, separate from other
-  {term}`parvalbumin-positive interneuron`s.
+  {term}`PV neuron`s.
 
 ChR2
 Channelrhodopsin
@@ -179,8 +179,8 @@ ISI
   For additional papers using ISI to map the organization of the mouse visual
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
 
-Lamp5 neuron
-  Inhibitory interneurons expressing the marker gene Lysosome-Associated Membrane Protein 5, typically residing in layer 1 of the cortex. The Lamp5 subclass contains multiple subtypes including {term}`Neurogliaform cells` which communciate through volume transmission.  
+LAMP5 neuron
+  Inhibitory interneurons expressing the marker gene Lysosome-Associated Membrane Protein 5, typically residing in layer 1 of the cortex. The LAMP5 subclass contains multiple subtypes including {term}`Neurogliaform cell`s which communciate through volume transmission.  
 
 Local field potential
 LFP
@@ -236,7 +236,7 @@ Optotagging
 
 PV neuron
 Parvalbumin-positive interneuron
-    Inhibitory interneurons expressing the calcium binding protein parvalbumin (PV). PV are typically {term}`Fast spiking neuron`s and have strong inhibitory effects on neighboring cells, specifically targeting the somatic compartment of excitatory neurons. The PV subclass also includes {term}`Chandelier cell`s, which target the axon initial segment of excitatory neurons.
+    Inhibitory interneurons expressing the calcium binding protein parvalbumin (PV). PV neurons are typically {term}`Fast spiking neuron`s and have strong inhibitory effects on neighboring cells, specifically targeting the somatic compartment of excitatory neurons. The PV subclass also includes {term}`Chandelier cell`s, which target the axon initial segment of excitatory neurons.
 
 V1
 VISp
@@ -314,14 +314,15 @@ SNCG neuron
   (SNCG), found across layers 2-6. Most SNCG cells are CCK-expressing
   {term}`basket cell`s that also express the cannabinoid receptor CB1, which
   makes their output sensitive to endocannabinoid signaling. Earlier taxonomies
-  placed these cells with VIP and Lamp5 cells in a single Htr3a group.
+  placed these cells with VIP and LAMP5 cells in a single Htr3a group.
 
 SST neuron
 Somatostatin-positive interneuron
+Somatostatin cell
   A type of inhibitory interneuron expressing the molecular marker somatostatin (SST, or
   sometimes SOM). SST neurons typically target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
-  neurons. SST neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neurons`. 
+  neurons. SST neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neuron`s. 
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
@@ -341,10 +342,10 @@ Spontaneous activity
 
 Subclass
   A level of a {term}`cell type taxonomy`, below {term}`class` and above
-  {term}`supertype`. The canonical cortical inhibitory subclasses are Pvalb,
-  SST, VIP and Lamp5, each named for a marker gene. See
+  {term}`supertype`. The canonical cortical inhibitory subclasses are PV,
+  SST, VIP and LAMP5, each named for a marker gene. See
   {term}`PV neuron`, {term}`SST neuron` and
-  {term}`VIP neuron`, and {term}`Lamp5 neuron`.
+  {term}`VIP neuron`, and {term}`LAMP5 neuron`.
 
 Supertype
   A level of a {term}`cell type taxonomy`, between {term}`subclass` and
@@ -392,7 +393,7 @@ Unit
 
 VIP neuron
 Vasoactive-intestinal peptide-expressing interneuron
-  A type of inhibitory interneuron expressing the molecular marker vasoactive-intestinal protein. VIP neurons typically target {term}`SST neurons`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP neurons have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called {term}`bipolar cell`s. 
+  A type of inhibitory interneuron expressing the molecular marker vasoactive-intestinal protein. VIP neurons typically target {term}`SST neuron`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP neurons have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called {term}`bipolar cell`s. 
 
 Waveform
 Spike

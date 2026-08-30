@@ -223,7 +223,7 @@ For details about cell subtypes, reference [this nomenclature page](https://gith
   - Sparsely targeting cells, a cluster of inhibitory neurons that don't concentrate multiple synapses onto the same target neurons. Many neurogliaform cells and layer 1 interneurons fall into this category.  
 * - `ITC`
   - Inhibitory
-  - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP cell`s would be ITCs.
+  - Inhibitory targeting cells, a cluster of inhibitory neurons that preferentially target other inhibitory neurons. Most {term}`VIP neuron`s would be ITCs.
 
 ```
 ````
