@@ -16,7 +16,7 @@ Basket cell
   activity.
 
 Bipolar cell
-  A subset of VIP cell with a bipolar dendritic arbor. See {term}`Vip cell`.
+  A subset of VIP neurons with a bipolar dendritic arbor. See {term}`VIP cell`.
 
 BCI
 Brain Computer Interface
@@ -234,9 +234,9 @@ Optotagging
   A technique that uses {term}`optogenetics` in order to identify neurons that belong to
   a specific subpopulation. See: [Optotagging](background/Optotagging).
 
-Pvalb inhibitory neuron
+PV neuron
 Parvalbumin-positive interneuron
-    Inhibitory interneurons expressing the calcium binding protein parvalbumin. Pvalb are typically {term}`Fast spiking neuron`s and have strong inhibitory effects on neighboring cells, specifically targeting the somatic compartment of excitatory neurons. The Pvalb subclass also includes {term}`Chandelier cell`s, which target the axon initial segment of excitatory neurons.
+    Inhibitory interneurons expressing the calcium binding protein parvalbumin (PV). PV are typically {term}`Fast spiking neuron`s and have strong inhibitory effects on neighboring cells, specifically targeting the somatic compartment of excitatory neurons. The PV subclass also includes {term}`Chandelier cell`s, which target the axon initial segment of excitatory neurons.
 
 V1
 VISp
@@ -309,19 +309,19 @@ Session
 Skeleton
   A linear tree-like structure that defines the shape of a neuron. 
 
-Sncg inhibitory neuron
+SNCG neuron
   A {term}`subclass` of inhibitory interneuron expressing gamma-synuclein
-  (SNCG), found across layers 2-6. Most Sncg cells are CCK-expressing
+  (SNCG), found across layers 2-6. Most SNCG cells are CCK-expressing
   {term}`basket cell`s that also express the cannabinoid receptor CB1, which
   makes their output sensitive to endocannabinoid signaling. Earlier taxonomies
   placed these cells with Vip and Lamp5 cells in a single Htr3a group.
 
-Sst inhibitory neuron
+SST neuron
 Somatostatin-positive interneuron
   A type of inhibitory interneuron expressing the molecular marker somatostatin (SST, or
-  sometimes SOM). Sst neurons typically target the distal dendrites of excitatory
+  sometimes SOM). SST neurons typically target the distal dendrites of excitatory
   neurons, and have important roles in regulating the activity of excitatory
-  neurons. Sst neurons also inhibit Vip neurons, and some Sst subtypes also target Pvalb neurons. 
+  neurons. Sst neurons also inhibit {term}`VIP neuron`s, and some SST subtypes also target {term}`PV neurons`. 
 
 Spatial frequency
   How often sinusoidal components of as signal or structure repeat per unit of distance.
@@ -390,9 +390,9 @@ Unit
   analysis require more stringent quality thresholds to ensure that all of the
   included units are well isolated from their neighbors.
 
-Vip inhibitory neuron
+VIP neuron
 Vasoactive-intestinal peptide-expressing interneuron
-  A type of inhibitory interneuron expressing the molecular marker vasoactive-intestinal protein. Vip cells typically target {term}`Sst inhibitory neurons`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many Vip cells have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called "bipolar cells". 
+  A type of inhibitory interneuron expressing the molecular marker vasoactive-intestinal protein. VIP neurons typically target {term}`SST neurons`s rather than excitatory neurons. This role as a "disinhibitory specialist" is thought to be important for context-dependent modulation of cortical activity. Many VIP neurons have a characteristic bipolar axon that points along the axis of the cortical column and are thus often called {term}`bipolar cell`s. 
 
 Waveform
 Spike
