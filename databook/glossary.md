@@ -112,7 +112,7 @@ FSI
     unlabeled extracellular recordings, units with narrow action potentials are
     also referred to as fast spiking neurons. This feature is sometimes used
     to putatively label neurons with narrow spikes as particular cell types,
-    such as {term}`Pvalb neuron`s, among others.
+    such as {term}`PV neuron`s, among others.
 
 Fluorophore
   A type of molecule which absorb light and re-emit it at a longer wavelength 
