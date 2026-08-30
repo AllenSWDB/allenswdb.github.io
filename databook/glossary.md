@@ -16,7 +16,7 @@ Basket cell
   activity.
 
 Bipolar cell
-  A subset of VIP neurons with a bipolar dendritic arbor. See {term}`VIP cell`.
+  A subset of {term}`VIP neuron`s with a bipolar dendritic arbor.
 
 BCI
 Brain Computer Interface
@@ -179,7 +179,7 @@ ISI
   For additional papers using ISI to map the organization of the mouse visual
   cortex see {cite:t}`kalatsky2003` and {cite:t}`garrett2014`.
 
-Lamp5 inhibitory neuron
+Lamp5 neuron
   Inhibitory interneurons expressing the marker gene Lysosome-Associated Membrane Protein 5, typically residing in layer 1 of the cortex. The Lamp5 subclass contains multiple subtypes including {term}`Neurogliaform cells` which communciate through volume transmission.  
 
 Local field potential
@@ -192,7 +192,7 @@ Marker gene
   A gene that is expressed selectively in a specific population of cells, typically used to gain genetic access to cell types of interest for expression of genetically encoded indicators or other reporters, or to label cell types post-hoc through histology or transcriptomics. While the function of a marker gene can be relevant, the selectivity of expression is typically the primary reason for its use in systems neuroscience experiments. 
 
 Martinotti cell
-  A Martinotti cell is a particular subtype of {term}`Sst neuron` that targets the apical
+  A Martinotti cell is a particular subtype of {term}`SST neuron` that targets the apical
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer
   2/3 and layer 5.
 
@@ -314,7 +314,7 @@ SNCG neuron
   (SNCG), found across layers 2-6. Most SNCG cells are CCK-expressing
   {term}`basket cell`s that also express the cannabinoid receptor CB1, which
   makes their output sensitive to endocannabinoid signaling. Earlier taxonomies
-  placed these cells with Vip and Lamp5 cells in a single Htr3a group.
+  placed these cells with VIP and Lamp5 cells in a single Htr3a group.
 
 SST neuron
 Somatostatin-positive interneuron
@@ -342,9 +342,9 @@ Spontaneous activity
 Subclass
   A level of a {term}`cell type taxonomy`, below {term}`class` and above
   {term}`supertype`. The canonical cortical inhibitory subclasses are Pvalb,
-  Sst, Vip and Lamp5, each named for a marker gene. See
-  {term}`Pvalb inhibitory neuron`, {term}`Sst inhibitory neuron` and
-  {term}`Vip inhibitory neuron`, and {term}`Lamp5 inhibitory neuron`.
+  SST, VIP and Lamp5, each named for a marker gene. See
+  {term}`PV neuron`, {term}`SST neuron` and
+  {term}`VIP neuron`, and {term}`Lamp5 neuron`.
 
 Supertype
   A level of a {term}`cell type taxonomy`, between {term}`subclass` and
