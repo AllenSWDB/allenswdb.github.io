@@ -23,7 +23,7 @@ Diagram of the SHIELD implant with multiple Neuropixels 1.0 probes.
 Probe trajectories across mice and sessions showing dense coverage of the left hemisphere.
 :::
 
-Several mouse lines used in the dataset express channelrhodopsin (ChR2) in specific inhibitory interneuron classes (Pvalb, Sst, Vip, or all GABAergic via VGAT), enabling [optotagging](../../../background/Optotagging.md) of those cell types during dedicated epochs at the start and end of each session.
+Several mouse lines used in the dataset express channelrhodopsin (ChR2) in specific inhibitory interneuron classes (PV, SST, VIP, or all GABAergic via VGAT), enabling [optotagging](../../../background/Optotagging.md) of those cell types during dedicated epochs at the start and end of each session.
 
 ## Task
 

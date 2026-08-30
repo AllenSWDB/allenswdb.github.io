@@ -180,26 +180,26 @@ The neurons carrying both an activity trace and a subclass label are not a
 random sample of either dataset. Two structural biases are large enough to
 matter when planning a comparison.
 
-**The subclasses sit at different depths.** Lamp5 and Vip neurons are
-superficial, Sst and Pvalb neurons are deeper. Median imaging depth of the
+**The subclasses sit at different depths.** LAMP5 and VIP neurons are
+superficial, SST and PV neurons are deeper. Median imaging depth of the
 neurons carrying a subclass label, across the dataset:
 
-| Lamp5 | Vip | Sst | Pvalb |
+| LAMP5 | VIP | SST | PV |
 |---|---|---|---|
 | 110 µm | 124 µm | 228 µm | 239 µm |
 
 The effect on composition is substantial: above 90 µm the labeled population is
-roughly 86% Lamp5 and Vip, while below 210 µm it is 60–70% Pvalb. A comparison
-between Vip and Pvalb neurons is therefore also, to a large extent, a
+roughly 86% LAMP5 and VIP, while below 210 µm it is 60–70% PV. A comparison
+between VIP and PV neurons is therefore also, to a large extent, a
 comparison between superficial and deep cortex. Note that these are imaging
 depths in microns rather than layer assignments — this dataset carries no
 layer label, and depth alone does not provide one, since layer boundaries vary
 between animals and a plane's depth is a nominal setting.
 
-**Sst neurons are scarce in the linked population but not in the tissue.**
+**SST neurons are scarce in the linked population but not in the tissue.**
 Among coregistered neurons carrying a subclass label, across all six mice:
 
-| Mouse | Pvalb | Sst | Vip | Lamp5 | Total |
+| Mouse | PV | SST | VIP | LAMP5 | Total |
 |---|---|---|---|---|---|
 | 782149 | 18 | 7 | 69 | 56 | 150 |
 | 788406 | 157 | 29 | 69 | 57 | 312 |
@@ -209,12 +209,12 @@ Among coregistered neurons carrying a subclass label, across all six mice:
 | 804363 | 129 | 24 | 106 | 67 | 326 |
 | **All** | **649** | **143** | **508** | **334** | **1,634** |
 
-Among the inhibitory cells of mouse 800995's full transcriptomic table, Sst is
+Among the inhibitory cells of mouse 800995's full transcriptomic table, SST is
 the second most common subclass, but in the coregistered set it is the least
 common. Coregistration depends on the cell expressing GCaMP in vivo and being
-active during the z-stack acquisition, and either could cause the loss of Sst
+active during the z-stack acquisition, and either could cause the loss of SST
 cells in the coregistered set. Evidence indicates that expression bias is at
-play, as many Sst positive cells in the full HCR lightsheet volume have very
+play, as many SST positive cells in the full HCR lightsheet volume have very
 low or no {term}`GFP` transcripts.
 
 The consequence for planning is that the transcriptomic data gives a very
