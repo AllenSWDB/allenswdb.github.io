@@ -1,6 +1,6 @@
-# Visual Behavior
+# Change detection
 
-We have used large-scale physiological recordings in behaving animals to characterize how sensation and behavior are encoded in activity across the visual cortex and how these representations are influenced by behavior state, expectation, and experience during an image change detection task. Just like the Visual Coding project, the Visual Behavior project leverages the Allen Brain Observatories to collect highly standardized datasets. 
+We have used large-scale physiological recordings in behaving animals to characterize how sensation and behavior are encoded in activity across the visual cortex and how these representations are influenced by behavior state, expectation, and experience during an image change detection task. Just like the Visual Coding project, the Visual Behavior and Visual Learning projects leverages the Allen Brain Observatories to collect highly standardized datasets. 
 
 This dataset can be used to address questions such as: How do different types of neurons in the brain encode sensory and behavioral information? Are these representations flexible depending on motivation or expectation? How are interactions across cortical areas and depths modified by experience? 
 

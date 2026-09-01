@@ -34,9 +34,7 @@ parts:
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
-          title: Visual Behavior
-        - file: physiology/stimuli/visual-learning/VL-Behavior
-          title: Visual Learning
+          title: Change detection
         - file: physiology/stimuli/dynamic-routing
         - file: physiology/stimuli/dynamic-foraging/Dynamic-Foraging
           title: Dynamic foraging
@@ -76,6 +74,7 @@ parts:
         - file: physiology/ophys/visual-learning/VL-Intro
           title: Visual Learning
           sections:
+          - file: physiology/ophys/visual-learning/VL-Behavior
           - file: physiology/ophys/visual-learning/VL-Ophys
             title: Visual Learning Ophys
           - file: physiology/ophys/visual-learning/visual_learning_metadata

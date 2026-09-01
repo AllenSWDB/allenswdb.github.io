@@ -1,5 +1,5 @@
 (vb-behavior)=
-# Visual Behavior Task Overview
+# Change Detection Task Overview
 
 The Visual Behavior Ophys, Visual Behavior Neuropixels, and Visual Learning datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.
 

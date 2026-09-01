@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: base
   language: python
-  name: python3
+  name: anndata
 ---
 
 <h1 align="center">Visual Learning: comparing the same neurons across sessions</h1>
