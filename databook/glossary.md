@@ -194,6 +194,9 @@ LFP
 Marker gene 
   A gene that is expressed selectively in a specific population of cells, typically used to gain genetic access to cell types of interest for expression of genetically encoded indicators or other reporters, or to label cell types post-hoc through histology or transcriptomics. While the function of a marker gene can be relevant, the selectivity of expression is typically the primary reason for its use in systems neuroscience experiments. 
 
+Marker gene 
+  A gene that is expressed selectively in a specific population of cells, typically used to gain genetic access to cell types of interest for expression of genetically encoded indicators or other reporters, or to label cell types post-hoc through histology or transcriptomics. While the function of a marker gene can be relevant, the selectivity of expression is typically the primary reason for its use in systems neuroscience experiments. 
+
 Martinotti cell
   A Martinotti cell is a particular subtype of {term}`SST neuron` that targets the apical
   dendrites of pyramidal cells in layer 1. Martinotti cells are found in layer

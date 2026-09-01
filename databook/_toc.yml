@@ -34,9 +34,7 @@ parts:
         sections:
         - file: physiology/stimuli/passive-visual-stimuli/visual-stimuli-list
         - file: physiology/stimuli/visual-behavior/VB-Behavior
-          title: Visual Behavior
-        - file: physiology/stimuli/visual-learning/VL-Behavior
-          title: Visual Learning
+          title: Change detection
         - file: physiology/stimuli/dynamic-routing
         - file: physiology/stimuli/dynamic-foraging/Dynamic-Foraging
           title: Dynamic foraging
@@ -73,12 +71,24 @@ parts:
             title: Tutorial Comparing Trial Types
           - file: physiology/ophys/visual-behavior/VBO-Tutorial-Downloading_data_and_exploring_the_manifest
             title: Tutorial Downloading Data
-        - file: physiology/ophys/visual-learning/VL-Ophys
-          title: Visual Learning Ophys
+        - file: physiology/ophys/visual-learning/VL-Intro
+          title: Visual Learning
           sections:
+          - file: physiology/ophys/visual-learning/VL-Behavior
+          - file: physiology/ophys/visual-learning/VL-Ophys
+            title: Visual Learning Ophys
+          - file: physiology/ophys/visual-learning/visual_learning_metadata
+            title: Tutorial Session Metadata
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Ophys-Behavior-NWB
+            title: Tutorial Ophys and Behavior NWB Files
           - file: physiology/ophys/visual-learning/VL-Integration
             title: Linking Ophys and Transcriptomics
-          - file: physiology/ophys/VL-Behavior
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Physiology-and-CellTypes
+            title: Tutorial Physiology and Cell Types
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Event-Aligned-Activity
+            title: Tutorial Event-Aligned Activity
+          - file: physiology/ophys/visual-learning/Tutorial-VisualLearning-Cross-Session-Analysis
+            title: Tutorial Cross-Session Analysis
         - file: physiology/ophys/BCI/BCI-overview
           sections:
           - file: physiology/ophys/BCI/BCI-metadata

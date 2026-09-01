@@ -1,5 +1,5 @@
 (vb-behavior)=
-# Visual Behavior Task Overview
+# Change Detection Task Overview
 
 The Visual Behavior Ophys, Visual Behavior Neuropixels, and Visual Learning datasets are built around a visual change detection task. Measuring neural activity during goal directed behavior enables the joint analysis of brain and behavioral states during visual perception, decision making, and learning.
 
@@ -94,6 +94,7 @@ Image sets A and B (red and blue) are always familiar only or novel only, image 
 The <b>Visual Behavior Neuropixels</b> dataset used the same stimulus configuration as the 4th cohort of mice in the <b>Visual Behavior Ophys</b> dataset (train with image set G and test with interleaved image set H).
  
 These experimental design choices result in the dataset containing two types of stimulus novelty – 1) novelty based on local context (i.e. image changes), and 2) novelty in an absolute sense (i.e. images that were never seen before the current session). One could also consider image omissions as a third type of novelty.  
+
 
 ## Session Types
 
