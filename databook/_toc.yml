@@ -60,7 +60,7 @@ parts:
           - file: physiology/ophys/V1DD/V1DD-stimuli
         - file: physiology/ophys/visual-behavior/VB-Ophys
           title: Visual Behavior Ophys
-          sections:
+          # sections:
           # - file: physiology/ophys/visual-behavior/VBO-Dataset
             # title: Visual Behavior Ophys Dataset
           # - file: physiology/ophys/visual-behavior/VB-BehaviorSessionData
@@ -104,7 +104,7 @@ parts:
           - file: physiology/ephys/visual-coding/vcnp-stimulus
         - file: physiology/ephys/visual-behavior/VB-Neuropixels
           title: Visual Behavior Neuropixels
-          sections:
+          # sections:
           # - file: physiology/ephys/visual-behavior/VBN-Dataset
           # - file: physiology/ephys/visual-behavior/VBN-SessionData
           # - file: physiology/ephys/visual-behavior/VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.ipynb
