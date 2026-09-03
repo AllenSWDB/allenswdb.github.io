@@ -1,0 +1,1359 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>BCI Dataset &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/BCI/BCI-metadata';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/BCI/BCI-metadata.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Accessing BCI Data" href="BCI-dataset.html" />
+    <link rel="prev" title="Brain Computer Interface" href="BCI-overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-learning/VL-Intro.html">Visual Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-learning/VL-Behavior.html">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-learning/VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-learning/visual_learning_metadata.html">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-learning/VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="BCI-overview.html">Brain Computer Interface</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../cell-types/cell-types.html">Cell Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cell-types/spatial-transcriptomics/VL-mFISH.html">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/BCI/BCI-metadata.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/BCI/BCI-metadata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/BCI/BCI-metadata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>BCI Dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bci-dataset">
+<h1>BCI Dataset<a class="headerlink" href="#bci-dataset" title="Permalink to this heading">#</a></h1>
+<p>This page describes how to access metadata for the Brain Computer Interface (BCI) dataset using the Allen Institute’s metadata API. The dataset contains two-photon calcium imaging sessions from primary motor cortex while mice perform a BCI task.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aind_data_access_api.document_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataDbClient</span>
+
+<span class="n">API_GATEWAY_HOST</span> <span class="o">=</span> <span class="s2">"api.allenneuraldynamics.org"</span>
+<span class="n">DATABASE</span> <span class="o">=</span> <span class="s1">'metadata_index'</span>
+<span class="n">COLLECTION</span> <span class="o">=</span> <span class="s1">'data_assets'</span>
+
+<span class="n">docdb_api_client</span> <span class="o">=</span> <span class="n">MetadataDbClient</span><span class="p">(</span>
+   <span class="n">host</span><span class="o">=</span><span class="n">API_GATEWAY_HOST</span><span class="p">,</span>
+   <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">,</span>
+   <span class="n">collection</span><span class="o">=</span><span class="n">COLLECTION</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docdb_api_client</span><span class="o">.</span><span class="n">_base_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.allenneuraldynamics.org/v1/metadata_index/data_assets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggregate</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"$match"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"session.session_type"</span><span class="p">:</span> <span class="s2">"BCI single neuron stim"</span><span class="p">,</span>
+      <span class="s2">"data_description.data_level"</span><span class="p">:</span> <span class="s2">"derived"</span><span class="p">,</span>
+      <span class="s2">"processing.processing_pipeline.data_processes.start_date_time"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$gte"</span><span class="p">:</span> <span class="s2">"2025-08-03"</span><span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"$project"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"subject_id"</span><span class="p">:</span> <span class="s2">"$data_description.subject_id"</span><span class="p">,</span>
+      <span class="s2">"genotype"</span><span class="p">:</span> <span class="s2">"$subject.genotype"</span><span class="p">,</span>
+      <span class="s2">"virus"</span><span class="p">:</span> <span class="s2">"$procedures.subject_procedures.procedures.injection_materials.name"</span><span class="p">,</span>
+      <span class="s2">"date_of_birth"</span><span class="p">:</span> <span class="s2">"$subject.date_of_birth"</span><span class="p">,</span>
+      <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"$subject.sex"</span><span class="p">,</span>
+      <span class="s2">"session_type"</span><span class="p">:</span> <span class="s2">"$session.session_type"</span><span class="p">,</span>
+      <span class="s2">"session_start_time"</span><span class="p">:</span> <span class="s2">"$session.session_start_time"</span><span class="p">,</span>
+      <span class="s2">"session_end_time"</span><span class="p">:</span> <span class="s2">"$session.session_end_time"</span><span class="p">,</span>
+      <span class="s2">"stimulus_epochs"</span><span class="p">:</span> <span class="s2">"$session.stimulus_epochs.stimulus_name"</span><span class="p">,</span>
+      <span class="s2">"project_name"</span><span class="p">:</span> <span class="s2">"$data_description.project_name"</span><span class="p">,</span>
+      <span class="s2">"modality"</span><span class="p">:</span> <span class="s2">"$data_description.modality.name"</span><span class="p">,</span>
+      <span class="s2">"targeted_structure"</span><span class="p">:</span> <span class="s2">"$session.data_streams.stack_parameters.targeted_structure"</span><span class="p">,</span>
+      <span class="s2">"session_number"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"$filter"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"$session.stimulus_epochs"</span><span class="p">,</span>
+          <span class="s2">"as"</span><span class="p">:</span> <span class="s2">"epoch"</span><span class="p">,</span>
+          <span class="s2">"cond"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$eq"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$$epoch.stimulus_name"</span><span class="p">,</span> <span class="s2">"single neuron BCI conditioning"</span><span class="p">]}</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"ophys_fov"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"$map"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"$session.data_streams"</span><span class="p">,</span>
+          <span class="s2">"as"</span><span class="p">:</span> <span class="s2">"stream"</span><span class="p">,</span>
+          <span class="s2">"in"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"$map"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"$$stream.ophys_fovs"</span><span class="p">,</span>
+              <span class="s2">"as"</span><span class="p">:</span> <span class="s2">"fov"</span><span class="p">,</span>
+              <span class="s2">"in"</span><span class="p">:</span> <span class="s2">"$$fov.notes"</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"magnification"</span><span class="p">:</span> <span class="s2">"$session.data_streams.stack_parameters.magnification"</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"$project"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"subject_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"genotype"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"virus"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"date_of_birth"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"sex"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"session_type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"session_start_time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"session_end_time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"stimulus_epochs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"project_name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"modality"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"targeted_structure"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"session_number"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$arrayElemAt"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$session_number.session_number"</span><span class="p">,</span> <span class="mi">0</span><span class="p">]},</span>
+      <span class="s2">"ophys_fov"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"magnification"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$ophys_fov"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$ophys_fov"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$virus"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$virus"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$virus"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$modality"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$targeted_structure"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s2">"$unwind"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"$magnification"</span><span class="p">,</span> <span class="s2">"preserveNullAndEmptyArrays"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+<span class="p">]</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="n">docdb_api_client</span><span class="o">.</span><span class="n">aggregate_docdb_records</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="n">aggregate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can turn these records into a dataframe and reorganize some things:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">"name"</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">])</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">])</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_end_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_end_time'</span><span class="p">])</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">],</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_date'</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">])</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'project_name'</span><span class="p">,</span> <span class="s1">'session_type'</span><span class="p">,</span> <span class="s1">'_id'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'subject_id'</span><span class="p">,</span> <span class="s1">'genotype'</span><span class="p">,</span> <span class="s1">'virus'</span><span class="p">,</span>
+         <span class="s1">'date_of_birth'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">,</span> <span class="s1">'sex'</span><span class="p">,</span> <span class="s1">'modality'</span><span class="p">,</span> <span class="s1">'session_date'</span><span class="p">,</span> <span class="s1">'session_start_time'</span><span class="p">,</span>
+         <span class="s1">'session_end_time'</span><span class="p">,</span> <span class="s1">'targeted_structure'</span><span class="p">,</span> <span class="s1">'ophys_fov'</span><span class="p">,</span> <span class="s1">'session_number'</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll filter df for only the data assets shared for SWDB.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v2_assets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'single-plane-ophys_731015_2025-01-10_18-06-31_processed_2025-08-03_20-39-09'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_731015_2025-01-24_20-00-44_processed_2025-08-04_06-27-07'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_731015_2025-01-28_18-56-35_processed_2025-08-03_21-58-28'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_731015_2025-01-31_20-37-19_processed_2025-08-06_05-37-58'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_740369_2025-01-09_17-18-37_processed_2025-08-06_03-49-53'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_740369_2025-01-13_17-31-04_processed_2025-08-04_17-59-13'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_740369_2025-01-24_21-18-11_processed_2025-08-04_06-39-23'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_740369_2025-01-30_18-44-54_processed_2025-08-04_13-31-14'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_740369_2025-02-03_19-18-31_processed_2025-08-03_23-27-56'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_754303_2025-01-22_18-22-38_processed_2025-08-06_18-52-36'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_754303_2025-01-23_19-48-32_processed_2025-08-08_15-29-29'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_754303_2025-01-27_20-01-31_processed_2025-08-07_06-00-10'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_754303_2025-01-29_16-07-41_processed_2025-08-04_04-39-41'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_754303_2025-01-31_15-13-50_processed_2025-08-05_20-00-52'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_766719_2025-01-22_16-45-18_processed_2025-08-06_17-55-43'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_766719_2025-01-23_18-24-57_processed_2025-08-04_05-56-15'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_766719_2025-01-27_18-25-39_processed_2025-08-07_04-04-45'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_767715_2025-01-31_18-15-21_processed_2025-08-06_07-02-58'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_767715_2025-02-03_17-30-05_processed_2025-08-03_23-22-19'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_767715_2025-02-06_18-59-24_processed_2025-08-06_19-25-46'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_767715_2025-02-10_16-04-20_processed_2025-08-05_12-52-18'</span><span class="p">,</span>
+ <span class="s1">'single-plane-ophys_767715_2025-02-17_17-41-50_processed_2025-08-05_01-05-20'</span><span class="p">]</span>
+
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">v2_assets</span><span class="p">)]</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'subject_id'</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">filtered_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_name</th>
+      <th>session_type</th>
+      <th>_id</th>
+      <th>name</th>
+      <th>subject_id</th>
+      <th>genotype</th>
+      <th>virus</th>
+      <th>date_of_birth</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>modality</th>
+      <th>session_date</th>
+      <th>session_start_time</th>
+      <th>session_end_time</th>
+      <th>targeted_structure</th>
+      <th>ophys_fov</th>
+      <th>session_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>b8827d25-495f-46a8-9f33-ffb24da527a5</td>
+      <td>single-plane-ophys_731015_2025-01-10_18-06-31_...</td>
+      <td>731015</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-03-14</td>
+      <td>302</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-10</td>
+      <td>16:46:51.981999</td>
+      <td>18:06:30.818756</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_04; FOV_04</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>b9a4c361-66b0-4cd5-9392-75d116ef3385</td>
+      <td>single-plane-ophys_731015_2025-01-31_20-37-19_...</td>
+      <td>731015</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-03-14</td>
+      <td>323</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-31</td>
+      <td>20:37:19.623000</td>
+      <td>22:03:59.609761</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_04</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>0162d41c-613c-4215-b0aa-9690f85a9fda</td>
+      <td>single-plane-ophys_731015_2025-01-28_18-56-35_...</td>
+      <td>731015</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-03-14</td>
+      <td>320</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-28</td>
+      <td>17:40:57.996000</td>
+      <td>18:56:35.136165</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_04</td>
+      <td>22.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>127a3e78-729c-4df7-bf34-1b9308939587</td>
+      <td>single-plane-ophys_731015_2025-01-24_20-00-44_...</td>
+      <td>731015</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-03-14</td>
+      <td>316</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-24</td>
+      <td>18:41:22.550000</td>
+      <td>20:00:44.080193</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_04</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>30006aee-36db-44d9-a1fb-1b6583619434</td>
+      <td>single-plane-ophys_740369_2025-01-09_17-18-37_...</td>
+      <td>740369</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-05-03</td>
+      <td>251</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-09</td>
+      <td>16:01:04.455000</td>
+      <td>17:18:37.082809</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_05</td>
+      <td>22.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>17ae1324-de6d-433e-9aec-7f174d22e89a</td>
+      <td>single-plane-ophys_740369_2025-01-13_17-31-04_...</td>
+      <td>740369</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-05-03</td>
+      <td>255</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-13</td>
+      <td>16:02:50.863999</td>
+      <td>17:31:04.545427</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_05</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>c32e7e98-1104-4e24-a830-53d54f06b518</td>
+      <td>single-plane-ophys_740369_2025-01-24_21-18-11_...</td>
+      <td>740369</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-05-03</td>
+      <td>266</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-24</td>
+      <td>20:08:49.286000</td>
+      <td>21:18:10.700832</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_05</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>a9b68b93-c445-4809-9cab-d6282ae64483</td>
+      <td>single-plane-ophys_740369_2025-01-30_18-44-54_...</td>
+      <td>740369</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-05-03</td>
+      <td>272</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-30</td>
+      <td>18:44:54.865000</td>
+      <td>19:30:22.882962</td>
+      <td>Primary Motor Cortex</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>cf8baa51-6086-4f5a-aeca-b685b59f1662</td>
+      <td>single-plane-ophys_740369_2025-02-03_19-18-31_...</td>
+      <td>740369</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-05-03</td>
+      <td>276</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-02-03</td>
+      <td>19:18:31.580999</td>
+      <td>20:39:25.810362</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_06</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>737557e6-4bb3-423f-8fae-a2a63ee600e7</td>
+      <td>single-plane-ophys_754303_2025-01-31_15-13-50_...</td>
+      <td>754303</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-07-17</td>
+      <td>198</td>
+      <td>Male</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-31</td>
+      <td>15:13:50.595999</td>
+      <td>16:27:06.146720</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>5fa54429-8887-48b7-a3db-5526d7fa3fe5</td>
+      <td>single-plane-ophys_754303_2025-01-29_16-07-41_...</td>
+      <td>754303</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-07-17</td>
+      <td>196</td>
+      <td>Male</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-29</td>
+      <td>16:07:41.655000</td>
+      <td>17:22:19.941818</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>aaf560f4-bb1f-449a-aaf9-5054432b47ae</td>
+      <td>single-plane-ophys_754303_2025-01-23_19-48-32_...</td>
+      <td>754303</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-07-17</td>
+      <td>190</td>
+      <td>Male</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-23</td>
+      <td>18:36:30.521000</td>
+      <td>19:48:31.718661</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>7efb85e4-0dba-43fe-a0fd-2b8348e05b69</td>
+      <td>single-plane-ophys_754303_2025-01-27_20-01-31_...</td>
+      <td>754303</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-07-17</td>
+      <td>194</td>
+      <td>Male</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-27</td>
+      <td>18:46:54.109999</td>
+      <td>20:01:31.296917</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>3aac9323-c4f9-4172-9f1a-6c12cb3bc44e</td>
+      <td>single-plane-ophys_754303_2025-01-22_18-22-38_...</td>
+      <td>754303</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-07-17</td>
+      <td>189</td>
+      <td>Male</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-22</td>
+      <td>16:59:35.618000</td>
+      <td>18:22:38.048685</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>7ebc1acf-e7d2-4d04-9d59-e3556dfc107b</td>
+      <td>single-plane-ophys_766719_2025-01-27_18-25-39_...</td>
+      <td>766719</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-09-16</td>
+      <td>133</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-27</td>
+      <td>17:02:50.868000</td>
+      <td>18:25:39.333757</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>ea2ea4a7-8270-4712-bf5c-df7480cb276f</td>
+      <td>single-plane-ophys_766719_2025-01-22_16-45-18_...</td>
+      <td>766719</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-09-16</td>
+      <td>128</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-22</td>
+      <td>15:36:39.563000</td>
+      <td>16:45:18.542092</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>e3e8dd63-0bc4-4fc7-aedf-2abe9416149f</td>
+      <td>single-plane-ophys_766719_2025-01-23_18-24-57_...</td>
+      <td>766719</td>
+      <td>Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt</td>
+      <td>pAAV-CaMKIIa-ChRmine-oScarlet-Kv2.1-WPRE - 7413</td>
+      <td>2024-09-16</td>
+      <td>129</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-23</td>
+      <td>16:53:55.722000</td>
+      <td>18:24:57.281617</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>b28d6321-1b1b-4110-87fb-0e19325c1dfe</td>
+      <td>single-plane-ophys_767715_2025-02-17_17-41-50_...</td>
+      <td>767715</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-09-15</td>
+      <td>155</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-02-17</td>
+      <td>17:41:50.758000</td>
+      <td>18:59:57.064824</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_03</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>c7470968-816b-49ae-9ebd-b4579e458cb4</td>
+      <td>single-plane-ophys_767715_2025-01-31_18-15-21_...</td>
+      <td>767715</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-09-15</td>
+      <td>138</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-01-31</td>
+      <td>18:15:21.158999</td>
+      <td>19:28:33.805721</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>3788a435-4e4d-42b7-8718-44cd9c43b6b7</td>
+      <td>single-plane-ophys_767715_2025-02-06_18-59-24_...</td>
+      <td>767715</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-09-15</td>
+      <td>144</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-02-06</td>
+      <td>18:59:24.815999</td>
+      <td>20:10:05.205702</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_01</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>81b6cb9b-5885-4b29-8354-5d44065fc5a7</td>
+      <td>single-plane-ophys_767715_2025-02-03_17-30-05_...</td>
+      <td>767715</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-09-15</td>
+      <td>141</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-02-03</td>
+      <td>17:30:05.458999</td>
+      <td>18:51:18.288579</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_02</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Brain Computer Interface</td>
+      <td>BCI single neuron stim</td>
+      <td>3a82e844-4bd9-4f0e-a017-56419a967c79</td>
+      <td>single-plane-ophys_767715_2025-02-10_16-04-20_...</td>
+      <td>767715</td>
+      <td>Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-IC...</td>
+      <td>pAAV-hSyn1-RiboL1-GCaMP8s-WPRE</td>
+      <td>2024-09-15</td>
+      <td>148</td>
+      <td>Female</td>
+      <td>Planar optical physiology</td>
+      <td>2025-02-10</td>
+      <td>16:04:20.109000</td>
+      <td>17:23:23.686046</td>
+      <td>Primary Motor Cortex</td>
+      <td>FOV_03</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The total number of sessions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+</div>
+</div>
+<p>What are the unique subjects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'subject_id'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['731015' '740369' '754303' '766719' '767715']
+</pre></div>
+</div>
+</div>
+</div>
+<p>What are the unique genotypes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'genotype'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['Slc17a6-IRES-Cre/wt;Ai230(TIT2L-XCaMPG-WPRE-ICL-ChRmine-oScarlet-IRES2-tTA2-WPRE)-hyg/wt'
+ 'Camk2a-tTA/wt;TetO-jGCaMP8s-01/wt']
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many sessions per subject:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'subject_id'</span><span class="p">)[</span><span class="s1">'name'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>subject_id
+731015    4
+740369    5
+754303    5
+766719    3
+767715    5
+Name: name, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "query"
+        },
+        kernelOptions: {
+            name: "query",
+            path: "./physiology/ophys/BCI"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'query'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="BCI-overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Brain Computer Interface</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="BCI-dataset.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Accessing BCI Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

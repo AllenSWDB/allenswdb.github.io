@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Learning Transcriptomics &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cell-types/spatial-transcriptomics/VL-mFISH';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/cell-types/spatial-transcriptomics/VL-mFISH.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data Analysis Tutorials" href="../../computational/data-analysis/data-analysis.html" />
+    <link rel="prev" title="Cell Types" href="../cell-types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../physiology/physiology.html">Physiology &amp; Behavior</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/visual-learning/VL-Intro.html">Visual Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-learning/VL-Behavior.html">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-learning/VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-learning/visual_learning_metadata.html">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/visual-learning/VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-metadata.html">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../physiology/ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physiology/ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../physiology/ephys/dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../physiology/ephys/dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../cell-types.html">Cell Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/cell-types/spatial-transcriptomics/VL-mFISH.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fcell-types/spatial-transcriptomics/VL-mFISH.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cell-types/spatial-transcriptomics/VL-mFISH.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Learning Transcriptomics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-measure-gene-expression-in-the-imaged-tissue">Why measure gene expression in the imaged tissue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tissue-processing">Tissue processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hybridization-chain-reaction-and-multi-round-imaging">Hybridization chain reaction and multi-round imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gene-panel">The gene panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-images-to-a-cell-by-gene-table">From images to a cell by gene table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-by-gene-table">The cell by gene table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-class-subclass-and-cluster">Cell class, subclass, and cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unassigned-population">The unassigned population</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-neurons-that-were-also-imaged">The neurons that were also imaged</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-learning-transcriptomics">
+<h1>Visual Learning Transcriptomics<a class="headerlink" href="#visual-learning-transcriptomics" title="Permalink to this heading">#</a></h1>
+<p>The Visual Learning dataset measures the activity of inhibitory neurons in
+<a class="reference internal" href="../../glossary.html#term-Primary-visual-cortex"><span class="xref std std-term">primary visual cortex</span></a> while mice learn a go/no-go visual change
+detection task, and then measures the gene expression of those same neurons in
+the same tissue after the in vivo experiment is complete. This page describes
+the gene expression measurements: how the tissue was processed, which genes were
+measured, and what the resulting cell by gene table contains.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/vl-overview-schematic.png" src="../../_images/vl-overview-schematic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">Linking neuron function to gene expression</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="why-measure-gene-expression-in-the-imaged-tissue">
+<h2>Why measure gene expression in the imaged tissue<a class="headerlink" href="#why-measure-gene-expression-in-the-imaged-tissue" title="Permalink to this heading">#</a></h2>
+<p>Inhibitory neurons are not a single population. They comprise several
+molecularly distinct <a class="reference internal" href="../../glossary.html#term-Subclass"><span class="xref std std-term">subclass</span></a>es with different connectivity, different
+intrinsic properties, and different roles in cortical computation. The
+conventional way to study one of them is to choose it in advance, label it
+genetically with a Cre <a class="reference internal" href="../../glossary.html#term-Driver-line"><span class="xref std std-term">driver line</span></a> , and record it in isolation — which
+gives one subclass at a time, in separate animals.</p>
+<p>This experiment inverts that approach. All inhibitory neurons are labeled at
+once with a pan-inhibitory GCaMP8s reporter, recorded together in the same field
+of view across the entire training procedure, and assigned to a subclass
+afterward on the basis of the genes they express. Because identity comes from
+measured expression rather than from the driver line, several subclasses are
+recorded simultaneously in the same animal, which is what makes questions about
+interactions between subclasses accessible.</p>
+<p>Recovering that identity requires measuring gene expression in the same neurons
+that were imaged. That is what the <a class="reference internal" href="../../glossary.html#term-Spatial-transcriptomics"><span class="xref std std-term">spatial transcriptomics</span></a> data
+described here provides.</p>
+</section>
+<section id="tissue-processing">
+<h2>Tissue processing<a class="headerlink" href="#tissue-processing" title="Permalink to this heading">#</a></h2>
+<p>After the final in vivo session, the brain is removed and sectioned
+<strong>tangentially</strong> — parallel to the cortical surface rather than across it.
+Tangential sectioning is what makes the rest of the experiment possible: the
+imaging planes are stacked in depth within a single field of view, so a
+tangential section 350–400 µm thick contains all eight of them in one piece of
+tissue. A coronal section would cut across the imaged volume and distribute
+those planes across many separate sections.</p>
+<figure class="align-center" id="id2">
+<img alt="../../_images/vl-tangential-sectioning.png" src="../../_images/vl-tangential-sectioning.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">The imaged volume is recovered in a single tangential section</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Sections are then cleared and expanded, which makes the thick tissue optically
+accessible and physically separates transcripts that would otherwise be too
+close together to resolve as individual puncta.</p>
+<p>One mouse is an exception. The section from mouse 782149 is roughly 200 µm
+rather than 350–400 µm, and covers only layers 1 through 3. Gene expression is
+available for the superficial part of that animal’s imaged volume and not for
+the deeper planes.</p>
+</section>
+<section id="hybridization-chain-reaction-and-multi-round-imaging">
+<h2>Hybridization chain reaction and multi-round imaging<a class="headerlink" href="#hybridization-chain-reaction-and-multi-round-imaging" title="Permalink to this heading">#</a></h2>
+<p>Gene expression is measured by <strong>hybridization chain reaction</strong> (HCR), a signal
+amplification method in which probes bound to a target mRNA nucleate the
+assembly of fluorescent hairpin polymers. Each individual transcript becomes a
+bright, diffraction-limited punctum, so expression is counted directly as a
+number of molecules rather than inferred from bulk intensity.</p>
+<figure class="align-center" id="id3">
+<img alt="../../_images/vl-hcr-puncta-highmag.png" src="../../_images/vl-hcr-puncta-highmag.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Individual mRNA transcripts imaged as fluorescent puncta</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The tissue is imaged on a Zeiss Lightsheet 7. Five genes are probed per round,
+one in each of five spectral channels — 488, 514, 561, 594 and 638 nm. After a
+round is imaged, the probes are stripped and the tissue is reprobed for the next
+set of genes, so the same cells are imaged repeatedly across five or six rounds
+and the rounds are registered back to one another afterward.</p>
+<figure class="align-center" id="id4">
+<img alt="../../_images/vl-hcr-rounds.png" src="../../_images/vl-hcr-rounds.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">One tangential section imaged across three rounds</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The assignment of genes to channels is deliberate rather than arbitrary.
+Adjacent spectral channels bleed into one another, and that crosstalk is
+corrected computationally downstream. Genes that are expected to be co-expressed
+in the same cells are therefore assigned to channels that are not adjacent: if
+two co-expressed genes sat in neighboring channels, genuine co-expression and
+spectral crosstalk would produce the same signal and could not be told apart.</p>
+</section>
+<section id="the-gene-panel">
+<h2>The gene panel<a class="headerlink" href="#the-gene-panel" title="Permalink to this heading">#</a></h2>
+<p>The panel targets the four canonical inhibitory subclasses and the subtypes
+within them. It is not identical across mice — three animals were probed over
+five rounds and three over six:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mice</p></th>
+<th class="head"><p>Rounds</p></th>
+<th class="head"><p>Genes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>782149, 788406, 790322</p></td>
+<td><p>5</p></td>
+<td><p>22</p></td>
+</tr>
+<tr class="row-odd"><td><p>800792, 800995, 804363</p></td>
+<td><p>6</p></td>
+<td><p>27</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All six mice share a 22-gene core: <code class="docutils literal notranslate"><span class="pre">GFP</span></code> , <code class="docutils literal notranslate"><span class="pre">Gad2</span></code> , <code class="docutils literal notranslate"><span class="pre">Slc17a7</span></code> , <code class="docutils literal notranslate"><span class="pre">Pvalb</span></code> , <code class="docutils literal notranslate"><span class="pre">Sst</span></code>
+, <code class="docutils literal notranslate"><span class="pre">Vip</span></code> , <code class="docutils literal notranslate"><span class="pre">Lamp5</span></code> , <code class="docutils literal notranslate"><span class="pre">Npy</span></code> , <code class="docutils literal notranslate"><span class="pre">Ndnf</span></code> , <code class="docutils literal notranslate"><span class="pre">Cck</span></code> , <code class="docutils literal notranslate"><span class="pre">Crh</span></code> , <code class="docutils literal notranslate"><span class="pre">Calb1</span></code> , <code class="docutils literal notranslate"><span class="pre">Calb2</span></code> , <code class="docutils literal notranslate"><span class="pre">Tac1</span></code>
+, <code class="docutils literal notranslate"><span class="pre">Tac2</span></code> , <code class="docutils literal notranslate"><span class="pre">Reln</span></code> , <code class="docutils literal notranslate"><span class="pre">Pdyn</span></code> , <code class="docutils literal notranslate"><span class="pre">Penk</span></code> , <code class="docutils literal notranslate"><span class="pre">Pthlh</span></code> , <code class="docutils literal notranslate"><span class="pre">Hpse</span></code> , <code class="docutils literal notranslate"><span class="pre">Mme</span></code> , and <code class="docutils literal notranslate"><span class="pre">Chat</span></code> .
+The three six-round animals add <code class="docutils literal notranslate"><span class="pre">Sncg</span></code> , <code class="docutils literal notranslate"><span class="pre">Cnr1</span></code> , <code class="docutils literal notranslate"><span class="pre">Adra1a</span></code> , <code class="docutils literal notranslate"><span class="pre">Adra1b</span></code> , and
+<code class="docutils literal notranslate"><span class="pre">Htr3a</span></code> .</p>
+<p>The panel has three kinds of gene in it. <code class="docutils literal notranslate"><span class="pre">GFP</span></code> reports the <a class="reference internal" href="../../glossary.html#term-GCaMP"><span class="xref std std-term">GCaMP</span></a>
+transgene, which marks the cells that carried the calcium indicator in vivo.
+<code class="docutils literal notranslate"><span class="pre">Gad2</span></code> and <code class="docutils literal notranslate"><span class="pre">Slc17a7</span></code> are the canonical inhibitory and excitatory markers, and
+identify which broad class a cell belongs to. Everything else is either a
+subclass marker — <code class="docutils literal notranslate"><span class="pre">Pvalb</span></code> , <code class="docutils literal notranslate"><span class="pre">Sst</span></code> , <code class="docutils literal notranslate"><span class="pre">Vip</span></code> , <code class="docutils literal notranslate"><span class="pre">Lamp5</span></code> — or a gene that
+distinguishes subtypes within a subclass: <code class="docutils literal notranslate"><span class="pre">Ndnf</span></code> for <a class="reference internal" href="../../glossary.html#term-Neurogliaform-cell"><span class="xref std std-term">neurogliaform cell</span></a>s
+, <code class="docutils literal notranslate"><span class="pre">Cck</span></code> for <a class="reference internal" href="../../glossary.html#term-Basket-cell"><span class="xref std std-term">basket cell</span></a>s , <code class="docutils literal notranslate"><span class="pre">Calb2</span></code> for SST <a class="reference internal" href="../../glossary.html#term-Martinotti-cell"><span class="xref std std-term">martinotti cell</span></a>s and
+VIP <a class="reference internal" href="../../glossary.html#term-Bipolar-cell"><span class="xref std std-term">bipolar cell</span></a>s , and so on.</p>
+<p>Which round and channel a gene was imaged in is recorded alongside the
+expression data, and the column names carry it directly: <code class="docutils literal notranslate"><span class="pre">R5-561-Cck</span></code> is <code class="docutils literal notranslate"><span class="pre">Cck</span></code> ,
+imaged in round 5 in the 561 nm channel.</p>
+</section>
+<section id="from-images-to-a-cell-by-gene-table">
+<h2>From images to a cell by gene table<a class="headerlink" href="#from-images-to-a-cell-by-gene-table" title="Permalink to this heading">#</a></h2>
+<p>The processing chain begins with the raw lightsheet acquisitions and ends with a
+count of transcripts per gene per cell. Tiles from each round are stitched into
+a single volume, cells are segmented, individual puncta are detected and
+localized, spectral crosstalk between channels is corrected, the rounds are
+registered to one another so that a cell in round 1 can be identified in round
+6, and the puncta assigned to each cell are counted.</p>
+</section>
+<section id="the-cell-by-gene-table">
+<h2>The cell by gene table<a class="headerlink" href="#the-cell-by-gene-table" title="Permalink to this heading">#</a></h2>
+<p>The result is a table with one row per segmented cell and one column per gene.
+Values are counts of detected transcripts. For each mouse the table covers the
+entire section — roughly 76,000 cells in the case of mouse 800995 — and includes
+excitatory and non-neuronal cells alongside the inhibitory ones. Only a small
+fraction of these cells were also imaged in vivo.</p>
+<p>The table is distributed as an AnnData object, one per mouse. It carries the
+expression data twice - once as raw trascript counts and once in a normalized
+form that puts data on a similar scale to facilitate cross-animal comparisons.
+The raw integer transcript counts are held in <code class="docutils literal notranslate"><span class="pre">X</span></code> . The normalized version is
+held in <code class="docutils literal notranslate"><span class="pre">layers['normalized']</span></code> and was produced in two stages: each cell is
+first divided by its own mean gene count, which puts a brightly detected cell
+and a dimly detected one on the same footing, and each gene is then divided by
+its 95th percentile across cells and clipped to 1, which makes a rare gene and
+an abundant one comparable. Detection depth varies over two orders of magnitude
+across cells, so the normalized matrix is what the cell type labels below were
+computed on. Both are provided so that a reader who wants counts does not have
+to invert a normalization, and a reader who wants to reproduce the labels does
+not have to guess one.</p>
+<figure class="align-center" id="id5">
+<img alt="../../_images/vl-cellxgene-790322.png" src="../../_images/vl-cellxgene-790322.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">Cells by genes for one mouse, five rounds and 22 genes</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The figure above shows the inhibitory cells of mouse 790322, raw counts on the
+left and the normalized matrix on the right, with rows grouped by cluster. The
+same view for mouse 800995 shows the six-round panel, with the five additional
+genes at the right of the gene axis:</p>
+<figure class="align-center" id="id6">
+<img alt="../../_images/vl-cellxgene-800995.png" src="../../_images/vl-cellxgene-800995.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 82 </span><span class="caption-text">Cells by genes for a six-round mouse, 27 genes</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cell-class-subclass-and-cluster">
+<h2>Cell class, subclass, and cluster<a class="headerlink" href="#cell-class-subclass-and-cluster" title="Permalink to this heading">#</a></h2>
+<p>Cells carry three levels of label, computed three different ways.</p>
+<p>The names come from the Allen Institute <a class="reference internal" href="../../glossary.html#term-Cell-type-taxonomy"><span class="xref std std-term">cell type taxonomy</span></a> , which nests
+<a class="reference internal" href="../../glossary.html#term-Class"><span class="xref std std-term">class</span></a> , <a class="reference internal" href="../../glossary.html#term-Subclass"><span class="xref std std-term">subclass</span></a> , <a class="reference internal" href="../../glossary.html#term-Supertype"><span class="xref std std-term">supertype</span></a> and <a class="reference internal" href="../../glossary.html#term-Cluster"><span class="xref std std-term">cluster</span></a> . The
+first two are used here in the same sense they carry there: <code class="docutils literal notranslate"><span class="pre">inhibitory</span></code> is a
+class, and <code class="docutils literal notranslate"><span class="pre">Pvalb</span></code> , <code class="docutils literal notranslate"><span class="pre">Sst</span></code> , <code class="docutils literal notranslate"><span class="pre">Vip</span></code> and <code class="docutils literal notranslate"><span class="pre">Lamp5</span></code> are the canonical inhibitory
+subclasses. The third level - clusters - is directly derived from the cell type
+taxonomy in this case. Clusters here are k-means groupings computed within each
+mouse from the panel of 22 or 27 genes; they are not the exact cluster labels
+from the reference taxonomy and do not correspond to a supertype or cluster in
+it. Read them as within-mouse structure finer than subclass. You can also
+perform your own clustering or map to the taxonomy if you wish.</p>
+<p>The three levels are described below from broadest to finest.</p>
+<p><strong>Class</strong> — <code class="docutils literal notranslate"><span class="pre">excitatory</span></code> , <code class="docutils literal notranslate"><span class="pre">inhibitory</span></code> , or <code class="docutils literal notranslate"><span class="pre">unassigned</span></code> — comes from a
+threshold on raw marker counts. A cell needs at least 100 transcripts of a class
+marker to be called. Any of <code class="docutils literal notranslate"><span class="pre">Gad2</span></code> , <code class="docutils literal notranslate"><span class="pre">Pvalb</span></code> , <code class="docutils literal notranslate"><span class="pre">Vip</span></code> , <code class="docutils literal notranslate"><span class="pre">Sst</span></code> , or <code class="docutils literal notranslate"><span class="pre">Npy</span></code> clearing
+that bar makes a cell inhibitory; <code class="docutils literal notranslate"><span class="pre">Gad2</span></code> on its own under-calls, because it is
+only moderately expressed in some <a class="reference internal" href="../../glossary.html#term-Interneuron"><span class="xref std std-term">interneuron</span></a> types. <code class="docutils literal notranslate"><span class="pre">Slc17a7</span></code> clearing
+the bar with no inhibitory marker makes a cell excitatory. Cells that clear the
+threshold for both <code class="docutils literal notranslate"><span class="pre">Gad2</span></code> and <code class="docutils literal notranslate"><span class="pre">Slc17a7</span></code> are left <code class="docutils literal notranslate"><span class="pre">unassigned</span></code> rather than forced
+into one class, as are cells that meet none of the categories described above.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Lamp5</span></code> is a subclass marker but deliberately not one of the genes that can
+admit a cell to the inhibitory class because it is also expressed in excitatory
+cells. Instead <code class="docutils literal notranslate"><span class="pre">Npy</span></code> is used, which is expressed in most LAMP5 cells but not
+excitatory cells.</p>
+<p><strong>Subclass</strong> — <code class="docutils literal notranslate"><span class="pre">Pvalb</span></code> , <code class="docutils literal notranslate"><span class="pre">Sst</span></code> , <code class="docutils literal notranslate"><span class="pre">Vip</span></code> , or <code class="docutils literal notranslate"><span class="pre">Lamp5</span></code> (see the glossary
+definitions for <a class="reference internal" href="../../glossary.html#term-PV-neuron"><span class="xref std std-term">PV neuron</span></a> , <a class="reference internal" href="../../glossary.html#term-SST-neuron"><span class="xref std std-term">SST neuron</span></a> and <a class="reference internal" href="../../glossary.html#term-VIP-neuron"><span class="xref std std-term">VIP neuron</span></a> )
+— comes from the expression of the four canonical subclass marker genes
+themselves. The assigned subclass is made based on which of the four markers has
+the highest mean normalized expression for each cell. Subclass labels are only
+given to cells that are assigned to the <code class="docutils literal notranslate"><span class="pre">inhibitory</span></code> class.</p>
+<p><strong>Cluster</strong> labels in this dataset come from k-means run on the normalized
+expression matrix, separately within each class, with k=20 clusters among the
+inhibitory cells and k=12 among the excitatory cells. Each cluster is named for
+the genes most enriched in it relative to the other clusters, giving names like
+<code class="docutils literal notranslate"><span class="pre">Pvalb-2</span> <span class="pre">(Mme/Calb1/Cck)</span></code> . Clustering is computed fresh for each mouse from
+that mouse’s own data, so cluster identity is not comparable across animals:
+<code class="docutils literal notranslate"><span class="pre">Sst-3</span></code> in one mouse is not <code class="docutils literal notranslate"><span class="pre">Sst-3</span></code> in another. Clustering on the across mouse
+normalized expression data could be used to identify shared clusters across
+mice.</p>
+<p>Subclass is the level of resolution intended for most analyses. The cluster
+labels are present in the data for anyone who wants finer structure, with the
+caveat above that they are per-mouse. Neural activity can also be related to
+graded expression across all 22 or 27 genes directly, rather than to discrete
+groupings — the full expression profile of every cell is available, and nothing
+requires that cell identity enter an analysis as a categorical variable.</p>
+</section>
+<section id="the-unassigned-population">
+<h2>The unassigned population<a class="headerlink" href="#the-unassigned-population" title="Permalink to this heading">#</a></h2>
+<p>The class threshold is deliberately conservative, and a substantial number of
+cells end up <code class="docutils literal notranslate"><span class="pre">unassigned</span></code> as a result. Two situations produce that label. Cells
+expressing both <code class="docutils literal notranslate"><span class="pre">Gad2</span></code> and <code class="docutils literal notranslate"><span class="pre">Slc17a7</span></code> above threshold are usually merged
+segmentations or residual contamination, and calling them either way would
+propagate that error. Cells below threshold on every class marker have no
+positive evidence in either direction — but because the threshold is a fixed
+count applied to raw data, and detection depth varies over two orders of
+magnitude between cells, a dimly detected cell can fall below it regardless of
+what it actually is.</p>
+<p>A less conservative classification could be used to include more neurons, and we
+will provide additional options for filtering in a future data release.</p>
+</section>
+<section id="the-neurons-that-were-also-imaged">
+<h2>The neurons that were also imaged<a class="headerlink" href="#the-neurons-that-were-also-imaged" title="Permalink to this heading">#</a></h2>
+<p>Most of the cells recorded in the HCR transcriptomics data were never imaged in
+vivo; only a small portion of the tissue contains the 2-photon imaged volume (a
+400x400um cube). The gene expression measurement covers the whole tangential
+section; the imaging covers eight planes within it, and a neuron must survive
+several registration steps to be matched between the two. The subset carrying
+both a gene expression profile and a record of activity during behavior is
+correspondingly smaller.</p>
+<p>The procedure that links the two measurements, the identifiers involved, and the
+number of neurons available at each stage are described in
+<a class="reference internal" href="../../physiology/ophys/visual-learning/VL-Integration.html"><span class="doc std std-doc">Linking Ophys and Transcriptomics</span></a>
+.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cell-types/spatial-transcriptomics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../cell-types.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cell Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../computational/data-analysis/data-analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Analysis Tutorials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-measure-gene-expression-in-the-imaged-tissue">Why measure gene expression in the imaged tissue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tissue-processing">Tissue processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hybridization-chain-reaction-and-multi-round-imaging">Hybridization chain reaction and multi-round imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gene-panel">The gene panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-images-to-a-cell-by-gene-table">From images to a cell by gene table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-by-gene-table">The cell by gene table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-class-subclass-and-cluster">Cell class, subclass, and cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unassigned-population">The unassigned population</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-neurons-that-were-also-imaged">The neurons that were also imaged</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

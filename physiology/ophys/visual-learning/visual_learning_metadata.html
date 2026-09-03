@@ -1,0 +1,2272 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Learning session metadata &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/visual-learning/visual_learning_metadata';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/visual-learning/visual_learning_metadata.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Tutorial-VisualLearning-Ophys-Behavior-NWB.html" />
+    <link rel="prev" title="Visual Learning Ophys" href="VL-Ophys.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VL-Intro.html">Visual Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VL-Behavior.html">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-metadata.html">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../cell-types/cell-types.html">Cell Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cell-types/spatial-transcriptomics/VL-mFISH.html">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/visual-learning/visual_learning_metadata.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/visual-learning/visual_learning_metadata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/visual-learning/visual_learning_metadata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Learning session metadata</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query">Query</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-session-table">Building the session table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-drift-qc">Z-drift QC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-session-table">The session table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#views-of-the-table">Views of the table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sanity-checks">Sanity checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-table">Saving the table</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-learning-session-metadata">
+<h1>Visual Learning session metadata<a class="headerlink" href="#visual-learning-session-metadata" title="Permalink to this heading">#</a></h1>
+<p>The metadata for every Visual Learning session lives in the AIND document
+database (docDB). This page queries docDB and assembles a dataframe with one row
+per session, carrying the mouse, the session type, the acquisition date, the
+imaging planes and their depths, and the z-drift QC result.</p>
+<p>That dataframe is the thing to take away. It is what the Visual Learning
+tutorials use to choose sessions, and the same query can be adapted to pull
+whatever other fields an analysis needs. Writing it to a CSV, at the end of this
+page, is a convenience rather than the goal.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aind_data_access_api.document_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataDbClient</span>
+
+<span class="n">API_GATEWAY_HOST</span> <span class="o">=</span> <span class="s2">"api.allenneuraldynamics.org"</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="s1">'/data/metadata'</span>
+<span class="n">DATABASE</span> <span class="o">=</span> <span class="s1">'metadata_index'</span>
+<span class="n">COLLECTION</span> <span class="o">=</span> <span class="s1">'data_assets'</span>
+
+<span class="n">docdb_api_client</span> <span class="o">=</span> <span class="n">MetadataDbClient</span><span class="p">(</span>
+   <span class="n">host</span><span class="o">=</span><span class="n">API_GATEWAY_HOST</span><span class="p">,</span>
+   <span class="n">version</span><span class="o">=</span><span class="s2">"v2"</span><span class="p">,</span>
+   <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">,</span>
+   <span class="n">collection</span><span class="o">=</span><span class="n">COLLECTION</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docdb_api_client</span><span class="o">.</span><span class="n">_base_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.allenneuraldynamics.org/v2/metadata_index/data_assets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The cohort is defined by subject: five different project_name values are</span>
+<span class="c1"># interleaved across the same six mice.</span>
+<span class="n">VISUAL_LEARNING_MICE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'782149'</span><span class="p">,</span> <span class="s1">'790322'</span><span class="p">,</span> <span class="s1">'788406'</span><span class="p">,</span> <span class="s1">'800792'</span><span class="p">,</span> <span class="s1">'800995'</span><span class="p">,</span> <span class="s1">'804363'</span><span class="p">]</span>
+
+<span class="c1"># Assets are selected by modality rather than by a pattern on the asset name.</span>
+<span class="c1"># 'pophys' is planar optical physiology, the modality for multiplane ophys.</span>
+<span class="n">MODALITY</span> <span class="o">=</span> <span class="s1">'pophys'</span>
+
+<span class="c1"># Processed asset names end in _processed_&lt;date&gt;_&lt;time&gt;. Anchoring at end-of-string</span>
+<span class="c1"># drops further-derived assets (behavior-nwb, cortical-zstack, coreg, ROICat) that</span>
+<span class="c1"># carry _processed_ mid-name.</span>
+<span class="n">PROCESSED_PATTERN</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s1">'^multiplane-ophys_\d+_\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">_[\d-]+'</span>
+                     <span class="sa">r</span><span class="s1">'_processed_\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">_[\d-]+$'</span><span class="p">)</span>
+
+<span class="c1"># The QC request sends one asset name per document, so the whole cohort at once</span>
+<span class="c1"># exceeds the gateway's header limit -- fetch it in batches.</span>
+<span class="n">BATCH</span> <span class="o">=</span> <span class="mi">40</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="query">
+<h2>Query<a class="headerlink" href="#query" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggregate</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"$match"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"data_description.subject_id"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$in"</span><span class="p">:</span> <span class="n">VISUAL_LEARNING_MICE</span><span class="p">},</span>
+      <span class="s2">"data_description.modalities.abbreviation"</span><span class="p">:</span> <span class="n">MODALITY</span><span class="p">,</span>
+      <span class="c1"># exclude the post-training passive block</span>
+      <span class="s2">"acquisition.acquisition_type"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$exists"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                                       <span class="s2">"$ne"</span><span class="p">:</span> <span class="s2">"CENTER_MOUSEMOTION"</span><span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"$project"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"subject_id"</span><span class="p">:</span> <span class="s2">"$data_description.subject_id"</span><span class="p">,</span>
+      <span class="s2">"project_name"</span><span class="p">:</span> <span class="s2">"$data_description.project_name"</span><span class="p">,</span>
+      <span class="s2">"modality"</span><span class="p">:</span> <span class="s2">"$data_description.modalities.abbreviation"</span><span class="p">,</span>
+      <span class="s2">"acquisition_type"</span><span class="p">:</span> <span class="s2">"$acquisition.acquisition_type"</span><span class="p">,</span>
+      <span class="s2">"session_start_time"</span><span class="p">:</span> <span class="s2">"$acquisition.acquisition_start_time"</span><span class="p">,</span>
+      <span class="s2">"session_end_time"</span><span class="p">:</span> <span class="s2">"$acquisition.acquisition_end_time"</span><span class="p">,</span>
+      <span class="s2">"rig"</span><span class="p">:</span> <span class="s2">"$acquisition.instrument_id"</span><span class="p">,</span>
+      <span class="s2">"genotype"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.genotype"</span><span class="p">,</span>
+      <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.sex"</span><span class="p">,</span>
+      <span class="s2">"date_of_birth"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.date_of_birth"</span><span class="p">,</span>
+      <span class="c1"># flatten data_streams[] -&gt; configurations[] -&gt; images[] -&gt; planes[]</span>
+      <span class="s2">"planes"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$reduce"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"input"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$reduce"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"$acquisition.data_streams"</span><span class="p">,</span> <span class="s2">"initialValue"</span><span class="p">:</span> <span class="p">[],</span>
+              <span class="s2">"in"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$concatArrays"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"$$value"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"$ifNull"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$$this.configurations"</span><span class="p">,</span> <span class="p">[]]}]}}},</span>
+          <span class="s2">"initialValue"</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="s2">"in"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$concatArrays"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$$value"</span><span class="p">,</span>
+              <span class="p">{</span><span class="s2">"$reduce"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"input"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$ifNull"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$$this.images"</span><span class="p">,</span> <span class="p">[]]},</span> <span class="s2">"initialValue"</span><span class="p">:</span> <span class="p">[],</span>
+                  <span class="s2">"in"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$concatArrays"</span><span class="p">:</span> <span class="p">[</span>
+                      <span class="s2">"$$value"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"$ifNull"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"$$this.planes"</span><span class="p">,</span> <span class="p">[]]}]}}}]}}},</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"$project"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"subject_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"project_name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"modality"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"acquisition_type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"session_start_time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"session_end_time"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"rig"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"genotype"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"sex"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"date_of_birth"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"n_planes"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$size"</span><span class="p">:</span> <span class="s2">"$planes"</span><span class="p">},</span>
+      <span class="s2">"plane_indices"</span><span class="p">:</span> <span class="s2">"$planes.plane_index"</span><span class="p">,</span>
+      <span class="s2">"imaging_depths"</span><span class="p">:</span> <span class="s2">"$planes.depth"</span><span class="p">,</span>
+      <span class="s2">"targeted_structures"</span><span class="p">:</span> <span class="s2">"$planes.targeted_structure.acronym"</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="c1"># drop the 2-plane test sessions (800792, 800995 -- 2 planes in every</span>
+  <span class="c1"># processing generation, so nothing is recovered by keeping them)</span>
+  <span class="p">{</span><span class="s2">"$match"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"n_planes"</span><span class="p">:</span> <span class="mi">8</span><span class="p">}},</span>
+<span class="p">]</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="n">docdb_api_client</span><span class="o">.</span><span class="n">aggregate_docdb_records</span><span class="p">(</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span><span class="si">}</span><span class="s1"> assets'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">'No assets matched. If the cohort and client are right, check that '</span>
+        <span class="sa">f</span><span class="s1">'MODALITY=</span><span class="si">{</span><span class="n">MODALITY</span><span class="si">!r}</span><span class="s1"> is the abbreviation docDB uses for these assets.'</span><span class="p">)</span>
+
+<span class="c1"># Confirm the modality filter selected what we expect, and nothing else.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'modalities returned:'</span><span class="p">,</span> <span class="p">{</span><span class="n">m</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'modality'</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[])})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1432 assets
+modalities returned: {'behavior-videos', 'pophys', 'behavior'}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-the-session-table">
+<h2>Building the session table<a class="headerlink" href="#building-the-session-table" title="Permalink to this heading">#</a></h2>
+<p>One row per session, keeping only the newest <code class="docutils literal notranslate"><span class="pre">_processed_</span></code> generation: a session is
+reprocessed whenever the pipeline changes, so it appears several times (3-8 deep) under
+different stamps. The stamp format sorts lexicographically in chronological order, so
+<code class="docutils literal notranslate"><span class="pre">sort_values</span></code> + <code class="docutils literal notranslate"><span class="pre">keep='last'</span></code> picks the newest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sessions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">PROCESSED_PATTERN</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'session_id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">'^(multiplane-ophys_\d+_\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">_[\d-]+)_processed_'</span><span class="p">)</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'processed_stamp'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">'_processed_(\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">_[\d-]+)$'</span><span class="p">)</span>
+
+<span class="n">sessions</span> <span class="o">=</span> <span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'processed_stamp'</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">'session_id'</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">'last'</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span><span class="si">}</span><span class="s1"> unique sessions across </span><span class="si">{</span><span class="n">sessions</span><span class="o">.</span><span class="n">subject_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s1"> mice'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">subject_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>147 unique sessions across 6 mice
+subject_id
+782149    24
+788406    32
+790322    24
+800792    25
+800995    22
+804363    20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># acquisition_date comes off the asset name; session_date/time off the timestamp.</span>
+<span class="c1"># They agree on every row today -- kept separate because the name is what the mount</span>
+<span class="c1"># and every derived asset are keyed by.</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'acquisition_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_id</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_(\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">)_'</span><span class="p">)</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'session_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_start_time</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'session_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_start_time</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">date_of_birth</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'age_days'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">acquisition_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
+                                        <span class="n">sessions</span><span class="o">.</span><span class="n">date_of_birth</span><span class="p">)]</span>
+
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'session_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">acquisition_type</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'stage'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">'^(TRAINING_\d|OPHYS_\d|STAGE_\d)'</span><span class="p">)</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'image_set'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_images_([AB])'</span><span class="p">)</span>
+
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'subject_id'</span><span class="p">,</span> <span class="s1">'acquisition_date'</span><span class="p">])</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'session_number'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'subject_id'</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Plane columns, ordered by plane_index so depths line up with names</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'plane_names'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">plane_indices</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">targeted_structures</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'imaging_depths'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">plane_indices</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">imaging_depths</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'targeted_structures'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">targeted_structures</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="z-drift-qc">
+<h3>Z-drift QC<a class="headerlink" href="#z-drift-qc" title="Permalink to this heading">#</a></h3>
+<p>QC lives in <code class="docutils literal notranslate"><span class="pre">quality_control.metrics</span></code> — a flat array of per-plane metrics, each with a
+<code class="docutils literal notranslate"><span class="pre">status_history</span></code> whose last entry is current. Metric names carry the plane either
+leading (<code class="docutils literal notranslate"><span class="pre">VISp_0</span> <span class="pre">Z-drift</span> <span class="pre">Analysis</span></code>) or trailing
+(<code class="docutils literal notranslate"><span class="pre">VISp_0</span> <span class="pre">Z-drift</span> <span class="pre">Analysis</span> <span class="pre">-</span> <span class="pre">VISp_0</span></code>), so we check both ends.</p>
+<p>Sessions whose processing generation predates the z-drift evaluation have no metric to
+read; those stay <code class="docutils literal notranslate"><span class="pre">NA</span></code> rather than <code class="docutils literal notranslate"><span class="pre">0</span></code>, so a session with no QC is not mistaken for a
+session that passed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zdrift</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">targets</span><span class="p">),</span> <span class="n">BATCH</span><span class="p">):</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="n">docdb_api_client</span><span class="o">.</span><span class="n">retrieve_docdb_records</span><span class="p">(</span>
+        <span class="n">filter_query</span><span class="o">=</span><span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'$in'</span><span class="p">:</span> <span class="n">targets</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">BATCH</span><span class="p">]}},</span>
+        <span class="n">projection</span><span class="o">=</span><span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'quality_control.metrics'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="n">limit</span><span class="o">=</span><span class="n">BATCH</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="p">((</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'quality_control'</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'metrics'</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[]):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">metric</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">'z-?drift'</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">history</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'status_history'</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[]</span>
+            <span class="n">zdrift</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">'name'</span><span class="p">:</span> <span class="n">doc</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+                <span class="s1">'metric_name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s1">'status'</span><span class="p">:</span> <span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'status'</span><span class="p">)</span> <span class="k">if</span> <span class="n">history</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="p">})</span>
+
+<span class="n">zdrift</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zdrift</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">zdrift</span><span class="p">)</span><span class="si">}</span><span class="s1"> z-drift metric rows from </span><span class="si">{</span><span class="n">zdrift</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s1"> assets'</span><span class="p">)</span>
+
+<span class="c1"># plane may lead or trail the metric name</span>
+<span class="n">zdrift</span><span class="p">[</span><span class="s1">'plane_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">zdrift</span><span class="o">.</span><span class="n">metric_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^(VISp_\d+)'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span>
+    <span class="n">zdrift</span><span class="o">.</span><span class="n">metric_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(VISp_\d+)\s*$'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">zdrift</span><span class="o">.</span><span class="n">plane_name</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s1">'unparsed plane in a z-drift metric name'</span>
+
+<span class="n">zdrift</span> <span class="o">=</span> <span class="n">zdrift</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'plane_name'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zdrift</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>904 z-drift metric rows from 113 assets
+status
+Pass    788
+Fail    116
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Failing plane names per session, plus the count. Sessions with no z-drift QC</span>
+<span class="c1"># stay NA -- distinct from an empty list, which means QC ran and nothing failed.</span>
+<span class="n">failed</span> <span class="o">=</span> <span class="n">zdrift</span><span class="p">[</span><span class="n">zdrift</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">'Fail'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">failed</span><span class="p">[</span><span class="s1">'plane_index'</span><span class="p">]</span> <span class="o">=</span> <span class="n">failed</span><span class="o">.</span><span class="n">plane_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_(\d+)$'</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># sort by plane index, not lexically (VISp_10 would otherwise precede VISp_2)</span>
+<span class="n">failed_names</span> <span class="o">=</span> <span class="p">(</span><span class="n">failed</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'plane_index'</span><span class="p">])</span>
+                      <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span><span class="o">.</span><span class="n">plane_name</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">))</span>
+
+<span class="n">have_qc</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">zdrift</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'planes_failing_zdrift'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">failed_names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">has</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">has</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">have_qc</span><span class="p">)]</span>
+<span class="n">sessions</span><span class="p">[</span><span class="s1">'n_planes_failing_zdrift'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">sessions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">zdrift</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'Fail'</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">zdrift</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">have_qc</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'Int64'</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">have_qc</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1"> sessions with z-drift QC, '</span>
+      <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="o">~</span><span class="n">have_qc</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1"> left NA'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">n_planes_failing_zdrift</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113 sessions with z-drift QC, 34 left NA
+n_planes_failing_zdrift
+0       71
+1       14
+2       10
+3        5
+4        6
+5        2
+6        3
+7        1
+8        1
+&lt;NA&gt;    34
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-session-table">
+<h3>The session table<a class="headerlink" href="#the-session-table" title="Permalink to this heading">#</a></h3>
+<p>Ordered and reset, this is the finished table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'subject_id'</span><span class="p">,</span> <span class="s1">'session_id'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'session_type'</span><span class="p">,</span> <span class="s1">'acquisition_type'</span><span class="p">,</span>
+         <span class="s1">'stage'</span><span class="p">,</span> <span class="s1">'image_set'</span><span class="p">,</span> <span class="s1">'session_number'</span><span class="p">,</span> <span class="s1">'acquisition_date'</span><span class="p">,</span> <span class="s1">'session_date'</span><span class="p">,</span>
+         <span class="s1">'session_time'</span><span class="p">,</span> <span class="s1">'age_days'</span><span class="p">,</span> <span class="s1">'genotype'</span><span class="p">,</span> <span class="s1">'sex'</span><span class="p">,</span> <span class="s1">'date_of_birth'</span><span class="p">,</span> <span class="s1">'rig'</span><span class="p">,</span>
+         <span class="s1">'project_name'</span><span class="p">,</span> <span class="s1">'modality'</span><span class="p">,</span> <span class="s1">'n_planes'</span><span class="p">,</span> <span class="s1">'plane_names'</span><span class="p">,</span> <span class="s1">'imaging_depths'</span><span class="p">,</span>
+         <span class="s1">'targeted_structures'</span><span class="p">,</span> <span class="s1">'planes_failing_zdrift'</span><span class="p">,</span>
+         <span class="s1">'n_planes_failing_zdrift'</span><span class="p">,</span> <span class="s1">'processed_stamp'</span><span class="p">,</span> <span class="s1">'_id'</span><span class="p">]</span>
+
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">order</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sessions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject_id</th>
+      <th>session_id</th>
+      <th>name</th>
+      <th>session_type</th>
+      <th>acquisition_type</th>
+      <th>stage</th>
+      <th>image_set</th>
+      <th>session_number</th>
+      <th>acquisition_date</th>
+      <th>session_date</th>
+      <th>session_time</th>
+      <th>age_days</th>
+      <th>genotype</th>
+      <th>sex</th>
+      <th>date_of_birth</th>
+      <th>rig</th>
+      <th>project_name</th>
+      <th>modality</th>
+      <th>n_planes</th>
+      <th>plane_names</th>
+      <th>imaging_depths</th>
+      <th>targeted_structures</th>
+      <th>planes_failing_zdrift</th>
+      <th>n_planes_failing_zdrift</th>
+      <th>processed_stamp</th>
+      <th>_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>782149</td>
+      <td>multiplane-ophys_782149_2025-03-25_09-46-08</td>
+      <td>multiplane-ophys_782149_2025-03-25_09-46-08_pr...</td>
+      <td>TRAINING_0_gratings_autorewards_15min</td>
+      <td>TRAINING_0_gratings_autorewards_15min</td>
+      <td>TRAINING_0</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2025-03-25</td>
+      <td>2025-03-25</td>
+      <td>09:46:08.591468</td>
+      <td>108</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Male</td>
+      <td>2024-12-07</td>
+      <td>422_MESO2_20241017</td>
+      <td>LearningmFISHTask1A</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[40, 320, 80, 280, 120, 240, 160, 200]</td>
+      <td>[VISp]</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>2026-08-19_00-32-51</td>
+      <td>aca6e6d2-9f33-4ed6-8a66-86d69a282c30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>782149</td>
+      <td>multiplane-ophys_782149_2025-03-28_10-55-25</td>
+      <td>multiplane-ophys_782149_2025-03-28_10-55-25_pr...</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>2025-03-28</td>
+      <td>2025-03-28</td>
+      <td>10:55:25.569080</td>
+      <td>111</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Male</td>
+      <td>2024-12-07</td>
+      <td>429_MESO1_20241016</td>
+      <td>LearningmFISHTask1A</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 114, 244, 80, 280, 40, 310]</td>
+      <td>[VISp]</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>2026-08-19_00-34-09</td>
+      <td>2a3f8254-9f86-42fd-b4d7-fe1877ebf959</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>782149</td>
+      <td>multiplane-ophys_782149_2025-03-29_10-10-29</td>
+      <td>multiplane-ophys_782149_2025-03-29_10-10-29_pr...</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>2025-03-29</td>
+      <td>2025-03-29</td>
+      <td>10:10:29.493070</td>
+      <td>112</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Male</td>
+      <td>2024-12-07</td>
+      <td>429_MESO1_20241016</td>
+      <td>Learning mFISH-V1omFISH</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[158, 198, 114, 246, 80, 276, 43, 306]</td>
+      <td>[VISp]</td>
+      <td>[VISp_0, VISp_4, VISp_6]</td>
+      <td>3</td>
+      <td>2026-08-19_00-33-54</td>
+      <td>7591b588-f6a1-474d-b00a-3dd10ffb4a60</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>782149</td>
+      <td>multiplane-ophys_782149_2025-03-31_12-23-33</td>
+      <td>multiplane-ophys_782149_2025-03-31_12-23-33_pr...</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1_gratings</td>
+      <td>TRAINING_1</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>2025-03-31</td>
+      <td>2025-03-31</td>
+      <td>12:23:33.753970</td>
+      <td>114</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Male</td>
+      <td>2024-12-07</td>
+      <td>429_MESO1_20241016</td>
+      <td>LearningmFISHTask1A</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 115, 245, 80, 280, 40, 310]</td>
+      <td>[VISp]</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>2026-08-19_00-34-28</td>
+      <td>d00bf70e-41c7-4ec5-ac76-8aecb010fbe1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>782149</td>
+      <td>multiplane-ophys_782149_2025-04-01_09-42-11</td>
+      <td>multiplane-ophys_782149_2025-04-01_09-42-11_pr...</td>
+      <td>TRAINING_2_gratings_flashed</td>
+      <td>TRAINING_2_gratings_flashed</td>
+      <td>TRAINING_2</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>2025-04-01</td>
+      <td>2025-04-01</td>
+      <td>09:42:11.814685</td>
+      <td>115</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Male</td>
+      <td>2024-12-07</td>
+      <td>429_MESO1_20241016</td>
+      <td>LearningmFISHTask1A</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 115, 240, 85, 280, 40, 300]</td>
+      <td>[VISp]</td>
+      <td>[VISp_4, VISp_6]</td>
+      <td>2</td>
+      <td>2026-08-19_00-33-58</td>
+      <td>ac0f8e4d-cd12-453a-8d83-6b7951a6a957</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>804363</td>
+      <td>multiplane-ophys_804363_2025-09-04_16-08-45</td>
+      <td>multiplane-ophys_804363_2025-09-04_16-08-45_pr...</td>
+      <td>OPHYS_6_images_B</td>
+      <td>OPHYS_6_images_B</td>
+      <td>OPHYS_6</td>
+      <td>B</td>
+      <td>16</td>
+      <td>2025-09-04</td>
+      <td>2025-09-04</td>
+      <td>16:08:45.114554</td>
+      <td>130</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Female</td>
+      <td>2025-04-27</td>
+      <td>429_MESO1_20241016</td>
+      <td>Learning mFISH-V1omFISH</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 120, 238, 80, 272, 48, 314]</td>
+      <td>[VISp]</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_4, VISp_5, VISp_6]</td>
+      <td>6</td>
+      <td>2026-08-19_01-05-08</td>
+      <td>a7ae1f04-6d75-4f43-ada6-61055ef90896</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>804363</td>
+      <td>multiplane-ophys_804363_2025-09-05_13-25-33</td>
+      <td>multiplane-ophys_804363_2025-09-05_13-25-33_pr...</td>
+      <td>STAGE_0</td>
+      <td>STAGE_0</td>
+      <td>STAGE_0</td>
+      <td>NaN</td>
+      <td>17</td>
+      <td>2025-09-05</td>
+      <td>2025-09-05</td>
+      <td>13:25:33.172779</td>
+      <td>131</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Female</td>
+      <td>2025-04-27</td>
+      <td>429_MESO1_20241016</td>
+      <td>Learning mFISH-V1omFISH</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 196, 120, 240, 78, 276, 44, 320]</td>
+      <td>[VISp]</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2026-08-19_01-05-09</td>
+      <td>100f82f1-b73a-49c2-998d-dbcabf9362e7</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>804363</td>
+      <td>multiplane-ophys_804363_2025-09-08_09-24-39</td>
+      <td>multiplane-ophys_804363_2025-09-08_09-24-39_pr...</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>NaN</td>
+      <td>18</td>
+      <td>2025-09-08</td>
+      <td>2025-09-08</td>
+      <td>09:24:39.253310</td>
+      <td>134</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Female</td>
+      <td>2025-04-27</td>
+      <td>429_MESO1_20241016</td>
+      <td>Learning mFISH-V1omFISH</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 198, 120, 240, 82, 276, 42, 320]</td>
+      <td>[VISp]</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2026-08-19_01-05-32</td>
+      <td>85a8228f-f0b4-480b-a402-95a0379c3c3b</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>804363</td>
+      <td>multiplane-ophys_804363_2025-09-09_11-44-14</td>
+      <td>multiplane-ophys_804363_2025-09-09_11-44-14_pr...</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>NaN</td>
+      <td>19</td>
+      <td>2025-09-09</td>
+      <td>2025-09-09</td>
+      <td>11:44:14.156559</td>
+      <td>135</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Female</td>
+      <td>2025-04-27</td>
+      <td>429_MESO1_20241016</td>
+      <td>LearningmFISHTask1A</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 122, 240, 84, 280, 44, 322]</td>
+      <td>[VISp]</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>2026-08-19_01-05-33</td>
+      <td>385b41e7-68c2-4c0f-8f5c-8771a9413498</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>804363</td>
+      <td>multiplane-ophys_804363_2025-09-10_14-44-56</td>
+      <td>multiplane-ophys_804363_2025-09-10_14-44-56_pr...</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>STAGE_1</td>
+      <td>NaN</td>
+      <td>20</td>
+      <td>2025-09-10</td>
+      <td>2025-09-10</td>
+      <td>14:44:56.562364</td>
+      <td>136</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-IC...</td>
+      <td>Female</td>
+      <td>2025-04-27</td>
+      <td>429_MESO1_20241016</td>
+      <td>Learning mFISH-V1omFISH</td>
+      <td>[pophys, behavior]</td>
+      <td>8</td>
+      <td>[VISp_0, VISp_1, VISp_2, VISp_3, VISp_4, VISp_...</td>
+      <td>[160, 200, 124, 240, 84, 280, 44, 322]</td>
+      <td>[VISp]</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>2026-08-19_01-05-12</td>
+      <td>5ed91986-57b6-43b1-8df1-5d0a39b085d2</td>
+    </tr>
+  </tbody>
+</table>
+<p>147 rows × 26 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="views-of-the-table">
+<h2>Views of the table<a class="headerlink" href="#views-of-the-table" title="Permalink to this heading">#</a></h2>
+<p>With the table built, these views show what the dataset actually offers before
+picking sessions for an analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Column inventory: type, fill rate, and how much each column varies</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="n">as_str</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">'column'</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
+        <span class="s1">'dtype'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">'n_missing'</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+        <span class="s1">'n_unique'</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">as_str</span><span class="o">.</span><span class="n">nunique</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+        <span class="s1">'example'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="mi">44</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="p">})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>dtype</th>
+      <th>n_missing</th>
+      <th>n_unique</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>subject_id</td>
+      <td>object</td>
+      <td>0</td>
+      <td>6</td>
+      <td>782149</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>session_id</td>
+      <td>object</td>
+      <td>0</td>
+      <td>147</td>
+      <td>multiplane-ophys_782149_2025-03-25_09-46-08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0</td>
+      <td>147</td>
+      <td>multiplane-ophys_782149_2025-03-25_09-46-08_</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>session_type</td>
+      <td>object</td>
+      <td>0</td>
+      <td>13</td>
+      <td>TRAINING_0_gratings_autorewards_15min</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>acquisition_type</td>
+      <td>object</td>
+      <td>0</td>
+      <td>13</td>
+      <td>TRAINING_0_gratings_autorewards_15min</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>stage</td>
+      <td>object</td>
+      <td>0</td>
+      <td>11</td>
+      <td>TRAINING_0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>image_set</td>
+      <td>object</td>
+      <td>68</td>
+      <td>2</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>session_number</td>
+      <td>int64</td>
+      <td>0</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>acquisition_date</td>
+      <td>object</td>
+      <td>0</td>
+      <td>96</td>
+      <td>2025-03-25</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>session_date</td>
+      <td>object</td>
+      <td>0</td>
+      <td>96</td>
+      <td>2025-03-25</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>session_time</td>
+      <td>object</td>
+      <td>0</td>
+      <td>147</td>
+      <td>09:46:08.591468</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>age_days</td>
+      <td>int64</td>
+      <td>0</td>
+      <td>74</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>genotype</td>
+      <td>object</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>sex</td>
+      <td>object</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>date_of_birth</td>
+      <td>object</td>
+      <td>0</td>
+      <td>6</td>
+      <td>2024-12-07</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>rig</td>
+      <td>object</td>
+      <td>0</td>
+      <td>3</td>
+      <td>422_MESO2_20241017</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>project_name</td>
+      <td>object</td>
+      <td>0</td>
+      <td>4</td>
+      <td>LearningmFISHTask1A</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>modality</td>
+      <td>object</td>
+      <td>0</td>
+      <td>1</td>
+      <td>['pophys', 'behavior']</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>n_planes</td>
+      <td>int64</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>plane_names</td>
+      <td>object</td>
+      <td>0</td>
+      <td>1</td>
+      <td>['VISp_0', 'VISp_1', 'VISp_2', 'VISp_3', 'VI</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>imaging_depths</td>
+      <td>object</td>
+      <td>0</td>
+      <td>141</td>
+      <td>[40, 320, 80, 280, 120, 240, 160, 200]</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>targeted_structures</td>
+      <td>object</td>
+      <td>0</td>
+      <td>1</td>
+      <td>['VISp']</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>planes_failing_zdrift</td>
+      <td>object</td>
+      <td>34</td>
+      <td>22</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>n_planes_failing_zdrift</td>
+      <td>Int64</td>
+      <td>34</td>
+      <td>9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>processed_stamp</td>
+      <td>object</td>
+      <td>0</td>
+      <td>143</td>
+      <td>2026-08-19_00-32-51</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>_id</td>
+      <td>object</td>
+      <td>0</td>
+      <td>147</td>
+      <td>aca6e6d2-9f33-4ed6-8a66-86d69a282c30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which columns are constant across the cohort (no use as a selector)?</span>
+<span class="n">varying</span><span class="p">,</span> <span class="n">constant</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">as_str</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">constant</span> <span class="k">if</span> <span class="n">as_str</span><span class="o">.</span><span class="n">nunique</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">varying</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'constant across all </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span><span class="si">}</span><span class="s1"> sessions:'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">constant</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">sessions</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">sessions</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s2">"all NA"</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">varying (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">varying</span><span class="p">)</span><span class="si">}</span><span class="s1">): </span><span class="si">{</span><span class="n">varying</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>constant across all 147 sessions:
+  genotype = Slc32a1-IRES-Cre/wt;Oi1(TIT2L-jGCaMP8s-WPRE-ICL-IRES-tTA2)/wt
+  modality = ['pophys', 'behavior']
+  n_planes = 8
+  plane_names = ['VISp_0', 'VISp_1', 'VISp_2', 'VISp_3', 'VISp_4', 'VISp_5', 'VISp_6', 'VISp_7']
+  targeted_structures = ['VISp']
+
+varying (21): ['subject_id', 'session_id', 'name', 'session_type', 'acquisition_type', 'stage', 'image_set', 'session_number', 'acquisition_date', 'session_date', 'session_time', 'age_days', 'sex', 'date_of_birth', 'rig', 'project_name', 'imaging_depths', 'planes_failing_zdrift', 'n_planes_failing_zdrift', 'processed_stamp', '_id']
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Categorical columns worth filtering on</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'session_type'</span><span class="p">,</span> <span class="s1">'image_set'</span><span class="p">,</span> <span class="s1">'rig'</span><span class="p">,</span> <span class="s1">'project_name'</span><span class="p">,</span> <span class="s1">'sex'</span><span class="p">]:</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'--- </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">counts</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1"> values)'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(),</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- session_type (13 values)
+session_type
+TRAINING_1_gratings                      26
+TRAINING_3_images_A_10uL_reward          19
+STAGE_1                                  19
+OPHYS_6_images_B                         15
+OPHYS_1_images_A                         12
+OPHYS_4_images_B                         12
+TRAINING_2_gratings_flashed               9
+TRAINING_4_images_A_training              7
+TRAINING_0_gratings_autorewards_15min     7
+TRAINING_5_images_A_epilogue              7
+STAGE_0                                   7
+TRAINING_5_images_A_handoff_ready         6
+TRAINING_5_images_A_handoff_lapsed        1 
+
+--- image_set (3 values)
+image_set
+NaN    68
+A      52
+B      27 
+
+--- rig (3 values)
+rig
+422_MESO2_20241017    75
+429_MESO1_20241016    44
+422_MESO2_20220218    28 
+
+--- project_name (4 values)
+project_name
+Learning mFISH-V1omFISH    80
+LearningmFISHTask1A        56
+U01BFCT                     9
+ISIx                        2 
+
+--- sex (2 values)
+sex
+Male      80
+Female    67 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sessions per mouse per session_type -- where the usable data actually is</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span><span class="p">,</span>
+            <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">margins_name</span><span class="o">=</span><span class="s1">'TOTAL'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>session_type</th>
+      <th>OPHYS_1_images_A</th>
+      <th>OPHYS_4_images_B</th>
+      <th>OPHYS_6_images_B</th>
+      <th>STAGE_0</th>
+      <th>STAGE_1</th>
+      <th>TRAINING_0_gratings_autorewards_15min</th>
+      <th>TRAINING_1_gratings</th>
+      <th>TRAINING_2_gratings_flashed</th>
+      <th>TRAINING_3_images_A_10uL_reward</th>
+      <th>TRAINING_4_images_A_training</th>
+      <th>TRAINING_5_images_A_epilogue</th>
+      <th>TRAINING_5_images_A_handoff_lapsed</th>
+      <th>TRAINING_5_images_A_handoff_ready</th>
+      <th>TOTAL</th>
+    </tr>
+    <tr>
+      <th>subject_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>782149</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>788406</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>790322</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>800792</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>800995</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>804363</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <td>12</td>
+      <td>12</td>
+      <td>15</td>
+      <td>7</td>
+      <td>19</td>
+      <td>7</td>
+      <td>26</td>
+      <td>9</td>
+      <td>19</td>
+      <td>7</td>
+      <td>7</td>
+      <td>1</td>
+      <td>6</td>
+      <td>147</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imaging geometry: are the 8 planes at consistent depths across sessions?</span>
+<span class="n">depths</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">'imaging_depths'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'distinct imaging depths:'</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">depths</span><span class="o">.</span><span class="n">imaging_depths</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">depth range per plane count'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'n_planes'</span><span class="p">)</span><span class="o">.</span><span class="n">imaging_depths</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="si">}</span><span class="s1"> um'</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">targeted structures:'</span><span class="p">,</span>
+      <span class="nb">sorted</span><span class="p">({</span><span class="n">s</span> <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">targeted_structures</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>distinct imaging depths: [20, 22, 26, 28, 29, 30, 32, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48, 50, 64, 66, 68, 70, 72, 74, 75, 76, 78, 80, 81, 82, 84, 85, 86, 88, 90, 92, 94, 95, 96, 98, 100, 102, 104, 105, 108, 110, 112, 114, 115, 116, 118, 120, 122, 124, 126, 127, 128, 129, 130, 132, 139, 144, 146, 148, 150, 152, 154, 155, 156, 157, 158, 160, 162, 164, 166, 167, 168, 170, 172, 174, 175, 179, 182, 186, 188, 190, 192, 194, 195, 196, 198, 200, 202, 204, 206, 208, 210, 212, 216, 219, 220, 222, 223, 224, 225, 226, 228, 230, 232, 234, 235, 236, 238, 240, 242, 244, 245, 246, 248, 250, 252, 254, 256, 257, 258, 260, 262, 263, 264, 265, 266, 268, 270, 272, 274, 275, 276, 278, 280, 282, 284, 288, 289, 290, 292, 294, 296, 298, 300, 302, 304, 305, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 328, 330, 344, 345, 347, 348, 354]
+
+depth range per plane count
+n_planes
+8    20 - 354 um
+
+targeted structures: ['VISp']
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numeric spread, and how age and session count relate per mouse</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="p">[[</span><span class="s1">'age_days'</span><span class="p">,</span> <span class="s1">'n_planes'</span><span class="p">,</span> <span class="s1">'session_number'</span><span class="p">,</span>
+                <span class="s1">'n_planes_failing_zdrift'</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">per-mouse span'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'subject_id'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">n_sessions</span><span class="o">=</span><span class="p">(</span><span class="s1">'session_id'</span><span class="p">,</span> <span class="s1">'size'</span><span class="p">),</span>
+    <span class="n">first_date</span><span class="o">=</span><span class="p">(</span><span class="s1">'acquisition_date'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">),</span>
+    <span class="n">last_date</span><span class="o">=</span><span class="p">(</span><span class="s1">'acquisition_date'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">),</span>
+    <span class="n">age_first</span><span class="o">=</span><span class="p">(</span><span class="s1">'age_days'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">),</span>
+    <span class="n">age_last</span><span class="o">=</span><span class="p">(</span><span class="s1">'age_days'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         age_days  n_planes  session_number  n_planes_failing_zdrift
+count  147.000000     147.0      147.000000                    113.0
+mean   141.020408       8.0       13.034014                 1.026549
+std     22.161138       0.0        7.610748                 1.759972
+min    107.000000       8.0        1.000000                      0.0
+25%    124.500000       8.0        7.000000                      0.0
+50%    137.000000       8.0       13.000000                      0.0
+75%    151.500000       8.0       19.000000                      1.0
+max    202.000000       8.0       32.000000                      8.0
+
+per-mouse span
+            n_sessions  first_date   last_date  age_first  age_last
+subject_id                                                         
+782149              24  2025-03-25  2025-05-07        108       151
+788406              32  2025-05-29  2025-07-29        131       192
+790322              24  2025-06-11  2025-08-21        131       202
+800792              25  2025-07-22  2025-08-29        107       145
+800995              22  2025-08-05  2025-09-18        120       164
+804363              20  2025-08-12  2025-09-10        107       136
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Z-drift QC coverage -- and the caveat that NA is not a pass</span>
+<span class="n">qc_cov</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">n_planes_failing_zdrift</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'sessions with z-drift QC: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">qc_cov</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  clean (0 failing planes):  </span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="n">sessions</span><span class="o">.</span><span class="n">n_planes_failing_zdrift</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  &gt;=1 failing plane:         </span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="n">sessions</span><span class="o">.</span><span class="n">n_planes_failing_zdrift</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  no QC (NA, NOT a pass):    </span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="o">~</span><span class="n">qc_cov</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">QC coverage by session_type'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">has_qc</span><span class="o">=</span><span class="n">qc_cov</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'session_type'</span><span class="p">)</span><span class="o">.</span><span class="n">has_qc</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">n</span><span class="o">=</span><span class="s1">'size'</span><span class="p">,</span> <span class="n">with_qc</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sessions with z-drift QC: 113 / 147
+  clean (0 failing planes):  71
+  &gt;=1 failing plane:         42
+  no QC (NA, NOT a pass):    34
+
+QC coverage by session_type
+                                        n  with_qc
+session_type                                      
+OPHYS_1_images_A                       12       12
+OPHYS_4_images_B                       12       12
+OPHYS_6_images_B                       15       15
+STAGE_0                                 7        5
+STAGE_1                                19       14
+TRAINING_0_gratings_autorewards_15min   7        3
+TRAINING_1_gratings                    26       17
+TRAINING_2_gratings_flashed             9        5
+TRAINING_3_images_A_10uL_reward        19       11
+TRAINING_4_images_A_training            7        5
+TRAINING_5_images_A_epilogue            7        7
+TRAINING_5_images_A_handoff_lapsed      1        1
+TRAINING_5_images_A_handoff_ready       6        6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Candidate sessions for a problem set: QC present and nothing failing</span>
+<span class="n">usable</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span><span class="n">sessions</span><span class="o">.</span><span class="n">n_planes_failing_zdrift</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">usable</span><span class="p">)</span><span class="si">}</span><span class="s1"> sessions with zero z-drift failures'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">usable</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'subject_id'</span><span class="p">,</span> <span class="s1">'session_type'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># Which planes fail z-drift most often across the cohort?</span>
+<span class="n">exploded</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">planes_failing_zdrift</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">explode</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">z-drift failures by plane'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exploded</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71 sessions with zero z-drift failures
+subject_id  session_type                         
+782149      OPHYS_4_images_B                         1
+            OPHYS_6_images_B                         1
+            STAGE_0                                  1
+            TRAINING_0_gratings_autorewards_15min    1
+            TRAINING_1_gratings                      2
+            TRAINING_3_images_A_10uL_reward          1
+            TRAINING_5_images_A_epilogue             1
+788406      STAGE_1                                  1
+            TRAINING_0_gratings_autorewards_15min    1
+            TRAINING_1_gratings                      6
+            TRAINING_2_gratings_flashed              2
+            TRAINING_3_images_A_10uL_reward          3
+            TRAINING_4_images_A_training             1
+            TRAINING_5_images_A_handoff_ready        1
+790322      OPHYS_1_images_A                         2
+            OPHYS_4_images_B                         2
+            OPHYS_6_images_B                         2
+            STAGE_1                                  3
+            TRAINING_0_gratings_autorewards_15min    1
+            TRAINING_1_gratings                      3
+            TRAINING_2_gratings_flashed              2
+            TRAINING_3_images_A_10uL_reward          2
+            TRAINING_4_images_A_training             1
+            TRAINING_5_images_A_epilogue             1
+            TRAINING_5_images_A_handoff_ready        1
+800792      OPHYS_1_images_A                         2
+            OPHYS_4_images_B                         2
+            OPHYS_6_images_B                         3
+            TRAINING_5_images_A_epilogue             1
+            TRAINING_5_images_A_handoff_ready        1
+800995      OPHYS_1_images_A                         2
+            OPHYS_4_images_B                         1
+            OPHYS_6_images_B                         2
+            STAGE_1                                  3
+            TRAINING_3_images_A_10uL_reward          1
+            TRAINING_5_images_A_epilogue             1
+            TRAINING_5_images_A_handoff_ready        1
+804363      OPHYS_1_images_A                         1
+            OPHYS_4_images_B                         2
+            STAGE_1                                  1
+            TRAINING_3_images_A_10uL_reward          1
+            TRAINING_4_images_A_training             1
+            TRAINING_5_images_A_epilogue             1
+            TRAINING_5_images_A_handoff_ready        1
+
+z-drift failures by plane
+planes_failing_zdrift
+VISp_0    25
+VISp_1     7
+VISp_2    19
+VISp_3     6
+VISp_4    21
+VISp_5     4
+VISp_6    30
+VISp_7     4
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sanity-checks">
+<h3>Sanity checks<a class="headerlink" href="#sanity-checks" title="Permalink to this heading">#</a></h3>
+<p>docDB drops rows silently — it returns no error when an asset simply is not indexed.
+Read these counts against what you expect from the processing batch; if a mouse is
+short, re-run rather than assuming the data is missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'sessions per mouse'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">subject_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">planes per session (8 for all -- enforced in the query)'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">n_planes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">session types'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">session_type</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">VISUAL_LEARNING_MICE</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">sessions</span><span class="o">.</span><span class="n">subject_id</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">no sessions returned for: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sessions per mouse
+subject_id
+782149    24
+788406    32
+790322    24
+800792    25
+800995    22
+804363    20
+
+planes per session (8 for all -- enforced in the query)
+n_planes
+8    147
+
+session types
+session_type
+TRAINING_1_gratings                      26
+TRAINING_3_images_A_10uL_reward          19
+STAGE_1                                  19
+OPHYS_6_images_B                         15
+OPHYS_1_images_A                         12
+OPHYS_4_images_B                         12
+TRAINING_2_gratings_flashed               9
+TRAINING_4_images_A_training              7
+TRAINING_0_gratings_autorewards_15min     7
+TRAINING_5_images_A_epilogue              7
+STAGE_0                                   7
+TRAINING_5_images_A_handoff_ready         6
+TRAINING_5_images_A_handoff_lapsed        1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="saving-the-table">
+<h2>Saving the table<a class="headerlink" href="#saving-the-table" title="Permalink to this heading">#</a></h2>
+<p>The tutorials read this table from a CSV in the mounted data asset, so it is
+written out here for that purpose. Nothing above depends on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">OUTPUT_DIR</span><span class="si">}</span><span class="s1">/visual_learning_session_metadata.csv'</span>
+<span class="n">sessions</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">session_csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">session_csv</span><span class="si">}</span><span class="s1">  (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span><span class="si">}</span><span class="s1"> rows, </span><span class="si">{</span><span class="n">sessions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> columns)'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">session_csv</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">OUTPUT_DIR</span><span class="si">}</span><span class="s1">/visual_learning_session_metadata.csv'</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sessions</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">session_csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">session_csv</span><span class="si">}</span><span class="s1">  (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sessions</span><span class="p">)</span><span class="si">}</span><span class="s1"> rows, </span><span class="si">{</span><span class="n">sessions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> columns)'</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/util/_decorators.py:333,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">333</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/core/generic.py:3967,</span> in <span class="ni">NDFrame.to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3963</span>             <span class="n">float_format</span><span class="o">=</span><span class="n">float_format</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3964</span>             <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3965</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3966</span> 
+<span class="ne">-&gt; </span><span class="mi">3967</span>         <span class="k">return</span> <span class="n">DataFrameRenderer</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3968</span>             <span class="n">path_or_buf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3969</span>             <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3970</span>             <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/io/formats/format.py:1014,</span> in <span class="ni">DataFrameRenderer.to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">993</span>     <span class="n">created_buffer</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">995</span> <span class="n">csv_formatter</span> <span class="o">=</span> <span class="n">CSVFormatter</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span>     <span class="n">path_or_buf</span><span class="o">=</span><span class="n">path_or_buf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1012</span>     <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1014</span> <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span> <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1017</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/io/formats/csvs.py:251,</span> in <span class="ni">CSVFormatter.save</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span><span class="w"> </span><span class="sd">"""</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span><span class="sd"> Create the writer &amp; save.</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="sd"> """</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="c1"># apply compression and byte/text conversion</span>
+<span class="ne">--&gt; </span><span class="mi">251</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="bp">self</span><span class="o">.</span><span class="n">filepath_or_buffer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>     <span class="c1"># Note: self.encoding is irrelevant here</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">csvlib</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>         <span class="n">lineterminator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineterminator</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">267</span>         <span class="n">quotechar</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">quotechar</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/io/common.py:749,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span> <span class="c1"># Only for write methods</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span> <span class="k">if</span> <span class="s2">"r"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span> <span class="ow">and</span> <span class="n">is_path</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">749</span>     <span class="n">check_parent_directory</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">751</span> <span class="k">if</span> <span class="n">compression</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">752</span>     <span class="k">if</span> <span class="n">compression</span> <span class="o">!=</span> <span class="s2">"zstd"</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span>         <span class="c1"># compression libraries do not like an explicit text-mode</span>
+
+<span class="nn">File /opt/envs/query/lib/python3.12/site-packages/pandas/io/common.py:616,</span> in <span class="ni">check_parent_directory</span><span class="nt">(path)</span>
+<span class="g g-Whitespace">    </span><span class="mi">614</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="g g-Whitespace">    </span><span class="mi">615</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">parent</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">616</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="sa">rf</span><span class="s2">"Cannot save file into a non-existent directory: '</span><span class="si">{</span><span class="n">parent</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: Cannot save file into a non-existent directory: '/data/metadata'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "query"
+        },
+        kernelOptions: {
+            name: "query",
+            path: "./physiology/ophys/visual-learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'query'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VL-Ophys.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Learning Ophys</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tutorial-VisualLearning-Ophys-Behavior-NWB.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query">Query</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-session-table">Building the session table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-drift-qc">Z-drift QC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-session-table">The session table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#views-of-the-table">Views of the table</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sanity-checks">Sanity checks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-table">Saving the table</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

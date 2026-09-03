@@ -1,0 +1,99 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+session_csv = f'{OUTPUT_DIR}/visual_learning_session_metadata.csv'
+sessions.to_csv(session_csv, index=False)
+print(f'{session_csv}  ({len(sessions)} rows, {sessions.shape[1]} columns)')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[19][39m[32m, line 2[39m
+[32m      1[39m session_csv = f'{OUTPUT_DIR}/visual_learning_session_metadata.csv'
+[32m----> [39m[32m2[39m sessions.to_csv(session_csv, index=[38;5;28;01mFalse[39;00m)
+[32m      3[39m print(f'{session_csv}  ({len(sessions)} rows, {sessions.shape[[32m1[39m]} columns)')
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/util/_decorators.py:333[39m, in [36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    327[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) > num_allow_args:
+[32m    328[39m     warnings.warn(
+[32m    329[39m         msg.format(arguments=_format_argument_list(allow_args)),
+[32m    330[39m         [38;5;167;01mFutureWarning[39;00m,
+[32m    331[39m         stacklevel=find_stack_level(),
+[32m    332[39m     )
+[32m--> [39m[32m333[39m [38;5;28;01mreturn[39;00m [30;43mfunc[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/core/generic.py:3967[39m, in [36mNDFrame.to_csv[39m[34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)[39m
+[32m   3963[39m             float_format=float_format,
+[32m   3964[39m             decimal=decimal,
+[32m   3965[39m         )
+[32m   3966[39m 
+[32m-> [39m[32m3967[39m         return DataFrameRenderer(formatter).to_csv(
+[32m   3968[39m             path_or_buf,
+[32m   3969[39m             lineterminator=lineterminator,
+[32m   3970[39m             sep=sep,
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/io/formats/format.py:1014[39m, in [36mDataFrameRenderer.to_csv[39m[34m(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)[39m
+[32m    993[39m     created_buffer = [38;5;28;01mFalse[39;00m
+[32m    995[39m csv_formatter = CSVFormatter(
+[32m    996[39m     path_or_buf=path_or_buf,
+[32m    997[39m     lineterminator=lineterminator,
+[32m   (...)[39m[32m   1012[39m     formatter=[38;5;28mself[39m.fmt,
+[32m   1013[39m )
+[32m-> [39m[32m1014[39m [30;43mcsv_formatter[39;49m[30;43m.[39;49m[30;43msave[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m   1016[39m [38;5;28;01mif[39;00m created_buffer:
+[32m   1017[39m     [38;5;28;01massert[39;00m [38;5;28misinstance[39m(path_or_buf, StringIO)
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/io/formats/csvs.py:251[39m, in [36mCSVFormatter.save[39m[34m(self)[39m
+[32m    247[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m    248[39m [33;03mCreate the writer & save.[39;00m
+[32m    249[39m [33;03m"""[39;00m
+[32m    250[39m [38;5;66;03m# apply compression and byte/text conversion[39;00m
+[32m--> [39m[32m251[39m [38;5;28;01mwith[39;00m [30;43mget_handle[39;49m[30;43m([39;49m
+[32m    252[39m [30;43m    [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mfilepath_or_buffer[39;49m[30;43m,[39;49m
+[32m    253[39m [30;43m    [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mmode[39;49m[30;43m,[39;49m
+[32m    254[39m [30;43m    [39;49m[30;43mencoding[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mencoding[39;49m[30;43m,[39;49m
+[32m    255[39m [30;43m    [39;49m[30;43merrors[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43merrors[39;49m[30;43m,[39;49m
+[32m    256[39m [30;43m    [39;49m[30;43mcompression[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mcompression[39;49m[30;43m,[39;49m
+[32m    257[39m [30;43m    [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mstorage_options[39;49m[30;43m,[39;49m
+[32m    258[39m [30;43m[39;49m[30;43m)[39;49m [38;5;28;01mas[39;00m handles:
+[32m    259[39m     [38;5;66;03m# Note: self.encoding is irrelevant here[39;00m
+[32m    260[39m     [38;5;28mself[39m.writer = csvlib.writer(
+[32m    261[39m         handles.handle,
+[32m    262[39m         lineterminator=[38;5;28mself[39m.lineterminator,
+[32m   (...)[39m[32m    267[39m         quotechar=[38;5;28mself[39m.quotechar,
+[32m    268[39m     )
+[32m    270[39m     [38;5;28mself[39m._save()
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/io/common.py:749[39m, in [36mget_handle[39m[34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[39m
+[32m    747[39m [38;5;66;03m# Only for write methods[39;00m
+[32m    748[39m [38;5;28;01mif[39;00m [33m"[39m[33mr[39m[33m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode [38;5;129;01mand[39;00m is_path:
+[32m--> [39m[32m749[39m     [30;43mcheck_parent_directory[39;49m[30;43m([39;49m[30;43mstr[39;49m[30;43m([39;49m[30;43mhandle[39;49m[30;43m)[39;49m[30;43m)[39;49m
+[32m    751[39m [38;5;28;01mif[39;00m compression:
+[32m    752[39m     [38;5;28;01mif[39;00m compression != [33m"[39m[33mzstd[39m[33m"[39m:
+[32m    753[39m         [38;5;66;03m# compression libraries do not like an explicit text-mode[39;00m
+
+[36mFile [39m[32m/opt/envs/query/lib/python3.12/site-packages/pandas/io/common.py:616[39m, in [36mcheck_parent_directory[39m[34m(path)[39m
+[32m    614[39m parent = Path(path).parent
+[32m    615[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m parent.is_dir():
+[32m--> [39m[32m616[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m([33mrf[39m[33m"[39m[33mCannot save file into a non-existent directory: [39m[33m'[39m[38;5;132;01m{[39;00mparent[38;5;132;01m}[39;00m[33m'[39m[33m"[39m)
+
+[31mOSError[39m: Cannot save file into a non-existent directory: '/data/metadata'
+

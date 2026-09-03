@@ -1,0 +1,2223 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Stimuli &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/visual-coding/vcnp-stimulus';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/visual-coding/vcnp-stimulus.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Visual Behavior Neuropixels" href="../visual-behavior/VB-Neuropixels.html" />
+    <link rel="prev" title="Accessing Visual Coding Neuropixels data" href="vcnp-session-data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-learning/VL-Intro.html">Visual Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Behavior.html">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/visual_learning_metadata.html">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-metadata.html">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="vcnp.html">Visual Coding — Neuropixels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../cell-types/cell-types.html">Cell Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cell-types/spatial-transcriptomics/VL-mFISH.html">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/visual-coding/vcnp-stimulus.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/visual-coding/vcnp-stimulus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/visual-coding/vcnp-stimulus.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Stimuli</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brain-observatory-1-1">Brain Observatory 1.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-columns">Common columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drifting-gratings">Drifting gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-gratings">Static gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-scenes">Natural scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-movies">Natural movies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gabor-patches">Gabor patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flashes">Flashes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spontaneous-activity">Spontaneous activity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-times">Invalid times</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-connectivity">Functional Connectivity</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-stimuli">
+<h1>Visual Stimuli<a class="headerlink" href="#visual-stimuli" title="Permalink to this heading">#</a></h1>
+<p>Two possible stimulus sets were used in the Visual Coding - Neuropixels project, known as <code class="docutils literal notranslate"><span class="pre">Brain</span> <span class="pre">Observatory</span> <span class="pre">1.1</span></code> or <code class="docutils literal notranslate"><span class="pre">Functional</span> <span class="pre">Connectivity</span></code>. The former is largely similar to the visual stimuli used in the Visual Coding 2-photon dataset, with some key adaptations (described below). Each mouse only saw one of these two stimulus sets. It addition to these visual stimuli, an <a class="reference internal" href="../../../background/Optotagging.html"><span class="doc std std-doc">optotagging</span></a> stimulus was also used in each of these sessions.</p>
+<section id="brain-observatory-1-1">
+<h2>Brain Observatory 1.1<a class="headerlink" href="#brain-observatory-1-1" title="Permalink to this heading">#</a></h2>
+<p>These stimulus consisted of session A and session B from Visual Coding 2-photon merged together, with two additional stimuli: Gabor patches and flashes.</p>
+<p>Below is a description of each stimulus family and the corresponding intervals tables in the NWB file.</p>
+<p>First, import the necessary packages and load a single session file, unpacking only the intervals container.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pynwb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwb_path</span> <span class="o">=</span> <span class="s2">"/data/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55/387858_2018-07-12_13-56-26_nwb_2026-08-19_07-52-55.nwb.zarr"</span>
+<span class="n">nwbfile</span> <span class="o">=</span> <span class="n">pynwb</span><span class="o">.</span><span class="n">read_nwb</span><span class="p">(</span><span class="n">nwb_path</span><span class="p">)</span>
+<span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'drifting_gratings_presentations': drifting_gratings_presentations pynwb.epoch.TimeIntervals at 0x140078764992032
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block'
+  'temporal_frequency' 'color' 'mask' 'opacity' 'phase' 'size' 'units'
+  'stimulus_index' 'orientation' 'spatial_frequency' 'contrast' 'tags'
+  'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     temporal_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     mask &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     phase &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     spatial_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'drifting_gratings' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'flashes_presentations': flashes_presentations pynwb.epoch.TimeIntervals at 0x140078764992416
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block' 'color' 'mask'
+  'opacity' 'phase' 'size' 'units' 'stimulus_index' 'orientation'
+  'spatial_frequency' 'contrast' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     mask &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     phase &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     spatial_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'flashes' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'gabors_presentations': gabors_presentations pynwb.epoch.TimeIntervals at 0x140078764993280
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block'
+  'temporal_frequency' 'x_position' 'y_position' 'color' 'mask' 'opacity'
+  'phase' 'size' 'units' 'stimulus_index' 'orientation' 'spatial_frequency'
+  'contrast' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     temporal_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     x_position &lt;class 'hdmf.common.table.VectorData'&gt;,
+     y_position &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     mask &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     phase &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     spatial_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'gabors' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'invalid_times': invalid_times pynwb.epoch.TimeIntervals at 0x140078764990640
+ Fields:
+   colnames: ['start_time' 'stop_time' 'tags']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;
+   )
+   description: experimental intervals
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'natural_movie_one_presentations': natural_movie_one_presentations pynwb.epoch.TimeIntervals at 0x140078764992560
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block' 'color'
+  'opacity' 'size' 'units' 'stimulus_index' 'orientation' 'frame'
+  'contrast' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     frame &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'natural_movie_one' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'natural_movie_three_presentations': natural_movie_three_presentations pynwb.epoch.TimeIntervals at 0x140078764995728
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block' 'color'
+  'opacity' 'size' 'units' 'stimulus_index' 'orientation' 'frame'
+  'contrast' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     frame &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'natural_movie_three' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'natural_scenes_presentations': natural_scenes_presentations pynwb.epoch.TimeIntervals at 0x140078764997264
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block'
+  'stimulus_index' 'frame' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     frame &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'natural_scenes' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'spontaneous_presentations': spontaneous_presentations pynwb.epoch.TimeIntervals at 0x140078764996880
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'spontaneous' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;,
+ 'static_gratings_presentations': static_gratings_presentations pynwb.epoch.TimeIntervals at 0x140078764997408
+ Fields:
+   colnames: ['start_time' 'stop_time' 'stimulus_name' 'stimulus_block' 'color' 'mask'
+  'opacity' 'phase' 'size' 'units' 'stimulus_index' 'orientation'
+  'spatial_frequency' 'contrast' 'tags' 'timeseries']
+   columns: (
+     start_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stop_time &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_name &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_block &lt;class 'hdmf.common.table.VectorData'&gt;,
+     color &lt;class 'hdmf.common.table.VectorData'&gt;,
+     mask &lt;class 'hdmf.common.table.VectorData'&gt;,
+     opacity &lt;class 'hdmf.common.table.VectorData'&gt;,
+     phase &lt;class 'hdmf.common.table.VectorData'&gt;,
+     size &lt;class 'hdmf.common.table.VectorData'&gt;,
+     units &lt;class 'hdmf.common.table.VectorData'&gt;,
+     stimulus_index &lt;class 'hdmf.common.table.VectorData'&gt;,
+     orientation &lt;class 'hdmf.common.table.VectorData'&gt;,
+     spatial_frequency &lt;class 'hdmf.common.table.VectorData'&gt;,
+     contrast &lt;class 'hdmf.common.table.VectorData'&gt;,
+     tags_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     tags &lt;class 'hdmf.common.table.VectorData'&gt;,
+     timeseries_index &lt;class 'hdmf.common.table.VectorIndex'&gt;,
+     timeseries &lt;class 'pynwb.base.TimeSeriesReferenceVectorData'&gt;
+   )
+   description: Presentation times and stimuli details for 'static_gratings' stimuli
+   id: id &lt;class 'hdmf.common.table.ElementIdentifiers'&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>All tables share a common set of timing columns and add a stimulus-specific set of parameter columns.</p>
+<section id="common-columns">
+<h3>Common columns<a class="headerlink" href="#common-columns" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>start_time</p></td>
+<td><p>Start time of the stimulus (s)</p></td>
+</tr>
+<tr class="row-odd"><td><p>stop_time</p></td>
+<td><p>Stop time of the stimulus (s)</p></td>
+</tr>
+<tr class="row-even"><td><p>stimulus_name</p></td>
+<td><p>Name of the stimulus family</p></td>
+</tr>
+<tr class="row-odd"><td><p>stimulus_block</p></td>
+<td><p>Index of the contiguous block of trials this presentation belongs to</p></td>
+</tr>
+<tr class="row-even"><td><p>stimulus_index</p></td>
+<td><p>Global index of the presentation within the session</p></td>
+</tr>
+<tr class="row-odd"><td><p>tags</p></td>
+<td><p>User-defined tags</p></td>
+</tr>
+<tr class="row-even"><td><p>timeseries</p></td>
+<td><p>References to associated timeseries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="drifting-gratings">
+<h3>Drifting gratings<a class="headerlink" href="#drifting-gratings" title="Permalink to this heading">#</a></h3>
+<p>The drifting gratings stimulus consists of a sinusoidal grating that is presented on the monitor that moves orthogonal to the orientation of the grating, moving in one of 8 directions (called <b>orientation</b>) and at one of 5 <b>temporal frequencies</b>. The directions are specified in units of degrees and temporal frequency in Hz. The grating has a spatial frequency of 0.04 cycles per degree and a contrast of 80%. Each trial is presented for 2 seconds with 1 second of mean luminance gray in between trials.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orientation</p></td>
+<td><p>Grating drift direction (deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>temporal_frequency</p></td>
+<td><p>Drift rate (Hz)</p></td>
+</tr>
+<tr class="row-even"><td><p>spatial_frequency</p></td>
+<td><p>Grating spatial frequency (cyc/deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>contrast</p></td>
+<td><p>Stimulus contrast</p></td>
+</tr>
+<tr class="row-even"><td><p>phase</p></td>
+<td><p>Spatial phase of the grating</p></td>
+</tr>
+<tr class="row-odd"><td><p>color</p></td>
+<td><p>Stimulus color</p></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td><p>Shape of mask applied to stimulus</p></td>
+</tr>
+<tr class="row-odd"><td><p>opacity</p></td>
+<td><p>Stimulus opacity [0-1]</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>Size of stimulus</p></td>
+</tr>
+<tr class="row-odd"><td><p>units</p></td>
+<td><p>Units of <code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drifting_gratings</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"drifting_gratings_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">drifting_gratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>temporal_frequency</th>
+      <th>color</th>
+      <th>mask</th>
+      <th>opacity</th>
+      <th>phase</th>
+      <th>size</th>
+      <th>units</th>
+      <th>stimulus_index</th>
+      <th>orientation</th>
+      <th>spatial_frequency</th>
+      <th>contrast</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1591.133857</td>
+      <td>1593.135537</td>
+      <td>drifting_gratings</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[42423.86666667, 42423.86666667]</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>2.0</td>
+      <td>315.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3798, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1594.136403</td>
+      <td>1596.138053</td>
+      <td>drifting_gratings</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[42423.86666667, 42423.86666667]</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>2.0</td>
+      <td>135.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3799, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1597.138897</td>
+      <td>1599.140577</td>
+      <td>drifting_gratings</td>
+      <td>2.0</td>
+      <td>15.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[42423.86666667, 42423.86666667]</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>2.0</td>
+      <td>225.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3800, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1600.141393</td>
+      <td>1602.143063</td>
+      <td>drifting_gratings</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[42423.86666667, 42423.86666667]</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>2.0</td>
+      <td>270.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3801, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1603.143897</td>
+      <td>1605.145547</td>
+      <td>drifting_gratings</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[42423.86666667, 42423.86666667]</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>2.0</td>
+      <td>90.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3802, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="static-gratings">
+<h3>Static gratings<a class="headerlink" href="#static-gratings" title="Permalink to this heading">#</a></h3>
+<p>The static gratings stimulus consists of a <b>stationary</b> sinusoidal grating that is flasshed on the monitor at one of 6 <b>orientations</b>, one of 5 <b>spatial frequencies</b>, and one of 4 <b>phases</b>. The grating has a contrast of 80%. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the grating is replaced by the mean luminance gray, interleaved among the trials.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orientation</p></td>
+<td><p>Grating drift direction (deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>temporal_frequency</p></td>
+<td><p>Drift rate (Hz)</p></td>
+</tr>
+<tr class="row-even"><td><p>spatial_frequency</p></td>
+<td><p>Grating spatial frequency (cyc/deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>contrast</p></td>
+<td><p>Stimulus contrast</p></td>
+</tr>
+<tr class="row-even"><td><p>phase</p></td>
+<td><p>Spatial phase of the grating</p></td>
+</tr>
+<tr class="row-odd"><td><p>color</p></td>
+<td><p>Stimulus color</p></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td><p>Shape of mask applied to stimulus</p></td>
+</tr>
+<tr class="row-odd"><td><p>opacity</p></td>
+<td><p>Stimulus opacity [0-1]</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>Size of stimulus</p></td>
+</tr>
+<tr class="row-odd"><td><p>units</p></td>
+<td><p>Units of <code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">static_gratings</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"static_gratings_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">static_gratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>color</th>
+      <th>mask</th>
+      <th>opacity</th>
+      <th>phase</th>
+      <th>size</th>
+      <th>units</th>
+      <th>stimulus_index</th>
+      <th>orientation</th>
+      <th>spatial_frequency</th>
+      <th>contrast</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5398.313257</td>
+      <td>5398.563476</td>
+      <td>static_gratings</td>
+      <td>8.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.16</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(49432, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5398.563476</td>
+      <td>5398.813695</td>
+      <td>static_gratings</td>
+      <td>8.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(49433, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5398.813695</td>
+      <td>5399.063914</td>
+      <td>static_gratings</td>
+      <td>8.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>6.0</td>
+      <td>90.0</td>
+      <td>0.02</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(49434, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5399.063914</td>
+      <td>5399.314133</td>
+      <td>static_gratings</td>
+      <td>8.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>0.75</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>6.0</td>
+      <td>150.0</td>
+      <td>0.04</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(49435, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5399.314133</td>
+      <td>5399.564339</td>
+      <td>static_gratings</td>
+      <td>8.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[250.0, 250.0]</td>
+      <td>deg</td>
+      <td>6.0</td>
+      <td>30.0</td>
+      <td>0.02</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(49436, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">What is the phase of the grating?</p>
+<p>The phase refers to the relative position of the grating. Phase 0 and Phase 0.5 are 180° apart so that the peak of the grating of phase 0 lines up with the trough of phase 0.5.</p>
+<p><img alt="phase" src="../../../_images/phase_figure_2.png" /></p>
+</div>
+</section>
+<section id="natural-scenes">
+<h3>Natural scenes<a class="headerlink" href="#natural-scenes" title="Permalink to this heading">#</a></h3>
+<p>The natural scenes stimulus consists of a 118 black and white images that are flashed on the monitor. Each trial is presented for 0.25 seconds and followed immediately by the next trial without any intertrial interval. There are blanksweeps, where the images are replaced by the mean luminance gray, interleaved in among the trials.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>frame</p></td>
+<td><p>Index of the natural-scene image presented on this trial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">natural_scenes</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"natural_scenes_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">natural_scenes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>stimulus_index</th>
+      <th>frame</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5908.739537</td>
+      <td>5908.989739</td>
+      <td>natural_scenes</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>34.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(51353, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5908.989739</td>
+      <td>5909.239940</td>
+      <td>natural_scenes</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(51354, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5909.239940</td>
+      <td>5909.490142</td>
+      <td>natural_scenes</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>28.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(51355, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5909.490142</td>
+      <td>5909.740343</td>
+      <td>natural_scenes</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>109.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(51356, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5909.740343</td>
+      <td>5909.990554</td>
+      <td>natural_scenes</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>105.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(51357, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="natural-movies">
+<h3>Natural movies<a class="headerlink" href="#natural-movies" title="Permalink to this heading">#</a></h3>
+<p>Short natural movie clips presented multiple times. <code class="docutils literal notranslate"><span class="pre">natural_movie_one</span></code> and <code class="docutils literal notranslate"><span class="pre">natural_movie_three</span></code> are two different clips. Each row corresponds to one frame of the movie.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>frame</p></td>
+<td><p>Frame index within the movie clip</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">natural_movie_one</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"natural_movie_one_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">natural_movie_one</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>color</th>
+      <th>opacity</th>
+      <th>size</th>
+      <th>units</th>
+      <th>stimulus_index</th>
+      <th>orientation</th>
+      <th>frame</th>
+      <th>contrast</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2852.187037</td>
+      <td>2852.220398</td>
+      <td>natural_movie_one</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>1.0</td>
+      <td>[1920.0, 1080.0]</td>
+      <td>pix</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(22000, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2852.220398</td>
+      <td>2852.253758</td>
+      <td>natural_movie_one</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>1.0</td>
+      <td>[1920.0, 1080.0]</td>
+      <td>pix</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(22001, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2852.253758</td>
+      <td>2852.287119</td>
+      <td>natural_movie_one</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>1.0</td>
+      <td>[1920.0, 1080.0]</td>
+      <td>pix</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(22002, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2852.287119</td>
+      <td>2852.320479</td>
+      <td>natural_movie_one</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>1.0</td>
+      <td>[1920.0, 1080.0]</td>
+      <td>pix</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(22003, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2852.320479</td>
+      <td>2852.353840</td>
+      <td>natural_movie_one</td>
+      <td>4.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>1.0</td>
+      <td>[1920.0, 1080.0]</td>
+      <td>pix</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(22004, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="gabor-patches">
+<h3>Gabor patches<a class="headerlink" href="#gabor-patches" title="Permalink to this heading">#</a></h3>
+<p>Small Gabor patches presented at a grid of positions on the monitor. Used to map each unit’s spatial receptive field.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x_position</p></td>
+<td><p>Horizontal position of the Gabor on the monitor (deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>y_position</p></td>
+<td><p>Vertical position of the Gabor on the monitor (deg)</p></td>
+</tr>
+<tr class="row-even"><td><p>orientation</p></td>
+<td><p>Gabor orientation (deg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>spatial_frequency</p></td>
+<td><p>Gabor spatial frequency (cyc/deg)</p></td>
+</tr>
+<tr class="row-even"><td><p>temporal_frequency</p></td>
+<td><p>Gabor temporal frequency (Hz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>contrast</p></td>
+<td><p>Stimulus contrast</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>Gabor patch size (deg)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gabors</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"gabors_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">gabors</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>temporal_frequency</th>
+      <th>x_position</th>
+      <th>y_position</th>
+      <th>color</th>
+      <th>mask</th>
+      <th>opacity</th>
+      <th>phase</th>
+      <th>size</th>
+      <th>units</th>
+      <th>stimulus_index</th>
+      <th>orientation</th>
+      <th>spatial_frequency</th>
+      <th>contrast</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>89.896827</td>
+      <td>90.130356</td>
+      <td>gabors</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>10.0</td>
+      <td>-10.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>circle</td>
+      <td>1.0</td>
+      <td>[3644.93333333, 3644.93333333]</td>
+      <td>[20.0, 20.0]</td>
+      <td>deg</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.08</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(1, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>90.130356</td>
+      <td>90.380565</td>
+      <td>gabors</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>-30.0</td>
+      <td>20.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>circle</td>
+      <td>1.0</td>
+      <td>[3644.93333333, 3644.93333333]</td>
+      <td>[20.0, 20.0]</td>
+      <td>deg</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.08</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(2, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>90.380565</td>
+      <td>90.630774</td>
+      <td>gabors</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>20.0</td>
+      <td>-20.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>circle</td>
+      <td>1.0</td>
+      <td>[3644.93333333, 3644.93333333]</td>
+      <td>[20.0, 20.0]</td>
+      <td>deg</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.08</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>90.630774</td>
+      <td>90.880983</td>
+      <td>gabors</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>30.0</td>
+      <td>20.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>circle</td>
+      <td>1.0</td>
+      <td>[3644.93333333, 3644.93333333]</td>
+      <td>[20.0, 20.0]</td>
+      <td>deg</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.08</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(4, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>90.880983</td>
+      <td>91.131199</td>
+      <td>gabors</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>-40.0</td>
+      <td>[1.0, 1.0, 1.0]</td>
+      <td>circle</td>
+      <td>1.0</td>
+      <td>[3644.93333333, 3644.93333333]</td>
+      <td>[20.0, 20.0]</td>
+      <td>deg</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.08</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(5, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="flashes">
+<h3>Flashes<a class="headerlink" href="#flashes" title="Permalink to this heading">#</a></h3>
+<p>Full-field ON/OFF luminance flashes. Used to characterize ON/OFF responses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flashes</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"flashes_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">flashes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>stimulus_block</th>
+      <th>color</th>
+      <th>mask</th>
+      <th>opacity</th>
+      <th>phase</th>
+      <th>size</th>
+      <th>units</th>
+      <th>stimulus_index</th>
+      <th>orientation</th>
+      <th>spatial_frequency</th>
+      <th>contrast</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1290.883097</td>
+      <td>1291.133309</td>
+      <td>flashes</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>[300.0, 300.0]</td>
+      <td>deg</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3647, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1292.884817</td>
+      <td>1293.135016</td>
+      <td>flashes</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>[300.0, 300.0]</td>
+      <td>deg</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3648, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1294.886487</td>
+      <td>1295.136691</td>
+      <td>flashes</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>[300.0, 300.0]</td>
+      <td>deg</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3649, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1296.888137</td>
+      <td>1297.138344</td>
+      <td>flashes</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>[300.0, 300.0]</td>
+      <td>deg</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3650, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1298.889787</td>
+      <td>1299.140004</td>
+      <td>flashes</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>[300.0, 300.0]</td>
+      <td>deg</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>[0.0, 0.0]</td>
+      <td>0.8</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3651, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="spontaneous-activity">
+<h3>Spontaneous activity<a class="headerlink" href="#spontaneous-activity" title="Permalink to this heading">#</a></h3>
+<p>Blocks of gray-screen activity presented between stimulus families. Used as a reference for baseline firing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spontaneous</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"spontaneous_presentations"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">spontaneous</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>stimulus_name</th>
+      <th>tags</th>
+      <th>timeseries</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>29.830107</td>
+      <td>89.896827</td>
+      <td>spontaneous</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(0, 1, timestamps pynwb.base.TimeSeries at 0x...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1001.891772</td>
+      <td>1290.883097</td>
+      <td>spontaneous</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3646, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1589.382401</td>
+      <td>1591.133857</td>
+      <td>spontaneous</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3797, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2190.634543</td>
+      <td>2221.660447</td>
+      <td>spontaneous</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(3998, 1, timestamps pynwb.base.TimeSeries at...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2822.161967</td>
+      <td>2852.187037</td>
+      <td>spontaneous</td>
+      <td>[stimulus_time_interval]</td>
+      <td>[(21999, 1, timestamps pynwb.base.TimeSeries a...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="invalid-times">
+<h3>Invalid times<a class="headerlink" href="#invalid-times" title="Permalink to this heading">#</a></h3>
+<p>Intervals during which the recording is considered unreliable and should be excluded from analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">invalid_times</span> <span class="o">=</span> <span class="n">nwbfile</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="s2">"invalid_times"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">invalid_times</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start_time</th>
+      <th>stop_time</th>
+      <th>tags</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>970.0</td>
+      <td>982.0</td>
+      <td>[EcephysSession, 719161530, stimulus]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="functional-connectivity">
+<h2>Functional Connectivity<a class="headerlink" href="#functional-connectivity" title="Permalink to this heading">#</a></h2>
+<figure class="align-center" id="np-stimulus-sets-ref">
+<a class="reference internal image-reference" href="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png"><img alt="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png" src="https://allensdk.readthedocs.io/en/latest/_static/neuropixels_stimulus_sets.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Neuropixels visual stimulus sets</span><a class="headerlink" href="#np-stimulus-sets-ref" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ctlut"
+        },
+        kernelOptions: {
+            name: "ctlut",
+            path: "./physiology/ephys/visual-coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ctlut'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcnp-session-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accessing Visual Coding Neuropixels data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../visual-behavior/VB-Neuropixels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visual Behavior Neuropixels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brain-observatory-1-1">Brain Observatory 1.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-columns">Common columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drifting-gratings">Drifting gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-gratings">Static gratings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-scenes">Natural scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-movies">Natural movies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gabor-patches">Gabor patches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flashes">Flashes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spontaneous-activity">Spontaneous activity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-times">Invalid times</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-connectivity">Functional Connectivity</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

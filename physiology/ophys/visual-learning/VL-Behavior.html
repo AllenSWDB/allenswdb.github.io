@@ -1,0 +1,970 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Learning - Behavior &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ophys/visual-learning/VL-Behavior';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ophys/visual-learning/VL-Behavior.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Visual Learning Ophys" href="VL-Ophys.html" />
+    <link rel="prev" title="Visual Learning Dataset Overview" href="VL-Intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ophys-overview.html">Optical Physiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="VL-Intro.html">Visual Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visual_learning_metadata.html">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-metadata.html">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ephys/ephys-overview.html">Electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ephys/visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-background.html">Dynamic Routing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-metadata.html">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ephys/dynamic-routing/dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../cell-types/cell-types.html">Cell Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cell-types/spatial-transcriptomics/VL-mFISH.html">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ophys/visual-learning/VL-Behavior.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ophys/visual-learning/VL-Behavior.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ophys/visual-learning/VL-Behavior.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Learning - Behavior</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Learning - Behavior</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design">Experimental Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavioral-training-sessions">Behavioral training sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-omissions">Image omissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#familiar-and-novel-image-sessions">Familiar and novel image sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extinction-sessions">Extinction sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passive-stimulus-sessions">Passive stimulus sessions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types-summary">Session Types Summary</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visual-learning-behavior">
+<h1>Visual Learning - Behavior<a class="headerlink" href="#visual-learning-behavior" title="Permalink to this heading">#</a></h1>
+<p>The defining feature of the Visual Learning dataset is that imaging begins on
+the first day of training and continues every day thereafter. Mice are
+head-fixed under the microscope for every session of the training procedure, so
+the dataset contains a continuous neural record of the animal going from naive
+to expert, and then of the learned association being broken.</p>
+<figure class="align-center" id="id1">
+<img alt="../../../_images/vl-session-sequence.png" src="../../../_images/vl-session-sequence.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Session sequence and stimulus categories</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="experimental-design">
+<h2>Experimental Design<a class="headerlink" href="#experimental-design" title="Permalink to this heading">#</a></h2>
+<p>The task is a no/no-go visual change detection task. The full task structure and
+parameters — how change times are drawn, how trial outcomes are defined, and
+what happens when a mouse licks before a change — are described in detail on the
+<a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html#change-detection-task"><span class="std std-ref">Visual Behavior Task</span></a> page.</p>
+<figure class="align-center" id="id2">
+<img alt="../../../_images/vl-task-schematic.png" src="../../../_images/vl-task-schematic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">change detection task</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Given the importance of the training procedure and session sequence to this
+dataset, the session types and their features and relevance for analysis are
+described here, in addition to the information that can be found on the
+<a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html#vb-behavior"><span class="std std-ref">Visual Behavior Task</span></a> page.</p>
+<p>The task is learned over a series of training stages that differ in the stimulus
+used and the temporal properties of the stimulus. This curriculum was designed
+to first introduce the basic task rule - detect changes to earn rewards - then
+introduce additional features including a working memory component,
+generalization across stimulus categories, generalization to novel stimuli, and
+extinction of learned associations. With a few exceptions, the training stages
+are identical to the Visual Behavior dataset, with the primary difference being
+that in vivo imaging occurs throughout the learning process in the Visual
+Learning dataset. In Visual Behavior, only well trained mice were imaged.</p>
+<figure class="align-center" id="id3">
+<img alt="../../../_images/vl-training-progression.png" src="../../../_images/vl-training-progression.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Training progression for each mouse</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Mice progress through the training stages at their own pace, and transition
+between stages depending on their individual performance. Below we describe the
+training stages and session types in more detail.</p>
+<section id="behavioral-training-sessions">
+<h3>Behavioral training sessions<a class="headerlink" href="#behavioral-training-sessions" title="Permalink to this heading">#</a></h3>
+<p>Training proceeds through a series of stages of increasing difficulty, and mice
+advance when they meet a performance criterion of d-prime greater than 1 on 2 of
+3 consecutive days.</p>
+<p>Mice initially learn the task with full-field static gratings that change
+orientation. The first session, <code class="docutils literal notranslate"><span class="pre">TRAINING_0</span></code> , lasts 15 minutes and delivers
+water automatically after each change, with no requirement that the mouse
+respond; this establishes the association between the stimulus change and
+reward. During <code class="docutils literal notranslate"><span class="pre">TRAINING_1</span></code> , mice must lick following stimulus changes to earn
+water rewards.</p>
+<p>Once mice perform the task at criterion level, they transition to <code class="docutils literal notranslate"><span class="pre">TRAINING_2</span></code>
+where a 500ms gray screen inter-stimulus interval is added to the task. This
+gray screen period makes the task more difficult by adding a working memory
+component — the task of the mouse is to determine “is what I am seeing now the
+same or different as what I saw 500 ms ago?”.</p>
+<figure class="align-center" id="id4">
+<img alt="../../../_images/vl-image-change.png" src="../../../_images/vl-image-change.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">250ms image presentations with 500ms gray inter-stimulus interval</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Natural images replace gratings at <code class="docutils literal notranslate"><span class="pre">TRAINING_3</span></code> , using an 8-image set referred
+to as image set A. This again increases the task difficulty and asks the mice to
+distinguish images with naturalistic features rather than simplistic grating
+stimuli. Reward volume is reduced from 10 µL to 7 µL at <code class="docutils literal notranslate"><span class="pre">TRAINING_4</span></code> , and the
+task parameters reach their final form at <code class="docutils literal notranslate"><span class="pre">TRAINING_5</span></code> , where mice remain until
+performance is stable.</p>
+<p>The number of sessions spent at each stage varies between mice, since
+advancement depends on individual performance.</p>
+</section>
+<section id="image-omissions">
+<h3>Image omissions<a class="headerlink" href="#image-omissions" title="Permalink to this heading">#</a></h3>
+<p>During the initial <code class="docutils literal notranslate"><span class="pre">TRAINING</span></code> stages with flashed stimuli, the stimulus cadence
+is highly regular - stimuli are presented for 250ms with a 500ms inter stimulus
+interval. Once mice are well-trained and are familiar with the temporal
+structure of the task, image omissions are introduced, interrupting the expected
+stimulus timing. In these sessions, 5% of non-change stimuli are randomly
+omitted, producing an extended gray screen period (1250ms instead of the typical
+500ms).</p>
+<figure class="align-center" id="id5">
+<img alt="../../../_images/vl-image-omission.png" src="../../../_images/vl-image-omission.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Image omissions are introduced starting in OPHYS_1</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="familiar-and-novel-image-sessions">
+<h3>Familiar and novel image sessions<a class="headerlink" href="#familiar-and-novel-image-sessions" title="Permalink to this heading">#</a></h3>
+<p>Once mice are performing the task well with image set A, they proceed through
+three additional session types. Each is acquired on two consecutive days, so
+that the first and second exposure to a given condition can be distinguished.</p>
+<p>These session types begin with <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> , however recall that all sessions in
+this dataset have ophys data — this session labeling scheme is a holdover from
+the Visual Behavior dataset from which the Visual Learning dataset is derived.
+In Visual Behavior, only well trained mice were imaged. In Visual Learning,
+imaging happens throughout training, but the session type names were retained.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">OPHYS_1</span></code> — familiar images with omissions.</strong> The mouse performs the task with
+image set A, which it has seen throughout training and which is now highly
+familiar. Image omissions are introduced at this point, and are present in all
+subsequent <code class="docutils literal notranslate"><span class="pre">OPHYS</span></code> sessions.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">OPHYS_4</span></code> — novel images with omissions.</strong> Image set A is replaced with image
+set B, a second set of 8 natural images that the mouse has never encountered.
+The task contingency is unchanged and rewards are still delivered; only the
+images are new. The first <code class="docutils literal notranslate"><span class="pre">OPHYS_4</span></code> session is the mouse’s first exposure to
+image set B; by the second session the images have already been seen for an
+hour.</p>
+<p>Note that the Visual Behavior dataset has a cohort of mice where familiar and
+novel images were inteleaved in the same session; this is not the case for
+Visual Learning. In each well-trained imaging session, the 8 natural image
+stimuli are either all familiar (i.e. observed during training), or all novel
+(only observed once mice are well trained).</p>
+</section>
+<section id="extinction-sessions">
+<h3>Extinction sessions<a class="headerlink" href="#extinction-sessions" title="Permalink to this heading">#</a></h3>
+<p>In <code class="docutils literal notranslate"><span class="pre">OPHYS_6</span></code> , rewards are no longer delivered. The mouse is water-restricted as
+on any other day, the lick spout remains in its usual position, and the images
+continue to change on the same schedule — but licking no longer produces water.
+Nothing signals the change in advance; the mouse discovers it only by responding
+and receiving nothing.</p>
+<p>This makes <code class="docutils literal notranslate"><span class="pre">OPHYS_6</span></code> a learning experiment run in reverse. Over weeks of
+training the animal acquired an association between a visual event and a reward,
+and in these sessions that association is violated on every trial and the
+learning is extinguished. Because the same neurons have been tracked throughout
+acquisition, their activity can be followed as the association is undone.</p>
+<p>The behavioral signature is a collapse in responding. In a representative
+extinction session, 305 of 330 go trials are misses. Licking to image changes,
+which is robust in every rewarded session type, falls to near zero.</p>
+<figure class="align-center" id="id6">
+<img alt="../../../_images/vl-lick-rate.png" src="../../../_images/vl-lick-rate.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Change-aligned lick rate by session type</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Low performance in these sessions is the phenomenon of interest; the mouse is
+motivated and the apparatus is unchanged; mice stop responding because the
+reward association has been removed.</p>
+<p>A note for those familiar with the Visual Behavior Ophys dataset: that dataset
+also contains a session type called <code class="docutils literal notranslate"><span class="pre">OPHYS_6</span></code> , but it means something else
+there. Visual Behavior also has interleaved passive sessions, in which the mouse
+is given its daily water beforehand and the lick spout is retracted, so the
+manipulation is motivational and the learned contingency is left intact. The
+Visual Learning dataset contains no passive sessions of that kind.</p>
+</section>
+<section id="passive-stimulus-sessions">
+<h3>Passive stimulus sessions<a class="headerlink" href="#passive-stimulus-sessions" title="Permalink to this heading">#</a></h3>
+<p>After the task sessions are complete, mice view visual stimuli passively, with
+no reward and no behavioral requirement. These sessions characterize how each
+neuron responds to classical visual stimuli, independent of task demands. The
+stimuli used are shared with other Allen Institute datasets and are defined in
+the
+<a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html"><span class="doc std std-doc">visual stimulus list</span></a>
+; see <a class="reference internal" href="../../stimuli/stimuli.html"><span class="doc std std-doc">Stimuli and Behavioral Tasks</span></a> for how they
+are used elsewhere in the databook.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">STAGE_0</span></code> — natural movies.</strong> One session presenting
+<a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html#natural-movies"><span class="std std-ref">natural movie</span></a> clips, repeated many times. These stimuli are
+feature rich and contain both temporal and spatial structure. Because of the
+large number of repeats of some of the movie clips, stability and repeatability
+of neural activity structure can be explored.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">STAGE_1</span></code> — drifting gratings.</strong> Three sessions presenting
+<a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html#drifting-gratings"><span class="std std-ref">drifting gratings</span></a> that vary in direction, temporal
+frequency, and contrast. These paramaterized stimuli allow analyses of neural
+selectivity and tuning properties. Adaptation and state modulation can also be
+explored within and across the 3 repeated sessions.</p>
+<p>Because these sessions follow the task sessions in the same tracked neurons,
+each neuron can be characterized both by what it encodes during behavior and by
+how it responds to parametrically varying visual stimuli.</p>
+<p>Note that mice have seen oriented gratings before reaching <code class="docutils literal notranslate"><span class="pre">STAGE_1</span></code> , since
+<code class="docutils literal notranslate"><span class="pre">TRAINING_0</span></code> and <code class="docutils literal notranslate"><span class="pre">TRAINING_1</span></code> use full-field static gratings. Orientation is
+therefore not novel at this point, though drift, <a class="reference internal" href="../../../glossary.html#term-Temporal-frequency"><span class="xref std std-term">temporal frequency</span></a> ,
+and <a class="reference internal" href="../../../glossary.html#term-Spatial-frequency"><span class="xref std std-term">spatial frequency</span></a> may be. The interval between the passive sessions
+and the preceding task sessions varies across mice, from days to several weeks.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="session-types-summary">
+<h1>Session Types Summary<a class="headerlink" href="#session-types-summary" title="Permalink to this heading">#</a></h1>
+<figure class="align-center" id="id7">
+<img alt="../../../_images/vl-session-sequence.png" src="../../../_images/vl-session-sequence.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Session sequence and stimulus categories</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">session_type</span></code> field identifies the training or imaging stage of each
+session. Behavioral training sessions begin with <code class="docutils literal notranslate"><span class="pre">TRAINING_</span></code> , sessions in well
+trained mice begin with <code class="docutils literal notranslate"><span class="pre">OPHYS_</span></code> , and passive stimulus sessions begin with
+<code class="docutils literal notranslate"><span class="pre">STAGE_</span></code> . The image set in use is included in the name where applicable.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">session_type</span></code></p></th>
+<th class="head"><p>Stimulus</p></th>
+<th class="head"><p>Reward</p></th>
+<th class="head"><p>Omissions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_0_gratings_autorewards_15min</span></code></p></td>
+<td><p>static gratings</p></td>
+<td><p>automatic</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_1_gratings</span></code></p></td>
+<td><p>static gratings</p></td>
+<td><p>earned</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_2_gratings_flashed</span></code></p></td>
+<td><p>flashed gratings</p></td>
+<td><p>earned</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_3_images_A_10uL_reward</span></code></p></td>
+<td><p>flashed images, set A</p></td>
+<td><p>earned, 10 µL</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_4_images_A_training</span></code></p></td>
+<td><p>flashed images, set A</p></td>
+<td><p>earned, 7 µL</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_A_epilogue</span></code></p></td>
+<td><p>flashed images, set A</p></td>
+<td><p>earned</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_A_handoff_ready</span></code></p></td>
+<td><p>flashed images, set A</p></td>
+<td><p>earned</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TRAINING_5_images_A_handoff_lapsed</span></code></p></td>
+<td><p>flashed images, set A</p></td>
+<td><p>earned</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OPHYS_1_images_A</span></code></p></td>
+<td><p>familiar images, set A</p></td>
+<td><p>earned</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OPHYS_4_images_B</span></code></p></td>
+<td><p>novel images, set B</p></td>
+<td><p>earned</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OPHYS_6_images_B</span></code></p></td>
+<td><p>images, set B</p></td>
+<td><p>none delivered</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGE_0</span></code></p></td>
+<td><p>natural movies</p></td>
+<td><p>none</p></td>
+<td><p>n/a</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGE_1</span></code></p></td>
+<td><p>drifting gratings</p></td>
+<td><p>none</p></td>
+<td><p>n/a</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">OPHYS_</span></code> prefix does not distinguish which sessions have imaging
+data — every session type listed above does. The naming scheme is a holdover
+from the Visual Behavior dataset, in which only well trained mice were imaged.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./physiology/ophys/visual-learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VL-Intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Learning Dataset Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VL-Ophys.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visual Learning Ophys</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visual Learning - Behavior</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design">Experimental Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavioral-training-sessions">Behavioral training sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-omissions">Image omissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#familiar-and-novel-image-sessions">Familiar and novel image sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extinction-sessions">Extinction sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passive-stimulus-sessions">Passive stimulus sessions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#session-types-summary">Session Types Summary</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

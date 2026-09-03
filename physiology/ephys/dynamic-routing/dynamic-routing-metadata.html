@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dynamic Routing Metadata &#8212; SWDB 2026 Data Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'physiology/ephys/dynamic-routing/dynamic-routing-metadata';</script>
+    <link rel="canonical" href="https://allenswdb.github.io/physiology/ephys/dynamic-routing/dynamic-routing-metadata.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Accessing Dynamic Routing data" href="dynamic-routing-accessing-data.html" />
+    <link rel="prev" title="Dynamic Routing" href="dynamic-routing-background.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-light" alt="SWDB 2026 Data Book - Home"/>
+    <script>document.write(`<img src="../../../_static/swdb_logo_new.jpg" class="logo__image only-dark" alt="SWDB 2026 Data Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Data Book for Summer Workshop on the Dynamic Brain
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../background/background.html">Background</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/experimental-setup.html">Behavioral apparatus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../background/Neuropixels-electrophysiology.html">Extracellular electrophysiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-description.html">Neuropixels Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/neuropixels-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../background/Optotagging.html">Optotagging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Two-photon-calcium-imaging.html">Calcium imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/em-connectomics.html">EM Connectomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../background/CCF.html">Common Coordinate Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../physiology.html">Physiology &amp; Behavior</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../stimuli/stimuli.html">Stimuli and Behavioral Tasks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/passive-visual-stimuli/visual-stimuli-list.html">Visual Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/visual-behavior/VB-Behavior.html">Change detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-routing.html">Dynamic Routing Task Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stimuli/dynamic-foraging/Dynamic-Foraging.html">Dynamic Foraging</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ophys/ophys-overview.html">Optical Physiology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-coding/vc2p-background.html">Visual Coding Ophys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-dataset.html">Visual Coding Ophys Dataset</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-coding/vc2p-session-data.html">Getting data from a session</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/V1DD/V1DD-overview.html">V1 Deep Dive</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-dataset.html">V1DD Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-session-data.html">Accessing V1DD data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/V1DD/V1DD-stimuli.html">Visual stimuli</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ophys/visual-behavior/VB-Ophys.html">Visual Behavior Ophys</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/visual-learning/VL-Intro.html">Visual Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Behavior.html">Visual Learning - Behavior</a></li>
+
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Ophys.html">Visual Learning Ophys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/visual_learning_metadata.html">Tutorial Session Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/visual-learning/VL-Integration.html">Linking Ophys and Transcriptomics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ophys/BCI/BCI-overview.html">Brain Computer Interface</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-metadata.html">BCI Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-dataset.html">Accessing BCI Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ophys/BCI/BCI-stimuli.html">BCI Stimuli</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../ephys-overview.html">Electrophysiology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../visual-coding/vcnp.html">Visual Coding — Neuropixels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-dataset.html">Visual Coding Neuropixels Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-session-data.html">Accessing Visual Coding Neuropixels data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../visual-coding/vcnp-stimulus.html">Visual Stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../visual-behavior/VB-Neuropixels.html">Visual Behavior Neuropixels</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-metadata.html">Cell Type Lookup Table Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../np-ultra/npultra-psychedelics.html">Neuropixels Ultra &amp; Psychedelics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-stimuli.html">NP Ultra &amp; Psychedelics Stimuli and Optotagging protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../np-ultra/npultra-psychedelics-accessing-data.html">Accessing NP Ultra &amp; Psychedelics Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="dynamic-routing-background.html">Dynamic Routing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Dynamic Routing Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dynamic-routing-accessing-data.html">Accessing Dynamic Routing data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../anatomy/anatomy.html">Anatomy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/microns-em/em-background.html">Electron Microscopy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-coordinates.html">Coordinate Systems</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../anatomy/microns-em/key-tables.html">CAVE Annotation Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-microns-tables.html">MICrONS Key Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../anatomy/microns-em/em-v1dd-tables.html">V1DD Key Tables</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-skeletons.html">Skeletons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-functional-v1dd.html">V1DD Functional Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-background.html">Single Cell Morphology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-imageprocessing.html">ExaSPIM Image Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../anatomy/single-cell-morphology/scm-data.html">Single Cell Morphology Data Access</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../cell-types/cell-types.html">Cell Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cell-types/spatial-transcriptomics/VL-mFISH.html">Visual Learning Transcriptomics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../computational/data-analysis/data-analysis.html">Data Analysis Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/PCA.html">Principal Component Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/regression.html">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/GLM.html">Generalized Linear Model (GLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computational/data-analysis/classification.html">Classification Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practicalities/practicalities.html">Practicalities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/github-code-ocean.html">Creating a Code Ocean capsule synced to GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/code-ocean-collab.html">Collaborating using Code Ocean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../practicalities/git.html">Git</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors and Credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/edit/main/databook/physiology/ephys/dynamic-routing/dynamic-routing-metadata.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/allenswdb/allenswdb.github.io/issues/new?title=Issue%20on%20page%20%2Fphysiology/ephys/dynamic-routing/dynamic-routing-metadata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/physiology/ephys/dynamic-routing/dynamic-routing-metadata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dynamic Routing Metadata</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dynamic-routing-metadata">
+<h1>Dynamic Routing Metadata<a class="headerlink" href="#dynamic-routing-metadata" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aind_data_access_api.document_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataDbClient</span>
+
+<span class="n">API_GATEWAY_HOST</span> <span class="o">=</span> <span class="s2">"api.allenneuraldynamics.org"</span>
+<span class="n">DATABASE</span> <span class="o">=</span> <span class="s1">'metadata_index'</span>
+<span class="n">COLLECTION</span> <span class="o">=</span> <span class="s1">'data_assets'</span>
+
+<span class="n">docdb_api_client</span> <span class="o">=</span> <span class="n">MetadataDbClient</span><span class="p">(</span>
+   <span class="n">host</span><span class="o">=</span><span class="n">API_GATEWAY_HOST</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">"v2"</span><span class="p">,</span>
+   <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">,</span>
+   <span class="n">collection</span><span class="o">=</span><span class="n">COLLECTION</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docdb_api_client</span><span class="o">.</span><span class="n">_base_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://api.allenneuraldynamics.org/v2/metadata_index/data_assets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggregate</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"$match"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"data_description.project_name"</span><span class="p">:</span> <span class="s2">"Dynamic Routing"</span><span class="p">,</span> 
+      <span class="s2">"data_description.data_level"</span><span class="p">:</span> <span class="s2">"derived"</span><span class="p">,</span> 
+      <span class="s2">"processing.data_processes"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"$elemMatch"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"process_type"</span><span class="p">:</span> <span class="s2">"File format conversion"</span><span class="p">,</span>
+          <span class="s2">"start_date_time"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"$regex"</span><span class="p">:</span> <span class="s2">"^2026-08-04"</span><span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"$project"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">"subject_id"</span><span class="p">:</span> <span class="s2">"$data_description.subject_id"</span><span class="p">,</span>
+      <span class="s2">"genotype"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.genotype"</span><span class="p">,</span> 
+      <span class="s2">"date_of_birth"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.date_of_birth"</span><span class="p">,</span> 
+      <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"$subject.subject_details.sex"</span><span class="p">,</span>  
+      <span class="s2">"session_start_time"</span><span class="p">:</span> <span class="s2">"$acquisition.acquisition_start_time"</span><span class="p">,</span>
+      <span class="s2">"session_end_time"</span><span class="p">:</span> <span class="s2">"$acquisition.acquisition_end_time"</span><span class="p">,</span> 
+      <span class="s2">"stimulus_epochs"</span><span class="p">:</span> <span class="s2">"$acquisition.stimulus_epochs"</span><span class="p">,</span>
+      <span class="s2">"project_name"</span><span class="p">:</span> <span class="s2">"$data_description.project_name"</span><span class="p">,</span> 
+      <span class="s2">"modality"</span><span class="p">:</span> <span class="s2">"$data_description.modalities.name"</span><span class="p">,</span> 
+      <span class="s2">"targeted_structure"</span><span class="p">:</span> <span class="s2">"$acquisition.data_streams.configurations.probes.primary_targeted_structure.name"</span> 
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">]</span>
+    
+<span class="n">records</span> <span class="o">=</span> <span class="n">docdb_api_client</span><span class="o">.</span><span class="n">aggregate_docdb_records</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="n">aggregate</span><span class="p">)</span>
+
+<span class="c1"># Extract performance metrics in Python</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"stimulus_epochs"</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"stimulus_name"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"DynamicRouting1"</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">r</span><span class="p">[</span><span class="s2">"dr_performance"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dr</span><span class="p">[</span><span class="s2">"performance_metrics"</span><span class="p">]</span> <span class="k">if</span> <span class="n">dr</span> <span class="k">else</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Return these records into a dataframe and reorganize some things:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">])</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_start_time'</span><span class="p">])</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'session_end_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_end_time'</span><span class="p">])</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">],</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'session_date'</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="s1">'date_of_birth'</span><span class="p">])</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'trials_total'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'dr_performance'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'trials_total'</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'trials_rewarded'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'dr_performance'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'trials_rewarded'</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'reward_rate'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'trials_rewarded'</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">'trials_total'</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'reward_consumed_mL'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'dr_performance'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'reward_consumed_during_epoch'</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'block_metrics'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'dr_performance'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'output_parameters'</span><span class="p">][</span><span class="s1">'block_metrics'</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'mean_dprime_same_modal'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'block_metrics'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="s1">'dprime_same_modal'</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'mean_dprime_other_modal'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'block_metrics'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="s1">'dprime_other_modal_go'</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'project_name'</span><span class="p">,</span> <span class="s1">'_id'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'subject_id'</span><span class="p">,</span> <span class="s1">'genotype'</span><span class="p">,</span> <span class="s1">'date_of_birth'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">,</span> <span class="s1">'sex'</span><span class="p">,</span>
+         <span class="s1">'modality'</span><span class="p">,</span> <span class="s1">'session_date'</span><span class="p">,</span> <span class="s1">'session_start_time'</span><span class="p">,</span> <span class="s1">'session_end_time'</span><span class="p">,</span> <span class="s1">'targeted_structure'</span><span class="p">,</span>
+         <span class="s1">'trials_total'</span><span class="p">,</span> <span class="s1">'trials_rewarded'</span><span class="p">,</span> <span class="s1">'reward_rate'</span><span class="p">,</span> <span class="s1">'reward_consumed_mL'</span><span class="p">,</span>
+         <span class="s1">'mean_dprime_same_modal'</span><span class="p">,</span> <span class="s1">'mean_dprime_other_modal'</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">order</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'subject_id'</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_name</th>
+      <th>_id</th>
+      <th>name</th>
+      <th>subject_id</th>
+      <th>genotype</th>
+      <th>date_of_birth</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>modality</th>
+      <th>session_date</th>
+      <th>session_start_time</th>
+      <th>session_end_time</th>
+      <th>targeted_structure</th>
+      <th>trials_total</th>
+      <th>trials_rewarded</th>
+      <th>reward_rate</th>
+      <th>reward_consumed_mL</th>
+      <th>mean_dprime_same_modal</th>
+      <th>mean_dprime_other_modal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Dynamic Routing</td>
+      <td>66dc0f20-45dc-4a65-ac3a-0a04ac0e1df4</td>
+      <td>ecephys_662892_2023-08-24_14-28-28_nwb_2026-08...</td>
+      <td>662892</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2022-12-24</td>
+      <td>243</td>
+      <td>Female</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2023-08-24</td>
+      <td>14:28:28</td>
+      <td>16:28:14.588745</td>
+      <td>[[[Piriform area], [root]]]</td>
+      <td>476</td>
+      <td>123</td>
+      <td>0.258403</td>
+      <td>3.8400000000000016</td>
+      <td>2.152875</td>
+      <td>2.209537</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Dynamic Routing</td>
+      <td>0f42545e-0e5f-4dfc-9777-8070c1e69ffd</td>
+      <td>ecephys_664851_2023-11-16_12-54-53_nwb_2026-08...</td>
+      <td>664851</td>
+      <td>Pvalb-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2023-01-09</td>
+      <td>311</td>
+      <td>Female</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2023-11-16</td>
+      <td>12:54:53</td>
+      <td>14:46:25.481437</td>
+      <td>[[[Secondary motor area], [Field CA1], [Subicu...</td>
+      <td>527</td>
+      <td>139</td>
+      <td>0.263757</td>
+      <td>4.35</td>
+      <td>3.133879</td>
+      <td>2.593231</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Dynamic Routing</td>
+      <td>468a63e1-6e2f-494e-8448-f8bf07afcad5</td>
+      <td>ecephys_667252_2023-09-28_15-00-38_nwb_2026-08...</td>
+      <td>667252</td>
+      <td>wt/wt</td>
+      <td>2023-01-27</td>
+      <td>244</td>
+      <td>Female</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2023-09-28</td>
+      <td>15:00:38</td>
+      <td>17:03:03.333877</td>
+      <td>[[[Secondary motor area], [Primary motor area]...</td>
+      <td>486</td>
+      <td>123</td>
+      <td>0.253086</td>
+      <td>3.7800000000000002</td>
+      <td>3.261005</td>
+      <td>2.260717</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Dynamic Routing</td>
+      <td>b0377871-8621-45b2-8c31-a3957d669787</td>
+      <td>ecephys_708016_2024-04-29_12-59-12_nwb_2026-08...</td>
+      <td>708016</td>
+      <td>Vip-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2023-10-18</td>
+      <td>194</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-04-29</td>
+      <td>12:59:12</td>
+      <td>15:00:31.755703</td>
+      <td>[[[Secondary motor area], [Primary somatosenso...</td>
+      <td>533</td>
+      <td>129</td>
+      <td>0.242026</td>
+      <td>4.049999999999999</td>
+      <td>3.027970</td>
+      <td>2.665116</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Dynamic Routing</td>
+      <td>1055573d-b0f0-4b31-a648-131ccddff1c8</td>
+      <td>ecephys_713655_2024-08-09_10-41-47_nwb_2026-08...</td>
+      <td>713655</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2023-11-23</td>
+      <td>260</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-08-09</td>
+      <td>10:41:47</td>
+      <td>12:49:52.580059</td>
+      <td>[[[Anterodorsal nucleus], [Supplemental somato...</td>
+      <td>515</td>
+      <td>129</td>
+      <td>0.250485</td>
+      <td>4.02</td>
+      <td>2.841083</td>
+      <td>3.002527</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Dynamic Routing</td>
+      <td>6baeab62-02b8-4de7-8ca4-2ab5da7e0f20</td>
+      <td>ecephys_714748_2024-06-24_12-52-23_nwb_2026-08...</td>
+      <td>714748</td>
+      <td>Vip-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2023-12-01</td>
+      <td>206</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-06-24</td>
+      <td>12:52:23</td>
+      <td>14:59:27.907510</td>
+      <td>[[[Supplemental somatosensory area], [Secondar...</td>
+      <td>550</td>
+      <td>134</td>
+      <td>0.243636</td>
+      <td>4.229999999999999</td>
+      <td>3.329563</td>
+      <td>2.693473</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Dynamic Routing</td>
+      <td>5a958ba6-ebe7-400a-8021-3230170e6638</td>
+      <td>ecephys_715710_2024-07-16_12-58-34_nwb_2026-08...</td>
+      <td>715710</td>
+      <td>Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2023-12-07</td>
+      <td>222</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-07-16</td>
+      <td>12:58:34</td>
+      <td>15:05:31.280219</td>
+      <td>[[[Supplemental somatosensory area], [Midbrain...</td>
+      <td>548</td>
+      <td>131</td>
+      <td>0.239051</td>
+      <td>4.049999999999999</td>
+      <td>2.032598</td>
+      <td>1.928238</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Dynamic Routing</td>
+      <td>6774fb39-4c19-4ba2-99f5-2609fb1b9d77</td>
+      <td>ecephys_741137_2024-10-10_13-15-50_nwb_2026-08...</td>
+      <td>741137</td>
+      <td>wt/wt</td>
+      <td>2024-03-19</td>
+      <td>205</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-10-10</td>
+      <td>13:15:50</td>
+      <td>15:19:11.275413</td>
+      <td>[[[Retrosplenial area, dorsal part], [Suppleme...</td>
+      <td>543</td>
+      <td>124</td>
+      <td>0.228361</td>
+      <td>5.2</td>
+      <td>3.113432</td>
+      <td>2.623589</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Dynamic Routing</td>
+      <td>c5bc8e0e-81ee-4e52-a7b6-90089b0dfc5f</td>
+      <td>ecephys_742903_2024-10-23_14-12-23_nwb_2026-08...</td>
+      <td>742903</td>
+      <td>Vip-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt</td>
+      <td>2024-05-16</td>
+      <td>160</td>
+      <td>Female</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-10-23</td>
+      <td>14:12:23</td>
+      <td>16:15:54.652646</td>
+      <td>[[[Primary somatosensory area], [Caudoputamen]...</td>
+      <td>489</td>
+      <td>124</td>
+      <td>0.253579</td>
+      <td>5.2</td>
+      <td>3.177007</td>
+      <td>2.342171</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Dynamic Routing</td>
+      <td>7f603b00-8b9f-4a66-8b9d-1d9ed27b40d4</td>
+      <td>ecephys_743199_2024-12-05_12-42-34_nwb_2026-08...</td>
+      <td>743199</td>
+      <td>VGAT-ChR2-YFP/wt</td>
+      <td>2024-05-18</td>
+      <td>201</td>
+      <td>Female</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2024-12-05</td>
+      <td>12:42:34</td>
+      <td>14:39:42.445214</td>
+      <td>[[[Periaqueductal gray], [Red nucleus], [Red n...</td>
+      <td>490</td>
+      <td>132</td>
+      <td>0.269388</td>
+      <td>5.36</td>
+      <td>2.008863</td>
+      <td>2.318989</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Dynamic Routing</td>
+      <td>6c727fa9-0bcc-42ea-8ac2-6ea4fd82ebce</td>
+      <td>ecephys_759434_2025-02-04_12-27-22_nwb_2026-08...</td>
+      <td>759434</td>
+      <td>VGAT-ChR2-YFP/wt</td>
+      <td>2024-08-11</td>
+      <td>177</td>
+      <td>Male</td>
+      <td>[Extracellular electrophysiology, Behavior, Be...</td>
+      <td>2025-02-04</td>
+      <td>12:27:22</td>
+      <td>14:24:31.241622</td>
+      <td>[[[Caudoputamen], [Primary somatosensory area]...</td>
+      <td>545</td>
+      <td>142</td>
+      <td>0.260550</td>
+      <td>5.76</td>
+      <td>3.145629</td>
+      <td>3.099293</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "query"
+        },
+        kernelOptions: {
+            name: "query",
+            path: "./physiology/ephys/dynamic-routing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'query'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dynamic-routing-background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dynamic Routing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dynamic-routing-accessing-data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Accessing Dynamic Routing data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allen Institute Summer Workshop on the Dynamic Brain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
